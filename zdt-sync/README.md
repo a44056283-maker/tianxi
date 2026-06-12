@@ -1,0 +1,168 @@
+# zdt-sync-openclaw-starter
+
+这是一个用于“智店通/零售后台网页采集”的 **CLI 采集器 starter 包**。目标是把登录后的业务后台操作封装成稳定、可审计、可调度的命令行程序，供 OpenClaw、Codex、cron、systemd timer 或 Airflow 调用。
+
+> 重要：本包只用于采集你们账号已经有权限查看的数据。不要绕过验证码、短信验证、MFA、风控、权限边界或反爬限制。不要使用代理池、高并发、隐藏身份或越权接口扫描。
+
+## 你拿到的东西
+
+```text
+zdt-sync-openclaw-starter/
+  README.md
+  DEVELOPMENT_FLOW.md
+  OPENCLAW_MISSION.md
+  TOOLS_AND_OPEN_SOURCE.md
+  COMPLIANCE_AND_SAFETY.md
+  RUNBOOK.md
+  SELECTOR_CAPTURE_GUIDE.md
+  .agents/skills/zhidiantong-sync/SKILL.md
+  .env.example
+  pyproject.toml
+  docker-compose.yml
+  Dockerfile
+  Makefile
+  config/
+    selectors.example.yaml
+    stores.example.yaml
+    field_mapping.example.yaml
+  zdt_sync/
+    cli.py
+    browser.py
+    settings.py
+    utils.py
+    db/
+    collectors/
+    parsers/
+  scripts/
+    install_ubuntu.sh
+    install_macos.sh
+    cron_examples.txt
+    systemd/
+  tests/
+```
+
+## 快速开始
+
+### 1. 本地安装
+
+```bash
+cd zdt-sync-openclaw-starter
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e '.[dev]'
+playwright install chromium
+cp .env.example .env
+cp config/selectors.example.yaml config/selectors.yaml
+cp config/stores.example.yaml config/stores.yaml
+```
+
+### 2. 启动数据库
+
+```bash
+docker compose up -d postgres redis
+zdt-sync db init
+```
+
+### 3. 录制选择器
+
+先人工用 Playwright codegen 或 OpenClaw 打开智店通后台，把菜单、日期输入框、查询按钮、表格行、下一页按钮等选择器填入：
+
+```bash
+playwright codegen "$ZDT_BASE_URL"
+```
+
+把生成的 locator / selector 整理到：
+
+```text
+config/selectors.yaml
+```
+
+### 4. 保存登录态
+
+```bash
+zdt-sync auth login
+```
+
+浏览器会打开，请人工正常登录，完成后回到终端按 Enter 保存登录态。登录态默认保存到：
+
+```text
+.auth/zhidiantong.storage.json
+```
+
+### 5. 试跑采集
+
+```bash
+zdt-sync collect orders --since "2026-05-28 00:00:00" --until now --store all --headful
+zdt-sync collect inventory --store all --headful
+zdt-sync status
+```
+
+### 6. 定时运行
+
+见：
+
+```text
+scripts/cron_examples.txt
+scripts/systemd/
+```
+
+## 推荐上线顺序
+
+1. `orders`：销售订单。
+2. `inventory`：库存。
+3. `products`：商品档案。
+4. `refunds`：退货退款。
+5. `transfers`：调拨/入库/出库。
+
+每个模块上线前都要做：
+
+```text
+选择器确认 → 小范围单门店测试 → staging 表校验 → 幂等 upsert → 对账 → 定时任务 → 告警
+```
+
+## 重要设计原则
+
+- **白名单页面采集**：只允许固定菜单、固定筛选条件、固定分页、固定导出按钮。
+- **只读动作**：查询、下一页、导出、关闭弹窗；禁止新增、删除、提交、审核、付款、退款、作废等动作。
+- **登录态复用**：首次人工登录后保存 storage_state，过期再人工刷新。
+- **失败可追踪**：失败时保存 screenshot 和 Playwright trace。
+- **幂等写入**：订单、库存、退款都需要业务主键或 hash，避免重复写入。
+- **staging 先行**：先进入 raw/staging 表，再转换到正式进销存表。
+
+## 常用命令
+
+```bash
+zdt-sync auth login
+zdt-sync auth check
+zdt-sync db init
+zdt-sync collect orders --incremental
+zdt-sync collect inventory --mode table
+zdt-sync collect products --mode table
+zdt-sync collect refunds --incremental
+zdt-sync collect transfers --incremental
+zdt-sync status
+zdt-sync replay --job-id 123
+```
+
+## 交给 OpenClaw 的文件
+
+让 OpenClaw 先读：
+
+```text
+OPENCLAW_MISSION.md
+DEVELOPMENT_FLOW.md
+COMPLIANCE_AND_SAFETY.md
+SELECTOR_CAPTURE_GUIDE.md
+```
+
+然后执行：
+
+```text
+1. 安装依赖。
+2. 根据实际智店通页面更新 config/selectors.yaml。
+3. 完成 orders/inventory/products/refunds/transfers 的字段映射。
+4. 用 headful 模式单门店试跑。
+5. 检查 raw_records 和 sync_job。
+6. 添加每日对账和异常告警。
+```

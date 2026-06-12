@@ -1,0 +1,4529 @@
+{
+  "generatedAt": "2026-06-11T05:52:09.953Z",
+  "quoteDate": "2026-06-09",
+  "quoteFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+  "quoteCount": 157,
+  "isCarriedForward": true,
+  "carryForwardFrom": "2026-06-09",
+  "summary": {
+    "inventoryMatchedCount": 134,
+    "productLibraryMatchedCount": 0,
+    "unmatchedCount": 2,
+    "carryForwardCount": 21
+  },
+  "quotes": [
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282582931",
+      "aiPc": "",
+      "pnMtm": "83K9002GCD",
+      "productName": "小新14C 2026 R7-8745/16G/512G/集/Win11",
+      "pickupPrice": 4139,
+      "subsidyPrice": 6299,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "14C|16G|512G|83K9|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006726",
+        "canonicalName": "小新14cAHP10GRXR716G51211C",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006726"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6942292180951",
+      "aiPc": "",
+      "pnMtm": "83K0000ECD",
+      "productName": "小新14C 2025 I5-13420/16G/512G/集/Win11",
+      "pickupPrice": 4567,
+      "subsidyPrice": 5799,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "14C|16G|512G|83K0|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002013",
+        "canonicalName": "小新 14c IRH10GRXI513420H16G51211C集成显卡",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002013"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282582955",
+      "aiPc": "",
+      "pnMtm": "83K000FJCD",
+      "productName": "小新14C 2026 I5-13420/16G/512G/集/Win11",
+      "pickupPrice": 4567,
+      "subsidyPrice": 6499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "14C|16G|512G|83K0|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006694",
+        "canonicalName": "小新14cIRH10GRXI513420H16G51211C",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006694"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282573281",
+      "aiPc": "",
+      "pnMtm": "83QG0005CD",
+      "productName": "小新14 2026 R7-H255/16G/512G/集/Win11",
+      "pickupPrice": 4467,
+      "subsidyPrice": 6899,
+      "stockSignals": {
+        "翰林汇天津": "9"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|83QG|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20005921",
+        "canonicalName": "联想小新14 2025款14英寸轻薄笔记本电脑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20005921"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6942292185680",
+      "aiPc": "",
+      "pnMtm": "83KB0009CD",
+      "productName": "小新16C 2025 R7-8745/16G/512G/集/Win11",
+      "pickupPrice": 4470,
+      "subsidyPrice": 5399,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "国代产品",
+      "isQianfan": "",
+      "matchFingerprint": "16C|16G|512G|83KB|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83KB0009CD",
+        "canonicalName": "小新16C 2025 R7-8745/16G/512G/集/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83KB0009CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282582948",
+      "aiPc": "",
+      "pnMtm": "83KB003SCD",
+      "productName": "小新16C 2025 R7-8745/16G/512G/集/Win11",
+      "pickupPrice": 4450,
+      "subsidyPrice": 6499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "国代产品",
+      "isQianfan": "",
+      "matchFingerprint": "16C|16G|512G|83KB|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83KB003SCD",
+        "canonicalName": "小新16C 2025 R7-8745/16G/512G/集/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83KB003SCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282582962",
+      "aiPc": "",
+      "pnMtm": "83K2009RCD",
+      "productName": "小新16C 2026 I5-13420/16G/512G/集/Win11",
+      "pickupPrice": 4799,
+      "subsidyPrice": 6699,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "国代产品",
+      "isQianfan": "",
+      "matchFingerprint": "16C|16G|512G|83K2|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006718",
+        "canonicalName": "联想小新16 SE 2025 酷睿版16英寸轻薄笔记本电脑 深灰",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006718"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282589053",
+      "aiPc": "",
+      "pnMtm": "83VX0000CD",
+      "productName": "小新AIR-14 2026 U5-226/16G/512G/集/Win11 新品",
+      "pickupPrice": 6239,
+      "subsidyPrice": 7999,
+      "educationSubsidy": 300,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "6.10号开售",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|83VX|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83VX0000CD",
+        "canonicalName": "联想小新Air14 14英寸轻薄笔记本电脑（英特尔酷睿Ultra5-226v 16G 512G 2.8K OLED 120Hz)深空",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83VX0000CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282589343",
+      "aiPc": "",
+      "pnMtm": "83VX0007CD",
+      "productName": "小新AIR-14 2026 U5-228/32G/1T/集/Win11",
+      "pickupPrice": 7679,
+      "subsidyPrice": 8999,
+      "educationSubsidy": 300,
+      "stockSignals": {
+        "翰林汇在途": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "6.10号开售",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83VX|U5|U5-228|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83VX0007CD",
+        "canonicalName": "联想小新Air14 14英寸轻薄笔记本电脑（英特尔酷睿Ultra5-228v 32G 1T 2.8K OLED 120Hz)深空",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83VX0007CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282507552",
+      "aiPc": "",
+      "pnMtm": "83NC0000CD",
+      "productName": "小新PRO-14C 2025 U5-225/32G /1T/集/Win11",
+      "pickupPrice": 6799,
+      "subsidyPrice": 8299,
+      "educationSubsidy": 300,
+      "stockSignals": {
+        "SEC": "1",
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "14C|1T|32G|83NC|U5|U5-225|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83NC0000CD",
+        "canonicalName": "小新Pro14 2代Ultra5 32G 1T 2.8K OLED 120Hz",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83NC0000CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282563633",
+      "aiPc": "",
+      "pnMtm": "83S50004CD",
+      "productName": "小新PRO-14 2026 U5-336/32G/1T/集/Win11",
+      "pickupPrice": 9407,
+      "subsidyPrice": 13999,
+      "educationSubsidy": 300,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83S5|U5|U5-336|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006837",
+        "canonicalName": "小新Pro 14 IPH11GRXU532G1TB11C",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006837"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282563619",
+      "aiPc": "",
+      "pnMtm": "83SK000CCD",
+      "productName": "小新PRO-16 2026 UX9-388/32G/1T/集/Win11",
+      "pickupPrice": 12479,
+      "subsidyPrice": 17999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83SK|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83SK000CCD",
+        "canonicalName": "联想小新Pro16 GT AI元启版16英寸轻薄笔记本电脑（全新英特尔酷睿标压3代Ultra X9-388H 32G 1T 2.8K OLED 120Hz 1100nits）冠军白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83SK000CCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282581545",
+      "aiPc": "",
+      "pnMtm": "83R00001CD",
+      "productName": "YOGA AIR 14 2026 Aura U7-258/32G/1T/集/Win11/浅海贝",
+      "pickupPrice": 8999,
+      "subsidyPrice": 14999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "7"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83R0|AIR14|U7|U7-258|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83R00001CD",
+        "canonicalName": "YOGA AIR 14 Ultra AI元启 U7-258/32G/1T/集/Win11/浅海贝  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83R00001CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282589206",
+      "aiPc": "",
+      "pnMtm": "83R0000FCD",
+      "productName": "YOGA AIR 14 2026 Aura U7-258/32G/1T/集/Win11/霁空蓝",
+      "pickupPrice": 8999,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83R0|AIR14|U7|U7-258|YOGA",
+      "libraryMatch": {
+        "status": "inventory_fingerprint",
+        "confidence": 1,
+        "primarySkuKey": "20007961",
+        "canonicalName": "YOGA Air 14 ILL11SSXU732G1TB11C",
+        "currentStock": 4,
+        "sellableStock": 4,
+        "evidence": "按配置指纹匹配 20007961 YOGA Air 14 ILL11SSXU732G1TB11C"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282595481",
+      "aiPc": "",
+      "pnMtm": "83QK008YCD",
+      "productName": "YOGA AIR 14 Ultra Aura U5-325/16G/1T/集/Win11/烟绫  新品",
+      "pickupPrice": 10199,
+      "subsidyPrice": 15999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "2",
+        "天津诚义T": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|83QK|AIR14|U5|U5-325|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83QK008YCD",
+        "canonicalName": "YOGA AIR 14 Ultra Aura U5-325/16G/1T/集/Win11/烟绫  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83QK008YCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282593647",
+      "aiPc": "",
+      "pnMtm": "83QK008FCD",
+      "productName": "YOGA AIR 14 Ultra Aura U5-325/16G/1T/集/Win11/云绢   新品",
+      "pickupPrice": 10199,
+      "subsidyPrice": 15999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "6",
+        "天津诚义T": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|83QK|AIR14|U5|U5-325|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83QK008FCD",
+        "canonicalName": "YOGA AIR 14 Ultra Aura U5-325/16G/1T/集/Win11/云绢   新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83QK008FCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282566146",
+      "aiPc": "",
+      "pnMtm": "83QK000ACD",
+      "productName": "YOGA AIR 14 2026 Ultra Aura X7-358/32G/1T/集/Win11/云绢",
+      "pickupPrice": 14399,
+      "subsidyPrice": 21999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83QK|AIR14|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83QK000ACD",
+        "canonicalName": "YOGA AIR 14 Ultra AI元启 X7-358/32G/1T/集/Win11/云绢  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83QK000ACD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282567549",
+      "aiPc": "",
+      "pnMtm": "83QK000FCD",
+      "productName": "YOGA AIR 14 2026 Ultra Aura X7-358/32G/1T/集/Win11/夜缎",
+      "pickupPrice": 14399,
+      "subsidyPrice": 21999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83QK|AIR14|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83QK000FCD",
+        "canonicalName": "YOGA Air 14 Ultra IPH11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83QK000FCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6942292185581",
+      "aiPc": "",
+      "pnMtm": "83JQ000ACD",
+      "productName": "YOGA 360 14 2025 AI元启 U7-258V/32G/1T/集/Win11\\浅海贝/有机硅材质A面机身",
+      "pickupPrice": 8800,
+      "subsidyPrice": 16199,
+      "educationSubsidy": 750,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83JQ|CPU258|U7|U7-258V|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83JQ000ACD",
+        "canonicalName": "YOGA 360 14 2025 AI元启 U7-258V/32G/1T/集/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83JQ000ACD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282574929",
+      "aiPc": "",
+      "pnMtm": "83SN000RCD",
+      "productName": "YOGA Pro 15 Aura AI元启 U7-356/32G/1T/5060/触摸/Win11/灰  新品",
+      "pickupPrice": 14399,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "天津诚义T": "3"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|83SN|PRO15|U7|U7-356|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83SN000RCD",
+        "canonicalName": "YOGA Pro 15 Aura AI元启 U7-356/32G/1T/5060/触摸/Win11/灰  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83SN000RCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282572314",
+      "aiPc": "",
+      "pnMtm": "83SN000CCD",
+      "productName": "YOGA PRO 15  Aura AI元启 U9-386/32G/1T/5060/8G/Win11",
+      "pickupPrice": 14399,
+      "subsidyPrice": 25999,
+      "stockSignals": {
+        "翰林汇天津": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|83SN|8G|PRO15|U9|U9-386|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83SN000CCD",
+        "canonicalName": "YOGA PRO 15  Aura AI元启 U9-386/32G/1T/5060/8G/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83SN000CCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282551388",
+      "aiPc": "",
+      "pnMtm": "83L0006CCD",
+      "productName": "YOGA PRO 16  AI元启 U9-285/32G/1T/5060/8G/Win11",
+      "pickupPrice": 9799,
+      "subsidyPrice": 16199,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|83L0|8G|PRO16|U9|U9-285|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83L0006CCD",
+        "canonicalName": "YOGA PRO 16  AI元启 U9-285/32G/1T/5060/8G/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83L0006CCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282506203",
+      "aiPc": "",
+      "pnMtm": "83M00005CD",
+      "productName": "拯救者-R7000 2025 R7-255/16G/512G/5060/8G/Win11",
+      "pickupPrice": 8849,
+      "subsidyPrice": 12199,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|5060|512G|83M0|8G|R7|R7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-83M00005CD",
+        "canonicalName": "拯救者-R7000 2025 R7-255/16G/512G/5060/8G/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-83M00005CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282528878",
+      "aiPc": "",
+      "pnMtm": "83LT0023CD",
+      "productName": "拯救者-R7000P 2025 R9-8940/16G/1T/5060/8G/Win11",
+      "pickupPrice": 11099,
+      "subsidyPrice": 14199,
+      "stockSignals": {
+        "SEC": "1",
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83LT|8G|R7|R7000P|R9|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83LT0023CD",
+        "canonicalName": "Legion R7000P ADR10BKER916G1TB11C",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83LT0023CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282504544",
+      "aiPc": "",
+      "pnMtm": "83LT000CCD",
+      "productName": "拯救者-R7000P R9-8945/16G/1T/5060/8G/Win11",
+      "pickupPrice": 10499,
+      "subsidyPrice": 14899,
+      "stockSignals": {
+        "SEC": "6",
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83LT|8G|R7|R7000P|R9|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003124",
+        "canonicalName": "联想拯救者 R7000P R9-8945HX/16G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX5060",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003124"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282539164",
+      "aiPc": "AIPC",
+      "pnMtm": "83LV0006CD",
+      "productName": "拯救者-R9000P 2025 R9-8945/32G/1T/5060/8G/Win11",
+      "pickupPrice": 15999,
+      "subsidyPrice": 24999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "小库": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|83LV|8G|R9|R9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003126",
+        "canonicalName": "联想拯救者 R9000P R9-8945HX/32G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX5060",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003126"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282585925",
+      "aiPc": "AIPC",
+      "pnMtm": "83QC0002CD",
+      "productName": "拯救者-R9000P 2026 R9-8945/16G/1T/5060/8G/Win11   新品",
+      "pickupPrice": 12959,
+      "subsidyPrice": 24999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83QC|8G|R9|R9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007934",
+        "canonicalName": "Legion R9000P ADR10MBKER916G1TB11C",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007934"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282588001",
+      "aiPc": "",
+      "pnMtm": "83LY00TRCD",
+      "productName": "拯救者-Y7000 2026 I7-13650/16G/1T/5060/8G/Win11",
+      "pickupPrice": 11619,
+      "subsidyPrice": 11499,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83LY|8G|I7|I7-13650|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006725",
+        "canonicalName": "Legion Y7000 IRX10BKEI713650HX16G1TB11C",
+        "currentStock": 7,
+        "sellableStock": 7,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006725"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282587998",
+      "aiPc": "",
+      "pnMtm": "83LY00TQCD",
+      "productName": "拯救者-Y7000 2026 I7-14650/16G/512G/5060/8G/Win11",
+      "pickupPrice": 11619,
+      "subsidyPrice": 13499,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|5060|512G|83LY|8G|I7|I7-14650|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006823",
+        "canonicalName": "Legion Y7000 IRX10BKEI714650HX16G51211C",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006823"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282592961",
+      "aiPc": "AIPC",
+      "pnMtm": "83F300AXCD",
+      "productName": "拯救者-Y7000P 2026 U7-251/16G/1T/5060/8G/Win11",
+      "pickupPrice": 12959,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83F3|8G|U7|U7-251|Y7000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007931",
+        "canonicalName": "Legion Y7000P IAX10BKEU716G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007931"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282594309",
+      "aiPc": "AIPC",
+      "pnMtm": "83VK0048CD",
+      "productName": "拯救者-Y7000X 2026 U7-251/16G/1T/5060/8G/Win11",
+      "pickupPrice": 12191,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83VK|8G|U7|U7-251|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007932",
+        "canonicalName": "Legion Y7000X IAX11BKEU716G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007932"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282505978",
+      "aiPc": "AIPC",
+      "pnMtm": "83KY000JCD",
+      "productName": "拯救者-Y9000X 2025 AI元启 U9-275/32G/1T/5070/8G/Win11白",
+      "pickupPrice": 15450,
+      "subsidyPrice": 25699,
+      "educationSubsidy": 1000,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "国代产品",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5070|83KY|8G|U9|U9-275|Y9000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83KY000JCD",
+        "canonicalName": "LEGION Y9000X, CORE_U9_275HX_32G, 1TB, RTX5070",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83KY000JCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282588308",
+      "aiPc": "AIPC",
+      "pnMtm": "83KY007BCD",
+      "productName": "拯救者-Y9000X 2026 U9-290/32G/1T/5060/8G/Win11/白",
+      "pickupPrice": 15750,
+      "subsidyPrice": 26999,
+      "educationSubsidy": 2000,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "国代产品",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|83KY|8G|U9|U9-290|Y9000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-83KY007BCD",
+        "canonicalName": "LEGION Y9000X IAX10",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-83KY007BCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282592923",
+      "aiPc": "AIPC",
+      "pnMtm": "83F4000ECD",
+      "productName": "拯救者-Y9000P 2026 U9-290/16G/1T/5060/8G/Win11   新品",
+      "pickupPrice": 14879,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 2000,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83F4|8G|U9|U9-290|Y9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007939",
+        "canonicalName": "Legion Y9000P IAX10BKEU916G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007939"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282592909",
+      "aiPc": "AIPC",
+      "pnMtm": "83F4000CCD",
+      "productName": "拯救者-Y9000P 2026 U9-290/16G/1T/5070/12G/Win11",
+      "pickupPrice": 16799,
+      "subsidyPrice": 16799,
+      "educationSubsidy": 2000,
+      "stockSignals": {
+        "翰林汇在途": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12G|16G|1T|5070|83F4|U9|U9-290|Y9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007941",
+        "canonicalName": "Legion Y9000P IAX10BKJU916G1TB11C",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007941"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041169",
+      "aiPc": "",
+      "pnMtm": "870053532",
+      "productName": "Lecoo 酷N155A 2026 R7-255/24G/1T/集/Win11",
+      "pickupPrice": 5599,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|24G|8700|N155A|R7|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007178",
+        "canonicalName": "Lecoo N155A 2R7H25524G1T2.8K-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007178"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547074795",
+      "aiPc": "",
+      "pnMtm": "870017740",
+      "productName": "Lecoo 酷N156C 2026 I5-13420/16G/512G/集//Win11  涨价",
+      "pickupPrice": 4150,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "翰林汇天津": "9"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|I5|I5-13420|N156C|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006201",
+        "canonicalName": "Lecoo N156C 2I513420H16GLPDDR5512G",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006201"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075921",
+      "aiPc": "",
+      "pnMtm": "870050346",
+      "productName": "Lecoo 酷N155D 2026 U5-135/32G/1T/集/Win11",
+      "pickupPrice": 5970,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|8700|N155D|U5|U5-135|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007177",
+        "canonicalName": "来酷Pro14.135H.32G1T(Lecoo N155DL)",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007177"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041510",
+      "aiPc": "",
+      "pnMtm": "870054587",
+      "productName": "Lecoo 酷N161A 2026 U5-226/16G/512G/集/Win11",
+      "pickupPrice": 4805,
+      "subsidyPrice": 6999,
+      "stockSignals": {
+        "翰林汇在途": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|N161A|U5|U5-226|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20008119",
+        "canonicalName": "来酷Air16.226V.16G512",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20008119"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041343",
+      "aiPc": "",
+      "pnMtm": "870054178",
+      "productName": "Lecoo 酷N161A 2026 U5-288/32G/512G/集/Win11",
+      "pickupPrice": 5736,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "翰林汇在途": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "32G|512G|8700|N161A|U5|U5-288|来酷",
+      "libraryMatch": {
+        "status": "unmatched",
+        "confidence": 0,
+        "evidence": "当前未命中在库 SKU，也未命中标准商品库。"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547078458",
+      "aiPc": "",
+      "pnMtm": "870041049",
+      "productName": "Lecoo 酷N176 战7000 2025 R9-8940/16G/1T15060/8G/Win11",
+      "pickupPrice": 9000,
+      "subsidyPrice": 16999,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|8700|8G|N176|R9|战7000|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003290",
+        "canonicalName": "来酷(Lecoo)斗战者 战7000 2025",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003290"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547079400",
+      "aiPc": "",
+      "pnMtm": "870042506",
+      "productName": "Lecoo 酷N176 战7000 2026 I7-13650/16G/512G/5060/8G/Win11",
+      "pickupPrice": 8150,
+      "subsidyPrice": 15999,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|5060|512G|8700|8G|I7|I7-13650|N176|战7000|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870042506",
+        "canonicalName": "Lecoo 酷N176 战7000 2026 I7-13650/16G/512G/5060/8G/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870042506"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547074771",
+      "aiPc": "",
+      "pnMtm": "870017738",
+      "productName": "Lecoo 酷N176 战7000 2026 I7-13645/16G/512G/5060/8G/Win11",
+      "pickupPrice": 7900,
+      "subsidyPrice": 13999,
+      "stockSignals": {
+        "小库": "2",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|5060|512G|8700|8G|I7|I7-13645|N176|战7000|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007040",
+        "canonicalName": "斗战者N176B 2I713645HX16G512G5060G60W-11",
+        "currentStock": 6,
+        "sellableStock": 6,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007040"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041411",
+      "aiPc": "",
+      "pnMtm": "870054410",
+      "productName": "Lecoo 酷MINI N100/8G/256G/集/Win11/单主机",
+      "pickupPrice": 1870,
+      "subsidyPrice": 2499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8700|8G|N100|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870054410",
+        "canonicalName": "Lecoo 酷MINI N100/8G/256G/集/Win11/单主机",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870054410"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041206",
+      "aiPc": "",
+      "pnMtm": "870053494",
+      "productName": "Lecoo 酷MINI U5-228/32G/512G/集/Win11/单主机",
+      "pickupPrice": 4170,
+      "subsidyPrice": 6199,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "32G|512G|8700|U5|U5-228|来酷",
+      "libraryMatch": {
+        "status": "unmatched",
+        "confidence": 0,
+        "evidence": "当前未命中在库 SKU，也未命中标准商品库。"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075761",
+      "aiPc": "",
+      "pnMtm": "870049841",
+      "productName": "Lecoo 酷310 G5900/8G/256G/集/Win11/单主机",
+      "pickupPrice": 2430,
+      "subsidyPrice": 2899,
+      "stockSignals": {
+        "翰林汇天津": "6"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8700|8G|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006559",
+        "canonicalName": "Lecoo 酷310 G59008G256-10",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006559"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075754",
+      "aiPc": "",
+      "pnMtm": "870049840",
+      "productName": "Lecoo 酷310 G5900/8G/512G/集/Win11/单主机",
+      "pickupPrice": 2630,
+      "subsidyPrice": 2999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|8700|8G|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006558",
+        "canonicalName": "Lecoo 酷310 G59008G512-10",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006558"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075716",
+      "aiPc": "",
+      "pnMtm": "870049838",
+      "productName": "Lecoo 酷310 R5-3500/8G/512G/集/Win11/单主机",
+      "pickupPrice": 2650,
+      "subsidyPrice": 3499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|8700|8G|R5|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870049838",
+        "canonicalName": "Lecoo 酷310 R5-3500/8G/512G/集/Win11/单主机",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870049838"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282583075",
+      "aiPc": "",
+      "pnMtm": "870052283",
+      "productName": "Lecoo 酷310N I5-13420/12G/512/集/Win11/单主机",
+      "pickupPrice": 3150,
+      "subsidyPrice": 4699,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12G|512G|8700|I5|I5-13420|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006858",
+        "canonicalName": "Lecoo 酷310N I513420H12G512B-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006858"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848040544",
+      "aiPc": "",
+      "pnMtm": "870053012",
+      "productName": "Lecoo 酷310N I7-13645/16G/512/集/Win11/单主机",
+      "pickupPrice": 3950,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|I7|I7-13645|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870053012",
+        "canonicalName": "Lecoo 酷310N I7-13645/16G/512/集/Win11/单主机",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870053012"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848040926",
+      "aiPc": "",
+      "pnMtm": "870053116",
+      "productName": "Lecoo 酷D4000N I7-13650/16G/512G/集/黑/Win11",
+      "pickupPrice": 3850,
+      "subsidyPrice": 6199,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|I7|I7-13650|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870053116",
+        "canonicalName": "Lecoo 酷D4000N I7-13650/16G/512G/集/黑/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870053116"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547076560",
+      "aiPc": "",
+      "pnMtm": "870051386",
+      "productName": "Lecoo 酷斗战者 锋7000 I5-12400/16G/512G/3050/6G/Win11",
+      "pickupPrice": 4700,
+      "subsidyPrice": 6799,
+      "stockSignals": {
+        "天津诚义T": "7"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|3050|512G|8700|I5|I5-12400|斗战者|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006724",
+        "canonicalName": "斗战者 锋7000 212400F16G512G3050500WB-10",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006724"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547076416",
+      "aiPc": "",
+      "pnMtm": "870050856",
+      "productName": "Lecoo 酷斗战者 锋7000 I5-12400/16G/512G/7650/8G/Win11",
+      "pickupPrice": 6130,
+      "subsidyPrice": 8199,
+      "stockSignals": {
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|8G|I5|I5-12400|斗战者|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007328",
+        "canonicalName": "斗战者 锋7000 212400F16G512G7650L500WB-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007328"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547077031",
+      "aiPc": "",
+      "pnMtm": "870052133",
+      "productName": "Lecoo 酷斗战者 锋7000 U5-230/16G/1T/5060TI/8G/Win11",
+      "pickupPrice": 7550,
+      "subsidyPrice": 9799,
+      "stockSignals": {
+        "天津诚义T": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|8700|8G|U5|U5-230|斗战者|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006859",
+        "canonicalName": "斗战者 锋7000 2U5230F16G1T5060TiL500WB-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006859"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547076768",
+      "aiPc": "",
+      "pnMtm": "870052132",
+      "productName": "Lecoo 酷斗战者 锋7000 U5-230/16G/1T/5060TI/16G/Win11",
+      "pickupPrice": 7950,
+      "subsidyPrice": 10299,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|8700|U5|U5-230|斗战者|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006719",
+        "canonicalName": "斗战者 锋7000 2U5230F16G1T5060Ti16GL500WB-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006719"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041046",
+      "aiPc": "",
+      "pnMtm": "870053284",
+      "productName": "Lecoo AIO 酷2488 N100/8G/256G/集/黑/23.8/Win11",
+      "pickupPrice": 2670,
+      "subsidyPrice": 4599,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8700|8G|N100|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870053284",
+        "canonicalName": "Lecoo AIO 酷2488 N100/8G/256G/集/黑/23.8/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870053284"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041084",
+      "aiPc": "",
+      "pnMtm": "870053338",
+      "productName": "Lecoo AIO 酷2488 R5-3500/8G/256G/集/黑/23.8/Win11",
+      "pickupPrice": 2830,
+      "subsidyPrice": 3699,
+      "stockSignals": {
+        "翰林汇天津": "正常",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8700|8G|R5|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870053338",
+        "canonicalName": "Lecoo AIO 酷2488 R5-3500/8G/256G/集/黑/23.8/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870053338"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6979848041091",
+      "aiPc": "",
+      "pnMtm": "870053337",
+      "productName": "Lecoo AIO 酷2488 R5-3500/16G/512G/集/黑/23.8/Win11",
+      "pickupPrice": 3330,
+      "subsidyPrice": 3999,
+      "stockSignals": {
+        "翰林汇天津": "正常",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|R5|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870053337",
+        "canonicalName": "Lecoo AIO 酷2488 R5-3500/16G/512G/集/黑/23.8/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870053337"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547076546",
+      "aiPc": "",
+      "pnMtm": "870050968",
+      "productName": "Lecoo AIO 酷2488 I5-13420/12G/512G/集/黑/24寸/Win11",
+      "pickupPrice": 3650,
+      "subsidyPrice": 4599,
+      "stockSignals": {
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12G|24寸|512G|8700|I5|I5-13420|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006653",
+        "canonicalName": "Lecoo AIO 酷2488 B2I513420H12G512GHKC-11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006653"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075877",
+      "aiPc": "",
+      "pnMtm": "870049900",
+      "productName": "Lecoo AIO 酷2888 R5-7430/16G/512G/集/黑/27/Win11",
+      "pickupPrice": 3550,
+      "subsidyPrice": 4599,
+      "stockSignals": {
+        "翰林汇天津": "5"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|R5|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870049900",
+        "canonicalName": "Lecoo AIO 酷2888 R5-7430/16G/512G/集/黑/27/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870049900"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6976547075860",
+      "aiPc": "",
+      "pnMtm": "870049889",
+      "productName": "Lecoo AIO 酷2888 R5-7430/16G/512G/集/白/27/Win11",
+      "pickupPrice": 3550,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|8700|R5|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-870049889",
+        "canonicalName": "Lecoo AIO 酷2888 R5-7430/16G/512G/集/白/27/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-870049889"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282583075",
+      "aiPc": "",
+      "pnMtm": "90XS007FCD",
+      "productName": "天逸510S I5-13400/16G/512G/集/Win11/23.8",
+      "pickupPrice": 4999,
+      "subsidyPrice": 6299,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|90XS|I5|I5-13400",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006651",
+        "canonicalName": "天逸510S-08IRR I51340016G512W-11Q2",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006651"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282566429",
+      "aiPc": "",
+      "pnMtm": "90X000J9CP",
+      "productName": "GeekPro I5-14400/24G/1T/5060/8G/Win11   涨价",
+      "pickupPrice": 7800,
+      "subsidyPrice": 12199,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "是",
+      "matchFingerprint": "1T|24G|5060|8G|90X0|GEEKPRO|I5|I5-14400",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004915",
+        "canonicalName": "GeekPro-17IRR I51440024G1TG5B11Q (5060)",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004915"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282592732",
+      "aiPc": "",
+      "pnMtm": "90X000KGCP",
+      "productName": "GeekPro I5-14400/16G/512G/5060/8G/Win11",
+      "pickupPrice": 7750,
+      "subsidyPrice": 11999,
+      "stockSignals": {},
+      "sampleRequired": "出样机型",
+      "remark": "天津Z库存",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|5060|512G|8G|90X0|GEEKPRO|I5|I5-14400",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007017",
+        "canonicalName": "GeekPro-17IRR1 I514400F16G512G5B11Q",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007017"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282566917",
+      "aiPc": "",
+      "pnMtm": "90X000JECP",
+      "productName": "GeekPro I7-14700/24G/1T/5060TI/8G/Win11 涨价",
+      "pickupPrice": 9750,
+      "subsidyPrice": 13499,
+      "stockSignals": {
+        "小库": "正常",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "1T|24G|5060|8G|90X0|GEEKPRO|I7|I7-14700",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004912",
+        "canonicalName": "GeekPro-17IRR I71470024G1TG5A11QT (5060Ti)",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004912"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282566900",
+      "aiPc": "",
+      "pnMtm": "90X000JDCP",
+      "productName": "GeekPro I7-14700/24G/1T/5060/8G/Win11  涨价",
+      "pickupPrice": 9100,
+      "subsidyPrice": 12199,
+      "stockSignals": {
+        "小库": "正常",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "1T|24G|5060|8G|90X0|GEEKPRO|I7|I7-14700",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004914",
+        "canonicalName": "GeekPro-17IRR I71470024G1TG5B11Q (5060)",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004914"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282532233",
+      "aiPc": "",
+      "pnMtm": "90X000ERCP",
+      "productName": "GeekPro I7-14700/32G/1T/5060/8G/Win11",
+      "pickupPrice": 10050,
+      "subsidyPrice": 13499,
+      "stockSignals": {},
+      "sampleRequired": "出样机型",
+      "remark": "九州托盘货",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|5060|8G|90X0|GEEKPRO|I7|I7-14700",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-90X000ERCP",
+        "canonicalName": "GeekPro I7-14700/32G/1T/5060/8G/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-90X000ERCP"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282502786",
+      "aiPc": "",
+      "pnMtm": "F0HN00KFCD",
+      "productName": "小新 24 I5-13420/16G/512G/集/白/Win11",
+      "pickupPrice": 4730,
+      "subsidyPrice": 6899,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0HN|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002460",
+        "canonicalName": "小新 24-IRH I513420H16G512WC-11Q集成显卡",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002460"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282502779",
+      "aiPc": "",
+      "pnMtm": "F0HN00KECD",
+      "productName": "小新 24 I5-13420/16G/512G/集/黑/Win11",
+      "pickupPrice": 4730,
+      "subsidyPrice": 6899,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0HN|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002459",
+        "canonicalName": "小新 24-IRH I513420H16G512WL-11Q集成显卡",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002459"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580463",
+      "aiPc": "",
+      "pnMtm": "F0JY0003CD",
+      "productName": "小新 24 U5-226/16G/512G/集/黑/Win11",
+      "pickupPrice": 5299,
+      "subsidyPrice": 7499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0JY|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006864",
+        "canonicalName": "小新 24-ILL U5226V16G512WL-11Q",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006864"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580470",
+      "aiPc": "",
+      "pnMtm": "F0JY0004CD",
+      "productName": "小新 24 U5-226/16G/512G/集/白/Win11",
+      "pickupPrice": 5299,
+      "subsidyPrice": 7499,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0JY|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006865",
+        "canonicalName": "小新 24-ILL U5226V16G512WC-11Q",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006865"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282562629",
+      "aiPc": "",
+      "pnMtm": "F0HM00WHCD",
+      "productName": "小新 27 I5-13420/16G/1T/集/白/Win11",
+      "pickupPrice": 5230,
+      "subsidyPrice": 7099,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|1T|F0HM|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006747",
+        "canonicalName": "小新 27-IRH I513420H16G1TDC-11Q",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006747"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282502755",
+      "aiPc": "",
+      "pnMtm": "F0HM00LACD",
+      "productName": "小新 27 I7-13620/16G/1T /集/黑/Win11",
+      "pickupPrice": 5880,
+      "subsidyPrice": 7899,
+      "stockSignals": {
+        "小库": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|1T|F0HM|I7|I7-13620|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-F0HM00LACD",
+        "canonicalName": "小新 27 I7-13620/16G/1T /集/黑/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-F0HM00LACD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580487",
+      "aiPc": "",
+      "pnMtm": "F0JW0000CD",
+      "productName": "小新 27 U5-226/16G/512G/集/黑/Win11",
+      "pickupPrice": 5319,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0JW|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006862",
+        "canonicalName": "小新 27-ILL U5226V16G512WL-11Q",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006862"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580494",
+      "aiPc": "",
+      "pnMtm": "F0JW0001CD",
+      "productName": "小新 27 U5-226/16G/512G/集/白/Win11",
+      "pickupPrice": 5319,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0JW|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006863",
+        "canonicalName": "小新 27-ILL U5226V16G512WC-11Q",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006863"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580500",
+      "aiPc": "",
+      "pnMtm": "F0JW0002CD",
+      "productName": "小新 27 U7-256/16G/1T/集/黑/Win11",
+      "pickupPrice": 7119,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "翰林汇天津": "9"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|1T|256G|F0JW|U7|U7-256|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-F0JW0002CD",
+        "canonicalName": "小新 27 U7-256/16G/1T/集/黑/Win11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-F0JW0002CD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282586342",
+      "aiPc": "",
+      "pnMtm": "F0J2005PCD",
+      "productName": "YOGA 27 U5-225/32G/1T/集/黑/Win11-1",
+      "pickupPrice": 9350,
+      "subsidyPrice": 15999,
+      "stockSignals": {
+        "小库": "7",
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "1T|32G|F0J2|U5|U5-225|YOGA",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-F0J2005PCD",
+        "canonicalName": "YOGA 27 U5-225/32G/1T/集/黑/Win11-1",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-F0J2005PCD"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282526843",
+      "aiPc": "",
+      "pnMtm": "ZAFT0002CN",
+      "productName": "小新平板 11 2025 TB335 6G/128G/深空灰/11寸",
+      "pickupPrice": 887,
+      "subsidyPrice": 1199,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|128G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAFT0002CN",
+        "canonicalName": "小新平板 11 2025 TB335 6G/128G/深空灰/11寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAFT0002CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282526874",
+      "aiPc": "",
+      "pnMtm": "ZAFT0000CN",
+      "productName": "小新平板 11 2025 TB335 6G/128G/天青色/11寸  涨价",
+      "pickupPrice": 887,
+      "subsidyPrice": 1199,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "小库": "正常",
+        "翰林汇天津": "1",
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|128G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAFT0000CN",
+        "canonicalName": "小新平板 11 2025 TB335 6G/128G/天青色/11寸  涨价",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAFT0000CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282526898",
+      "aiPc": "",
+      "pnMtm": "ZAFT0001CN",
+      "productName": "小新平板 11 2026 TB335 8G/128G/天青色/11寸",
+      "pickupPrice": 1071,
+      "subsidyPrice": 1299,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "小库": "正常",
+        "翰林汇天津": "正常",
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|128G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAFT0001CN",
+        "canonicalName": "小新平板 11 2026 TB335 8G/128G/天青色/11寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAFT0001CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282526881",
+      "aiPc": "",
+      "pnMtm": "ZAFT0005CN",
+      "productName": "小新平板 11 2025 TB335 8G/128G/深空灰/11寸  涨价",
+      "pickupPrice": 1071,
+      "subsidyPrice": 1299,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "小库": "正常",
+        "翰林汇天津": "正常",
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|128G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002917",
+        "canonicalName": "TB335FC TAB 8G+128GLG-CN",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002917"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282526959",
+      "aiPc": "",
+      "pnMtm": "ZAFT0004CN",
+      "productName": "小新平板 11 2025 TB335 8G/256G/深空灰/11寸",
+      "pickupPrice": 1347,
+      "subsidyPrice": 1499,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "天津Z库存",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|256G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002916",
+        "canonicalName": "TB335FC TAB 8G+256GLG-CN",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002916"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282547558",
+      "aiPc": "",
+      "pnMtm": "ZAFU0002CN",
+      "productName": "小新平板 11 2025 TB335 8G/256G/深空灰/11寸/5G版",
+      "pickupPrice": 1731,
+      "subsidyPrice": 2099,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "翰林汇天津": "4",
+        "翰林汇在途": "3"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|256G|ZAFU|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAFU0002CN",
+        "canonicalName": "小新平板 11 2025 TB335 8G/256G/深空灰/11寸/5G版",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAFU0002CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580760",
+      "aiPc": "",
+      "pnMtm": "ZAH50000CN",
+      "productName": "小新平板 Pro13 2026 TB376 8G/128G/凝雾灰/13寸",
+      "pickupPrice": 1791,
+      "subsidyPrice": 3299,
+      "educationSubsidy": 100,
+      "stockSignals": {
+        "小库": "5",
+        "SEC": "正常",
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "128G|13寸|PRO13|ZAH5|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAH50000CN",
+        "canonicalName": "小新Pro 13",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAH50000CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282580746",
+      "aiPc": "",
+      "pnMtm": "ZAH50011CN",
+      "productName": "小新平板 Pro13 2026 TB376 12G/512G/凝雾灰/13寸",
+      "pickupPrice": 2795,
+      "subsidyPrice": 4399,
+      "educationSubsidy": 100,
+      "stockSignals": {
+        "小库": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|512G|PRO13|ZAH5|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAH50011CN",
+        "canonicalName": "小新Pro 13",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAH50011CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282546223",
+      "aiPc": "",
+      "pnMtm": "ZAG60074CN",
+      "productName": "小新平板 Pro GT 2026 TB710 12G/256G/灰/11.1寸",
+      "pickupPrice": 1967,
+      "subsidyPrice": 2999,
+      "educationSubsidy": 100,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "11.1寸|256G|ZAG6|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAG60074CN",
+        "canonicalName": "小新平板 Pro GT 2026 TB710 12G/256G/灰/11.1寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAG60074CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6938963668798",
+      "aiPc": "",
+      "pnMtm": "ZAE70006CN",
+      "productName": "小新Pad Pro 2024 TB375 12G/256G/灰/12.7寸",
+      "pickupPrice": 2083,
+      "subsidyPrice": 2599,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "小库": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "12.7寸|256G|PRO20|ZAE7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAE70006CN",
+        "canonicalName": "小新Pad Pro 2024 TB375 12G/256G/灰/12.7寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAE70006CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282545516",
+      "aiPc": "",
+      "pnMtm": "ZAE70013CN",
+      "productName": "小新Pad Pro 2025 TB375 8G/128G/银/12.7寸",
+      "pickupPrice": 1631,
+      "subsidyPrice": 2099,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "小库": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12.7寸|128G|PRO20|ZAE7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAE70013CN",
+        "canonicalName": "小新Pad Pro 2025 TB375 8G/128G/银/12.7寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAE70013CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282545509",
+      "aiPc": "",
+      "pnMtm": "ZAE70012CN",
+      "productName": "小新Pad Pro 2025 TB375 8G/256G/银/12.7寸",
+      "pickupPrice": 1807,
+      "subsidyPrice": 2199,
+      "educationSubsidy": 50,
+      "stockSignals": {},
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12.7寸|256G|PRO20|ZAE7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004481",
+        "canonicalName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+        "currentStock": 8,
+        "sellableStock": 8,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004481"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6942292189237",
+      "aiPc": "",
+      "pnMtm": "ZAEF0058CN",
+      "productName": "拯救者Y700 2025 TB321 16G/512G/冰魄白/8.8寸",
+      "pickupPrice": 2609,
+      "subsidyPrice": 3799,
+      "stockSignals": {
+        "小库": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|Y7002|ZAEF|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAEF0058CN",
+        "canonicalName": "拯救者Y700 2025 TB321 16G/512G/冰魄白/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAEF0058CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282531786",
+      "aiPc": "",
+      "pnMtm": "ZAG40005CN",
+      "productName": "拯救者Y700 2025 TB322 12G/256G/碳晶黑/8.8寸骁龙8至尊版",
+      "pickupPrice": 2829,
+      "subsidyPrice": 4399,
+      "educationSubsidy": 100,
+      "stockSignals": {
+        "小库": "1",
+        "SEC": "正常",
+        "翰林汇天津": "8"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|Y7002|ZAG4|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAG40005CN",
+        "canonicalName": "拯救者Y700 2025 TB322 12G/256G/碳晶黑/8.8寸骁龙8至尊版",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAG40005CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282531809",
+      "aiPc": "",
+      "pnMtm": "ZAG40004CN",
+      "productName": "拯救者Y700 2025 TB322 12G/256G/冰魄白/8.8寸骁龙8至尊版",
+      "pickupPrice": 2829,
+      "subsidyPrice": 4399,
+      "educationSubsidy": 100,
+      "stockSignals": {
+        "小库": "6",
+        "翰林汇天津": "9"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|Y7002|ZAG4|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAG40004CN",
+        "canonicalName": "拯救者Y700 2025 TB322 12G/256G/冰魄白/8.8寸骁龙8至尊版",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAG40004CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282590905",
+      "aiPc": "",
+      "pnMtm": "ZAH20114CN",
+      "productName": "拯救者Y700 2026 TB323 12G/256G/星光紫/8.8寸",
+      "pickupPrice": 3649,
+      "subsidyPrice": 4999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "256G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAH20114CN",
+        "canonicalName": "拯救者Y700 2026 TB323 12G/256G/星光紫/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAH20114CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282590882",
+      "aiPc": "",
+      "pnMtm": "ZAH20113CN",
+      "productName": "拯救者Y700 2026 TB323 16G/512G/星光紫/8.8寸",
+      "pickupPrice": 4349,
+      "subsidyPrice": 5999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "512G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAH20113CN",
+        "canonicalName": "拯救者Y700 2026 TB323 16G/512G/星光紫/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAH20113CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282578521",
+      "aiPc": "",
+      "pnMtm": "ZAH20097CN",
+      "productName": "拯救者Y700 2026 TB323 12G/256G/碳晶黑/8.8寸",
+      "pickupPrice": 3649,
+      "subsidyPrice": 4999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "256G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAH20097CN",
+        "canonicalName": "拯救者Y700 2026 TB323 12G/256G/碳晶黑/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAH20097CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282578538",
+      "aiPc": "",
+      "pnMtm": "ZAH20025CN",
+      "productName": "拯救者Y700 2026 TB323 12G/256G/冰魄白/8.8寸",
+      "pickupPrice": 3649,
+      "subsidyPrice": 4999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "256G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAH20025CN",
+        "canonicalName": "拯救者Y700 2026 TB323 12G/256G/冰魄白/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAH20025CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282578514",
+      "aiPc": "",
+      "pnMtm": "ZAH20046CN",
+      "productName": "拯救者Y700 2026 TB323 16G/512G/碳晶黑/8.8寸",
+      "pickupPrice": 4349,
+      "subsidyPrice": 5999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "小库": "1",
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAH20046CN",
+        "canonicalName": "拯救者Y700 2026 TB323 16G/512G/碳晶黑/8.8寸",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAH20046CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282578491",
+      "aiPc": "",
+      "pnMtm": "ZAH20041CN",
+      "productName": "拯救者Y700 2026 TB323 16G/512G/冰魄白/8.8寸",
+      "pickupPrice": 4349,
+      "subsidyPrice": 5999,
+      "educationSubsidy": 400,
+      "stockSignals": {
+        "翰林汇天津": "7"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|Y7002|ZAH2|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006803",
+        "canonicalName": "TB323FU TAB 16G+512GWH-CN",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006803"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282594835",
+      "aiPc": "",
+      "pnMtm": "ZAJ00008CN",
+      "productName": "拯救者Y900 2026 TB711 8G/256G/碳晶黑/11.1寸",
+      "pickupPrice": 2459,
+      "subsidyPrice": 4499,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "11.1寸|256G|Y9002|ZAJ0|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAJ00008CN",
+        "canonicalName": "拯救者Y900 11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAJ00008CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282594866",
+      "aiPc": "",
+      "pnMtm": "ZAJ00007CN",
+      "productName": "拯救者Y900 2026 TB711 12G/256G/碳晶黑/11.1寸",
+      "pickupPrice": 2819,
+      "subsidyPrice": 4899,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "11.1寸|256G|Y9002|ZAJ0|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAJ00007CN",
+        "canonicalName": "拯救者Y900 11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAJ00007CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282594767",
+      "aiPc": "",
+      "pnMtm": "ZAJ00000CN",
+      "productName": "拯救者Y900 2026 TB711 12G/512G/碳晶黑/11.1寸",
+      "pickupPrice": 3169,
+      "subsidyPrice": 5299,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "翰林汇在途": "4"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "11.1寸|512G|Y9002|ZAJ0|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAJ00000CN",
+        "canonicalName": "拯救者Y900 11",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAJ00000CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282590554",
+      "aiPc": "",
+      "pnMtm": "ZAHX0000CN",
+      "productName": "拯救者Y900 2026 TB522 8G/256G/碳晶黑/13寸   新品",
+      "pickupPrice": 3019,
+      "subsidyPrice": 4599,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "天津诚义T": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|256G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAHX0000CN",
+        "canonicalName": "拯救者Y900 2026 TB522 8G/256G/碳晶黑/13寸   新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAHX0000CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282591124",
+      "aiPc": "",
+      "pnMtm": "ZAHX0004CN",
+      "productName": "拯救者Y900 2026 TB522 8G/256G/冰魄白/13寸   新品",
+      "pickupPrice": 3019,
+      "subsidyPrice": 4599,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "天津诚义T": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|256G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAHX0004CN",
+        "canonicalName": "拯救者Y900 2026 TB522 8G/256G/冰魄白/13寸   新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAHX0004CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282590561",
+      "aiPc": "",
+      "pnMtm": "ZAHX0001CN",
+      "productName": "拯救者Y900 2026 TB522 12G/256G/碳晶黑/13寸  新品",
+      "pickupPrice": 3379,
+      "subsidyPrice": 5099,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "天津诚义T": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|256G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAHX0001CN",
+        "canonicalName": "拯救者Y900 2026 TB522 12G/256G/碳晶黑/13寸  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAHX0001CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282591162",
+      "aiPc": "",
+      "pnMtm": "ZAHX0005CN",
+      "productName": "拯救者Y900 2026 TB522 12G/256G/冰魄白/13寸  新品",
+      "pickupPrice": 3379,
+      "subsidyPrice": 5099,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "天津诚义T": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|256G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAHX0005CN",
+        "canonicalName": "拯救者Y900 2026 TB522 12G/256G/冰魄白/13寸  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAHX0005CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282595443",
+      "aiPc": "",
+      "pnMtm": "ZAHX0161CN",
+      "productName": "拯救者Y900 2026 TB522 12G/256G/碳晶黑/13寸/键盘套装  新品",
+      "pickupPrice": 3809,
+      "subsidyPrice": 5499,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "天津诚义T": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|256G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-ZAHX0161CN",
+        "canonicalName": "拯救者Y900 2026 TB522 12G/256G/碳晶黑/13寸/键盘套装  新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-ZAHX0161CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282591148",
+      "aiPc": "",
+      "pnMtm": "ZAHX0092CN",
+      "productName": "拯救者Y900 2026 TB522 16G/512G/碳晶黑/13寸",
+      "pickupPrice": 3829,
+      "subsidyPrice": 5599,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "翰林汇天津": "8"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|512G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAHX0092CN",
+        "canonicalName": "拯救者Y900 13",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAHX0092CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282591155",
+      "aiPc": "",
+      "pnMtm": "ZAHX0043CN",
+      "productName": "拯救者Y900 2026 TB522 16G/512G/冰魄白/13寸",
+      "pickupPrice": 3829,
+      "subsidyPrice": 5599,
+      "educationSubsidy": 200,
+      "stockSignals": {
+        "翰林汇天津": "9"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "13寸|512G|Y9002|ZAHX|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-ZAHX0043CN",
+        "canonicalName": "拯救者Y900 13",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-ZAHX0043CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531241",
+      "aiPc": "",
+      "pnMtm": "PBAG0001CN",
+      "productName": "MOTO g100s 8G+128G海蓝",
+      "pickupPrice": 989,
+      "subsidyPrice": 1599,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "128G|8G|PBAG",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004850",
+        "canonicalName": "PHN MOTO XT2537-4 CN RA 8+128 DS CMCC（g100s 8+128海蓝）",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004850"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531234",
+      "aiPc": "",
+      "pnMtm": "PBAG0002CN",
+      "productName": "MOTO g100S 8G+128G 陨黑",
+      "pickupPrice": 989,
+      "subsidyPrice": 1599,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "128G|8G|PBAG",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004851",
+        "canonicalName": "PHN MOTO XT2537-4 CN ME 8+128 DS CMCC（g100s 8+128陨黑）",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004851"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531883",
+      "aiPc": "",
+      "pnMtm": "PBAG0004CN",
+      "productName": "MOTO g100s 8G+256G 海蓝",
+      "pickupPrice": 1079,
+      "subsidyPrice": 1799,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8G|PBAG",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004853",
+        "canonicalName": "PHN MOTO XT2537-4 CN RA 8+256 DS CMCC（g100s 8+256海蓝）",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004853"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531906",
+      "aiPc": "",
+      "pnMtm": "PBAG0007CN",
+      "productName": "MOTO g100s 8G+256G 陨黑",
+      "pickupPrice": 1079,
+      "subsidyPrice": 1799,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8G|PBAG",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004856",
+        "canonicalName": "PHN MOTO XT2537-4 CN ME 8+256 DS CMCC（g100s 8+256陨黑）",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004856"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376530480",
+      "aiPc": "",
+      "pnMtm": "PB7N0011CN",
+      "productName": "MOTO g100 Pro 8G+256G 苔原青",
+      "pickupPrice": 1319,
+      "subsidyPrice": 2099,
+      "stockSignals": {
+        "小库": "3"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "256G|8G|PB7N",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003350",
+        "canonicalName": "PHN MOTO XT2527-3 CN GC 8+256 DS RTL",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003350"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376530534",
+      "aiPc": "",
+      "pnMtm": "PB7N0016CN",
+      "productName": "MOTO g100 Pro 12G+512G 绫罗紫",
+      "pickupPrice": 1583,
+      "subsidyPrice": 2399,
+      "stockSignals": {
+        "小库": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12G|512G|PB7N|PRO12",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003355",
+        "canonicalName": "PHN MOTO XT2527-3 CN CS 12+512 DS RTL",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003355"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531128",
+      "aiPc": "",
+      "pnMtm": "PB7N0020CN",
+      "productName": "MOTO g100 Pro 12G+512G 云墨黑",
+      "pickupPrice": 1583,
+      "subsidyPrice": 2399,
+      "stockSignals": {
+        "小库": "9"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12G|512G|PB7N|PRO12",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003359",
+        "canonicalName": "PHN MOTO XT2527-3 CN BI 12+512 DS RTL",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003359"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531210",
+      "aiPc": "",
+      "pnMtm": "PBAA0009CN",
+      "productName": "MOTO XT2603 X70 Air Pro 16G+512G 梧桐金",
+      "pickupPrice": 4399,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "小库": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBAA|PRO16",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBAA0009CN",
+        "canonicalName": "moto X70 Air Pro 16+512 梧桐金",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBAA0009CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531722",
+      "aiPc": "",
+      "pnMtm": "PBB50005CN",
+      "productName": "MOTO XT2655 razr 70 Ultra 12G+256G 檀棕椴木    新品",
+      "pickupPrice": 6599,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "天津诚义T": "7"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "12G|256G|PBB5|R7",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "QPL-PBB50005CN",
+        "canonicalName": "MOTO XT2655 razr 70 Ultra 12G+256G 檀棕椴木    新品",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU QPL-PBB50005CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531401",
+      "aiPc": "",
+      "pnMtm": "PBB50001CN",
+      "productName": "MOTO XT2655 razr 70 Ultra 16G+512G 檀棕椴木     新品",
+      "pickupPrice": 7039,
+      "subsidyPrice": 8499,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBB5|R7",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB50001CN",
+        "canonicalName": "moto razr 70 Ultra 16+512 檀棕椴木",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB50001CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531418",
+      "aiPc": "",
+      "pnMtm": "PBB50002CN",
+      "productName": "MOTO XT2655 razr 70 Ultra 16G+1T 雾绒紫薇     新品",
+      "pickupPrice": 7479,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|PBB5|R7",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB50002CN",
+        "canonicalName": "moto razr 70 Ultra 16+1T 雾绒紫薇",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB50002CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531425",
+      "aiPc": "",
+      "pnMtm": "PBB50003CN",
+      "productName": "MOTO XT2655 razr 70 Ultra 16G+1T 檀棕椴木      新品",
+      "pickupPrice": 7479,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|PBB5|R7",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB50003CN",
+        "canonicalName": "moto razr 70 Ultra 16+1T 檀棕椴木",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB50003CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531432",
+      "aiPc": "",
+      "pnMtm": "PBB10000CN",
+      "productName": "MOTO XT2651 razr Fold 16G+512G 绅墨雅黑        新品",
+      "pickupPrice": 9679,
+      "subsidyPrice": 10999,
+      "stockSignals": {
+        "翰林汇天津": "5"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10000CN",
+        "canonicalName": "moto razr Fold 16+512 绅墨雅黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10000CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531449",
+      "aiPc": "",
+      "pnMtm": "PBB10001CN",
+      "productName": "MOTO XT2651 razr Fold 16G+512G 珠光锦白",
+      "pickupPrice": 9679,
+      "subsidyPrice": 10999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10001CN",
+        "canonicalName": "moto razr Fold 16+512 珠光锦白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10001CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531968",
+      "aiPc": "",
+      "pnMtm": "PBB10012CN",
+      "productName": "MOTO XT2651 razr Fold 16G+512G 2026FIFA世界杯™鎏金限定版    新品",
+      "pickupPrice": 13199,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "天津诚义T": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10012CN",
+        "canonicalName": "moto razr Fold 16+512 2026FIFA世界杯™鎏金限定版",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10012CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531456",
+      "aiPc": "",
+      "pnMtm": "PBB10002CN",
+      "productName": "MOTO XT2651 razr Fold 16G+1T 绅墨雅黑",
+      "pickupPrice": 13199,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10002CN",
+        "canonicalName": "moto razr Fold 16+1T 绅墨雅黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10002CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282597065",
+      "aiPc": "",
+      "pnMtm": "PBDH0033CN",
+      "productName": "拯救者手机 Y70 XT2611 12G+512G 碳晶黑",
+      "pickupPrice": 3255,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "翰林汇天津": "7"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0033CN",
+        "canonicalName": "拯救者手机 Y70 新一代 12+512碳晶黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0033CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376532637",
+      "aiPc": "",
+      "pnMtm": "PBDH0041CN",
+      "productName": "拯救者手机 Y70 XT2611 12G+512G 冰魄白",
+      "pickupPrice": 3255,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0041CN",
+        "canonicalName": "拯救者手机 Y70 新一代 12+512冰魄白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0041CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282597157",
+      "aiPc": "",
+      "pnMtm": "PBDH0042CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+512G 冰魄白",
+      "pickupPrice": 3607,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0042CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+512冰魄白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0042CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531968",
+      "aiPc": "",
+      "pnMtm": "PBB10012CN",
+      "productName": "MOTO XT2651 razr Fold 16G+512G 2026FIFA世界杯™鎏金限定版    新品",
+      "pickupPrice": 13199,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "天津诚义T": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "16G|512G|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10012CN",
+        "canonicalName": "moto razr Fold 16+512 2026FIFA世界杯™鎏金限定版",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10012CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376531456",
+      "aiPc": "",
+      "pnMtm": "PBB10002CN",
+      "productName": "MOTO XT2651 razr Fold 16G+1T 绅墨雅黑",
+      "pickupPrice": 13199,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|PBB1",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBB10002CN",
+        "canonicalName": "moto razr Fold 16+1T 绅墨雅黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBB10002CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282597065",
+      "aiPc": "",
+      "pnMtm": "PBDH0033CN",
+      "productName": "拯救者手机 Y70 XT2611 12G+512G 碳晶黑",
+      "pickupPrice": 3255,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "翰林汇天津": "8"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0033CN",
+        "canonicalName": "拯救者手机 Y70 新一代 12+512碳晶黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0033CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376532637",
+      "aiPc": "",
+      "pnMtm": "PBDH0041CN",
+      "productName": "拯救者手机 Y70 XT2611 12G+512G 冰魄白",
+      "pickupPrice": 3255,
+      "subsidyPrice": 4999,
+      "stockSignals": {
+        "翰林汇在途": "5"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0041CN",
+        "canonicalName": "拯救者手机 Y70 新一代 12+512冰魄白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0041CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376532569",
+      "aiPc": "",
+      "pnMtm": "PBDH0034CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+512G 碳晶黑",
+      "pickupPrice": 3607,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "翰林汇天津": "5"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0034CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+512碳晶黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0034CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282597157",
+      "aiPc": "",
+      "pnMtm": "PBDH0042CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+512G 冰魄白",
+      "pickupPrice": 3607,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "翰林汇在途": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0042CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+512冰魄白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0042CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376532576",
+      "aiPc": "",
+      "pnMtm": "PBDH0035CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+1T 碳晶黑",
+      "pickupPrice": 4311,
+      "subsidyPrice": 5999,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0035CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+1T碳晶黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0035CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6936282597157",
+      "aiPc": "",
+      "pnMtm": "PBDH0042CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+512G 冰魄白",
+      "pickupPrice": 3607,
+      "subsidyPrice": 5499,
+      "stockSignals": {
+        "翰林汇在途": "3"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "512G|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0042CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+512冰魄白",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0042CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+      "quoteDate": "2026-06-09",
+      "barcode": "6978376532576",
+      "aiPc": "",
+      "pnMtm": "PBDH0035CN",
+      "productName": "拯救者手机 Y70 XT2611 16G+1T 碳晶黑",
+      "pickupPrice": 4311,
+      "subsidyPrice": 5999,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|PBDH|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "ACT-PBDH0035CN",
+        "canonicalName": "拯救者手机 Y70 新一代 16+1T碳晶黑",
+        "currentStock": 0,
+        "sellableStock": 0,
+        "evidence": "按 PN/MTM 命中在库 SKU ACT-PBDH0035CN"
+      }
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282563633",
+      "aiPc": "",
+      "pnMtm": "83S50004CD",
+      "productName": "小新PRO-14 2026 U5-336/32G/1T/集/Win11",
+      "pickupPrice": 9407,
+      "subsidyPrice": 13999,
+      "educationSubsidy": 300,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83S5|U5|U5-336|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006837",
+        "canonicalName": "小新Pro 14 IPH11GRXU532G1TB11C",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006837"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282589206",
+      "aiPc": "",
+      "pnMtm": "83R0000FCD",
+      "productName": "YOGA AIR 14 2026 Aura U7-258/32G/1T/集/Win11/霁空蓝",
+      "pickupPrice": 8999,
+      "subsidyPrice": 14999,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "1T|32G|83R0|AIR14|U7|U7-258|YOGA",
+      "libraryMatch": {
+        "status": "inventory_fingerprint",
+        "confidence": 1,
+        "primarySkuKey": "20007961",
+        "canonicalName": "YOGA Air 14 ILL11SSXU732G1TB11C",
+        "currentStock": 4,
+        "sellableStock": 4,
+        "evidence": "按配置指纹匹配 20007961 YOGA Air 14 ILL11SSXU732G1TB11C"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282585925",
+      "aiPc": "AIPC",
+      "pnMtm": "83QC0002CD",
+      "productName": "拯救者-R9000P 2026 R9-8945/16G/1T/5060/8G/Win11   新品",
+      "pickupPrice": 12959,
+      "subsidyPrice": 24999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83QC|8G|R9|R9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007934",
+        "canonicalName": "Legion R9000P ADR10MBKER916G1TB11C",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007934"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282588001",
+      "aiPc": "",
+      "pnMtm": "83LY00TRCD",
+      "productName": "拯救者-Y7000 2026 I7-13650/16G/1T/5060/8G/Win11",
+      "pickupPrice": 11619,
+      "subsidyPrice": 11499,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83LY|8G|I7|I7-13650|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006725",
+        "canonicalName": "Legion Y7000 IRX10BKEI713650HX16G1TB11C",
+        "currentStock": 7,
+        "sellableStock": 7,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006725"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282592961",
+      "aiPc": "AIPC",
+      "pnMtm": "83F300AXCD",
+      "productName": "拯救者-Y7000P 2026 U7-251/16G/1T/5060/8G/Win11",
+      "pickupPrice": 12959,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83F3|8G|U7|U7-251|Y7000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007931",
+        "canonicalName": "Legion Y7000P IAX10BKEU716G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007931"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282594309",
+      "aiPc": "AIPC",
+      "pnMtm": "83VK0048CD",
+      "productName": "拯救者-Y7000X 2026 U7-251/16G/1T/5060/8G/Win11",
+      "pickupPrice": 12191,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83VK|8G|U7|U7-251|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007932",
+        "canonicalName": "Legion Y7000X IAX11BKEU716G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007932"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282592923",
+      "aiPc": "AIPC",
+      "pnMtm": "83F4000ECD",
+      "productName": "拯救者-Y9000P 2026 U9-290/16G/1T/5060/8G/Win11   新品",
+      "pickupPrice": 14879,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 2000,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83F4|8G|U9|U9-290|Y9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007939",
+        "canonicalName": "Legion Y9000P IAX10BKEU916G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007939"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6976547074771",
+      "aiPc": "",
+      "pnMtm": "870017738",
+      "productName": "Lecoo 酷N176 战7000 2026 I7-13645/16G/512G/5060/8G/Win11",
+      "pickupPrice": 7900,
+      "subsidyPrice": 13999,
+      "stockSignals": {
+        "小库": "2",
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|5060|512G|8700|8G|I7|I7-13645|N176|战7000|来酷",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007040",
+        "canonicalName": "斗战者N176B 2I713645HX16G512G5060G60W-11",
+        "currentStock": 6,
+        "sellableStock": 6,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007040"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282583075",
+      "aiPc": "",
+      "pnMtm": "90XS007FCD",
+      "productName": "天逸510S I5-13400/16G/512G/集/Win11/23.8",
+      "pickupPrice": 4999,
+      "subsidyPrice": 6299,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|90XS|I5|I5-13400",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006651",
+        "canonicalName": "天逸510S-08IRR I51340016G512W-11Q2",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006651"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282566429",
+      "aiPc": "",
+      "pnMtm": "90X000J9CP",
+      "productName": "GeekPro I5-14400/24G/1T/5060/8G/Win11   涨价",
+      "pickupPrice": 7800,
+      "subsidyPrice": 12199,
+      "stockSignals": {
+        "天津诚义T": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓",
+      "isQianfan": "是",
+      "matchFingerprint": "1T|24G|5060|8G|90X0|GEEKPRO|I5|I5-14400",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004915",
+        "canonicalName": "GeekPro-17IRR I51440024G1TG5B11Q (5060)",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004915"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282580494",
+      "aiPc": "",
+      "pnMtm": "F0JW0001CD",
+      "productName": "小新 27 U5-226/16G/512G/集/白/Win11",
+      "pickupPrice": 5319,
+      "subsidyPrice": 7999,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "是",
+      "matchFingerprint": "16G|512G|F0JW|U5|U5-226|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006863",
+        "canonicalName": "小新 27-ILL U5226V16G512WC-11Q",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006863"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282526881",
+      "aiPc": "",
+      "pnMtm": "ZAFT0005CN",
+      "productName": "小新平板 11 2025 TB335 8G/128G/深空灰/11寸  涨价",
+      "pickupPrice": 1071,
+      "subsidyPrice": 1299,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "翰林汇天津": "正常",
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "诚义仓",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|128G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002917",
+        "canonicalName": "TB335FC TAB 8G+128GLG-CN",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002917"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282526959",
+      "aiPc": "",
+      "pnMtm": "ZAFT0004CN",
+      "productName": "小新平板 11 2025 TB335 8G/256G/深空灰/11寸",
+      "pickupPrice": 1347,
+      "subsidyPrice": 1499,
+      "educationSubsidy": 50,
+      "stockSignals": {
+        "翰林汇在途": "正常"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "天津Z库存",
+      "isQianfan": "",
+      "matchFingerprint": "11寸|256G|ZAFT|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002916",
+        "canonicalName": "TB335FC TAB 8G+256GLG-CN",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002916"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月8日分销库存.xlsx",
+      "quoteDate": "2026-06-08",
+      "barcode": "6936282545509",
+      "aiPc": "",
+      "pnMtm": "ZAE70012CN",
+      "productName": "小新Pad Pro 2025 TB375 8G/256G/银/12.7寸",
+      "pickupPrice": 1807,
+      "subsidyPrice": 2199,
+      "educationSubsidy": 50,
+      "stockSignals": {},
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "12.7寸|256G|PRO20|ZAE7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004481",
+        "canonicalName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+        "currentStock": 8,
+        "sellableStock": 8,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004481"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-08"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月7日分销库存.xlsx",
+      "quoteDate": "2026-06-07",
+      "barcode": "6936282591872",
+      "aiPc": "AIPC",
+      "pnMtm": "83QF0002CD",
+      "productName": "拯救者-Y9000P 2026 I9-14900/16G/1T/5060/8G/Win11   新品",
+      "pickupPrice": 13439,
+      "subsidyPrice": 24999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83QF|8G|I9|I9-14900|Y9000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007936",
+        "canonicalName": "Legion Y9000P IRX11BKEI916G1TB11C",
+        "currentStock": 9,
+        "sellableStock": 9,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007936"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-07"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月4日分销库存.xlsx",
+      "quoteDate": "2026-06-04",
+      "barcode": "6936282594316",
+      "aiPc": "",
+      "pnMtm": "83VK0049CD",
+      "productName": "拯救者-Y7000X 2026 U7-251/16G/1T/5060/8G/Win11/白",
+      "pickupPrice": 12479,
+      "subsidyPrice": 23999,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "4"
+      },
+      "sampleRequired": "出样机型",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83VK|8G|U7|U7-251|Y7000|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20007933",
+        "canonicalName": "Legion Y7000X IAX11WHEU716G1TB11C",
+        "currentStock": 2,
+        "sellableStock": 2,
+        "evidence": "按 PN/MTM 命中在库 SKU 20007933"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-06-04"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-05/2026年5月31日分销库存.xlsx",
+      "quoteDate": "2026-05-31",
+      "barcode": "6936282557694",
+      "aiPc": "",
+      "pnMtm": "83HR00BKCD",
+      "productName": "小新14 2025 I5-13420/24G/512G/集/Win11",
+      "pickupPrice": 4747,
+      "subsidyPrice": 6499,
+      "stockSignals": {
+        "翰林汇天津": "2"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "24G|512G|83HR|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20004003",
+        "canonicalName": "小新 14 IRH10GRXI513420H24G51211C",
+        "currentStock": 3,
+        "sellableStock": 3,
+        "evidence": "按 PN/MTM 命中在库 SKU 20004003"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-05-31"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-05/2026年5月31日分销库存.xlsx",
+      "quoteDate": "2026-05-31",
+      "barcode": "6942292199830",
+      "aiPc": "",
+      "pnMtm": "83HR0057CD",
+      "productName": "小新14 2025 I5-13420/24G/512G/集/Win11-1",
+      "pickupPrice": 4747,
+      "subsidyPrice": 6799,
+      "stockSignals": {
+        "翰林汇天津": "1"
+      },
+      "sampleRequired": "",
+      "remark": "",
+      "isQianfan": "",
+      "matchFingerprint": "24G|512G|83HR|I5|I5-13420|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20002034",
+        "canonicalName": "小新 14 IRH10GRXI513420H 24G 51211C 集成显卡",
+        "currentStock": 1,
+        "sellableStock": 1,
+        "evidence": "按 PN/MTM 命中在库 SKU 20002034"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-05-31"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-05/2026年5月29日分销库存.xlsx",
+      "quoteDate": "2026-05-29",
+      "barcode": "6936282579566",
+      "aiPc": "",
+      "pnMtm": "83QG0007CD",
+      "productName": "小新PRO-14C 2026 R7-255/24G /1T/集/Win11",
+      "pickupPrice": 5647,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "翰林汇天津": "正常"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓，5.15-5.31号",
+      "isQianfan": "",
+      "matchFingerprint": "14C|1T|24G|83QG|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006381",
+        "canonicalName": "小新Pro14  R7-H255 24G 1T 2.8K OLED 120Hz",
+        "currentStock": 15,
+        "sellableStock": 15,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006381"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-05-29"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-05/2026年5月29日分销库存.xlsx",
+      "quoteDate": "2026-05-29",
+      "barcode": "6936282504766",
+      "aiPc": "",
+      "pnMtm": "83NN0001CD",
+      "productName": "拯救者-Y7000P 2025 I9-14900/16G/1T/5060/8G/Win11",
+      "pickupPrice": 11739,
+      "subsidyPrice": 14899,
+      "educationSubsidy": 500,
+      "stockSignals": {
+        "翰林汇天津": "正常",
+        "天津诚义T": "8"
+      },
+      "sampleRequired": "",
+      "remark": "诚义仓5.18-6.21号",
+      "isQianfan": "",
+      "matchFingerprint": "16G|1T|5060|83NN|8G|I9|I9-14900|Y7000P|拯救者",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20003216",
+        "canonicalName": "Legion Y7000P IRX10I9-14900HX 16G 1TB RTX5060-8G 2.5K 240HZ  碳晶黑",
+        "currentStock": 7,
+        "sellableStock": 7,
+        "evidence": "按 PN/MTM 命中在库 SKU 20003216"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-05-29"
+    },
+    {
+      "source": "wechat-distributor-group",
+      "groupName": "圣之航-河南政策沟通群",
+      "sourceFile": "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-05/2026年5月27日分销库存.xlsx",
+      "quoteDate": "2026-05-27",
+      "barcode": "6936282579573",
+      "aiPc": "",
+      "pnMtm": "83QH0007CD",
+      "productName": "小新PRO-16C 2026 R7-255/24G/1T/集/Win11",
+      "pickupPrice": 5859,
+      "subsidyPrice": 8999,
+      "stockSignals": {
+        "翰林汇天津": "3"
+      },
+      "sampleRequired": "",
+      "remark": "5.15-5.31号",
+      "isQianfan": "",
+      "matchFingerprint": "16C|1T|24G|83QH|R7|小新",
+      "libraryMatch": {
+        "status": "inventory_pn_mtm",
+        "confidence": 1,
+        "primarySkuKey": "20006372",
+        "canonicalName": "小新Pro16  R7-H255 24G 1T 2.8K OLED 120Hz",
+        "currentStock": 8,
+        "sellableStock": 8,
+        "evidence": "按 PN/MTM 命中在库 SKU 20006372"
+      },
+      "isCarriedForward": true,
+      "carryForwardFromQuoteDate": "2026-05-27"
+    }
+  ]
+}

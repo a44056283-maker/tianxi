@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-05-17T21:41:06.665Z",
+  "rootPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual",
+  "total": 2,
+  "pendingCount": 1,
+  "completedCount": 1,
+  "items": [
+    {
+      "source": "gray_wholesale",
+      "imageFileName": "wechat_mp_final.png",
+      "imagePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_final.png",
+      "imageModifiedAt": "2026-05-13T20:12:31.269Z",
+      "status": "pending_ocr",
+      "note": "当前无同日期 manual 文本；待 OCR 或人工转录。"
+    },
+    {
+      "source": "gray_wholesale",
+      "imageFileName": "wechat_mp_20260514_041231.png",
+      "imagePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_20260514_041231.png",
+      "imageModifiedAt": "2026-05-13T20:12:31.186Z",
+      "inferredDate": "2026-05-14",
+      "pairedTextPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_20260514_041231.ocr.txt",
+      "status": "manual_text_exists",
+      "note": "已存在同日期 manual 文本，可直接走文本解析。"
+    }
+  ]
+}

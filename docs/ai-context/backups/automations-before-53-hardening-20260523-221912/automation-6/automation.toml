@@ -1,0 +1,25 @@
+version = 1
+id = "automation-6"
+kind = "cron"
+name = "灰渠公众号报价补查-午后"
+prompt = "进入 `/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit`。先读取 `AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`。\n\n灰渠公众号报价补查固定使用 Chrome 已登录的 `https://localhost:3001/` 网页微信，禁止打开微信桌面版、无头浏览器、新 Profile。先识别当前网页状态，从左上角微信图标进入入口区，单步点击收藏/方块入口，只打开收藏夹中已经收藏的公众号报价内容或当天有效截图。禁止搜索公众号名称，禁止从小程序入口、文件传输助手名片或桌面微信进入。\n\n风控降频硬规则：凡涉及网页微信、京东、联想商城、天猫/淘宝、智店通、联想保修页或任何外部网页，禁止脚本式采集、禁止无头浏览器、禁止新浏览器 Profile、禁止批量连续打开详情页、禁止高频点击、禁止 DOM 自动扫描冒充采集。必须使用用户当前已登录 Chrome 可见窗口低频类人操作；每次点击、滚动、输入、查询、打开详情页、返回列表之间必须按页面状态自适应停顿。页面未稳定、价格区/活动区/SKU 区未出现时必须等待。出现 403、快速验证、验证码、滑块、安全验证、白屏、账号异常或明显卡顿时立即停止当前路径，保存截图和已取得证据，状态只能写 blocked_page_risk 或 executed_not_closed，不得继续硬闯，不得把旧文件或半成品写成 real_completed。\n\n找到当天原文后，保存文本到 `apps/inventory-sync/artifacts/manual/gray-wholesale-YYYY-MM-DD.txt` 或保存截图/OCR证据，再运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check` 同步灰渠批发价、规则零售价、国补后价和防流失补贴价。没有当天原文时，也要运行任务写报告，但只能是 `blocked_missing_input` 或沿用历史参考，不能写 `real_completed`。汇报必须写清是否打开网页微信、是否进入收藏夹、是否未使用搜索、原文日期、来源文件、解析条数、前端同步状态。\n\n\n\nSQL/API严格映射门禁：前端数据读取默认必须使用 API strict 映射（`VITE_INVENTORY_QUOTE_DATA_MODE=api_strict`），禁止把 `/public/data/*.json` 静态快照当作实时口径；API 不可用时只能如实标记 `executed_not_closed` 或 `blocked_page_risk`，不得以静态回退伪装实时完成。所有采集写入后必须先确认 API 返回已更新，再做前端页面可见审计。\n\n前端页面可见审计硬规则：所有定时任务在完成采集、解析、导入、数据库/JSON 同步和快照重建后，必须打开真实前端页面 `http://127.0.0.1:5174/` 或当前用户实际访问的域名页面进行可见审计。不能只看 JSON、日志、报告、接口返回或脚本状态。必须进入本任务对应的前端子书签/页面，确认页面文本真实显示本轮最新数据、关键单号/SN/SKU/金额/服务费/价格/链接/库存数量。页面没打开、页面仍旧数据、对应子书签看不到本轮关键数据、或只在 JSON 中存在但 UI 不显示，任务只能写 `executed_not_closed`，不能写 `real_completed`。汇报必须写清打开的前端 URL、进入的子书签、页面上亲眼看到的关键字段和截图/文本证据。\n\n\n2026-05-23 退单回库/供应商硬规则：1. 智店通同步在销售出库、商品入库、其他出库、库存流水、SN库存订单后，必须再打开同日线下门店退单页面，按当天日期范围检查已完成退单；存在已完成退单时，必须把对应 SN 重新同步为回库流水，再允许写 real_completed。2. 当前阶段若入库或退单回库供应商为空，统一补 联想，并同步写入 JSON、主表和 SQL。3. 若线下门店退单已完成且 SN库存订单 已出现回库轨迹，但 商品库存SN统计 尚未回显，允许按 transfer_inbound + SN库存订单 + 可见退单完成页 临时纳入当前在库，但必须在汇报中写明待下一轮智店通总表自动收敛。
+
+2026-05-23 主标题统一映射硬规则：零售英雄卡主标题是库存台账、出入库、非零售出库、历史营销/教育活动、价保、教育补代扫、报价来源等所有 SKU 展示页面的统一标题口径，禁止继续使用智店通简称作为最终标题。标题优先级固定为：京东 exact match 完整标题（主标题+副标题/配置副标题） -> 联想官旗 exact match 完整标题 -> 天猫/淘宝 exact match 完整标题 -> 当日群报价或人工确认的完整机型标题 -> 最后才允许智店通简称临时兜底。只要已有完整标题，任何任务都不得再用智店通简称覆盖回去。完整标题已包含 CPU、内存、硬盘、显卡、屏幕、颜色等关键信息时，禁止再把 matchedConfig 或斜杠配置重复拼到标题后形成双重配置。若标题仍为简称或双重配置，必须回到已登录可见页面手动展开标题区补齐，并同步写回零售标题映射源；同时复核 实时零售报价、库存详情-库存台账、出库流水/入库流水、产品价保-历史营销/教育活动 四处同 SKU 标题已一致后，才能写 real_completed，否则只能写 executed_not_closed。"
+status = "ACTIVE"
+rrule = "FREQ=DAILY;BYHOUR=13;BYMINUTE=50;BYSECOND=0"
+model = "gpt-5.3-codex"
+reasoning_effort = "high"
+execution_environment = "local"
+cwds = ["/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit"]
+created_at = 1778621123637
+updated_at = 1779176184975
+
+
+# 2026-05-23 智店通出入库/供应商/销售价硬规则：
+# 1. 凡是 `CGR*`、`商品入库`、`采购入库`、`库存流水单` 单据，必须归类到采购入库，禁止显示到销售出库。
+# 2. 当天销售金额同步必须合并当天全部 `orderData*.xlsx` 与 `orderProductData*.xlsx`，禁止只读取一个最新文件。
+# 3. 出库流水金额参考优先读取 SQL `sales_order_line.deal_price`；没有单品价时才允许回退订单总额；源文件缺失时只能写 `executed_not_closed`，不得把 `0` 或空白金额写成完成。
+# 4. `sales_order / sales_order_line` 是派生表，每轮必须按当天源数据重建，禁止保留旧轮误写结果。
+# 5. 销售单业务日期优先按单号前缀反推；禁止把历史 `XS` 单误写为今天。
+# 6. 供应商字段源导出为空但智店通可见入库页已人工核实时，必须手工回填到 `latest-serial-overrides.json`、`latest-inventory-movements.json` 和 SQL 映射结果。
+# 7. 收口前必须打开前端 `出库流水 / 入库流水` 页面复核：入库单不得挂在出库、供应商不得无故待补、已有源文件的金额不得继续为 0/待补。

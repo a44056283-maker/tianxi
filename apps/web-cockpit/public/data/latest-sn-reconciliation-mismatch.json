@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-06-12T02:03:23.179Z",
+  "source": "audit_terminal_stock_sn_sync.py",
+  "auditRunAt": "2026-06-12T02:03:23.179Z",
+  "mismatchCount": 20,
+  "overSerialCount": 20,
+  "underSerialCount": 0,
+  "mismatches": [
+    {
+      "sku_key": "20006806",
+      "name": "联想小新PadPro13英寸AI平板电脑 · 骁龙8s / 48GB / 256GB / 3.5K / Gen48",
+      "pn_mtm": "ZAH50004CN",
+      "current_stock": 0,
+      "in_stock_sn": 16,
+      "diff": 16,
+      "note": "projection vs standard drift: projection=[16,16,16] standard=[0,0,16]"
+    },
+    {
+      "sku_key": "20006725",
+      "name": "联想拯救者Y7000 / Y7000X 电竞游戏笔记本电脑 · i7-13650HX / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83LY00TRCD",
+      "current_stock": 7,
+      "in_stock_sn": 22,
+      "diff": 15
+    },
+    {
+      "sku_key": "20007932",
+      "name": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83VK0048CD",
+      "current_stock": 2,
+      "in_stock_sn": 15,
+      "diff": 13,
+      "note": "projection vs standard drift: projection=[15,15,15] standard=[2,2,15]"
+    },
+    {
+      "sku_key": "20007931",
+      "name": "联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83F300AXCD",
+      "current_stock": 2,
+      "in_stock_sn": 11,
+      "diff": 9
+    },
+    {
+      "sku_key": "20004637",
+      "name": "联想moto X70 Air 超轻薄直屏 多面耐摔 强力抗水 · 12GB / 256GB / 韵绿",
+      "pn_mtm": "PBA40002CN",
+      "current_stock": 0,
+      "in_stock_sn": 9,
+      "diff": 9,
+      "note": "projection vs standard drift: projection=[9,9,9] standard=[0,0,9]"
+    },
+    {
+      "sku_key": "20007936",
+      "name": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · i9-14900HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83QF0002CD",
+      "current_stock": 9,
+      "in_stock_sn": 15,
+      "diff": 6,
+      "note": "projection vs standard drift: projection=[15,15,15] standard=[9,9,15]"
+    },
+    {
+      "sku_key": "20007934",
+      "name": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · 锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz / RTX5060",
+      "pn_mtm": "83QC0002CD",
+      "current_stock": 3,
+      "in_stock_sn": 9,
+      "diff": 6,
+      "note": "projection vs standard drift: projection=[9,9,9] standard=[3,3,9]"
+    },
+    {
+      "sku_key": "20003216",
+      "name": "联想拯救者Y7000P 2025 电竞游戏笔记本电脑 · i9-14900HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz / 碳晶黑 / RTX5060",
+      "pn_mtm": "83NN0001CD",
+      "current_stock": 7,
+      "in_stock_sn": 12,
+      "diff": 5
+    },
+    {
+      "sku_key": "20006289",
+      "name": "YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）",
+      "pn_mtm": "83JX000ACD · Ultra5-228V 32G 1T",
+      "current_stock": 0,
+      "in_stock_sn": 5,
+      "diff": 5,
+      "note": "projection vs standard drift: projection=[5,5,5] standard=[0,0,5]"
+    },
+    {
+      "sku_key": "20004636",
+      "name": "联想moto X70 Air 超轻薄直屏 多面耐摔 强力抗水 5GAI手机 · 12GB / 256GB / 青巧",
+      "pn_mtm": "PBA40001CN",
+      "current_stock": 0,
+      "in_stock_sn": 3,
+      "diff": 3,
+      "note": "projection vs standard drift: projection=[3,3,3] standard=[0,0,3]"
+    },
+    {
+      "sku_key": "20007935",
+      "name": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白 · 锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5k 240Hz / RTX5060",
+      "pn_mtm": "83QC0003CD",
+      "current_stock": 0,
+      "in_stock_sn": 3,
+      "diff": 3,
+      "note": "projection vs standard drift: projection=[3,3,3] standard=[0,0,3]"
+    },
+    {
+      "sku_key": "20007933",
+      "name": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 冰魄白 · Ultra 7 251HX / 16GB / 1TB SSD / RTX5060 / 2.5K 165Hz / RTX5060",
+      "pn_mtm": "83VK0049CD",
+      "current_stock": 2,
+      "in_stock_sn": 4,
+      "diff": 2,
+      "note": "projection vs standard drift: projection=[4,4,4] standard=[2,2,4]"
+    },
+    {
+      "sku_key": "20007939",
+      "name": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 · Ultra 9 290HX / 16GB / 1TB SSD / RTX5060 / 碳晶黑 / RTX5060",
+      "pn_mtm": "83F4000ECD",
+      "current_stock": 2,
+      "in_stock_sn": 4,
+      "diff": 2,
+      "note": "projection vs standard drift: projection=[4,4,4] standard=[2,2,4]"
+    },
+    {
+      "sku_key": "20004671",
+      "name": "联想拯救者Y9000P 2025 AI元启电竞游戏笔记本电脑 · Ultra 9 275HX / 32GB / 1TB SSD / RTX5060 / 2.5K 240Hz / 碳晶黑 / RTX5060",
+      "pn_mtm": "83F40006CD",
+      "current_stock": 0,
+      "in_stock_sn": 2,
+      "diff": 2,
+      "note": "projection vs standard drift: projection=[2,2,2] standard=[0,0,2]"
+    },
+    {
+      "sku_key": "20007812",
+      "name": "20007812",
+      "pn_mtm": "PBB10000CN",
+      "current_stock": 0,
+      "in_stock_sn": 2,
+      "diff": 2,
+      "note": "projection vs standard drift: projection=[2,2,2] standard=[0,0,2]"
+    },
+    {
+      "sku_key": "20004481",
+      "name": "联想小新 Pad Pro 12.7 2025款 12.7英寸 影音娱乐学习办公平板电脑 霜雪银 · 天玑8300 / 8GB / 256GB / WiFi",
+      "pn_mtm": "ZAE70012CN",
+      "current_stock": 8,
+      "in_stock_sn": 9,
+      "diff": 1,
+      "note": "projection vs standard drift: projection=[9,9,9] standard=[8,8,9]"
+    },
+    {
+      "sku_key": "20007961",
+      "name": "YOGA Air 14 Aura 14英寸轻薄笔记本电脑 浅海贝 · Ultra 7 258V / 32GB / 1TB SSD",
+      "pn_mtm": "83R00001CD",
+      "current_stock": 4,
+      "in_stock_sn": 5,
+      "diff": 1,
+      "note": "projection vs standard drift: projection=[5,5,5] standard=[4,4,5]"
+    },
+    {
+      "sku_key": "20007953",
+      "name": "联想YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 · UltraX7 358H / 32GB / 1TB SSD / 2.8k 120Hz",
+      "pn_mtm": "83QK000ACD",
+      "current_stock": 2,
+      "in_stock_sn": 3,
+      "diff": 1,
+      "note": "projection vs standard drift: projection=[3,3,3] standard=[2,2,3]"
+    },
+    {
+      "sku_key": "20002909",
+      "name": "联想拯救者Y700四代AI游戏平板电脑 · 骁龙8至尊版 / 16GB / 512GB / 3K 165Hz / 8.8英寸",
+      "pn_mtm": "ZAG40002CN",
+      "current_stock": 0,
+      "in_stock_sn": 1,
+      "diff": 1,
+      "note": "projection vs standard drift: projection=[1,1,1] standard=[0,0,1]"
+    },
+    {
+      "sku_key": "20003058",
+      "name": "联想moto Razr 60 第6代折叠屏 IP48级防尘抗水 · 12GB / 512GB",
+      "pn_mtm": "PB870005CN",
+      "current_stock": 0,
+      "in_stock_sn": 1,
+      "diff": 1,
+      "note": "projection vs standard drift: projection=[1,1,1] standard=[0,0,1]"
+    }
+  ]
+}

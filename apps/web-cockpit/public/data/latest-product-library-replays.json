@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "replay-2064388b51f22a0c80a1e6bf",
+      "replay_type": "inventory_master_sync",
+      "source_system": "manual_product_library",
+      "source_ref": "smoke-test",
+      "status": "queued",
+      "error_message": "",
+      "created_by": "codex",
+      "started_at": "2026-05-15T11:59:09.486596+00:00",
+      "finished_at": "",
+      "scope": {
+        "from": "product-library-ui-test"
+      },
+      "result": {}
+    }
+  ],
+  "count": 1
+}

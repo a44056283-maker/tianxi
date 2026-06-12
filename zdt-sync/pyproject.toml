@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zdt-sync"
+version = "0.1.0"
+description = "White-listed Playwright CLI collector for authorized retail back-office data synchronization"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typer[all]>=0.12",
+  "rich>=13.7",
+  "playwright>=1.45",
+  "SQLAlchemy>=2.0",
+  "psycopg[binary]>=3.1",
+  "PyYAML>=6.0",
+  "python-dotenv>=1.0",
+  "openpyxl>=3.1",
+  "pandas>=2.2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+  "mypy>=1.10"
+]
+crawlee = [
+  "crawlee[playwright]>=0.5"
+]
+
+[project.scripts]
+zdt-sync = "zdt_sync.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["zdt_sync*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

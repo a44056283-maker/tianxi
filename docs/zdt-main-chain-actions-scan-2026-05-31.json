@@ -1,0 +1,365 @@
+[
+  {
+    "top": "商品",
+    "submenu": "经销商商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "发布商品",
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "发布商品",
+          "查看",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看",
+      "编辑"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "门店商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "查看",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看",
+      "编辑"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "仓库商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "查看"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "收银热卖商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "删除",
+          "下移"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "删除",
+          "置顶",
+          "上移",
+          "下移"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "选择商品"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "供应商管理",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "禁用",
+          "删除",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "禁用",
+          "删除",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "新建",
+      "编辑"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线下门店订单",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "XS26053131554072229",
+          "查看详情",
+          "订单备注"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看详情"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线下门店退单",
+    "rowActions": [],
+    "detailEntrances": []
+  },
+  {
+    "top": "订单",
+    "submenu": "线上订单",
+    "rowActions": [],
+    "detailEntrances": []
+  },
+  {
+    "top": "订单",
+    "submenu": "线上退单",
+    "rowActions": [],
+    "detailEntrances": []
+  },
+  {
+    "top": "库存",
+    "submenu": "商品库存",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "查看序列号"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库位库存",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存总览",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存流水",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "XS26053131554072229"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "XS26053131554072229"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存订单",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "SN库存订单",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "销售成本价维护",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "调拨出库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "调拨入库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "调拨申请"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "商品入库",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "CGR260531422330"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "CGR260531422299"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "其他出入库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "新建出库单"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "同店换库位",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存配置",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "查看序列号"
+    ]
+  }
+]

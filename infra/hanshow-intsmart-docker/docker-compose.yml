@@ -1,0 +1,36 @@
+services:
+  intsmart-mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: hanshow-intsmart-mysql
+    command:
+      - --lower-case-table-names=1
+      - --character-set-server=utf8
+      - --collation-server=utf8_general_ci
+      - --max-connections=300
+    environment:
+      MYSQL_ROOT_PASSWORD: local-intsmart-only
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./runtime/mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  intsmart:
+    build: .
+    platform: linux/amd64
+    container_name: hanshow-intsmart
+    depends_on:
+      intsmart-mysql:
+        condition: service_started
+    ports:
+      - "8445:8445"
+      - "48446:48446"
+    volumes:
+      - ./runtime/app:/opt/intsmart
+    command: ["/bin/bash", "-lc", "sleep 10 && rm -f /opt/intsmart/integration-daemon.pid && chmod +x /opt/intsmart/bin/jsvc /opt/intsmart/bin/integration.sh && exec /opt/intsmart/bin/integration.sh --java-home /opt/java/openjdk --app-home /opt/intsmart --app-user root run"]
+    restart: unless-stopped

@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-05-16T10:38:19.335Z",
+  "period": {
+    "from": "2026-05-16",
+    "to": "2026-05-16"
+  },
+  "sourceFiles": [
+    {
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-sales-export-2026-05-13.xlsx",
+      "kind": "sales_export",
+      "discoveredBy": "header",
+      "rowCount": 2,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "文件缺少显式日期列，审计与重跑需要从订单号或文件名推断业务日期。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Downloads/orderProductData (1).xlsx",
+      "kind": "sales_export",
+      "discoveredBy": "header",
+      "rowCount": 4,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "文件缺少显式日期列，审计与重跑需要从订单号或文件名推断业务日期。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Downloads/orderProductData (2).xlsx",
+      "kind": "sales_export",
+      "discoveredBy": "header",
+      "rowCount": 9,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "文件缺少显式日期列，审计与重跑需要从订单号或文件名推断业务日期。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Downloads/orderProductData (3).xlsx",
+      "kind": "sales_export",
+      "discoveredBy": "header",
+      "rowCount": 7,
+      "salesRowCount": 7,
+      "orderCount": 6,
+      "dateCoverage": [
+        "2026-05-16"
+      ],
+      "notes": [
+        "文件缺少显式日期列，审计与重跑需要从订单号或文件名推断业务日期。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Downloads/orderProductData.xlsx",
+      "kind": "sales_export",
+      "discoveredBy": "header",
+      "rowCount": 2,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "文件缺少显式日期列，审计与重跑需要从订单号或文件名推断业务日期。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Downloads/stock_count2026-05-14 (2).xlsx",
+      "kind": "stock_stream",
+      "discoveredBy": "header",
+      "rowCount": 125,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "文件存在，但目标时段内未发现销售出库行。"
+      ]
+    },
+    {
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/2026-05-12-zhidiantong-sales-outbound-import.json",
+      "kind": "historical_sales_artifact",
+      "discoveredBy": "fixed_artifact",
+      "rowCount": 0,
+      "salesRowCount": 0,
+      "orderCount": 0,
+      "dateCoverage": [],
+      "notes": [
+        "历史导入产物，用于和 latest-inventory-movements.json 做日期漂移对比。"
+      ]
+    }
+  ],
+  "localSalesMovements": {
+    "count": 5,
+    "byDate": {
+      "2026-05-16": 5
+    },
+    "orderCount": 5
+  },
+  "historicalSalesArtifact": {
+    "path": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/2026-05-12-zhidiantong-sales-outbound-import.json",
+    "count": 0,
+    "byDate": {}
+  },
+  "daySummary": [
+    {
+      "date": "2026-05-16",
+      "localSalesCount": 5,
+      "historicalSalesCount": 0,
+      "sourceEvidenceRowCount": 7,
+      "sourceEvidenceKinds": [
+        "sales_export"
+      ],
+      "hasSourceEvidence": true,
+      "hasLocalSales": true,
+      "status": "covered"
+    }
+  ],
+  "missingEvidenceDays": [],
+  "mismatchedHistoricalDates": [],
+  "consistency": {
+    "status": "insufficient_evidence",
+    "reasons": [
+      "现存原始文件未覆盖 2026-05-01 至 2026-05-14 全时段，无法证明该区间与智店通完全一致。"
+    ]
+  },
+  "rerun": {
+    "canReplayCurrentSalesExport": true,
+    "canReplayUnifiedStockStream": true,
+    "commands": [
+      "cd apps/inventory-sync && node --import tsx/esm src/cli.ts import-zhidiantong-sales-export \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-sales-export-2026-05-13.xlsx\"",
+      "cd apps/inventory-sync && node --import tsx/esm src/cli.ts import-zhidiantong-stock-stream \"/Users/luxiangnan/Downloads/stock_count2026-05-14 (2).xlsx\"",
+      "cd apps/inventory-sync && node --import tsx/esm src/cli.ts audit-zhidiantong-sales-sync 2026-05-01 2026-05-14"
+    ],
+    "blockers": [
+      "缺少覆盖 2026-05-01 至 2026-05-14 全区间的智店通销售导出或库存流水原始文件。",
+      "当前销售导出文件没有显式日期列，重跑依赖订单号/文件名推断日期。"
+    ]
+  }
+}

@@ -1,0 +1,1334 @@
+{
+  "generatedAt": "2026-05-31T23:52:51+08:00",
+  "source": "api_inventory_movements_purchase_inbound_doc_sku_duplicate_audit",
+  "summary": {
+    "apiPurchaseRows": 498,
+    "uniqueDocumentSkuCount": 253,
+    "duplicateGroupCount": 125
+  },
+  "issues": [
+    {
+      "documentNumber": "CGR260512381756",
+      "skuKey": "20006725",
+      "rawRowCount": 12,
+      "quantities": [
+        "1",
+        "10"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260512381756-20006725-ROW22",
+        "PURCHASEQ-CGR260512381756-20006725-ROW20",
+        "PURCHASE-CGR260512381756-BH0230YB",
+        "PURCHASE-CGR260512381756-BH0230XP",
+        "PURCHASE-CGR260512381756-BH0230VZ",
+        "PURCHASE-CGR260512381756-BH0230SF",
+        "PURCHASE-CGR260512381756-BH0230M4",
+        "PURCHASE-CGR260512381756-BH0230LF"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399577",
+      "skuKey": "20007936",
+      "rawRowCount": 9,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399577-PF6D2NVK",
+        "PURCHASE-CGR260521399577-PF6D2BC0",
+        "PURCHASE-CGR260521399577-PF6D26H1",
+        "PURCHASE-CGR260521399577-PF6D2094",
+        "PURCHASE-CGR260521399577-PF6D1YVX",
+        "PURCHASE-CGR260521399577-PF6D13CQ",
+        "PURCHASE-CGR260521399577-PF6CCBFG",
+        "PURCHASE-CGR260521399577-PF6CB1PJ"
+      ]
+    },
+    {
+      "documentNumber": "CGR260528415242",
+      "skuKey": "20002455",
+      "rawRowCount": 8,
+      "quantities": [
+        "1",
+        "7"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260528415242-20002455-ROW5",
+        "PURCHASE-CGR260528415242-MP2ZXWF7",
+        "PURCHASE-CGR260528415242-MP2ZXWDT",
+        "PURCHASE-CGR260528415242-MP2ZXWCS",
+        "PURCHASE-CGR260528415242-MP2ZXWBP",
+        "PURCHASE-CGR260528415242-MP2ZXWBC",
+        "PURCHASE-CGR260528415242-MP2ZXWAZ",
+        "PURCHASE-CGR260528415242-MP2ZXWAP"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399557",
+      "skuKey": "20007932",
+      "rawRowCount": 7,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399557-MP30WBY6",
+        "PURCHASE-CGR260521399557-MP30WBXB",
+        "PURCHASE-CGR260521399557-MP30W9TG",
+        "PURCHASE-CGR260521399557-MP30W9LY",
+        "PURCHASE-CGR260521399557-MP30W3XH",
+        "PURCHASE-CGR260521399557-MP2TRYZJ",
+        "PURCHASE-CGR260521399557-MP2TRV9R"
+      ]
+    },
+    {
+      "documentNumber": "CGR260526411178",
+      "skuKey": "20002914",
+      "rawRowCount": 6,
+      "quantities": [
+        "1",
+        "5"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260526411178-20002914-ROW18",
+        "PURCHASE-CGR260526411178-HA2DWEKX",
+        "PURCHASE-CGR260526411178-HA2DW9FM",
+        "PURCHASE-CGR260526411178-HA2DT069",
+        "PURCHASE-CGR260526411178-HA2DSY2E",
+        "PURCHASE-CGR260526411178-HA2DSY0R"
+      ]
+    },
+    {
+      "documentNumber": "CGR260526411174",
+      "skuKey": "20002916",
+      "rawRowCount": 6,
+      "quantities": [
+        "1",
+        "5"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260526411174-20002916-ROW19",
+        "PURCHASE-CGR260526411174-HA2HGD2W",
+        "PURCHASE-CGR260526411174-HA2HGA5M",
+        "PURCHASE-CGR260526411174-HA2HG8H7",
+        "PURCHASE-CGR260526411174-HA2HEQLH",
+        "PURCHASE-CGR260526411174-HA2HD16E"
+      ]
+    },
+    {
+      "documentNumber": "CGR260526411167",
+      "skuKey": "20002917",
+      "rawRowCount": 6,
+      "quantities": [
+        "1",
+        "5"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260526411167-20002917-ROW20",
+        "PURCHASE-CGR260526411167-HA2JAC3T",
+        "PURCHASE-CGR260526411167-HA2HPD2E",
+        "PURCHASE-CGR260526411167-HA2HM8SJ",
+        "PURCHASE-CGR260526411167-HA2HDS65",
+        "PURCHASE-CGR260526411167-HA2HD11K"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399616",
+      "skuKey": "20007934",
+      "rawRowCount": 6,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399616-PF6AVQ1P",
+        "PURCHASE-CGR260521399616-PF6AVPZB",
+        "PURCHASE-CGR260521399616-PF6AVPN5",
+        "PURCHASE-CGR260521399616-PF6ATYEM",
+        "PURCHASE-CGR260521399616-PF65ARAA",
+        "PURCHASE-CGR260521399616-PF64T99F"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399590",
+      "skuKey": "20007931",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399590-PF6CGX5R",
+        "PURCHASE-CGR260521399590-PF6CFN3T",
+        "PURCHASE-CGR260521399590-PF6CFGS7",
+        "PURCHASE-CGR260521399590-PF6CA7LL",
+        "PURCHASE-CGR260521399590-PF6C35B9"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395227",
+      "skuKey": "20002916",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395227-HA2HGBZH",
+        "PURCHASE-CGR260520395227-HA2HGAH8",
+        "PURCHASE-CGR260520395227-HA2HG50H",
+        "PURCHASE-CGR260520395227-HA2HCYZH",
+        "PURCHASE-CGR260520395227-HA2HCYYK"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395207",
+      "skuKey": "20002917",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395207-HA2HPX37",
+        "PURCHASE-CGR260520395207-HA2HPX1Y",
+        "PURCHASE-CGR260520395207-HA2HPV0W",
+        "PURCHASE-CGR260520395207-HA2HPH9P",
+        "PURCHASE-CGR260520395207-HA2HNXZP"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395198",
+      "skuKey": "20002914",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395198-HA2DTZ8L",
+        "PURCHASE-CGR260520395198-HA2DTPSK",
+        "PURCHASE-CGR260520395198-HA2DSY2H",
+        "PURCHASE-CGR260520395198-HA2DSY1H",
+        "PURCHASE-CGR260520395198-HA2DSJ7K"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382897",
+      "skuKey": "20000080",
+      "rawRowCount": 5,
+      "quantities": [
+        "9"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382897_1384237798599913472",
+        "PURCHASEQ-CGR260513382897-20000080-ROW6",
+        "PURCHASEQ-CGR260513382897-20000080-ROW4",
+        "PURCHASEQ-CGR260513382897-20000080-ROW21",
+        "PURCHASEQ-CGR260513382897-20000080-1-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382877",
+      "skuKey": "20000386",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382877_1384237798599913472",
+        "PURCHASEQ-CGR260513382877-20000386-ROW7",
+        "PURCHASEQ-CGR260513382877-20000386-ROW5",
+        "PURCHASEQ-CGR260513382877-20000386-ROW22",
+        "PURCHASEQ-CGR260513382877-20000386-2-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382868",
+      "skuKey": "20001158",
+      "rawRowCount": 5,
+      "quantities": [
+        "6"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382868_1384237798599913472",
+        "PURCHASEQ-CGR260513382868-20001158-ROW8",
+        "PURCHASEQ-CGR260513382868-20001158-ROW6",
+        "PURCHASEQ-CGR260513382868-20001158-ROW23",
+        "PURCHASEQ-CGR260513382868-20001158-3-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382859",
+      "skuKey": "20000386",
+      "rawRowCount": 5,
+      "quantities": [
+        "3"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382859_1384237798599913472",
+        "PURCHASEQ-CGR260513382859-20000386-ROW9",
+        "PURCHASEQ-CGR260513382859-20000386-ROW7",
+        "PURCHASEQ-CGR260513382859-20000386-ROW24",
+        "PURCHASEQ-CGR260513382859-20000386-4-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382856",
+      "skuKey": "20000080",
+      "rawRowCount": 5,
+      "quantities": [
+        "5"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382856_1384237798599913472",
+        "PURCHASEQ-CGR260513382856-20000080-ROW8",
+        "PURCHASEQ-CGR260513382856-20000080-ROW25",
+        "PURCHASEQ-CGR260513382856-20000080-ROW10",
+        "PURCHASEQ-CGR260513382856-20000080-5-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382821",
+      "skuKey": "20001158",
+      "rawRowCount": 5,
+      "quantities": [
+        "5"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382821_1384237798599913472",
+        "PURCHASEQ-CGR260513382821-20001158-ROW9",
+        "PURCHASEQ-CGR260513382821-20001158-ROW26",
+        "PURCHASEQ-CGR260513382821-20001158-ROW11",
+        "PURCHASEQ-CGR260513382821-20001158-6-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382802",
+      "skuKey": "20001158",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382802_1384237798599913472",
+        "PURCHASEQ-CGR260513382802-20001158-ROW28",
+        "PURCHASEQ-CGR260513382802-20001158-ROW12",
+        "PURCHASEQ-CGR260513382802-20001158-ROW10",
+        "PURCHASEQ-CGR260513382802-20001158-7-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382794",
+      "skuKey": "20003230",
+      "rawRowCount": 5,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382794_1384237798599913472",
+        "PURCHASEQ-CGR260513382794-20003230-ROW29",
+        "PURCHASEQ-CGR260513382794-20003230-ROW13",
+        "PURCHASEQ-CGR260513382794-20003230-ROW11",
+        "PURCHASEQ-CGR260513382794-20003230-8-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382786",
+      "skuKey": "20003833",
+      "rawRowCount": 5,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382786_1384237798599913472",
+        "PURCHASEQ-CGR260513382786-20003833-ROW30",
+        "PURCHASEQ-CGR260513382786-20003833-ROW14",
+        "PURCHASEQ-CGR260513382786-20003833-ROW12",
+        "PURCHASEQ-CGR260513382786-20003833-9-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382778",
+      "skuKey": "20001119",
+      "rawRowCount": 5,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382778_1384237798599913472",
+        "PURCHASEQ-CGR260513382778-20001119-ROW31",
+        "PURCHASEQ-CGR260513382778-20001119-ROW15",
+        "PURCHASEQ-CGR260513382778-20001119-ROW13",
+        "PURCHASEQ-CGR260513382778-20001119-10-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382772",
+      "skuKey": "20003256",
+      "rawRowCount": 5,
+      "quantities": [
+        "8"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382772_1384237798599913472",
+        "PURCHASEQ-CGR260513382772-20003256-ROW32",
+        "PURCHASEQ-CGR260513382772-20003256-ROW16",
+        "PURCHASEQ-CGR260513382772-20003256-ROW14",
+        "PURCHASEQ-CGR260513382772-20003256-11-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382763",
+      "skuKey": "20001279",
+      "rawRowCount": 5,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382763_1384237798599913472",
+        "PURCHASEQ-CGR260513382763-20001279-ROW33",
+        "PURCHASEQ-CGR260513382763-20001279-ROW17",
+        "PURCHASEQ-CGR260513382763-20001279-ROW15",
+        "PURCHASEQ-CGR260513382763-20001279-12-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382754",
+      "skuKey": "20003813",
+      "rawRowCount": 5,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382754_1384237798599913472",
+        "PURCHASEQ-CGR260513382754-20003813-ROW34",
+        "PURCHASEQ-CGR260513382754-20003813-ROW18",
+        "PURCHASEQ-CGR260513382754-20003813-ROW16",
+        "PURCHASEQ-CGR260513382754-20003813-13-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382750",
+      "skuKey": "20003417",
+      "rawRowCount": 5,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382750_1384237798599913472",
+        "PURCHASEQ-CGR260513382750-20003417-ROW35",
+        "PURCHASEQ-CGR260513382750-20003417-ROW19",
+        "PURCHASEQ-CGR260513382750-20003417-ROW17",
+        "PURCHASEQ-CGR260513382750-20003417-14-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382744",
+      "skuKey": "20003281",
+      "rawRowCount": 5,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513382744_1384237798599913472",
+        "PURCHASEQ-CGR260513382744-20003281-ROW36",
+        "PURCHASEQ-CGR260513382744-20003281-ROW20",
+        "PURCHASEQ-CGR260513382744-20003281-ROW18",
+        "PURCHASEQ-CGR260513382744-20003281-15-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520394985",
+      "skuKey": "20007936",
+      "rawRowCount": 4,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520394985-PF6D2R16",
+        "PURCHASE-CGR260520394985-PF6D2NW8",
+        "PURCHASE-CGR260520394985-PF6D208M",
+        "PURCHASE-CGR260520394985-PF6A6DTS"
+      ]
+    },
+    {
+      "documentNumber": "CGR260514384402",
+      "skuKey": "20003216",
+      "rawRowCount": 4,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260514384402-20003216-ROW7",
+        "PURCHASEQ-CGR260514384402-20003216-ROW4",
+        "PURCHASEQ-CGR260514384402-20003216-ROW2",
+        "PURCHASEQ-CGR260514384402-20003216-ROW1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513383646",
+      "skuKey": "20007012",
+      "rawRowCount": 4,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260513383646_1384237798599913472",
+        "PURCHASEQ-CGR260513383646-20007012-ROW9",
+        "PURCHASEQ-CGR260513383646-20007012-ROW5",
+        "PURCHASEQ-CGR260513383646-20007012-ROW3"
+      ]
+    },
+    {
+      "documentNumber": "CGR260513382652",
+      "skuKey": "20003216",
+      "rawRowCount": 4,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260513382652-20003216-ROW37",
+        "PURCHASEQ-CGR260513382652-20003216-ROW21",
+        "PURCHASEQ-CGR260513382652-20003216-ROW19",
+        "PURCHASEQ-CGR260513382652-20003216-16-1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260509376935",
+      "skuKey": "20004532",
+      "rawRowCount": 4,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260509376935_1384237798599913472",
+        "PURCHASEQ-CGR260509376935-20004532-ROW47",
+        "PURCHASEQ-CGR260509376935-20004532-ROW36",
+        "PURCHASEQ-CGR260509376935-20004532-ROW112"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520398187",
+      "skuKey": "20004397",
+      "rawRowCount": 3,
+      "quantities": [
+        "1",
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260520398187_1384237798599913472",
+        "PURCHASE-CGR260520398187-1SQXB1R01053Z15RXP4Z",
+        "PURCHASE-CGR260520398187-1SQXB1R01053Z15RXP4J"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395099",
+      "skuKey": "20007794",
+      "rawRowCount": 3,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395099-HA2GLVTM",
+        "PURCHASE-CGR260520395099-HA2GJ6NS",
+        "PURCHASE-CGR260520395099-HA2GH7VJ"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520394906",
+      "skuKey": "20007932",
+      "rawRowCount": 3,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520394906-MP30W9G1",
+        "PURCHASE-CGR260520394906-MP2TRX5D",
+        "PURCHASE-CGR260520394906-MP2TQ5M0"
+      ]
+    },
+    {
+      "documentNumber": "CGR260519393227",
+      "skuKey": "20007050",
+      "rawRowCount": 3,
+      "quantities": [
+        "1",
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260519393227_1384237798599913472",
+        "PURCHASE-CGR260519393227-HJN013KX",
+        "PURCHASE-CGR260519393227-HJN013D0"
+      ]
+    },
+    {
+      "documentNumber": "CGR260519393203",
+      "skuKey": "20006749",
+      "rawRowCount": 3,
+      "quantities": [
+        "1",
+        "2"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260519393203_1384237798599913472",
+        "PURCHASE-CGR260519393203-HVE7053U",
+        "PURCHASE-CGR260519393203-HVE7047D"
+      ]
+    },
+    {
+      "documentNumber": "CGR260515386636",
+      "skuKey": "20003220",
+      "rawRowCount": 3,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260515386636-BH0211X7",
+        "PURCHASE-CGR260515386636-BH0211WS",
+        "PURCHASE-CGR260515386636-BH020XFB"
+      ]
+    },
+    {
+      "documentNumber": "CGR260514385509",
+      "skuKey": "20006725",
+      "rawRowCount": 3,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260514385509-20006725-ROW6",
+        "PURCHASEQ-CGR260514385509-20006725-ROW3",
+        "PURCHASEQ-CGR260514385509-20006725-ROW1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260508374989",
+      "skuKey": "20004671",
+      "rawRowCount": 3,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260508374989-20004671-ROW48",
+        "PURCHASEQ-CGR260508374989-20004671-ROW37",
+        "PURCHASEQ-CGR260508374989-20004671-ROW114"
+      ]
+    },
+    {
+      "documentNumber": "CGR260505369677",
+      "skuKey": "20003216",
+      "rawRowCount": 3,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260505369677-20003216-ROW49",
+        "PURCHASEQ-CGR260505369677-20003216-ROW38",
+        "PURCHASEQ-CGR260505369677-20003216-ROW118"
+      ]
+    },
+    {
+      "documentNumber": "CGR260528415087",
+      "skuKey": "20005623",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260528415087_1384237798599913472",
+        "PURCHASEQ-CGR260528415087-20005623-ROW9"
+      ]
+    },
+    {
+      "documentNumber": "CGR260526412254",
+      "skuKey": "20007980",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260526412254_1384237798599913472",
+        "PURCHASEQ-CGR260526412254-20007980-ROW17"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399626",
+      "skuKey": "20007935",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399626-PF65BBJG",
+        "PURCHASE-CGR260521399626-PF65BBH6"
+      ]
+    },
+    {
+      "documentNumber": "CGR260521399561",
+      "skuKey": "20007933",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260521399561-MP2TRZD2",
+        "PURCHASE-CGR260521399561-MP2TRZ9R"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395084",
+      "skuKey": "20007795",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395084-HA2FGXV9",
+        "PURCHASE-CGR260520395084-HA2FEBFJ"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520395009",
+      "skuKey": "20007934",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520395009-PF6AW110",
+        "PURCHASE-CGR260520395009-PF6AVGQK"
+      ]
+    },
+    {
+      "documentNumber": "CGR260520394974",
+      "skuKey": "20007931",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260520394974-PF6C87FL",
+        "PURCHASE-CGR260520394974-PF6C1RJ5"
+      ]
+    },
+    {
+      "documentNumber": "CGR260516388654",
+      "skuKey": "20007012",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260516388654_1384237798599913472",
+        "PURCHASE-CGR260516388654-OD4844245004966"
+      ]
+    },
+    {
+      "documentNumber": "CGR260515387969",
+      "skuKey": "20004397",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "ZDT-CGR260515387969_1384237798599913472",
+        "PURCHASE-CGR260515387969-1SQXB1R01053Z15RXNP4"
+      ]
+    },
+    {
+      "documentNumber": "CGR260515386645",
+      "skuKey": "20003128",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260515386645-BH01W6CG",
+        "PURCHASE-CGR260515386645-BH01W6C4"
+      ]
+    },
+    {
+      "documentNumber": "CGR260515386643",
+      "skuKey": "20006725",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASE-CGR260515386643-BH022VRP",
+        "PURCHASE-CGR260515386643-BH022VQ3"
+      ]
+    },
+    {
+      "documentNumber": "CGR260514385509",
+      "skuKey": "20003220",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260514385509-20003220-ROW4",
+        "PURCHASEQ-CGR260514385509-20003220-ROW1"
+      ]
+    },
+    {
+      "documentNumber": "CGR260514385509",
+      "skuKey": "20003128",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260514385509-20003128-ROW5",
+        "PURCHASEQ-CGR260514385509-20003128-ROW2"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007252",
+      "skuKey": "20003128",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007252-20003128-ROW56",
+        "PURCHASEQ-TDR000007252-20003128-ROW23"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007251",
+      "skuKey": "20003886",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007251-20003886-ROW65",
+        "PURCHASEQ-TDR000007251-20003886-ROW24"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007250",
+      "skuKey": "20003662",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007250-20003662-ROW67",
+        "PURCHASEQ-TDR000007250-20003662-ROW25"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007249",
+      "skuKey": "20002022",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007249-20002022-ROW69",
+        "PURCHASEQ-TDR000007249-20002022-ROW26"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007248",
+      "skuKey": "20002032",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007248-20002032-ROW71",
+        "PURCHASEQ-TDR000007248-20002032-ROW27"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007247",
+      "skuKey": "20002034",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007247-20002034-ROW73",
+        "PURCHASEQ-TDR000007247-20002034-ROW28"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007246",
+      "skuKey": "20003128",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007246-20003128-ROW75",
+        "PURCHASEQ-TDR000007246-20003128-ROW29"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007245",
+      "skuKey": "20003126",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007245-20003126-ROW77",
+        "PURCHASEQ-TDR000007245-20003126-ROW30"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007244",
+      "skuKey": "20002039",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007244-20002039-ROW79",
+        "PURCHASEQ-TDR000007244-20002039-ROW31"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007243",
+      "skuKey": "20001595",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007243-20001595-ROW81",
+        "PURCHASEQ-TDR000007243-20001595-ROW32"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007242",
+      "skuKey": "20002781",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007242-20002781-ROW83",
+        "PURCHASEQ-TDR000007242-20002781-ROW33"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007241",
+      "skuKey": "20002886",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007241-20002886-ROW85",
+        "PURCHASEQ-TDR000007241-20002886-ROW34"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007240",
+      "skuKey": "20002614",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007240-20002614-ROW87",
+        "PURCHASEQ-TDR000007240-20002614-ROW35"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007239",
+      "skuKey": "20003938",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007239-20003938-ROW89",
+        "PURCHASEQ-TDR000007239-20003938-ROW36"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007238",
+      "skuKey": "20001669",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007238-20001669-ROW91",
+        "PURCHASEQ-TDR000007238-20001669-ROW37"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007237",
+      "skuKey": "20002909",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007237-20002909-ROW93",
+        "PURCHASEQ-TDR000007237-20002909-ROW38"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007236",
+      "skuKey": "20003432",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007236-20003432-ROW95",
+        "PURCHASEQ-TDR000007236-20003432-ROW39"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007235",
+      "skuKey": "20003436",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007235-20003436-ROW97",
+        "PURCHASEQ-TDR000007235-20003436-ROW40"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007234",
+      "skuKey": "20002917",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007234-20002917-ROW99",
+        "PURCHASEQ-TDR000007234-20002917-ROW41"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007233",
+      "skuKey": "20002457",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007233-20002457-ROW42",
+        "PURCHASEQ-TDR000007233-20002457-ROW101"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007232",
+      "skuKey": "20004481",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007232-20004481-ROW43",
+        "PURCHASEQ-TDR000007232-20004481-ROW103"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007231",
+      "skuKey": "20003058",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007231-20003058-ROW44",
+        "PURCHASEQ-TDR000007231-20003058-ROW105"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007230",
+      "skuKey": "20003065",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007230-20003065-ROW45",
+        "PURCHASEQ-TDR000007230-20003065-ROW107"
+      ]
+    },
+    {
+      "documentNumber": "TDR000007229",
+      "skuKey": "20003356",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-TDR000007229-20003356-ROW46",
+        "PURCHASEQ-TDR000007229-20003356-ROW109"
+      ]
+    },
+    {
+      "documentNumber": "CGR260505369646",
+      "skuKey": "20007061",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260505369646-20007061-ROW50",
+        "PURCHASEQ-CGR260505369646-20007061-ROW120"
+      ]
+    },
+    {
+      "documentNumber": "CGR260503367097",
+      "skuKey": "20004671",
+      "rawRowCount": 2,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260503367097-20004671-ROW52",
+        "PURCHASEQ-CGR260503367097-20004671-ROW39"
+      ]
+    },
+    {
+      "documentNumber": "CGR260503366398",
+      "skuKey": "20003216",
+      "rawRowCount": 2,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260503366398-20003216-ROW53",
+        "PURCHASEQ-CGR260503366398-20003216-ROW40"
+      ]
+    },
+    {
+      "documentNumber": "CGR260501361659",
+      "skuKey": "20007040",
+      "rawRowCount": 2,
+      "quantities": [
+        "6"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260501361659-20007040-ROW54",
+        "PURCHASEQ-CGR260501361659-20007040-ROW41"
+      ]
+    },
+    {
+      "documentNumber": "CGR260501361190",
+      "skuKey": "20006725",
+      "rawRowCount": 2,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260501361190-20006725-ROW55",
+        "PURCHASEQ-CGR260501361190-20006725-ROW42"
+      ]
+    },
+    {
+      "documentNumber": "CGR260414338896",
+      "skuKey": "20004915",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260414338896-20004915-ROW60",
+        "PURCHASEQ-CGR260414338896-20004915-ROW43"
+      ]
+    },
+    {
+      "documentNumber": "CGR260411335163",
+      "skuKey": "20004671",
+      "rawRowCount": 2,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260411335163-20004671-ROW63",
+        "PURCHASEQ-CGR260411335163-20004671-ROW44"
+      ]
+    },
+    {
+      "documentNumber": "CGR260411335160",
+      "skuKey": "20003216",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260411335160-20003216-ROW66",
+        "PURCHASEQ-CGR260411335160-20003216-ROW46"
+      ]
+    },
+    {
+      "documentNumber": "CGR260411335160",
+      "skuKey": "20003126",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260411335160-20003126-ROW65",
+        "PURCHASEQ-CGR260411335160-20003126-ROW45"
+      ]
+    },
+    {
+      "documentNumber": "CGR260411335156",
+      "skuKey": "20006725",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260411335156-20006725-ROW68",
+        "PURCHASEQ-CGR260411335156-20006725-ROW47"
+      ]
+    },
+    {
+      "documentNumber": "CGR260410333730",
+      "skuKey": "20004671",
+      "rawRowCount": 2,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260410333730-20004671-ROW71",
+        "PURCHASEQ-CGR260410333730-20004671-ROW48"
+      ]
+    },
+    {
+      "documentNumber": "CGR260410333726",
+      "skuKey": "20003216",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260410333726-20003216-ROW72",
+        "PURCHASEQ-CGR260410333726-20003216-ROW49"
+      ]
+    },
+    {
+      "documentNumber": "CGR260410333726",
+      "skuKey": "20003126",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260410333726-20003126-ROW74",
+        "PURCHASEQ-CGR260410333726-20003126-ROW50"
+      ]
+    },
+    {
+      "documentNumber": "CGR260410333698",
+      "skuKey": "20006725",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260410333698-20006725-ROW77",
+        "PURCHASEQ-CGR260410333698-20006725-ROW51"
+      ]
+    },
+    {
+      "documentNumber": "CGR260403324520",
+      "skuKey": "20002917",
+      "rawRowCount": 2,
+      "quantities": [
+        "2"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260403324520-20002917-ROW79",
+        "PURCHASEQ-CGR260403324520-20002917-ROW52"
+      ]
+    },
+    {
+      "documentNumber": "CGR260402323093",
+      "skuKey": "20004361",
+      "rawRowCount": 2,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260402323093-20004361-ROW81",
+        "PURCHASEQ-CGR260402323093-20004361-ROW53"
+      ]
+    },
+    {
+      "documentNumber": "CGR260402323086",
+      "skuKey": "20006651",
+      "rawRowCount": 2,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260402323086-20006651-ROW82",
+        "PURCHASEQ-CGR260402323086-20006651-ROW54"
+      ]
+    },
+    {
+      "documentNumber": "CGR260331318144",
+      "skuKey": "20006372",
+      "rawRowCount": 2,
+      "quantities": [
+        "3"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260331318144-20006372-ROW83",
+        "PURCHASEQ-CGR260331318144-20006372-ROW55"
+      ]
+    },
+    {
+      "documentNumber": "CGR260331318137",
+      "skuKey": "20002916",
+      "rawRowCount": 2,
+      "quantities": [
+        "4"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260331318137-20002916-ROW84",
+        "PURCHASEQ-CGR260331318137-20002916-ROW56"
+      ]
+    },
+    {
+      "documentNumber": "CGR260329313043",
+      "skuKey": "20006213",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260329313043-20006213-ROW87",
+        "PURCHASEQ-CGR260329313043-20006213-ROW57"
+      ]
+    },
+    {
+      "documentNumber": "CGR260327308728",
+      "skuKey": "20006213",
+      "rawRowCount": 2,
+      "quantities": [
+        "16"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260327308728-20006213-ROW88",
+        "PURCHASEQ-CGR260327308728-20006213-ROW58"
+      ]
+    },
+    {
+      "documentNumber": "CGR260327305655",
+      "skuKey": "20004915",
+      "rawRowCount": 2,
+      "quantities": [
+        "1"
+      ],
+      "sampleIds": [
+        "PURCHASEQ-CGR260327305655-20004915-ROW92",
+        "PURCHASEQ-CGR260327305655-20004915-ROW59"
+      ]
+    }
+  ]
+}

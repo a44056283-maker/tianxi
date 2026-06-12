@@ -1,0 +1,240 @@
+{
+  "generatedAt": "2026-06-02T15:01:21+08:00",
+  "systemName": "联想智慧零售系统商用专业版 V1.0",
+  "dataMode": "live_api_bridge",
+  "isSample": false,
+  "provenance": "original_retail_system_api",
+  "evidenceStatus": "api_runtime_required",
+  "productionReadiness": "executed_not_closed_until_real_page_acceptance",
+  "apiBaseStrategy": "same_hostname_port_8000",
+  "truthStatement": "当前页面按原版零售系统菜单顺序读取现有 FastAPI/SQLite 数据；缺 API、缺 SQL 或缺前端可见验收时不能写 real_completed。",
+  "modules": [
+    {
+      "id": "retail",
+      "name": "零售专区",
+      "status": "live_api",
+      "apiEndpoints": ["/api/inventory-quote/retail-zone", "/api/inventory-quote/marketing-boost", "/api/inventory-quote/frontend-display-controls"],
+      "submenus": [
+        { "id": "hero", "name": "零售英雄卡", "endpoint": "/api/inventory-quote/retail-zone" },
+        { "id": "subsidy", "name": "国补报价", "endpoint": "/api/inventory-quote/retail-zone" },
+        { "id": "activitySwitch", "name": "活动展示开关", "endpoint": "/api/inventory-quote/frontend-activity-display-overrides" }
+      ],
+      "metrics": [
+        { "label": "真实来源", "value": "retail-zone API" },
+        { "label": "活动库", "value": "marketing-boost API" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "单品详情",
+      "status": "live_api",
+      "apiEndpoints": ["/api/product-library/products", "/api/product-library/overview", "/api/product-library/published-projection"],
+      "submenus": [
+        { "id": "productCards", "name": "商品卡片", "endpoint": "/api/product-library/products" },
+        { "id": "published", "name": "发布映射", "endpoint": "/api/product-library/published-projection" },
+        { "id": "audit", "name": "渠道审计", "endpoint": "/api/product-library/published-projection/audit" }
+      ],
+      "metrics": [
+        { "label": "产品库", "value": "product-library" },
+        { "label": "映射", "value": "published projection" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "serials",
+      "name": "真实库存",
+      "status": "live_api",
+      "apiEndpoints": ["/api/inventory-quote/inventory", "/api/retail-core/serial-items?limit=5000", "/api/inventory-quote/serial-overrides"],
+      "submenus": [
+        { "id": "inventory", "name": "库存数量", "endpoint": "/api/inventory-quote/inventory" },
+        { "id": "sn", "name": "SN台账", "endpoint": "/api/retail-core/serial-items?limit=5000" },
+        { "id": "snOverrides", "name": "SN修正", "endpoint": "/api/inventory-quote/serial-overrides" }
+      ],
+      "metrics": [
+        { "label": "库存事实", "value": "智店通/SQL" },
+        { "label": "SN优先级", "value": "最高" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "prices",
+      "name": "实时进货价",
+      "status": "live_api",
+      "apiEndpoints": ["/api/inventory-quote/prices", "/api/inventory-quote/distributor-quotes", "/api/inventory-quote/gray-wholesale", "/api/inventory-quote/price-signals"],
+      "submenus": [
+        { "id": "priceSignals", "name": "价格信号", "endpoint": "/api/inventory-quote/price-signals" },
+        { "id": "groupQuote", "name": "群报价", "endpoint": "/api/inventory-quote/distributor-quotes" },
+        { "id": "grayQuote", "name": "灰渠批发价", "endpoint": "/api/inventory-quote/gray-wholesale" }
+      ],
+      "metrics": [
+        { "label": "群报价", "value": "distributor" },
+        { "label": "公众号", "value": "gray wholesale" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "sources",
+      "name": "报价来源",
+      "status": "live_api",
+      "apiEndpoints": ["/api/inventory-quote/product-url-locks", "/api/inventory-quote/distributor-quotes", "/api/inventory-quote/gray-wholesale", "/api/inventory-quote/competitor-monitor"],
+      "submenus": [
+        { "id": "jdMonitor", "name": "京东自营动态价格监控", "endpoint": "/api/inventory-quote/product-url-locks" },
+        { "id": "tasks", "name": "采集任务", "endpoint": "/api/scheduled-task-console/tasks" },
+        { "id": "distributorLibrary", "name": "群报价库", "endpoint": "/api/inventory-quote/distributor-quotes" },
+        { "id": "grayLibrary", "name": "公众号报价库", "endpoint": "/api/inventory-quote/gray-wholesale" },
+        { "id": "competitors", "name": "竞品监控", "endpoint": "/api/inventory-quote/competitor-monitor" },
+        { "id": "rawSources", "name": "原始来源", "endpoint": "/api/openclaw/collection-receipts" }
+      ],
+      "metrics": [
+        { "label": "来源库", "value": "报价来源" },
+        { "label": "竞品", "value": "京东自营店铺" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "movements",
+      "name": "入库出库",
+      "status": "live_api",
+      "apiEndpoints": ["/api/inventory-quote/inventory-movements", "/api/retail-core/inventory-movements?limit=5000", "/api/retail-core/sales-orders?limit=5000", "/api/retail-core/sync-gap-queue"],
+      "submenus": [
+        { "id": "sales", "name": "零售出库", "endpoint": "/api/retail-core/sales-orders?limit=5000" },
+        { "id": "records", "name": "库存流水", "endpoint": "/api/retail-core/inventory-movements?limit=5000" },
+        { "id": "snapshot", "name": "前端流水快照", "endpoint": "/api/inventory-quote/inventory-movements" },
+        { "id": "gaps", "name": "同步缺口", "endpoint": "/api/retail-core/sync-gap-queue" }
+      ],
+      "metrics": [
+        { "label": "SQL流水", "value": "inventory_movement" },
+        { "label": "销售单", "value": "sales_order" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "syncCockpit",
+      "name": "同步驾驶舱",
+      "status": "live_api",
+      "apiEndpoints": ["/api/local-sync/pipelines", "/api/local-sync/latest-report", "/api/local-sync/failure-queue", "/api/scheduled-task-console/overview"],
+      "submenus": [
+        { "id": "pipelines", "name": "同步管线", "endpoint": "/api/local-sync/pipelines" },
+        { "id": "latest", "name": "最新报告", "endpoint": "/api/local-sync/latest-report" },
+        { "id": "failures", "name": "失败队列", "endpoint": "/api/local-sync/failure-queue" },
+        { "id": "scheduled", "name": "定时任务", "endpoint": "/api/scheduled-task-console/overview" }
+      ],
+      "metrics": [
+        { "label": "同步闭环", "value": "SQL/API/前端" },
+        { "label": "失败队列", "value": "可追溯" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "integration",
+      "name": "接入计划",
+      "status": "live_api",
+      "apiEndpoints": ["/api/price-tags/status", "/api/sync/tasks", "/api/retail-core/status"],
+      "submenus": [
+        { "id": "priceTags", "name": "电子价签", "endpoint": "/api/price-tags/status" },
+        { "id": "syncTasks", "name": "同步任务", "endpoint": "/api/sync/tasks" },
+        { "id": "coreStatus", "name": "本地核心", "endpoint": "/api/retail-core/status" }
+      ],
+      "metrics": [
+        { "label": "价签", "value": "price-tags" },
+        { "label": "本地核心", "value": "retail-core" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "zdtClone",
+      "name": "智店通",
+      "status": "live_api",
+      "apiEndpoints": ["/api/openclaw/zdt-bridge", "/api/openclaw/command-board", "/api/openclaw/collection-receipts"],
+      "submenus": [
+        { "id": "bridge", "name": "智店通桥接", "endpoint": "/api/openclaw/zdt-bridge" },
+        { "id": "commands", "name": "采集指令", "endpoint": "/api/openclaw/command-board" },
+        { "id": "receipts", "name": "采集回执", "endpoint": "/api/openclaw/collection-receipts" }
+      ],
+      "metrics": [
+        { "label": "入口", "value": "智店通同步中心" },
+        { "label": "执行", "value": "OpenClaw/Codex" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "promptWorkspace",
+      "name": "提问工作台",
+      "status": "live_api",
+      "apiEndpoints": ["/api/prompt-workspace/template", "/api/prompt-workspace/entries", "/api/prompt-workspace/knowledge"],
+      "submenus": [
+        { "id": "template", "name": "模板", "endpoint": "/api/prompt-workspace/template" },
+        { "id": "entries", "name": "提问历史", "endpoint": "/api/prompt-workspace/entries" },
+        { "id": "knowledge", "name": "规则知识库", "endpoint": "/api/prompt-workspace/knowledge" }
+      ],
+      "metrics": [
+        { "label": "模板", "value": "背景/问题/目标/规则/验收" },
+        { "label": "知识库", "value": "可检索" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "productLibrary",
+      "name": "产品库",
+      "status": "live_api",
+      "apiEndpoints": ["/api/product-library/overview", "/api/product-library/categories", "/api/product-library/products", "/api/product-library/pricing-governance"],
+      "submenus": [
+        { "id": "overview", "name": "产品总览", "endpoint": "/api/product-library/overview" },
+        { "id": "categories", "name": "分类树", "endpoint": "/api/product-library/categories" },
+        { "id": "products", "name": "商品主数据", "endpoint": "/api/product-library/products" },
+        { "id": "pricing", "name": "价格治理", "endpoint": "/api/product-library/pricing-governance" }
+      ],
+      "metrics": [
+        { "label": "主数据", "value": "product_master" },
+        { "label": "SKU", "value": "标准物料库" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "sessionBoard",
+      "name": "会话看板",
+      "status": "live_api",
+      "apiEndpoints": ["/api/openclaw/chat-board", "/api/openclaw/command-board", "/api/openclaw/collection-receipts"],
+      "submenus": [
+        { "id": "chat", "name": "会话", "endpoint": "/api/openclaw/chat-board" },
+        { "id": "commands", "name": "任务下发", "endpoint": "/api/openclaw/command-board" },
+        { "id": "receipts", "name": "完成回执", "endpoint": "/api/openclaw/collection-receipts" }
+      ],
+      "metrics": [
+        { "label": "协作", "value": "OpenClaw -> Codex" },
+        { "label": "追溯", "value": "回执链" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    },
+    {
+      "id": "adminCenter",
+      "name": "管理后台",
+      "status": "live_api",
+      "apiEndpoints": ["/api/dashboard/summary", "/api/admin/users", "/api/scheduled-task-console/tasks"],
+      "submenus": [
+        { "id": "summary", "name": "系统摘要", "endpoint": "/api/dashboard/summary" },
+        { "id": "users", "name": "用户", "endpoint": "/api/admin/users" },
+        { "id": "tasks", "name": "定时任务配置", "endpoint": "/api/scheduled-task-console/tasks" }
+      ],
+      "metrics": [
+        { "label": "治理", "value": "后台控制" },
+        { "label": "定时任务", "value": "规则中心" },
+        { "label": "状态", "value": "待读取" }
+      ]
+    }
+  ],
+  "protectedFields": [
+    "storeRetailPrice",
+    "inventoryQuantity",
+    "sellableQuantity",
+    "serialStatus",
+    "salesAmount",
+    "purchaseCost",
+    "supplier",
+    "marketingPo",
+    "educationSubsidy",
+    "warrantyDate",
+    "canonicalProductTitle"
+  ]
+}

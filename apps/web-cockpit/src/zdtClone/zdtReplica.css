@@ -1,0 +1,1227 @@
+.zdt-clone-shell {
+  min-height: 100vh;
+  padding: 0;
+  border-radius: 0;
+  background: #f5f6f7;
+  color: #1f2937;
+}
+
+.zdt-clone-sidebar,
+.zdt-clone-subnav-item,
+.zdt-clone-filter-panel,
+.zdt-clone-toolbar,
+.zdt-clone-table-panel {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.zdt-clone-layout {
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr);
+  gap: 0;
+}
+
+.zdt-clone-main {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px 14px;
+}
+
+.zdt-clone-subnav-item span,
+.zdt-clone-filter-field span,
+.zdt-clone-filter-search span,
+.zdt-clone-table-headline span,
+.zdt-clone-toolbar-note span {
+  font-size: 12px;
+  color: #98a2b3;
+}
+
+.zdt-clone-toolbar-note strong,
+.zdt-clone-table-headline strong,
+.zdt-clone-subnav-item strong {
+  color: #101828;
+}
+
+/* left-nav */
+.zdt-clone-sidebar {
+  min-height: 100vh;
+  padding: 16px 18px 22px;
+  border-radius: 0;
+  align-self: stretch;
+  position: sticky;
+  top: 0;
+  display: grid;
+  align-content: start;
+  align-items: start;
+  gap: 10px;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 0;
+  background: #1f2937;
+}
+
+.zdt-clone-sidebar-header {
+  display: grid;
+  gap: 6px;
+}
+
+.zdt-clone-sidebar-header strong {
+  color: #ffffff;
+}
+
+.zdt-clone-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 4px;
+}
+
+.zdt-clone-brand-badge {
+  min-width: 72px;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e2231a, #c41711);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.zdt-clone-brand-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.zdt-clone-brand-copy strong {
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.zdt-clone-brand-copy span {
+  color: #c8d0db;
+  font-size: 12px;
+}
+
+.zdt-clone-top-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.zdt-clone-top-nav-button {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8edf5;
+}
+
+.zdt-clone-top-nav-button.active {
+  border-color: rgba(226, 35, 26, 0.36);
+  background: rgba(226, 35, 26, 0.12);
+  color: #ffffff;
+}
+
+/* subnav */
+.zdt-clone-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  overflow: visible;
+  padding: 0 2px;
+  align-items: flex-end;
+}
+
+.zdt-clone-subnav-item {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 6px 0 8px;
+  min-width: max-content;
+  text-align: left;
+  display: grid;
+  gap: 0;
+  background: transparent;
+}
+
+.zdt-clone-subnav-item.active {
+  border-color: #e2231a;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* toolbar */
+.zdt-clone-toolbar {
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.zdt-clone-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 2px;
+}
+
+.zdt-clone-page-head-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.zdt-clone-page-head-copy strong {
+  color: #101828;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.zdt-clone-page-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zdt-clone-summary-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.zdt-clone-summary-card {
+  border: 1px solid #eaecf0;
+  border-radius: 6px;
+  background: #f8fafc;
+  padding: 10px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.zdt-clone-summary-card span {
+  color: #667085;
+  font-size: 12px;
+}
+
+.zdt-clone-summary-card strong {
+  color: #101828;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.zdt-clone-toolbar-buttons,
+.zdt-clone-pagination-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zdt-clone-toolbar-button,
+.zdt-clone-table-action,
+.zdt-clone-pagination-controls button,
+.zdt-clone-select-mock {
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+}
+
+.zdt-clone-pagination-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.zdt-clone-toolbar-button.is-primary,
+.zdt-clone-pagination-controls button.active {
+  border-color: rgba(226, 35, 26, 0.44);
+  background: rgba(226, 35, 26, 0.08);
+  color: #c41711;
+}
+
+.zdt-clone-toolbar-note {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+}
+
+/* filters */
+.zdt-clone-filter-panel {
+  border-radius: 6px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.zdt-clone-filter-main {
+  display: grid;
+  gap: 8px;
+}
+
+.zdt-clone-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zdt-clone-status-pill {
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+}
+
+.zdt-clone-status-pill.active {
+  border-color: rgba(226, 35, 26, 0.44);
+  background: rgba(226, 35, 26, 0.08);
+  color: #c41711;
+}
+
+.zdt-clone-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.zdt-clone-filter-grid-span {
+  grid-column: span 2;
+}
+
+.zdt-clone-filter-search,
+.zdt-clone-filter-field {
+  display: grid;
+  gap: 8px;
+}
+
+.zdt-clone-filter-search input,
+.zdt-clone-filter-field input {
+  min-height: 34px;
+  border-radius: 4px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #101828;
+  padding: 0 12px;
+}
+
+.zdt-clone-select-shell {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.zdt-clone-select-native {
+  width: 100%;
+  min-height: 34px;
+  padding: 0 36px 0 12px;
+  border-radius: 4px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #101828;
+  appearance: none;
+}
+
+.zdt-clone-select-shell svg {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: #667085;
+}
+
+.zdt-clone-select-mock {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zdt-clone-select-mock em {
+  font-style: normal;
+}
+
+.zdt-clone-filter-date-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zdt-clone-filter-preset {
+  min-height: 30px;
+  border-radius: 4px;
+  padding: 0 10px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+}
+
+.zdt-clone-filter-preset.active {
+  border-color: rgba(226, 35, 26, 0.44);
+  background: rgba(226, 35, 26, 0.08);
+  color: #c41711;
+}
+
+.zdt-clone-filter-date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* table */
+.zdt-clone-table-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.zdt-clone-table-shell-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.zdt-clone-table-panel {
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.zdt-clone-table-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.zdt-clone-table-scroll {
+  overflow: auto;
+  border-radius: 4px;
+  border: 1px solid #eaecf0;
+}
+
+.zdt-clone-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+  background: #ffffff;
+}
+
+.zdt-clone-table th,
+.zdt-clone-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f2f4f7;
+  text-align: left;
+  vertical-align: top;
+  color: #344054;
+  font-size: 13px;
+}
+
+.zdt-clone-table th {
+  color: #667085;
+  font-size: 12px;
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.zdt-clone-primary-cell {
+  display: grid;
+  gap: 4px;
+}
+
+.zdt-clone-primary-cell strong {
+  color: #101828;
+}
+
+.zdt-clone-primary-cell span {
+  color: #667085;
+  font-size: 12px;
+}
+
+.zdt-clone-table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.zdt-clone-table-action {
+  min-height: 26px;
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.zdt-clone-pagination-ellipsis {
+  min-width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #667085;
+  font-size: 12px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table {
+  min-width: 1380px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(1) {
+  width: 240px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(2) {
+  width: 140px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(4) {
+  width: 90px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(5) {
+  width: 110px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(6) {
+  width: 84px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(7) {
+  width: 72px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(10) {
+  width: 64px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table td:nth-child(11) {
+  width: 84px;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table-actions {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.zdt-clone-shell[data-active-submenu="order-offline"] .zdt-clone-table-action {
+  justify-content: center;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table {
+  min-width: 1600px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(1) {
+  width: 220px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(3) {
+  width: 100px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(8) {
+  width: 78px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(16),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(16),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(17),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(17) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(18),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(18),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table th:nth-child(19),
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table td:nth-child(19) {
+  width: 90px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table {
+  min-width: 1540px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(1) {
+  width: 220px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(3) {
+  width: 96px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table th:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-overview"] .zdt-clone-table td:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(16),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(16),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(17),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(17) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table th:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-cost-price"] .zdt-clone-table td:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(18),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(18),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table th:nth-child(19),
+.zdt-clone-shell[data-active-submenu="inventory-config-center"] .zdt-clone-table td:nth-child(19) {
+  width: 90px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table {
+  min-width: 1260px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(1) {
+  width: 220px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-location-move"] .zdt-clone-table td:nth-child(9) {
+  width: 96px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table {
+  min-width: 1180px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table {
+  min-width: 1220px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(1),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(1) {
+  width: 250px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(8) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="product-store"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="product-depot"] .zdt-clone-table td:nth-child(10) {
+  width: 88px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table {
+  min-width: 1380px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(1) {
+  width: 220px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(3) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(11) {
+  width: 88px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-location"] .zdt-clone-table td:nth-child(12) {
+  width: 80px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table {
+  min-width: 1560px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(11) {
+  width: 160px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(9),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(12),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(13),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(14),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table th:nth-child(15),
+.zdt-clone-shell[data-active-submenu="inventory-movement"] .zdt-clone-table td:nth-child(15) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table {
+  min-width: 1920px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-transfer-out"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-in"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-purchase-in"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-other-io"] .zdt-clone-table,
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table {
+  min-width: 1820px;
+  table-layout: fixed;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-out"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-out"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-in"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-in"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-purchase-in"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-purchase-in"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-other-io"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-other-io"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table td {
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table td:nth-child(11),
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table td:nth-child(1) {
+  width: 220px;
+}
+
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table th:not(:nth-child(11)),
+.zdt-clone-shell[data-active-submenu="inventory-stock-order"] .zdt-clone-table td:not(:nth-child(11)),
+.zdt-clone-shell[data-active-submenu="inventory-transfer-out"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-out"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-in"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-transfer-in"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-purchase-in"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-purchase-in"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-other-io"] .zdt-clone-table th,
+.zdt-clone-shell[data-active-submenu="inventory-other-io"] .zdt-clone-table td,
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table th:not(:nth-child(1)),
+.zdt-clone-shell[data-active-submenu="inventory-sn-order"] .zdt-clone-table td:not(:nth-child(1)) {
+  width: 96px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(1),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(1) {
+  width: 260px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(2),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(3),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(4),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(5),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(6),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(7),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(8),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(8),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(9),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(9) {
+  width: 92px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(10),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(10),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table th:nth-child(11),
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table td:nth-child(11) {
+  width: 90px;
+}
+
+.zdt-clone-shell[data-active-submenu="product-city"] .zdt-clone-table-actions,
+.zdt-clone-shell[data-active-submenu="inventory-stock"] .zdt-clone-table-actions {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.zdt-clone-empty-cell {
+  text-align: center;
+  font-size: 12px;
+  color: #667085;
+}
+
+.zdt-clone-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* dialog */
+.zdt-clone-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.38);
+}
+
+.zdt-clone-dialog {
+  width: min(920px, 100%);
+  max-height: min(86vh, 920px);
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  box-shadow: 0 24px 72px rgba(15, 23, 42, 0.18);
+}
+
+.zdt-clone-dialog-header,
+.zdt-clone-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zdt-clone-dialog-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #101828;
+}
+
+.zdt-clone-dialog-title strong {
+  font-size: 22px;
+}
+
+.zdt-clone-dialog-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  color: #344054;
+}
+
+.zdt-clone-dialog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.zdt-clone-dialog-toolbar,
+.zdt-clone-dialog-sections,
+.zdt-clone-dialog-receipt {
+  display: grid;
+  gap: 12px;
+}
+
+.zdt-clone-dialog-toolbar {
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-content: start;
+  overflow-x: auto;
+}
+
+.zdt-clone-dialog-section {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #eaecf0;
+  background: #f9fafb;
+}
+
+.zdt-clone-dialog-section-title {
+  color: #101828;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.zdt-clone-dialog-field {
+  display: grid;
+  gap: 8px;
+}
+
+.zdt-clone-dialog-field span {
+  color: #667085;
+  font-size: 12px;
+}
+
+.zdt-clone-dialog-field input,
+.zdt-clone-dialog-value {
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  color: #101828;
+  display: flex;
+  align-items: center;
+}
+
+.zdt-clone-dialog-receipt {
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #dbe4f0;
+  background: #f8fafc;
+}
+
+.zdt-clone-dialog-log {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.zdt-clone-dialog-log-title {
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.zdt-clone-dialog-log ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.zdt-clone-dialog-result {
+  flex: 1;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #c7d7fe;
+  background: #eef4ff;
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+}
+
+.zdt-clone-shell button:hover,
+.zdt-clone-shell [role="button"]:hover,
+.zdt-clone-shell button:active,
+.zdt-clone-shell [role="button"]:active {
+  transform: none;
+  border-color: inherit;
+  box-shadow: none;
+}
+
+@media (max-width: 960px) {
+  .zdt-clone-layout {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .zdt-clone-sidebar {
+    position: static;
+  }
+
+  .zdt-clone-top-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .zdt-clone-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zdt-clone-dialog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .zdt-clone-top-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .zdt-clone-filter-grid-span {
+    grid-column: span 1;
+  }
+}

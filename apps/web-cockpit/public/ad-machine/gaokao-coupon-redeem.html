@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>高考延保卡服务码校验</title>
+  <style>
+    :root {
+      --red: #ed1c24;
+      --red-deep: #8d1115;
+      --gold: #ffd36d;
+      --ink: #201316;
+      --muted: #7b6669;
+      --line: rgba(141, 17, 21, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 211, 109, 0.34), transparent 28%),
+        linear-gradient(135deg, #2a1115 0%, #8d1115 52%, #fff7ec 52%, #fff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .stage {
+      width: min(100%, 1180px);
+      min-height: 100vh;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 24px;
+      align-items: center;
+      padding: 32px;
+    }
+
+    .hero {
+      color: #fff;
+      display: grid;
+      gap: 18px;
+    }
+
+    .brand {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--red);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 1000;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 7vw, 82px);
+      line-height: 0.98;
+      font-weight: 1000;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 760;
+    }
+
+    .ticket {
+      width: min(100%, 560px);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 0 50%, #4d1015 0 18px, transparent 19px),
+        radial-gradient(circle at 100% 50%, #4d1015 0 18px, transparent 19px),
+        linear-gradient(135deg, #fff5c9 0%, var(--gold) 34%, #fff7df 100%);
+      color: #7f1115;
+      padding: 22px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.28);
+      display: grid;
+      grid-template-columns: 154px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .ticket strong {
+      font-size: 58px;
+      line-height: 0.9;
+      font-weight: 1000;
+    }
+
+    .ticket span {
+      display: block;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .ticket b {
+      display: block;
+      font-size: 22px;
+      line-height: 1.16;
+      font-weight: 1000;
+    }
+
+    .panel {
+      border-radius: 14px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(255,255,255,0.58);
+      box-shadow: 0 28px 80px rgba(30, 10, 14, 0.28);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel h2 {
+      margin: 0;
+      color: var(--red-deep);
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 1000;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 720;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: #4d3437;
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    input {
+      width: 100%;
+      height: 58px;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      padding: 0 16px;
+      background: #fffdfa;
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 1000;
+      letter-spacing: 0.04em;
+      outline: none;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    button {
+      min-height: 56px;
+      border: 0;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--red);
+      font-size: 18px;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #211316;
+    }
+
+    .result {
+      min-height: 142px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff8f1;
+      padding: 16px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+    }
+
+    .result.good { background: #f0fff7; border-color: rgba(22,129,95,0.24); }
+    .result.bad { background: #fff1f1; border-color: rgba(237,28,36,0.26); }
+
+    .result strong {
+      color: var(--red-deep);
+      font-size: 24px;
+      line-height: 1.14;
+      font-weight: 1000;
+    }
+
+    .result span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 760;
+    }
+
+    @media (max-width: 860px) {
+      .stage {
+        grid-template-columns: 1fr;
+        padding: 18px;
+      }
+
+      .hero p { font-size: 17px; }
+      .ticket { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="hero">
+      <div class="brand">Lenovo 联想</div>
+      <h1>高考延保卡<br />服务码校验</h1>
+      <p>客户在手机页登记后获得领取校验码。门店到店核验时，在这里输入手机号后六位和领取校验码，完成 699 智惠四年服务核销。</p>
+      <div class="ticket">
+        <div><span>服务权益</span><strong>699</strong></div>
+        <div><b>三人同行可升级 899 智惠五年服务</b><span>有效期至 2026-06-21 · 手机电子券显示 6 位服务码</span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>输入校验信息</h2>
+      <p>输入客户手机号后六位和领取校验码。先查询确认，再点击核销。</p>
+      <label>
+        手机号后六位
+        <input id="phoneTail" value="" placeholder="例如 982222" autocomplete="off" inputmode="numeric" />
+      </label>
+      <label>
+        领取校验码 / 电子券号
+        <input id="couponCode" value="" placeholder="例如 583921" autocomplete="off" />
+      </label>
+      <div class="actions">
+        <button class="secondary" id="lookupBtn" type="button">查询</button>
+        <button id="redeemBtn" type="button">核销</button>
+      </div>
+      <div class="result" id="resultBox">
+        <strong>等待输入手机后六位和校验码</strong>
+        <span>核销结果会同步写入营销活动后端。</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="/ad-machine/config.local.js"></script>
+  <script>
+    const config = window.AD_MACHINE_LOCAL_CONFIG || {};
+    const apiBase = String(config.adMachineApiBaseUrl || config.lotteryLanBaseUrl || "").trim() || "";
+    const phoneTailInput = document.getElementById("phoneTail");
+    const input = document.getElementById("couponCode");
+    const resultBox = document.getElementById("resultBox");
+
+    function normalizePhoneTail() {
+      const raw = String(phoneTailInput.value || "").replace(/\D/g, "").slice(-6);
+      phoneTailInput.value = raw;
+      return raw;
+    }
+
+    function normalizeCode() {
+      const raw = String(input.value || "").trim().toUpperCase().replace(/[^0-9A-Z-]/g, "");
+      input.value = raw;
+      return raw;
+    }
+
+    function renderResult(kind, title, detail) {
+      resultBox.className = `result ${kind || ""}`.trim();
+      resultBox.innerHTML = `<strong>${title}</strong><span>${detail}</span>`;
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, {
+        cache: "no-store",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        ...options
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(payload.detail || "请求失败");
+      return payload;
+    }
+
+    document.getElementById("lookupBtn").addEventListener("click", async () => {
+      const phoneLast6 = normalizePhoneTail();
+      const code = normalizeCode();
+      if (phoneLast6.length !== 6 || !code) {
+        renderResult("bad", "请补全校验信息", "需要同时输入客户手机号后六位和领取校验码。");
+        return;
+      }
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/e-coupons/${encodeURIComponent(code)}?phoneLast6=${encodeURIComponent(phoneLast6)}`);
+        const coupon = payload.coupon || {};
+        renderResult("good", `${coupon.serviceCode || coupon.code} · ${coupon.status === "redeemed" ? "已核销" : "可核销"}`, `有效期 ${coupon.validFrom} 至 ${coupon.validTo}，权益 ${coupon.offerValue} 智惠四年服务。校验方式：手机后六位 + 领取校验码。`);
+      } catch (error) {
+        renderResult("bad", "查询失败", error.message || "校验码不存在、手机号不匹配或后端未启动。");
+      }
+    });
+
+    document.getElementById("redeemBtn").addEventListener("click", async () => {
+      const phoneLast6 = normalizePhoneTail();
+      const code = normalizeCode();
+      if (phoneLast6.length !== 6 || !code) {
+        renderResult("bad", "请补全校验信息", "需要同时输入客户手机号后六位和领取校验码。");
+        return;
+      }
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/e-coupons/redeem`, {
+          method: "POST",
+          body: JSON.stringify({ code, phoneLast6, operator: "ad-machine", deviceId: "gaokao-extended-warranty-redeem", note: "高考活动延保卡 699 智惠四年服务核销" })
+        });
+        const coupon = payload.coupon || {};
+        renderResult("good", `${coupon.serviceCode || coupon.code} · 核销完成`, `核销设备：${coupon.redeemDeviceId || "广告机"}，核销时间：${coupon.redeemedAt || "已记录"}；校验方式：手机后六位 + 领取校验码。`);
+      } catch (error) {
+        renderResult("bad", "核销失败", error.message || "校验码不存在、手机号不匹配、已失效或后端未启动。");
+      }
+    });
+  </script>
+</body>
+</html>

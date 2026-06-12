@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>联想618游戏本门店促销页</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #160708;
+      color: #fff6ef;
+      overflow-x: hidden;
+    }
+    .promo-page {
+      width: 100%;
+      max-width: 2160px;
+      margin: 0 auto;
+      padding: clamp(16px, 2vw, 28px);
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% 6%, rgba(255, 35, 46, 0.34), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(255, 181, 71, 0.22), transparent 34%),
+        linear-gradient(145deg, #2b0709, #09090d);
+      min-height: max(100vh, calc(min(100vw, 2160px) * 1.758333));
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 24px;
+      background: linear-gradient(135deg, #ed1c24 0%, #7e1116 52%, #101014 100%);
+      color: #fff7ed;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+    }
+    .hero-title::after {
+      content: "618";
+      position: absolute;
+      right: 22px;
+      bottom: -28px;
+      font-size: 148px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.13);
+      letter-spacing: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .hero-title p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 860px;
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(255, 247, 237, 0.82);
+    }
+    .hero-side {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .side-card {
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+    .side-card span {
+      display: block;
+      color: rgba(255,246,239,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .side-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .series-filter {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      background: rgba(20, 5, 9, 0.86);
+      backdrop-filter: blur(12px);
+    }
+    .series-filter button {
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #ffe7d2;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .series-filter button.active {
+      background: #ffde7a;
+      color: #310b0b;
+    }
+    .series-filter span {
+      opacity: 0.78;
+      margin-left: 4px;
+    }
+    .product-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .product-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+    }
+    .product-card[hidden] { display: none; }
+    .product-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      color: rgba(255,246,239,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .rank,
+    .series-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: linear-gradient(160deg, #ffde7a, #ff2d2d);
+      color: #1d0906;
+      font-weight: 900;
+    }
+    .series-tag {
+      background: rgba(255, 222, 122, 0.16);
+      color: #ffdf8e;
+    }
+    .product-card h2 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.28;
+      letter-spacing: 0;
+      word-break: normal;
+    }
+    .product-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    .product-main-title,
+    .product-subtitle {
+      display: inline;
+      min-width: 0;
+      color: #fff;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .price-track {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .price-cell {
+      min-height: 112px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(10,10,16,0.58);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    .price-cell span,
+    .price-cell em {
+      font-style: normal;
+      color: rgba(255,246,239,0.66);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .price-cell strong {
+      color: #fff1d6;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .price-cell.final {
+      background: linear-gradient(160deg, #3b0a0c, #ed1c24);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .price-cell.final span,
+    .price-cell.final em {
+      color: rgba(255,255,255,0.82);
+    }
+    .price-cell.final strong {
+      color: #ffffff;
+    }
+    .activity-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .activity-badges span {
+      display: inline-grid;
+      gap: 3px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(255, 222, 122, 0.16);
+      color: #ffe6a3;
+    }
+    .activity-badges b {
+      font-size: 11px;
+    }
+    .activity-badges strong {
+      color: #ffdc72;
+      font-size: 18px;
+    }
+    .muted {
+      color: rgba(255,246,239,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .notice {
+      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(255, 222, 122, 0.16);
+      border: 2px solid #ffde7a;
+      color: #fff4d8;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 900;
+    }
+    .footer {
+      margin-top: 10px;
+      color: rgba(255,246,239,0.66);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    @media (max-width: 860px) {
+      .promo-page { padding: 14px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .price-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .price-track { grid-template-columns: 1fr; }
+      .hero-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-card h2 { font-size: 18px; }
+    }
+    @media (orientation: portrait) {
+      .promo-page {
+        width: 100vw;
+        max-width: none;
+        padding: 20px 16px 30px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .hero-side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .series-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      .series-filter button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+      .product-grid {
+        gap: 14px;
+      }
+      .product-card {
+        padding: 16px;
+      }
+      .price-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (orientation: portrait) and (min-width: 1200px) {
+      .promo-page {
+        padding: 34px 26px 46px;
+      }
+      h1 {
+        font-size: clamp(52px, 4.8vw, 84px);
+      }
+      .hero-title p {
+        font-size: 26px;
+        line-height: 1.5;
+      }
+      .side-card span {
+        font-size: 20px;
+      }
+      .side-card strong {
+        font-size: 48px;
+      }
+      .series-filter button {
+        min-height: 56px;
+        padding: 0 20px;
+        font-size: 22px;
+      }
+      .product-topline {
+        font-size: 20px;
+        gap: 10px;
+      }
+      .rank,
+      .series-tag {
+        min-height: 38px;
+        padding: 0 14px;
+      }
+      .product-card h2 {
+        font-size: clamp(34px, 3.1vw, 50px);
+        line-height: 1.3;
+      }
+      .product-subtitle {
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .price-cell {
+        min-height: 170px;
+        padding: 18px;
+      }
+      .price-cell span,
+      .price-cell em {
+        font-size: 20px;
+      }
+      .price-cell strong {
+        font-size: clamp(36px, 3.2vw, 54px);
+      }
+      .notice {
+        font-size: 24px;
+        line-height: 1.6;
+      }
+      .footer {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="promo-page">
+    <section class="hero">
+      <div class="hero-title">
+        <span class="eyebrow">张凌赫同款 · 联想618门店焕新季</span>
+        <h1>拯救者 / 斗战者 游戏本专场</h1>
+        <p>完整展示全部库存游戏本：商品标题完整展开，按 Y7000 / Y7000X / Y9000P 等小系列快速筛选，同步展示原门店挂牌价、营销/教育补、活动后国补前执行价、全量服务国补后价。</p>
+      </div>
+      <div class="hero-side">
+        <div class="side-card"><span>全部商品</span><strong>13</strong></div>
+        <div class="side-card"><span>带营销/教育补</span><strong>11</strong></div>
+        <div class="side-card"><span>价格口径</span><strong>实时同步</strong></div>
+        <div class="side-card"><span>展示模式</span><strong>全量促销</strong></div>
+      </div>
+    </section>
+    <nav class="series-filter" aria-label="产品型号筛选">
+      <button type="button" class="active" data-filter="全部">全部 <span>13</span></button><button type="button" data-filter="Y9000P">Y9000P <span>4</span></button><button type="button" data-filter="Y7000X">Y7000X <span>3</span></button><button type="button" data-filter="斗战者">斗战者 <span>2</span></button><button type="button" data-filter="R9000P">R9000P <span>2</span></button><button type="button" data-filter="Y7000P">Y7000P <span>2</span></button>
+    </nav>
+    <section class="product-grid">
+      
+    <article
+      class="product-card gaming"
+      data-series="Y7000X"
+      data-sku-key="20006725"
+      data-base-store-price="11599"
+      data-static-adjusted-price="10099"
+      data-static-final-price="8199"
+      data-boost-amount="600"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">01</span>
+        <span class="series-tag">Y7000X</span>
+        <span>SKU 20006725</span>
+        <span>库存 21 台 · 可售 21 · SN 21</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y7000 / Y7000X 电竞游戏笔记本电脑</span>
+        <span class="product-subtitle">i7-13650HX / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83LY00TRCD · 83LY00TRCD · 83LY00TRCD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83LY00TRCD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥11,599</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,100</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥600</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      <span><b>店面活动</b><strong>-¥400</strong></span>
+    </div>
+    <em>2026-05-23 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥10,099</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥10,099 = 原门店挂牌价 ¥11,599 - 营销PO ¥600 - 教育补 ¥500 - 店面活动 ¥400</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥8,199</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y9000P"
+      data-sku-key="20007936"
+      data-base-store-price="14899"
+      data-static-adjusted-price="13399"
+      data-static-final-price="11899"
+      data-boost-amount="1000"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">02</span>
+        <span class="series-tag">Y9000P</span>
+        <span>SKU 20007936</span>
+        <span>库存 15 台 · 可售 15 · SN 15</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑</span>
+        <span class="product-subtitle">i9-14900HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83QF0002CD · 83QF0002CD · 83QF0002CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83QF0002CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥14,899</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,500</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,000</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥13,399</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥13,399 = 原门店挂牌价 ¥14,899 - 营销PO ¥1,000 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥11,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y7000X"
+      data-sku-key="20007932"
+      data-base-store-price="13599"
+      data-static-adjusted-price="11899"
+      data-static-final-price="10399"
+      data-boost-amount="1200"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">03</span>
+        <span class="series-tag">Y7000X</span>
+        <span>SKU 20007932</span>
+        <span>库存 15 台 · 可售 15 · SN 15</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑</span>
+        <span class="product-subtitle">Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83VK0048CD · 83VK0048CD · 83VK0048CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83VK0048CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥13,599</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,700</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,200</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥11,899</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥11,899 = 原门店挂牌价 ¥13,599 - 营销PO ¥1,200 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥10,399</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y7000P"
+      data-sku-key="20003216"
+      data-base-store-price="11899"
+      data-static-adjusted-price="11399"
+      data-static-final-price="9899"
+      data-boost-amount="0"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">04</span>
+        <span class="series-tag">Y7000P</span>
+        <span>SKU 20003216</span>
+        <span>库存 12 台 · 可售 12 · SN 12</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y7000P 2025 电竞游戏笔记本电脑</span>
+        <span class="product-subtitle">i9-14900HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz / 碳晶黑 / RTX5060 · 83NN0001CD · 83NN0001CD · 83NN0001CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83NN0001CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥11,899</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥500</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-18 · 剩28天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥11,399</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥11,399 = 原门店挂牌价 ¥11,899 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥9,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y7000P"
+      data-sku-key="20007931"
+      data-base-store-price="14399"
+      data-static-adjusted-price="12399"
+      data-static-final-price="10899"
+      data-boost-amount="1500"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">05</span>
+        <span class="series-tag">Y7000P</span>
+        <span>SKU 20007931</span>
+        <span>库存 10 台 · 可售 10 · SN 10</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑</span>
+        <span class="product-subtitle">Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83F300AXCD · 83F300AXCD · 83F300AXCD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83F300AXCD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥14,399</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥2,000</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,500</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥12,399</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥12,399 = 原门店挂牌价 ¥14,399 - 营销PO ¥1,500 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥10,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="R9000P"
+      data-sku-key="20007934"
+      data-base-store-price="14399"
+      data-static-adjusted-price="12899"
+      data-static-final-price="11399"
+      data-boost-amount="1000"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">06</span>
+        <span class="series-tag">R9000P</span>
+        <span>SKU 20007934</span>
+        <span>库存 9 台 · 可售 9 · SN 9</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑</span>
+        <span class="product-subtitle">锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz / RTX5060 · 83QC0002CD · 83QC0002CD · 83QC0002CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83QC0002CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥14,399</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,500</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,000</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥12,899</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥12,899 = 原门店挂牌价 ¥14,399 - 营销PO ¥1,000 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥11,399</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="斗战者"
+      data-sku-key="20007040"
+      data-base-store-price="8599"
+      data-static-adjusted-price="8299"
+      data-static-final-price="6754.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">07</span>
+        <span class="series-tag">斗战者</span>
+        <span>SKU 20007040</span>
+        <span>库存 6 台 · 可售 6 · SN 6</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想来酷斗战者 战7000 电竞游戏笔记本电脑</span>
+        <span class="product-subtitle">i7-13645HX / 16GB / 512GB / RTX5060 / 2.5K 180Hz / RTX5060 · 870017738 · 870017738 · 870017738</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 870017738 · 原门店挂牌价</span>
+          <strong class="store-price-value">¥8,599</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      
+      <span><b>店面活动</b><strong>-¥300</strong></span>
+    </div>
+    <em>2026-06-08 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥8,299</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥8,299 = 原门店挂牌价 ¥8,599 - 店面活动 ¥300</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥6,754.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y9000P"
+      data-sku-key="20007939"
+      data-base-store-price="16399"
+      data-static-adjusted-price="14399"
+      data-static-final-price="12899"
+      data-boost-amount="0"
+      data-education-amount="2000"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">08</span>
+        <span class="series-tag">Y9000P</span>
+        <span>SKU 20007939</span>
+        <span>库存 4 台 · 可售 4 · SN 4</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑</span>
+        <span class="product-subtitle">Ultra 9 290HX / 16GB / 1TB SSD / RTX5060 / 碳晶黑 / RTX5060 · 83F4000ECD · 83F4000ECD · 83F4000ECD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83F4000ECD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥16,399</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥2,000</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      <span><b>教育补</b><strong>-¥2,000</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-18 · 剩28天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥14,399</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥14,399 = 原门店挂牌价 ¥16,399 - 教育补 ¥2,000</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥12,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y7000X"
+      data-sku-key="20007933"
+      data-base-store-price="14399"
+      data-static-adjusted-price="12699"
+      data-static-final-price="11199"
+      data-boost-amount="1200"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">09</span>
+        <span class="series-tag">Y7000X</span>
+        <span>SKU 20007933</span>
+        <span>库存 4 台 · 可售 4 · SN 4</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 冰魄白</span>
+        <span class="product-subtitle">Ultra 7 251HX / 16GB / 1TB SSD / RTX5060 / 2.5K 165Hz / RTX5060 · 83VK0049CD · 83VK0049CD · 83VK0049CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83VK0049CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥14,399</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,700</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,200</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥12,699</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥12,699 = 原门店挂牌价 ¥14,399 - 营销PO ¥1,200 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥11,199</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="R9000P"
+      data-sku-key="20007935"
+      data-base-store-price="14899"
+      data-static-adjusted-price="13399"
+      data-static-final-price="11899"
+      data-boost-amount="1000"
+      data-education-amount="500"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">10</span>
+        <span class="series-tag">R9000P</span>
+        <span>SKU 20007935</span>
+        <span>库存 3 台 · 可售 3 · SN 3</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白</span>
+        <span class="product-subtitle">锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5k 240Hz / RTX5060 · 83QC0003CD · 83QC0003CD · 83QC0003CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83QC0003CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥14,899</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,500</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      <span><b>营销PO</b><strong>-¥1,000</strong></span>
+      <span><b>教育补</b><strong>-¥500</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥13,399</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥13,399 = 原门店挂牌价 ¥14,899 - 营销PO ¥1,000 - 教育补 ¥500</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥11,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y9000P"
+      data-sku-key="20004671"
+      data-base-store-price="18899"
+      data-static-adjusted-price="17899"
+      data-static-final-price="16399"
+      data-boost-amount="0"
+      data-education-amount="1000"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">11</span>
+        <span class="series-tag">Y9000P</span>
+        <span>SKU 20004671</span>
+        <span>库存 2 台 · 可售 2 · SN 2</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y9000P 2025 AI元启电竞游戏笔记本电脑</span>
+        <span class="product-subtitle">Ultra 9 275HX / 32GB / 1TB SSD / RTX5060 / 2.5K 240Hz / 碳晶黑 / RTX5060 · 83F40006CD · 83F40006CD · 83F40006CD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83F40006CD · 原门店挂牌价</span>
+          <strong class="store-price-value">¥18,899</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥1,000</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      <span><b>教育补</b><strong>-¥1,000</strong></span>
+      
+    </div>
+    <em>2026-04-01 至 2026-06-18 · 剩28天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥17,899</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥17,899 = 原门店挂牌价 ¥18,899 - 教育补 ¥1,000</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥16,399</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="Y9000P"
+      data-sku-key="20007941"
+      data-base-store-price=""
+      data-static-adjusted-price="16399"
+      data-static-final-price="14899"
+      data-boost-amount="0"
+      data-education-amount="2000"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">12</span>
+        <span class="series-tag">Y9000P</span>
+        <span>SKU 20007941</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑</span>
+        <span class="product-subtitle">Ultra 9 290HX / 16GB / 1TB SSD / RTX5070 / RTX5070 · 83F4000CCD · 83F4000CCD · 83F4000CCD</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 83F4000CCD · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">本期立减 ¥2,000</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      <span><b>教育补</b><strong>-¥2,000</strong></span>
+      
+    </div>
+    <em>2026-05-19 至 2026-06-18 · 剩28天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥16,399</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥14,899</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card gaming"
+      data-series="斗战者"
+      data-sku-key="20003662"
+      data-base-store-price="11399"
+      data-static-adjusted-price="9999"
+      data-static-final-price="7099.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="computer"
+    >
+      <div class="product-topline">
+        <span class="rank">13</span>
+        <span class="series-tag">斗战者</span>
+        <span>SKU 20003662</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">来酷斗战者 战7000 锐龙版2025 电竞游戏笔记本电脑</span>
+        <span class="product-subtitle">R9-8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 180Hz / 月光灰 / RTX5060 · 870040682 · 870040682 · 870040682</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM 870040682 · 原门店挂牌价</span>
+          <strong class="store-price-value">¥11,399</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content">
+    <div class="activity-badges">
+      
+      
+      <span><b>店面活动</b><strong>-¥1,400</strong></span>
+    </div>
+    <em>2026-06-09 至 2026-06-21 · 剩31天</em>
+  </div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥9,999</strong>
+          <em class="execution-formula">活动后国补前执行价 ¥9,999 = 原门店挂牌价 ¥11,399 - 店面活动 ¥1,400</em>
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥7,099.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    </section>
+    <div class="notice">醒目备注：教育补需客户具备有效学生证明；如客户无学生证明且需代验证服务，成交核算时必须从教育补优惠中扣除代验证服务费，当前门店代验证费用按 ¥50/次 记录。</div>
+    <div class="footer">数据来源：实时零售报价英雄卡、营销/教育补活动库、门店库存快照。生成时间：2026/6/12 10:36:43。价格随前端快照与英雄卡数据更新。</div>
+  </main>
+  <script>
+    const apiBase = (() => {
+      if (location.protocol === 'file:') return 'http://127.0.0.1:8000'
+      if (['127.0.0.1', 'localhost', '::1'].includes(location.hostname)) return location.protocol + '//' + location.hostname + ':8000'
+      return location.origin
+    })()
+    const formatPrice = (value, fallback = '—') => {
+      const number = Number(value)
+      if (!Number.isFinite(number) || number <= 0) return fallback
+      const rounded = Math.round(number * 100) / 100
+      return '¥' + rounded.toLocaleString('zh-CN', {
+        minimumFractionDigits: Number.isInteger(rounded) ? 0 : 2,
+        maximumFractionDigits: 2,
+      })
+    }
+    const getFamilyCap = (family) => {
+      if (family === 'computer') return 1500
+      if (family === 'tablet' || family === 'phone') return 500
+      return 0
+    }
+    const calculateSubsidyPrice = (price, family) => {
+      const number = Number(price)
+      if (!Number.isFinite(number) || number <= 0) return undefined
+      if ((family === 'tablet' || family === 'phone') && number >= 6000) return undefined
+      if (family !== 'computer' && family !== 'tablet' && family !== 'phone') return undefined
+      const cap = getFamilyCap(family)
+      const subsidy = family === 'computer'
+        ? Math.min(number * 0.15, cap)
+        : Math.min(number * 0.15, cap)
+      return Math.round((number - subsidy) * 100) / 100
+    }
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date())
+    const renderStorePromotion = (promotion) => {
+      const label = promotion.mode === 'fixed_price'
+        ? '店面活动价'
+        : '店面满减'
+      const detail = promotion.mode === 'fixed_price'
+        ? formatPrice(promotion.value, '—')
+        : '-' + formatPrice(promotion.value, '—')
+      const note = promotion.note ? '<em>' + promotion.note + '</em>' : ''
+      return '<div class="activity-badges"><span><b>' + label + '</b><strong>' + detail + '</strong></span></div>' + note
+    }
+    const filterButtons = Array.from(document.querySelectorAll('.series-filter button'))
+    const cards = Array.from(document.querySelectorAll('.product-card'))
+    const currentFlyerFile = "lenovo-618-gaming.html"
+    let currentGeneratedAt = "2026-06-12T02:36:43.549Z"
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter
+        filterButtons.forEach((item) => item.classList.toggle('active', item === button))
+        cards.forEach((card) => {
+          card.hidden = filter !== '全部' && card.dataset.series !== filter
+        })
+      })
+    })
+    async function refreshFlyerFromSqlProjection() {
+      try {
+        const response = await fetch('/flyers/lenovo-618-flyers-data.json?ts=' + Date.now(), { cache: 'no-store' })
+        if (!response.ok) return
+        const payload = await response.json()
+        const nextGeneratedAt = String(payload.generatedAt || '')
+        const page = Array.isArray(payload.pages) ? payload.pages.find((item) => item && item.filename === currentFlyerFile) : null
+        if (!page) return
+        if (nextGeneratedAt && nextGeneratedAt !== currentGeneratedAt) {
+          currentGeneratedAt = nextGeneratedAt
+          window.location.reload()
+        }
+      } catch (error) {
+        console.warn('flyer refresh check failed', error)
+      }
+    }
+    window.setInterval(refreshFlyerFromSqlProjection, 1800000)
+  </script>
+</body>
+</html>

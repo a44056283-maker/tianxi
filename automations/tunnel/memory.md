@@ -1,0 +1,64 @@
+# Tunnel automation memory
+
+- 2026-06-07 20:58 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 15 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`2`，最终 active connectors=`2`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 2026-06-07 23:59 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 11 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 2026-06-08 00:29 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 10 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 2026-06-08 01:34 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 8 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（00:29）相比：connectors 数 `3 → 3` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 02:09 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 10 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（01:34）相比：connectors 数 `3 → 3` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 03:59 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 8 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（02:09）相比：connectors 数 `3 → 3` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 05:29 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 8 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（03:59）相比：connectors 数 `3 → 3` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 05:39 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 9 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`3`，最终 active connectors=`3`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（05:29）相比：connectors 数 `3 → 3` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 06:54 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 9 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`2`，最终 active connectors=`2`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（05:39）相比：connectors 数 `3 → 2` 下降 1，但仍 >= 1 且公网 / 本地均健康，脚本判定无需触发自愈；继续观察后续轮次。
+- 2026-06-08 07:39 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 9 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`2`，最终 active connectors=`2`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（06:54）相比：connectors 数 `2 → 2` 持平，本地 / 公网状态一致，无需自愈。
+- 2026-06-08 14:13 CST: 运行 `bash scripts/gaokao_tunnel_watchdog.sh`，耗时约 7 秒。
+- 结果：本地 `19518` gateway=`200`、本地 `8010` summary=`200`，无需重启本地 API/gateway。
+- Tunnel 状态：初始 active connectors=`2`，最终 active connectors=`2`，本轮无 connectors 数变化，未触发 tunnel 重启。
+- 公网状态：`https://gaokao2026.tianlu2026.org/` 与 `/api/marketing/gaokao-2026/summary` 两次检查均为 `200`，公网已健康。
+- 脚本退出码：`0`，结论：已健康，无需干预。
+- 与上一轮（06:54）相比：connectors 数 `2 → 2` 持平，本地 / 公网状态一致，无需自愈。

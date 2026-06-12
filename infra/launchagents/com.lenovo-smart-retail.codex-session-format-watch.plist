@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.lenovo-smart-retail.codex-session-format-watch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/codex_session_format_watchdog.sh</string>
+      <string>run</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>CODEX_SESSION_FORMAT_WATCH_INTERVAL_SECONDS</key>
+      <string>0.5</string>
+      <key>CODEX_SESSION_FORMAT_WATCH_PYTHON_BIN</key>
+      <string>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3</string>
+      <key>CODEX_SESSION_FORMAT_WATCH_REFRESH_SECONDS</key>
+      <string>60</string>
+      <key>HOME</key>
+      <string>/Users/luxiangnan</string>
+    </dict>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/outputs/codex-session-format-watch.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/outputs/codex-session-format-watch.log</string>
+  </dict>
+</plist>

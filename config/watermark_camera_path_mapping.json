@@ -1,0 +1,74 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-06-09T16:10:00+08:00",
+  "watermarkCameraApp": {
+    "name": "今日水印相机VIP",
+    "vendor": "third-party",
+    "watermarkFields": [
+      "拍摄时间",
+      "员工名",
+      "门店名",
+      "GPS 位置",
+      "扫码时间"
+    ]
+  },
+  "cloudDrive": {
+    "vendor": "generic-webdav",
+    "configNote": "云盘通过 WebDAV 挂载到 macOS，路径可配置"
+  },
+  "pathMapping": {
+    "cloudDriveRoot": "/Volumes/TianLu_Storage/Shared/今日水印相机",
+    "localMountPath": "/Volumes/TianLu_Storage",
+    "incomingDir": "/Volumes/TianLu_Storage/Shared/今日水印相机/incoming",
+    "processedDir": "/Volumes/TianLu_Storage/Shared/今日水印相机/processed",
+    "failedDir": "/Volumes/TianLu_Storage/Shared/今日水印相机/failed",
+    "ocrStagingDir": "/Volumes/TianLu_Storage/Shared/今日水印相机/ocr_staging",
+    "syncReportDir": "/Volumes/TianLu_Storage/Shared/今日水印相机/reports"
+  },
+  "scanTypeFolders": {
+    "三件套": "三件套代扫",
+    "single_scan": "教育补单扫",
+    "single": "教育补单扫",
+    "education": "教育补单扫",
+    "单扫": "教育补单扫"
+  },
+  "staffNameMapping": {
+    "梁伟": "EMP003",
+    "郭楠": "EMP004",
+    "李建定": "EMP005",
+    "郭晨臣": "EMP006",
+    "liangwei": "EMP003",
+    "guonan": "EMP004",
+    "lijianding": "EMP005",
+    "guochenchen": "EMP006"
+  },
+  "fileNamePatterns": {
+    "timestamp": "_([0-9]{8}_[0-9]{6})",
+    "staff": "_EMP[0-9]{3}_",
+    "scanType": "_(三件套|单扫|多扫|三件|单|套装|education|three_piece|single|multi)_",
+    "orderNumber": "(XS[0-9A-Z]+)"
+  },
+  "ocrService": {
+    "url": "http://127.0.0.1:8765",
+    "timeout": 30,
+    "endpoints": {
+      "extract": "/ocr/extract",
+      "batch": "/ocr/batch"
+    }
+  },
+  "educationApi": {
+    "url": "http://127.0.0.1:8000",
+    "endpoints": {
+      "matchSerial": "/api/education-scan/v2/match-serial/{sn}",
+      "matchOrder": "/api/education-scan/v2/match-order/{order}",
+      "matchPhone": "/api/education-scan/v2/match-phone/{phone}",
+      "createRecord": "/api/education-scan/v2/records",
+      "stats": "/api/education-scan/v2/stats"
+    }
+  },
+  "polling": {
+    "intervalSeconds": 300,
+    "batchSize": 10,
+    "maxRetries": 3
+  }
+}

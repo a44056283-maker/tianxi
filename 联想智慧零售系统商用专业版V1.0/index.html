@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联想智慧零售系统商用专业版 V1.0</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./assets/app.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-nav">
+        <div class="brand-block">
+          <div class="brand-mark">Lenovo</div>
+          <div>
+            <h1>智慧零售商用版</h1>
+            <p>Professional V1.0</p>
+          </div>
+        </div>
+        <nav id="moduleNav" class="module-nav" aria-label="模块导航"></nav>
+        <div class="nav-footer">
+          <strong>治理规范 V5</strong>
+          <span>真实数据 · 证据优先 · SN最高</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Commercial Retail Operating System</p>
+            <h2 id="pageTitle">经营驾驶舱</h2>
+          </div>
+          <div class="status-strip">
+            <span id="dataMode">数据模式</span>
+            <span id="generatedAt">更新时间</span>
+          </div>
+        </header>
+
+        <section class="truth-panel">
+          <div>
+            <strong>完成门禁</strong>
+            <span id="truthStatement">证据 -> SQL/受控快照 -> API -> 前端可见 -> 五层验收</span>
+          </div>
+          <button id="installButton" type="button">安装到桌面</button>
+        </section>
+
+        <section class="content-grid">
+          <article class="module-card">
+            <div class="card-header">
+              <div>
+                <span id="activeStatus" class="pill">ready</span>
+                <h3 id="activeName">经营驾驶舱</h3>
+              </div>
+              <span id="activeIndex" class="index-label">01</span>
+            </div>
+            <div id="metricGrid" class="metric-grid"></div>
+            <div class="subpage-area">
+              <div id="subpageTabs" class="subpage-tabs" aria-label="模块子菜单"></div>
+              <div id="liveDataPanel" class="live-data-panel"></div>
+            </div>
+          </article>
+
+          <article class="workflow-card">
+            <h3>执行流程</h3>
+            <div class="step-list">
+              <button class="step active" data-step="analysis">01 任务分析</button>
+              <button class="step" data-step="plan">02 实施计划</button>
+              <button class="step" data-step="build">03 开发执行</button>
+              <button class="step" data-step="review">04 自查复核</button>
+              <button class="step" data-step="accept">05 验收交付</button>
+            </div>
+            <div id="stepDetail" class="step-detail"></div>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article>
+            <h3>受保护业务字段</h3>
+            <div id="protectedFields" class="tag-cloud"></div>
+          </article>
+          <article>
+            <h3>五层验收</h3>
+            <ul class="acceptance-list">
+              <li><b>功能验收</b><span>模块可操作，按钮有真实状态。</span></li>
+              <li><b>数据验收</b><span>数据来源、时间、证据、SQL/API 对齐。</span></li>
+              <li><b>业务验收</b><span>门店人员能按真实流程使用。</span></li>
+              <li><b>性能验收</b><span>收银机、平板、手机、广告机可用。</span></li>
+              <li><b>商业化验收</b><span>真实门店可直接试点。</span></li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

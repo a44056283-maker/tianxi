@@ -1,0 +1,752 @@
+[
+  {
+    "top": "组织",
+    "submenu": "店铺列表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看"
+    ]
+  },
+  {
+    "top": "组织",
+    "submenu": "仓库列表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "经销商商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "发布商品",
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "发布商品",
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "发布商品",
+          "查看",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "查看",
+      "编辑"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "门店商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "查看",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "查看",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "导出",
+      "查看",
+      "编辑"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "仓库商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "查看"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "查看"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "查看"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "导出",
+      "查看"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "收银热卖商品",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "删除",
+          "下移"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "删除",
+          "置顶",
+          "上移",
+          "下移"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "删除",
+          "置顶",
+          "上移",
+          "下移"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "选择商品"
+    ]
+  },
+  {
+    "top": "商品",
+    "submenu": "供应商管理",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "禁用",
+          "删除",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "禁用",
+          "删除",
+          "编辑"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "禁用",
+          "删除",
+          "编辑"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "新建",
+      "编辑"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线下门店订单",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "XS26053131554072229",
+          "查看详情",
+          "订单备注"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "导出",
+      "导出明细",
+      "查看详情"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线下门店退单",
+    "rowActions": [],
+    "detailEntrances": [
+      "导出",
+      "导出明细"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线上订单",
+    "rowActions": [],
+    "detailEntrances": [
+      "导出",
+      "导出明细"
+    ]
+  },
+  {
+    "top": "订单",
+    "submenu": "线上退单",
+    "rowActions": [],
+    "detailEntrances": [
+      "导出",
+      "导出明细"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "商品库存",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出库存数量",
+      "导出库存SN",
+      "查看序列号"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库位库存",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存总览",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "0"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出库存数量",
+      "导出库存SN"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存流水",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "XS26053131554072229"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "XS26053131554072229"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "XS26053131554072229"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存订单",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "SN库存订单",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "销售成本价维护",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出销售成本价"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "调拨出库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "调拨入库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "调拨申请"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "商品入库",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "CGR260531422330"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "CGR260531422299"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "CGR260531422229"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "其他出入库",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库",
+      "新建出库单"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "同店换库位",
+    "rowActions": [],
+    "detailEntrances": [
+      "商品入库"
+    ]
+  },
+  {
+    "top": "库存",
+    "submenu": "库存配置",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "0",
+          "库存流水",
+          "查看序列号",
+          "销售成本记录"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "商品入库",
+      "库存查看",
+      "导出库存数量",
+      "导出库存SN",
+      "查看序列号"
+    ]
+  },
+  {
+    "top": "账号",
+    "submenu": "员工账号",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "重置账号密码"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "重置账号密码"
+        ]
+      },
+      {
+        "rowIndex": 2,
+        "actions": [
+          "重置账号密码"
+        ]
+      }
+    ],
+    "detailEntrances": []
+  },
+  {
+    "top": "账号",
+    "submenu": "业绩目标",
+    "rowActions": [],
+    "detailEntrances": [
+      "导出目标"
+    ]
+  },
+  {
+    "top": "设备",
+    "submenu": "POS管理",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "详情",
+          "编辑",
+          "重置",
+          "删除"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "详情",
+          "编辑",
+          "重置",
+          "删除"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "添加POS终端",
+      "详情",
+      "编辑"
+    ]
+  },
+  {
+    "top": "财务",
+    "submenu": "支付管理",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "变更协议"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "变更协议"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "签署新协议"
+    ]
+  },
+  {
+    "top": "财务",
+    "submenu": "自助签约",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "变更协议"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "变更协议"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "签署新协议"
+    ]
+  },
+  {
+    "top": "财务",
+    "submenu": "可用金",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": [
+          "变更协议"
+        ]
+      },
+      {
+        "rowIndex": 1,
+        "actions": [
+          "变更协议"
+        ]
+      }
+    ],
+    "detailEntrances": [
+      "签署新协议"
+    ]
+  },
+  {
+    "top": "数据",
+    "submenu": "支付统计报表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      }
+    ],
+    "detailEntrances": []
+  },
+  {
+    "top": "数据",
+    "submenu": "商品统计",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "导出"
+    ]
+  },
+  {
+    "top": "数据",
+    "submenu": "销售分析报表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "导出"
+    ]
+  },
+  {
+    "top": "数据",
+    "submenu": "销售日报表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "导出"
+    ]
+  },
+  {
+    "top": "数据",
+    "submenu": "门店SN有效销量报表",
+    "rowActions": [
+      {
+        "rowIndex": 0,
+        "actions": []
+      },
+      {
+        "rowIndex": 1,
+        "actions": []
+      },
+      {
+        "rowIndex": 2,
+        "actions": []
+      }
+    ],
+    "detailEntrances": [
+      "导出"
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>广告机平板彩页</title>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #eefaff; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; background: #eefaff; }
+  </style>
+</head>
+<body data-controlled-pager="true" data-page-count="1">
+  <iframe id="flyerFrame" title="平板彩页-小新/Y700"></iframe>
+  <script>
+    const frame = document.getElementById('flyerFrame')
+    const assetVersion = new URLSearchParams(window.location.search).get('av') || '20260527-admachine-v6'
+    const flyerFile = 'lenovo-618-tablet.html'
+    const host = window.location.hostname
+    const protocol = window.location.protocol
+    const fixedCandidates = [
+      'http://127.0.0.1:5174',
+      'http://192.168.13.104:5174'
+    ]
+    const candidateBases = (() => {
+      if (protocol === 'http:' || protocol === 'https:') {
+        const current = `${protocol}//${host}${window.location.port ? `:${window.location.port}` : ''}`
+        return [current, ...fixedCandidates.filter((item) => item !== current)]
+      }
+      return fixedCandidates
+    })()
+    let candidateIndex = 0
+    let lastSwitchAt = 0
+    let loadTimeoutId = 0
+
+    function setFrameSource(index = 0) {
+      const safeIndex = Math.max(0, Math.min(index, candidateBases.length - 1))
+      candidateIndex = safeIndex
+      const src = `${candidateBases[safeIndex]}/flyers/${flyerFile}?av=${encodeURIComponent(assetVersion)}`
+      frame.src = src
+      if (loadTimeoutId) window.clearTimeout(loadTimeoutId)
+      loadTimeoutId = window.setTimeout(() => {
+        if (candidateIndex < candidateBases.length - 1) {
+          lastSwitchAt = Date.now()
+          setFrameSource(candidateIndex + 1)
+        } else {
+          lastSwitchAt = Date.now()
+          window.setTimeout(() => setFrameSource(0), 1200)
+        }
+      }, 6000)
+    }
+
+    function updatePageCount() {
+      try {
+        const win = frame.contentWindow
+        const doc = win.document
+        const viewport = win.innerHeight || doc.documentElement.clientHeight || 1
+        const fullHeight = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight)
+        const pages = Math.max(1, Math.ceil(fullHeight / viewport))
+        document.body.dataset.pageCount = String(pages)
+        window.parent.postMessage({ type: 'adMachinePageCount', pages }, window.location.origin)
+      } catch {
+        document.body.dataset.pageCount = '1'
+      }
+    }
+
+    function setPage(page) {
+      try {
+        const win = frame.contentWindow
+        const doc = win.document
+        const viewport = win.innerHeight || doc.documentElement.clientHeight || 1
+        win.scrollTo({ top: Math.max(0, page) * viewport, left: 0, behavior: 'auto' })
+      } catch {}
+    }
+
+    function disableManualScroll() {
+      try {
+        const doc = frame.contentWindow.document
+        doc.addEventListener('wheel', (event) => event.preventDefault(), { passive: false })
+        doc.addEventListener('touchmove', (event) => event.preventDefault(), { passive: false })
+      } catch {}
+    }
+
+    frame.addEventListener('load', () => {
+      if (loadTimeoutId) {
+        window.clearTimeout(loadTimeoutId)
+        loadTimeoutId = 0
+      }
+      disableManualScroll()
+      setTimeout(updatePageCount, 120)
+      setTimeout(updatePageCount, 500)
+    })
+    frame.addEventListener('error', () => {
+      const now = Date.now()
+      if (now - lastSwitchAt < 600) return
+      if (candidateIndex >= candidateBases.length - 1) return
+      lastSwitchAt = now
+      setFrameSource(candidateIndex + 1)
+    })
+
+    window.addEventListener('message', (event) => {
+      if (event.origin !== window.location.origin) return
+      if (event.data?.type !== 'adMachineSetPage') return
+      setPage(Number(event.data.page || 0))
+    })
+    setFrameSource(0)
+  </script>
+</body>
+</html>

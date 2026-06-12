@@ -1,0 +1,3345 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#b91c1c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="零售终端">
+  <link rel="manifest" href="/retail-ops-terminal.webmanifest?v=202605271430">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon-192.png?v=202605271430">
+  <title>联想智慧零售终端</title>
+  <style>
+    :root {
+      --bg: #09111f;
+      --panel: rgba(13, 24, 44, 0.94);
+      --panel-soft: rgba(17, 32, 58, 0.88);
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e5edf8;
+      --muted: #91a4c4;
+      --danger: #fb7185;
+      --warn: #f59e0b;
+      --ok: #22c55e;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.14);
+      --blue: #38bdf8;
+      --blue-soft: rgba(56, 189, 248, 0.14);
+      --purple: #a78bfa;
+      --radius: 18px;
+      --shadow: 0 20px 50px rgba(2, 6, 23, 0.38);
+      --screen-w: 1600px;
+      --screen-h: 900px;
+      --screen-scale: 1;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(59, 130, 246, 0.22), transparent 32%),
+        radial-gradient(circle at 88% 14%, rgba(239, 68, 68, 0.16), transparent 28%),
+        linear-gradient(180deg, #08111f 0%, #0c1629 100%);
+      color: var(--text);
+    }
+
+    button, input, select { font: inherit; }
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      padding: 14px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .screen {
+      width: var(--screen-w);
+      height: var(--screen-h);
+      transform: scale(var(--screen-scale));
+      transform-origin: center center;
+      background:
+        linear-gradient(180deg, rgba(9, 17, 31, 0.98) 0%, rgba(7, 13, 24, 0.98) 100%);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: 86px 1fr 54px;
+    }
+
+    .screen.mobile {
+      width: min(100vw, 430px);
+      height: min(100vh, 932px);
+      border-radius: 0;
+      transform: none;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 360px;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10, 20, 38, 0.96), rgba(10, 20, 38, 0.82));
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 72px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .brand-copy p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-center {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 140px 140px 132px;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .search-shell,
+    .chip-button,
+    .status-shell,
+    .metric-card,
+    .section-card,
+    .rail-card,
+    .table-card,
+    .mini-card,
+    .list-row,
+    .pager-shell,
+    .install-banner {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .search-shell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      height: 52px;
+      min-width: 0;
+    }
+
+    .search-shell input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .search-shell input::placeholder {
+      color: #6f85aa;
+    }
+
+    .chip-button {
+      height: 52px;
+      border-radius: 16px;
+      color: var(--text);
+      cursor: pointer;
+      background: linear-gradient(180deg, rgba(17, 32, 58, 0.96), rgba(13, 24, 44, 0.96));
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .chip-button.primary {
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      border-color: rgba(248, 113, 113, 0.3);
+    }
+
+    .status-shell {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 10px 12px;
+      min-width: 0;
+    }
+
+    .status-item strong,
+    .metric-card strong,
+    .section-card strong,
+    .mini-card strong,
+    .table-card strong {
+      display: block;
+      font-weight: 800;
+    }
+
+    .status-item strong {
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .status-item span,
+    .metric-card span,
+    .section-card span,
+    .mini-card span,
+    .table-card span,
+    .list-row span,
+    .footer strong {
+      color: var(--muted);
+    }
+
+    .status-item span {
+      display: block;
+      margin-top: 3px;
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .workspace {
+      min-height: 0;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 188px minmax(0, 1fr) 356px;
+      gap: 14px;
+    }
+
+    .screen.module-serials .workspace {
+      grid-template-columns: 188px minmax(0, 1fr);
+    }
+
+    .screen.module-serials .rail {
+      display: none;
+    }
+
+    .screen.module-serials .board {
+      grid-template-rows: auto 46px minmax(0, 1fr) 54px;
+    }
+
+    .screen.module-serials .metrics-grid {
+      display: none;
+    }
+
+    .screen.module-serials .board-body {
+      grid-template-columns: 1fr;
+    }
+
+    .screen.module-serials .section-card {
+      min-height: 0;
+    }
+
+    .sidebar,
+    .board,
+    .rail {
+      min-height: 0;
+      display: grid;
+    }
+
+    .sidebar {
+      grid-template-rows: 1fr;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .module-stack,
+    .rail-stack {
+      display: grid;
+      gap: 10px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .module-button {
+      text-align: left;
+      padding: 14px 14px 13px;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(17, 32, 58, 0.98), rgba(9, 17, 31, 0.98));
+      color: var(--text);
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .module-button.active {
+      border-color: rgba(248, 113, 113, 0.4);
+      background:
+        linear-gradient(180deg, rgba(185, 28, 28, 0.28), rgba(17, 32, 58, 0.96));
+      transform: translateY(-1px);
+    }
+
+    .module-button strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .module-button span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .module-button.active span {
+      color: #f8c4c4;
+    }
+
+    .sidebar-foot {
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .board {
+      grid-template-rows: auto 96px 46px minmax(0, 1fr) 54px;
+      gap: 12px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .board-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .board-title {
+      min-width: 0;
+    }
+
+    .board-title h2 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .board-title p {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .signal-badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #fecaca;
+      border: 1px solid rgba(248, 113, 113, 0.22);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      height: 96px;
+      min-height: 96px;
+      overflow: hidden;
+    }
+
+    .metric-card {
+      padding: 14px 16px;
+      min-width: 0;
+      min-height: 96px;
+      background:
+        linear-gradient(180deg, rgba(18, 33, 58, 0.98), rgba(10, 19, 35, 0.98));
+    }
+
+    .metric-card strong {
+      font-size: 28px;
+      line-height: 1;
+      margin-top: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .metric-card em {
+      display: block;
+      font-style: normal;
+      font-size: 11px;
+      margin-top: 8px;
+      color: #bfd0eb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subnav {
+      display: flex;
+      gap: 8px;
+      min-width: 0;
+      height: 46px;
+      min-height: 46px;
+      overflow: hidden;
+    }
+
+    .subnav button {
+      min-width: 0;
+      flex: 1;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(15, 28, 49, 0.98);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subnav button.active {
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.28), rgba(59, 130, 246, 0.22));
+      border-color: rgba(59, 130, 246, 0.28);
+      color: var(--text);
+    }
+
+    .board-body {
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: minmax(0, 1fr);
+    }
+
+    .section-card,
+    .table-card {
+      padding: 14px 14px 12px;
+      min-height: 0;
+      display: grid;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .section-card.hero {
+      background:
+        linear-gradient(160deg, rgba(185, 28, 28, 0.16), rgba(17, 32, 58, 0.98) 42%, rgba(11, 19, 35, 0.98));
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .section-head strong,
+    .table-card strong {
+      font-size: 16px;
+    }
+
+    .section-head span,
+    .table-card span {
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .mini-card {
+      padding: 12px;
+      min-height: 92px;
+      background: var(--panel-soft);
+    }
+
+    .mini-card strong {
+      font-size: 20px;
+      margin-top: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-card span {
+      display: block;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .mini-card em {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 11px;
+      color: #c8d6ea;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .list-stack,
+    .table-stack {
+      display: grid;
+      gap: 8px;
+      min-height: 0;
+      align-content: start;
+    }
+
+    .list-row,
+    .table-row {
+      min-width: 0;
+      min-height: 0;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(12, 23, 41, 0.92);
+      border: 1px solid var(--line);
+    }
+
+    .list-row strong,
+    .table-row strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.28;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .list-row span,
+    .table-row span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .list-row em,
+    .table-row em {
+      display: block;
+      margin-top: 6px;
+      font-style: normal;
+      font-size: 11px;
+      color: #c9d7eb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tone-danger { color: var(--danger); }
+    .tone-warn { color: #fbbf24; }
+    .tone-ok { color: #4ade80; }
+    .tone-blue { color: #7dd3fc; }
+    .tone-purple { color: #c4b5fd; }
+
+    .pager-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      height: 54px;
+    }
+
+    .pager-shell button {
+      height: 38px;
+      min-width: 120px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(17, 32, 58, 0.98);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .pager-shell button:disabled {
+      opacity: 0.34;
+      cursor: default;
+    }
+
+    .pager-shell strong {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .rail {
+      grid-template-rows: auto auto 1fr;
+      gap: 10px;
+    }
+
+    .rail-card,
+    .install-banner {
+      padding: 14px;
+    }
+
+    .rail-card strong,
+    .install-banner strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .rail-card span,
+    .install-banner span {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+
+    .path-list,
+    .quick-actions,
+    .keyword-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .path-list code,
+    .keyword-list button {
+      display: block;
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(12, 23, 41, 0.92);
+      color: #d5e1f2;
+      font-size: 11px;
+      line-height: 1.35;
+      word-break: break-all;
+      text-align: left;
+    }
+
+    .keyword-list button {
+      cursor: pointer;
+      word-break: normal;
+    }
+
+    .quick-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .action-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .action-list button {
+      min-height: 52px;
+      border: 1px solid rgba(248, 113, 113, 0.24);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(248, 113, 113, 0.24), transparent 38%),
+        linear-gradient(135deg, rgba(185, 28, 28, 0.34), rgba(17, 32, 58, 0.96));
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: left;
+      padding: 0 16px;
+    }
+
+    .inventory-workbench {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .inventory-category-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .inventory-category-grid button {
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(12, 23, 41, 0.94);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      padding: 8px 10px;
+      overflow: hidden;
+    }
+
+    .inventory-category-grid button.active {
+      border-color: rgba(248, 113, 113, 0.5);
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.36), rgba(30, 64, 175, 0.22));
+    }
+
+    .inventory-category-grid strong,
+    .inventory-category-grid span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inventory-category-grid strong {
+      font-size: 13px;
+    }
+
+    .inventory-category-grid span {
+      margin-top: 3px;
+      font-size: 10px;
+      color: #b9c7db;
+    }
+
+    .inventory-detail-list {
+      display: grid;
+      gap: 8px;
+      min-height: 0;
+      overflow: hidden;
+      align-content: start;
+    }
+
+    .inventory-detail-row {
+      min-height: 58px;
+      display: grid;
+      grid-template-columns: minmax(240px, 1.3fr) minmax(170px, 0.9fr) minmax(170px, 0.9fr) minmax(190px, 1fr);
+      gap: 8px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(12, 23, 41, 0.92);
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .inventory-detail-row > div {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .inventory-detail-row strong,
+    .inventory-detail-row span,
+    .inventory-detail-row em {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-style: normal;
+    }
+
+    .inventory-detail-row strong {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .inventory-detail-row span {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #c8d6ea;
+    }
+
+    .inventory-detail-row em {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .quick-actions button {
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(17, 32, 58, 0.98), rgba(10, 19, 35, 0.98));
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .install-banner {
+      display: none;
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.24), rgba(59, 130, 246, 0.18));
+      border-color: rgba(248, 113, 113, 0.24);
+    }
+
+    .install-banner.show {
+      display: block;
+    }
+
+    .install-banner button {
+      margin-top: 10px;
+      width: 100%;
+      height: 46px;
+      border: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 18px;
+      border-top: 1px solid var(--line);
+      background: rgba(8, 15, 27, 0.96);
+      font-size: 12px;
+    }
+
+    .footer strong {
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .footer-links a {
+      color: #c8d6ea;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1180px) {
+      html, body {
+        overflow: hidden;
+      }
+
+      .stage {
+        padding: 0;
+      }
+
+      .screen {
+        width: 100vw;
+        height: 100vh;
+        transform: none;
+        border-radius: 0;
+        grid-template-rows: 82px 1fr 46px;
+      }
+
+      .topbar {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .topbar-center,
+      .status-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .sidebar {
+        grid-template-rows: auto;
+      }
+
+      .module-stack {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .sidebar-foot {
+        display: none;
+      }
+
+      .board {
+        order: 2;
+        grid-template-rows: auto 96px auto minmax(0, 1fr) 54px;
+      }
+
+      .rail {
+        order: 3;
+      }
+
+      .metrics-grid,
+      .board-body {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .screen {
+        grid-template-rows: 152px minmax(0, 1fr) 42px;
+      }
+
+      .brand-copy h1 {
+        font-size: 22px;
+      }
+
+      .workspace {
+        padding: 12px;
+      }
+
+      .module-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metrics-grid,
+      .board-body,
+      .summary-grid,
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .subnav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .board-title h2 {
+        font-size: 25px;
+      }
+
+      .signal-badge {
+        display: none;
+      }
+
+      .pager-shell button {
+        min-width: 96px;
+      }
+
+      .footer {
+        padding: 0 12px;
+        font-size: 11px;
+      }
+
+      .footer-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <main id="screen" class="screen" aria-label="联想智慧零售终端">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">Lenovo</div>
+          <div class="brand-copy">
+            <h1>零售经营终端</h1>
+            <p id="storeName">联想体验店（新野县书院路）</p>
+          </div>
+        </div>
+        <div class="topbar-center">
+          <label class="search-shell" aria-label="全局搜索">
+            <input id="globalSearch" type="search" placeholder="搜型号 / 系列 / SKU / PN / SN">
+          </label>
+          <button id="modeCashier" class="chip-button" type="button">收银机模式</button>
+          <button id="modeMobile" class="chip-button" type="button">移动模式</button>
+          <button id="refreshButton" class="chip-button primary" type="button">刷新数据</button>
+        </div>
+        <div class="status-shell">
+          <div class="status-item">
+            <strong id="statusMode">SQL / API 实时映射</strong>
+            <span id="statusFreshness">数据读取中</span>
+          </div>
+          <div class="status-item">
+            <strong id="statusInstall">收银机 / 平板 / 手机</strong>
+            <span id="statusDevice">终端模式识别中</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="sidebar">
+          <div class="module-stack" id="moduleNav"></div>
+        </aside>
+
+        <section class="board">
+          <div class="board-head">
+            <div class="board-title">
+              <h2 id="boardTitle">库存详情</h2>
+              <p id="boardSubtitle">库存盘点、滞销提示、SN 异常、库存预警</p>
+            </div>
+            <div class="signal-badge" id="boardSignal">数据链读取中</div>
+          </div>
+          <div class="metrics-grid" id="metricsGrid"></div>
+          <nav class="subnav" id="subnav"></nav>
+          <div class="board-body" id="boardBody"></div>
+          <div class="pager-shell">
+            <button id="prevPage" type="button">上一页</button>
+            <strong id="pageIndicator">第 1 页</strong>
+            <button id="nextPage" type="button">下一页</button>
+          </div>
+        </section>
+
+        <aside class="rail">
+          <div id="installBanner" class="install-banner">
+            <strong>支持安装到桌面</strong>
+            <span>可在收银机、平板或手机上作为独立应用打开。</span>
+            <button id="installButton" type="button">安装终端</button>
+          </div>
+          <div class="rail-card">
+            <strong id="railMenuTitle">子菜单</strong>
+            <span id="railMenuNote">当前模块的固定分页入口</span>
+            <div class="keyword-list" id="railMenuList"></div>
+          </div>
+          <div class="rail-stack">
+            <div class="rail-card">
+              <strong id="railFilterTitle">快捷筛选</strong>
+              <span id="railFilterNote">按高频关键词快速切换</span>
+              <div class="keyword-list" id="railFilterList"></div>
+            </div>
+            <div class="rail-card">
+              <strong id="railFocusTitle">当前重点</strong>
+              <span id="railFocusNote">当前模块重点信息</span>
+              <div class="list-stack" id="railFocusList"></div>
+            </div>
+            <div class="rail-card">
+              <strong>操作入口</strong>
+              <span>当前模块可执行动作</span>
+              <div class="quick-actions" id="railActionList"></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <strong id="footerSummary">正在准备终端数据</strong>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const appState = {
+      moduleKey: 'retail',
+      pageByModule: {
+        retail: 0,
+        overview: 0,
+        serials: 0,
+        prices: 0,
+        sources: 0,
+        movements: 0,
+        integration: 0,
+        productLibrary: 0,
+      },
+      query: '',
+      data: {
+        dashboardSummary: null,
+        retailZone: null,
+        publishedProjection: null,
+        marketingBoostHero: null,
+        storeManualPromotions: null,
+        productActivities: null,
+        inventory: null,
+        inventoryMaster: null,
+        serialItems: null,
+        warranty: null,
+        priceSignals: null,
+        priceProtection: null,
+        protectionHistory: null,
+        educationAgentScan: null,
+        manualOverrides: null,
+        productUrlLocks: null,
+        distributorQuotes: null,
+        grayWholesale: null,
+        competitor: null,
+        movements: null,
+        retailCoreStatus: null,
+        categoryTree: null,
+        retailCoreMovements: null,
+        salesOrders: null,
+        orderSyncRegistry: null,
+        syncGapQueue: null,
+        syncTasks: null,
+        localSyncPipelines: null,
+        localSyncReport: null,
+        localSyncFailureQueue: null,
+        scheduledOverview: null,
+        scheduledRunnerStatus: null,
+        productLibraryOverview: null,
+        productLibraryCategories: null,
+        productLibraryProducts: null,
+        productLibraryPricing: null,
+        productLibraryProjection: null,
+        productLibraryProjectionAudit: null,
+        productLibraryReplays: null,
+      },
+      deviceMode: 'cashier',
+      installPrompt: null,
+      forcedMode: 'auto',
+      inventoryCategory: '全部',
+    }
+
+    const moduleCatalog = {
+      retail: {
+        title: '收银端',
+        subtitle: '收银入口、订单占位、抽奖联动、离线安装',
+        pages: ['收银入口', '订单占位', '抽奖联动', '离线安装'],
+      },
+      overview: {
+        title: '经营总览',
+        subtitle: '库存、价保、报价、同步状态汇总',
+        pages: ['今日总览', '库存经营', '价格风险', '同步状态'],
+      },
+      serials: {
+        title: '库存详情',
+        subtitle: 'SN 全链路、库龄超期、质保异常',
+        pages: ['库存查看', '滞销预警', '异常预警'],
+      },
+      prices: {
+        title: '产品价保',
+        subtitle: '零售价保对账、申请队列、历史回看、营销分类',
+        pages: ['总览', '待处理', '历史明细', '营销分类'],
+      },
+      sources: {
+        title: '报价来源',
+        subtitle: '群报价、公众号报价、竞品走势、原始来源',
+        pages: ['群报价库', '公众号报价库', '竞品监控', '原始来源'],
+      },
+      movements: {
+        title: '入库出库',
+        subtitle: '每日流水、销量排行、系列排行、库存预警',
+        pages: ['总览', '入库', '出库', '排行预警'],
+      },
+      integration: {
+        title: '系统同步',
+        subtitle: '智店通链路、同步缺口、定时任务、失败队列',
+        pages: ['同步状态', '智店通链路', '缺口队列', '定时任务'],
+      },
+      productLibrary: {
+        title: '产品库',
+        subtitle: '商品主档、分类映射、价格治理、证据回放',
+        pages: ['主档总览', '分类映射', '价格治理', '证据回放'],
+      },
+    }
+
+    const moduleButtons = [
+      { key: 'retail', title: '收银端', note: '收银、占位、抽奖、离线' },
+      { key: 'overview', title: '经营总览', note: '库存、价保、报价、同步' },
+      { key: 'serials', title: '库存详情', note: '盘点、SN、滞销、异常' },
+      { key: 'prices', title: '产品价保', note: '对账、营销、历史、申请' },
+      { key: 'sources', title: '报价来源', note: '群报价、公众号、竞品、原始链' },
+      { key: 'movements', title: '入库出库', note: '销售、入库、排行、预警' },
+      { key: 'integration', title: '系统同步', note: '智店通、任务、失败队列' },
+      { key: 'productLibrary', title: '产品库', note: '主档、分类、价格、证据' },
+    ]
+
+    const keywordPresets = [
+      '小新',
+      'ThinkBook',
+      'ThinkPad',
+      'Y7000',
+      '拯救者',
+      '平板',
+      '手机',
+      '显示器',
+    ]
+
+    const API_BASE_STORAGE_KEY = 'lenovo-retail-ops-terminal.api-base.v1'
+
+    function currentApiBase() {
+      const saved = localStorage.getItem(API_BASE_STORAGE_KEY)
+      if (saved) return saved.replace(/\/$/, '')
+      if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000'
+      if (window.location.port === '5174') return `${window.location.protocol}//${window.location.hostname}:8000`
+      return ''
+    }
+
+    function buildDataUrl(path) {
+      if (!path) return ''
+      if (/^https?:\/\//.test(path)) return path
+      const base = currentApiBase()
+      if (path.startsWith('/api/')) return `${base}${path}`
+      if (window.location.protocol === 'file:') return `http://127.0.0.1:5174${path}`
+      return path
+    }
+
+    function addTimestamp(url) {
+      return `${url}${url.includes('?') ? '&' : '?'}ts=${Date.now()}`
+    }
+
+    const sourceFallbacks = {}
+
+    function money(value) {
+      const amount = Number(value || 0)
+      if (!Number.isFinite(amount)) return '0'
+      return amount.toLocaleString('zh-CN', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
+    }
+
+    function formatNumber(value) {
+      const amount = Number(value || 0)
+      if (!Number.isFinite(amount)) return '0'
+      return amount.toLocaleString('zh-CN')
+    }
+
+    function formatDateTime(value) {
+      if (!value) return '待补'
+      const date = new Date(value)
+      if (!Number.isFinite(date.getTime())) return String(value)
+      return date.toLocaleString('zh-CN', { hour12: false })
+    }
+
+    function daysBetween(value) {
+      if (!value) return 0
+      const date = new Date(value)
+      if (!Number.isFinite(date.getTime())) return 0
+      return Math.max(0, Math.floor((Date.now() - date.getTime()) / 86400000))
+    }
+
+    function normalizeText(value) {
+      return String(value || '').trim().toLowerCase()
+    }
+
+    function queryMatch(fields) {
+      if (!appState.query) return true
+      const query = normalizeText(appState.query)
+      return fields.some((field) => normalizeText(field).includes(query))
+    }
+
+    function pickTone(kind) {
+      if (kind === 'danger') return 'tone-danger'
+      if (kind === 'warn') return 'tone-warn'
+      if (kind === 'ok') return 'tone-ok'
+      if (kind === 'blue') return 'tone-blue'
+      if (kind === 'purple') return 'tone-purple'
+      return ''
+    }
+
+    function chunk(items, size) {
+      const groups = []
+      for (let index = 0; index < items.length; index += size) groups.push(items.slice(index, index + size))
+      return groups
+    }
+
+    function dedupeBy(items, keyGetter) {
+      const seen = new Set()
+      const result = []
+      items.forEach((item) => {
+        const key = keyGetter(item)
+        if (!key || seen.has(key)) return
+        seen.add(key)
+        result.push(item)
+      })
+      return result
+    }
+
+    function asArray(source, keys = []) {
+      if (Array.isArray(source)) return source
+      if (!source || typeof source !== 'object') return []
+      for (const key of keys) {
+        const value = source[key]
+        if (Array.isArray(value)) return value
+      }
+      return []
+    }
+
+    function firstValue(source, keys, fallback = 0) {
+      for (const key of keys) {
+        const value = source && source[key]
+        if (value !== undefined && value !== null && value !== '') return value
+      }
+      return fallback
+    }
+
+    function countRows(source, keys = []) {
+      return asArray(source, keys).length
+    }
+
+    function buildRowsFromObject(source) {
+      if (!source || typeof source !== 'object') return []
+      return Object.entries(source).map(([key, value]) => ({
+        title: key,
+        detail: typeof value === 'object' ? JSON.stringify(value).slice(0, 120) : String(value),
+        note: '状态字段',
+      }))
+    }
+
+    function getDb() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open('lenovo-retail-ops-terminal', 1)
+        request.onupgradeneeded = () => {
+          const db = request.result
+          if (!db.objectStoreNames.contains('snapshots')) db.createObjectStore('snapshots')
+        }
+        request.onsuccess = () => resolve(request.result)
+        request.onerror = () => reject(request.error)
+      })
+    }
+
+    async function cacheSnapshot(key, value) {
+      try {
+        const db = await getDb()
+        await new Promise((resolve, reject) => {
+          const tx = db.transaction('snapshots', 'readwrite')
+          tx.objectStore('snapshots').put({ payload: value, cachedAt: new Date().toISOString() }, key)
+          tx.oncomplete = () => resolve()
+          tx.onerror = () => reject(tx.error)
+        })
+        db.close()
+      } catch {}
+    }
+
+    async function readCachedSnapshot(key) {
+      try {
+        const db = await getDb()
+        const result = await new Promise((resolve, reject) => {
+          const tx = db.transaction('snapshots', 'readonly')
+          const request = tx.objectStore('snapshots').get(key)
+          request.onsuccess = () => resolve(request.result || null)
+          request.onerror = () => reject(request.error)
+        })
+        db.close()
+        return result
+      } catch {
+        return null
+      }
+    }
+
+    async function fetchJsonWithFallback(key, apiPath, fallbackPath, emptyValue = {}) {
+      const apiUrl = addTimestamp(buildDataUrl(apiPath))
+      const fetchOptions = { cache: 'no-store' }
+      let timeoutId = null
+      if (typeof AbortController === 'function') {
+        const controller = new AbortController()
+        fetchOptions.signal = controller.signal
+        timeoutId = setTimeout(() => controller.abort(), 6000)
+      }
+      try {
+        const response = await fetch(apiUrl, fetchOptions)
+        if (timeoutId) clearTimeout(timeoutId)
+        if (!response.ok) throw new Error(`api ${response.status}`)
+        const payload = await response.json()
+        await cacheSnapshot(key, payload)
+        return payload
+      } catch {
+        if (timeoutId) clearTimeout(timeoutId)
+        const cached = await readCachedSnapshot(key)
+        if (cached && cached.payload) return cached.payload
+        if (!fallbackPath) return emptyValue
+        const response = await fetch(addTimestamp(buildDataUrl(fallbackPath)), { cache: 'no-store' })
+        if (!response.ok) throw new Error(`fallback ${response.status}`)
+        const payload = await response.json()
+        await cacheSnapshot(key, payload)
+        return payload
+      }
+    }
+
+    async function loadSource(key, apiPath, emptyValue = {}) {
+      try {
+        return await fetchJsonWithFallback(key, apiPath, sourceFallbacks[key], emptyValue)
+      } catch {
+        return emptyValue
+      }
+    }
+
+    function updateModeButtons() {
+      const cashierButton = document.getElementById('modeCashier')
+      const mobileButton = document.getElementById('modeMobile')
+      cashierButton.classList.toggle('primary', appState.forcedMode === 'cashier')
+      mobileButton.classList.toggle('primary', appState.forcedMode === 'mobile')
+    }
+
+    function writeModeQuery(mode) {
+      const url = new URL(window.location.href)
+      if (mode === 'auto') {
+        url.searchParams.delete('mode')
+      } else {
+        url.searchParams.set('mode', mode)
+      }
+      window.history.replaceState({}, '', url.toString())
+    }
+
+    function fitViewport() {
+      const screen = document.getElementById('screen')
+      const mode = appState.forcedMode === 'auto' ? (window.innerWidth <= 1180 ? 'mobile' : 'cashier') : appState.forcedMode
+      const isMobile = mode === 'mobile'
+      appState.deviceMode = isMobile ? 'mobile' : 'cashier'
+      screen.classList.toggle('mobile', isMobile)
+      if (isMobile) {
+        document.documentElement.style.setProperty('--screen-scale', '1')
+      } else {
+        const pad = 40
+        const scale = Math.min((window.innerWidth - pad) / 1600, (window.innerHeight - pad) / 900, 1)
+        document.documentElement.style.setProperty('--screen-scale', String(scale))
+      }
+      document.getElementById('statusDevice').textContent = isMobile ? '移动触控模式' : '收银宽屏模式'
+      updateModeButtons()
+    }
+
+    function registerServiceWorker() {
+      if (!('serviceWorker' in navigator)) return
+      navigator.serviceWorker.register('/sw-retail-ops-terminal.js?v=202605272002', { scope: '/' })
+        .then((registration) => registration.update().catch(() => {}))
+        .catch(() => {})
+    }
+
+    function renderModuleNav() {
+      document.getElementById('moduleNav').innerHTML = moduleButtons.map((item) => `
+        <button class="module-button ${item.key === appState.moduleKey ? 'active' : ''}" type="button" data-module="${item.key}">
+          <strong>${item.title}</strong>
+          <span>${item.note}</span>
+        </button>
+      `).join('')
+      document.querySelectorAll('[data-module]').forEach((button) => {
+        button.addEventListener('click', () => {
+          appState.moduleKey = button.getAttribute('data-module')
+          renderAll()
+        })
+      })
+    }
+
+    function renderKeywordButtons(targetId, keywords) {
+      document.getElementById(targetId).innerHTML = keywords.map((keyword) => `
+        <button type="button" data-keyword="${keyword}">${keyword}</button>
+      `).join('')
+      document.querySelectorAll(`#${targetId} [data-keyword]`).forEach((button) => {
+        button.addEventListener('click', () => {
+          const keyword = button.getAttribute('data-keyword') || ''
+          appState.query = keyword
+          document.getElementById('globalSearch').value = keyword
+          renderAll()
+        })
+      })
+    }
+
+    function renderRail(pageIndex, currentPage) {
+      const moduleConfig = moduleCatalog[appState.moduleKey]
+      document.getElementById('railMenuTitle').textContent = `${moduleConfig.title}子菜单`
+      document.getElementById('railMenuNote').textContent = '固定分页入口'
+      document.getElementById('railMenuList').innerHTML = moduleConfig.pages.map((label, index) => `
+        <button type="button" data-rail-page="${index}" class="${index === pageIndex ? 'primary' : ''}">${label}</button>
+      `).join('')
+      document.querySelectorAll('#railMenuList [data-rail-page]').forEach((button) => {
+        button.addEventListener('click', () => {
+          appState.pageByModule[appState.moduleKey] = Number(button.getAttribute('data-rail-page') || 0)
+          renderAll()
+        })
+      })
+
+      const keywordMap = {
+        retail: ['收银', '占位', '抽奖', '离线', '退换', '扫码'],
+        overview: ['库存', '价保', '报价', '同步', '异常', '今日'],
+        serials: ['滞销', '异常', '低库存', '拯救者', '小新', 'Think'],
+        prices: ['待申请', '小新', 'Think', '拯救者', '历史', '高金额'],
+        sources: ['群报价', '公众号', '竞品', '小新', 'Think', '拯救者'],
+        movements: ['入库', '出库', '排行', '小新', 'Think', '拯救者'],
+        integration: ['智店通', '失败', '缺口', '定时', '销售', '同步'],
+        productLibrary: ['主档', '分类', '证据', '回放', '价格', 'SKU'],
+      }
+      const moduleKeywords = keywordMap[appState.moduleKey] || keywordPresets
+      document.getElementById('railFilterTitle').textContent = '快捷筛选'
+      document.getElementById('railFilterNote').textContent = appState.query ? `当前检索：${appState.query}` : '点击后直接切换检索'
+      renderKeywordButtons('railFilterList', moduleKeywords)
+
+      const focusSource = currentPage.cards || []
+      const focusItems = focusSource.slice(0, 3).map((card) => ({
+        title: card.title,
+        detail: card.summary?.[0]
+          ? `${card.summary[0].label} ${card.summary[0].value}`
+          : (card.list?.[0]?.title || '暂无重点'),
+        note: card.summary?.[0]?.note || card.list?.[0]?.detail || '',
+      }))
+      document.getElementById('railFocusTitle').textContent = '当前重点'
+      document.getElementById('railFocusNote').textContent = `${moduleConfig.pages[pageIndex]} · 重点摘要`
+      document.getElementById('railFocusList').innerHTML = focusItems.length
+        ? focusItems.map((item) => createListRow(item, 'blue')).join('')
+        : '<article class="list-row"><strong>暂无重点</strong><span>等待数据</span><em></em></article>'
+
+      const actions = currentPage.actions || [
+        { label: '刷新当前数据', href: '#reload' },
+        { label: '回到收银端', href: '/retail-ops-terminal.html?mode=cashier' },
+      ]
+      document.getElementById('railActionList').innerHTML = actions.map((action) => `
+        <button type="button" data-href="${action.href}">${action.label}</button>
+      `).join('')
+      document.querySelectorAll('#railActionList [data-href]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const href = button.getAttribute('data-href')
+          if (href === '#reload') {
+            loadAll()
+            return
+          }
+          if (href === '#install') {
+            document.getElementById('installButton').click()
+            return
+          }
+          location.href = href
+        })
+      })
+    }
+
+    function buildInventoryView() {
+      const inventory = appState.data.inventory || { skus: [], totals: {}, generatedAt: '' }
+      const master = appState.data.inventoryMaster || { rows: [], warnings: [], exceptions: [], generatedAt: '' }
+      const serialCore = appState.data.serialItems || { items: [] }
+      const warranty = appState.data.warranty || { records: [] }
+      const movements = appState.data.retailCoreMovements || appState.data.movements || { items: [], records: [] }
+      const categoryTree = appState.data.categoryTree || { categoryNodes: [], skuMappings: [] }
+      const inventorySkuMap = new Map((inventory.skus || []).map((item) => [String(item.skuKey || item.sku_key || ''), item]))
+      const warrantyMap = new Map(asArray(warranty, ['records', 'items']).map((item) => [String(item.serialNumber || item.serial_number || '').toUpperCase(), item]))
+      const categoryMap = new Map(asArray(categoryTree, ['skuMappings', 'items', 'records']).map((item) => [String(item.sku_key || item.skuKey || ''), item]))
+      const movementRows = asArray(movements, ['items', 'records', 'movements'])
+      const movementMap = new Map()
+      movementRows.forEach((item) => {
+        const sn = String(item.serial_number || item.serialNumber || item.sn || '').toUpperCase()
+        if (!sn) return
+        const list = movementMap.get(sn) || []
+        list.push(item)
+        movementMap.set(sn, list)
+      })
+
+      const resolveDisplayName = (...candidates) => {
+        for (const candidate of candidates) {
+          const value = String(candidate || '').trim()
+          if (!value || /^\d{8}$/.test(value)) continue
+          return value
+        }
+        return String(candidates.find((candidate) => String(candidate || '').trim()) || '未命名商品').trim() || '未命名商品'
+      }
+
+      const normalizeSerial = (item) => {
+        const skuKey = String(item.sku_key || item.skuKey || item.sku || '').trim()
+        const inventorySku = inventorySkuMap.get(skuKey) || {}
+        const sn = String(item.serial_number || item.serialNumber || item.sn || '').trim()
+        const warrantyItem = warrantyMap.get(sn.toUpperCase()) || {}
+        const categoryMapping = categoryMap.get(skuKey) || {}
+        const inboundDate = item.inbound_date || item.inboundDate || item.businessDate || inventorySku.inboundDate || ''
+        const warrantyEnd = item.official_warranty_end || item.officialWarrantyEnd || warrantyItem.officialWarrantyEnd || warrantyItem.official_warranty_end || ''
+        const warrantyStart = item.official_warranty_start || item.officialWarrantyStart || warrantyItem.officialWarrantyStart || warrantyItem.official_warranty_start || ''
+        const ageDays = Number(item.stockAgeDays || item.stock_age_days || daysBetween(inboundDate) || 0)
+        const warrantyRemainingDays = warrantyEnd ? Math.ceil((new Date(warrantyEnd).getTime() - Date.now()) / 86400000) : null
+        const productName = resolveDisplayName(item.product_name, item.productName, inventorySku.productName, inventorySku.name, skuKey)
+        const category = item.source_category || item.sourceCategory || inventorySku.sourceCategory || item.category || inventorySku.category || categoryMapping.category_name || categoryMapping.categoryName || categoryMapping.category || '未分类'
+        const movementsForSn = movementMap.get(sn.toUpperCase()) || []
+        const latestMovement = movementsForSn.slice().sort((left, right) => String(right.business_date || right.businessDate || right.created_at || '').localeCompare(String(left.business_date || left.businessDate || left.created_at || '')))[0]
+        return {
+          raw: item,
+          skuKey,
+          serialNumber: sn,
+          productName,
+          spec: item.spec || inventorySku.spec || inventorySku.subtitle || '*',
+          pnMtm: item.pn_mtm || item.pnMtm || inventorySku.pnMtm || inventorySku.pn_mtm || '',
+          category,
+          cashierCategory: categoryMapping.cashier_category || categoryMapping.cashierCategory || category,
+          status: item.status || inventorySku.status || 'in_stock',
+          warehouse: item.warehouse_code || item.warehouseCode || item.location_name || item.locationName || item.location_code || '门店库存',
+          supplierName: item.supplier_name || item.supplierName || latestMovement?.supplier_name || latestMovement?.supplierName || '供货待补',
+          inboundDate,
+          inboundDocumentNo: item.inbound_document_no || item.inboundDocumentNo || latestMovement?.inbound_document_no || latestMovement?.inboundDocumentNo || latestMovement?.source_ref || '',
+          operatorName: item.operator_name || item.operatorName || latestMovement?.operator_name || latestMovement?.operatorName || '',
+          costAmount: item.cost_amount || item.costAmount || latestMovement?.cost_amount || latestMovement?.costAmount || null,
+          warrantyStatus: item.warranty_status || item.warrantyStatus || warrantyItem.status || 'missing',
+          warrantyStart,
+          warrantyEnd,
+          warrantyPlan: item.warranty_service_plan || item.warrantyServicePlan || warrantyItem.servicePlan || '质保方案待补',
+          warrantyFailureReason: item.warranty_failure_reason || item.warrantyFailureReason || warrantyItem.failureReason || '',
+          warrantyRemainingDays,
+          ageDays,
+          movements: movementsForSn,
+          latestMovement,
+        }
+      }
+
+      function staleLevel(item) {
+        if (item.ageDays >= 180) return { level: '一级', tone: 'danger', label: '超 180 天', action: '必须优先处理' }
+        if (item.ageDays >= 100) return { level: '二级', tone: 'warn', label: '100-180 天', action: '主动推动销售' }
+        if (item.ageDays >= 60) return { level: '三级', tone: 'blue', label: '60-100 天', action: '开始关注陈旧' }
+        return null
+      }
+
+      function categoryScript(item, level) {
+        const text = `${item.productName} ${item.spec || ''} ${item.category || ''}`.toLowerCase()
+        if (text.includes('拯救者') || text.includes('游戏')) return `${level.level}预警：主推现货性能和游戏场景，搭配全量服务、抽奖或配件优惠，优先推荐给预算明确的游戏客户。`
+        if (text.includes('think')) return `${level.level}预警：主推商务稳定、接口齐全和现货交付，适合办公换新、公司采购和长期使用客户。`
+        if (text.includes('小新') || text.includes('yoga') || text.includes('轻薄')) return `${level.level}预警：主推轻薄便携、学习办公和性价比，适合学生、白领和家庭换机场景。`
+        if (text.includes('pad') || text.includes('平板')) return `${level.level}预警：主推学习娱乐、网课和影音场景，可与键盘、支架、服务权益组合成交。`
+        if (text.includes('moto') || text.includes('手机')) return `${level.level}预警：主推备用机、老人机、长续航和换新场景，重点突出到手价。`
+        return `${level.level}预警：优先做组合销售、陈列曝光和活动绑定，避免继续占用库存资金。`
+      }
+
+      function warrantyLevel(item) {
+        const status = String(item.warrantyStatus || '').toLowerCase()
+        if (item.warrantyRemainingDays !== null && item.warrantyRemainingDays < 0) return { level: '一级', tone: 'danger', label: '质保已过期', action: '销售前必须人工确认' }
+        if (!item.warrantyEnd || status.includes('not_found') || status.includes('missing') || status.includes('failed')) return { level: '三级', tone: 'blue', label: '质保信息缺失', action: '先补查 SN 质保' }
+        if (item.warrantyRemainingDays !== null && item.warrantyRemainingDays <= 90) return { level: '二级', tone: 'warn', label: '质保不足 90 天', action: '销售前重点说明' }
+        return null
+      }
+
+      function isWarrantyAbnormal(item) {
+        return Boolean(warrantyLevel(item))
+      }
+
+      function warrantyScript(item, level) {
+        if (level.label === '质保已过期') return '强预警：该 SN 质保已经过期，销售前必须店长确认，并明确是否需要补服务或更换库存。'
+        if (level.label === '质保不足 90 天') return '预警：该 SN 质保剩余时间偏短，成交前应核对客户用途，必要时搭配延保或服务权益说明。'
+        return '提醒：该 SN 质保信息未闭环，应先补查官网质保或核对 SN 台账，避免销售后产生售后解释风险。'
+      }
+
+      function warrantyNote(item) {
+        const raw = String(item.warrantyFailureReason || item.warrantyPlan || '').trim()
+        if (!raw) return '质保状态待补'
+        if (raw.includes('page.') || raw.includes('Target page') || raw.includes('browser has been closed') || raw.includes('Error:')) return '质保查询异常，需人工复核'
+        return raw
+      }
+
+      const coreRows = asArray(serialCore, ['items', 'rows', 'records']).map(normalizeSerial)
+      const masterRows = asArray(master, ['rows', 'items', 'records']).map(normalizeSerial)
+      const serialRows = dedupeBy([...coreRows, ...masterRows], (item) => item.serialNumber || `${item.skuKey}-${item.productName}`)
+        .filter((item) => queryMatch([item.productName, item.category, item.cashierCategory, item.pnMtm, item.skuKey, item.serialNumber, item.spec, item.supplierName]))
+      const inStockRows = serialRows.filter((item) => !String(item.status || '').includes('sold') && !String(item.status || '').includes('outbound'))
+      const categoryGroups = Object.entries(inStockRows.reduce((acc, item) => {
+        const key = item.cashierCategory || item.category || '未分类'
+        const value = acc[key] || { label: key, count: 0, stale: 0, abnormal: 0 }
+        value.count += 1
+        if (item.ageDays >= 60) value.stale += 1
+        if (isWarrantyAbnormal(item)) value.abnormal += 1
+        acc[key] = value
+        return acc
+      }, {})).map(([, value]) => value).sort((left, right) => right.count - left.count)
+      const staleRows = inStockRows.map((item) => ({ ...item, staleLevel: staleLevel(item) })).filter((item) => item.staleLevel).sort((left, right) => right.ageDays - left.ageDays)
+      const warrantyRows = inStockRows.map((item) => ({ ...item, warrantyLevel: warrantyLevel(item) })).filter((item) => item.warrantyLevel).sort((left, right) => {
+        const rank = { '一级': 3, '二级': 2, '三级': 1 }
+        return (rank[right.warrantyLevel.level] || 0) - (rank[left.warrantyLevel.level] || 0)
+      })
+      const categoryButtons = [
+        { label: '全部', count: inStockRows.length, stale: staleRows.length, abnormal: warrantyRows.length },
+        ...categoryGroups.slice(0, 11),
+      ]
+      if (!categoryButtons.some((item) => item.label === appState.inventoryCategory)) appState.inventoryCategory = '全部'
+      const activeCategory = appState.inventoryCategory || '全部'
+      const matchActiveCategory = (item) => activeCategory === '全部' || (item.cashierCategory || item.category || '未分类') === activeCategory
+      const activeRows = inStockRows.filter(matchActiveCategory)
+      const activeStaleRows = staleRows.filter(matchActiveCategory)
+      const activeWarrantyRows = warrantyRows.filter(matchActiveCategory)
+      const categoryButtonHtml = categoryButtons.map((item) => `
+        <button type="button" class="${item.label === activeCategory ? 'active' : ''}" data-inventory-category="${escapeHtml(item.label)}">
+          <strong>${escapeHtml(item.label)}</strong>
+          <span>SN ${formatNumber(item.count)} · 滞销 ${formatNumber(item.stale || 0)} · 异常 ${formatNumber(item.abnormal || 0)}</span>
+        </button>
+      `).join('')
+      const inventoryRowHtml = activeRows.slice(0, 7).map((item) => `
+        <article class="inventory-detail-row">
+          <div><strong>${escapeHtml(item.productName)}</strong><span>${escapeHtml(item.spec || '*')}</span><em>${escapeHtml(item.cashierCategory || item.category)} · ${escapeHtml(item.status)}</em></div>
+          <div><strong>SN ${escapeHtml(item.serialNumber || '待补')}</strong><span>PN/MTM ${escapeHtml(item.pnMtm || '待补')}</span><em>SKU ${escapeHtml(item.skuKey || '待补')}</em></div>
+          <div><strong>供货 ${escapeHtml(item.supplierName)}</strong><span>入库 ${escapeHtml(item.inboundDate || '待补')}</span><em>单据 ${escapeHtml(item.inboundDocumentNo || '待补')}</em></div>
+          <div><strong>库龄 ${formatNumber(item.ageDays)} 天</strong><span>质保至 ${escapeHtml(item.warrantyEnd || item.warrantyStatus || '待补')}</span><em>${escapeHtml(item.latestMovement?.movement_type || item.latestMovement?.movementType || '最近流水待补')}</em></div>
+        </article>
+      `).join('') || '<article class="list-row"><strong>当前分类暂无在库 SN</strong><span>请切换其它分类或刷新 SQL 数据</span><em></em></article>'
+      const staleRowHtml = activeStaleRows.slice(0, 7).map((item) => `
+        <article class="inventory-detail-row">
+          <div><strong>${escapeHtml(item.staleLevel.label)} · ${escapeHtml(item.productName)}</strong><span>${escapeHtml(item.spec || '*')}</span><em>${escapeHtml(item.cashierCategory || item.category)}</em></div>
+          <div><strong>SN ${escapeHtml(item.serialNumber || '待补')}</strong><span>${escapeHtml(item.pnMtm || item.skuKey || '型号待补')}</span><em>入库 ${escapeHtml(item.inboundDate || '待补')}</em></div>
+          <div><strong>库龄 ${formatNumber(item.ageDays)} 天</strong><span>${escapeHtml(item.staleLevel.action)}</span><em>供货 ${escapeHtml(item.supplierName)}</em></div>
+          <div><strong>${escapeHtml(item.staleLevel.level)}场景话术</strong><span>${escapeHtml(categoryScript(item, item.staleLevel))}</span><em>优先处理该分类陈旧库存</em></div>
+        </article>
+      `).join('') || '<article class="list-row"><strong>当前分类暂无超期库存</strong><span>60 天以内商品不在滞销预警内展示</span><em></em></article>'
+      const warrantyRowHtml = activeWarrantyRows.slice(0, 7).map((item) => `
+        <article class="inventory-detail-row">
+          <div><strong>${escapeHtml(item.warrantyLevel.label)} · ${escapeHtml(item.productName)}</strong><span>${escapeHtml(item.spec || '*')}</span><em>${escapeHtml(item.cashierCategory || item.category)}</em></div>
+          <div><strong>SN ${escapeHtml(item.serialNumber || '待补')}</strong><span>${escapeHtml(item.pnMtm || item.skuKey || '型号待补')}</span><em>库龄 ${formatNumber(item.ageDays)} 天</em></div>
+          <div><strong>保修 ${escapeHtml(item.warrantyStart || '待补')} 至 ${escapeHtml(item.warrantyEnd || '待补')}</strong><span>剩余 ${item.warrantyRemainingDays === null ? '待补' : `${formatNumber(item.warrantyRemainingDays)} 天`}</span><em>${escapeHtml(warrantyNote(item))}</em></div>
+          <div><strong>${escapeHtml(item.warrantyLevel.level)}处理建议</strong><span>${escapeHtml(warrantyScript(item, item.warrantyLevel))}</span><em>${escapeHtml(item.warrantyLevel.action)}</em></div>
+        </article>
+      `).join('') || '<article class="list-row"><strong>当前分类暂无质保异常</strong><span>未发现质保过期、剩余不足或缺失记录</span><em></em></article>'
+
+      const tierCount = (rows, getter, level) => rows.filter((item) => getter(item)?.level === level).length
+
+      return [
+        {
+          metrics: [],
+          cards: [
+            {
+              title: '库存查看',
+              note: `${activeCategory} · ${formatNumber(activeRows.length)} 条在库 SN 明细`,
+              tone: 'ok',
+              html: `
+                <div class="inventory-workbench">
+                  <div class="inventory-category-grid">${categoryButtonHtml}</div>
+                  <div class="inventory-detail-list">${inventoryRowHtml}</div>
+                </div>
+              `,
+            },
+          ],
+        },
+        {
+          metrics: [],
+          cards: [
+            {
+              title: '滞销预警',
+              note: `${activeCategory} · 仅展示 60 天以上库存 · 一级 ${formatNumber(tierCount(staleRows, (item) => item.staleLevel, '一级'))} / 二级 ${formatNumber(tierCount(staleRows, (item) => item.staleLevel, '二级'))} / 三级 ${formatNumber(tierCount(staleRows, (item) => item.staleLevel, '三级'))}`,
+              tone: 'danger',
+              html: `
+                <div class="inventory-workbench">
+                  <div class="inventory-category-grid">${categoryButtonHtml}</div>
+                  <div class="inventory-detail-list">${staleRowHtml}</div>
+                </div>
+              `,
+            },
+          ],
+        },
+        {
+          metrics: [],
+          cards: [
+            {
+              title: '异常预警',
+              note: `${activeCategory} · 质保异常 ${formatNumber(activeWarrantyRows.length)} 条 · 已过期 ${formatNumber(tierCount(warrantyRows, (item) => item.warrantyLevel, '一级'))} / 不足90天 ${formatNumber(tierCount(warrantyRows, (item) => item.warrantyLevel, '二级'))} / 缺失 ${formatNumber(tierCount(warrantyRows, (item) => item.warrantyLevel, '三级'))}`,
+              tone: 'warn',
+              html: `
+                <div class="inventory-workbench">
+                  <div class="inventory-category-grid">${categoryButtonHtml}</div>
+                  <div class="inventory-detail-list">${warrantyRowHtml}</div>
+                </div>
+              `,
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildProtectionView() {
+      const history = appState.data.protectionHistory || { items: [] }
+      const current = appState.data.priceProtection || { candidates: [], quoteDate: '', generatedAt: '' }
+      const items = (history.items || []).filter((item) => queryMatch([item.product_name, item.pn_mtm, item.sku_key, item.order_number]))
+      const withAmount = items.filter((item) => Number(item.estimated_protection_amount || 0) > 0)
+      const pending = withAmount.filter((item) => String(item.status || '') === 'pending')
+      const blocked = items.filter((item) => String(item.status || '').startsWith('blocked'))
+      const noNeed = items.filter((item) => String(item.status || '') === 'no_need')
+      const categories = Object.entries(withAmount.reduce((acc, item) => {
+        const key = item.product_name?.includes('Think') ? 'Think 系列' : item.product_name?.includes('小新') ? '小新系列' : item.product_name?.includes('拯救者') ? '拯救者系列' : '其它'
+        const value = acc[key] || { label: key, count: 0, amount: 0 }
+        value.count += 1
+        value.amount += Number(item.estimated_protection_amount || 0)
+        acc[key] = value
+        return acc
+      }, {})).map(([, value]) => value).sort((left, right) => right.amount - left.amount)
+
+      return [
+        {
+          metrics: [
+            { label: '价保记录', value: withAmount.length, note: '只保留有金额零售价保' },
+            { label: '待申请', value: pending.length, note: '当前需继续处理' },
+            { label: '阻塞项', value: blocked.length, note: '缺报价或缺成本' },
+            { label: '累计金额', value: money(withAmount.reduce((sum, item) => sum + Number(item.estimated_protection_amount || 0), 0)), note: '零售价保金额汇总' },
+          ],
+          cards: [
+            {
+              title: '价保总览',
+              tone: 'danger',
+              summary: [
+                { label: '群报价日期', value: current.quoteDate || '待补', note: '当前价保比对报价日' },
+                { label: '扫描条数', value: current.quoteCount || 0, note: '分销群报价输入' },
+                { label: '匹配 SKU', value: current.matchedSkuCount || 0, note: '进入价保链的匹配数' },
+                { label: '无需价保', value: noNeed.length, note: '仅用于对账，不进申请' },
+              ],
+            },
+            {
+              title: '待处理价保',
+              tone: 'warn',
+              list: pending.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `价保 ${money(item.estimated_protection_amount)} / 单号 ${item.order_number}`,
+                note: `${item.outbound_date || '待补'} · ${item.sku_key || '待补'}`,
+              })),
+            },
+            {
+              title: '阻塞明细',
+              tone: 'purple',
+              list: blocked.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${item.status} · 单号 ${item.order_number}`,
+                note: `${item.source_quote_file || '源文件待补'}`,
+              })),
+            },
+            {
+              title: '金额最高',
+              tone: 'ok',
+              list: withAmount.slice().sort((left, right) => Number(right.estimated_protection_amount || 0) - Number(left.estimated_protection_amount || 0)).slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${money(item.estimated_protection_amount)} / 成本 ${money(item.inventory_average_cost || item.inbound_cost_amount || 0)}`,
+                note: `${item.protection_quote_date || '待补'} · ${item.serial_numbers_json || 'SN 待补'}`,
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '待申请', value: pending.length, note: '零售价保申请池' },
+            { label: '当日出库', value: pending.filter((item) => String(item.outbound_date || '').startsWith('2026-05-27')).length, note: '今日申请池' },
+            { label: '高金额单', value: pending.filter((item) => Number(item.estimated_protection_amount || 0) >= 200).length, note: '优先处理' },
+            { label: '检索结果', value: pending.length, note: appState.query ? '按检索过滤' : '全部待处理' },
+          ],
+          cards: [
+            {
+              title: '申请队列',
+              tone: 'danger',
+              list: pending.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${money(item.estimated_protection_amount)} / ${item.order_number}`,
+                note: `${item.outbound_date || '待补'} · ${item.source_note || '来源待补'}`,
+              })),
+            },
+            {
+              title: '报价证据',
+              tone: 'blue',
+              list: pending.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: item.source_quote_file || '报价文件待补',
+                note: `${item.protection_quote_date || '待补'} · ${item.sku_key || '待补'}`,
+              })),
+            },
+            {
+              title: '出库链路',
+              tone: 'ok',
+              list: pending.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${item.outbound_date || '待补'} · ${item.outbound_movement_ids_json || '流水待补'}`,
+                note: `${item.serial_numbers_json || 'SN 待补'}`,
+              })),
+            },
+            {
+              title: '成本对比',
+              tone: 'warn',
+              list: pending.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `进货 ${money(item.realtime_purchase_price)} / 库存成本 ${money(item.inventory_average_cost)}`,
+                note: `差额 ${money(item.unit_diff)} / 数量 ${formatNumber(item.quantity)}`,
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '历史条数', value: items.length, note: '价保历史对账池' },
+            { label: '有金额', value: withAmount.length, note: '可汇总金额' },
+            { label: '无需价保', value: noNeed.length, note: '仅对账保留' },
+            { label: '最新刷新', value: formatDateTime(current.generatedAt || history.generatedAt), note: '价保链刷新时间' },
+          ],
+          cards: [
+            {
+              title: '历史明细',
+              tone: 'purple',
+              list: items.slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${item.status} / ${money(item.estimated_protection_amount)}`,
+                note: `${item.outbound_date || '待补'} · ${item.order_number || '待补'}`,
+              })),
+            },
+            {
+              title: '系列汇总',
+              tone: 'ok',
+              list: categories.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `金额 ${money(item.amount)} / 条数 ${formatNumber(item.count)}`,
+                note: '营销与分类保留',
+              })),
+            },
+            {
+              title: '来源文件',
+              tone: 'blue',
+              list: dedupeBy(items, (item) => item.source_quote_file).slice(0, 6).map((item) => ({
+                title: item.protection_quote_date || '待补',
+                detail: item.source_quote_file || '文件待补',
+                note: item.product_name || '价保来源',
+              })),
+            },
+            {
+              title: '更新时间线',
+              tone: 'warn',
+              list: items.slice().sort((left, right) => String(right.updated_at || '').localeCompare(String(left.updated_at || ''))).slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${formatDateTime(item.updated_at)} / ${item.status}`,
+                note: `${item.order_number} · ${money(item.estimated_protection_amount)}`,
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '小新系列', value: categories.find((item) => item.label === '小新系列')?.count || 0, note: '营销保留' },
+            { label: '拯救者', value: categories.find((item) => item.label === '拯救者系列')?.count || 0, note: '营销保留' },
+            { label: 'Think', value: categories.find((item) => item.label === 'Think 系列')?.count || 0, note: '营销保留' },
+            { label: '其它', value: categories.find((item) => item.label === '其它')?.count || 0, note: '营销保留' },
+          ],
+          cards: [
+            {
+              title: '营销分类汇总',
+              tone: 'danger',
+              list: categories.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `金额 ${money(item.amount)}`,
+                note: `条数 ${formatNumber(item.count)}`,
+              })),
+            },
+            {
+              title: '小新价保',
+              tone: 'ok',
+              list: withAmount.filter((item) => String(item.product_name || '').includes('小新')).slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${money(item.estimated_protection_amount)} / ${item.order_number}`,
+                note: `${item.outbound_date || '待补'}`,
+              })),
+            },
+            {
+              title: 'Think 价保',
+              tone: 'blue',
+              list: withAmount.filter((item) => String(item.product_name || '').toLowerCase().includes('think')).slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${money(item.estimated_protection_amount)} / ${item.order_number}`,
+                note: `${item.outbound_date || '待补'}`,
+              })),
+            },
+            {
+              title: '拯救者价保',
+              tone: 'warn',
+              list: withAmount.filter((item) => String(item.product_name || '').includes('拯救者')).slice(0, 6).map((item) => ({
+                title: item.product_name,
+                detail: `${money(item.estimated_protection_amount)} / ${item.order_number}`,
+                note: `${item.outbound_date || '待补'}`,
+              })),
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildQuoteView() {
+      const distributor = appState.data.distributorQuotes || { quotes: [], quoteDate: '', generatedAt: '' }
+      const gray = appState.data.grayWholesale || { quotes: [], quoteDate: '', generatedAt: '', carryForwardFrom: '' }
+      const competitor = appState.data.competitor || { brands: [], generatedAt: '', quoteDate: '' }
+      const distributorItems = (distributor.quotes || []).filter((item) => queryMatch([item.productName, item.pnMtm, item.barcode, item.libraryMatch?.canonicalName]))
+      const grayItems = (gray.quotes || []).filter((item) => queryMatch([item.productText, item.evidenceText, item.matchFingerprint]))
+      const competitorItems = (competitor.brands || []).flatMap((brand) => (brand.items || []).map((item) => ({ ...item, brandName: brand.brand || item.brand }))).filter((item) => queryMatch([item.productName, item.brandName, item.configSummary]))
+      const distributorCategories = Object.entries(distributorItems.reduce((acc, item) => {
+        const key = item.libraryMatch?.canonicalName?.includes('Think') ? 'Think' : item.productName?.includes('小新') ? '小新' : item.productName?.includes('拯救者') ? '拯救者' : item.libraryMatch?.canonicalName?.includes('YOGA') ? 'YOGA' : '其它'
+        acc[key] = (acc[key] || 0) + 1
+        return acc
+      }, {})).map(([label, count]) => ({ label, count })).sort((left, right) => right.count - left.count)
+      const grayCategories = Object.entries(grayItems.reduce((acc, item) => {
+        const text = String(item.productText || '')
+        const key = text.toLowerCase().includes('think') ? 'Think' : text.includes('小新') ? '小新' : text.includes('拯救者') ? '拯救者' : text.includes('YOGA') ? 'YOGA' : '其它'
+        acc[key] = (acc[key] || 0) + 1
+        return acc
+      }, {})).map(([label, count]) => ({ label, count })).sort((left, right) => right.count - left.count)
+
+      return [
+        {
+          metrics: [
+            { label: '群报价条数', value: distributor.quoteCount || distributorItems.length, note: distributor.quoteDate || '待补' },
+            { label: '公众号条数', value: gray.quoteCount || grayItems.length, note: gray.quoteDate || '待补' },
+            { label: '竞品条数', value: competitor.itemCount || competitorItems.length, note: competitor.quoteDate || '待补' },
+            { label: '竞品品牌', value: (competitor.brands || []).length, note: 'Think / 华硕 / 惠普 / 华为' },
+          ],
+          cards: [
+            {
+              title: '群报价总览',
+              tone: 'ok',
+              summary: [
+                { label: '报价日期', value: distributor.quoteDate || '待补', note: '分销群最新报价' },
+                { label: '匹配库存', value: distributor.summary?.inventoryMatchedCount || 0, note: '已命中库存商品' },
+                { label: '命中商品库', value: distributor.summary?.productLibraryMatchedCount || 0, note: '商品库匹配数' },
+                { label: '未匹配', value: distributor.summary?.unmatchedCount || 0, note: '待人工识别' },
+              ],
+            },
+            {
+              title: '公众号总览',
+              tone: 'blue',
+              summary: [
+                { label: '报价日期', value: gray.quoteDate || '待补', note: gray.isCarriedForward ? `沿用 ${gray.carryForwardFrom || '历史有效原文'}` : '当天原文' },
+                { label: '报价条数', value: gray.quoteCount || grayItems.length, note: '灰渠批发价库' },
+                { label: '公众号', value: gray.accountName || '待补', note: gray.entryPoint || '入口待补' },
+                { label: '更新时间', value: formatDateTime(gray.generatedAt), note: '前端引用时间' },
+              ],
+            },
+            {
+              title: '竞品总览',
+              tone: 'warn',
+              list: (competitor.brands || []).map((brand) => ({
+                title: brand.brand || '竞品品牌',
+                detail: `条数 ${(brand.items || []).length} / 最新 ${formatDateTime(brand.latestCapturedAt || competitor.generatedAt)}`,
+                note: '京东自营口径',
+              })).slice(0, 6),
+            },
+            {
+              title: '原始链概览',
+              tone: 'purple',
+              list: [
+                { title: '群报价文件', detail: distributor.quoteFile || '待补', note: distributor.generatedAt ? `刷新 ${formatDateTime(distributor.generatedAt)}` : '待刷新' },
+                { title: '公众号原文', detail: gray.sourceFile || '待补', note: gray.generatedAt ? `刷新 ${formatDateTime(gray.generatedAt)}` : '待刷新' },
+                { title: '竞品证据', detail: 'apps/inventory-sync/artifacts/manual/evidence', note: competitor.generatedAt ? `刷新 ${formatDateTime(competitor.generatedAt)}` : '待刷新' },
+                { title: '前端快照', detail: '/api/inventory-quote/*', note: 'API 优先回写' },
+              ],
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '群报价库', value: distributorItems.length, note: '按产品检索' },
+            { label: '小新', value: distributorCategories.find((item) => item.label === '小新')?.count || 0, note: '群报价分类' },
+            { label: 'Think', value: distributorCategories.find((item) => item.label === 'Think')?.count || 0, note: '群报价分类' },
+            { label: '拯救者', value: distributorCategories.find((item) => item.label === '拯救者')?.count || 0, note: '群报价分类' },
+          ],
+          cards: [
+            {
+              title: '群报价分类',
+              tone: 'ok',
+              list: distributorCategories.map((item) => ({
+                title: item.label,
+                detail: `条数 ${formatNumber(item.count)}`,
+                note: `报价日 ${distributor.quoteDate || '待补'}`,
+              })).slice(0, 6),
+            },
+            {
+              title: '群报价明细',
+              tone: 'blue',
+              list: distributorItems.slice(0, 6).map((item) => ({
+                title: item.productName || item.libraryMatch?.canonicalName || '群报价',
+                detail: `进货 ${money(item.pickupPrice)} / 教育补 ${money(item.educationSubsidy || 0)}`,
+                note: `${item.pnMtm || item.barcode || '待补'} · ${item.source || '群报价'}`,
+              })),
+            },
+            {
+              title: '库存已命中',
+              tone: 'warn',
+              list: distributorItems.filter((item) => item.libraryMatch?.primarySkuKey).slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `${item.libraryMatch?.primarySkuKey} / 库存 ${formatNumber(item.libraryMatch?.currentStock || 0)}`,
+                note: item.libraryMatch?.evidence || '商品库匹配',
+              })),
+            },
+            {
+              title: '原始群文件',
+              tone: 'purple',
+              list: dedupeBy(distributorItems, (item) => item.sourceFile).slice(0, 6).map((item) => ({
+                title: distributor.quoteDate || '群报价',
+                detail: item.sourceFile || '待补',
+                note: item.productName || '来源文件',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '公众号报价库', value: grayItems.length, note: gray.quoteDate || '待补' },
+            { label: 'Think', value: grayCategories.find((item) => item.label === 'Think')?.count || 0, note: '公众号分类' },
+            { label: '小新', value: grayCategories.find((item) => item.label === '小新')?.count || 0, note: '公众号分类' },
+            { label: '拯救者', value: grayCategories.find((item) => item.label === '拯救者')?.count || 0, note: '公众号分类' },
+          ],
+          cards: [
+            {
+              title: '公众号分类',
+              tone: 'blue',
+              list: grayCategories.map((item) => ({
+                title: item.label,
+                detail: `条数 ${formatNumber(item.count)}`,
+                note: `${gray.quoteDate || '待补'} · 灰渠批发价`,
+              })).slice(0, 6),
+            },
+            {
+              title: '公众号明细',
+              tone: 'ok',
+              list: grayItems.slice(0, 6).map((item) => ({
+                title: item.productText || '公众号报价',
+                detail: `价格 ${item.maskedPriceText || '待补'} / 证据 ${item.evidenceText || '待补'}`,
+                note: `${item.matchFingerprint || '待补'} · ${gray.quoteDate || '待补'}`,
+              })),
+            },
+            {
+              title: '来源链',
+              tone: 'warn',
+              list: [
+                { title: gray.accountName || '公众号', detail: gray.entryPoint || '入口待补', note: '文件传输助手固定入口' },
+                { title: '原文文件', detail: gray.sourceFile || '待补', note: gray.generatedAt ? `刷新 ${formatDateTime(gray.generatedAt)}` : '待刷新' },
+                { title: '沿用标记', detail: gray.isCarriedForward ? '是' : '否', note: gray.carryForwardFrom || '当天原文' },
+              ],
+            },
+            {
+              title: 'Think 分类',
+              tone: 'purple',
+              list: grayItems.filter((item) => String(item.productText || '').toLowerCase().includes('think')).slice(0, 6).map((item) => ({
+                title: item.productText,
+                detail: item.maskedPriceText || '待补',
+                note: item.evidenceText || '待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '竞品品牌', value: (competitor.brands || []).length, note: '固定四大品牌' },
+            { label: 'Think 条数', value: competitorItems.filter((item) => String(item.brandName || '').includes('THINK')).length, note: '竞品英雄卡' },
+            { label: '华硕条数', value: competitorItems.filter((item) => String(item.brandName || '').includes('华硕')).length, note: '竞品英雄卡' },
+            { label: '华为条数', value: competitorItems.filter((item) => String(item.brandName || '').includes('华为')).length, note: '竞品英雄卡' },
+          ],
+          cards: [
+            {
+              title: '竞品排行',
+              tone: 'danger',
+              list: competitorItems.slice(0, 6).map((item) => ({
+                title: `${item.brandName || item.brand} TOP ${item.rank}`,
+                detail: `${item.productName || '竞品'} / ${money(item.jdSelfPrice || item.jdSubsidyPrice || 0)}`,
+                note: item.configSummary || item.salesVolumeText || '待补',
+              })),
+            },
+            {
+              title: '国补后价格',
+              tone: 'ok',
+              list: competitorItems.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `国补后 ${money(item.jdSubsidyPrice || item.jdSelfPrice || 0)} / 国补前 ${money(item.jdPreSubsidyPrice || item.jdSelfPrice || 0)}`,
+                note: item.activityNotes?.[0] || '活动待补',
+              })),
+            },
+            {
+              title: '竞品链接',
+              tone: 'blue',
+              list: competitorItems.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: item.jdUrl || '链接待补',
+                note: item.brandName || item.brand || '竞品品牌',
+              })),
+            },
+            {
+              title: '原始来源',
+              tone: 'purple',
+              list: competitorItems.slice(0, 6).map((item) => ({
+                title: item.brandName || item.brand || '竞品品牌',
+                detail: item.sourceFile || '证据待补',
+                note: item.capturedAt ? `采集 ${formatDateTime(item.capturedAt)}` : '采集时间待补',
+              })),
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildMovementView() {
+      const movements = appState.data.retailCoreMovements || appState.data.movements || { records: [], items: [], generatedAt: '' }
+      const normalizeMovement = (item) => {
+        const movementType = item.movementType || item.movement_type || ''
+        const businessDate = item.businessDate || item.business_date || item.pay_time || item.operate_time || ''
+        const documentNumber = item.documentNumber || item.document_no || item.documentNo || item.source_ref || item.inbound_document_no || item.id || ''
+        const productName = item.productName || item.product_name || item.name || item.sku_name || item.skuKey || item.sku_key || '未命名商品'
+        const supplierName = item.supplierName || item.supplier_name || item.storeName || item.store_name || item.shop_name || item.company_name || ''
+        const sourceDocumentType = item.sourceDocumentType || item.source_document_type || item.service_type_name || item.movement_type_name || ''
+        const quantity = Number(item.quantity || 0)
+        return {
+          ...item,
+          movementType,
+          businessDate,
+          documentNumber,
+          productName,
+          supplierName,
+          sourceDocumentType,
+          skuKey: item.skuKey || item.sku_key || item.sku_no || '',
+          pnMtm: item.pnMtm || item.pn_mtm || '',
+          category: item.category || item.jd_subcategory || item.source_category || '未分类',
+          storeName: item.storeName || item.store_name || item.shop_name || '',
+          quantity,
+        }
+      }
+      const records = asArray(movements, ['items', 'records', 'movements'])
+        .map(normalizeMovement)
+        .filter((item) => queryMatch([item.productName, item.pnMtm, item.documentNumber, item.skuKey, item.supplierName]))
+      const inbound = records.filter((item) => String(item.movementType || '').includes('purchase'))
+      const outbound = records.filter((item) => String(item.movementType || '').includes('sale') || String(item.movementType || '').includes('outbound'))
+      const other = records.filter((item) => !String(item.movementType || '').includes('purchase') && !String(item.movementType || '').includes('sale'))
+      const latestDate = records.reduce((value, item) => String(item.businessDate || '') > value ? String(item.businessDate || '') : value, '')
+      const todayRecords = records.filter((item) => String(item.businessDate || '') === latestDate)
+      const topSales = Object.entries(outbound.reduce((acc, item) => {
+        const key = item.productName || item.skuKey || '未命名'
+        const value = acc[key] || { label: key, qty: 0, category: item.category || '未分类' }
+        value.qty += Number(item.quantity || 0)
+        acc[key] = value
+        return acc
+      }, {})).map(([, value]) => value).sort((left, right) => right.qty - left.qty)
+      const seriesTop = Object.entries(records.reduce((acc, item) => {
+        const name = String(item.productName || '')
+        const key = name.includes('Think') ? 'Think' : name.includes('小新') ? '小新' : name.includes('拯救者') ? '拯救者' : name.includes('YOGA') ? 'YOGA' : item.category || '其它'
+        const value = acc[key] || { label: key, qty: 0 }
+        value.qty += Number(item.quantity || 0)
+        acc[key] = value
+        return acc
+      }, {})).map(([, value]) => value).sort((left, right) => right.qty - left.qty)
+
+      return [
+        {
+          metrics: [
+            { label: '最新业务日', value: latestDate || '待补', note: '当前流水口径' },
+            { label: '当日流水', value: todayRecords.length, note: '最新业务日记录数' },
+            { label: '入库条数', value: inbound.length, note: '采购入库' },
+            { label: '出库条数', value: outbound.length, note: '零售与其它出库' },
+          ],
+          cards: [
+            {
+              title: '当日总览',
+              tone: 'blue',
+              summary: [
+                { label: '入库数量', value: inbound.filter((item) => item.businessDate === latestDate).reduce((sum, item) => sum + Number(item.quantity || 0), 0), note: '最新业务日' },
+                { label: '出库数量', value: outbound.filter((item) => item.businessDate === latestDate).reduce((sum, item) => sum + Number(item.quantity || 0), 0), note: '最新业务日' },
+                { label: '其它出入', value: other.filter((item) => item.businessDate === latestDate).reduce((sum, item) => sum + Number(item.quantity || 0), 0), note: '最新业务日' },
+                { label: '刷新时间', value: formatDateTime(movements.generatedAt), note: '流水快照' },
+              ],
+            },
+            {
+              title: '最近单据',
+              tone: 'ok',
+              list: todayRecords.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `${item.documentNumber || '待补'} / ${item.movementType || '待补'} / ${formatNumber(item.quantity)}`,
+                note: `${item.businessDate || '待补'} · ${item.supplierName || item.storeName || '待补'}`,
+              })),
+            },
+            {
+              title: '销量排行',
+              tone: 'danger',
+              list: topSales.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `销量 ${formatNumber(item.qty)}`,
+                note: item.category,
+              })),
+            },
+            {
+              title: '系列排行',
+              tone: 'purple',
+              list: seriesTop.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `流转量 ${formatNumber(item.qty)}`,
+                note: '按产品系列归集',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '入库记录', value: inbound.length, note: '采购入库历史' },
+            { label: '最新入库日', value: inbound[0]?.businessDate || latestDate || '待补', note: '当前入库链' },
+            { label: '供应商数', value: dedupeBy(inbound, (item) => item.supplierName).length, note: '供应来源' },
+            { label: '查询结果', value: inbound.length, note: appState.query ? '按检索过滤' : '全部入库' },
+          ],
+          cards: [
+            {
+              title: '最近入库',
+              tone: 'ok',
+              list: inbound.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `${item.documentNumber || '待补'} / 数量 ${formatNumber(item.quantity)}`,
+                note: `${item.businessDate || '待补'} · ${item.supplierName || '待补'}`,
+              })),
+            },
+            {
+              title: '供应商排行',
+              tone: 'blue',
+              list: Object.entries(inbound.reduce((acc, item) => {
+                const key = item.supplierName || '待补'
+                acc[key] = (acc[key] || 0) + Number(item.quantity || 0)
+                return acc
+              }, {})).map(([label, qty]) => ({ title: label, detail: `入库 ${formatNumber(qty)}`, note: '供应商维度' })).sort((left, right) => Number(right.detail.match(/\d[\d,]*/)?.[0].replace(/,/g, '') || 0) - Number(left.detail.match(/\d[\d,]*/)?.[0].replace(/,/g, '') || 0)).slice(0, 6),
+            },
+            {
+              title: '入库单据',
+              tone: 'warn',
+              list: dedupeBy(inbound, (item) => item.documentNumber).slice(0, 6).map((item) => ({
+                title: item.documentNumber || '待补',
+                detail: `${item.businessDate || '待补'} / ${item.sourceDocumentType || '采购入库'}`,
+                note: item.productName || '入库商品',
+              })),
+            },
+            {
+              title: '系列入库',
+              tone: 'purple',
+              list: seriesTop.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `流转量 ${formatNumber(item.qty)}`,
+                note: '系列对比',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '出库记录', value: outbound.length, note: '零售与其它出库' },
+            { label: '最新出库日', value: outbound[0]?.businessDate || latestDate || '待补', note: '当前出库链' },
+            { label: '常卖商品', value: topSales.length, note: '销量排行池' },
+            { label: '查询结果', value: outbound.length, note: appState.query ? '按检索过滤' : '全部出库' },
+          ],
+          cards: [
+            {
+              title: '最近出库',
+              tone: 'danger',
+              list: outbound.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `${item.documentNumber || '待补'} / 数量 ${formatNumber(item.quantity)}`,
+                note: `${item.businessDate || '待补'} · ${item.note || item.sourceDocumentType || '待补'}`,
+              })),
+            },
+            {
+              title: '常卖商品',
+              tone: 'ok',
+              list: topSales.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `销量 ${formatNumber(item.qty)}`,
+                note: item.category || '未分类',
+              })),
+            },
+            {
+              title: '系列出库',
+              tone: 'blue',
+              list: seriesTop.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `流转量 ${formatNumber(item.qty)}`,
+                note: '销量与出库并看',
+              })),
+            },
+            {
+              title: '单据链',
+              tone: 'warn',
+              list: dedupeBy(outbound, (item) => item.documentNumber).slice(0, 6).map((item) => ({
+                title: item.documentNumber || '待补',
+                detail: `${item.businessDate || '待补'} / ${item.sourceDocumentType || item.movementType || '待补'}`,
+                note: item.productName || '出库商品',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '销量 TOP', value: topSales[0]?.qty || 0, note: topSales[0]?.label || '待补' },
+            { label: '系列 TOP', value: seriesTop[0]?.qty || 0, note: seriesTop[0]?.label || '待补' },
+            { label: '库存预警', value: (appState.data.inventory?.skus || []).filter((item) => Number(item.currentStock || 0) > 0 && Number(item.currentStock || 0) <= 1).length, note: '联动库存详情' },
+            { label: '陈旧预警', value: (appState.data.inventoryMaster?.rows || []).filter((item) => Number(item.stockAgeDays || 0) >= 180).length, note: '联动库存详情' },
+          ],
+          cards: [
+            {
+              title: '销量排行',
+              tone: 'danger',
+              list: topSales.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `销量 ${formatNumber(item.qty)}`,
+                note: item.category || '未分类',
+              })),
+            },
+            {
+              title: '系列排行',
+              tone: 'purple',
+              list: seriesTop.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: `流转量 ${formatNumber(item.qty)}`,
+                note: '系列竞争台',
+              })),
+            },
+            {
+              title: '库存预警',
+              tone: 'warn',
+              list: (appState.data.inventory?.skus || []).filter((item) => Number(item.currentStock || 0) > 0 && Number(item.currentStock || 0) <= 1).slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `库存 ${formatNumber(item.currentStock)} / 可售 ${formatNumber(item.sellableStock)}`,
+                note: `${item.category || '未分类'} · ${item.pnMtm || item.skuKey || '待补'}`,
+              })),
+            },
+            {
+              title: '常卖补货提醒',
+              tone: 'blue',
+              list: topSales.slice(0, 6).map((item) => ({
+                title: item.label,
+                detail: '建议联动库存详情查看现货与 SN',
+                note: `销量 ${formatNumber(item.qty)} / 热销追踪`,
+              })),
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildRetailView() {
+      const inventory = appState.data.inventory || { skus: [], totals: {} }
+      const orders = appState.data.salesOrders || { items: [], orders: [] }
+      const orderItems = asArray(orders, ['items', 'orders', 'records']).filter((item) => queryMatch([item.customer_name, item.customerName, item.product_name, item.productName, item.serial_number, item.serialNumber, item.order_number, item.orderNumber]))
+      const stockItems = asArray(inventory.skus, []).filter((item) => Number(item.currentStock || 0) > 0)
+      const protection = appState.data.protectionHistory || { items: [] }
+      const protectionItems = asArray(protection, ['items']).filter((item) => Number(item.estimated_protection_amount || 0) > 0)
+
+      return [
+        {
+          metrics: [
+            { label: '可售库存', value: formatNumber(inventory.totals?.sellableStock || inventory.totals?.currentStock || 0), note: '收银可销售池' },
+            { label: '销售订单', value: formatNumber(orderItems.length), note: '本地销售记录' },
+            { label: '价保提醒', value: formatNumber(protectionItems.length), note: '收银后续提醒' },
+            { label: '当前模式', value: appState.deviceMode === 'mobile' ? '移动' : '宽屏', note: '同一页面自适应' },
+          ],
+          actions: [
+            { label: '打开收银 Lite', href: '/android-pos-lite.html' },
+            { label: '打开移动终端', href: '/retail-ops-terminal.html?mode=mobile' },
+            { label: '刷新当前数据', href: '#reload' },
+          ],
+          cards: [
+            {
+              title: '收银入口',
+              tone: 'danger',
+              actions: [
+                { label: '进入收银 Lite', href: '/android-pos-lite.html' },
+                { label: '切到移动收银', href: '/retail-ops-terminal.html?mode=mobile' },
+              ],
+            },
+            {
+              title: '今日可售',
+              tone: 'ok',
+              list: stockItems.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: `可售 ${formatNumber(item.sellableStock || item.currentStock)} / 库存 ${formatNumber(item.currentStock)}`,
+                note: item.pnMtm || item.skuKey || item.category || '待补',
+              })),
+            },
+            {
+              title: '收银后提醒',
+              tone: 'warn',
+              list: protectionItems.slice(0, 6).map((item) => ({
+                title: item.product_name || item.productName || '价保提醒',
+                detail: `价保 ${money(item.estimated_protection_amount)} / ${item.order_number || item.orderNumber || '待补'}`,
+                note: item.status || item.outbound_date || '待处理',
+              })),
+            },
+            {
+              title: '最近订单',
+              tone: 'blue',
+              list: orderItems.slice(0, 6).map((item) => ({
+                title: item.product_name || item.productName || item.order_number || item.orderNumber || '销售记录',
+                detail: `${item.customer_name || item.customerName || '客户'} / ${item.serial_number || item.serialNumber || 'SN 待补'}`,
+                note: item.created_at || item.createdAt || item.business_date || item.businessDate || '时间待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '占位订单', value: formatNumber(orderItems.filter((item) => String(item.status || '').includes('hold') || String(item.status || '').includes('占位')).length), note: '待完成收银' },
+            { label: 'SN 记录', value: formatNumber(countRows(appState.data.serialItems, ['items', 'rows', 'records'])), note: '出库 SN 池' },
+            { label: '同步注册', value: formatNumber(countRows(appState.data.orderSyncRegistry, ['items', 'records', 'orders'])), note: '订单同步表' },
+            { label: '缺口队列', value: formatNumber(countRows(appState.data.syncGapQueue, ['items', 'records', 'gaps'])), note: '待处理同步缺口' },
+          ],
+          cards: [
+            {
+              title: '订单占位',
+              tone: 'danger',
+              list: orderItems.slice(0, 6).map((item) => ({
+                title: item.order_number || item.orderNumber || item.product_name || item.productName || '占位记录',
+                detail: `${item.status || '待同步'} / ${item.customer_name || item.customerName || '客户待补'}`,
+                note: item.serial_number || item.serialNumber || item.sku_key || item.skuKey || 'SN 待补',
+              })),
+            },
+            {
+              title: 'SN 出库候选',
+              tone: 'ok',
+              list: asArray(appState.data.serialItems, ['items', 'rows', 'records']).slice(0, 6).map((item) => ({
+                title: item.product_name || item.productName || item.productNameRaw || 'SN 商品',
+                detail: item.serial_number || item.serialNumber || item.sn || 'SN 待补',
+                note: item.pn_mtm || item.pnMtm || item.sku_key || item.skuKey || '型号待补',
+              })),
+            },
+            {
+              title: '同步记录',
+              tone: 'blue',
+              list: asArray(appState.data.orderSyncRegistry, ['items', 'records', 'orders']).slice(0, 6).map((item) => ({
+                title: item.order_number || item.orderNumber || item.sync_key || item.syncKey || '同步记录',
+                detail: item.status || item.sync_status || '状态待补',
+                note: item.updated_at || item.updatedAt || item.created_at || '时间待补',
+              })),
+            },
+            {
+              title: '收银异常',
+              tone: 'warn',
+              list: asArray(appState.data.syncGapQueue, ['items', 'records', 'gaps']).slice(0, 6).map((item) => ({
+                title: item.title || item.gap_type || item.gapType || '同步缺口',
+                detail: item.message || item.reason || item.status || '待处理',
+                note: item.created_at || item.createdAt || item.updated_at || '时间待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '抽奖入口', value: '已接入', note: '广告机同模块' },
+            { label: '候选商品', value: formatNumber(stockItems.length), note: '库存商品可匹配' },
+            { label: '销售单', value: formatNumber(orderItems.length), note: 'SN 可追溯订单' },
+            { label: '服务卡', value: '三/四/五年', note: '规则由抽奖模块执行' },
+          ],
+          actions: [
+            { label: '打开购机抽奖', href: '/ad-machine/lottery.html?posLite=1&embed=1' },
+            { label: '打开客户填写页', href: '/ad-machine/lottery-entry.html' },
+            { label: '刷新当前数据', href: '#reload' },
+          ],
+          cards: [
+            {
+              title: '购机抽奖',
+              tone: 'danger',
+              actions: [
+                { label: '进入抽奖大屏', href: '/ad-machine/lottery.html?posLite=1&embed=1' },
+                { label: '客户资料填写', href: '/ad-machine/lottery-entry.html' },
+              ],
+            },
+            {
+              title: '中奖公示来源',
+              tone: 'ok',
+              list: orderItems.slice(0, 6).map((item) => ({
+                title: item.customer_name || item.customerName || '客户',
+                detail: item.product_name || item.productName || item.sku_key || item.skuKey || '购机商品',
+                note: item.serial_number || item.serialNumber || 'SN 待补',
+              })),
+            },
+            {
+              title: '库存匹配',
+              tone: 'blue',
+              list: stockItems.slice(0, 6).map((item) => ({
+                title: item.productName,
+                detail: item.pnMtm || item.skuKey || '型号待补',
+                note: `库存 ${formatNumber(item.currentStock)} / SN ${formatNumber(item.serialCount || 0)}`,
+              })),
+            },
+            {
+              title: '收银联动',
+              tone: 'warn',
+              list: [
+                { title: '先完成出库占位', detail: '收银端生成订单与 SN 关系', note: '抽奖只消费正式提交记录' },
+                { title: '再进入抽奖', detail: '广告机显示等待客户与开奖状态', note: '模拟抽奖不消耗正式奖池' },
+                { title: '最后写回后台', detail: '中奖结果进入管理端与 SQL', note: '防止手工漏登记' },
+              ],
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '离线缓存', value: '已启用', note: 'IndexedDB + SW' },
+            { label: '缓存库存', value: formatNumber(stockItems.length), note: '最近一次成功数据' },
+            { label: '安装能力', value: 'PWA', note: '桌面启动' },
+            { label: '同步策略', value: 'API 优先', note: '断网显示缓存' },
+          ],
+          actions: [
+            { label: '安装到桌面', href: '#install' },
+            { label: '刷新并缓存', href: '#reload' },
+            { label: '打开宽屏终端', href: '/retail-ops-terminal.html?mode=cashier' },
+          ],
+          cards: [
+            {
+              title: '离线可用',
+              tone: 'ok',
+              summary: [
+                { label: '库存缓存', value: formatNumber(stockItems.length), note: '断网展示最后一次成功数据' },
+                { label: '价保缓存', value: formatNumber(protectionItems.length), note: '断网可看历史提醒' },
+                { label: '订单缓存', value: formatNumber(orderItems.length), note: '本地记录优先保留' },
+                { label: '刷新方式', value: '手动', note: '点击刷新数据同步' },
+              ],
+            },
+            {
+              title: '安装入口',
+              tone: 'blue',
+              actions: [
+                { label: '触发安装', href: '#install' },
+                { label: '刷新缓存', href: '#reload' },
+              ],
+            },
+            {
+              title: '本机终端',
+              tone: 'purple',
+              list: [
+                { title: '收银机', detail: '宽屏固定卡片', note: '适合收银台' },
+                { title: '移动端', detail: '同功能窄屏重排', note: '适合平板和手机' },
+                { title: '广告机', detail: '只保留顾客触屏页面', note: '与收银数据同源' },
+              ],
+            },
+            {
+              title: '现场处理',
+              tone: 'warn',
+              list: [
+                { title: '接口中断', detail: '继续使用本地缓存', note: '不要阻断收银查看' },
+                { title: '数据恢复', detail: '恢复网络后点击刷新', note: '重新写入缓存' },
+                { title: '发现差异', detail: '进入系统同步查看缺口', note: '不要手工覆盖真实数据' },
+              ],
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildOverviewView() {
+      const summary = appState.data.dashboardSummary || {}
+      const inventory = appState.data.inventory || { skus: [], totals: {} }
+      const protectionItems = asArray(appState.data.protectionHistory, ['items']).filter((item) => Number(item.estimated_protection_amount || 0) > 0)
+      const distributor = appState.data.distributorQuotes || {}
+      const gray = appState.data.grayWholesale || {}
+      const status = appState.data.retailCoreStatus || {}
+      const syncGaps = asArray(appState.data.syncGapQueue, ['items', 'records', 'gaps'])
+      const staleCount = asArray(appState.data.inventoryMaster, ['rows']).filter((item) => Number(item.stockAgeDays || 0) >= 90).length
+
+      return [
+        {
+          metrics: [
+            { label: '在库数量', value: formatNumber(inventory.totals?.currentStock || summary.inventory?.currentStock || 0), note: '库存事实口径' },
+            { label: '可售库存', value: formatNumber(inventory.totals?.sellableStock || summary.inventory?.sellableStock || 0), note: '收银可售口径' },
+            { label: '价保记录', value: formatNumber(protectionItems.length), note: '销售后提醒' },
+            { label: '同步缺口', value: formatNumber(syncGaps.length), note: '需处理队列' },
+          ],
+          cards: [
+            {
+              title: '经营总览',
+              tone: 'danger',
+              summary: [
+                { label: 'SKU', value: formatNumber(asArray(inventory.skus).length || summary.inventory?.skuCount || 0), note: '当前在售池' },
+                { label: 'SN', value: formatNumber(inventory.totals?.serialCount || summary.inventory?.serialCount || 0), note: '库存台账' },
+                { label: '陈旧', value: formatNumber(staleCount), note: '90 天以上' },
+                { label: '低库存', value: formatNumber(asArray(inventory.skus).filter((item) => Number(item.currentStock || 0) > 0 && Number(item.currentStock || 0) <= 1).length), note: '库存 1 件及以下' },
+              ],
+            },
+            {
+              title: '价格与报价',
+              tone: 'ok',
+              summary: [
+                { label: '群报价', value: formatNumber(distributor.quoteCount || countRows(distributor, ['quotes'])), note: distributor.quoteDate || '待补' },
+                { label: '公众号', value: formatNumber(gray.quoteCount || countRows(gray, ['quotes'])), note: gray.quoteDate || '待补' },
+                { label: '价保', value: formatNumber(protectionItems.length), note: '有金额记录' },
+                { label: '竞品', value: formatNumber(appState.data.competitor?.itemCount || countRows(appState.data.competitor, ['items', 'brands'])), note: '监控池' },
+              ],
+            },
+            {
+              title: '同步健康',
+              tone: syncGaps.length ? 'warn' : 'blue',
+              list: [
+                { title: '本地数据库', detail: status.database || status.dbPath || '已连接', note: status.seeded === false ? '待初始化' : '可读取' },
+                { title: '同步缺口', detail: `${formatNumber(syncGaps.length)} 条`, note: syncGaps.length ? '进入系统同步处理' : '暂无缺口' },
+                { title: '任务看板', detail: `${formatNumber(countRows(appState.data.scheduledOverview, ['tasks', 'items']))} 项`, note: '定时任务状态' },
+              ],
+            },
+            {
+              title: '当前重点',
+              tone: 'purple',
+              list: [
+                { title: '先保证收银可用', detail: '收银端和移动端同页同数据', note: '库存、价保、报价不分裂' },
+                { title: '再处理同步缺口', detail: `${formatNumber(syncGaps.length)} 条待核`, note: '避免智店通链路断点' },
+                { title: '最后看商品库', detail: `${formatNumber(appState.data.productLibraryOverview?.productMasterCount || 0)} 条主档`, note: '分类和价格治理' },
+              ],
+            },
+          ],
+        },
+        ...buildInventoryView().slice(0, 1),
+        ...buildProtectionView().slice(0, 1),
+        ...buildIntegrationView().slice(0, 1),
+      ].slice(0, 4)
+    }
+
+    function buildIntegrationView() {
+      const status = appState.data.retailCoreStatus || {}
+      const tableCounts = status.tableCounts || {}
+      const registry = asArray(appState.data.orderSyncRegistry, ['items', 'records', 'orders'])
+      const gaps = asArray(appState.data.syncGapQueue, ['items', 'records', 'gaps'])
+      const failures = asArray(appState.data.localSyncFailureQueue, ['items', 'records', 'failures'])
+      const pipelines = asArray(appState.data.localSyncPipelines, ['pipelines', 'items', 'records'])
+      const tasks = asArray(appState.data.scheduledOverview, ['tasks', 'items', 'records'])
+      const syncTasks = asArray(appState.data.syncTasks, ['tasks', 'items', 'records'])
+
+      return [
+        {
+          metrics: [
+            { label: '数据表', value: formatNumber(Object.keys(tableCounts).length), note: '本地 SQL 表' },
+            { label: '同步管线', value: formatNumber(pipelines.length), note: 'local sync' },
+            { label: '失败队列', value: formatNumber(failures.length), note: '需处理' },
+            { label: '定时任务', value: formatNumber(tasks.length), note: '任务看板' },
+          ],
+          cards: [
+            {
+              title: '系统状态',
+              tone: failures.length || gaps.length ? 'warn' : 'ok',
+              summary: [
+                { label: '数据库', value: status.seeded === false ? '待初始化' : '正常', note: status.database || 'retail core' },
+                { label: '订单同步', value: formatNumber(registry.length), note: '注册表' },
+                { label: '缺口', value: formatNumber(gaps.length), note: '待处理' },
+                { label: '失败', value: formatNumber(failures.length), note: '失败队列' },
+              ],
+            },
+            {
+              title: '同步管线',
+              tone: 'blue',
+              list: pipelines.slice(0, 6).map((item) => ({
+                title: item.name || item.pipeline || item.key || '同步管线',
+                detail: item.status || item.state || item.lastStatus || '状态待补',
+                note: item.updatedAt || item.updated_at || item.lastRunAt || '时间待补',
+              })),
+            },
+            {
+              title: '本地表计数',
+              tone: 'purple',
+              list: buildRowsFromObject(tableCounts).slice(0, 6).map((item) => ({
+                title: item.title,
+                detail: `记录 ${item.detail}`,
+                note: 'SQL 表',
+              })),
+            },
+            {
+              title: '最近报告',
+              tone: 'ok',
+              list: buildRowsFromObject(appState.data.localSyncReport || {}).slice(0, 6),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '订单同步', value: formatNumber(registry.length), note: '销售订单链' },
+            { label: '销售单', value: formatNumber(countRows(appState.data.salesOrders, ['items', 'orders', 'records'])), note: '本地销售记录' },
+            { label: '流水', value: formatNumber(countRows(appState.data.retailCoreMovements, ['items', 'records', 'movements'])), note: 'SQL 流水' },
+            { label: '任务', value: formatNumber(syncTasks.length), note: '核心同步任务' },
+          ],
+          cards: [
+            {
+              title: '智店通同步',
+              tone: 'danger',
+              list: registry.slice(0, 6).map((item) => ({
+                title: item.order_number || item.orderNumber || item.sync_key || item.syncKey || '订单同步',
+                detail: item.status || item.sync_status || '状态待补',
+                note: item.updated_at || item.updatedAt || item.created_at || '时间待补',
+              })),
+            },
+            {
+              title: '销售订单',
+              tone: 'ok',
+              list: asArray(appState.data.salesOrders, ['items', 'orders', 'records']).slice(0, 6).map((item) => ({
+                title: item.order_number || item.orderNumber || item.product_name || item.productName || '销售单',
+                detail: item.customer_name || item.customerName || item.status || '客户待补',
+                note: item.serial_number || item.serialNumber || item.created_at || 'SN 待补',
+              })),
+            },
+            {
+              title: '库存流水',
+              tone: 'blue',
+              list: asArray(appState.data.retailCoreMovements, ['items', 'records', 'movements']).slice(0, 6).map((item) => ({
+                title: item.product_name || item.productName || item.document_number || item.documentNumber || '库存流水',
+                detail: `${item.movement_type || item.movementType || '类型待补'} / ${formatNumber(item.quantity || 0)}`,
+                note: item.business_date || item.businessDate || item.created_at || '日期待补',
+              })),
+            },
+            {
+              title: '同步任务',
+              tone: 'warn',
+              list: syncTasks.slice(0, 6).map((item) => ({
+                title: item.name || item.taskName || item.key || '同步任务',
+                detail: item.status || item.state || '状态待补',
+                note: item.lastRunAt || item.updatedAt || item.updated_at || '时间待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '缺口队列', value: formatNumber(gaps.length), note: '同步待处理' },
+            { label: '失败队列', value: formatNumber(failures.length), note: '本地任务失败' },
+            { label: '阻塞', value: formatNumber(gaps.filter((item) => String(item.status || '').includes('block')).length), note: '需人工介入' },
+            { label: '刷新', value: formatDateTime(appState.data.localSyncReport?.generatedAt), note: '最近报告' },
+          ],
+          cards: [
+            {
+              title: '同步缺口',
+              tone: 'danger',
+              list: gaps.slice(0, 6).map((item) => ({
+                title: item.title || item.gap_type || item.gapType || '同步缺口',
+                detail: item.message || item.reason || item.status || '待处理',
+                note: item.created_at || item.createdAt || item.updated_at || '时间待补',
+              })),
+            },
+            {
+              title: '失败队列',
+              tone: 'warn',
+              list: failures.slice(0, 6).map((item) => ({
+                title: item.taskName || item.task || item.name || '失败任务',
+                detail: item.error || item.message || item.status || '失败原因待补',
+                note: item.createdAt || item.created_at || item.updatedAt || '时间待补',
+              })),
+            },
+            {
+              title: '处理顺序',
+              tone: 'blue',
+              list: [
+                { title: '先核对销售出库', detail: '避免 SN 出库不闭环', note: '影响收银与抽奖' },
+                { title: '再核采购入库', detail: '保证成本和保修起点', note: '影响价保和陈旧库存' },
+                { title: '最后处理其它出库', detail: '保证台账真实', note: '影响盘点' },
+              ],
+            },
+            {
+              title: '已注册同步',
+              tone: 'ok',
+              list: registry.slice(0, 6).map((item) => ({
+                title: item.order_number || item.orderNumber || item.sync_key || item.syncKey || '同步记录',
+                detail: item.status || item.sync_status || '状态待补',
+                note: item.updated_at || item.updatedAt || '时间待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '任务数', value: formatNumber(tasks.length), note: '定时任务看板' },
+            { label: '运行器', value: appState.data.scheduledRunnerStatus?.status || '待读取', note: 'runner 状态' },
+            { label: '失败', value: formatNumber(tasks.filter((item) => String(item.status || item.lastStatus || '').includes('fail')).length), note: '需处理' },
+            { label: '阻塞', value: formatNumber(tasks.filter((item) => String(item.status || item.lastStatus || '').includes('block')).length), note: '页面/原始数据阻塞' },
+          ],
+          cards: [
+            {
+              title: '定时任务',
+              tone: 'purple',
+              list: tasks.slice(0, 6).map((item) => ({
+                title: item.name || item.taskName || item.key || '定时任务',
+                detail: item.status || item.lastStatus || item.state || '状态待补',
+                note: item.lastRunAt || item.nextRunAt || item.updatedAt || '时间待补',
+              })),
+            },
+            {
+              title: '运行器状态',
+              tone: 'ok',
+              list: buildRowsFromObject(appState.data.scheduledRunnerStatus || {}).slice(0, 6),
+            },
+            {
+              title: '任务失败',
+              tone: 'danger',
+              list: tasks.filter((item) => String(item.status || item.lastStatus || '').includes('fail')).slice(0, 6).map((item) => ({
+                title: item.name || item.taskName || item.key || '失败任务',
+                detail: item.error || item.message || item.status || '失败',
+                note: item.lastRunAt || item.updatedAt || '时间待补',
+              })),
+            },
+            {
+              title: '任务口径',
+              tone: 'blue',
+              list: [
+                { title: '真实完成', detail: '必须有业务数据和证据闭环', note: '不是脚本触发即完成' },
+                { title: '未收口', detail: '已执行但缺前端或证据审计', note: '不能写已完成' },
+                { title: '阻塞', detail: '缺原始数据或页面风控', note: '保留原因' },
+              ],
+            },
+          ],
+        },
+      ]
+    }
+
+    function buildProductLibraryView() {
+      const overview = appState.data.productLibraryOverview || {}
+      const categories = asArray(appState.data.productLibraryCategories, ['categories', 'items', 'records'])
+      const products = asArray(appState.data.productLibraryProducts, ['products', 'items', 'records'])
+      const pricingRows = asArray(appState.data.productLibraryPricing, ['items', 'rows', 'records', 'products'])
+      const projectionRows = asArray(appState.data.productLibraryProjection, ['items', 'rows', 'records', 'products'])
+      const auditRows = asArray(appState.data.productLibraryProjectionAudit, ['items', 'rows', 'records'])
+      const replays = asArray(appState.data.productLibraryReplays, ['replays', 'items', 'records'])
+
+      return [
+        {
+          metrics: [
+            { label: '商品主档', value: formatNumber(firstValue(overview, ['productMasterCount', 'productCount'], products.length)), note: '主商品库' },
+            { label: 'SKU', value: formatNumber(firstValue(overview, ['skuCount'], 0)), note: 'SKU 映射' },
+            { label: 'SN', value: formatNumber(firstValue(overview, ['serialCount'], 0)), note: 'SN 台账' },
+            { label: '证据', value: formatNumber(firstValue(overview, ['evidenceCount'], 0)), note: '采集证据链' },
+          ],
+          cards: [
+            {
+              title: '产品库总览',
+              tone: 'danger',
+              summary: [
+                { label: '主档', value: formatNumber(firstValue(overview, ['productMasterCount', 'productCount'], products.length)), note: '标准商品' },
+                { label: '链接', value: formatNumber(firstValue(overview, ['sourceLinkCount'], 0)), note: '平台来源' },
+                { label: '回放', value: formatNumber(firstValue(overview, ['replayCount'], replays.length)), note: '证据复核' },
+                { label: '调价', value: formatNumber(firstValue(overview, ['priceAdjustmentCount'], 0)), note: '价格治理' },
+              ],
+            },
+            {
+              title: '商品主档',
+              tone: 'ok',
+              list: products.slice(0, 6).map((item) => ({
+                title: item.canonical_name || item.canonicalName || item.productName || item.name || '商品主档',
+                detail: item.category || item.series || item.product_type || '分类待补',
+                note: item.primary_sku_key || item.primarySkuKey || item.pn_mtm || item.pnMtm || 'SKU 待补',
+              })),
+            },
+            {
+              title: '分类映射',
+              tone: 'blue',
+              list: categories.slice(0, 6).map((item) => ({
+                title: item.name || item.category || item.label || '分类',
+                detail: `商品 ${formatNumber(item.productCount || item.count || 0)} / SKU ${formatNumber(item.skuCount || 0)}`,
+                note: item.parentName || item.parent || item.note || '分类口径',
+              })),
+            },
+            {
+              title: '发布投影',
+              tone: 'purple',
+              list: projectionRows.slice(0, 6).map((item) => ({
+                title: resolveDisplayName(item.displayTitle, item.productName, item.canonicalName, item.title, item.skuKey),
+                detail: item.retailPrice ? `零售 ${money(item.retailPrice)}` : (item.status || '状态待补'),
+                note: item.pnMtm || item.skuKey || item.displayCategory || item.sourceCategory || item.category || '映射待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '分类数', value: formatNumber(categories.length), note: '商品分类' },
+            { label: '电脑', value: formatNumber(categories.filter((item) => String(item.name || item.category || '').includes('电脑')).length), note: '电脑类' },
+            { label: '平板', value: formatNumber(categories.filter((item) => String(item.name || item.category || '').includes('平板')).length), note: '平板类' },
+            { label: '手机', value: formatNumber(categories.filter((item) => String(item.name || item.category || '').includes('手机')).length), note: '手机类' },
+          ],
+          cards: [
+            {
+              title: '分类树',
+              tone: 'blue',
+              list: categories.slice(0, 6).map((item) => ({
+                title: item.name || item.category || item.label || '分类',
+                detail: item.path || item.fullPath || `商品 ${formatNumber(item.productCount || item.count || 0)}`,
+                note: item.rule || item.note || '用于收银和广告机分类同步',
+              })),
+            },
+            {
+              title: '分类异常',
+              tone: 'warn',
+              list: auditRows.slice(0, 6).map((item) => ({
+                title: item.productName || item.title || item.skuKey || '审计记录',
+                detail: item.issue || item.reason || item.status || '待复核',
+                note: item.category || item.pnMtm || '分类待补',
+              })),
+            },
+            {
+              title: '收银分类',
+              tone: 'ok',
+              list: asArray(appState.data.categoryTree, ['categories', 'items', 'records']).slice(0, 6).map((item) => ({
+                title: item.name || item.category || item.label || '收银分类',
+                detail: item.path || `商品 ${formatNumber(item.productCount || item.count || 0)}`,
+                note: item.key || item.id || '收银端分类',
+              })),
+            },
+            {
+              title: '快速检索',
+              tone: 'purple',
+              list: ['小新', 'YOGA', 'ThinkPad', 'ThinkBook', '拯救者', 'MOTO'].map((label) => ({
+                title: label,
+                detail: '点击右侧快捷筛选检索',
+                note: '和收银端分类保持一致',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '价格主档', value: formatNumber(pricingRows.length), note: '标准价格库' },
+            { label: '发布商品', value: formatNumber(projectionRows.length), note: '前端投影' },
+            { label: '审计记录', value: formatNumber(auditRows.length), note: '渠道一致性' },
+            { label: '手工覆盖', value: formatNumber(countRows(appState.data.manualOverrides, ['items', 'records', 'overrides'])), note: '人工校准' },
+          ],
+          cards: [
+            {
+              title: '价格治理',
+              tone: 'danger',
+              list: pricingRows.slice(0, 6).map((item) => ({
+                title: item.productName || item.canonicalName || item.title || '价格记录',
+                detail: item.retailPrice ? `零售 ${money(item.retailPrice)}` : item.price ? `价格 ${money(item.price)}` : '价格待补',
+                note: item.pnMtm || item.skuKey || item.source || '来源待补',
+              })),
+            },
+            {
+              title: '渠道审计',
+              tone: 'warn',
+              list: auditRows.slice(0, 6).map((item) => ({
+                title: item.productName || item.title || item.skuKey || '审计记录',
+                detail: item.issue || item.status || item.result || '待复核',
+                note: item.channel || item.platform || item.pnMtm || '渠道待补',
+              })),
+            },
+            {
+              title: '手工覆盖',
+              tone: 'blue',
+              list: asArray(appState.data.manualOverrides, ['items', 'records', 'overrides']).slice(0, 6).map((item) => ({
+                title: item.productName || item.skuKey || item.pnMtm || '覆盖记录',
+                detail: item.price ? `价格 ${money(item.price)}` : (item.reason || item.status || '待补'),
+                note: item.updatedAt || item.updated_at || item.source || '时间待补',
+              })),
+            },
+            {
+              title: '门店活动',
+              tone: 'ok',
+              list: asArray(appState.data.storeManualPromotions, ['items', 'records', 'promotions']).slice(0, 6).map((item) => ({
+                title: item.productName || item.title || item.skuKey || '活动记录',
+                detail: item.amount ? `优惠 ${money(item.amount)}` : (item.activityName || item.name || '活动'),
+                note: item.startDate || item.endDate || item.updatedAt || '日期待补',
+              })),
+            },
+          ],
+        },
+        {
+          metrics: [
+            { label: '证据回放', value: formatNumber(replays.length), note: '可复核' },
+            { label: '来源链接', value: formatNumber(firstValue(overview, ['sourceLinkCount'], 0)), note: '平台链接' },
+            { label: '证据数', value: formatNumber(firstValue(overview, ['evidenceCount'], 0)), note: '原始证据' },
+            { label: '更新时间', value: formatDateTime(overview.generatedAt), note: '产品库快照' },
+          ],
+          cards: [
+            {
+              title: '证据回放',
+              tone: 'purple',
+              list: replays.slice(0, 6).map((item) => ({
+                title: item.title || item.productName || item.replayId || '回放记录',
+                detail: item.status || item.result || item.source || '状态待补',
+                note: item.createdAt || item.created_at || item.updatedAt || '时间待补',
+              })),
+            },
+            {
+              title: '来源链接',
+              tone: 'blue',
+              list: asArray(appState.data.productUrlLocks, ['items', 'locks', 'records']).slice(0, 6).map((item) => ({
+                title: item.productName || item.title || item.skuKey || '链接记录',
+                detail: item.platform || item.channel || item.source || '平台待补',
+                note: item.url || item.productUrl || '链接待补',
+              })),
+            },
+            {
+              title: '采集证据',
+              tone: 'ok',
+              list: buildRowsFromObject(overview.evidence || {}).slice(0, 6),
+            },
+            {
+              title: '回放处理',
+              tone: 'warn',
+              list: [
+                { title: '只复核可见证据', detail: '不把旧文件写成今日采集', note: '遵守真实采集口径' },
+                { title: '链接异常先阻塞', detail: '不乱写错商品链接', note: '保护商品库' },
+                { title: '批量归集再同步', detail: '避免单条改动破坏快照', note: '统一重建' },
+              ],
+            },
+          ],
+        },
+      ]
+    }
+
+    function createMetricCard(item) {
+      return `
+        <article class="metric-card">
+          <span>${item.label}</span>
+          <strong>${item.value}</strong>
+          <em>${item.note}</em>
+        </article>
+      `
+    }
+
+    function createMiniCard(item) {
+      return `
+        <article class="mini-card">
+          <span>${item.label}</span>
+          <strong>${item.value}</strong>
+          <em>${item.note}</em>
+        </article>
+      `
+    }
+
+    function createListRow(item, tone) {
+      return `
+        <article class="list-row">
+          <strong class="${pickTone(tone)}">${item.title || '待补'}</strong>
+          <span>${item.detail || '待补'}</span>
+          <em>${item.note || ''}</em>
+        </article>
+      `
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      }[char]))
+    }
+
+    function createSectionCard(card) {
+      const toneClass = pickTone(card.tone)
+      const inner = card.actions
+        ? `<div class="action-list">${card.actions.map((action) => `<button type="button" data-href="${action.href}">${action.label}</button>`).join('')}</div>`
+        : card.html
+          ? card.html
+        : card.summary
+        ? `<div class="summary-grid">${card.summary.map(createMiniCard).join('')}</div>`
+        : `<div class="list-stack">${(card.list || []).length ? card.list.map((item) => createListRow(item, card.tone)).join('') : '<article class="list-row"><strong>暂无数据</strong><span>当前筛选下没有可显示条目</span><em>等待后续同步</em></article>'}</div>`
+      return `
+        <article class="section-card ${card.tone === 'danger' ? 'hero' : ''}">
+          <div class="section-head">
+            <strong class="${toneClass}">${card.title}</strong>
+            <span>${card.note || ''}</span>
+          </div>
+          ${inner}
+        </article>
+      `
+    }
+
+    function getModulePages() {
+      if (appState.moduleKey === 'retail') return buildRetailView()
+      if (appState.moduleKey === 'overview') return buildOverviewView()
+      if (appState.moduleKey === 'serials') return buildInventoryView()
+      if (appState.moduleKey === 'prices') return buildProtectionView()
+      if (appState.moduleKey === 'sources') return buildQuoteView()
+      if (appState.moduleKey === 'movements') return buildMovementView()
+      if (appState.moduleKey === 'integration') return buildIntegrationView()
+      if (appState.moduleKey === 'productLibrary') return buildProductLibraryView()
+      return buildRetailView()
+    }
+
+    function renderAll() {
+      renderModuleNav()
+      const moduleConfig = moduleCatalog[appState.moduleKey]
+      const modulePages = getModulePages()
+      const pageIndex = Math.min(appState.pageByModule[appState.moduleKey] || 0, modulePages.length - 1)
+      appState.pageByModule[appState.moduleKey] = pageIndex
+      const currentPage = modulePages[pageIndex]
+      document.getElementById('screen').classList.toggle('module-serials', appState.moduleKey === 'serials')
+
+      document.getElementById('boardTitle').textContent = moduleConfig.title
+      document.getElementById('boardSubtitle').textContent = moduleConfig.subtitle
+      document.getElementById('boardSignal').textContent = `${moduleConfig.pages[pageIndex]} · ${appState.query ? `检索 ${appState.query}` : '全部'}`
+      document.getElementById('metricsGrid').innerHTML = currentPage.metrics.map(createMetricCard).join('')
+      document.getElementById('subnav').innerHTML = moduleConfig.pages.map((label, index) => `
+        <button type="button" class="${index === pageIndex ? 'active' : ''}" data-page="${index}">${label}</button>
+      `).join('')
+      document.querySelectorAll('#subnav [data-page]').forEach((button) => {
+        button.addEventListener('click', () => {
+          appState.pageByModule[appState.moduleKey] = Number(button.getAttribute('data-page') || 0)
+          renderAll()
+        })
+      })
+      document.getElementById('boardBody').innerHTML = currentPage.cards.map(createSectionCard).join('')
+      document.querySelectorAll('#boardBody [data-inventory-category]').forEach((button) => {
+        button.addEventListener('click', () => {
+          appState.inventoryCategory = button.getAttribute('data-inventory-category') || '全部'
+          renderAll()
+        })
+      })
+      document.querySelectorAll('#boardBody [data-href]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const href = button.getAttribute('data-href')
+          if (href === '#reload') {
+            loadAll()
+            return
+          }
+          if (href === '#install') {
+            document.getElementById('installButton').click()
+            return
+          }
+          location.href = href
+        })
+      })
+      renderRail(pageIndex, currentPage)
+      document.getElementById('pageIndicator').textContent = `第 ${pageIndex + 1} 页 / 共 ${modulePages.length} 页`
+      document.getElementById('prevPage').disabled = pageIndex <= 0
+      document.getElementById('nextPage').disabled = pageIndex >= modulePages.length - 1
+
+      const inventory = appState.data.inventory
+      const priceProtection = appState.data.priceProtection
+      const distributor = appState.data.distributorQuotes
+      const gray = appState.data.grayWholesale
+      const movements = appState.data.movements
+      const freshest = [
+        inventory?.generatedAt,
+        priceProtection?.generatedAt,
+        distributor?.generatedAt,
+        gray?.generatedAt,
+        movements?.generatedAt,
+        appState.data.productLibraryOverview?.generatedAt,
+        appState.data.localSyncReport?.generatedAt,
+      ]
+        .filter(Boolean).sort().slice(-1)[0]
+      document.getElementById('statusFreshness').textContent = freshest ? `最新刷新 ${formatDateTime(freshest)}` : '等待数据'
+      document.getElementById('statusMode').textContent = 'SQL / API 实时映射'
+      document.getElementById('footerSummary').textContent = [
+        `库存 ${formatNumber(inventory?.totals?.currentStock || 0)}`,
+        `价保 ${formatNumber((appState.data.protectionHistory?.items || []).filter((item) => Number(item.estimated_protection_amount || 0) > 0).length)}`,
+        `群报价 ${formatNumber(distributor?.quoteCount || 0)}`,
+        `公众号 ${formatNumber(gray?.quoteCount || 0)}`,
+        `流水 ${formatNumber((movements?.records || []).length)}`,
+        `产品库 ${formatNumber(appState.data.productLibraryOverview?.productMasterCount || 0)}`,
+        `同步缺口 ${formatNumber(countRows(appState.data.syncGapQueue, ['items', 'records', 'gaps']))}`,
+      ].join(' · ')
+    }
+
+    async function loadAll() {
+      const apiBase = currentApiBase() || '同源 API'
+      document.getElementById('boardSignal').textContent = `正在读取 SQL / API 数据链`
+      document.getElementById('statusFreshness').textContent = `SQL API：${apiBase}`
+      const sources = [
+        ['dashboardSummary', '/api/dashboard/summary', {}],
+        ['retailZone', '/api/inventory-quote/retail-zone', {}],
+        ['publishedProjection', '/api/inventory-quote/published-product-projection', {}],
+        ['marketingBoostHero', '/api/inventory-quote/marketing-boost-hero', {}],
+        ['storeManualPromotions', '/api/inventory-quote/store-manual-promotions', { items: [] }],
+        ['productActivities', '/api/inventory-quote/product-activities', { items: [] }],
+        ['inventory', '/api/inventory-quote/inventory', { skus: [], totals: {} }],
+        ['inventoryMaster', '/api/inventory-quote/inventory-master', { rows: [], warnings: [], exceptions: [] }],
+        ['serialItems', '/api/retail-core/serial-items?limit=1500', { items: [] }],
+        ['warranty', '/api/inventory-quote/warranty', { items: [] }],
+        ['priceSignals', '/api/inventory-quote/price-signals', { items: [] }],
+        ['priceProtection', '/api/inventory-quote/price-protection', { candidates: [] }],
+        ['protectionHistory', '/api/retail-core/sales-price-protection-history?limit=120', { items: [] }],
+        ['educationAgentScan', '/api/inventory-quote/education-agent-scan', { items: [] }],
+        ['manualOverrides', '/api/inventory-quote/manual-overrides', { items: [] }],
+        ['productUrlLocks', '/api/inventory-quote/product-url-locks', { items: [] }],
+        ['distributorQuotes', '/api/inventory-quote/distributor-quotes', { quotes: [] }],
+        ['grayWholesale', '/api/inventory-quote/gray-wholesale', { quotes: [] }],
+        ['competitor', '/api/inventory-quote/competitor-monitor', { brands: [] }],
+        ['movements', '/api/inventory-quote/inventory-movements', { records: [] }],
+        ['retailCoreStatus', '/api/retail-core/status', {}],
+        ['categoryTree', '/api/retail-core/category-tree', { items: [] }],
+        ['retailCoreMovements', '/api/retail-core/inventory-movements', { items: [] }],
+        ['salesOrders', '/api/retail-core/sales-orders', { items: [] }],
+        ['orderSyncRegistry', '/api/retail-core/order-sync-registry', { items: [] }],
+        ['syncGapQueue', '/api/retail-core/sync-gap-queue', { items: [] }],
+        ['syncTasks', '/api/sync/tasks', { items: [] }],
+        ['localSyncPipelines', '/api/local-sync/pipelines', { pipelines: [] }],
+        ['localSyncReport', '/api/local-sync/latest-report', {}],
+        ['localSyncFailureQueue', '/api/local-sync/failure-queue', { items: [] }],
+        ['scheduledOverview', '/api/scheduled-task-console/overview', { tasks: [] }],
+        ['scheduledRunnerStatus', '/api/scheduled-task-console/overview', {}],
+        ['productLibraryOverview', '/api/product-library/overview', {}],
+        ['productLibraryCategories', '/api/product-library/categories', { categories: [] }],
+        ['productLibraryProducts', '/api/product-library/products', { products: [] }],
+        ['productLibraryPricing', '/api/product-library/pricing-governance', { items: [] }],
+        ['productLibraryProjection', '/api/product-library/published-projection', { items: [] }],
+        ['productLibraryProjectionAudit', '/api/product-library/published-projection/audit', { items: [] }],
+        ['productLibraryReplays', '/api/product-library/replays', { replays: [] }],
+      ]
+      let completed = 0
+      const queue = sources.slice()
+      const workerCount = Math.min(4, queue.length)
+      const runWorker = async () => {
+        while (queue.length) {
+          const [key, path, emptyValue] = queue.shift()
+          appState.data[key] = await loadSource(key, path, emptyValue)
+          completed += 1
+          document.getElementById('boardSignal').textContent = `SQL/API 已加载 ${completed}/${sources.length}`
+          document.getElementById('storeName').textContent = appState.data.inventory?.storeName || '联想体验店（新野县书院路）'
+          renderAll()
+          await new Promise((resolve) => setTimeout(resolve, 12))
+        }
+      }
+      await Promise.all(Array.from({ length: workerCount }, runWorker))
+      document.getElementById('boardSignal').textContent = 'SQL/API 数据已同步'
+      renderAll()
+    }
+
+    function setupInstall() {
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault()
+        appState.installPrompt = event
+        document.getElementById('installBanner').classList.add('show')
+      })
+      window.addEventListener('appinstalled', () => {
+        appState.installPrompt = null
+        document.getElementById('installBanner').classList.remove('show')
+        document.getElementById('statusInstall').textContent = '已安装到桌面'
+      })
+      document.getElementById('installButton').addEventListener('click', async () => {
+        if (!appState.installPrompt) return
+        appState.installPrompt.prompt()
+        await appState.installPrompt.userChoice.catch(() => null)
+      })
+    }
+
+    function setupEvents() {
+      document.getElementById('refreshButton').addEventListener('click', loadAll)
+      document.getElementById('modeCashier').addEventListener('click', () => {
+        appState.forcedMode = appState.forcedMode === 'cashier' ? 'auto' : 'cashier'
+        writeModeQuery(appState.forcedMode)
+        fitViewport()
+      })
+      document.getElementById('modeMobile').addEventListener('click', () => {
+        appState.forcedMode = appState.forcedMode === 'mobile' ? 'auto' : 'mobile'
+        writeModeQuery(appState.forcedMode)
+        fitViewport()
+      })
+      document.getElementById('globalSearch').addEventListener('input', (event) => {
+        appState.query = event.target.value.trim()
+        renderAll()
+      })
+      document.getElementById('prevPage').addEventListener('click', () => {
+        appState.pageByModule[appState.moduleKey] = Math.max(0, (appState.pageByModule[appState.moduleKey] || 0) - 1)
+        renderAll()
+      })
+      document.getElementById('nextPage').addEventListener('click', () => {
+        const pages = getModulePages()
+        appState.pageByModule[appState.moduleKey] = Math.min(pages.length - 1, (appState.pageByModule[appState.moduleKey] || 0) + 1)
+        renderAll()
+      })
+      window.addEventListener('resize', fitViewport)
+    }
+
+    const modeQuery = new URL(window.location.href).searchParams.get('mode')
+    if (modeQuery === 'cashier' || modeQuery === 'mobile') appState.forcedMode = modeQuery
+    fitViewport()
+    renderModuleNav()
+    setupInstall()
+    setupEvents()
+    registerServiceWorker()
+    renderAll()
+    loadAll()
+  </script>
+</body>
+</html>

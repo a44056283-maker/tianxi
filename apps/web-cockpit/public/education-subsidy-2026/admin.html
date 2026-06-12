@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教育补贴管理端</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fbff;
+      --line: #dbe5f1;
+      --line-strong: #cfdceb;
+      --text: #0f172a;
+      --muted: #64748b;
+      --blue: #2f6cde;
+      --red: #e2231a;
+      --green: #15803d;
+      --amber: #b45309;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, input, select, textarea { font: inherit; }
+    .page { max-width: 1560px; margin: 0 auto; padding: 24px; }
+    .hero,
+    .summary-card,
+    .sidebar-section,
+    .panel,
+    .drawer,
+    .modal,
+    .detail-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+      padding: 20px 24px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.2; }
+    .hero p {
+      margin: 8px 0 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .btn {
+      border: 1px solid var(--line-strong);
+      background: #fff;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .summary-card { padding: 16px; min-height: 116px; }
+    .summary-card .label { color: var(--muted); font-size: 12px; }
+    .summary-card .value {
+      margin-top: 10px;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .summary-card .hint {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: 248px minmax(0, 1fr) 356px;
+      gap: 16px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .sidebar-section,
+    .panel,
+    .drawer { padding: 16px; }
+    .sidebar-section { position: sticky; top: 20px; }
+    .sidebar-section h2,
+    .panel h2,
+    .drawer h2,
+    .modal h2 { margin: 0; font-size: 16px; }
+    .section-copy { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .filter-stack { display: grid; gap: 14px; margin-top: 14px; }
+    .filter-group { display: grid; gap: 8px; }
+    .filter-group label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .filter-group input,
+    .filter-group select,
+    .filter-group textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .segmented button {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      padding: 9px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .segmented button.active {
+      background: #eef4ff;
+      color: var(--blue);
+      border-color: #c8dafb;
+    }
+    .quick-stats { display: grid; gap: 8px; margin-top: 14px; }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+    }
+    .stat-row span { color: var(--muted); font-size: 12px; }
+    .stat-row b { font-size: 14px; font-variant-numeric: tabular-nums; }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .panel-head-copy { display: grid; gap: 4px; }
+    .panel-head-copy p,
+    .meta,
+    .drawer-pre { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .panel-head-copy p,
+    .meta { margin: 0; }
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      min-width: 1160px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--panel-soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr.is-active { background: #f7faff; }
+    tbody tr:hover { background: #fbfdff; }
+    .row-select {
+      cursor: pointer;
+    }
+    .product-main b,
+    .person-main b,
+    .status-main b {
+      display: block;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .subline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .badge.blue { color: var(--blue); background: #eef4ff; border-color: #d7e4fb; }
+    .badge.green { color: var(--green); background: #edf8f1; border-color: #d6ecdd; }
+    .badge.amber { color: var(--amber); background: #fff5ea; border-color: #f4dfbf; }
+    .badge.red { color: var(--red); background: #fef0ef; border-color: #f5d2cf; }
+    .amount {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .drawer {
+      position: sticky;
+      top: 20px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .drawer-empty {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      padding: 8px 0;
+    }
+    .detail-card {
+      padding: 14px;
+      background: var(--panel-soft);
+    }
+    .detail-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .detail-row {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 12px;
+    }
+    .detail-row span { color: var(--muted); }
+    .detail-row b { line-height: 1.6; }
+    .drawer-pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+    }
+    .drawer-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .modal-wrap {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.32);
+    }
+    .modal-wrap.show { display: flex; }
+    .modal {
+      width: min(760px, 100%);
+      padding: 18px 20px;
+    }
+    .modal-head,
+    .modal-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-head { margin-bottom: 14px; }
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .modal-grid .full { grid-column: 1 / -1; }
+    .modal-foot { margin-top: 16px; }
+    .modal-foot .actions { margin-left: auto; }
+    @media (max-width: 1380px) {
+      .summary-grid,
+      .workspace,
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .sidebar-section,
+      .drawer { position: static; }
+      .actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">教育补复核管理端</div>
+        <h1>教育补贴管理端</h1>
+        <p>管理端只负责筛选、复核、补证和单条校准。写入路径保持现有 API，不在页面里新增任何本地模拟状态。</p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" type="button" id="btnRefresh">刷新数据</button>
+        <button class="btn" type="button" id="btnProjection">同步前端投影</button>
+        <a class="btn" href="./index.html">返回工作台</a>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card"><div class="label">正式记录</div><div class="value" id="kpiTotal">--</div><div class="hint" id="kpiTotalHint">--</div></div>
+      <div class="summary-card"><div class="label">待付款</div><div class="value" id="kpiUnpaid">--</div><div class="hint" id="kpiUnpaidHint">--</div></div>
+      <div class="summary-card"><div class="label">待复核</div><div class="value" id="kpiReview">--</div><div class="hint">pending / local / 冲突</div></div>
+      <div class="summary-card"><div class="label">套装候选</div><div class="value" id="kpiBundle">--</div><div class="hint">同手机号跨单累计</div></div>
+      <div class="summary-card"><div class="label">服务费合计</div><div class="value" id="kpiFee">--</div><div class="hint">SQL 正式口径</div></div>
+      <div class="summary-card"><div class="label">教育补合计</div><div class="value" id="kpiDiscount">--</div><div class="hint">正式记录累计</div></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="sidebar-section">
+        <h2>筛选侧栏</h2>
+        <div class="section-copy">先收敛群组、状态、日期和关键字，再进入复核列表。</div>
+        <div class="filter-stack">
+          <div class="filter-group">
+            <label>群组</label>
+            <div class="segmented" id="groupSeg">
+              <button class="active" data-group="all" type="button">全部</button>
+              <button data-group="教育补贴群" type="button">教育补贴群</button>
+              <button data-group="智店通入库群" type="button">智店通入库群</button>
+              <button data-group="evidence_only" type="button">仅证据</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>状态</label>
+            <div class="segmented" id="statusSeg">
+              <button class="active" data-status="all" type="button">全部</button>
+              <button data-status="paid" type="button">已付</button>
+              <button data-status="unpaid" type="button">未付</button>
+              <button data-status="review" type="button">待复核</button>
+            </div>
+          </div>
+          <div class="filter-group"><label>开始日期</label><input type="date" id="dateFrom" value="2026-06-06" /></div>
+          <div class="filter-group"><label>结束日期</label><input type="date" id="dateTo" /></div>
+          <div class="filter-group"><label>搜索</label><input type="text" id="search" placeholder="姓名 / 电话 / 订单 / SN" /></div>
+        </div>
+        <div class="quick-stats">
+          <div class="stat-row"><span>当前结果</span><b id="resultCount">0</b></div>
+          <div class="stat-row"><span>仅证据</span><b id="evidenceCount">0</b></div>
+          <div class="stat-row"><span>待复核</span><b id="reviewCount">0</b></div>
+        </div>
+      </aside>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-head-copy">
+            <h2>复核列表</h2>
+            <p>列表按时间倒序排列，一行读完客户、产品、金额、状态和单条入口，不再拆成卡片堆。</p>
+          </div>
+          <div class="meta">点击行可打开证据抽屉</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>日期 / 群组</th>
+                <th>客户 / 电话</th>
+                <th>产品 / 单号 / SN</th>
+                <th>服务费 / 教育补 / 智享金</th>
+                <th>复核状态 / 付款</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="recordList"><tr><td colspan="6" class="empty">加载中...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="drawer">
+        <h2>证据抽屉</h2>
+        <div class="section-copy">选中一条记录后查看来源、规则、金额和单条编辑入口。</div>
+        <div id="drawerBody" class="drawer-empty">选择一条记录后查看详情。</div>
+      </aside>
+    </section>
+  </div>
+
+  <div class="modal-wrap" id="modalWrap">
+    <div class="modal">
+      <div class="modal-head">
+        <h2>编辑复核记录</h2>
+        <button class="btn" type="button" id="btnClose">关闭</button>
+      </div>
+      <div class="modal-grid">
+        <div class="filter-group"><label>群组</label><select id="fGroup"><option>教育补贴群</option><option>智店通入库群</option></select></div>
+        <div class="filter-group"><label>扫法</label><select id="fScanType"><option value="single_scan">单扫</option><option value="two_piece">二件套</option><option value="dual_screen_two_piece">双屏两件套</option><option value="three_piece">三件套</option></select></div>
+        <div class="filter-group"><label>日期</label><input type="date" id="fScanDate" /></div>
+        <div class="filter-group"><label>复核状态</label><select id="fReviewStatus"><option value="pending">待复核</option><option value="locked">已锁定</option><option value="approved">已确认</option></select></div>
+        <div class="filter-group"><label>客户姓名</label><input type="text" id="fCustomerName" /></div>
+        <div class="filter-group"><label>客户电话</label><input type="text" id="fCustomerPhone" /></div>
+        <div class="filter-group"><label>代扫电话</label><input type="text" id="fAgentPhone" /></div>
+        <div class="filter-group"><label>订单号</label><input type="text" id="fOrderNumber" /></div>
+        <div class="filter-group full"><label>商品名称</label><input type="text" id="fProductName" /></div>
+        <div class="filter-group"><label>SKU / 型号</label><input type="text" id="fSkuKey" /></div>
+        <div class="filter-group"><label>PN/MTM</label><input type="text" id="fPnMtm" /></div>
+        <div class="filter-group"><label>数量</label><input type="number" id="fQuantity" min="1" value="1" /></div>
+        <div class="filter-group"><label>教育补金额</label><input type="number" id="fDiscount" min="0" step="0.01" /></div>
+        <div class="filter-group"><label>服务费单价</label><input type="number" id="fFee" min="0" step="0.01" /></div>
+        <div class="filter-group"><label>智享金</label><input type="number" id="fZhixiangjin" min="0" step="0.01" /></div>
+        <div class="filter-group"><label>付款状态</label><select id="fStatus"><option value="未付">未付</option><option value="已付">已付</option></select></div>
+        <div class="filter-group full"><label>复核备注</label><textarea id="fNote" rows="3"></textarea></div>
+      </div>
+      <div class="modal-foot">
+        <div class="meta" id="modalMeta">--</div>
+        <div class="actions">
+          <button class="btn" type="button" id="btnCancel">取消</button>
+          <button class="btn primary" type="button" id="btnSave">保存到 SQL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const RECORDS_URL = `${window.location.origin}/api/education-scan/v2/records?page_size=5000&scan_date_from=2026-06-06`;
+    const WORKBENCH_URL = `${window.location.origin}/api/education-collection/workbench?since_date=2026-06-06&recent_limit=40`;
+    const PROJECTION_URL = `${window.location.origin}/api/education-scan/v2/sync-to-projection`;
+
+    let workbench = null;
+    let allRows = [];
+    let filteredRows = [];
+    let selectedRecord = null;
+    let activeGroup = 'all';
+    let activeStatus = 'all';
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    }
+    function money(value) { return '¥' + Number(value || 0).toLocaleString('zh-CN'); }
+    function scanTypeLabel(value) {
+      return ({ single_scan: '单扫', two_piece: '二件套', dual_screen_two_piece: '双屏两件套', three_piece: '三件套' })[value] || value || '--';
+    }
+    function shortPhone(value) {
+      const text = String(value || '');
+      return text.length === 11 ? `${text.slice(0, 3)}****${text.slice(-4)}` : (text || '--');
+    }
+    function displayRows(rows) {
+      return rows.filter((row) => row.classificationStatus !== 'service_filtered' || activeGroup === 'evidence_only');
+    }
+
+    function renderOverview() {
+      const pendingReview = allRows.filter((row) => ['pending', 'local', ''].includes(String(row.reviewStatus || 'pending'))).length;
+      const unpaidRows = allRows.filter((row) => String(row.status || '') !== '已付');
+      document.getElementById('kpiTotal').textContent = Number(allRows.length).toLocaleString('zh-CN');
+      document.getElementById('kpiTotalHint').textContent = `教育补 ${allRows.filter((row) => row.source_group_name === '教育补贴群').length} / 智店通 ${allRows.filter((row) => row.source_group_name === '智店通入库群').length}`;
+      document.getElementById('kpiUnpaid').textContent = Number(unpaidRows.length).toLocaleString('zh-CN');
+      document.getElementById('kpiUnpaidHint').textContent = `待付服务费 ${money(unpaidRows.reduce((sum, row) => sum + Number(row.total_service_fee || 0), 0))}`;
+      document.getElementById('kpiReview').textContent = Number(pendingReview).toLocaleString('zh-CN');
+      document.getElementById('kpiBundle').textContent = Number((workbench?.phoneBundleCandidates || []).length || 0).toLocaleString('zh-CN');
+      document.getElementById('kpiFee').textContent = money(allRows.reduce((sum, row) => sum + Number(row.total_service_fee || 0), 0));
+      document.getElementById('kpiDiscount').textContent = money(allRows.reduce((sum, row) => sum + Number(row.total_education_discount_amount || 0), 0));
+    }
+
+    function renderDrawer(row) {
+      const body = document.getElementById('drawerBody');
+      if (!row) {
+        body.innerHTML = '<div class="drawer-empty">选择一条记录后查看详情。</div>';
+        return;
+      }
+      const reviewBadge = row.classificationStatus === 'evidence_only'
+        ? '<span class="badge amber">仅证据</span>'
+        : ['pending', 'local', ''].includes(String(row.reviewStatus || 'pending'))
+          ? '<span class="badge red">待复核</span>'
+          : '<span class="badge green">已确认</span>';
+      const groupBadge = row.source_group_name === '智店通入库群'
+        ? '<span class="badge blue">智店通入库群</span>'
+        : '<span class="badge amber">教育补贴群</span>';
+      const ruleReason = [
+        `规则版本：${row.ruleVersion || 'education-subsidy-agent-scan-v2.0.0'}`,
+        `证据等级：${row.evidenceLevel || '--'}`,
+        `归类状态：${row.classificationStatus || '--'}`,
+        `复核状态：${row.reviewStatus || '--'}`,
+        `计费范围：${row.feeScope || '--'}`
+      ].join('\n');
+      body.innerHTML = `
+        <div class="detail-card">
+          <div class="detail-grid">
+            <div class="detail-row"><span>状态</span><b>${reviewBadge} ${groupBadge}</b></div>
+            <div class="detail-row"><span>客户</span><b>${esc(row.customer_name || row.customerName || '--')}</b></div>
+            <div class="detail-row"><span>电话</span><b class="mono">${esc(row.customer_phone || '--')}</b></div>
+            <div class="detail-row"><span>代扫电话</span><b class="mono">${esc(row.agent_phone || '--')}</b></div>
+            <div class="detail-row"><span>商品</span><b>${esc(row.product_name || row.sku_key || row.pn_mtm || '--')}</b></div>
+            <div class="detail-row"><span>订单</span><b class="mono">${esc(row.order_number || '--')}</b></div>
+            <div class="detail-row"><span>SN</span><b class="mono">${esc((row.serial_numbers || []).join('、') || '--')}</b></div>
+            <div class="detail-row"><span>金额</span><b>${money(row.total_service_fee || 0)} / ${money(row.total_education_discount_amount || 0)} / ${money(row.zhixiangjin_amount || 0)}</b></div>
+          </div>
+        </div>
+        <div class="detail-card"><pre class="drawer-pre">${esc(ruleReason)}</pre></div>
+        <div class="detail-card"><pre class="drawer-pre">来源文件：${esc(row.source_file || '--')}\nphotoId：${esc(row.raw_payload?.metadata?.photoId || '--')}\nmediaUrl：${esc(row.raw_payload?.metadata?.mediaUrl || '--')}</pre></div>
+        <div class="drawer-actions">
+          <button class="btn primary" type="button" id="btnEditCurrent">编辑并写 SQL</button>
+        </div>
+      `;
+      document.getElementById('btnEditCurrent').addEventListener('click', () => openModal(row));
+    }
+
+    function renderList() {
+      const wrap = document.getElementById('recordList');
+      document.getElementById('resultCount').textContent = Number(filteredRows.length).toLocaleString('zh-CN');
+      document.getElementById('evidenceCount').textContent = Number(filteredRows.filter((row) => row.classificationStatus === 'evidence_only').length).toLocaleString('zh-CN');
+      document.getElementById('reviewCount').textContent = Number(filteredRows.filter((row) => ['pending', 'local', ''].includes(String(row.reviewStatus || 'pending'))).length).toLocaleString('zh-CN');
+      if (!filteredRows.length) {
+        wrap.innerHTML = '<tr><td colspan="6" class="empty">当前筛选条件下没有记录。</td></tr>';
+        return;
+      }
+      wrap.innerHTML = filteredRows.map((row) => {
+        const active = selectedRecord && selectedRecord.record_id === row.record_id ? ' class="row-select is-active"' : ' class="row-select"';
+        const reviewBadge = row.classificationStatus === 'evidence_only'
+          ? '<span class="badge amber">仅证据</span>'
+          : ['pending', 'local', ''].includes(String(row.reviewStatus || 'pending'))
+            ? '<span class="badge red">待复核</span>'
+            : '<span class="badge green">已确认</span>';
+        const groupBadge = row.source_group_name === '智店通入库群'
+          ? '<span class="badge blue">智店通入库群</span>'
+          : '<span class="badge amber">教育补贴群</span>';
+        return `
+          <tr${active} data-id="${esc(row.record_id)}">
+            <td>
+              <div class="status-main"><b>${esc(row.scan_date || '--')}</b></div>
+              <span class="subline">${groupBadge}</span>
+            </td>
+            <td>
+              <div class="person-main"><b>${esc(row.customer_name || '--')}</b></div>
+              <span class="subline">${esc(shortPhone(row.customer_phone))} / ${esc(shortPhone(row.agent_phone))}</span>
+            </td>
+            <td>
+              <div class="product-main"><b>${esc(row.product_name || row.sku_key || row.pn_mtm || '--')}</b></div>
+              <span class="subline">${esc(row.order_number || '--')}</span>
+              <span class="subline mono">${esc((row.serial_numbers || []).join('、') || '--')}</span>
+            </td>
+            <td class="amount">
+              ${money(row.total_service_fee || 0)}
+              <span class="subline">教育补 ${money(row.total_education_discount_amount || 0)}</span>
+              <span class="subline">智享金 ${money(row.zhixiangjin_amount || 0)}</span>
+            </td>
+            <td>
+              <div class="status-main"><b>${reviewBadge}</b></div>
+              <span class="subline">${esc(scanTypeLabel(row.scan_type))} / ${esc(row.status || '--')}</span>
+            </td>
+            <td><button class="btn btn-edit" type="button" data-edit-id="${esc(row.record_id)}">编辑</button></td>
+          </tr>
+        `;
+      }).join('');
+      wrap.querySelectorAll('tr[data-id]').forEach((rowNode) => {
+        rowNode.addEventListener('click', (event) => {
+          if (event.target.closest('.btn-edit')) return;
+          const row = filteredRows.find((item) => item.record_id === rowNode.dataset.id);
+          selectedRecord = row || null;
+          renderList();
+          renderDrawer(selectedRecord);
+        });
+      });
+      wrap.querySelectorAll('.btn-edit').forEach((button) => {
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const row = filteredRows.find((item) => item.record_id === button.dataset.editId);
+          if (!row) return;
+          selectedRecord = row;
+          renderList();
+          renderDrawer(selectedRecord);
+          openModal(row);
+        });
+      });
+    }
+
+    function applyFilters() {
+      const from = document.getElementById('dateFrom').value;
+      const to = document.getElementById('dateTo').value;
+      const search = document.getElementById('search').value.trim().toLowerCase();
+      filteredRows = displayRows(allRows).filter((row) => {
+        if (activeGroup === '教育补贴群' && row.source_group_name !== '教育补贴群') return false;
+        if (activeGroup === '智店通入库群' && row.source_group_name !== '智店通入库群') return false;
+        if (activeGroup === 'evidence_only' && row.classificationStatus !== 'evidence_only') return false;
+        if (activeStatus === 'paid' && row.status !== '已付') return false;
+        if (activeStatus === 'unpaid' && row.status === '已付') return false;
+        if (activeStatus === 'review' && !['pending', 'local', ''].includes(String(row.reviewStatus || 'pending'))) return false;
+        if (from && String(row.scan_date || '') < from) return false;
+        if (to && String(row.scan_date || '') > to) return false;
+        if (search) {
+          const haystack = [
+            row.customer_name, row.customer_phone, row.agent_phone, row.order_number,
+            row.product_name, row.sku_key, row.pn_mtm, ...(row.serial_numbers || []),
+          ].join(' ').toLowerCase();
+          if (!haystack.includes(search)) return false;
+        }
+        return true;
+      }).sort((a, b) => String(b.scan_date || '').localeCompare(String(a.scan_date || '')) || String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
+      if (!selectedRecord && filteredRows.length) selectedRecord = filteredRows[0];
+      if (selectedRecord && !filteredRows.find((row) => row.record_id === selectedRecord.record_id)) selectedRecord = filteredRows[0] || null;
+      renderList();
+      renderDrawer(selectedRecord);
+    }
+
+    function openModal(row) {
+      selectedRecord = row;
+      document.getElementById('fGroup').value = row.source_group_name || '教育补贴群';
+      document.getElementById('fScanType').value = row.scan_type || 'single_scan';
+      document.getElementById('fScanDate').value = row.scan_date || '';
+      document.getElementById('fReviewStatus').value = row.reviewStatus || row.review_status || 'pending';
+      document.getElementById('fCustomerName').value = row.customer_name || '';
+      document.getElementById('fCustomerPhone').value = row.customer_phone || '';
+      document.getElementById('fAgentPhone').value = row.agent_phone || '';
+      document.getElementById('fOrderNumber').value = row.order_number || '';
+      document.getElementById('fProductName').value = row.product_name || '';
+      document.getElementById('fSkuKey').value = row.sku_key || '';
+      document.getElementById('fPnMtm').value = row.pn_mtm || '';
+      document.getElementById('fQuantity').value = row.quantity || 1;
+      document.getElementById('fDiscount').value = row.education_discount_amount || 0;
+      document.getElementById('fFee').value = row.service_fee_per_unit || 0;
+      document.getElementById('fZhixiangjin').value = row.zhixiangjin_amount || 0;
+      document.getElementById('fStatus').value = row.status || '未付';
+      document.getElementById('fNote').value = '';
+      document.getElementById('modalMeta').textContent = row.record_id || '--';
+      document.getElementById('modalWrap').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('modalWrap').classList.remove('show');
+    }
+
+    async function saveModal() {
+      if (!selectedRecord) return;
+      const fields = {
+        source_group_name: document.getElementById('fGroup').value,
+        scan_type: document.getElementById('fScanType').value,
+        scan_date: document.getElementById('fScanDate').value,
+        review_status: document.getElementById('fReviewStatus').value,
+        customer_name: document.getElementById('fCustomerName').value.trim(),
+        customer_phone: document.getElementById('fCustomerPhone').value.trim(),
+        agent_phone: document.getElementById('fAgentPhone').value.trim(),
+        order_number: document.getElementById('fOrderNumber').value.trim(),
+        product_name: document.getElementById('fProductName').value.trim(),
+        sku_key: document.getElementById('fSkuKey').value.trim(),
+        pn_mtm: document.getElementById('fPnMtm').value.trim(),
+        quantity: Number(document.getElementById('fQuantity').value) || 1,
+        education_discount_amount: Number(document.getElementById('fDiscount').value) || 0,
+        service_fee_per_unit: Number(document.getElementById('fFee').value) || 0,
+        zhixiangjin_amount: Number(document.getElementById('fZhixiangjin').value) || 0,
+        status: document.getElementById('fStatus').value,
+      };
+      const response = await fetch(`${window.location.origin}/api/education-scan/v2/records/${encodeURIComponent(selectedRecord.record_id)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          calibration_source: 'admin:education-subsidy-review-console',
+          notes: document.getElementById('fNote').value.trim() || '管理端复核',
+          fields,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.detail || '保存失败');
+      closeModal();
+      await reloadAll();
+      await fetch(PROJECTION_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    }
+
+    async function reloadAll() {
+      const [recordsRes, workbenchRes] = await Promise.all([
+        fetch(RECORDS_URL, { cache: 'no-store' }),
+        fetch(WORKBENCH_URL, { cache: 'no-store' }),
+      ]);
+      const recordsPayload = await recordsRes.json();
+      workbench = await workbenchRes.json();
+      allRows = (recordsPayload.items || []).filter((row) => row.classificationStatus !== 'service_filtered' || row.evidenceLevel === 'evidence_only');
+      renderOverview();
+      applyFilters();
+    }
+
+    document.getElementById('btnRefresh').addEventListener('click', () => reloadAll().catch((error) => alert(error.message || error)));
+    document.getElementById('btnProjection').addEventListener('click', () => fetch(PROJECTION_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }).then(() => reloadAll()).catch((error) => alert(error.message || error)));
+    document.getElementById('groupSeg').addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-group]');
+      if (!button) return;
+      document.querySelectorAll('#groupSeg button').forEach((item) => item.classList.remove('active'));
+      button.classList.add('active');
+      activeGroup = button.dataset.group;
+      applyFilters();
+    });
+    document.getElementById('statusSeg').addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-status]');
+      if (!button) return;
+      document.querySelectorAll('#statusSeg button').forEach((item) => item.classList.remove('active'));
+      button.classList.add('active');
+      activeStatus = button.dataset.status;
+      applyFilters();
+    });
+    document.getElementById('dateFrom').addEventListener('change', applyFilters);
+    document.getElementById('dateTo').addEventListener('change', applyFilters);
+    document.getElementById('search').addEventListener('input', applyFilters);
+    document.getElementById('btnClose').addEventListener('click', closeModal);
+    document.getElementById('btnCancel').addEventListener('click', closeModal);
+    document.getElementById('btnSave').addEventListener('click', () => saveModal().catch((error) => alert(error.message || error)));
+
+    reloadAll().catch((error) => {
+      document.body.innerHTML = `<div class="page"><section class="panel"><h2>管理端加载失败</h2><div class="empty">${esc(error.message || error)}</div></section></div>`;
+    });
+  </script>
+</body>
+</html>

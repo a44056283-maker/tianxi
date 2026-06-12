@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-05-31T18:32:52.750Z",
+  "source": "ghost_inventory_audit",
+  "files": {
+    "standardInventory": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+    "adjustedInventory": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+    "inventoryMaster": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+    "retailZone": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json"
+  },
+  "totals": {
+    "inStockSkuCount": 104,
+    "uiInventoryMismatchCount": 9,
+    "retailZoneMissingCount": 0,
+    "retailZoneGhostCount": 0,
+    "stockWithoutSnCount": 1,
+    "partialSnCoverageCount": 5
+  },
+  "uiInventoryMismatches": [
+    {
+      "skuKey": "20002811",
+      "productName": "小新Pro 16c IAH10GRXU532G1TB11C集成显卡",
+      "pnMtm": "83ND0000CD",
+      "standard": {
+        "currentStock": 25,
+        "sellableStock": 25,
+        "serialCount": 35
+      },
+      "adjusted": {
+        "currentStock": 25,
+        "sellableStock": 25,
+        "serialCount": 25
+      }
+    },
+    {
+      "skuKey": "20006725",
+      "productName": "Legion Y7000 IRX10BKEI713650HX16G1TB11C",
+      "pnMtm": "83LY00TRCD",
+      "standard": {
+        "currentStock": 24,
+        "sellableStock": 24,
+        "serialCount": 41
+      },
+      "adjusted": {
+        "currentStock": 24,
+        "sellableStock": 24,
+        "serialCount": 24
+      }
+    },
+    {
+      "skuKey": "20003216",
+      "productName": "Legion Y7000P IRX10I9-14900HX 16G 1TB RTX5060-8G 2.5K 240HZ  碳晶黑",
+      "pnMtm": "83NN0001CD",
+      "standard": {
+        "currentStock": 19,
+        "sellableStock": 19,
+        "serialCount": 44
+      },
+      "adjusted": {
+        "currentStock": 19,
+        "sellableStock": 19,
+        "serialCount": 19
+      }
+    },
+    {
+      "skuKey": "20006381",
+      "productName": "小新Pro14  R7-H255 24G 1T 2.8K OLED 120Hz",
+      "pnMtm": "83QG0007CD",
+      "standard": {
+        "currentStock": 15,
+        "sellableStock": 15,
+        "serialCount": 26
+      },
+      "adjusted": {
+        "currentStock": 15,
+        "sellableStock": 15,
+        "serialCount": 15
+      }
+    },
+    {
+      "skuKey": "20006806",
+      "productName": "TB376FC TAB 8G+256GLG-CN",
+      "pnMtm": "ZAH50004CN",
+      "standard": {
+        "currentStock": 15,
+        "sellableStock": 15,
+        "serialCount": 24
+      },
+      "adjusted": {
+        "currentStock": 15,
+        "sellableStock": 15,
+        "serialCount": 15
+      }
+    },
+    {
+      "skuKey": "20001119",
+      "productName": "拯救者Z7冰刃旋转支架",
+      "pnMtm": "QX41Q30728",
+      "standard": {
+        "currentStock": 4,
+        "sellableStock": 4,
+        "serialCount": 6
+      },
+      "adjusted": {
+        "currentStock": 4,
+        "sellableStock": 4,
+        "serialCount": 4
+      }
+    },
+    {
+      "skuKey": "20002916",
+      "productName": "TB335FC TAB 8G+256GLG-CN",
+      "pnMtm": "ZAFT0004CN",
+      "standard": {
+        "currentStock": 3,
+        "sellableStock": 3,
+        "serialCount": 5
+      },
+      "adjusted": {
+        "currentStock": 3,
+        "sellableStock": 3,
+        "serialCount": 3
+      }
+    },
+    {
+      "skuKey": "20004915",
+      "productName": "GeekPro-17IRR I51440024G1TG5B11Q (5060)",
+      "pnMtm": "90X000J9CP",
+      "standard": {
+        "currentStock": 1,
+        "sellableStock": 1,
+        "serialCount": 4
+      },
+      "adjusted": {
+        "currentStock": 1,
+        "sellableStock": 1,
+        "serialCount": 1
+      }
+    },
+    {
+      "skuKey": "20006213",
+      "productName": "联想移动硬盘 F508 1T 风暴灰",
+      "pnMtm": "QXB1R01062",
+      "standard": {
+        "currentStock": 1,
+        "sellableStock": 1,
+        "serialCount": 2
+      },
+      "adjusted": {
+        "currentStock": 1,
+        "sellableStock": 1,
+        "serialCount": 1
+      }
+    }
+  ],
+  "retailZoneMissing": [],
+  "retailZoneGhosts": [],
+  "stockWithoutSn": [
+    {
+      "skuKey": "20007933",
+      "productName": "Legion Y7000X IAX11WHEU716G1TB11C",
+      "pnMtm": "83VK0049CD",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "serialCount": 0,
+      "note": "真实库存有货，但 inventory master 中没有真实 SN。"
+    }
+  ],
+  "partialSnCoverage": [
+    {
+      "skuKey": "20004481",
+      "productName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+      "pnMtm": "ZAE70012CN",
+      "currentStock": 9,
+      "sellableStock": 9,
+      "serialCount": 8,
+      "note": "真实库存有货，且已有部分真实 SN，但仍未补齐全部 SN。"
+    },
+    {
+      "skuKey": "20000347",
+      "productName": "联想手写笔",
+      "pnMtm": "ZG38C05305",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "serialCount": 2,
+      "note": "真实库存有货，且已有部分真实 SN，但仍未补齐全部 SN。"
+    },
+    {
+      "skuKey": "20004003",
+      "productName": "小新 14 IRH10GRXI513420H24G51211C",
+      "pnMtm": "83HR00BKCD",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "serialCount": 2,
+      "note": "真实库存有货，且已有部分真实 SN，但仍未补齐全部 SN。"
+    },
+    {
+      "skuKey": "20006651",
+      "productName": "天逸510S-08IRR I51340016G512W-11Q2",
+      "pnMtm": "90XS007FCD",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "serialCount": 2,
+      "note": "真实库存有货，且已有部分真实 SN，但仍未补齐全部 SN。"
+    },
+    {
+      "skuKey": "20007794",
+      "productName": "TB522FU TAB 8G+256GBL-CN",
+      "pnMtm": "ZAHX0000CN",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "serialCount": 1,
+      "note": "真实库存有货，且已有部分真实 SN，但仍未补齐全部 SN。"
+    }
+  ]
+}

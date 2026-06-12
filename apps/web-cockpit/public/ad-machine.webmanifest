@@ -1,0 +1,27 @@
+{
+  "name": "联想智慧零售触屏广告机",
+  "short_name": "联想广告机",
+  "description": "联想智慧零售触屏广告机 618 彩页、抽奖、配件秒杀和售后排号入口。",
+  "id": "/ad-machine/",
+  "start_url": "/ad-machine/index.html",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#09090d",
+  "theme_color": "#ed1c24",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "触屏广告机",
+      "short_name": "广告机",
+      "url": "/ad-machine/index.html"
+    }
+  ]
+}

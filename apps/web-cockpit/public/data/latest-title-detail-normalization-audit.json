@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-05-26T06:00:00+08:00",
+  "scope": "title-detail-normalization",
+  "updated": [
+    {
+      "primary_sku_key": "20002034",
+      "canonical_name": "联想小新14 2025 14英寸轻薄笔记本电脑 · i5-13420H / 24G / 512G / Win11"
+    },
+    {
+      "primary_sku_key": "20002781",
+      "canonical_name": "联想小新Air13 13.3英寸轻薄笔记本电脑 · R7-7735H / 16G / 512G / 蓝"
+    },
+    {
+      "primary_sku_key": "20002909",
+      "canonical_name": "联想拯救者平板Y700 四代 8.8英寸AI游戏平板 · 骁龙8至尊版 / 16G / 512G / 碳晶黑"
+    },
+    {
+      "primary_sku_key": "20002916",
+      "canonical_name": "联想小新平板11 11英寸AI平板电脑 · 天玑6300 / 8G / 256G / WIFI / 深空灰"
+    },
+    {
+      "primary_sku_key": "20003126",
+      "canonical_name": "联想拯救者R9000P 2025 电竞游戏笔记本电脑 · R9-8945HX / 32G / 1T / RTX5060 / 2.5K 240Hz / 碳晶黑"
+    },
+    {
+      "primary_sku_key": "20003167",
+      "canonical_name": "联想来酷Lecoo Pro14 锐龙版14英寸轻薄笔记本电脑 · R7-H255 / 32G / 1T / 2.8K"
+    },
+    {
+      "primary_sku_key": "20003216",
+      "canonical_name": "联想拯救者Y7000P 2025 电竞游戏笔记本电脑 · i9-14900HX / 16G / 1T / RTX5060 / 2.5K 240Hz / 碳晶黑"
+    },
+    {
+      "primary_sku_key": "20003662",
+      "canonical_name": "来酷斗战者 战7000 锐龙版2025 电竞游戏笔记本电脑 · R9-8945HX / 16G / 1T / RTX5060 / 2.5K 180Hz / 月光灰"
+    },
+    {
+      "primary_sku_key": "20003886",
+      "canonical_name": "联想来酷Lecoo Pro14 酷睿版14英寸轻薄笔记本电脑 · U5-125H / 32G / 1T"
+    },
+    {
+      "primary_sku_key": "20004003",
+      "canonical_name": "联想小新14 2025 14英寸轻薄笔记本电脑 · i5-13420H / 24G / 512G / 灰色"
+    },
+    {
+      "primary_sku_key": "20004055",
+      "canonical_name": "联想小新16 2025 16英寸轻薄笔记本电脑 · i5-13420H / 24G / 512G"
+    },
+    {
+      "primary_sku_key": "20004671",
+      "canonical_name": "联想拯救者Y9000P 2025 AI元启电竞游戏笔记本电脑 · Ultra 9 275HX / 32G / 1T / RTX5060 / 2.5K 240Hz / 碳晶黑"
+    },
+    {
+      "primary_sku_key": "20004689",
+      "canonical_name": "来酷Lecoo Air16 酷睿版16英寸轻薄笔记本电脑 · Ultra 5 / 32G / 1T"
+    },
+    {
+      "primary_sku_key": "20004915",
+      "canonical_name": "联想GeekPro 电竞游戏主机14代 · i5-14400 / 24G / 1T / RTX5060 / 单主机"
+    },
+    {
+      "primary_sku_key": "20006372",
+      "canonical_name": "联想小新Pro16 2025 锐龙版轻薄笔记本电脑 · R7-H255 / 24G / 1T / 2.8K 120Hz OLED / 深灰色"
+    },
+    {
+      "primary_sku_key": "20006381",
+      "canonical_name": "联想小新Pro14 2025 锐龙版轻薄笔记本电脑 · R7-H255 / 24G / 1T / 2.8K 120Hz OLED / 深灰色"
+    },
+    {
+      "primary_sku_key": "20006651",
+      "canonical_name": "联想天逸510S 台式主机电脑 · i5-13400 / 16G / 512G / 23.8英寸显示器"
+    },
+    {
+      "primary_sku_key": "20006803",
+      "canonical_name": "联想拯救者平板Y700 五代 8.8英寸AI游戏平板 · 骁龙8至尊版 / 16G / 512G / 冰魄白"
+    },
+    {
+      "primary_sku_key": "20006831",
+      "canonical_name": "联想小新Pro16 GT 轻薄笔记本电脑 · Ultra 5 338H / 32G / 1T / 2.8K 120Hz OLED / 赛道灰"
+    },
+    {
+      "primary_sku_key": "20006837",
+      "canonical_name": "联想小新Pro14 酷睿版轻薄笔记本电脑 · Ultra 5 336H / 32G / 1T / 2.8K 120Hz OLED / 深空灰"
+    },
+    {
+      "primary_sku_key": "20007040",
+      "canonical_name": "来酷斗战者 战7000 2025 电竞游戏笔记本电脑 · i7-13645HX / 16G / 512G / RTX5060 / 2.5K 180Hz / 月光灰"
+    }
+  ],
+  "count": 21
+}

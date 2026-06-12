@@ -1,0 +1,3 @@
+# automation-8 memory
+
+- 2026-05-23T00:09:30+08:00：本轮按任务一手工复核轮扫执行。已读取项目 AGENTS、13_SCHEDULED_TASK_SOPS、07_BROWSER_WORKFLOW，并确认 automation memory 原先不存在。使用 Chrome 现有会话低频可见打开 `20006372 / 83QH0007CD`：京东锁定页 `https://item.jd.com/100322176814.html` 可见页面显示“暂无报价”，不得沿用旧 JD 价 `6499` 写成今日完成；联想商城锁定页 `https://item.lenovo.com.cn/product/1054482.html` 可见商品编号 `AK-83QH0007CD`、配置 `AMD 锐龙 7 H 255 / 24GB / 1T SSD / 深灰色`、秒杀价 `6199`。已保存截图到 `apps/inventory-sync/artifacts/evidence/screenshots/2026-05-23/`，新增手工证据批次 `apps/inventory-sync/artifacts/manual/manual-price-supplements-20260523-automation-8-roundscan-20006372.json`。前端 `http://127.0.0.1:5174/` 的实时报价专区搜索 `20006372` 仍显示旧快照中的 `京东 ￥6,499 / 官旗 ￥6,199`，因此本轮状态为 `executed_not_closed`，未重建快照，未写 `real_completed`。

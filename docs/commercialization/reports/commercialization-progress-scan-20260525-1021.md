@@ -1,0 +1,31 @@
+# 商业化进度扫描报告
+
+- taskName: `commercialization-progress-sync`
+- status: `executed_not_closed`
+- newArtifacts:
+  - `docs/commercialization/commercialization-progress.latest.json`
+  - `docs/commercialization/商业化进度追踪.md`
+  - `docs/commercialization/商业化进度看板.html`
+  - `docs/commercialization/reports/commercialization-progress-scan-20260525-1021.md`
+- keyMetrics:
+  - `overallScore = 49/100`
+  - `库存 / SN = 68%`
+  - `出入库 = 55%`
+  - `营销 / 价保 / 补贴 = 48%`
+  - `sync_gap_queue open = 30`
+  - `watchdog missed = 1`
+  - `watchdog attention = 1`
+- frontendChecked:
+  - `docs/commercialization/商业化进度追踪.md` 已刷新到 `2026-05-25 10:21:05 CST`
+  - `docs/commercialization/商业化进度看板.html` 已内嵌 `overallScore = 49` 与当轮时间戳
+- blockingReason:
+  - 分数与主要阻塞类别本轮未变化，说明商业化没有新增真实推进，只完成了重算与报告刷新。
+  - 核心业务表仍未补 `tenant_id / store_id`。
+  - 前端 `service.ts` 仍保留 mock 引用。
+  - 市场价格、链接、营销活动仍大量停在 `snapshot_cache` 过渡态。
+  - `sync_gap_queue` 仍有 `30` 条 open 缺口。
+  - watchdog 仍有 `missed=1 / attention=1`。
+- nextAction:
+  - 先补 `tenant / store / user / role / permission` 与核心业务表 `tenant_id / store_id`。
+  - 再清 `sync_gap_queue` 的销售金额快照缺口。
+  - 再把 `marketplace-prices / product-url-locks / marketing-boost / competitor-monitor / warranty-check-queue` 从 `snapshot_cache` 推进到正式 SQL 历史表或读模型。

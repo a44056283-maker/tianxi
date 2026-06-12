@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>采集对接端 · 配置说明</title>
+  <style>
+    :root {
+      --blue: #1a73e8;
+      --blue-soft: #4285f4;
+      --blue-light: #e8f0fe;
+      --green: #0a6e3a;
+      --green-soft: #27ae60;
+      --green-light: #e6f4ec;
+      --red: #d71a24;
+      --red-light: #fce6e7;
+      --gold: #d4a23a;
+      --gold-light: #fdf4ec;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: rgba(26, 115, 232, 0.16);
+      --line-soft: rgba(0,0,0,0.06);
+      --panel: #ffffff;
+      --paper: #f5f7fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(180deg, var(--blue) 0%, #2872e8 100%);
+      color: #fff;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.16);
+    }
+    .header .title { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .header .title-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .header .sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+    .header .actions { display: flex; gap: 8px; align-items: center; }
+    .header .actions a {
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .header .actions a:hover { background: rgba(255,255,255,0.28); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* Connection summary */
+    .summary {
+      background: #fff;
+      border: 1px solid var(--blue);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #fff 0%, var(--blue-light) 100%);
+    }
+    .summary h2 { margin: 0 0 14px; font-size: 16px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .summary-cell {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .summary-cell .label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    .summary-cell .value {
+      font-size: 15px;
+      font-weight: 700;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    }
+    .summary-cell .value.ip { color: var(--blue); }
+    .summary-cell .value.url { color: var(--green); word-break: break-all; font-size: 13px; }
+    .summary-cell .copy-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .copy-btn {
+      background: var(--blue);
+      color: #fff;
+      border: 0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    .copy-btn:hover { background: #1565d0; }
+
+    /* Section */
+    .section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+    .section h2 { margin: 0 0 14px; font-size: 15px; font-weight: 700; }
+    .section h3 { margin: 18px 0 8px; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .section p { font-size: 13px; line-height: 1.6; color: var(--ink); }
+
+    /* Step list */
+    .step-list { list-style: none; padding: 0; margin: 0; }
+    .step-list li {
+      padding: 12px 0 12px 36px;
+      border-bottom: 1px solid var(--line-soft);
+      position: relative;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .step-list li:last-child { border-bottom: 0; }
+    .step-list .step-num {
+      position: absolute;
+      left: 0; top: 12px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+    .step-list code, .code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 12px;
+      color: var(--red);
+    }
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 8px 0;
+      white-space: pre;
+    }
+    .code-block .comment { color: #6a9955; }
+    .code-block .keyword { color: #569cd6; }
+    .code-block .string { color: #ce9178; }
+    .code-block .number { color: #b5cea8; }
+    .code-block .var { color: #9cdcfe; }
+
+    /* Endpoint table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line-soft); }
+    th { font-weight: 600; color: var(--muted); font-size: 11px; }
+    .method {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .method.get { background: var(--blue); }
+    .method.post { background: var(--green); }
+    .method.delete { background: var(--red); }
+    .path { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .badge.req { background: var(--red-light); color: var(--red); }
+    .badge.opt { background: #e9ecef; color: var(--muted); }
+
+    .warning {
+      background: var(--gold-light);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--ink);
+      margin: 10px 0;
+    }
+    .info {
+      background: var(--blue-light);
+      border-left: 3px solid var(--blue);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--ink);
+      margin: 10px 0;
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .tab-bar button {
+      background: transparent;
+      border: 0;
+      padding: 8px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .tab-bar button.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      font-weight: 600;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="title">
+        <div class="title-icon">🔧</div>
+        采集对接端 · 配置说明
+      </div>
+      <div class="sub">另一台电脑需要看的对接手册</div>
+    </div>
+    <div class="actions">
+      <a href="bridge-dashboard.html">← 监控</a>
+      <a href="index.html">总览</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Connection summary -->
+    <div class="summary">
+      <h2>📡 另一台电脑对接本机所需信息</h2>
+      <div class="summary-grid">
+        <div class="summary-cell">
+          <div class="label">本机 IP（局域网）</div>
+          <div class="value ip" id="local-ip">--</div>
+          <div class="copy-hint">两台电脑必须在同一局域网（同一 WiFi / 路由器）</div>
+        </div>
+        <div class="summary-cell">
+          <div class="label">API 端口</div>
+          <div class="value">8000</div>
+          <div class="copy-hint">本机已启动 api-server，监听 0.0.0.0:8000</div>
+        </div>
+        <div class="summary-cell">
+          <div class="label">Base URL</div>
+          <div class="value url" id="base-url">--</div>
+          <div class="copy-hint">另一台电脑访问的根 URL</div>
+        </div>
+        <div class="summary-cell">
+          <div class="label">API Key 鉴权</div>
+          <div class="value" id="auth-mode">--</div>
+          <div class="copy-hint" id="auth-hint">--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1: Network setup -->
+    <div class="section">
+      <h2>🚀 步骤一：网络配置</h2>
+      <ol class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <b>确认两台电脑在同一局域网</b><br>
+          另一台电脑与本机（Mac mini）连接同一 WiFi / 路由器。
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <b>关闭本机 macOS 防火墙（如果启用）</b><br>
+          系统设置 → 网络 → 防火墙 → 关闭。或允许入站连接 <code>python3</code> / Node 应用。
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <b>本机 IP 固定</b>（推荐）<br>
+          路由器给 Mac mini 分配固定 IP（避免重启后 IP 变）。本机当前 IP: <code id="local-ip-2">--</code>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <b>从另一台电脑 ping 测试</b><br>
+          终端执行: <code>ping <span class="var" id="local-ip-3">--</span></code><br>
+          能 ping 通就说明网络通。
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <b>从另一台电脑访问 health</b><br>
+          浏览器打开: <code id="health-url">--</code><br>
+          能看到 JSON 即说明本机 API 服务可访问。
+        </li>
+      </ol>
+    </div>
+
+    <!-- Step 2: API Key -->
+    <div class="section">
+      <h2>🔑 步骤二：API Key 鉴权（生产环境必开）</h2>
+      <div class="info" id="auth-info">
+        当前模式: <b>--</b>。开发环境可以不开；生产/跨网络必须开。
+      </div>
+      <p><b>设置 API Key（本机操作）</b>：</p>
+      <div class="code-block"># 在 api-server 启动前设置环境变量
+export COLLECTION_BRIDGE_API_KEY="<你的随机 token>"
+# 例：openssl rand -hex 32
+
+# 启动 api-server
+launchctl load ~/Library/LaunchAgents/com.lenovo-smart-retail.api-server.plist</div>
+      <p style="margin-top: 14px;"><b>在 plist 中固化</b>：编辑 <code>~/Library/LaunchAgents/com.lenovo-smart-retail.api-server.plist</code>，加 EnvironmentVariables：</p>
+      <div class="code-block">&lt;key&gt;EnvironmentVariables&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;COLLECTION_BRIDGE_API_KEY&lt;/key&gt;
+  &lt;string&gt;替换为你的 token&lt;/string&gt;
+&lt;/dict&gt;</div>
+      <p style="margin-top: 14px;"><b>另一台电脑调用时</b>在 HTTP Header 中加：</p>
+      <div class="code-block">X-Bridge-Token: 替换为你的 token</div>
+    </div>
+
+    <!-- Step 3: API endpoints -->
+    <div class="section">
+      <h2>📋 步骤三：API 端点列表</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>端点</th>
+            <th>用途</th>
+            <th>鉴权</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/health</td>
+            <td>健康检查（先 ping）</td>
+            <td>无需</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/staff</td>
+            <td>获取员工列表（下拉用）</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/scan-types</td>
+            <td>获取扫法列表</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method post">POST</span></td>
+            <td class="path">/api/collection/v1/submit</td>
+            <td><b>提交凭证（核心）</b></td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method post">POST</span></td>
+            <td class="path">/api/collection/v1/match/serial/{sn}</td>
+            <td>用 SN 预匹配</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method post">POST</span></td>
+            <td class="path">/api/collection/v1/match/order/{id}</td>
+            <td>用订单号预匹配</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method post">POST</span></td>
+            <td class="path">/api/collection/v1/match/phone/{phone}</td>
+            <td>用手机号预匹配</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/records</td>
+            <td>列出最近记录</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/records/{record_id}</td>
+            <td>查询单条记录</td>
+            <td>需要</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td class="path">/api/collection/v1/stats</td>
+            <td>统计（员工/扫法维度）</td>
+            <td>需要</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Step 4: Submit payload -->
+    <div class="section">
+      <h2>📤 步骤四：提交凭证（核心）</h2>
+      <p>另一台电脑拍照后调用 <code>/api/collection/v1/submit</code>，传入凭证图片 + 元数据。</p>
+
+      <h3>请求格式（multipart/form-data）</h3>
+      <div class="code-block">POST <span class="var" id="submit-url">--</span>
+Content-Type: multipart/form-data; boundary=...
+X-Bridge-Token: 你的 token
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="voucher.jpg"
+Content-Type: image/jpeg
+
+&lt;图片二进制&gt;
+--boundary
+Content-Disposition: form-data; name="metadata"
+
+{
+  "staff_id": "EMP005",
+  "scan_type": "single_scan",
+  "source_group": "智店通入库群",
+  "client_tag": "laptop-b-collect-v1",
+  "customer_name": "张三",
+  "customer_phone": "13800138000",
+  "serial_number": "BH022VR7",
+  "order_number": "XS26060821445335779"
+}
+--boundary--</div>
+
+      <h3>metadata 字段说明</h3>
+      <table>
+        <thead>
+          <tr><th>字段</th><th>必填</th><th>类型</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>staff_id</td><td><span class="badge req">必填</span></td><td>string</td><td>员工 ID（EMP003/EMP004/EMP005/EMP006）</td></tr>
+          <tr><td>scan_type</td><td><span class="badge req">必填</span></td><td>string</td><td>扫法：single_scan / multi_scan / three_piece / two_piece</td></tr>
+          <tr><td>source_group</td><td><span class="badge opt">可选</span></td><td>string</td><td>来源群，默认 "智店通入库群"</td></tr>
+          <tr><td>customer_name</td><td><span class="badge opt">可选</span></td><td>string</td><td>客户姓名（OCR 也会提取）</td></tr>
+          <tr><td>customer_phone</td><td><span class="badge opt">可选</span></td><td>string</td><td>客户手机号</td></tr>
+          <tr><td>agent_phone</td><td><span class="badge opt">可选</span></td><td>string</td><td>代扫电话</td></tr>
+          <tr><td>serial_number</td><td><span class="badge opt">可选</span></td><td>string</td><td>SN，匹配 sales_order_line 优先</td></tr>
+          <tr><td>order_number</td><td><span class="badge opt">可选</span></td><td>string</td><td>订单号</td></tr>
+          <tr><td>education_discount_amount</td><td><span class="badge opt">可选</span></td><td>number</td><td>教育补贴金额（默认 30 单扫 / 500 三件套）</td></tr>
+          <tr><td>service_fee_per_unit</td><td><span class="badge opt">可选</span></td><td>number</td><td>代扫服务费（默认 50 单扫 / 300 三件套）</td></tr>
+          <tr><td>zhixiangjin_amount</td><td><span class="badge opt">可选</span></td><td>number</td><td>智享金（默认 0 / 2000 三件套）</td></tr>
+          <tr><td>client_tag</td><td><span class="badge opt">可选</span></td><td>string</td><td>采集端来源标识，方便审计</td></tr>
+          <tr><td>notes</td><td><span class="badge opt">可选</span></td><td>string</td><td>备注</td></tr>
+        </tbody>
+      </table>
+
+      <h3>响应格式</h3>
+      <div class="code-block">{
+  "ok": true,
+  "record_id": "BRIDGE-1780999240404-91941F16",
+  "status": "success",     // success | partial | failed
+  "matched": true,
+  "match_source": "serial",  // serial | order | phone | null
+  "matched_sku": "20003365",
+  "matched_product": "Lenovo Care 智惠 4年",
+  "warnings": [],
+  "errors": [],
+  "evidence_path": "今日水印相机/processed/2026-06-09/EMP005/xxx.jpg",
+  "processing_time_ms": 325,
+  "server_time": "2026-06-09T18:00:40+08:00"
+}</div>
+    </div>
+
+    <!-- Step 5: Code examples -->
+    <div class="section">
+      <h2>💻 步骤五：另一台电脑代码示例</h2>
+
+      <div class="tab-bar">
+        <button class="active" data-tab="curl">cURL</button>
+        <button data-tab="python">Python</button>
+        <button data-tab="node">Node.js</button>
+        <button data-tab="js">浏览器 JS</button>
+      </div>
+
+      <div class="tab-content active" data-tab="curl">
+        <h3>cURL 命令行（最快测试用）</h3>
+        <div class="code-block"># 1. 健康检查（无需鉴权）
+curl <span class="var" id="curl-health">--</span>
+
+# 2. 获取员工列表
+curl -H "X-Bridge-Token: 你的 token" <span class="var" id="curl-staff">--</span>
+
+# 3. 提交凭证（核心）
+curl -X POST <span class="var" id="curl-submit">--</span> \
+  -H "X-Bridge-Token: 你的 token" \
+  -F "file=@/path/to/voucher.jpg" \
+  -F 'metadata={"staff_id":"EMP005","scan_type":"single_scan","source_group":"智店通入库群","client_tag":"my-collect-app-v1","customer_name":"张三","customer_phone":"13800138000","serial_number":"BH022VR7"}'
+
+# 4. 用 SN 预匹配
+curl -X POST -H "X-Bridge-Token: 你的 token" <span class="var" id="curl-match-sn">--</span></div>
+      </div>
+
+      <div class="tab-content" data-tab="python">
+        <h3>Python 3（另一台电脑跑）</h3>
+        <div class="code-block"><span class="keyword">import</span> requests
+
+API_BASE = <span class="string">"<span class="var" id="py-base">--</span>"</span>
+API_KEY = <span class="string">"你的 token"</span>  <span class="comment"># 本机 COLLECTION_BRIDGE_API_KEY</span>
+
+headers = {<span class="string">"X-Bridge-Token"</span>: API_KEY}
+
+<span class="comment"># 1. 健康检查</span>
+resp = requests.get(f<span class="string">"{API_BASE}/api/collection/v1/health"</span>)
+<span class="keyword">print</span>(resp.json())
+
+<span class="comment"># 2. 获取员工列表</span>
+resp = requests.get(f<span class="string">"{API_BASE}/api/collection/v1/staff"</span>, headers=headers)
+<span class="keyword">print</span>(resp.json())
+
+<span class="comment"># 3. 提交凭证（核心）</span>
+<span class="keyword">with</span> open(<span class="string">"voucher.jpg"</span>, <span class="string">"rb"</span>) <span class="keyword">as</span> f:
+    files = {<span class="string">"file"</span>: (<span class="string">"voucher.jpg"</span>, f, <span class="string">"image/jpeg"</span>)}
+    data = {<span class="string">"metadata"</span>: json.dumps({
+        <span class="string">"staff_id"</span>: <span class="string">"EMP005"</span>,
+        <span class="string">"scan_type"</span>: <span class="string">"single_scan"</span>,
+        <span class="string">"source_group"</span>: <span class="string">"智店通入库群"</span>,
+        <span class="string">"client_tag"</span>: <span class="string">"my-collect-app-v1"</span>,
+        <span class="string">"customer_name"</span>: <span class="string">"张三"</span>,
+        <span class="string">"customer_phone"</span>: <span class="string">"13800138000"</span>,
+        <span class="string">"serial_number"</span>: <span class="string">"BH022VR7"</span>,
+    })}
+    resp = requests.post(
+        f<span class="string">"{API_BASE}/api/collection/v1/submit"</span>,
+        headers=headers,
+        files=files,
+        data=data,
+    )
+    result = resp.json()
+    <span class="keyword">print</span>(f<span class="string">"record_id={result['record_id']} status={result['status']}"</span>)
+
+<span class="comment"># 4. 用 SN 预匹配（采集前先用 SN 试一下能不能匹配到 SKU）</span>
+resp = requests.post(
+    f<span class="string">"{API_BASE}/api/collection/v1/match/serial/BH022VR7"</span>,
+    headers=headers,
+)
+<span class="keyword">print</span>(resp.json())</div>
+      </div>
+
+      <div class="tab-content" data-tab="node">
+        <h3>Node.js（另一台电脑跑）</h3>
+        <div class="code-block"><span class="keyword">const</span> fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);
+<span class="keyword">const</span> FormData = <span class="keyword">require</span>(<span class="string">'form-data'</span>);
+
+<span class="keyword">const</span> API_BASE = <span class="string">'<span class="var" id="node-base">--</span>'</span>;
+<span class="keyword">const</span> API_KEY = <span class="string">'你的 token'</span>;
+
+<span class="comment">// 1. 健康检查</span>
+<span class="keyword">const</span> healthResp = <span class="keyword">await</span> fetch(<span class="string">`${API_BASE}/api/collection/v1/health`</span>);
+<span class="keyword">const</span> health = <span class="keyword">await</span> healthResp.json();
+console.log(health);
+
+<span class="comment">// 2. 提交凭证</span>
+<span class="keyword">const</span> form = <span class="keyword">new</span> FormData();
+form.append(<span class="string">'file'</span>, fs.createReadStream(<span class="string">'voucher.jpg'</span>));
+form.append(<span class="string">'metadata'</span>, JSON.stringify({
+  staff_id: <span class="string">'EMP005'</span>,
+  scan_type: <span class="string">'single_scan'</span>,
+  source_group: <span class="string">''\u667a\u5e97\u901a\u5165\u5e93\u7fa4'</span>,
+  client_tag: <span class="string">'my-collect-app-v1'</span>,
+  customer_name: <span class="string">'\u5f20\u4e09'</span>,
+  customer_phone: <span class="string">'13800138000'</span>,
+  serial_number: <span class="string">'BH022VR7'</span>,
+}));
+
+<span class="keyword">const</span> resp = <span class="keyword">await</span> fetch(<span class="string">`${API_BASE}/api/collection/v1/submit`</span>, {
+  method: <span class="string">'POST'</span>,
+  headers: { <span class="string">'X-Bridge-Token'</span>: API_KEY, ...form.getHeaders() },
+  body: form,
+});
+<span class="keyword">const</span> result = <span class="keyword">await</span> resp.json();
+console.log(<span class="string">`record_id=${result.record_id} status=${result.status}`</span>);</div>
+      </div>
+
+      <div class="tab-content" data-tab="js">
+        <h3>浏览器 JavaScript（另一台电脑 web app）</h3>
+        <div class="code-block"><span class="comment">// 在另一台电脑的 web app 里直接 fetch</span>
+<span class="keyword">async function</span> submitVoucher(file, metadata) {
+  <span class="keyword">const</span> form = <span class="keyword">new</span> FormData();
+  form.append(<span class="string">'file'</span>, file);
+  form.append(<span class="string">'metadata'</span>, JSON.stringify(metadata));
+  <span class="keyword">const</span> resp = <span class="keyword">await</span> fetch(<span class="string">'<span class="var" id="js-base">--</span>/api/collection/v1/submit'</span>, {
+    method: <span class="string">'POST'</span>,
+    headers: { <span class="string">'X-Bridge-Token'</span>: <span class="string">'你的 token'</span> },
+    body: form,
+  });
+  <span class="keyword">return</span> <span class="keyword">await</span> resp.json();
+}
+
+<span class="comment">// 使用：</span>
+<span class="keyword">const</span> fileInput = document.querySelector(<span class="string">'#photo-input'</span>);
+<span class="keyword">const</span> result = <span class="keyword">await</span> submitVoucher(fileInput.files[<span class="number">0</span>], {
+  staff_id: <span class="string">'EMP005'</span>,
+  scan_type: <span class="string">'single_scan'</span>,
+  source_group: <span class="string">'\u667a\u5e97\u901a\u5165\u5e93\u7fa4'</span>,
+  client_tag: <span class="string">'browser-collect-v1'</span>,
+});
+console.log(result.record_id, result.status);</div>
+        <div class="info">
+          浏览器端没有 CORS 限制（本机 CORSMiddleware 已配置 <code>allow_origins=["*"]</code>）。
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Test from other computer -->
+    <div class="section">
+      <h2>✅ 步骤六：另一台电脑验证流程</h2>
+      <ol class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <b>在另一台电脑执行 ping 测试</b><br>
+          <code>ping <span class="var" id="step-ip">--</span></code> — 能通就行
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <b>浏览器访问 health</b><br>
+          打开 <code id="step-health">--</code> — 应看到 JSON 状态
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <b>用 cURL 测试 staff 端点</b><br>
+          <code>curl -H "X-Bridge-Token: 你的 token" <span class="var" id="step-staff">--</span></code>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <b>用 cURL 提交一张测试凭证</b><br>
+          <code>curl -X POST -F "file=@test.jpg" -F 'metadata=...' -H "X-Bridge-Token: ..." <span class="var" id="step-submit">--</span></code>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <b>回到本机 dashboard 确认</b><br>
+          打开 <a href="bridge-dashboard.html">bridge-dashboard.html</a>，看记录是否出现
+        </li>
+        <li>
+          <span class="step-num">6</span>
+          <b>接入正式采集脚本</b><br>
+          另一台电脑的采集脚本改造为调用本 API，替换原来的手动流程
+        </li>
+      </ol>
+    </div>
+
+    <!-- Step 7: Network troubleshooting -->
+    <div class="section">
+      <h2>🔍 常见问题排查</h2>
+      <h3>连接不上本机</h3>
+      <ul style="font-size: 13px; line-height: 1.8;">
+        <li>检查两台电脑是否在同一 WiFi（不能用手机热点给另一台电脑）</li>
+        <li>本机防火墙 → 系统设置 → 网络 → 防火墙 → 关闭</li>
+        <li>本机执行 <code>lsof -i :8000</code> 确认 api-server 在监听</li>
+        <li>本机先自测 <code>curl http://127.0.0.1:8000/api/collection/v1/health</code></li>
+        <li>路由器是否开启了 AP 隔离（会导致同一 WiFi 下电脑互不可见）</li>
+      </ul>
+
+      <h3>403 Invalid X-Bridge-Token</h3>
+      <ul style="font-size: 13px; line-height: 1.8;">
+        <li>检查另一台电脑 Header 中的 token 与本机环境变量 <code>COLLECTION_BRIDGE_API_KEY</code> 一致</li>
+        <li>检查没有多余空格 / 换行</li>
+      </ul>
+
+      <h3>OCR 识别不到字段</h3>
+      <ul style="font-size: 13px; line-height: 1.8;">
+        <li>本机 OCR service (8765) 必须启动：<code>curl http://127.0.0.1:8765/health</code></li>
+        <li>检查图片清晰度（手机拍照建议白天自然光）</li>
+        <li>凭证模板要清晰：客户名 / 客户电话 / 订单号 / SN / 金额</li>
+      </ul>
+
+      <h3>未匹配到销售流水</h3>
+      <ul style="font-size: 13px; line-height: 1.8;">
+        <li>SN 不在数据库中：可能是没入系统的新机</li>
+        <li>订单号格式不对：要 XS 开头的智店通订单号</li>
+        <li>客户手机号匹配暂未支持（数据库结构限制）</li>
+        <li>匹配失败 record 也会入库，状态为 partial，事后人工补</li>
+      </ul>
+    </div>
+
+    <!-- 应急流程 -->
+    <div class="section">
+      <h2>🆘 应急 / 降级</h2>
+      <p>如果对接不通，另一台电脑可以走"降级流程"：</p>
+      <ul style="font-size: 13px; line-height: 1.8;">
+        <li>凭证图片放到本机的 <code>/Volumes/TianLu_Storage/Shared/今日水印相机/incoming/</code></li>
+        <li>本机的 <code>watermark_camera_sync.py</code> 守护进程会自动 OCR + 匹配 + 入库</li>
+        <li>这个降级链路 5 分钟扫描一次</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Detect local IP
+    async function getLocalIP() {
+      try {
+        const resp = await fetch('https://api.ipify.org?format=json');
+        const data = await resp.json();
+        return data.ip;
+      } catch (e) {
+        return '127.0.0.1';
+      }
+    }
+
+    async function getLocalLANIP() {
+      // Try WebRTC to get LAN IP (works in browser)
+      try {
+        return new Promise((resolve) => {
+          const pc = new RTCPeerConnection({ iceServers: [] });
+          pc.createDataChannel('');
+          pc.onicecandidate = (e) => {
+            if (e.candidate) {
+              const ip = e.candidate.candidate.split(' ')[4];
+              if (ip && ip.match(/^(\d{1,3}\.){3}\d{1,3}$/)) {
+                resolve(ip);
+                pc.close();
+              }
+            }
+          };
+          pc.createOffer().then(o => pc.setLocalDescription(o));
+          setTimeout(() => resolve('127.0.0.1'), 3000);
+        });
+      } catch (e) {
+        return '127.0.0.1';
+      }
+    }
+
+    async function loadConfig() {
+      // Try health endpoint to get current server status
+      let authEnabled = false;
+      try {
+        const resp = await fetch('/api/collection/v1/health');
+        const data = await resp.json();
+        authEnabled = data.auth_enabled;
+      } catch (e) {}
+
+      const lanIP = await getLocalLANIP();
+      const baseUrl = `http://${lanIP}:8000`;
+
+      document.getElementById('local-ip').textContent = lanIP;
+      document.getElementById('local-ip-2').textContent = lanIP;
+      document.getElementById('local-ip-3').textContent = lanIP;
+      document.getElementById('step-ip').textContent = lanIP;
+      document.getElementById('base-url').textContent = baseUrl;
+      document.getElementById('submit-url').textContent = `${baseUrl}/api/collection/v1/submit`;
+
+      const healthUrl = `${baseUrl}/api/collection/v1/health`;
+      document.getElementById('health-url').textContent = healthUrl;
+      document.getElementById('curl-health').textContent = healthUrl;
+      document.getElementById('step-health').textContent = healthUrl;
+
+      const staffUrl = `${baseUrl}/api/collection/v1/staff`;
+      document.getElementById('curl-staff').textContent = staffUrl;
+      document.getElementById('step-staff').textContent = staffUrl;
+
+      const submitUrl = `${baseUrl}/api/collection/v1/submit`;
+      document.getElementById('curl-submit').textContent = submitUrl;
+      document.getElementById('step-submit').textContent = submitUrl;
+
+      const matchSnUrl = `${baseUrl}/api/collection/v1/match/serial/{sn}`;
+      document.getElementById('curl-match-sn').textContent = matchSnUrl;
+
+      document.getElementById('py-base').textContent = baseUrl;
+      document.getElementById('node-base').textContent = baseUrl;
+      document.getElementById('js-base').textContent = baseUrl;
+
+      // Auth info
+      const authMode = document.getElementById('auth-mode');
+      if (authEnabled) {
+        authMode.textContent = '✅ 已启用';
+        authMode.style.color = 'var(--green)';
+        document.getElementById('auth-hint').textContent = '需要在 Header 加 X-Bridge-Token';
+        document.getElementById('auth-info').innerHTML = '当前模式: <b style="color:var(--green)">✅ 已启用</b>。另一台电脑调用时必须在 Header 加 <code>X-Bridge-Token</code>。';
+      } else {
+        authMode.textContent = '⚠️ 开放模式';
+        authMode.style.color = 'var(--gold)';
+        document.getElementById('auth-hint').textContent = '生产环境建议开启';
+        document.getElementById('auth-info').innerHTML = '当前模式: <b style="color:var(--gold)">⚠️ 开放模式</b>。生产/跨网络必须开启 API Key。';
+      }
+    }
+
+    // Tab switching
+    document.querySelectorAll('.tab-bar button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelector(`[data-tab="${btn.dataset.tab}"]`).classList.add('active');
+      });
+    });
+
+    loadConfig();
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "sourceDocument": "/Users/luxiangnan/Desktop/联想智慧零售项目/商业化形成API对接.MD.docx",
+  "stageTargets": [
+    {
+      "label": "试点版",
+      "targetScore": 70
+    },
+    {
+      "label": "标准商用版",
+      "targetScore": 85
+    },
+    {
+      "label": "连锁复制版",
+      "targetScore": 100
+    }
+  ],
+  "priorityModules": [
+    "库存 / SN",
+    "出入库",
+    "营销 / 价保 / 补贴"
+  ],
+  "baselineNotes": [
+    "当前系统应按可售卖标准推进，而不是继续按自用补功能推进。",
+    "现阶段商业化建议定位为 3C/电脑门店经营中台，不包装成通用 ERP。"
+  ],
+  "userReportedFacts": [
+    "原始商业化判断基线来自《商业化形成API对接.MD.docx》，其中把系统初始成熟度评为约 33/100。",
+    "用户要求以后在本对话持续推进商业化，并优先把库存、出入库、营销模块做到可售卖。",
+    "当前目标不是直接卖成熟 SaaS，而是先做到 70 分可卖试点版，再冲 85 分标准商用版，最后到 100 分连锁复制版。"
+  ]
+}

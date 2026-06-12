@@ -1,0 +1,1809 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>教育补贴员工采集端 · 联想智慧零售</title>
+  <style>
+    /* ============================================
+       iOS 26 Liquid Glass Design System
+       - backdrop-filter blur + saturate
+       - inset highlight shadows
+       - ::after pseudo-element shine
+       - subtle rgba layers with soft borders
+       ============================================ */
+    :root {
+      /* Brand colors (slightly desaturated for Liquid Glass feel) */
+      --green: #0a6e3a;
+      --green-soft: #1f9d5f;
+      --green-light: #d6f0e0;
+      --green-bg: #ebf7f0;
+      --green-grad-1: #0d7a44;
+      --green-grad-2: #1f9d5f;
+      --red: #d63844;
+      --red-light: #ffe0e2;
+      --gold: #c9932a;
+      --gold-light: #fef3d8;
+      --purple: #7c3aed;
+      --purple-light: #ede0ff;
+      --blue: #2563eb;
+      --blue-light: #dbeafe;
+
+      /* Neutrals */
+      --ink: #0d1117;
+      --ink-soft: #2d3436;
+      --muted: #6b6b6b;
+      --muted-light: #9ca3af;
+
+      /* Glass tokens */
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --glass-bg-deep: rgba(255, 255, 255, 0.55);
+      --glass-bg-light: rgba(255, 255, 255, 0.88);
+      --glass-border: rgba(255, 255, 255, 0.45);
+      --glass-border-soft: rgba(255, 255, 255, 0.25);
+      --glass-highlight: rgba(255, 255, 255, 0.65);
+      --glass-shadow: 0 8px 32px rgba(13, 17, 23, 0.08), 0 2px 8px rgba(13, 17, 23, 0.04);
+      --glass-shadow-lg: 0 16px 48px rgba(13, 17, 23, 0.12), 0 4px 16px rgba(13, 17, 23, 0.06);
+      --glass-shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+
+      /* Backdrop blur for layered glass */
+      --blur-sm: 12px;
+      --blur: 20px;
+      --blur-lg: 30px;
+      --saturate: 180%;
+
+      /* Background gradient */
+      --bg-gradient: linear-gradient(135deg, #e6f4ec 0%, #f0f7f3 25%, #fef3d8 75%, #ede0ff 100%);
+
+      /* Radius scale */
+      --r-sm: 10px;
+      --r: 14px;
+      --r-lg: 18px;
+      --r-xl: 22px;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--ink);
+      min-height: 100vh;
+      padding-bottom: 90px;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 0; height: 0; }
+
+    /* ============================================
+       Reusable Liquid Glass Card
+       ============================================ */
+    .glass {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      border-radius: var(--r-lg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow), var(--glass-shadow-inner);
+      overflow: hidden;
+    }
+    .glass::before {
+      /* Top edge light catch */
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 28%);
+    }
+    .glass::after {
+      /* Liquid shine sweep */
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+      pointer-events: none;
+      animation: liquidShine 6s ease-in-out infinite;
+    }
+    @keyframes liquidShine {
+      0%, 60% { left: -100%; }
+      100% { left: 130%; }
+    }
+    .glass-deep {
+      background: var(--glass-bg-deep);
+      backdrop-filter: blur(var(--blur-lg)) saturate(200%);
+      -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(200%);
+    }
+    .glass-light {
+      background: var(--glass-bg-light);
+      backdrop-filter: blur(var(--blur-sm)) saturate(150%);
+      -webkit-backdrop-filter: blur(var(--blur-sm)) saturate(150%);
+    }
+
+    /* Status bar (top sticky) */
+    .status-bar {
+      position: sticky; top: 0; z-index: 30;
+      background: var(--glass-bg-light);
+      backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      border-bottom: 1px solid var(--glass-border-soft);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .status-bar .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--muted-light);
+      flex-shrink: 0;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .status-bar .dot::after {
+      content: '';
+      position: absolute; inset: -2px;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .status-bar .dot.matched { background: var(--green-soft); box-shadow: 0 0 8px var(--green-soft); }
+    .status-bar .dot.matched::after { background: var(--green-soft); }
+    .status-bar .dot.partial { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+    .status-bar .dot.partial::after { background: var(--gold); }
+    .status-bar .dot.unmatched { background: var(--red); box-shadow: 0 0 8px var(--red); }
+    .status-bar .dot.unmatched::after { background: var(--red); }
+    .status-bar .dot.processing { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+    .status-bar .dot.processing::after { background: var(--blue); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(2); opacity: 0; }
+    }
+    .status-bar .text { color: var(--ink); font-weight: 700; }
+    .status-bar .detail { color: var(--muted); font-size: 11px; font-weight: 500; }
+
+    /* Header */
+    .app-header {
+      position: relative;
+      background: linear-gradient(135deg, var(--green-grad-1) 0%, var(--green-grad-2) 100%);
+      color: #fff;
+      padding: 16px 18px 22px;
+      overflow: hidden;
+    }
+    .app-header::before {
+      /* Glass shine on header */
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 40%);
+      pointer-events: none;
+    }
+    .app-header::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; left: 0; right: 0;
+      height: 40px;
+      background: var(--bg-gradient);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      transform: scaleX(1.2);
+    }
+    .app-header .top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px; position: relative; z-index: 1;
+    }
+    .app-header .title { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+    .app-header .back {
+      color: #fff; text-decoration: none; font-size: 13px;
+      opacity: 0.95; font-weight: 600;
+      background: rgba(255,255,255,0.18);
+      padding: 4px 10px; border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .staff-info {
+      position: relative; z-index: 1;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--r);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .staff-info .avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .staff-info select {
+      flex: 1;
+      background: rgba(255,255,255,0.92);
+      color: var(--ink);
+      border: 0;
+      border-radius: 8px;
+      padding: 5px 8px;
+      font-size: 13px;
+      font-weight: 700;
+      outline: 0;
+      appearance: none;
+    }
+    .staff-info .role-tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .staff-info .role-tag.manager {
+      background: rgba(255, 213, 106, 0.9);
+      color: #5d3a00;
+    }
+    .staff-info .role-tag.service_advisor {
+      background: rgba(168, 85, 247, 0.85);
+      color: #fff;
+    }
+
+    /* Tab Bar (bottom floating glass) */
+    .tab-bar {
+      position: fixed; bottom: 14px; left: 14px; right: 14px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 50;
+      padding: 8px;
+      box-shadow: var(--glass-shadow-lg), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .tab-bar button {
+      background: transparent; border: 0;
+      padding: 6px 4px;
+      font-size: 10px; color: var(--muted);
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      border-radius: 14px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .tab-bar button.active {
+      background: linear-gradient(135deg, var(--green-grad-1) 0%, var(--green-grad-2) 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(31, 157, 95, 0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .tab-bar button .icon { font-size: 20px; }
+    .tab-bar button .badge {
+      position: absolute; top: 0; right: 8px;
+      background: var(--red); color: #fff;
+      border-radius: 999px; font-size: 9px; font-weight: 700;
+      min-width: 14px; height: 14px; padding: 0 4px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 2px var(--glass-bg);
+    }
+
+    /* Tab content */
+    .tab-content { display: none; padding: 12px 14px 16px; }
+    .tab-content.active { display: block; }
+
+    /* Section */
+    .section-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green-deep);
+      margin: 18px 6px 10px;
+      display: flex; align-items: center; gap: 8px;
+      letter-spacing: 0.2px;
+    }
+    .section-title::before {
+      content: ''; width: 4px; height: 16px;
+      background: linear-gradient(180deg, var(--green-soft) 0%, var(--green) 100%);
+      border-radius: 4px;
+    }
+    .section-title .right { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 600; }
+
+    /* Form block (glass) */
+    .form-block {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+      border-radius: var(--r-lg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow), var(--glass-shadow-inner);
+      padding: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .form-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      pointer-events: none;
+    }
+    .form-block.highlight {
+      border-color: var(--green-soft);
+      box-shadow: 0 0 0 1px var(--green-soft), var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .field { margin-bottom: 12px; position: relative; }
+    .field:last-child { margin-bottom: 0; }
+    .field label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11.5px; color: var(--muted);
+      margin-bottom: 6px; font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .field label .req { color: var(--red); }
+    .field label .lock {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+      color: #fff;
+      font-size: 9px; padding: 2px 7px; border-radius: 999px;
+      letter-spacing: 0.3px;
+      font-weight: 800;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--ink);
+      outline: 0;
+      transition: all 0.2s;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--green-soft);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(31, 157, 95, 0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .field input:read-only, .field input.locked {
+      background: linear-gradient(135deg, rgba(214, 240, 224, 0.8) 0%, rgba(235, 247, 240, 0.6) 100%);
+      color: var(--green-deep);
+      font-weight: 700;
+      border-color: var(--green-light);
+      cursor: default;
+    }
+    .field .locked-source {
+      font-size: 10px; color: var(--green-soft);
+      margin-top: 4px; font-weight: 600;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .field .locked-source::before { content: '🔗'; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+    /* Scan type selector */
+    .scan-type-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .scan-type-btn {
+      position: relative;
+      padding: 14px 10px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: var(--r-lg);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+      overflow: hidden;
+    }
+    .scan-type-btn small {
+      display: block; font-size: 10.5px; font-weight: 500;
+      color: var(--muted); margin-top: 2px;
+    }
+    .scan-type-btn .fee-preview {
+      display: block;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 800;
+      margin-top: 4px;
+    }
+    .scan-type-btn.active {
+      border-color: var(--green-soft);
+      background: linear-gradient(135deg, rgba(214, 240, 224, 0.9) 0%, rgba(214, 240, 224, 0.6) 100%);
+      color: var(--green-deep);
+      box-shadow: 0 8px 24px rgba(31, 157, 95, 0.18), inset 0 1px 0 rgba(255,255,255,0.7);
+      transform: translateY(-1px);
+    }
+    .scan-type-btn.active small { color: var(--green-soft); }
+
+    /* Group tab */
+    .group-tabs {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 4px;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border-soft);
+    }
+    .group-tab {
+      padding: 10px 4px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+      border: 0;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .group-tab.active {
+      background: linear-gradient(135deg, var(--green-grad-1) 0%, var(--green-grad-2) 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(31, 157, 95, 0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .group-fee-hint {
+      font-size: 12px; color: var(--green-deep);
+      margin-top: 10px; text-align: center; font-weight: 700;
+      padding: 6px 12px; border-radius: 999px;
+      background: var(--green-bg);
+      display: inline-flex; align-items: center; gap: 4px;
+      border: 1px solid var(--green-light);
+    }
+    .group-fee-hint-wrap { display: flex; justify-content: center; margin-top: 8px; }
+
+    /* Image upload */
+    .upload-area {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px dashed var(--green-light);
+      border-radius: var(--r-lg);
+      padding: 22px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .upload-area:active {
+      background: var(--green-bg);
+      transform: scale(0.99);
+    }
+    .upload-area .icon {
+      font-size: 36px; margin-bottom: 6px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .upload-area p { margin: 0; font-size: 12px; color: var(--muted); font-weight: 500; }
+    .upload-area input { display: none; }
+    .image-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .image-preview .img-item {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--paper);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .image-preview .img-item img { width: 100%; height: 100%; object-fit: cover; }
+    .image-preview .img-item .remove {
+      position: absolute; top: 3px; right: 3px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      color: #fff; border: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%; font-size: 12px; cursor: pointer;
+    }
+    .image-preview .img-item .ocr-mark {
+      position: absolute; bottom: 3px; left: 3px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+      color: #fff;
+      font-size: 9px; padding: 2px 6px; border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Switch */
+    .switch-row {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--gold-light);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+      border: 1px solid rgba(201, 147, 42, 0.2);
+    }
+    .switch {
+      position: relative; width: 38px; height: 22px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 999px;
+      cursor: pointer; transition: 0.2s;
+    }
+    .switch.on { background: var(--gold); }
+    .switch::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px;
+      background: #fff; border-radius: 50%;
+      transition: 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .switch.on::after { left: 18px; }
+
+    /* Button (with glass shine) */
+    .btn {
+      position: relative;
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 14px;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-grad-1) 0%, var(--green-grad-2) 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(31, 157, 95, 0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
+    }
+    .btn-primary:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(31, 157, 95, 0.3); }
+    .btn-primary:disabled { background: var(--muted-light); opacity: 0.7; cursor: not-allowed; }
+    .btn-secondary {
+      background: var(--green-bg);
+      color: var(--green-deep);
+      margin-top: 10px;
+      border: 1px solid var(--green-light);
+    }
+
+    /* Records */
+    .record {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--blur-sm));
+      -webkit-backdrop-filter: blur(var(--blur-sm));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r);
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      box-shadow: var(--glass-shadow-sm);
+      overflow: hidden;
+    }
+    .record .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .record .name { font-size: 14px; font-weight: 700; }
+    .record .amount { font-size: 14px; font-weight: 800; color: var(--red); }
+    .record .meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* Performance card (premium gradient) */
+    .perf-card {
+      position: relative;
+      background: linear-gradient(135deg, #0d7a44 0%, #1f9d5f 50%, #34c77b 100%);
+      color: #fff;
+      border-radius: var(--r-xl);
+      padding: 20px 18px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(31, 157, 95, 0.25), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .perf-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .perf-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
+      border-radius: var(--r-xl) var(--r-xl) 0 0;
+      pointer-events: none;
+    }
+    .perf-card .name { font-size: 22px; font-weight: 900; position: relative; z-index: 1; letter-spacing: -0.5px; }
+    .perf-card .role { font-size: 12px; opacity: 0.92; font-weight: 600; position: relative; z-index: 1; }
+    .perf-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+      position: relative; z-index: 1;
+    }
+    .perf-stats .item {
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 10px 4px;
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .perf-stats .item .label { font-size: 10px; opacity: 0.95; font-weight: 600; }
+    .perf-stats .item .value { font-size: 16px; font-weight: 900; margin-top: 3px; letter-spacing: -0.3px; }
+
+    /* Sync item */
+    .sync-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r);
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      box-shadow: var(--glass-shadow-sm);
+    }
+    .sync-item .icon { font-size: 22px; }
+    .sync-item .info { flex: 1; }
+    .sync-item .name { font-size: 13px; font-weight: 700; }
+    .sync-item .status { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .sync-item .status.synced { color: var(--green-soft); }
+    .sync-item .status.pending { color: var(--gold); }
+    .sync-item .status.failed { color: var(--red); }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+      font-size: 13px;
+    }
+    .empty .icon { font-size: 40px; margin-bottom: 8px; opacity: 0.5; }
+    .empty button {
+      background: var(--green-bg);
+      color: var(--green-deep);
+      border: 1px solid var(--green-light);
+      border-radius: 10px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Toast (iOS 26 style glass notification) */
+    .toast {
+      position: fixed;
+      top: 80px; left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background: rgba(13, 17, 23, 0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 13px; font-weight: 600;
+      z-index: 200; opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 84vw; text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { background: rgba(31, 157, 95, 0.95); }
+    .toast.warn { background: rgba(201, 147, 42, 0.95); }
+    .toast.error { background: rgba(214, 56, 68, 0.95); }
+
+    /* AI badge */
+    .ai-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: var(--purple-light);
+      color: var(--purple);
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+    .ai-badge.green {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(31, 157, 95, 0.3);
+    }
+
+    /* Match result card (premium glass) */
+    .match-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(214, 240, 224, 0.7) 0%, rgba(214, 240, 224, 0.45) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--green-light);
+      border-radius: var(--r-lg);
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-size: 12px;
+      box-shadow: 0 6px 20px rgba(31, 157, 95, 0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+      overflow: hidden;
+    }
+    .match-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      pointer-events: none;
+    }
+    .match-card .match-source {
+      font-size: 11px;
+      color: var(--green-deep);
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+      letter-spacing: 0.2px;
+      position: relative; z-index: 1;
+    }
+    .match-card .match-row { display: flex; gap: 8px; margin: 4px 0; align-items: center; position: relative; z-index: 1; }
+    .match-card .match-row .k {
+      color: var(--muted); min-width: 64px; font-size: 11px; font-weight: 600;
+    }
+    .match-card .match-row .v { color: var(--ink); font-weight: 600; flex: 1; }
+    .match-card .match-row .v.locked { color: var(--green-deep); font-weight: 700; }
+
+    /* Manual override button */
+    .override-btn {
+      font-size: 10px;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      color: var(--muted);
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部状态条 -->
+  <div class="status-bar" id="statusBar">
+    <div class="dot" id="statusDot"></div>
+    <div class="text" id="statusText">未上传凭证</div>
+    <div class="detail" id="statusDetail"></div>
+  </div>
+
+  <div class="app-header">
+    <div class="top">
+      <div class="title">📱 员工采集端</div>
+      <a class="back" href="./index.html">←</a>
+    </div>
+    <div class="staff-info">
+      <div class="avatar">👤</div>
+      <select id="staffSelect">
+        <option value="">选择员工...</option>
+      </select>
+      <span class="role-tag" id="staffRoleTag" style="display:none;"></span>
+    </div>
+  </div>
+
+  <!-- Tab 1: 录入 -->
+  <div class="tab-content active" id="tab-input">
+    <div class="section-title">选择扫法 <span class="right" id="scanTypeHint"></span></div>
+    <div class="form-block">
+      <div class="scan-type-grid">
+        <button class="scan-type-btn active" data-type="single_scan" id="btnSingle">
+          单扫
+          <small id="singleHint">按当前群自动</small>
+          <span class="fee-preview" id="singleFee">¥—/单</span>
+        </button>
+        <button class="scan-type-btn" data-type="multi_scan" id="btnMulti">
+          多扫
+          <small>多商品同单</small>
+          <span class="fee-preview">¥50/单</span>
+        </button>
+        <button class="scan-type-btn" data-type="three_piece" id="btn3Piece">
+          三件套
+          <small>笔记本+平板+手机</small>
+          <span class="fee-preview">¥300+智享金¥2000</span>
+        </button>
+        <button class="scan-type-btn" data-type="two_piece" id="btn2Piece">
+          两件套
+          <small>笔记本+平板/手机</small>
+          <span class="fee-preview">¥130/单</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="section-title">群分类</div>
+    <div class="form-block">
+      <div class="group-tabs">
+        <button class="group-tab" data-group="智店通入库群">智店通入库群</button>
+        <button class="group-tab active" data-group="教育补贴群">教育补贴群</button>
+      </div>
+      <div class="group-fee-hint-wrap">
+        <div class="group-fee-hint" id="groupFeeHint">当前扫法服务费：<b id="currentGroupFee">¥30</b>/单</div>
+      </div>
+    </div>
+
+    <div class="section-title">上传凭证</div>
+    <div class="form-block" id="uploadBlock">
+      <label class="upload-area" for="imageInput">
+        <div class="icon">📁</div>
+        <p>点击上传凭证照片（最多 5 张，自动 OCR 识别）</p>
+        <input type="file" id="imageInput" accept="image/*" multiple />
+      </label>
+      <div class="image-preview" id="imagePreview"></div>
+      <div class="switch-row">
+        <span>🤖 本地 OCR + M2.7 自动校准</span>
+        <div style="flex:1"></div>
+        <div class="switch on" id="aiSwitch"></div>
+      </div>
+    </div>
+
+    <div class="section-title">智能匹配结果 <span class="ai-badge" id="matchBadge" style="display:none;">已自动匹配</span></div>
+    <div class="form-block" id="matchBlock" style="display:none;">
+      <div class="match-card">
+        <div class="match-source" id="matchSource">— 匹配来源</div>
+        <div class="match-row"><span class="k">SN</span><span class="v locked" id="mSN">—</span></div>
+        <div class="match-row"><span class="k">订单号</span><span class="v locked" id="mOrder">—</span></div>
+        <div class="match-row"><span class="k">客户</span><span class="v locked" id="mCustomer">—</span></div>
+        <div class="match-row"><span class="k">产品</span><span class="v locked" id="mProduct">—</span></div>
+        <div class="match-row"><span class="k">规格</span><span class="v locked" id="mSpec">—</span></div>
+        <div class="match-row"><span class="k">金额</span><span class="v locked" id="mAmount">—</span></div>
+        <div class="match-row"><span class="k">已代扫</span><span class="v" id="mScanned">—</span></div>
+      </div>
+    </div>
+
+    <div class="section-title">客户与订单</div>
+    <div class="form-block">
+      <div class="field">
+        <label>客户姓名 <span class="lock" id="lockCustomer" style="display:none;">已锁定</span></label>
+        <input type="text" id="fCustomer" placeholder="自动从销售订单同步" />
+        <div class="locked-source" id="srcCustomer" style="display:none;"></div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label>客户电话</label>
+          <input type="tel" id="fPhone" placeholder="11 位手机号" />
+        </div>
+        <div class="field">
+          <label>代扫电话</label>
+          <input type="tel" id="fAgent" placeholder="代扫员电话" />
+        </div>
+      </div>
+      <div class="field">
+        <label>订单号 <span class="lock" id="lockOrder" style="display:none;">已锁定</span></label>
+        <input type="text" id="fOrder" placeholder="XS 开头智店通订单号" />
+        <div class="locked-source" id="srcOrder" style="display:none;"></div>
+      </div>
+    </div>
+
+    <div class="section-title">商品（自动从流水同步）<span class="ai-badge green" id="productLockBadge" style="display:none;">🔒 已锁定</span></div>
+    <div class="form-block">
+      <div class="field">
+        <label>SKU 编码</label>
+        <input type="text" id="fSkuKey" placeholder="自动从 sales_order_line 同步" readonly class="locked" />
+        <div class="locked-source" id="srcSku" style="display:none;"></div>
+      </div>
+      <div class="field">
+        <label>商品名称</label>
+        <input type="text" id="fProduct" placeholder="自动从 product_master 同步" readonly class="locked" />
+        <div class="locked-source" id="srcProduct" style="display:none;"></div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label>PN/MTM</label>
+          <input type="text" id="fPN" placeholder="自动同步" readonly class="locked" />
+          <div class="locked-source" id="srcPN" style="display:none;"></div>
+        </div>
+        <div class="field">
+          <label>规格</label>
+          <input type="text" id="fSpec" placeholder="自动同步" readonly class="locked" />
+          <div class="locked-source" id="srcSpec" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">金额 <span class="ai-badge" id="aiBadge">🤖 待校准</span></div>
+    <div class="form-block" id="amountBlock">
+      <div class="row-2">
+        <div class="field">
+          <label>补贴金额 ¥</label>
+          <input type="number" id="fDiscount" placeholder="500" />
+        </div>
+        <div class="field">
+          <label>服务费 ¥ <span class="lock" id="lockFee" style="display:none;">已锁定</span></label>
+          <input type="number" id="fFee" placeholder="按扫法自动" />
+          <div class="locked-source" id="srcFee" style="display:none;"></div>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label>智享金 ¥ <small style="color:var(--muted);">(套装才填)</small></label>
+          <input type="number" id="fZhixiangjin" placeholder="0" />
+        </div>
+        <div class="field">
+          <label>数量</label>
+          <input type="number" id="fQty" value="1" />
+        </div>
+      </div>
+      <div class="field">
+        <label>SN 序列号 <span class="lock" id="lockSN" style="display:none;">已锁定</span></label>
+        <input type="text" id="fSN" placeholder="上传凭证后自动从销售流水匹配" readonly class="locked" />
+        <div class="locked-source" id="srcSN" style="display:none;"></div>
+        <button class="override-btn" id="btnRematchSN" style="display:none; margin-top:6px;">🔄 重新匹配</button>
+      </div>
+      <div class="field">
+        <label>教育券码 (16 位)</label>
+        <input type="text" id="fVoucher" placeholder="选填" maxlength="16" />
+      </div>
+      <div class="field">
+        <label>备注</label>
+        <textarea id="fNote" rows="2" placeholder="可填：凭证要点、问题说明"></textarea>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="btnSave">💾 保存到本地</button>
+    <button class="btn btn-secondary" id="btnSaveSync">📤 保存并同步至 SQL</button>
+  </div>
+
+  <!-- Tab 2: 校准 -->
+  <div class="tab-content" id="tab-calibrate">
+    <div class="section-title">待校准记录</div>
+    <div id="calibList">
+      <div class="empty">
+        <div class="icon">🤖</div>
+        暂无待校准记录
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: 我的 -->
+  <div class="tab-content" id="tab-mine">
+    <div class="perf-card" id="perfCard">
+      <div class="name" id="perfName">--</div>
+      <div class="role" id="perfRole">--</div>
+      <div class="perf-stats">
+        <div class="item">
+          <div class="label">今日</div>
+          <div class="value" id="perfCount">0</div>
+        </div>
+        <div class="item">
+          <div class="label">服务费</div>
+          <div class="value" id="perfFee">0</div>
+        </div>
+        <div class="item">
+          <div class="label">智享金</div>
+          <div class="value" id="perfZxj">0</div>
+        </div>
+        <div class="item">
+          <div class="label">月绩效</div>
+          <div class="value" id="perfMonth">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-title">今日记录</div>
+    <div id="myRecords">
+      <div class="empty">
+        <div class="icon">📝</div>
+        今日暂无记录
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 4: 同步 -->
+  <div class="tab-content" id="tab-sync">
+    <div class="section-title">同步状态</div>
+    <div id="syncList">
+      <div class="empty">
+        <div class="icon">🔄</div>
+        本地无待同步记录
+      </div>
+    </div>
+    <button class="btn btn-primary" id="btnSyncAll" style="margin-top:16px;">📤 一键全部同步至 SQL</button>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" data-tab="input">
+      <span class="icon">📝</span>
+      <span>录入</span>
+    </button>
+    <button data-tab="calibrate">
+      <span class="icon">🤖</span>
+      <span>校准</span>
+    </button>
+    <button data-tab="mine">
+      <span class="icon">👤</span>
+      <span>我的</span>
+    </button>
+    <button data-tab="sync">
+      <span class="icon">🔄</span>
+      <span>同步</span>
+    </button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // === Config & State ===
+    const STAFF_LIST_URL = './staff-list.json';
+    const RECORDS_KEY = 'edu_scan_v2_local_records_v3';
+    const STAFF_KEY = 'edu_scan_v2_current_staff';
+    const OCR_URL = 'http://127.0.0.1:8765';
+    const API_BASE = 'http://127.0.0.1:8000/api/education-scan/v2';
+
+    let staffConfig = null;
+    let currentStaff = null;
+    let scanType = 'single_scan';
+    let sourceGroup = '教育补贴群';
+    let images = [];
+    let aiEnabled = true;
+    let localRecords = [];
+    let matchedRecord = null;
+
+    // === Init ===
+    (async () => {
+      try {
+        const res = await fetch(STAFF_LIST_URL);
+        staffConfig = await res.json();
+        renderStaffSelect();
+        const last = localStorage.getItem(STAFF_KEY);
+        if (last) {
+          const sel = document.getElementById('staffSelect');
+          if ([...sel.options].some(o => o.value === last)) sel.value = last;
+          currentStaff = getStaffById(last);
+        }
+        loadLocalRecords();
+        renderAll();
+        switchTab('input');
+        updateScanTypeFeePreview();
+        updateGroupFeeHint();
+      } catch (e) {
+        toast('初始化失败: ' + e.message, 'error');
+      }
+    })();
+
+    function getStaffById(id) {
+      return staffConfig.managers.concat(staffConfig.serviceAdvisors).find(s => s.id === id);
+    }
+
+    function renderStaffSelect() {
+      const sel = document.getElementById('staffSelect');
+      sel.innerHTML = '<option value="">选择员工...</option>' +
+        '<optgroup label="店长">' +
+        staffConfig.managers.map(s => `<option value="${s.id}">${s.name} (${s.id})</option>`).join('') +
+        '</optgroup>' +
+        '<optgroup label="服务顾问">' +
+        staffConfig.serviceAdvisors.map(s => `<option value="${s.id}">${s.name} (${s.id})</option>`).join('') +
+        '</optgroup>';
+      sel.addEventListener('change', (e) => {
+        const id = e.target.value;
+        if (!id) { currentStaff = null; hideStaffRole(); return; }
+        currentStaff = getStaffById(id);
+        localStorage.setItem(STAFF_KEY, id);
+        showStaffRole();
+        renderAll();
+      });
+      if (currentStaff) showStaffRole();
+    }
+
+    function showStaffRole() {
+      const tag = document.getElementById('staffRoleTag');
+      if (!currentStaff) { tag.style.display = 'none'; return; }
+      tag.textContent = currentStaff.role === 'manager' ? '店长' : '服务顾问';
+      tag.className = 'role-tag ' + currentStaff.role;
+      tag.style.display = 'inline-block';
+    }
+    function hideStaffRole() { document.getElementById('staffRoleTag').style.display = 'none'; }
+
+    function loadLocalRecords() {
+      try { localRecords = JSON.parse(localStorage.getItem(RECORDS_KEY) || '[]'); }
+      catch { localRecords = []; }
+    }
+    function saveLocalRecords() {
+      localStorage.setItem(RECORDS_KEY, JSON.stringify(localRecords));
+    }
+
+    // === Tab switching ===
+    function switchTab(name) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      document.querySelector(`.tab-bar button[data-tab="${name}"]`).classList.add('active');
+      if (name === 'mine') renderMine();
+      if (name === 'sync') renderSync();
+      if (name === 'calibrate') renderCalibrate();
+    }
+    document.querySelectorAll('.tab-bar button').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
+    });
+
+    // === Fee calculation ===
+    function getDefaultFee(scanType, group) {
+      if (!staffConfig || !staffConfig.scanTypeRules[scanType]) return 0;
+      const rule = staffConfig.scanTypeRules[scanType];
+      if (rule.serviceFeeByGroup) {
+        return rule.serviceFeeByGroup[group] || rule.serviceFee || 0;
+      }
+      return rule.serviceFee || 0;
+    }
+    function getDefaultZhixiangjin(scanType) {
+      if (!staffConfig) return 0;
+      return staffConfig.scanTypeRules[scanType]?.zhixiangjin || 0;
+    }
+    function updateScanTypeFeePreview() {
+      if (!staffConfig) return;
+      const singleFee = getDefaultFee('single_scan', sourceGroup);
+      document.getElementById('singleFee').textContent = '¥' + singleFee + '/单';
+      const singleHint = document.getElementById('singleHint');
+      if (singleHint) singleHint.textContent = `当前群 ¥${singleFee}/单`;
+    }
+    function updateGroupFeeHint() {
+      const fee = getDefaultFee(scanType, sourceGroup);
+      document.getElementById('currentGroupFee').textContent = '¥' + fee;
+    }
+    function applyScanTypeDefaults() {
+      if (!staffConfig) return;
+      const rule = staffConfig.scanTypeRules[scanType];
+      if (!rule) return;
+      const fee = getDefaultFee(scanType, sourceGroup);
+      document.getElementById('fFee').value = fee;
+      const zxj = getDefaultZhixiangjin(scanType);
+      if (zxj > 0) {
+        document.getElementById('fZhixiangjin').value = zxj;
+      }
+      updateGroupFeeHint();
+    }
+
+    document.querySelectorAll('.scan-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scan-type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        scanType = btn.getAttribute('data-type');
+        applyScanTypeDefaults();
+        if (staffConfig && staffConfig.scanTypeRules[scanType].defaultGroup) {
+          const newGroup = staffConfig.scanTypeRules[scanType].defaultGroup;
+          if (newGroup !== sourceGroup) {
+            sourceGroup = newGroup;
+            document.querySelectorAll('.group-tab').forEach(b => {
+              b.classList.toggle('active', b.getAttribute('data-group') === newGroup);
+            });
+            updateScanTypeFeePreview();
+            updateGroupFeeHint();
+            toast(`已自动切换群: ${newGroup}`);
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('.group-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.group-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sourceGroup = btn.getAttribute('data-group');
+        applyScanTypeDefaults();
+        updateScanTypeFeePreview();
+        updateGroupFeeHint();
+      });
+    });
+
+    // === Image upload + OCR + SN matching ===
+    document.getElementById('imageInput').addEventListener('change', async (e) => {
+      const files = Array.from(e.target.files || []);
+      for (const file of files) {
+        if (images.length >= 5) { toast('最多 5 张', 'warn'); break; }
+        const dataUrl = await fileToDataUrl(file);
+        const compressed = await compressImage(dataUrl, 1024 * 1024);
+        images.push({ dataUrl: compressed, mime: file.type || 'image/jpeg', name: file.name || `img-${Date.now()}.jpg` });
+      }
+      renderImages();
+      if (aiEnabled && images.length > 0 && currentStaff) {
+        toast('🤖 本地 OCR + 自动匹配中...', 'success');
+        await realOcrAndMatch();
+      } else if (images.length > 0 && !currentStaff) {
+        toast('请先选择员工', 'warn');
+      }
+    });
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(file);
+      });
+    }
+    function compressImage(dataUrl, maxBytes) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          let quality = 0.85;
+          let result = dataUrl;
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          while (quality > 0.2 && result.length > maxBytes) {
+            quality -= 0.1;
+            result = canvas.toDataURL('image/jpeg', quality);
+          }
+          if (result.length > maxBytes && img.width > 1280) {
+            const scale = 1280 / img.width;
+            canvas.width = 1280;
+            canvas.height = img.height * scale;
+            ctx.drawImage(img, 0, 0, 1280, img.height * scale);
+            result = canvas.toDataURL('image/jpeg', 0.8);
+          }
+          resolve(result);
+        };
+        img.src = dataUrl;
+      });
+    }
+    function dataUrlToBlob(dataUrl) {
+      const arr = dataUrl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n--) u8arr[n] = bstr.charCodeAt(n);
+      return new Blob([u8arr], { type: mime });
+    }
+    function renderImages() {
+      const container = document.getElementById('imagePreview');
+      container.innerHTML = images.map((img, i) => `
+        <div class="img-item">
+          <img src="${img.dataUrl}" alt="凭证 ${i+1}" />
+          <div class="ocr-mark">OCR ✓</div>
+          <button class="remove" data-idx="${i}">×</button>
+        </div>
+      `).join('');
+      container.querySelectorAll('.remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const i = Number(e.currentTarget.getAttribute('data-idx'));
+          images.splice(i, 1);
+          renderImages();
+        });
+      });
+    }
+    document.getElementById('aiSwitch').addEventListener('click', (e) => {
+      aiEnabled = !aiEnabled;
+      e.currentTarget.classList.toggle('on', aiEnabled);
+    });
+
+    // === Status bar ===
+    function setStatus(state, text, detail) {
+      const dot = document.getElementById('statusDot');
+      const txt = document.getElementById('statusText');
+      const det = document.getElementById('statusDetail');
+      dot.className = 'dot ' + state;
+      txt.textContent = text;
+      det.textContent = detail || '';
+    }
+
+    // === OCR + Auto Match Pipeline ===
+    async function realOcrAndMatch() {
+      if (images.length === 0) return;
+      const badge = document.getElementById('aiBadge');
+      badge.textContent = '🤖 OCR 识别中...';
+      badge.classList.remove('green');
+      setStatus('processing', 'OCR 识别中...', '请稍候');
+
+      let ocrResult = null;
+      try {
+        const formData = new FormData();
+        for (const img of images.slice(0, 5)) {
+          const blob = dataUrlToBlob(img.dataUrl);
+          formData.append('files', blob, img.name);
+        }
+        const res = await fetch(OCR_URL + '/ocr/batch', { method: 'POST', body: formData });
+        if (!res.ok) throw new Error('OCR 服务不可用');
+        ocrResult = await res.json();
+      } catch (e) {
+        console.warn('OCR failed:', e);
+        badge.textContent = '⚠ OCR 不可用 (手动)';
+        badge.style.color = 'var(--gold)';
+        setStatus('unmatched', 'OCR 不可用', '请手动填写');
+        return;
+      }
+
+      const extracted = ocrResult.extracted || {};
+      const filled = applyExtractedToForm(extracted);
+      toast(`✓ OCR 识别 ${filled} 字段`);
+
+      if (extracted.serialNumber) {
+        badge.textContent = '🔍 SN 匹配中...';
+        await matchBySerial(extracted.serialNumber);
+      } else if (extracted.orderNumber) {
+        badge.textContent = '🔍 订单匹配中...';
+        await matchByOrder(extracted.orderNumber);
+      } else if (extracted.customerPhone) {
+        badge.textContent = '🔍 手机号匹配中...';
+        await matchByPhone(extracted.customerPhone);
+      } else {
+        badge.textContent = `✓ OCR 识别 (${filled} 字段)`;
+        badge.classList.add('green');
+        setStatus('partial', 'OCR 已识别', '缺少 SN/订单号，需手动补充');
+      }
+    }
+
+    function applyExtractedToForm(extracted) {
+      let filled = 0;
+      if (extracted.customerName && !document.getElementById('fCustomer').value) {
+        document.getElementById('fCustomer').value = extracted.customerName;
+        filled++;
+      }
+      if (extracted.customerPhone) { document.getElementById('fPhone').value = extracted.customerPhone; filled++; }
+      if (extracted.agentPhone) { document.getElementById('fAgent').value = extracted.agentPhone; filled++; }
+      if (extracted.orderNumber && !document.getElementById('fOrder').value) {
+        document.getElementById('fOrder').value = extracted.orderNumber; filled++;
+      }
+      if (extracted.serialNumber && !document.getElementById('fSN').value) {
+        document.getElementById('fSN').value = extracted.serialNumber; filled++;
+      }
+      if (extracted.voucherCode) { document.getElementById('fVoucher').value = extracted.voucherCode; filled++; }
+      if (extracted.educationDiscount) { document.getElementById('fDiscount').value = extracted.educationDiscount; filled++; }
+      if (extracted.serviceFee) { document.getElementById('fFee').value = extracted.serviceFee; filled++; }
+      if (extracted.zhixiangjin && extracted.zhixiangjin > 0) {
+        document.getElementById('fZhixiangjin').value = extracted.zhixiangjin; filled++;
+      }
+      if (extracted.scanType && extracted.scanType !== 'single_scan' && staffConfig) {
+        const btn = document.querySelector(`.scan-type-btn[data-type="${extracted.scanType}"]`);
+        if (btn) btn.click();
+      }
+      if (!document.getElementById('fFee').value) applyScanTypeDefaults();
+      return filled;
+    }
+
+    async function matchBySerial(sn) {
+      try {
+        const res = await fetch(`${API_BASE}/match-serial/${encodeURIComponent(sn)}`);
+        const result = await res.json();
+        if (result.matched) {
+          applyMatchedRecord(result);
+          const badge = document.getElementById('aiBadge');
+          badge.textContent = `✓ SN 已匹配 (${(result.confidence*100).toFixed(0)}%)`;
+          badge.classList.add('green');
+          setStatus('matched', '✓ 已匹配销售流水', `${result.salesOrder?.business_date || ''} ${sn}`);
+          toast(`✓ SN ${sn.slice(0,8)} 匹配成功`, 'success');
+        } else {
+          const orderInput = document.getElementById('fOrder').value;
+          if (orderInput) await matchByOrder(orderInput);
+          else {
+            setStatus('partial', '⚠ SN 未匹配到流水', '可能需等待出库');
+            const badge = document.getElementById('aiBadge');
+            badge.textContent = `⚠ SN 未匹配 (待出库)`;
+            badge.style.color = 'var(--gold)';
+            toast('SN 未匹配到流水，请等待出库后重试', 'warn');
+          }
+        }
+      } catch (e) {
+        console.warn('matchBySerial failed:', e);
+        setStatus('partial', '匹配服务不可用', '请手动填写');
+      }
+    }
+
+    async function matchByOrder(orderNumber) {
+      try {
+        const res = await fetch(`${API_BASE}/match-order/${encodeURIComponent(orderNumber)}`);
+        const result = await res.json();
+        if (result.matched) {
+          applyMatchedOrder(result);
+          const badge = document.getElementById('aiBadge');
+          badge.textContent = `✓ 订单已匹配 (${(result.confidence*100).toFixed(0)}%)`;
+          badge.classList.add('green');
+          setStatus('matched', '✓ 已匹配订单', orderNumber);
+          toast(`✓ 订单 ${orderNumber} 匹配成功`, 'success');
+        } else {
+          setStatus('partial', '⚠ 订单未找到', '请检查订单号');
+          toast('订单未找到', 'warn');
+        }
+      } catch (e) { console.warn('matchByOrder failed:', e); }
+    }
+
+    async function matchByPhone(phone) {
+      try {
+        const res = await fetch(`${API_BASE}/match-phone/${encodeURIComponent(phone)}`);
+        const result = await res.json();
+        if (result.matched && result.orders && result.orders.length > 0) {
+          const order = result.orders[0];
+          document.getElementById('fOrder').value = order.id;
+          await matchByOrder(order.id);
+        } else {
+          setStatus('partial', '⚠ 手机号无历史订单', '请补充订单号或 SN');
+          toast('该手机号暂无历史订单', 'warn');
+        }
+      } catch (e) { console.warn('matchByPhone failed:', e); }
+    }
+
+    function applyMatchedRecord(result) {
+      matchedRecord = result;
+      const line = result.salesOrderLine || {};
+      const order = result.salesOrder || {};
+      const pm = result.productMaster || {};
+
+      const customerName = order.customer_name && order.customer_name.trim() ? order.customer_name : '';
+      lockAndFill('fCustomer', customerName, customerName ? '销售订单' : '');
+      lockAndFill('fOrder', order.id || line.order_id || '', '销售订单');
+      lockAndFill('fSN', result.serialNumber, line.id ? 'sales_order_line' : '');
+      lockAndFill('fSkuKey', line.sku_key || '', 'sales_order_line');
+      lockAndFill('fProduct', pm.canonical_name || line.product_name || '', pm.canonical_name ? 'product_master' : 'sales_order_line');
+      lockAndFill('fPN', line.mtm_code || line.product_no || '', 'sales_order_line');
+      lockAndFill('fSpec', line.spec || '', 'sales_order_line');
+      if (line.deal_price) {
+        document.getElementById('fDiscount').value = line.deal_price;
+        lockField('fDiscount');
+      }
+      showMatchCard(result);
+    }
+
+    function applyMatchedOrder(result) {
+      matchedRecord = { ...result, serialNumber: result.salesOrderLines?.[0]?.serial_number || '' };
+      const order = result.salesOrder || {};
+      const firstLine = result.salesOrderLines?.[0] || {};
+      const pm = result.productMaster || {};
+
+      lockAndFill('fCustomer', order.customer_name || '', '销售订单');
+      lockAndFill('fOrder', order.id || '', '销售订单');
+      if (firstLine.sku_key) lockAndFill('fSkuKey', firstLine.sku_key, 'sales_order_line');
+      if (firstLine.product_name) lockAndFill('fProduct', firstLine.product_name, 'sales_order_line');
+      if (firstLine.mtm_code) lockAndFill('fPN', firstLine.mtm_code, 'sales_order_line');
+      if (firstLine.spec) lockAndFill('fSpec', firstLine.spec, 'sales_order_line');
+      if (firstLine.serial_number) lockAndFill('fSN', firstLine.serial_number, 'sales_order_line');
+      if (firstLine.deal_price) {
+        document.getElementById('fDiscount').value = firstLine.deal_price;
+        lockField('fDiscount');
+      }
+      showMatchCardFromOrder(result);
+    }
+
+    function lockAndFill(fieldId, value, source) {
+      const el = document.getElementById(fieldId);
+      if (!el) return;
+      el.value = value || '';
+      el.classList.add('locked');
+      el.readOnly = true;
+      const lockBadgeId = 'lock' + fieldId.charAt(1).toUpperCase() + fieldId.slice(2);
+      const lockBadge = document.getElementById(lockBadgeId);
+      if (lockBadge) lockBadge.style.display = 'inline-block';
+      const srcId = 'src' + fieldId.charAt(1).toUpperCase() + fieldId.slice(2);
+      const srcEl = document.getElementById(srcId);
+      if (srcEl && source) {
+        srcEl.textContent = `来源: ${source}`;
+        srcEl.style.display = 'block';
+      }
+    }
+
+    function lockField(fieldId) {
+      const el = document.getElementById(fieldId);
+      if (!el) return;
+      el.classList.add('locked');
+      el.readOnly = true;
+    }
+
+    function unlockField(fieldId) {
+      const el = document.getElementById(fieldId);
+      if (!el) return;
+      el.classList.remove('locked');
+      el.readOnly = false;
+      const lockBadgeId = 'lock' + fieldId.charAt(1).toUpperCase() + fieldId.slice(2);
+      const lockBadge = document.getElementById(lockBadgeId);
+      if (lockBadge) lockBadge.style.display = 'none';
+      const srcId = 'src' + fieldId.charAt(1).toUpperCase() + fieldId.slice(2);
+      const srcEl = document.getElementById(srcId);
+      if (srcEl) srcEl.style.display = 'none';
+    }
+
+    function showMatchCard(result) {
+      const block = document.getElementById('matchBlock');
+      const badge = document.getElementById('matchBadge');
+      block.style.display = 'block';
+      badge.style.display = 'inline-flex';
+      badge.classList.add('green');
+
+      const sourceMap = {
+        'sales_order_line': '🎯 销售流水 (SN 精确匹配)',
+        'sales_order': '🎯 销售订单 (订单号匹配)',
+        'product_master': '⚠ 商品主档 (部分匹配)',
+        'none': '❌ 未匹配',
+      };
+      const line = result.salesOrderLine || {};
+      const order = result.salesOrder || {};
+      const pm = result.productMaster || {};
+
+      document.getElementById('matchSource').textContent = sourceMap[result.matchSource] || '匹配中';
+      document.getElementById('mSN').textContent = result.serialNumber;
+      document.getElementById('mOrder').textContent = order.id || line.order_id || '—';
+      document.getElementById('mCustomer').textContent = order.customer_name || '—';
+      document.getElementById('mProduct').textContent = pm.canonical_name || line.product_name || '—';
+      document.getElementById('mSpec').textContent = line.spec || '—';
+      document.getElementById('mAmount').textContent = line.deal_price ? `¥${line.deal_price}` : '—';
+      document.getElementById('mScanned').textContent = result.alreadyScanned ? '⚠ 已代扫' : '✓ 未代扫';
+      document.getElementById('productLockBadge').style.display = 'inline-flex';
+    }
+
+    function showMatchCardFromOrder(result) {
+      const block = document.getElementById('matchBlock');
+      const badge = document.getElementById('matchBadge');
+      block.style.display = 'block';
+      badge.style.display = 'inline-flex';
+      badge.classList.add('green');
+      const order = result.salesOrder || {};
+      const line = result.salesOrderLines?.[0] || {};
+      const pm = result.productMaster || {};
+      document.getElementById('matchSource').textContent = '🎯 销售订单 (订单号匹配)';
+      document.getElementById('mSN').textContent = line.serial_number || '—';
+      document.getElementById('mOrder').textContent = order.id || '—';
+      document.getElementById('mCustomer').textContent = order.customer_name || '—';
+      document.getElementById('mProduct').textContent = pm.canonical_name || line.product_name || '—';
+      document.getElementById('mSpec').textContent = line.spec || '—';
+      document.getElementById('mAmount').textContent = line.deal_price ? `¥${line.deal_price}` : order.total_amount ? `¥${order.total_amount}` : '—';
+      document.getElementById('mScanned').textContent = '—';
+      document.getElementById('productLockBadge').style.display = 'inline-flex';
+    }
+
+    document.getElementById('btnRematchSN').addEventListener('click', async () => {
+      const sn = document.getElementById('fSN').value;
+      if (!sn) { toast('SN 为空', 'warn'); return; }
+      unlockField('fSN');
+      await matchBySerial(sn);
+    });
+
+    // === Save ===
+    function buildRecord() {
+      if (!currentStaff) { toast('请先选择员工', 'warn'); return null; }
+      const customer = document.getElementById('fCustomer').value.trim();
+      if (!customer) { toast('请填写客户姓名', 'warn'); return null; }
+      return {
+        record_id: 'edu-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6).toUpperCase(),
+        scan_date: new Date().toISOString().slice(0, 10),
+        source_group_name: sourceGroup,
+        scan_type: scanType,
+        staff_id: currentStaff.id,
+        staff_name: currentStaff.name,
+        customer_name: customer,
+        customer_phone: document.getElementById('fPhone').value.trim(),
+        agent_phone: document.getElementById('fAgent').value.trim(),
+        product_name: document.getElementById('fProduct').value.trim() || '(未填)',
+        sku_key: document.getElementById('fSkuKey').value.trim(),
+        pn_mtm: document.getElementById('fPN').value.trim(),
+        spec: document.getElementById('fSpec').value.trim(),
+        quantity: Number(document.getElementById('fQty').value) || 1,
+        education_discount_amount: Number(document.getElementById('fDiscount').value) || 0,
+        service_fee_per_unit: Number(document.getElementById('fFee').value) || 0,
+        zhixiangjin_amount: Number(document.getElementById('fZhixiangjin').value) || 0,
+        order_number: document.getElementById('fOrder').value.trim(),
+        serial_numbers: document.getElementById('fSN').value.trim() ? [document.getElementById('fSN').value.trim()] : [],
+        voucher_code: document.getElementById('fVoucher').value.trim(),
+        status: '未付',
+        report_status: matchedRecord ? '已自动匹配' : (aiEnabled ? 'M2.7已校准' : '本地录入'),
+        evidence_images: images.map(img => ({
+          imageBase64: img.dataUrl.split(',')[1],
+          imageMimeType: img.mime,
+          imageName: img.name
+        })),
+        notes: document.getElementById('fNote').value.trim(),
+        matched_record: matchedRecord,
+        sync_status: 'pending',
+        created_at: new Date().toISOString(),
+      };
+    }
+
+    async function saveRecord(alsoSync) {
+      const r = buildRecord();
+      if (!r) return false;
+      localRecords.unshift(r);
+      saveLocalRecords();
+      resetForm();
+      renderAll();
+      toast(alsoSync ? '✓ 已同步至 SQL' : '已保存到本地', 'success');
+      if (alsoSync) await syncOne(r);
+      return true;
+    }
+
+    document.getElementById('btnSave').addEventListener('click', () => saveRecord(false));
+    document.getElementById('btnSaveSync').addEventListener('click', () => saveRecord(true));
+
+    document.getElementById('btnSyncAll').addEventListener('click', async () => {
+      const pending = localRecords.filter(r => r.sync_status === 'pending' || r.sync_status === 'failed');
+      if (pending.length === 0) { toast('无待同步记录', 'warn'); return; }
+      toast(`同步 ${pending.length} 条...`);
+      for (const r of pending) await syncOne(r);
+      renderSync();
+      toast(`✓ 已同步 ${pending.length} 条`, 'success');
+    });
+
+    async function syncOne(record) {
+      try {
+        const res = await fetch(API_BASE + '/records', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(record),
+        });
+        if (res.ok) {
+          record.sync_status = 'synced';
+          record.api_response = await res.json();
+        } else {
+          record.sync_status = 'failed';
+          record.sync_error = (await res.json()).detail || 'Unknown error';
+        }
+      } catch (e) {
+        record.sync_status = 'failed';
+        record.sync_error = e.message;
+      }
+      saveLocalRecords();
+    }
+
+    function resetForm() {
+      ['fCustomer', 'fPhone', 'fAgent', 'fOrder', 'fSN', 'fSkuKey', 'fProduct', 'fPN', 'fSpec', 'fVoucher', 'fNote', 'fDiscount', 'fFee', 'fZhixiangjin'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.value = '';
+          el.classList.remove('locked');
+          el.readOnly = id === 'fSkuKey' || id === 'fProduct' || id === 'fPN' || id === 'fSpec' || id === 'fSN';
+        }
+      });
+      ['lockCustomer', 'lockOrder', 'lockSN', 'lockFee'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      ['srcCustomer', 'srcOrder', 'srcSN', 'srcSku', 'srcProduct', 'srcPN', 'srcSpec', 'srcFee'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      document.getElementById('aiBadge').textContent = '🤖 待校准';
+      document.getElementById('aiBadge').classList.remove('green');
+      document.getElementById('productLockBadge').style.display = 'none';
+      document.getElementById('matchBlock').style.display = 'none';
+      document.getElementById('matchBadge').style.display = 'none';
+      document.getElementById('btnRematchSN').style.display = 'none';
+      images = [];
+      renderImages();
+      matchedRecord = null;
+      setStatus('', '未上传凭证', '');
+    }
+
+    // === Render functions ===
+    function renderAll() { renderMine(); renderSync(); renderCalibrate(); }
+
+    function renderMine() {
+      if (!currentStaff) {
+        document.getElementById('perfName').textContent = '未选择员工';
+        document.getElementById('perfRole').textContent = '';
+        document.getElementById('perfCount').textContent = '0';
+        document.getElementById('perfFee').textContent = '0';
+        document.getElementById('perfZxj').textContent = '0';
+        document.getElementById('perfMonth').textContent = '0';
+        document.getElementById('myRecords').innerHTML = '<div class="empty"><div class="icon">👤</div>请先选择员工</div>';
+        return;
+      }
+      const today = new Date().toISOString().slice(0, 10);
+      const monthStart = today.slice(0, 7) + '-01';
+      const myAll = localRecords.filter(r => r.staff_id === currentStaff.id);
+      const todayRecords = myAll.filter(r => r.scan_date === today);
+      const monthRecords = myAll.filter(r => r.scan_date >= monthStart);
+      const totalFee = todayRecords.reduce((s, r) => s + (r.service_fee_per_unit * r.quantity), 0);
+      const totalZxj = todayRecords.reduce((s, r) => s + (r.zhixiangjin_amount * r.quantity), 0);
+      const monthTotal = monthRecords.reduce((s, r) => s + (r.service_fee_per_unit * r.quantity) + (r.zhixiangjin_amount * r.quantity), 0);
+
+      document.getElementById('perfName').textContent = currentStaff.name;
+      document.getElementById('perfRole').textContent = currentStaff.role === 'manager' ? '店长' : '服务顾问';
+      document.getElementById('perfCount').textContent = todayRecords.length;
+      document.getElementById('perfFee').textContent = '¥' + totalFee;
+      document.getElementById('perfZxj').textContent = '¥' + totalZxj;
+      document.getElementById('perfMonth').textContent = '¥' + monthTotal;
+
+      const list = document.getElementById('myRecords');
+      if (todayRecords.length === 0) {
+        list.innerHTML = '<div class="empty"><div class="icon">📝</div>今日暂无记录</div>';
+        return;
+      }
+      list.innerHTML = todayRecords.map(r => {
+        const scanLabel = {single_scan:'单扫',multi_scan:'多扫',three_piece:'三件套',two_piece:'两件套'}[r.scan_type] || r.scan_type;
+        return `<div class="record">
+          <div class="top">
+            <div class="name">${escape(r.customer_name)}</div>
+            <div class="amount">¥${r.service_fee_per_unit * r.quantity}</div>
+          </div>
+          <div class="meta">
+            <span>${escape((r.product_name || '').slice(0, 30))}</span>
+            <span class="badge" style="margin-left:8px; ${r.sync_status === 'synced' ? 'background:var(--green-light);color:var(--green-deep);' : 'background:var(--gold-light);color:var(--gold);'} font-size:10px;padding:2px 7px;border-radius:999px;font-weight:800;">${r.sync_status === 'synced' ? '已同步' : '本地'}</span>
+          </div>
+          <div class="meta">
+            <span>${scanLabel} · ${r.source_group_name}</span>
+            ${r.zhixiangjin_amount > 0 ? '<span style="color:var(--gold);">智享金 ¥' + r.zhixiangjin_amount + '</span>' : ''}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderSync() {
+      const list = document.getElementById('syncList');
+      if (localRecords.length === 0) {
+        list.innerHTML = '<div class="empty"><div class="icon">🔄</div>本地无记录</div>';
+        return;
+      }
+      list.innerHTML = localRecords.slice(0, 30).map(r => {
+        const statusText = r.sync_status === 'synced' ? '已同步' : r.sync_status === 'failed' ? '失败' : '待同步';
+        return `<div class="sync-item">
+          <div class="icon">${r.sync_status === 'synced' ? '✅' : r.sync_status === 'failed' ? '❌' : '⏳'}</div>
+          <div class="info">
+            <div class="name">${escape(r.customer_name || '-')} · ¥${r.service_fee_per_unit * r.quantity}</div>
+            <div class="status ${r.sync_status}">${statusText}${r.sync_error ? ' · ' + r.sync_error.slice(0, 30) : ''}</div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderCalibrate() {
+      const list = document.getElementById('calibList');
+      const pendingReview = localRecords.filter(r => r.report_status === 'M2.7已校准' && !r.reviewed);
+      if (pendingReview.length === 0) {
+        list.innerHTML = '<div class="empty"><div class="icon">🤖</div>暂无待校准记录</div>';
+        return;
+      }
+      list.innerHTML = pendingReview.map(r => `<div class="calib-card">
+        <div class="title">${escape(r.customer_name)}</div>
+        <div class="diff">
+          <span class="ok">订单: ${r.order_number || '未填'}</span>
+          <span class="ok">金额: ¥${r.service_fee_per_unit}</span>
+          <span class="${r.zhixiangjin_amount > 0 ? 'ok' : ''}">智享金: ¥${r.zhixiangjin_amount}</span>
+        </div>
+        <div class="actions">
+          <button class="accept" data-id="${r.record_id}">✓ 接受</button>
+          <button class="edit" data-id="${r.record_id}">✎ 手动</button>
+          <button class="reject" data-id="${r.record_id}">✗ 拒绝</button>
+        </div>
+      </div>`).join('');
+      list.querySelectorAll('.accept').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-id');
+          const rec = localRecords.find(x => x.record_id === id);
+          if (rec) { rec.reviewed = true; rec.report_status = '已接受'; saveLocalRecords(); renderCalibrate(); toast('✓ 已接受', 'success'); }
+        });
+      });
+      list.querySelectorAll('.reject').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-id');
+          const rec = localRecords.find(x => x.record_id === id);
+          if (rec) { rec.reviewed = true; rec.report_status = '已拒绝'; saveLocalRecords(); renderCalibrate(); toast('已拒绝'); }
+        });
+      });
+    }
+
+    function escape(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function toast(msg, type='', ms=2400) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show ' + type;
+      setTimeout(() => t.className = 'toast', ms);
+    }
+  </script>
+</body>
+</html>

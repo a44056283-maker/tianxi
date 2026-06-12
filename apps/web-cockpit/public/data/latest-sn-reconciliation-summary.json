@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-06-12T02:03:23.179Z",
+  "source": "audit_terminal_stock_sn_sync.py",
+  "auditRunAt": "2026-06-12T02:03:23.179Z",
+  "mismatchCount": 20,
+  "overSerialCount": 20,
+  "underSerialCount": 0,
+  "coreStockSnMismatchCount": 3,
+  "projectionVsStandardMismatchCount": 27,
+  "channelStockSnMismatchCount": 0,
+  "distMismatchCount": 1,
+  "liveMismatchCount": 0,
+  "standardTotals": {
+    "skuCount": 3869,
+    "currentStock": 317,
+    "sellableStock": 317,
+    "occupiedStock": 0,
+    "unsellableStock": 0,
+    "pendingInboundStock": 0,
+    "serialCount": 427,
+    "unmatchedSerialCount": 0,
+    "physicalHoldStock": 110,
+    "excessSerialCount": 4
+  },
+  "top5": [
+    {
+      "sku_key": "20006806",
+      "name": "联想小新PadPro13英寸AI平板电脑 · 骁龙8s / 48GB / 256GB / 3.5K / Gen48",
+      "pn_mtm": "ZAH50004CN",
+      "current_stock": 0,
+      "in_stock_sn": 16,
+      "diff": 16,
+      "note": "projection vs standard drift: projection=[16,16,16] standard=[0,0,16]"
+    },
+    {
+      "sku_key": "20006725",
+      "name": "联想拯救者Y7000 / Y7000X 电竞游戏笔记本电脑 · i7-13650HX / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83LY00TRCD",
+      "current_stock": 7,
+      "in_stock_sn": 22,
+      "diff": 15
+    },
+    {
+      "sku_key": "20007932",
+      "name": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83VK0048CD",
+      "current_stock": 2,
+      "in_stock_sn": 15,
+      "diff": 13,
+      "note": "projection vs standard drift: projection=[15,15,15] standard=[2,2,15]"
+    },
+    {
+      "sku_key": "20007931",
+      "name": "联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060",
+      "pn_mtm": "83F300AXCD",
+      "current_stock": 2,
+      "in_stock_sn": 11,
+      "diff": 9
+    },
+    {
+      "sku_key": "20004637",
+      "name": "联想moto X70 Air 超轻薄直屏 多面耐摔 强力抗水 · 12GB / 256GB / 韵绿",
+      "pn_mtm": "PBA40002CN",
+      "current_stock": 0,
+      "in_stock_sn": 9,
+      "diff": 9,
+      "note": "projection vs standard drift: projection=[9,9,9] standard=[0,0,9]"
+    }
+  ]
+}

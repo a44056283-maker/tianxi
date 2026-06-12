@@ -1,0 +1,64 @@
+{
+  "version": "2026.06.05",
+  "name": "lenovo-smart-retail-ui-template-kit",
+  "styleTokens": {
+    "brandPrimary": "#e2231a",
+    "brandPrimaryDark": "#b91c1c",
+    "jdBlueGray": "#eef5ff",
+    "jdBlue": "#2563eb",
+    "ink": "#172033",
+    "muted": "#6b7280",
+    "line": "#e5e7eb",
+    "surface": "#ffffff",
+    "surfaceSoft": "#f6f7fb",
+    "warning": "#f59e0b",
+    "success": "#16a34a",
+    "danger": "#dc2626",
+    "radius": "8px",
+    "spaceBase": "4px",
+    "fontSizeBody": "14px",
+    "fontSizeSectionTitle": "20px",
+    "numberStyle": "tabular-nums"
+  },
+  "layoutRules": [
+    "左侧主模块导航不删除",
+    "顶部子书签用于当前模块内流程索引",
+    "右侧内容固定画面优先，内容多时分页或详情抽屉",
+    "所有金额和数量右对齐并使用等宽数字",
+    "状态必须同时有文字和颜色，不只靠颜色",
+    "手机和平板使用同一套响应式组件，不生成割裂网页"
+  ],
+  "components": [
+    {
+      "id": "retail-shell",
+      "name": "零售系统壳",
+      "usage": "左侧主导航 + 顶部子流程 + 右侧业务内容",
+      "businessModules": ["库存详情", "产品价保", "报价来源", "入库出库", "收银台"]
+    },
+    {
+      "id": "operation-ribbon",
+      "name": "子流程索引条",
+      "usage": "01 概览 / 02 检索 / 03 列表 / 04 详情 / 05 异常 / 06 同步"
+    },
+    {
+      "id": "product-hero-card",
+      "name": "产品英雄卡",
+      "usage": "展示产品标题、配置、SKU、PN、库存、SN、价格、活动权益和链接证据"
+    },
+    {
+      "id": "ledger-table",
+      "name": "台账表格",
+      "usage": "出入库、SN、价格证据、活动历史、价保汇总"
+    },
+    {
+      "id": "pos-workspace",
+      "name": "收银工作台",
+      "usage": "商品搜索、购物车、价格证据、活动权益、结算和挂单"
+    },
+    {
+      "id": "evidence-badge",
+      "name": "证据状态标签",
+      "usage": "显示 SQL/API/快照/页面证据状态和采集时间"
+    }
+  ]
+}

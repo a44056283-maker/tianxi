@@ -1,0 +1,640 @@
+{
+  "generatedAt": "2026-05-27T09:41:58.275Z",
+  "timezone": "Asia/Shanghai",
+  "summary": {
+    "totalCheckCount": 11,
+    "okCount": 3,
+    "pendingCount": 2,
+    "missedCount": 0,
+    "attentionCount": 6,
+    "notify": true
+  },
+  "checks": [
+    {
+      "id": "daily-jd-lenovo-price-sync-hourly",
+      "taskName": "daily-jd-lenovo-price-sync",
+      "title": "京东联想价格同步编排",
+      "status": "attention",
+      "reason": "最近一轮已执行，但业务状态仍为 executed_not_closed。",
+      "latestFinishedAt": "2026-05-27T09:07:03.795Z",
+      "latestExecutionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "仍有 62 条已锁定链接待真实手工复核"
+    },
+    {
+      "id": "daily-price-channel-check-am",
+      "taskName": "daily-price-channel-check",
+      "title": "分销商群报价检查-上午",
+      "status": "ok",
+      "reason": "本检查窗口已按时生成真实完成报告。",
+      "dueAt": "2026-05-27T04:05:00.000Z",
+      "expectedSince": "2026-05-27T03:55:00.000Z",
+      "latestFinishedAt": "2026-05-27T05:46:29.425Z",
+      "latestExecutionOutcome": "real_completed",
+      "manualActionRequired": false
+    },
+    {
+      "id": "daily-price-channel-check-noon",
+      "taskName": "daily-price-channel-check",
+      "title": "分销商群报价补查-中午",
+      "status": "ok",
+      "reason": "今天前序轮次已真实完成，本检查点按规则不再强制补跑。",
+      "dueAt": "2026-05-27T05:55:00.000Z",
+      "expectedSince": "2026-05-27T05:45:00.000Z",
+      "latestFinishedAt": "2026-05-27T05:46:29.425Z",
+      "latestExecutionOutcome": "real_completed",
+      "manualActionRequired": false
+    },
+    {
+      "id": "daily-gray-channel-check-am",
+      "taskName": "daily-gray-channel-check",
+      "title": "灰渠公众号报价检查-午前",
+      "status": "attention",
+      "reason": "本检查窗口已执行，但业务状态仍为 blocked_missing_input。",
+      "dueAt": "2026-05-27T04:05:00.000Z",
+      "expectedSince": "2026-05-27T03:50:00.000Z",
+      "latestFinishedAt": "2026-05-27T05:51:59.594Z",
+      "latestExecutionOutcome": "blocked_missing_input",
+      "manualActionRequired": true,
+      "blockingReason": "灰渠公众号缺少当天有效原文，当前采用最后一次有效原文 2026-05-25"
+    },
+    {
+      "id": "daily-gray-channel-check-pm",
+      "taskName": "daily-gray-channel-check",
+      "title": "灰渠公众号报价补查-午后",
+      "status": "attention",
+      "reason": "本检查窗口已执行，但业务状态仍为 blocked_missing_input。",
+      "dueAt": "2026-05-27T06:00:00.000Z",
+      "expectedSince": "2026-05-27T05:50:00.000Z",
+      "latestFinishedAt": "2026-05-27T05:51:59.594Z",
+      "latestExecutionOutcome": "blocked_missing_input",
+      "manualActionRequired": true,
+      "blockingReason": "灰渠公众号缺少当天有效原文，当前采用最后一次有效原文 2026-05-25"
+    },
+    {
+      "id": "daily-competitor-monitor-check",
+      "taskName": "daily-competitor-monitor-check",
+      "title": "竞品监控-4点更新",
+      "status": "ok",
+      "reason": "本检查窗口已按时生成真实完成报告。",
+      "dueAt": "2026-05-26T20:20:00.000Z",
+      "expectedSince": "2026-05-26T20:00:00.000Z",
+      "latestFinishedAt": "2026-05-26T23:40:21.560Z",
+      "latestExecutionOutcome": "real_completed",
+      "manualActionRequired": false
+    },
+    {
+      "id": "zhidiantong-sync-45m",
+      "taskName": "zhidiantong-sync-cycle",
+      "title": "智店通进销存45分钟同步",
+      "status": "attention",
+      "reason": "最近一轮已执行，但业务状态仍为 blocked_missing_input。",
+      "latestFinishedAt": "2026-05-27T09:27:12.900Z",
+      "latestExecutionOutcome": "blocked_missing_input",
+      "manualActionRequired": true,
+      "blockingReason": "未发现可导入的智店通库存流水/销售/入库/其他出库原始文件。"
+    },
+    {
+      "id": "sn-warranty-backfill-12",
+      "taskName": "sn-warranty-backfill",
+      "title": "SN保修补齐-12点后",
+      "status": "attention",
+      "reason": "本检查窗口已执行，但业务状态仍为 executed_not_closed。",
+      "dueAt": "2026-05-27T04:25:00.000Z",
+      "expectedSince": "2026-05-27T04:20:00.000Z",
+      "latestFinishedAt": "2026-05-27T07:20:48.233Z",
+      "latestExecutionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "保修队列剩余 64 条，且未发现 2026-05-27 当天手工保修证据；禁止直接运行后台网页采集。"
+    },
+    {
+      "id": "sn-warranty-backfill-15",
+      "taskName": "sn-warranty-backfill",
+      "title": "SN保修补齐-15点后",
+      "status": "attention",
+      "reason": "本检查窗口已执行，但业务状态仍为 executed_not_closed。",
+      "dueAt": "2026-05-27T07:25:00.000Z",
+      "expectedSince": "2026-05-27T07:20:00.000Z",
+      "latestFinishedAt": "2026-05-27T07:20:48.233Z",
+      "latestExecutionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "保修队列剩余 64 条，且未发现 2026-05-27 当天手工保修证据；禁止直接运行后台网页采集。"
+    },
+    {
+      "id": "sn-warranty-backfill-19",
+      "taskName": "sn-warranty-backfill",
+      "title": "SN保修补齐-19点后",
+      "status": "pending_window",
+      "reason": "当前还未到检查时点，计划于 19:25:00 前完成。",
+      "dueAt": "2026-05-27T11:25:00.000Z",
+      "expectedSince": "2026-05-27T11:20:00.000Z"
+    },
+    {
+      "id": "daily-audit-and-snapshot-rebuild",
+      "taskName": "daily-audit-and-snapshot-rebuild",
+      "title": "每日审计与快照重建",
+      "status": "pending_window",
+      "reason": "当前还未到检查时点，计划于 19:40:00 前完成。",
+      "dueAt": "2026-05-27T11:40:00.000Z",
+      "expectedSince": "2026-05-27T11:35:00.000Z"
+    }
+  ],
+  "notifications": [
+    "[自动化保活] 期望 ACTIVE 30 个，当前发现 ACTIVE 30 个；缺失 0 个，非 ACTIVE 0 个，缺退出禁令 30 个，缺飞书反馈规则 30 个。"
+  ],
+  "automationAudit": {
+    "ok": false,
+    "expectedActiveCount": 30,
+    "actualActiveCount": 30,
+    "expectedSourcePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/automation_payloads.json",
+    "automationsRootPath": "/Users/luxiangnan/.codex/automations",
+    "missingAutomationIds": [],
+    "nonActiveAutomationIds": [],
+    "missingExitGuardIds": [
+      "11-15",
+      "12",
+      "12-45",
+      "13-30",
+      "14-15",
+      "15",
+      "15-45",
+      "16-30",
+      "17-15",
+      "18-00",
+      "180",
+      "19",
+      "19-30",
+      "20-15",
+      "21-00",
+      "21-45",
+      "4",
+      "automation",
+      "automation-10",
+      "automation-2",
+      "automation-3",
+      "automation-4",
+      "automation-5",
+      "automation-6",
+      "automation-7",
+      "automation-8",
+      "automation-9",
+      "sn",
+      "sn-15",
+      "sn-19"
+    ],
+    "missingFeishuGuardIds": [
+      "11-15",
+      "12",
+      "12-45",
+      "13-30",
+      "14-15",
+      "15",
+      "15-45",
+      "16-30",
+      "17-15",
+      "18-00",
+      "180",
+      "19",
+      "19-30",
+      "20-15",
+      "21-00",
+      "21-45",
+      "4",
+      "automation",
+      "automation-10",
+      "automation-2",
+      "automation-3",
+      "automation-4",
+      "automation-5",
+      "automation-6",
+      "automation-7",
+      "automation-8",
+      "automation-9",
+      "sn",
+      "sn-15",
+      "sn-19"
+    ],
+    "issues": [
+      {
+        "id": "11-15",
+        "name": "同步智店通进销存与库存SN（11:15）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/11-15/automation.toml"
+      },
+      {
+        "id": "11-15",
+        "name": "同步智店通进销存与库存SN（11:15）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/11-15/automation.toml"
+      },
+      {
+        "id": "12",
+        "name": "同步智店通进销存与库存SN（12:00）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/12/automation.toml"
+      },
+      {
+        "id": "12",
+        "name": "同步智店通进销存与库存SN（12:00）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/12/automation.toml"
+      },
+      {
+        "id": "12-45",
+        "name": "同步智店通进销存与库存SN（12:45）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/12-45/automation.toml"
+      },
+      {
+        "id": "12-45",
+        "name": "同步智店通进销存与库存SN（12:45）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/12-45/automation.toml"
+      },
+      {
+        "id": "13-30",
+        "name": "同步智店通进销存与库存SN（13:30）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/13-30/automation.toml"
+      },
+      {
+        "id": "13-30",
+        "name": "同步智店通进销存与库存SN（13:30）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/13-30/automation.toml"
+      },
+      {
+        "id": "14-15",
+        "name": "同步智店通进销存与库存SN（14:15）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/14-15/automation.toml"
+      },
+      {
+        "id": "14-15",
+        "name": "同步智店通进销存与库存SN（14:15）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/14-15/automation.toml"
+      },
+      {
+        "id": "15",
+        "name": "同步智店通进销存与库存SN（15:00）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/15/automation.toml"
+      },
+      {
+        "id": "15",
+        "name": "同步智店通进销存与库存SN（15:00）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/15/automation.toml"
+      },
+      {
+        "id": "15-45",
+        "name": "同步智店通进销存与库存SN（15:45）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/15-45/automation.toml"
+      },
+      {
+        "id": "15-45",
+        "name": "同步智店通进销存与库存SN（15:45）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/15-45/automation.toml"
+      },
+      {
+        "id": "16-30",
+        "name": "同步智店通进销存与库存SN（16:30）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/16-30/automation.toml"
+      },
+      {
+        "id": "16-30",
+        "name": "同步智店通进销存与库存SN（16:30）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/16-30/automation.toml"
+      },
+      {
+        "id": "17-15",
+        "name": "同步智店通进销存与库存SN（17:15）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/17-15/automation.toml"
+      },
+      {
+        "id": "17-15",
+        "name": "同步智店通进销存与库存SN（17:15）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/17-15/automation.toml"
+      },
+      {
+        "id": "18-00",
+        "name": "同步智店通进销存与库存SN（18:00）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/18-00/automation.toml"
+      },
+      {
+        "id": "18-00",
+        "name": "同步智店通进销存与库存SN（18:00）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/18-00/automation.toml"
+      },
+      {
+        "id": "180",
+        "name": "巡检180天陈旧库存预警",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/180/automation.toml"
+      },
+      {
+        "id": "180",
+        "name": "巡检180天陈旧库存预警",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/180/automation.toml"
+      },
+      {
+        "id": "19",
+        "name": "同步智店通进销存与库存SN（18:45）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/19/automation.toml"
+      },
+      {
+        "id": "19",
+        "name": "同步智店通进销存与库存SN（18:45）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/19/automation.toml"
+      },
+      {
+        "id": "19-30",
+        "name": "同步智店通进销存与库存SN（19:30）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/19-30/automation.toml"
+      },
+      {
+        "id": "19-30",
+        "name": "同步智店通进销存与库存SN（19:30）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/19-30/automation.toml"
+      },
+      {
+        "id": "20-15",
+        "name": "同步智店通进销存与库存SN（20:15）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/20-15/automation.toml"
+      },
+      {
+        "id": "20-15",
+        "name": "同步智店通进销存与库存SN（20:15）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/20-15/automation.toml"
+      },
+      {
+        "id": "21-00",
+        "name": "同步智店通进销存与库存SN（21:00）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/21-00/automation.toml"
+      },
+      {
+        "id": "21-00",
+        "name": "同步智店通进销存与库存SN（21:00）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/21-00/automation.toml"
+      },
+      {
+        "id": "21-45",
+        "name": "同步智店通进销存与库存SN（21:45）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/21-45/automation.toml"
+      },
+      {
+        "id": "21-45",
+        "name": "同步智店通进销存与库存SN（21:45）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/21-45/automation.toml"
+      },
+      {
+        "id": "4",
+        "name": "采集京东自营竞品TOP排行",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/4/automation.toml"
+      },
+      {
+        "id": "4",
+        "name": "采集京东自营竞品TOP排行",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/4/automation.toml"
+      },
+      {
+        "id": "automation",
+        "name": "更新联想智慧零售开发计划",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation/automation.toml"
+      },
+      {
+        "id": "automation",
+        "name": "更新联想智慧零售开发计划",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation/automation.toml"
+      },
+      {
+        "id": "automation-10",
+        "name": "发送竞品排行飞书播报",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-10/automation.toml"
+      },
+      {
+        "id": "automation-10",
+        "name": "发送竞品排行飞书播报",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-10/automation.toml"
+      },
+      {
+        "id": "automation-2",
+        "name": "编排京东联想零售价同步",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-2/automation.toml"
+      },
+      {
+        "id": "automation-2",
+        "name": "编排京东联想零售价同步",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-2/automation.toml"
+      },
+      {
+        "id": "automation-3",
+        "name": "采集分销商群报价（上午）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-3/automation.toml"
+      },
+      {
+        "id": "automation-3",
+        "name": "采集分销商群报价（上午）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-3/automation.toml"
+      },
+      {
+        "id": "automation-4",
+        "name": "补查分销商群报价（中午）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-4/automation.toml"
+      },
+      {
+        "id": "automation-4",
+        "name": "补查分销商群报价（中午）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-4/automation.toml"
+      },
+      {
+        "id": "automation-5",
+        "name": "采集灰渠公众号报价（午前）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-5/automation.toml"
+      },
+      {
+        "id": "automation-5",
+        "name": "采集灰渠公众号报价（午前）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-5/automation.toml"
+      },
+      {
+        "id": "automation-6",
+        "name": "补查灰渠公众号报价（午后）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-6/automation.toml"
+      },
+      {
+        "id": "automation-6",
+        "name": "补查灰渠公众号报价（午后）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-6/automation.toml"
+      },
+      {
+        "id": "automation-7",
+        "name": "执行每日审计与快照重建",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-7/automation.toml"
+      },
+      {
+        "id": "automation-7",
+        "name": "执行每日审计与快照重建",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-7/automation.toml"
+      },
+      {
+        "id": "automation-8",
+        "name": "手工复核京东联想零售价",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-8/automation.toml"
+      },
+      {
+        "id": "automation-8",
+        "name": "手工复核京东联想零售价",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-8/automation.toml"
+      },
+      {
+        "id": "automation-9",
+        "name": "发送库存零售价国补价播报",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-9/automation.toml"
+      },
+      {
+        "id": "automation-9",
+        "name": "发送库存零售价国补价播报",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/automation-9/automation.toml"
+      },
+      {
+        "id": "sn",
+        "name": "补齐SN保修信息（12:20）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn/automation.toml"
+      },
+      {
+        "id": "sn",
+        "name": "补齐SN保修信息（12:20）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn/automation.toml"
+      },
+      {
+        "id": "sn-15",
+        "name": "补齐SN保修信息（15:20）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn-15/automation.toml"
+      },
+      {
+        "id": "sn-15",
+        "name": "补齐SN保修信息（15:20）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn-15/automation.toml"
+      },
+      {
+        "id": "sn-19",
+        "name": "补齐SN保修信息（19:20）",
+        "type": "missing_exit_guard",
+        "detail": "缺少“自动化保活与退出禁令”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn-19/automation.toml"
+      },
+      {
+        "id": "sn-19",
+        "name": "补齐SN保修信息（19:20）",
+        "type": "missing_feishu_guard",
+        "detail": "缺少“未收口/异常必须飞书群反馈”硬规则。",
+        "filePath": "/Users/luxiangnan/.codex/automations/sn-19/automation.toml"
+      }
+    ]
+  }
+}

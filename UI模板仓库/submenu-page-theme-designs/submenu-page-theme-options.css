@@ -1,0 +1,498 @@
+:root {
+  --lenovo-red: #e2231a;
+  --jd-blue: #2f6fe4;
+  --ink: #172033;
+  --muted: #6b7280;
+  --line: #dfe4ec;
+  --soft: #f5f7fb;
+  --panel: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.theme-page {
+  width: min(1600px, calc(100vw - 36px));
+  margin: 0 auto;
+  padding: 24px 0 34px;
+}
+
+.theme-hero,
+.theme-shell {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+}
+
+.theme-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+  padding: 22px;
+}
+
+.theme-hero span,
+.theme-label b {
+  color: var(--lenovo-red);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.theme-hero h1 {
+  margin: 6px 0 6px;
+  font-size: clamp(26px, 2.4vw, 40px);
+  line-height: 1.05;
+}
+
+.theme-hero p,
+.theme-label span,
+.palette-card em,
+.theme-preview p {
+  color: var(--muted);
+}
+
+.palette-card {
+  min-width: 290px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.palette-card b,
+.palette-card em {
+  display: block;
+}
+
+.palette-card em {
+  margin-top: 8px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.theme-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 18px;
+}
+
+.theme-label {
+  padding: 6px 10px;
+  border-right: 1px solid var(--line);
+}
+
+.theme-label b {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: #fff1f1;
+}
+
+.theme-label strong,
+.theme-label span {
+  display: block;
+}
+
+.theme-label strong {
+  margin-top: 14px;
+  font-size: 18px;
+}
+
+.theme-label span {
+  margin-top: 8px;
+  line-height: 1.55;
+}
+
+.theme-preview {
+  min-width: 0;
+}
+
+.subtabs,
+.toolbar,
+.compact-filters,
+.ledger-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.subtabs {
+  min-height: 48px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.subtabs button,
+.toolbar button,
+.compact-filters button,
+.ledger-toolbar button,
+.service-layout button {
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.subtabs button.active {
+  border-color: rgba(226, 35, 26, 0.32);
+  color: #b91c1c;
+  background: #fff6f6;
+  box-shadow: inset 0 -3px 0 var(--lenovo-red);
+}
+
+.subtabs em {
+  margin-left: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: var(--jd-blue);
+  font-style: normal;
+}
+
+.toolbar,
+.compact-filters,
+.ledger-toolbar {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+input,
+select {
+  min-height: 34px;
+  border: 1px solid #cfd6e2;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 10px;
+}
+
+.toolbar input,
+.compact-filters input,
+.ledger-toolbar input:last-child {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.kpis div,
+.product-card,
+.service-layout article,
+.split-workspace,
+.dense-table,
+.ledger-grid {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.kpis div {
+  padding: 12px;
+}
+
+.kpis span,
+.product-card p {
+  color: var(--muted);
+}
+
+.kpis b {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+}
+
+.content-grid,
+.service-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product-card,
+.service-layout article {
+  padding: 14px;
+}
+
+.product-card h3,
+.service-layout h3,
+.split-workspace h3 {
+  margin: 0 0 6px;
+}
+
+.price-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.price-row b {
+  color: var(--lenovo-red);
+}
+
+.lenovo-red .toolbar button,
+.lenovo-red .price-row b {
+  color: var(--lenovo-red);
+}
+
+.jd-blue .subtabs {
+  background: #f4f7ff;
+}
+
+.jd-blue .subtabs button.active,
+.compact-filters button.active {
+  border-color: rgba(47, 111, 228, 0.32);
+  color: #174ea6;
+  background: #edf4ff;
+  box-shadow: inset 0 -3px 0 var(--jd-blue);
+}
+
+.dense-table,
+.ledger-grid {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.dense-table > div,
+.ledger-grid > div {
+  display: grid;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-top: 1px solid #edf0f5;
+}
+
+.dense-table > div {
+  grid-template-columns: 2fr 1fr 1.2fr 1fr 1fr;
+}
+
+.ledger-grid > div {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.dense-table .head,
+.ledger-grid .head {
+  border-top: 0;
+  background: #f5f7fb;
+  color: #536174;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.dense-table b,
+.ledger-grid b {
+  color: #b91c1c;
+  text-align: right;
+}
+
+.dense-table em,
+.ledger-grid em {
+  color: #16a34a;
+  font-style: normal;
+}
+
+.apple-clean .theme-preview {
+  padding: 2px;
+}
+
+.minimal {
+  justify-content: center;
+  border-color: transparent;
+  background: #fbfbfd;
+}
+
+.minimal button {
+  border-color: transparent;
+  background: transparent;
+}
+
+.minimal button.active {
+  background: #111827;
+  color: #fff;
+  box-shadow: none;
+}
+
+.split-workspace {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 0;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.split-workspace aside {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 12px;
+  border-right: 1px solid var(--line);
+  background: #fbfbfd;
+}
+
+.split-workspace aside button {
+  min-height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+}
+
+.split-workspace aside button.active {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.split-workspace section {
+  padding: 18px;
+}
+
+.calm-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.calm-cards div {
+  padding: 16px;
+  border-radius: 8px;
+  background: #f6f7f9;
+}
+
+.calm-cards b {
+  display: block;
+  margin-top: 8px;
+  font-size: 28px;
+}
+
+.huawei-service .service-tabs button.active {
+  color: #b91c1c;
+  background: #fff;
+}
+
+.service-layout article {
+  min-height: 150px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+}
+
+.service-layout span {
+  color: var(--lenovo-red);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.service-layout button {
+  margin-top: 12px;
+  border-color: var(--lenovo-red);
+  color: #b91c1c;
+}
+
+.erp-ledger .ledger-tabs {
+  background: #f4f7ff;
+}
+
+.erp-ledger .ledger-tabs button.active {
+  border-color: rgba(47, 111, 228, 0.34);
+  background: #ffffff;
+  color: #174ea6;
+  box-shadow: inset 0 -3px 0 var(--jd-blue);
+}
+
+.erp-ledger .ledger-tabs button.active em {
+  background: #edf4ff;
+  color: #174ea6;
+}
+
+.ledger-toolbar .active {
+  color: #b91c1c;
+  border-color: rgba(226, 35, 26, 0.3);
+  background: #fff5f5;
+}
+
+.jd-ledger-toolbar,
+.jd-ledger-tags {
+  background: #f4f7ff;
+}
+
+.jd-ledger-tags {
+  margin-top: 8px;
+}
+
+.jd-ledger-tags button {
+  background: #ffffff;
+}
+
+.jd-ledger-tags button.active {
+  border-color: rgba(47, 111, 228, 0.34);
+  background: #2f6fe4;
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .theme-page {
+    width: calc(100vw - 18px);
+    padding-top: 10px;
+  }
+
+  .theme-hero,
+  .theme-shell {
+    display: grid;
+  }
+
+  .theme-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-label {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .content-grid,
+  .service-layout,
+  .kpis,
+  .calm-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .split-workspace {
+    grid-template-columns: 1fr;
+  }
+}

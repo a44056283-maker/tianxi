@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: zdt-sync-postgres
+    environment:
+      POSTGRES_USER: zdt
+      POSTGRES_PASSWORD: zdt
+      POSTGRES_DB: zdt_sync
+    ports:
+      - "5432:5432"
+    volumes:
+      - zdt_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zdt -d zdt_sync"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7
+    container_name: zdt-sync-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - zdt_redisdata:/data
+
+volumes:
+  zdt_pgdata:
+  zdt_redisdata:

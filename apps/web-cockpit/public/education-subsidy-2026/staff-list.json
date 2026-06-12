@@ -1,0 +1,56 @@
+{
+  "managers": [
+    {"id": "EMP003", "name": "梁伟", "role": "manager"},
+    {"id": "EMP004", "name": "郭楠", "role": "manager"}
+  ],
+  "serviceAdvisors": [
+    {"id": "EMP005", "name": "李建定", "role": "service_advisor"},
+    {"id": "EMP006", "name": "郭晨臣", "role": "service_advisor"}
+  ],
+  "scanTypeRules": {
+    "single_scan": {
+      "label": "单扫",
+      "defaultGroup": null,
+      "serviceFeeByGroup": {
+        "智店通入库群": 50,
+        "教育补贴群": 30
+      },
+      "zhixiangjin": 0
+    },
+    "multi_scan": {
+      "label": "多扫",
+      "defaultGroup": "智店通入库群",
+      "serviceFeeByGroup": {
+        "智店通入库群": 50,
+        "教育补贴群": 30
+      },
+      "zhixiangjin": 0
+    },
+    "three_piece": {
+      "label": "三件套",
+      "defaultGroup": "智店通入库群",
+      "serviceFee": 300,
+      "serviceFeeByGroup": {
+        "智店通入库群": 300,
+        "教育补贴群": 300
+      },
+      "zhixiangjin": 2000
+    },
+    "two_piece": {
+      "label": "两件套",
+      "defaultGroup": "智店通入库群",
+      "serviceFee": 130,
+      "serviceFeeByGroup": {
+        "智店通入库群": 130,
+        "教育补贴群": 130
+      },
+      "zhixiangjin": 0
+    }
+  },
+  "smartDefaults": {
+    "singleScanByGroup": {
+      "智店通入库群": 50,
+      "教育补贴群": 30
+    }
+  }
+}

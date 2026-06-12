@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教育补贴知识库 · 联想智慧零售</title>
+  <style>
+    :root {
+      --green: #0a6e3a;
+      --green-soft: #27ae60;
+      --green-light: #e6f4ec;
+      --red: #d71a24;
+      --gold: #d4a23a;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: rgba(10, 110, 58, 0.16);
+      --panel: #ffffff;
+      --paper: #f8f9fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(39, 174, 96, 0.10), transparent 30%),
+        linear-gradient(180deg, #f7faf7 0%, #f0f5f1 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(180deg, var(--green) 0%, #0d7a44 100%);
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .title { font-size: 18px; font-weight: 700; }
+    .header a { color: #fff; text-decoration: none; opacity: 0.9; font-size: 14px; }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 24px 60px;
+    }
+
+    .section {
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(10, 110, 58, 0.05);
+      border: 1px solid var(--line);
+    }
+    .section h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section h2::before {
+      content: '';
+      width: 4px;
+      height: 16px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+    .section p {
+      margin: 0 0 10px;
+      line-height: 1.7;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .section ul, .section ol {
+      margin: 0 0 10px;
+      padding-left: 20px;
+    }
+    .section li {
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    code, .code {
+      background: var(--paper);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "JetBrains Mono", "Menlo", monospace;
+      font-size: 12px;
+      color: var(--green);
+    }
+    .badge-group {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-zhidian { background: var(--green-light); color: var(--green); }
+    .badge-jiaoyu { background: #fdf4ec; color: var(--gold); }
+    .field-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .field-table th, .field-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+    .field-table th {
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .field-table td:first-child { font-weight: 600; color: var(--ink); }
+    .field-table code { font-size: 12px; }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .flow .step {
+      background: var(--green-light);
+      color: var(--green);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .flow .arrow {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      color: var(--ink);
+      margin: 12px 0 4px;
+      font-size: 14px;
+    }
+    .faq-q::before { content: 'Q · '; color: var(--green); }
+    .faq-a {
+      margin: 0 0 8px 22px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .faq-a::before { content: 'A · '; color: var(--gold); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">📖 教育补贴知识库</div>
+    <a href="./index.html">← 返回入口</a>
+  </div>
+
+  <div class="wrap">
+    <div class="section">
+      <h2>采集流程</h2>
+      <p>代扫员按以下流程完成一条教育补贴记录：</p>
+      <div class="flow">
+        <span class="step">1. 客户出示教育券</span>
+        <span class="arrow">→</span>
+        <span class="step">2. 智店通出库绑定 SN</span>
+        <span class="arrow">→</span>
+        <span class="step">3. 群内上报</span>
+        <span class="arrow">→</span>
+        <span class="step">4. 同步至代扫群页</span>
+        <span class="arrow">→</span>
+        <span class="step">5. 财务核对 + 收款</span>
+      </div>
+      <p>每一步骤都有对应的字段录入要求，详见下方字段说明。</p>
+    </div>
+
+    <div class="section">
+      <h2>双群分类规则</h2>
+      <p>系统按 <code>sourceGroupName</code> 字段将记录分为两类：</p>
+      <table class="field-table">
+        <thead>
+          <tr>
+            <th>群</th>
+            <th>标识</th>
+            <th>服务费</th>
+            <th>典型场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-group badge-zhidian">智店通入库群</span></td>
+            <td>智店通</td>
+            <td>¥50 / 单</td>
+            <td>出库单 + SN + 教育券同轮证据完整</td>
+          </tr>
+          <tr>
+            <td><span class="badge-group badge-jiaoyu">教育补贴群</span></td>
+            <td>教育补贴</td>
+            <td>¥30 / 单</td>
+            <td>教育券图片查看器实扫，按普通单扫正式入库</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>核心字段说明</h2>
+      <table class="field-table">
+        <thead>
+          <tr><th>字段</th><th>口径</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id</code></td><td>唯一标识，格式 <code>education-agent-YYYYMMDD-subsidy-XXX-NN</code></td></tr>
+          <tr><td><code>sourceGroupName</code></td><td>群分类，<code>智店通入库群</code> 或 <code>教育补贴群</code></td></tr>
+          <tr><td><code>scanDate</code></td><td>扫描日期（YYYY-MM-DD）</td></tr>
+          <tr><td><code>productName</code></td><td>商品名称（含完整型号 + 集成显卡 / 独显标记）</td></tr>
+          <tr><td><code>skuKey</code></td><td>联想商品主档 ID（8 位数字）</td></tr>
+          <tr><td><code>pnMtm</code></td><td>PN/MTM 编码（如 83ND0000CD）</td></tr>
+          <tr><td><code>spec</code></td><td>规格简码（如 "灰 U5 32G 1T"）</td></tr>
+          <tr><td><code>category</code></td><td>类目：轻薄笔记本 / 游戏笔记本 / 平板电脑 / 手机</td></tr>
+          <tr><td><code>quantity</code></td><td>数量（默认 1）</td></tr>
+          <tr><td><code>educationDiscountAmount</code></td><td>单台教育补贴金额（元）</td></tr>
+          <tr><td><code>totalEducationDiscountAmount</code></td><td>教育补贴合计（amount × quantity）</td></tr>
+          <tr><td><code>serviceFeePerUnit</code></td><td>单台代扫服务费：智店通 ¥50 / 教育补贴 ¥30</td></tr>
+          <tr><td><code>totalServiceFee</code></td><td>服务费合计（fee × quantity）</td></tr>
+          <tr><td><code>orderNumber</code></td><td>智店通出库订单号（XS 开头）</td></tr>
+          <tr><td><code>outboundDate</code></td><td>出库时间（YYYY-MM-DD HH:MM:SS）</td></tr>
+          <tr><td><code>outboundStoreName</code></td><td>出库门店</td></tr>
+          <tr><td><code>outboundOperatorName</code></td><td>出库操作员</td></tr>
+          <tr><td><code>serialNumbers</code></td><td>SN 序列号数组</td></tr>
+          <tr><td><code>customerName</code></td><td>客户姓名</td></tr>
+          <tr><td><code>customerPhone</code></td><td>客户手机号（11 位）</td></tr>
+          <tr><td><code>agentPhone</code></td><td>代扫员手机号</td></tr>
+          <tr><td><code>paymentReceived</code></td><td>服务费是否已收款（true/false）</td></tr>
+          <tr><td><code>zhixiangjinAmount</code></td><td>志向金金额（套装才填）</td></tr>
+          <tr><td><code>bundleChargeApplied</code></td><td>是否命中营销库套装 MTM（true/false）</td></tr>
+          <tr><td><code>status</code></td><td>状态：<code>已收款</code> / <code>未付</code></td></tr>
+          <tr><td><code>reportStatus</code></td><td>上报状态：<code>上报完成</code> / <code>待补</code> / <code>本地录入</code></td></tr>
+          <tr><td><code>ruleText</code></td><td>规则口径说明（Codex 可读的纯文本）</td></tr>
+          <tr><td><code>voucherCode</code></td><td>教育券码（16 位数字）</td></tr>
+          <tr><td><code>voucherVerifiedAt</code></td><td>券码核销时间</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>三件套 / 两件套判定</h2>
+      <p>营销库中存在以 MTM 维度匹配的"三件套"和"两件套"组合时，系统会自动标记 <code>bundleChargeApplied: true</code> 并额外计算 <code>zhixiangjinAmount</code>。</p>
+      <ul>
+        <li><b>三件套</b>：笔记本 + 平板 + 手机（或 同价位替换）</li>
+        <li><b>两件套</b>：笔记本 + 平板 / 手机</li>
+        <li><b>普通单扫</b>：单件笔记本，不命中套装的场景</li>
+      </ul>
+      <p>套装命中后，<code>serviceFeePerUnit</code> 仍按单台计算，但 <code>zhixiangjinAmount</code> 按营销库规则累加。代扫员录入时需在手机端表单的"备注"里注明套装细节。</p>
+    </div>
+
+    <div class="section">
+      <h2>常见问题</h2>
+
+      <p class="faq-q">客户电话与代扫电话不一致怎么办？</p>
+      <p class="faq-a">属于正常情况。系统会在 <code>latest-education-agent-scan-phone-mismatch-alerts.json</code> 里记录告警。代扫员录入时需填写真实代扫电话，不要直接复制客户电话。</p>
+
+      <p class="faq-q">服务费何时到账？</p>
+      <p class="faq-a">服务费按月结算，财务核对后由店长统一转账到代扫员微信 / 支付宝。状态从 <code>未付</code> 变为 <code>已收款</code> 由管理端手动标记。</p>
+
+      <p class="faq-q">教育券码如何核销？</p>
+      <p class="faq-a">代扫员在智店通会员页扫码核销券码，<code>voucherCode</code> 和 <code>voucherVerifiedAt</code> 由智店通回调自动填充。如果券码核销时间晚于出库时间 1 小时以上，需在备注里说明原因。</p>
+
+      <p class="faq-q">本地记录如何与远端数据合并？</p>
+      <p class="faq-a">管理端启动时会从 <code>latest-education-subsidy-agent-scan-summary.json</code> 加载远端记录，并叠加 localStorage 中的本地记录。点击"同步至代扫群"会把本地记录写入 localStorage 的 <code>edu_subsidy_last_sync_payload</code> 键，供后续 Codex 抓取。</p>
+
+      <p class="faq-q">如何清理本地记录？</p>
+      <p class="faq-a">在手机端长按记录或点 🗑 按钮可删除单条；管理端不提供删除功能（避免误删远端）。若需清空所有本地记录，浏览器控制台执行 <code>localStorage.removeItem('edu_subsidy_local_records_v1')</code>。</p>
+    </div>
+
+    <div class="section">
+      <h2>Codex 抓取指南</h2>
+      <p>Codex 在审计教育补贴数据时，可使用以下结构化字段：</p>
+      <ul>
+        <li>本地记录持久化键：<code>edu_subsidy_local_records_v1</code></li>
+        <li>最近同步载荷键：<code>edu_subsidy_last_sync_payload</code></li>
+        <li>载荷结构：<code>{ syncedAt, source, localCount, groupBreakdown, records, totalServiceFee, totalDiscount }</code></li>
+        <li>远端源文件：<code>apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json</code></li>
+        <li>Sync Gap 告警：<code>latest-education-agent-scan-sync-gap.json</code></li>
+        <li>电话不匹配告警：<code>latest-education-agent-scan-phone-mismatch-alerts.json</code></li>
+      </ul>
+      <p>所有字段均为 UTF-8 JSON，可直接解析。Codex 审计时优先检查 <code>status='未付'</code> 的记录和服务费差额。</p>
+    </div>
+
+    <div class="section">
+      <h2>本地 OCR 服务（v2 自动识别）</h2>
+      <p>员工手机端上传凭证后自动调用本地 OCR 服务（基于 <code>rapidocr_onnxruntime</code>），提取订单号、客户名、手机号、金额、SN、券码等字段。</p>
+      <ul>
+        <li><b>服务脚本</b>：<code>scripts/ocr_service.py</code>（独立 FastAPI）</li>
+        <li><b>默认端口</b>：<code>127.0.0.1:8765</code></li>
+        <li><b>启动命令</b>：<code>python3 scripts/ocr_service.py --host 127.0.0.1 --port 8765</code></li>
+        <li><b>接口</b>：
+          <ul>
+            <li><code>GET /health</code> - 健康检查</li>
+            <li><code>POST /ocr/upload</code> - 上传图片，返回原始 OCR 行</li>
+            <li><code>POST /ocr/extract</code> - 上传图片，返回提取的字段</li>
+            <li><code>POST /ocr/batch</code> - 批量上传多张图片，合并字段</li>
+          </ul>
+        </li>
+        <li><b>提取字段</b>：customerName / customerPhone / agentPhone / orderNumber / serialNumber / voucherCode / educationDiscount / serviceFee / zhixiangjin / scanType / extractionConfidence</li>
+        <li><b>正则匹配</b>：手机号 11位 / 订单号 XS 开头 / 券码 16位 / 金额 ¥/元/圆</li>
+        <li><b>扫法判定</b>：基于文本关键词 "三件套/青春有AI" / "两件套/锦鲤跃龙门" / "双屏/拯救者"</li>
+        <li><b>降级机制</b>：OCR 不可用时降级为本地 mock 模式（不会阻塞流程）</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

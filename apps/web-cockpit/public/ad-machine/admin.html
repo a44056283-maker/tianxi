@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广告机后台管理</title>
+  <style>
+    :root {
+      --red: #d71a24;
+      --red-deep: #7d1317;
+      --ink: #22181a;
+      --muted: #6c5759;
+      --line: rgba(110,84,86,0.18);
+      --paper: #f7f1eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+      display: grid;
+      gap: 16px;
+    }
+    .hero, .panel {
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 36px rgba(58,22,12,0.08);
+    }
+    .hero {
+      padding: 20px;
+      background: linear-gradient(135deg, #931319, var(--red));
+      color: #fff;
+    }
+    .hero h1, .section-head h2 { margin: 0; }
+    .hero p { margin: 8px 0 0; color: rgba(255,255,255,0.82); }
+    .panel { padding: 16px; display: grid; gap: 14px; }
+    .section-head, .toolbar, .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .stats {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .stat {
+      border-radius: 10px;
+      padding: 14px;
+      background: linear-gradient(135deg, #8f1318, #d71a24);
+      color: #fff;
+      display: grid;
+      gap: 4px;
+    }
+    .stat strong { font-size: 28px; line-height: 1; }
+    .subtle { font-size: 12px; color: var(--muted); }
+    .grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .triple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    input, textarea, select, button { font: inherit; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fff;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    button.primary { background: var(--red); color: #fff; }
+    button.secondary { background: #201819; color: #fff; }
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      min-width: 1160px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #fff6ea;
+      color: var(--red-deep);
+      font-size: 12px;
+    }
+    .module-enabled {
+      width: 22px;
+      height: 22px;
+    }
+    @media (max-width: 900px) {
+      .stats, .triple { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .grid, .stats, .triple { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>广告机后台管理</h1>
+      <p>这里不是广告机预览页，而是广告机首页导航、彩页模块、抽奖规则、报名域名、售后服务模块和运行状态的后台管理端。</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>运行总览</h2>
+        <span class="subtle" id="overviewMeta">正在读取广告机总览…</span>
+      </div>
+      <div class="stats" id="overviewStats">
+        <article class="stat"><span>首页模块</span><strong>--</strong><small>启用模块数</small></article>
+        <article class="stat"><span>抽奖参与</span><strong>--</strong><small>正式参与人数</small></article>
+        <article class="stat"><span>服务排号</span><strong>--</strong><small>等待中</small></article>
+        <article class="stat"><span>运行状态</span><strong>--</strong><small>巡检结果</small></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>广告机首页与布局配置</h2>
+        <span class="subtle" id="configMeta">配置尚未保存。</span>
+      </div>
+      <div class="grid triple">
+        <div><label for="defaultTabId">默认首页模块</label><select id="defaultTabId"></select></div>
+        <div><label for="autoRefreshIntervalMs">自动刷新毫秒</label><input id="autoRefreshIntervalMs" type="number" min="5000" step="1000" /></div>
+        <div><label for="lotteryLanBaseUrl">抽奖报名域名</label><input id="lotteryLanBaseUrl" placeholder="http://192.168.13.104:5174" /></div>
+      </div>
+      <div class="grid triple">
+        <div><label for="topRowLabel">顶部行标题</label><input id="topRowLabel" /></div>
+        <div><label for="bottomRowLabel">底部行标题</label><input id="bottomRowLabel" /></div>
+        <div><label for="navMode">导航模式</label><select id="navMode"><option value="dual-row">双排导航</option></select></div>
+      </div>
+      <div class="grid triple">
+        <div><label for="allowMockDraw">允许模拟抽奖</label><select id="allowMockDraw"><option value="true">允许</option><option value="false">关闭</option></select></div>
+        <div><label for="showGaokaoVerify">显示高考延保核销区</label><select id="showGaokaoVerify"><option value="true">显示</option><option value="false">隐藏</option></select></div>
+        <div><label for="qrRefreshSeconds">二维码刷新秒数</label><input id="qrRefreshSeconds" type="number" min="5" step="1" /></div>
+      </div>
+      <div class="actions">
+        <button class="primary" type="button" id="saveConfigBtn">保存广告机配置</button>
+        <button class="secondary" type="button" id="refreshOverviewBtn">刷新总览</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>首页版块管理</h2>
+        <span class="subtle">广告机首页顶部彩页区和底部功能区都从这里管理。启用、排位、标题、副标题、页面地址都可改。</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>启用</th>
+              <th>版块ID</th>
+              <th>行</th>
+              <th>排序</th>
+              <th>类型</th>
+              <th>标题</th>
+              <th>副标题</th>
+              <th>页面地址</th>
+              <th>展示模式</th>
+            </tr>
+          </thead>
+          <tbody id="moduleTableBody">
+            <tr><td colspan="9">正在读取模块目录…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>抽奖活动管理</h2>
+        <div class="actions">
+          <button class="secondary" type="button" id="openNextRoundBtn">开启下一池</button>
+          <a class="subtle" href="/ad-machine/lottery-admin.html" target="_blank" rel="noreferrer">打开现有抽奖后台</a>
+        </div>
+      </div>
+      <div class="grid triple" id="lotterySummary">
+        <article class="stat"><span>当前池次</span><strong>--</strong><small>剩余奖卡</small></article>
+        <article class="stat"><span>正式参与</span><strong>--</strong><small>正式抽奖</small></article>
+        <article class="stat"><span>模拟参与</span><strong>--</strong><small>演示抽奖</small></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>售后服务模块目录</h2>
+        <span class="subtle">这是从广告机售后页扫描出的服务模块目录，便于后续继续做细分管理。</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>模块ID</th><th>名称</th><th>封面资源</th></tr></thead>
+          <tbody id="serviceCatalogBody"><tr><td colspan="3">正在读取售后模块目录…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const apiBase = location.hostname === "127.0.0.1" || location.hostname === "localhost" ? "http://127.0.0.1:8000" : "";
+    const overviewMeta = document.getElementById("overviewMeta");
+    const overviewStats = document.getElementById("overviewStats");
+    const configMeta = document.getElementById("configMeta");
+    const moduleTableBody = document.getElementById("moduleTableBody");
+    const serviceCatalogBody = document.getElementById("serviceCatalogBody");
+    const lotterySummary = document.getElementById("lotterySummary");
+    const defaultTabId = document.getElementById("defaultTabId");
+    const autoRefreshIntervalMs = document.getElementById("autoRefreshIntervalMs");
+    const lotteryLanBaseUrl = document.getElementById("lotteryLanBaseUrl");
+    const topRowLabel = document.getElementById("topRowLabel");
+    const bottomRowLabel = document.getElementById("bottomRowLabel");
+    const navMode = document.getElementById("navMode");
+    const allowMockDraw = document.getElementById("allowMockDraw");
+    const showGaokaoVerify = document.getElementById("showGaokaoVerify");
+    const qrRefreshSeconds = document.getElementById("qrRefreshSeconds");
+    const saveConfigBtn = document.getElementById("saveConfigBtn");
+    const refreshOverviewBtn = document.getElementById("refreshOverviewBtn");
+    const openNextRoundBtn = document.getElementById("openNextRoundBtn");
+
+    let state = { config: null, moduleDrafts: [] };
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>\"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[char]));
+    }
+
+    function formatDateTime(value) {
+      const text = String(value || "");
+      return text ? text.replace("T", " ").slice(0, 16) : "--";
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, { cache: "no-store", headers: { "Content-Type": "application/json", "Accept": "application/json" }, ...options });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || payload.ok === false) {
+        throw new Error(payload?.detail?.message || payload?.detail || payload?.message || "请求失败");
+      }
+      return payload;
+    }
+
+    function renderOverview(payload) {
+      state.config = payload.config || null;
+      state.moduleDrafts = Array.isArray(payload.moduleCatalog) ? payload.moduleCatalog.map(item => ({ ...item })) : [];
+      const enabledCount = state.moduleDrafts.filter(item => item.enabled !== false).length;
+      const lotteryAdmin = payload.lottery?.admin || {};
+      const runtimeSummary = payload.runtimeSummary || {};
+      const serviceStatus = payload.serviceStatus || {};
+      const healthyCount = Array.isArray(serviceStatus.modules) ? serviceStatus.modules.filter(item => item.ok).length : 0;
+      const totalModuleCount = Array.isArray(serviceStatus.modules) ? serviceStatus.modules.length : 0;
+      overviewStats.innerHTML = `
+        <article class="stat"><span>首页模块</span><strong>${enabledCount}</strong><small>共 ${state.moduleDrafts.length} 个版块</small></article>
+        <article class="stat"><span>抽奖参与</span><strong>${escapeHtml(lotteryAdmin.formalParticipantCount || 0)}</strong><small>正式参与人数</small></article>
+        <article class="stat"><span>服务排号</span><strong>${escapeHtml(runtimeSummary.waitingTicketCount || 0)}</strong><small>等待中 / 总 ${escapeHtml(runtimeSummary.serviceTicketCount || 0)}</small></article>
+        <article class="stat"><span>运行状态</span><strong>${healthyCount}/${totalModuleCount}</strong><small>巡检通过模块</small></article>
+      `;
+      overviewMeta.textContent = `更新时间 ${formatDateTime(payload.updatedAt)}｜抽奖报名域名 ${payload.lottery?.lotteryLanBaseUrl || "--"}`;
+      renderConfig(payload.config || {}, payload.lottery?.lotteryLanBaseUrl || "");
+      renderModules(state.moduleDrafts);
+      renderLottery(payload.lottery || {});
+      renderServiceCatalog(payload.serviceCatalog || []);
+    }
+
+    function renderConfig(config, lotteryBaseUrl) {
+      const modules = Array.isArray(config.modules) ? config.modules : [];
+      defaultTabId.innerHTML = modules.filter(item => item.enabled !== false).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.title)} (${escapeHtml(item.id)})</option>`).join("");
+      defaultTabId.value = config.defaultTabId || "";
+      autoRefreshIntervalMs.value = config.autoRefreshIntervalMs || 1800000;
+      lotteryLanBaseUrl.value = lotteryBaseUrl || "";
+      topRowLabel.value = config.layout?.topRowLabel || "";
+      bottomRowLabel.value = config.layout?.bottomRowLabel || "";
+      navMode.value = config.layout?.navMode || "dual-row";
+      allowMockDraw.value = String(config.lottery?.allowMockDraw !== false);
+      showGaokaoVerify.value = String(config.lottery?.showGaokaoVerify !== false);
+      qrRefreshSeconds.value = config.lottery?.qrRefreshSeconds || 30;
+      configMeta.textContent = `当前配置更新时间 ${formatDateTime(config.updatedAt)}`;
+    }
+
+    function renderModules(modules) {
+      if (!modules.length) {
+        moduleTableBody.innerHTML = '<tr><td colspan="9">当前没有模块配置。</td></tr>';
+        return;
+      }
+      moduleTableBody.innerHTML = modules.map((item, index) => `
+        <tr>
+          <td><input class="module-enabled" type="checkbox" data-field="enabled" data-index="${index}" ${item.enabled !== false ? "checked" : ""} /></td>
+          <td>${escapeHtml(item.id)}</td>
+          <td><select data-field="row" data-index="${index}"><option value="top" ${item.row === "top" ? "selected" : ""}>顶部</option><option value="bottom" ${item.row === "bottom" ? "selected" : ""}>底部</option></select></td>
+          <td><input type="number" min="1" step="1" data-field="order" data-index="${index}" value="${escapeHtml(item.order || 1)}" /></td>
+          <td>${escapeHtml(item.type || "")}</td>
+          <td><input data-field="title" data-index="${index}" value="${escapeHtml(item.title || "")}" /></td>
+          <td><input data-field="subtitle" data-index="${index}" value="${escapeHtml(item.subtitle || "")}" /></td>
+          <td><input data-field="src" data-index="${index}" value="${escapeHtml(item.src || "")}" /></td>
+          <td><input data-field="displayMode" data-index="${index}" value="${escapeHtml(item.displayMode || "")}" /></td>
+        </tr>
+      `).join("");
+      moduleTableBody.querySelectorAll("[data-index]").forEach(node => {
+        node.addEventListener("change", () => {
+          const index = Number(node.getAttribute("data-index"));
+          const field = node.getAttribute("data-field");
+          if (!Number.isFinite(index) || !field || !state.moduleDrafts[index]) return;
+          state.moduleDrafts[index][field] = node.type === "checkbox" ? node.checked : node.value;
+        });
+      });
+    }
+
+    function renderLottery(lottery) {
+      const dashboard = lottery.dashboard || {};
+      const round = dashboard.currentRound || {};
+      lotterySummary.innerHTML = `
+        <article class="stat"><span>当前池次</span><strong>${escapeHtml(round.roundNo || "--")}</strong><small>剩余 ${escapeHtml(round.remainingCount || 0)} / ${escapeHtml(round.totalCount || 0)}</small></article>
+        <article class="stat"><span>正式参与</span><strong>${escapeHtml(dashboard.formalParticipantCount || 0)}</strong><small>已抽 ${escapeHtml(dashboard.formalDrawCount || 0)}</small></article>
+        <article class="stat"><span>模拟参与</span><strong>${escapeHtml(dashboard.mockDrawCount || 0)}</strong><small>报名页 ${escapeHtml(lottery.lotteryEntryUrl || "--")}</small></article>
+      `;
+    }
+
+    function renderServiceCatalog(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        serviceCatalogBody.innerHTML = '<tr><td colspan="3">未读取到售后模块目录。</td></tr>';
+        return;
+      }
+      serviceCatalogBody.innerHTML = rows.map(item => `
+        <tr>
+          <td>${escapeHtml(item.id || "")}</td>
+          <td>${escapeHtml(item.title || "")}</td>
+          <td>${escapeHtml(item.thumb || "")}</td>
+        </tr>
+      `).join("");
+    }
+
+    async function loadOverview() {
+      const payload = await fetchJson(`${apiBase}/api/ad-machine/admin/overview`, { method: "GET" });
+      renderOverview(payload);
+    }
+
+    async function saveConfig() {
+      saveConfigBtn.disabled = true;
+      saveConfigBtn.textContent = "保存中...";
+      try {
+        const payload = await fetchJson(`${apiBase}/api/ad-machine/admin/config`, {
+          method: "POST",
+          body: JSON.stringify({
+            defaultTabId: defaultTabId.value,
+            autoRefreshIntervalMs: Number(autoRefreshIntervalMs.value || 1800000),
+            lotteryLanBaseUrl: lotteryLanBaseUrl.value,
+            layout: {
+              topRowLabel: topRowLabel.value,
+              bottomRowLabel: bottomRowLabel.value,
+              navMode: navMode.value,
+            },
+            lottery: {
+              allowMockDraw: allowMockDraw.value === "true",
+              showGaokaoVerify: showGaokaoVerify.value === "true",
+              qrRefreshSeconds: Number(qrRefreshSeconds.value || 30),
+            },
+            modules: state.moduleDrafts,
+          })
+        });
+        configMeta.textContent = `已保存 ${formatDateTime(payload.updatedAt)}`;
+        await loadOverview();
+      } catch (error) {
+        alert(error.message || "保存失败");
+      } finally {
+        saveConfigBtn.disabled = false;
+        saveConfigBtn.textContent = "保存广告机配置";
+      }
+    }
+
+    async function openNextRound() {
+      openNextRoundBtn.disabled = true;
+      openNextRoundBtn.textContent = "开启中...";
+      try {
+        await fetchJson(`${apiBase}/api/ad-machine/lottery/admin/open-next-round`, { method: "POST", body: JSON.stringify({}) });
+        await loadOverview();
+      } catch (error) {
+        alert(error.message || "开启失败");
+      } finally {
+        openNextRoundBtn.disabled = false;
+        openNextRoundBtn.textContent = "开启下一池";
+      }
+    }
+
+    saveConfigBtn.addEventListener("click", saveConfig);
+    refreshOverviewBtn.addEventListener("click", () => loadOverview().catch(error => alert(error.message || "刷新失败")));
+    openNextRoundBtn.addEventListener("click", openNextRound);
+
+    loadOverview().catch(error => {
+      overviewMeta.textContent = `后台读取失败：${error.message || "请稍后再试"}`;
+    });
+  </script>
+</body>
+</html>

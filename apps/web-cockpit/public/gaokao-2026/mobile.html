@@ -1,0 +1,3355 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ed1c24" />
+  <link rel="preload" as="image" href="/gaokao-2026/assets/storefront-hero-mobile.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/gaokao-2026/assets/photo-frame-with-group-image2-mobile.webp" type="image/webp" />
+  <title>联想高考生 AI 学习装备活动</title>
+  <style>
+    :root {
+      --red: #ed1c24;
+      --red-deep: #8d1115;
+      --ink: #1f1719;
+      --muted: #746467;
+      --line: rgba(143, 16, 21, 0.14);
+      --paper: #fff9f2;
+      --gold: #ffd36d;
+      --blue: #1463ff;
+      --green: #16815f;
+      --panel: rgba(255, 255, 255, 0.9);
+      --shadow: 0 16px 36px rgba(64, 26, 18, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #fff7ec 0%, #fff 34%, #f5f7fb 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      background: #fffdf9;
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+      padding-bottom: 86px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 18px 18px 24px;
+      color: white;
+      background:
+        linear-gradient(180deg, #24161b 0%, #3b0d12 68%, #fffdf9 100%);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, transparent, #fffdf9 82%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+    }
+
+    .store-pill {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--red-deep);
+      font-size: 13px;
+      font-weight: 950;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    }
+
+    .storefront-visual {
+      height: 124px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+      background: #151012;
+    }
+
+    .progressive-img {
+      opacity: 0;
+      transform: scale(1.01);
+      filter: blur(10px);
+      transition: opacity 260ms ease, transform 360ms ease, filter 360ms ease;
+      will-change: opacity, transform, filter;
+    }
+
+    .progressive-img.is-loaded {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    .storefront-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .frame-visual {
+      margin: 2px -18px 6px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .frame-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-copy {
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.48);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.02;
+      font-weight: 1000;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--gold);
+    }
+
+    .hero p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 15px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .hero-actions .wechat-btn {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #22b35f, #16815f);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 12px 28px rgba(10, 72, 48, 0.26);
+    }
+
+    .hero-actions .advisor-btn {
+      background: linear-gradient(180deg, #fff8d1, #ffd36d);
+      color: #6f1015;
+      border: 1px solid rgba(255, 211, 109, 0.94);
+      box-shadow: 0 12px 26px rgba(93, 39, 13, 0.24);
+    }
+
+    .primary-btn,
+    .ghost-btn {
+      min-height: 46px;
+      border: 0;
+      border-radius: 8px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0 14px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      background: var(--gold);
+      color: #561010;
+    }
+
+    .ghost-btn {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+    }
+
+    .section {
+      padding: 18px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.12;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .benefit-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .benefit-main {
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--red), var(--red-deep));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-main .inner {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .money-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .money {
+      min-width: 136px;
+      min-height: 86px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #fff4c5, var(--gold));
+      color: #8a1015;
+      box-shadow: inset 0 -4px 0 rgba(113, 52, 4, 0.14);
+    }
+
+    .money small {
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .money strong {
+      font-size: 52px;
+      line-height: 0.9;
+      font-weight: 1000;
+    }
+
+    .money-copy h3,
+    .card h3,
+    .form-card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 1000;
+    }
+
+    .money-copy p,
+    .card p,
+    .form-card p {
+      margin: 6px 0 0;
+      color: inherit;
+      font-size: 13px;
+      line-height: 1.45;
+      opacity: 0.82;
+      font-weight: 720;
+    }
+
+    .benefit-rules {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mini-rule {
+      min-height: 72px;
+      padding: 10px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .mini-rule span {
+      display: block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .mini-rule strong {
+      display: block;
+      margin-top: 5px;
+      color: white;
+      font-size: 13px;
+      line-height: 1.16;
+      font-weight: 950;
+    }
+
+    .e-coupon-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .e-coupon-ticket {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 0 50%, #fffdf9 0 11px, transparent 12px),
+        radial-gradient(circle at 100% 50%, #fffdf9 0 11px, transparent 12px),
+        linear-gradient(135deg, #ec1c24 0%, #9e1218 58%, #211013 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .e-coupon-ticket::before {
+      content: "";
+      position: absolute;
+      inset: 14px auto 14px 132px;
+      width: 1px;
+      background: repeating-linear-gradient(180deg, rgba(255,255,255,0.72) 0 7px, transparent 7px 14px);
+    }
+
+    .e-coupon-ticket .ticket-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 122px 1fr;
+      gap: 16px;
+      min-height: 156px;
+      padding: 16px;
+    }
+
+    .ticket-value {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff5c8, var(--gold));
+      color: #821116;
+      box-shadow: inset 0 -5px 0 rgba(105, 52, 0, 0.14);
+    }
+
+    .ticket-value small {
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .ticket-value strong {
+      font-size: 42px;
+      line-height: 0.92;
+      font-weight: 1000;
+    }
+
+    .ticket-value span {
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ticket-copy {
+      min-width: 0;
+      display: grid;
+      align-content: center;
+      gap: 7px;
+    }
+
+    .ticket-copy h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.08;
+      font-weight: 1000;
+    }
+
+    .ticket-copy p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      line-height: 1.42;
+      font-weight: 760;
+    }
+
+    .ticket-code {
+      width: fit-content;
+      max-width: 100%;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff7c8;
+      font-size: 15px;
+      font-weight: 1000;
+      letter-spacing: 0.04em;
+      overflow-wrap: anywhere;
+    }
+
+    .e-coupon-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .e-coupon-meta span {
+      min-height: 54px;
+      padding: 9px 8px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .e-coupon-meta strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--red-deep);
+      font-size: 12px;
+      font-weight: 1000;
+    }
+
+    .e-coupon-result {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .e-coupon-result.is-visible {
+      display: block;
+    }
+
+    .bookmark-nav,
+    .asset-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .bookmark {
+      position: relative;
+      min-height: 118px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(80, 38, 22, 0.09);
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+    }
+
+    .bookmark::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 14px;
+      width: 32px;
+      height: 46px;
+      background: var(--red);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+      opacity: 0.94;
+    }
+
+    .bookmark.blue::before { background: var(--blue); }
+    .bookmark.green::before { background: var(--green); }
+    .bookmark.gold::before { background: #c98500; }
+
+    .bookmark small {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-left: 42px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .bookmark strong {
+      display: block;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.16;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+
+    .bookmark span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.38;
+      font-weight: 720;
+    }
+
+    .quick-section {
+      padding-top: 12px;
+      padding-bottom: 10px;
+      background: #fffdf9;
+    }
+
+    .quick-bookmarks {
+      border: 1px solid rgba(237, 28, 36, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(237, 28, 36, 0.08), rgba(255, 211, 109, 0.18)),
+        #fff;
+      box-shadow: 0 10px 22px rgba(80, 38, 22, 0.08);
+      overflow: hidden;
+    }
+
+    .quick-bookmarks summary {
+      min-height: 48px;
+      padding: 8px 10px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .quick-bookmarks summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .quick-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      color: var(--red-deep);
+      font-size: 13px;
+      font-weight: 1000;
+      white-space: nowrap;
+    }
+
+    .quick-title::before {
+      content: "";
+      width: 9px;
+      height: 26px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--red), #c98500);
+      flex: 0 0 auto;
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .quick-btn {
+      appearance: none;
+      min-height: 30px;
+      padding: 0 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(143, 16, 21, 0.12);
+      color: #4d2428;
+      font-size: 12px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .quick-toggle {
+      min-height: 30px;
+      padding: 0 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: var(--red);
+      color: white;
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .quick-toggle::after {
+      content: "展开";
+    }
+
+    .quick-bookmarks[open] .quick-toggle::after {
+      content: "收起";
+    }
+
+    .quick-panel {
+      padding: 0 10px 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .quick-panel .quick-btn {
+      min-height: 36px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: inset 3px 0 0 var(--red);
+    }
+
+    .quick-panel .quick-btn:nth-child(2),
+    .quick-panel .quick-btn:nth-child(5) {
+      box-shadow: inset 3px 0 0 var(--blue);
+    }
+
+    .quick-panel .quick-btn:nth-child(3),
+    .quick-panel .quick-btn:nth-child(6) {
+      box-shadow: inset 3px 0 0 var(--green);
+    }
+
+    .asset-card {
+      appearance: none;
+      position: relative;
+      min-height: 156px;
+      padding: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(80, 38, 22, 0.09);
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .asset-card img {
+      width: 100%;
+      height: 118px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .asset-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--red-deep);
+      font-size: 11px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .asset-card em {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(237, 28, 36, 0.92);
+      color: #fff;
+      font-style: normal;
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: 0 6px 14px rgba(80, 10, 15, 0.22);
+    }
+
+    .asset-card:active {
+      transform: translateY(1px);
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .asset-card.banner {
+      grid-column: 1 / -1;
+      min-height: 106px;
+    }
+
+    .asset-card.banner img {
+      height: 54px;
+      object-fit: contain;
+      background: #fff7f2;
+    }
+
+    .asset-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      background: rgba(24, 9, 12, 0.88);
+      padding: 18px;
+    }
+
+    .asset-viewer.is-open {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 12px;
+    }
+
+    .viewer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #fff;
+    }
+
+    .viewer-top strong {
+      min-width: 0;
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .viewer-close {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--red-deep);
+      font-size: 22px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .viewer-body {
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .viewer-body img {
+      width: min(100%, 520px);
+      max-height: calc(100vh - 106px);
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.44);
+    }
+
+    .grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 22px rgba(84, 45, 32, 0.08);
+    }
+
+    .card.red {
+      background: #fff1ee;
+    }
+
+    .card.blue {
+      background: #eef4ff;
+      border-color: rgba(20, 99, 255, 0.16);
+    }
+
+    .card.green {
+      background: #eefaf5;
+      border-color: rgba(22, 129, 95, 0.16);
+    }
+
+    .card strong.kpi {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--red-deep);
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 1000;
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .topic {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topic i {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #fff0d1;
+      color: var(--red-deep);
+      font-style: normal;
+      font-weight: 1000;
+    }
+
+    .topic h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.22;
+      font-weight: 950;
+    }
+
+    .topic p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .video-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .video-card {
+      position: relative;
+      min-height: 172px;
+      border-radius: 8px;
+      padding: 14px;
+      color: white;
+      text-decoration: none;
+      background: linear-gradient(135deg, #1d1d29, var(--red-deep));
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+    }
+
+    .video-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 14px;
+      width: 30px;
+      height: 44px;
+      background: var(--gold);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+    }
+
+    .video-card small {
+      position: relative;
+      z-index: 1;
+      margin-left: 40px;
+      color: rgba(255,255,255,0.72);
+      font-weight: 850;
+    }
+
+    .video-card h3 {
+      margin: 30px 0 0;
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 1000;
+    }
+
+    .video-card .meta {
+      position: relative;
+      z-index: 1;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.78);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 780;
+    }
+
+    .video-card .tags {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .video-card .tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #fff4cf;
+      font-size: 11px;
+      font-weight: 860;
+    }
+
+    .interactive-hub {
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, #8b0f15 0%, #d71a24 48%, #7b1216 100%);
+      color: white;
+      box-shadow: 0 18px 46px rgba(91, 12, 18, 0.2);
+    }
+
+    .interactive-hero {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 214, 96, 0.28), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    }
+
+    .interactive-hero h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.04;
+      font-weight: 1000;
+    }
+
+    .interactive-hero p {
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 720;
+    }
+
+    .portal-topbar {
+      display: grid;
+      gap: 10px;
+    }
+
+    .portal-login-card,
+    .portal-marquee {
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .portal-login-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+
+    .portal-login-copy {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      flex: 1 1 180px;
+    }
+
+    .portal-login-copy strong {
+      font-size: 15px;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .portal-login-copy span {
+      color: rgba(255,255,255,0.76);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+
+    .portal-mini-btn {
+      appearance: none;
+      border: 0;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff4c3, #ffd24a);
+      color: #7d1317;
+      font-size: 12px;
+      font-weight: 1000;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .portal-marquee {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 10px 12px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+
+    .portal-marquee-track {
+      display: flex;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .portal-marquee-item {
+      flex: 0 0 min(240px, calc(100vw - 92px));
+      min-height: 52px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      font-weight: 820;
+      white-space: normal;
+      scroll-snap-align: start;
+    }
+
+    .portal-marquee-item.is-empty {
+      flex-basis: 100%;
+      min-height: 56px;
+    }
+
+    .portal-marquee-item b {
+      color: #ffd978;
+      font-weight: 1000;
+    }
+
+    .portal-photo-showcase {
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-radius: 8px;
+      padding: 10px 12px 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+
+    .portal-photo-track {
+      display: flex;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .portal-photo-card {
+      flex: 0 0 min(280px, calc(100vw - 84px));
+      min-height: 148px;
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255,255,255,0.94);
+      color: var(--ink);
+      display: grid;
+      gap: 7px;
+      box-shadow: 0 10px 24px rgba(91, 12, 18, 0.12);
+      border: 1px solid rgba(255,255,255,0.6);
+      scroll-snap-align: start;
+    }
+
+    .portal-photo-card.is-empty {
+      flex-basis: 100%;
+      min-height: 132px;
+      align-content: center;
+    }
+
+    .portal-photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .portal-photo-thumb {
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      display: grid;
+      gap: 5px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .portal-photo-thumb.is-placeholder {
+      cursor: default;
+    }
+
+    .portal-photo-thumb em {
+      color: #7d1317;
+      font-style: normal;
+      font-size: 11px;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+
+    .portal-photo-thumb span {
+      display: block;
+      min-height: 0;
+      padding: 10px 8px;
+      border-radius: 8px;
+      background: #fff6ef;
+      border: 1px dashed rgba(143, 16, 21, 0.18);
+      color: #7d6466;
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 760;
+    }
+
+    .portal-photo-card img {
+      width: 100%;
+      border-radius: 8px;
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .portal-photo-card strong {
+      color: #7d1317;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 1000;
+    }
+
+    .portal-photo-card p,
+    .portal-photo-card span {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #543437;
+      font-weight: 760;
+    }
+
+    .portal-photo-card .meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .portal-photo-card .meta b {
+      color: #d71a24;
+      font-size: 11px;
+      font-weight: 1000;
+    }
+
+    .portal-body {
+      padding: 0 12px 12px;
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .portal-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .portal-tab {
+      appearance: none;
+      min-height: 42px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      font-weight: 920;
+      cursor: pointer;
+    }
+
+    .portal-tab.is-active {
+      background: linear-gradient(180deg, #fff4c3, #ffd24a);
+      color: #7d1317;
+      border-color: transparent;
+    }
+
+    .portal-panel {
+      display: none;
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff8f1;
+      color: var(--ink);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .portal-panel.is-active {
+      display: grid;
+      gap: 12px;
+    }
+
+    .portal-panel h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.12;
+      font-weight: 1000;
+      color: #7d1317;
+    }
+
+    .portal-panel p.tip {
+      margin: 0;
+      color: #6e5557;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 720;
+    }
+
+    .portal-reply-target {
+      display: none;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff1e6;
+      border: 1px solid rgba(215, 26, 36, 0.16);
+    }
+
+    .portal-reply-target.is-visible {
+      display: grid;
+    }
+
+    .portal-reply-target strong {
+      color: #7d1317;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 1000;
+    }
+
+    .portal-reply-target span {
+      color: #6e5557;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 760;
+    }
+
+    .portal-reply-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .portal-reply-btn {
+      appearance: none;
+      border: 0;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: #211517;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .portal-subgrid {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .portal-upload-box {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px dashed rgba(143, 16, 21, 0.28);
+      background: #fff;
+      min-width: 0;
+    }
+
+    .portal-upload-box input[type="file"] {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .portal-upload-preview {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: none;
+      background: #f7f0ea;
+    }
+
+    .portal-upload-preview.is-visible {
+      display: block;
+    }
+
+    .portal-login-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(23, 10, 12, 0.72);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+
+    .portal-login-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .portal-login-sheet {
+      width: min(100%, 420px);
+      border-radius: 12px;
+      padding: 18px;
+      background: linear-gradient(180deg, #fff8ef 0%, #fff 22%);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+      display: grid;
+      gap: 12px;
+    }
+
+    .wechat-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 56;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(23, 10, 12, 0.72);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+
+    .wechat-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .wechat-sheet {
+      width: min(100%, 420px);
+      border-radius: 14px;
+      padding: 18px;
+      background: linear-gradient(180deg, #fff8ef 0%, #fff 22%);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+      display: grid;
+      gap: 12px;
+    }
+
+    .wechat-sheet-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wechat-sheet-head strong {
+      color: var(--red-deep);
+      font-size: 20px;
+      line-height: 1.16;
+      font-weight: 1000;
+    }
+
+    .wechat-sheet-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 720;
+    }
+
+    .wechat-close {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(237, 28, 36, 0.08);
+      color: var(--red-deep);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+
+    .wechat-contact-card {
+      border-radius: 12px;
+      padding: 14px;
+      background: linear-gradient(135deg, #ed1c24, #8d1115);
+      color: white;
+      display: grid;
+      gap: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .wechat-contact-card small {
+      font-size: 12px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .wechat-contact-card strong {
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 1000;
+      color: var(--gold);
+    }
+
+    .wechat-contact-card span {
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.86);
+      font-weight: 760;
+    }
+
+    .wechat-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .wechat-actions .wechat-open-app-btn {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #22b35f, #16815f);
+      color: #fff;
+      border: 0;
+    }
+
+    .wechat-copy-btn,
+    .wechat-call-btn {
+      min-height: 46px;
+      border-radius: 10px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0 14px;
+      font-weight: 950;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .wechat-copy-btn {
+      border: 0;
+      background: var(--red);
+      color: #fff;
+    }
+
+    .wechat-call-btn {
+      border: 1px solid var(--line);
+      background: #fff7f0;
+      color: var(--red-deep);
+    }
+
+    .wechat-status {
+      min-height: 20px;
+      color: var(--green);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 850;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 0;
+      min-height: 34px;
+      border-radius: 999px;
+      padding: 0 12px;
+      background: rgba(255,255,255,0.16);
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .form-card {
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      align-items: end;
+      padding: 16px 0 0;
+      background: rgba(23, 10, 12, 0.72);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+
+    .lead-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lead-modal-sheet {
+      max-height: min(86vh, 820px);
+      overflow: auto;
+      border-radius: 14px 14px 0 0;
+      background:
+        radial-gradient(circle at top right, rgba(255, 215, 120, 0.42), transparent 26%),
+        linear-gradient(180deg, #9b1118 0, #d71a24 78px, #fff8ef 78px, #fff 100%);
+      box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.24);
+      transform: translateY(28px);
+      transition: transform 260ms ease;
+    }
+
+    .lead-modal.is-open .lead-modal-sheet {
+      transform: translateY(0);
+    }
+
+    .lead-modal-head {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px 10px;
+      background: rgba(151, 20, 26, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .lead-modal-head strong {
+      font-size: 18px;
+      line-height: 1.1;
+      font-weight: 1000;
+      color: #fff;
+    }
+
+    .lead-close {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff3bf;
+      color: #7d1317;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lead-modal-body {
+      padding: 0 18px calc(18px + env(safe-area-inset-bottom));
+    }
+
+    .lead-modal-body .form-card {
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+      padding: 16px 0 0;
+    }
+
+    .field-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .field label {
+      color: #4d393c;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid rgba(116,100,103,0.22);
+      border-radius: 8px;
+      padding: 11px 12px;
+      background: #fffdfa;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 86px;
+      resize: vertical;
+    }
+
+    .consent {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 720;
+    }
+
+    .consent input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      flex: 0 0 auto;
+    }
+
+    .submit {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--red);
+      color: white;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .lead-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .lead-item {
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 6px;
+    }
+
+    .lead-item strong {
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .lead-item span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+
+    .notice {
+      border-radius: 8px;
+      padding: 12px;
+      background: #f7f3ef;
+      color: #6e5557;
+      font-size: 11px;
+      line-height: 1.55;
+      font-weight: 720;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 10;
+      transform: translateX(-50%);
+      width: min(100%, 480px);
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: rgba(255,255,255,0.94);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+      .bottom-bar a,
+      .bottom-bar button {
+      appearance: none;
+      min-height: 44px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      color: white;
+      background: var(--red);
+      font-size: 14px;
+      font-weight: 950;
+      text-decoration: none;
+      cursor: pointer;
+      }
+
+    .bottom-bar a.secondary,
+    .bottom-bar button.secondary {
+      background: #1f1719;
+    }
+
+    @media (min-width: 700px) {
+      body {
+        background: #ece8e2;
+      }
+    }
+
+    @media (max-width: 374px) {
+      .bookmark-nav,
+      .asset-strip,
+      .video-row,
+      .two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portal-panel,
+      .portal-panel.is-active,
+      .portal-subgrid,
+      .portal-upload-box,
+      .portal-chat-box,
+      .lead-list,
+      .field,
+      .field label,
+      .field input,
+      .field select,
+      .field textarea,
+      .submit {
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="store-pill">联想体验店（新野书院路店）</div>
+        <div class="storefront-visual">
+          <img class="progressive-img" src="/gaokao-2026/assets/storefront-hero-mobile.webp" alt="联想体验店门头" width="960" height="310" decoding="async" fetchpriority="high" />
+        </div>
+        <div class="frame-visual">
+          <img class="progressive-img" src="/gaokao-2026/assets/photo-frame-with-group-image2-mobile.webp" alt="高考必胜拍照框合影" width="960" height="640" decoding="async" fetchpriority="high" />
+        </div>
+        <div class="hero-copy">
+          <h1>高考后的第一台 <span>AI 学习装备</span></h1>
+          <p>查分前先做准备：志愿方向、专业需求、电脑配置、到店权益一次看清。凭券到店购联想笔记本，可升级全国硬件服务权益。</p>
+        </div>
+        <div class="hero-actions">
+          <button class="primary-btn js-open-lead-modal" type="button">领取电子券</button>
+          <a class="ghost-btn advisor-btn" href="#advisor">测一测适合哪台</a>
+          <button class="ghost-btn wechat-btn" type="button" id="wechatShortcutBtn">一键加微信咨询</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-section" aria-label="活动快捷入口">
+      <details class="quick-bookmarks">
+        <summary>
+          <span class="quick-title">活动快捷入口</span>
+          <span class="quick-actions" aria-hidden="true">
+            <a class="quick-btn" href="#benefits">权益</a>
+            <a class="quick-btn" href="#advisor">选机</a>
+            <button class="quick-btn js-open-lead-modal" type="button">留资</button>
+            <span class="quick-toggle"></span>
+          </span>
+        </summary>
+        <div class="quick-panel">
+          <a class="quick-btn" href="#ecoupon">电子券</a>
+          <a class="quick-btn" href="#benefits">权益券</a>
+          <a class="quick-btn" href="#advisor">专业选机</a>
+          <a class="quick-btn" href="#knowledge">知识卡</a>
+          <a class="quick-btn" href="#video">知识分享</a>
+          <a class="quick-btn" href="#wish">AI互动</a>
+          <button class="quick-btn js-open-lead-modal" type="button">登记留资</button>
+        </div>
+      </details>
+    </section>
+
+    <section class="section" id="ecoupon">
+      <div class="section-title">
+        <h2>扫码领电子版优惠券</h2>
+        <span>6月21日止</span>
+      </div>
+      <div class="e-coupon-panel">
+        <div class="e-coupon-ticket" aria-label="高考生电子版优惠券">
+          <div class="ticket-inner">
+            <div class="ticket-value">
+              <small>服务权益</small>
+              <strong>699</strong>
+              <span>三人同行升 899</span>
+            </div>
+            <div class="ticket-copy">
+              <h3>联想高考生电子优惠券</h3>
+              <p>提交姓名和手机号后生成专属电子券。到店出示券码，门店核验后享受对应服务权益。</p>
+              <div class="ticket-code">提交后显示专属券码</div>
+            </div>
+          </div>
+        </div>
+        <div class="e-coupon-meta">
+          <span>领取方式<strong>登记姓名 + 手机号</strong></span>
+          <span>活动日期<strong>即日起至 6月21日</strong></span>
+          <span>核销方式<strong>到店出示券码</strong></span>
+        </div>
+        <button class="primary-btn js-open-lead-modal" type="button">立即领取电子券</button>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="section-title">
+        <h2>高考生到店专属权益</h2>
+        <span>凭券核验</span>
+      </div>
+      <div class="benefit-panel">
+        <div class="benefit-main">
+          <div class="inner">
+            <div class="money-row">
+              <div class="money"><div><small>服务权益</small><strong>699</strong></div></div>
+              <div class="money-copy">
+                <h3>凭券购联想笔记本</h3>
+                <p>升级价值 699 元智惠四年整机全国硬件服务。三人同行可升级为 899 元智惠五年整机全国硬件服务。</p>
+              </div>
+            </div>
+            <div class="benefit-rules">
+              <div class="mini-rule"><span>单人凭券</span><strong>四年服务升级</strong></div>
+              <div class="mini-rule"><span>二人同行</span><strong>无券团单同享</strong></div>
+              <div class="mini-rule"><span>三人同行</span><strong>五年服务升级</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>厂家活动与门店优惠</h2>
+        <span>书签权益</span>
+      </div>
+      <div class="grid two">
+        <article class="bookmark gold"><small>教育补</small><strong>学生 / 准大学生权益</strong><span>资格、机型、库存和叠加规则以厂家与门店现场核验为准。</span></article>
+        <article class="bookmark blue"><small>三件套</small><strong>电脑 + 平板 + 配件</strong><span>适合开学装备一次配齐，按当前厂家活动匹配。</span></article>
+        <article class="bookmark green"><small>二件套</small><strong>学习装备搭配</strong><span>指定电脑搭配平板、耳机或服务权益，适合不同预算。</span></article>
+        <article class="bookmark"><small>到店对比</small><strong>核配置核体验核权益</strong><span>现场对比轻薄本、YOGA、拯救者和 AI PC 的使用方向。</span></article>
+      </div>
+    </section>
+
+    <section class="section" id="advisor">
+      <div class="section-title">
+        <h2>按专业选电脑</h2>
+        <span>先看方向</span>
+      </div>
+      <div class="topic-list">
+        <a class="topic" href="/gaokao-2026/knowledge.html?id=arts-business"><i>文</i><div><h3>文科 / 经管 / 师范 / 法学</h3><p>优先轻薄、续航、护眼屏和资料管理体验，YOGA 与轻薄本更适合常带去课堂和图书馆。</p></div></a>
+        <a class="topic" href="/gaokao-2026/knowledge.html?id=computer-ai"><i>计</i><div><h3>计算机 / 人工智能 / 数据科学</h3><p>优先 CPU、内存、散热和 AI 本地运行能力，建议 16GB 起，重度方向优先 32GB。</p></div></a>
+        <a class="topic" href="/gaokao-2026/knowledge.html?id=design-media"><i>设</i><div><h3>设计 / 传媒 / 建筑 / 工程</h3><p>重点看显卡、屏幕色域、硬盘容量和多软件稳定性，适合性能本或拯救者方向。</p></div></a>
+        <a class="topic" href="/gaokao-2026/knowledge.html?id=gaming-balance"><i>玩</i><div><h3>游戏 / 剪辑 / 建模 / 直播</h3><p>重点看显卡、散热和屏幕刷新率，适合做性能、重量和课程软件取舍。</p></div></a>
+      </div>
+    </section>
+
+    <section class="section" id="knowledge">
+      <div class="section-title">
+        <h2>买电脑先看这 6 件事</h2>
+        <span>避坑清单</span>
+      </div>
+      <div class="grid">
+        <article class="card"><h3>CPU、显卡、内存、硬盘、屏幕、保修</h3><p>日常速度看 CPU；游戏、设计、建模、AI 本地运行看显卡；大学四年建议 16GB 起，长期使用建议 1TB；设计剪辑看色域；最后一定确认 SN、保修日期和服务权益。</p></article>
+        <article class="card"><h3>报考建议只做参考</h3><p>页面提供的是电脑使用方向建议，不替代高校招生政策或志愿填报承诺。真实报考以官方信息和家庭决策为准。</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="section-title">
+        <h2>电脑选购知识分享</h2>
+        <span>每日更新</span>
+      </div>
+      <div class="video-row" aria-label="电脑选购知识分享" id="guideList">
+        <article class="video-card"><small>加载中</small><h3>正在同步今日知识分享</h3><p class="meta">会按专业、宿舍场景、Win11 电脑使用技巧和当前门店活动方向自动刷新。</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="wish">
+      <div class="interactive-hub">
+        <div class="interactive-hero">
+          <h2>AI 许愿互动 + 客户咨询</h2>
+          <p>许愿、咨询、上传照片、门店回复、AI 推荐都放在一个窗口里。照片互动公开区会滚动展示脱敏对话，详细记录和原图仍只对手机号本人可见。</p>
+          <div class="portal-topbar">
+            <div class="portal-login-card">
+              <div class="portal-login-copy">
+                <strong id="portalViewerTitle">输入手机号查看我的提问与回复</strong>
+                <span id="portalViewerMeta">免密登录后可继续提问、上传照片、查看门店回复和天禧AI助理记录。</span>
+              </div>
+              <button class="portal-mini-btn" type="button" id="portalLoginBtn">手机号登录</button>
+            </div>
+            <div class="portal-marquee" aria-label="脱敏互动滚动区">
+              <div class="portal-marquee-track" id="portalFeedTrack">
+                <span class="portal-marquee-item"><b>加载中</b><span>正在读取高考活动互动留言…</span></span>
+              </div>
+            </div>
+            <div class="portal-photo-showcase" aria-label="照片互动公开展示">
+              <div class="portal-photo-track" id="portalPhotoFeedTrack">
+                <article class="portal-photo-card">
+                  <strong>照片互动公开展示加载中</strong>
+                  <p>正在读取脱敏后的照片许愿对话和门店补充回复…</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portal-body">
+          <div class="portal-tabs" aria-label="互动功能切换">
+            <button class="portal-tab is-active" type="button" data-portal-tab="wish">许愿咨询</button>
+            <button class="portal-tab" type="button" data-portal-tab="recommend">库存推荐</button>
+            <button class="portal-tab" type="button" data-portal-tab="chat">天禧AI</button>
+            <button class="portal-tab" type="button" data-portal-tab="mine">我的回复</button>
+          </div>
+
+          <div class="portal-panel is-active" data-portal-panel="wish">
+            <h3>许愿 / 咨询统一提交</h3>
+            <p class="tip">适合提“想和明星合影”“想生成高考纪念图”“想问某专业买什么电脑”“想咨询到店活动”这类需求。照片类建议直接写清人物关系、场景风格、服装姿态，再上传 1 到 2 张清晰参考照。</p>
+            <div class="portal-reply-target" id="portalReplyTarget">
+              <strong id="portalReplyTargetTitle">正在回复指定互动</strong>
+              <span id="portalReplyTargetMeta">回复会带上原始互动上下文，不会再丢到泛用提交框里。</span>
+              <div class="portal-reply-actions">
+                <span id="portalReplyTargetHint">提交后会归到对应互动线程下继续处理。</span>
+                <button class="portal-reply-btn" type="button" id="portalReplyTargetClearBtn">取消定向回复</button>
+              </div>
+            </div>
+            <div class="chips">
+              <button class="chip" type="button" data-wish="金榜题名">金榜题名</button>
+              <button class="chip" type="button" data-wish="理想大学">理想大学</button>
+              <button class="chip" type="button" data-wish="未来工程师">未来工程师</button>
+              <button class="chip" type="button" data-wish="AI 创作者">AI 创作者</button>
+            </div>
+            <div class="portal-subgrid">
+              <div class="field">
+                <label for="portalChannel">互动类型</label>
+                <select id="portalChannel">
+                  <option value="wish">照片许愿</option>
+                  <option value="consultation">客户咨询</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="portalTopic">主题 / 标题</label>
+                <input id="portalTopic" placeholder="例如：想做一张和张凌赫同框的高考纪念图" />
+              </div>
+              <div class="field">
+                <label for="portalMessage">详细需求</label>
+                <textarea id="portalMessage" placeholder="例如：想做高考纪念合影，请把我和张凌赫做成更真实一点的校园同框图，红色氛围，半身构图。我是计算机方向，预算 7000-9000，也想顺便问下适合的电脑型号。"></textarea>
+              </div>
+              <div class="portal-upload-box">
+                <label for="portalPhotoInput">上传参考照片</label>
+                <input id="portalPhotoInput" type="file" accept="image/*" />
+                <img id="portalPhotoPreview" class="portal-upload-preview" alt="上传预览" />
+              </div>
+              <button class="submit" type="button" id="portalSubmitBtn">提交许愿 / 咨询</button>
+            </div>
+          </div>
+
+          <div class="portal-panel" data-portal-panel="recommend">
+            <h3>按专业生成推荐机型</h3>
+            <p class="tip">按专业、预算、便携和性能偏好生成门店推荐方向，只展示公开活动和适配场景，不展示内部价格与库存数量。</p>
+            <div class="portal-subgrid">
+              <div class="field">
+                <label for="recommendMajor">专业方向</label>
+                <select id="recommendMajor">
+                  <option>文科 / 经管 / 师范 / 法学</option>
+                  <option>计算机 / 人工智能 / 数据科学</option>
+                  <option>设计 / 传媒 / 建筑 / 工程</option>
+                  <option>医学 / 考研 / 日常学习</option>
+                  <option>游戏 / 剪辑 / 建模 / 直播</option>
+                  <option>暂时不确定，需要建议</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="recommendBudget">预算区间</label>
+                <select id="recommendBudget">
+                  <option>4000-5000</option>
+                  <option>5000-7000</option>
+                  <option selected>7000-9000</option>
+                  <option>9000 以上</option>
+                  <option>先看配置再定预算</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="recommendPortability">便携倾向</label>
+                <select id="recommendPortability">
+                  <option>轻一点，方便背着走</option>
+                  <option>均衡就行</option>
+                  <option>重量不是重点</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="recommendPerformance">性能倾向</label>
+                <select id="recommendPerformance">
+                  <option>日常学习为主</option>
+                  <option>要兼顾编程 / 多任务</option>
+                  <option>性能优先 / 建模剪辑</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="recommendAiFocus">AI 使用需求</label>
+                <select id="recommendAiFocus">
+                  <option>先能稳定学习办公</option>
+                  <option>想试本地 AI / 代码工具</option>
+                  <option>想兼顾图片视频创作</option>
+                </select>
+              </div>
+              <button class="submit" type="button" id="recommendSubmitBtn">生成推荐方向</button>
+              <div class="grid" id="recommendResult"></div>
+            </div>
+          </div>
+
+          <div class="portal-panel" data-portal-panel="chat">
+            <h3>天禧AI助理选机对话</h3>
+            <p class="tip">会结合每日同步的专业知识库、Win11 电脑使用技巧、当前活动方向和你的条件给出建议，默认遵守客户可见口径边界。</p>
+            <div class="portal-subgrid">
+              <div class="lead-list" id="portalChatMessages">
+                <article class="lead-item"><strong>天禧AI助理</strong><span>先登录手机号，再发你的问题。我会按专业、预算、校园场景和每日同步知识库给出建议。</span></article>
+              </div>
+              <div class="field">
+                <label for="portalChatInput">输入问题</label>
+                <textarea id="portalChatInput" placeholder="例如：我是计算机专业，预算 8000 左右，平时写代码也想试试本地 AI，门店现货里哪台更合适？"></textarea>
+              </div>
+              <button class="submit" type="button" id="portalChatSendBtn">发送给天禧AI助理</button>
+            </div>
+          </div>
+
+          <div class="portal-panel" data-portal-panel="mine">
+            <h3>我的提问与门店回复</h3>
+            <p class="tip">只有当前手机号登录本人可以看到自己的提问、上传照片记录和门店回复。公开滚动区只展示脱敏摘要。</p>
+            <div class="lead-list" id="portalMineList">
+              <article class="lead-item"><strong>未登录</strong><span>先输入手机号登录，再查看自己的互动记录。</span></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-modal" id="leadModal" aria-hidden="true">
+      <div class="lead-modal-sheet">
+        <div class="lead-modal-head">
+          <strong>登记领取电子版优惠券</strong>
+          <button class="lead-close" type="button" id="leadModalClose" aria-label="关闭领券弹窗">×</button>
+        </div>
+        <div class="lead-modal-body">
+      <div class="form-card">
+        <h3>登记领取电子版优惠券</h3>
+        <p>提交后生成你的专属电子券。到店出示券码即可核验权益，公开展示仅显示脱敏信息。</p>
+        <form id="leadForm" class="field-grid">
+          <div class="field">
+            <label for="name">学生姓名</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="例如：张同学" />
+          </div>
+          <div class="field">
+            <label for="phone">手机号</label>
+            <input id="phone" name="phone" inputmode="tel" autocomplete="tel" required pattern="^1[3-9][0-9]{9}$" placeholder="用于活动联系" />
+          </div>
+          <div class="field">
+            <label for="major">意向专业方向</label>
+            <select id="major" name="major" required>
+              <option value="">请选择</option>
+              <option>文科 / 经管 / 师范 / 法学</option>
+              <option>计算机 / 人工智能 / 数据科学</option>
+              <option>设计 / 传媒 / 建筑 / 工程</option>
+              <option>医学 / 考研 / 日常学习</option>
+              <option>游戏 / 剪辑 / 建模 / 直播</option>
+              <option>暂时不确定，需要建议</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">预算区间</label>
+            <select id="budget" name="budget" required>
+              <option value="">请选择</option>
+              <option>4000-5000</option>
+              <option>5000-7000</option>
+              <option>7000-9000</option>
+              <option>9000 以上</option>
+              <option>先看配置再定预算</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="time">购机时间</label>
+            <select id="time" name="time" required>
+              <option>今天到店</option>
+              <option>3天内</option>
+              <option>查分后</option>
+              <option>录取后</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="interest">关注权益</label>
+            <select id="interest" name="interest" required>
+              <option>699/899 服务升级</option>
+              <option>教育补贴</option>
+              <option>三件套 / 二件套</option>
+              <option>AI 照片许愿</option>
+              <option>专业电脑推荐</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">留言</label>
+            <textarea id="message" name="message" placeholder="例如：想学计算机，预算 7000 左右，希望轻一点但能跑代码。"></textarea>
+          </div>
+          <label class="consent">
+            <input type="checkbox" required />
+            <span>我同意门店基于本次高考活动为我提供选机建议、优惠核验和到店联系服务；公开区域仅展示脱敏信息。</span>
+          </label>
+          <button class="submit" id="leadSubmit" type="submit">提交并领取电子优惠券</button>
+        </form>
+        <div class="e-coupon-result" id="eCouponResult" aria-live="polite"></div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>已有同学提交咨询</h2>
+        <span>脱敏展示</span>
+      </div>
+      <div id="leadList" class="lead-list"></div>
+    </section>
+
+    <section class="section">
+      <div class="notice">
+        教育补、厂家三件套/二件套、门店优惠是否可叠加，以厂家规则、库存状态和门店现场核验为准。AI 照片互动不得上传他人照片、证件照、准考证、身份证或包含敏感个人信息的图片。未成年人提交信息建议由家长陪同确认。电话：15637798222。
+      </div>
+    </section>
+  </main>
+
+  <div class="portal-login-modal" id="portalLoginModal" aria-hidden="true">
+    <div class="portal-login-sheet">
+      <strong>手机号免密登录</strong>
+      <p class="tip">登录后查看自己的许愿、咨询、门店回复和天禧AI助理记录，不对外公开你的完整手机号。</p>
+      <div class="field">
+        <label for="portalLoginPhone">手机号</label>
+        <input id="portalLoginPhone" inputmode="tel" autocomplete="tel" placeholder="请输入留资手机号" />
+      </div>
+      <div class="field">
+        <label for="portalLoginName">称呼（可选）</label>
+        <input id="portalLoginName" autocomplete="name" placeholder="例如：张同学" />
+      </div>
+      <button class="submit" type="button" id="portalLoginSubmitBtn">登录查看我的消息</button>
+      <button class="portal-mini-btn" type="button" id="portalLoginCloseBtn">先不登录</button>
+    </div>
+  </div>
+
+  <div class="wechat-modal" id="wechatModal" aria-hidden="true">
+    <div class="wechat-sheet">
+      <div class="wechat-sheet-head">
+        <div>
+          <strong>一键加微信咨询</strong>
+        </div>
+        <button class="wechat-close" type="button" id="wechatModalClose" aria-label="关闭微信咨询弹窗">×</button>
+      </div>
+      <div class="wechat-contact-card">
+        <small>联想体验店（新野书院路店）</small>
+        <strong id="wechatContactValue">15637798222</strong>
+      </div>
+      <div class="wechat-actions">
+        <a class="wechat-copy-btn wechat-open-app-btn" href="weixin://" id="wechatOpenAppBtn">打开微信 App</a>
+        <button class="wechat-copy-btn" type="button" id="wechatCopyBtn">复制微信号</button>
+        <a class="wechat-call-btn" href="tel:15637798222">直接打电话</a>
+      </div>
+      <div class="wechat-status" id="wechatStatus"></div>
+    </div>
+  </div>
+
+  <div class="asset-viewer" id="assetViewer" aria-hidden="true">
+    <div class="viewer-top">
+      <strong id="viewerTitle">厂家活动素材</strong>
+      <button class="viewer-close" type="button" id="viewerClose" aria-label="关闭素材查看">×</button>
+    </div>
+    <div class="viewer-body">
+      <img id="viewerImage" alt="" decoding="async" />
+    </div>
+  </div>
+
+  <nav class="bottom-bar" aria-label="快捷操作">
+    <a href="tel:15637798222">电话咨询</a>
+    <button class="secondary js-open-lead-modal" type="button">领取电子券</button>
+  </nav>
+
+  <script>
+    const storageKey = "lenovoGaokaoLeads";
+    const leadList = document.getElementById("leadList");
+    const form = document.getElementById("leadForm");
+    const leadSubmit = document.getElementById("leadSubmit");
+    const message = document.getElementById("message");
+    const eCouponResult = document.getElementById("eCouponResult");
+    const leadModal = document.getElementById("leadModal");
+    const leadModalClose = document.getElementById("leadModalClose");
+    const portalLoginModal = document.getElementById("portalLoginModal");
+    const wechatModal = document.getElementById("wechatModal");
+    const wechatShortcutBtn = document.getElementById("wechatShortcutBtn");
+    const wechatOpenAppBtn = document.getElementById("wechatOpenAppBtn");
+    const wechatModalClose = document.getElementById("wechatModalClose");
+    const wechatCopyBtn = document.getElementById("wechatCopyBtn");
+    const wechatStatus = document.getElementById("wechatStatus");
+    const wechatContactValue = document.getElementById("wechatContactValue");
+    const portalLoginBtn = document.getElementById("portalLoginBtn");
+    const portalLoginPhone = document.getElementById("portalLoginPhone");
+    const portalLoginName = document.getElementById("portalLoginName");
+    const portalLoginSubmitBtn = document.getElementById("portalLoginSubmitBtn");
+    const portalLoginCloseBtn = document.getElementById("portalLoginCloseBtn");
+    const portalViewerTitle = document.getElementById("portalViewerTitle");
+    const portalViewerMeta = document.getElementById("portalViewerMeta");
+    const portalFeedTrack = document.getElementById("portalFeedTrack");
+    const portalPhotoFeedTrack = document.getElementById("portalPhotoFeedTrack");
+    const portalReplyTarget = document.getElementById("portalReplyTarget");
+    const portalReplyTargetTitle = document.getElementById("portalReplyTargetTitle");
+    const portalReplyTargetMeta = document.getElementById("portalReplyTargetMeta");
+    const portalReplyTargetHint = document.getElementById("portalReplyTargetHint");
+    const portalReplyTargetClearBtn = document.getElementById("portalReplyTargetClearBtn");
+    const portalPhotoInput = document.getElementById("portalPhotoInput");
+    const portalPhotoPreview = document.getElementById("portalPhotoPreview");
+    const portalChannel = document.getElementById("portalChannel");
+    const portalTopic = document.getElementById("portalTopic");
+    const portalMessage = document.getElementById("portalMessage");
+    const portalSubmitBtn = document.getElementById("portalSubmitBtn");
+    const portalMineList = document.getElementById("portalMineList");
+    const portalChatMessages = document.getElementById("portalChatMessages");
+    const portalChatInput = document.getElementById("portalChatInput");
+    const portalChatSendBtn = document.getElementById("portalChatSendBtn");
+    const recommendMajor = document.getElementById("recommendMajor");
+    const recommendBudget = document.getElementById("recommendBudget");
+    const recommendPortability = document.getElementById("recommendPortability");
+    const recommendPerformance = document.getElementById("recommendPerformance");
+    const recommendAiFocus = document.getElementById("recommendAiFocus");
+    const recommendSubmitBtn = document.getElementById("recommendSubmitBtn");
+    const recommendResult = document.getElementById("recommendResult");
+    const guideList = document.getElementById("guideList");
+    const assetViewer = document.getElementById("assetViewer");
+    const viewerTitle = document.getElementById("viewerTitle");
+    const viewerImage = document.getElementById("viewerImage");
+    const viewerClose = document.getElementById("viewerClose");
+    const params = new URLSearchParams(window.location.search);
+    const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname) && window.location.port !== "8000";
+    const apiBase = isLocalPreview ? "http://127.0.0.1:8000" : "";
+    const leadApiUrl = `${apiBase}/api/marketing/gaokao-2026/leads`;
+    const eCouponApiUrl = `${apiBase}/api/marketing/gaokao-2026/e-coupons/claim`;
+    const portalLoginApiUrl = `${apiBase}/api/marketing/gaokao-2026/portal/login`;
+    const portalFeedApiUrl = `${apiBase}/api/marketing/gaokao-2026/portal/feed`;
+    const portalPhotoFeedApiUrl = `${apiBase}/api/marketing/gaokao-2026/portal/photo-feed`;
+    const portalMessagesApiUrl = `${apiBase}/api/marketing/gaokao-2026/portal/messages`;
+    const portalRecommendApiUrl = `${apiBase}/api/marketing/gaokao-2026/recommend`;
+    const portalKnowledgeGuideApiUrl = `${apiBase}/api/marketing/gaokao-2026/knowledge-guides`;
+    const portalAiChatApiUrl = `${apiBase}/api/marketing/gaokao-2026/ai-chat`;
+    const portalAuthStorageKey = "lenovoGaokaoPortalAuth";
+    const remoteHydrationDelayMs = 1200;
+    const preferDeferredHydration = !isLocalPreview;
+    const storeContactNumber = "15637798222";
+    let portalUploadData = "";
+    let portalUploadMimeType = "";
+    let portalUploadName = "";
+    let latestRecommendation = { items: [] };
+    let portalReplyContext = null;
+    let portalPendingReplyContext = null;
+
+    const starterLeads = [
+      { name: "张同学", phone: "156****8222", major: "计算机 / 人工智能", budget: "7000-9000", status: "已生成推荐" },
+      { name: "李同学", phone: "135****6198", major: "设计 / 传媒", budget: "9000 以上", status: "待到店看机" },
+      { name: "王同学", phone: "188****2036", major: "文科 / 经管", budget: "5000-7000", status: "待联系" }
+    ];
+
+    function maskName(value) {
+      const raw = String(value || "").trim();
+      if (!raw) return "同学";
+      const first = raw[0];
+      return first + "同学";
+    }
+
+    function maskPhone(value) {
+      const raw = String(value || "").replace(/\D/g, "");
+      if (raw.length !== 11) return "手机号已脱敏";
+      return raw.slice(0, 3) + "****" + raw.slice(7);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function loadPortalAuth() {
+      try {
+        return JSON.parse(localStorage.getItem(portalAuthStorageKey) || "{}");
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function savePortalAuth(next) {
+      localStorage.setItem(portalAuthStorageKey, JSON.stringify(next || {}));
+    }
+
+    function clearPortalAuth() {
+      localStorage.removeItem(portalAuthStorageKey);
+    }
+
+    function syncBodyScrollLock() {
+      const locked =
+        assetViewer.classList.contains("is-open") ||
+        leadModal.classList.contains("is-open") ||
+        wechatModal.classList.contains("is-open") ||
+        portalLoginModal.classList.contains("is-open");
+      document.body.style.overflow = locked ? "hidden" : "";
+    }
+
+    function openLeadModal() {
+      leadModal.classList.add("is-open");
+      leadModal.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    function closeLeadModal() {
+      leadModal.classList.remove("is-open");
+      leadModal.setAttribute("aria-hidden", "true");
+      syncBodyScrollLock();
+    }
+
+    function openWechatModal() {
+      wechatStatus.textContent = "";
+      wechatModal.classList.add("is-open");
+      wechatModal.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    function closeWechatModal() {
+      wechatModal.classList.remove("is-open");
+      wechatModal.setAttribute("aria-hidden", "true");
+      syncBodyScrollLock();
+    }
+
+    async function copyWechatContact() {
+      const value = String(wechatContactValue?.textContent || storeContactNumber).trim();
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(value);
+        } else {
+          const temp = document.createElement("input");
+          temp.value = value;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand("copy");
+          temp.remove();
+        }
+        wechatStatus.textContent = `已复制微信号：${value}，现在可直接到微信里搜索添加。`;
+      } catch (error) {
+        wechatStatus.textContent = `复制失败，请手动记录微信号：${value}`;
+      }
+    }
+
+    function openPortalLoginModal(prefillPhone = "") {
+      if (prefillPhone) portalLoginPhone.value = prefillPhone;
+      portalLoginModal.classList.add("is-open");
+      portalLoginModal.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    function closePortalLoginModal() {
+      portalLoginModal.classList.remove("is-open");
+      portalLoginModal.setAttribute("aria-hidden", "true");
+      syncBodyScrollLock();
+    }
+
+    async function portalFetchJson(url, options) {
+      const response = await fetch(url, {
+        cache: "no-store",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        ...options
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.detail || "请求失败");
+      }
+      return payload;
+    }
+
+    function renderPortalViewer() {
+      const auth = loadPortalAuth();
+      if (auth.phone && auth.token) {
+        portalViewerTitle.textContent = `${auth.displayName || "同学"} 已登录`;
+        portalViewerMeta.textContent = `${auth.phoneMasked || ""} 可查看自己的提问、门店回复和天禧AI助理记录。`;
+        portalLoginBtn.textContent = "切换手机号";
+        return;
+      }
+      portalViewerTitle.textContent = "输入手机号查看我的提问与回复";
+      portalViewerMeta.textContent = "免密登录后可继续提问、上传照片、查看门店回复和天禧AI助理记录。";
+      portalLoginBtn.textContent = "手机号登录";
+    }
+
+    function buildReplyContext(source, item) {
+      if (!item) return null;
+      return {
+        source: source || "thread",
+        messageId: String(item.id || ""),
+        topic: String(item.topic || item.question || item.message || "互动留言"),
+        channel: String(item.channel || "wish"),
+        name: String(item.name || "同学"),
+        preview: String(item.question || item.message || item.topic || ""),
+      };
+    }
+
+    function renderPortalReplyContext() {
+      if (!portalReplyContext) {
+        portalReplyTarget.classList.remove("is-visible");
+        portalSubmitBtn.textContent = "提交许愿 / 咨询";
+        return;
+      }
+      portalReplyTarget.classList.add("is-visible");
+      portalReplyTargetTitle.textContent = `正在回复：${portalReplyContext.topic || "互动留言"}`;
+      portalReplyTargetMeta.textContent = `${portalReplyContext.name || "同学"}｜${portalReplyContext.channel === "ai_chat" ? "天禧AI助理对话" : portalReplyContext.channel === "consultation" ? "客户咨询" : "照片许愿"}｜${portalReplyContext.preview || "点击这条互动后发起的定向补充回复"}`;
+      portalReplyTargetHint.textContent = "提交后会自动带上原始互动 ID，后台能直接看到你是在继续哪一条。";
+      portalSubmitBtn.textContent = "提交这条回复";
+    }
+
+    function clearPortalReplyContext() {
+      portalReplyContext = null;
+      portalPendingReplyContext = null;
+      renderPortalReplyContext();
+    }
+
+    function setPortalReplyContext(context) {
+      portalReplyContext = context || null;
+      renderPortalReplyContext();
+    }
+
+    async function startPortalReply(context) {
+      const auth = loadPortalAuth();
+      if (!auth.phone || !auth.token) {
+        portalPendingReplyContext = context;
+        openPortalLoginModal(form.querySelector("#phone")?.value || "");
+        return;
+      }
+      setPortalReplyContext(context);
+      portalChannel.value = context?.channel === "consultation" ? "consultation" : "wish";
+      if (!portalTopic.value) {
+        portalTopic.value = context?.topic ? `回复：${context.topic}` : "继续补充这条互动";
+      }
+      if (!portalMessage.value) {
+        portalMessage.value = context?.channel === "ai_chat"
+          ? "我继续补充这条对话的需求，请按这条互动继续跟进。"
+          : "我继续补充这条互动的需求，请按这条留言继续处理。";
+      }
+      setPortalTab("wish");
+      document.getElementById("wish")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => portalMessage.focus(), 220);
+    }
+
+    function normalizeReplyPayload(payload) {
+      return payload && typeof payload === "object" ? payload : {};
+    }
+
+    function renderMarketingActivityText(item) {
+      const activities = Array.isArray(item?.marketingActivities) ? item.marketingActivities.filter(Boolean) : [];
+      if (activities.length) return activities.join("｜");
+      if (item?.marketingSummary) return String(item.marketingSummary);
+      return "到店可核验当前门店活动和服务权益";
+    }
+
+    function renderSuggestedProducts(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) return "";
+      return `
+        <div class="lead-item" style="margin-top:10px;background:#fff8ef;">
+          <strong>门店同步推荐机型</strong>
+          ${rows.map(item => `
+            <span>${escapeHtml(item.productName || "")}</span>
+            <span>${escapeHtml(item.category || "")}｜${escapeHtml(renderMarketingActivityText(item))}</span>
+            ${item.fitSummary ? `<span>${escapeHtml(item.fitSummary || "")}</span>` : ""}
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderPortalFeed(items) {
+      const feedItems = Array.isArray(items) ? items : [];
+      if (!feedItems.length) {
+        portalFeedTrack.innerHTML = `<span class="portal-marquee-item is-empty"><b>暂时空闲</b><span>第一条高考活动许愿或咨询提交后会显示在这里。</span></span>`;
+        return;
+      }
+      const html = feedItems.map(item => `
+        <span class="portal-marquee-item">
+          <b>${escapeHtml(item.name || "同学")} · ${escapeHtml(item.phone || "")}</b>
+          <span>${escapeHtml(item.topic || item.message || "提交了新的互动需求")}</span>
+        </span>
+      `).join("");
+      portalFeedTrack.innerHTML = html;
+    }
+
+    function renderDefaultPortalFeed() {
+      renderPortalFeed([
+        { name: "新野联想体验店", phone: "实时留言", topic: "高考纪念照、电子券、到店选机和校园场景提问会在这里滚动显示。" },
+        { name: "高考活动", phone: "轻量首屏", topic: "首屏先保留静态内容，互动列表稍后自动同步，不阻塞页面打开速度。" }
+      ]);
+    }
+
+    function renderPortalPhotoFeed(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        portalPhotoFeedTrack.innerHTML = `
+          <article class="portal-photo-card is-empty">
+            <strong>照片互动公开展示</strong>
+            <p>第一条照片许愿在门店补充回复后，会以脱敏形式展示在这里。</p>
+          </article>
+        `;
+        return;
+      }
+      const html = rows.map(item => `
+        <article class="portal-photo-card">
+          <div class="meta">
+            <b>${escapeHtml(item.name || "同学")}</b>
+            <span>${escapeHtml(item.phone || "")}</span>
+            <span>${escapeHtml(item.imageTag || "照片互动")}</span>
+          </div>
+          <strong>${escapeHtml(item.topic || "照片互动需求")}</strong>
+          <p>提问：${escapeHtml(item.question || item.message || "提交了照片许愿需求")}</p>
+          <p>回复：${escapeHtml(item.publicReplyMessage || "门店正在整理图片方案")}</p>
+          <div class="portal-photo-gallery">
+            ${item.imageUrl ? `
+              <button class="portal-photo-thumb" type="button" data-photo-thumb="${escapeHtml(item.imageUrl)}" data-photo-title="${escapeHtml((item.topic || "照片互动需求") + "｜需求图")}" data-photo-alt="客户需求图">
+                <em>需求图</em>
+                <img src="${escapeHtml(item.imageUrl)}" alt="客户需求图" loading="eager" decoding="async" />
+              </button>
+            ` : `
+              <div class="portal-photo-thumb is-placeholder">
+                <em>需求图</em>
+                <span>客户未公开需求图</span>
+              </div>
+            `}
+            ${item.replyImageUrl ? `
+              <button class="portal-photo-thumb" type="button" data-photo-thumb="${escapeHtml(item.replyImageUrl)}" data-photo-title="${escapeHtml((item.topic || "照片互动需求") + "｜回复图")}" data-photo-alt="门店回复图">
+                <em>回复图</em>
+                <img src="${escapeHtml(item.replyImageUrl)}" alt="门店回复图" loading="eager" decoding="async" />
+              </button>
+            ` : `
+              <div class="portal-photo-thumb is-placeholder">
+                <em>回复图</em>
+                <span>门店回复图整理中</span>
+              </div>
+            `}
+          </div>
+          <button class="portal-reply-btn" type="button" data-photo-reply='${escapeHtml(JSON.stringify({
+            id: item.id || "",
+            topic: item.topic || "照片互动需求",
+            channel: item.channel || "wish",
+            name: item.name || "同学",
+            question: item.question || item.message || ""
+          }))}'>回复这条</button>
+        </article>
+      `).join("");
+      portalPhotoFeedTrack.innerHTML = html;
+      portalPhotoFeedTrack.querySelectorAll("[data-photo-thumb]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const src = button.getAttribute("data-photo-thumb");
+          if (!src) return;
+          const title = button.getAttribute("data-photo-title") || "照片互动图片";
+          const alt = button.getAttribute("data-photo-alt") || title;
+          openAssetViewer(title, src, alt);
+        });
+      });
+      portalPhotoFeedTrack.querySelectorAll("[data-photo-reply]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+          try {
+            const raw = JSON.parse(button.getAttribute("data-photo-reply") || "{}");
+            startPortalReply(buildReplyContext("public_photo_feed", {
+              id: raw.id,
+              topic: raw.topic,
+              channel: raw.channel,
+              name: raw.name,
+              question: raw.question,
+              message: raw.question,
+            }));
+          } catch (error) {
+          }
+        });
+      });
+    }
+
+    async function loadPortalPhotoFeed() {
+      try {
+        const payload = await portalFetchJson(`${portalPhotoFeedApiUrl}?limit=8`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderPortalPhotoFeed(payload.items || []);
+      } catch (error) {
+        renderPortalPhotoFeed([]);
+      }
+    }
+
+    async function loadPortalFeed() {
+      try {
+        const payload = await portalFetchJson(`${portalFeedApiUrl}?limit=10`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderPortalFeed(payload.items || []);
+      } catch (error) {
+        renderPortalFeed([]);
+      }
+    }
+
+    function setPortalTab(name) {
+      document.querySelectorAll("[data-portal-tab]").forEach(node => {
+        node.classList.toggle("is-active", node.getAttribute("data-portal-tab") === name);
+      });
+      document.querySelectorAll("[data-portal-panel]").forEach(node => {
+        node.classList.toggle("is-active", node.getAttribute("data-portal-panel") === name);
+      });
+    }
+
+    async function ensurePortalLogin() {
+      const auth = loadPortalAuth();
+      if (auth.phone && auth.token) return auth;
+      openPortalLoginModal(form.querySelector("#phone")?.value || "");
+      throw new Error("请先输入手机号登录");
+    }
+
+    function renderPortalMine(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        portalMineList.innerHTML = `<article class="lead-item"><strong>暂无记录</strong><span>你提交许愿、咨询或天禧AI助理对话后，会在这里看到门店回复。</span></article>`;
+        return;
+      }
+      portalMineList.innerHTML = rows.map(item => {
+        const replyPayload = normalizeReplyPayload(item.replyPayload);
+        const suggestedProducts = Array.isArray(replyPayload.suggestedProducts) ? replyPayload.suggestedProducts : [];
+        const adminFollowUpMessage = String(replyPayload.adminFollowUpMessage || "");
+        const adminFollowUpBy = String(replyPayload.adminFollowUpBy || "");
+        const adminFollowUpAt = String(replyPayload.adminFollowUpAt || "");
+        return `
+        <article class="lead-item">
+          <strong>${escapeHtml(item.topic || (item.channel === "ai_chat" ? "天禧AI助理对话" : "互动留言"))}</strong>
+          <span>${escapeHtml(item.message || "")}</span>
+          ${item.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="客户上传图片" style="width:100%;border-radius:8px;margin-top:8px;" />` : ""}
+          ${replyPayload.replyImageUrl ? `<img src="${escapeHtml(replyPayload.replyImageUrl)}" alt="门店回复图片" style="width:100%;border-radius:8px;margin-top:8px;border:1px solid rgba(0,0,0,0.08);" />` : ""}
+          <span>状态：${escapeHtml(item.status || "pending")}｜提交时间：${escapeHtml((item.createdAt || "").replace("T", " ").slice(0, 16))}</span>
+          ${item.replyMessage ? `<span style="color:#7d1317;font-weight:820;">${escapeHtml(item.channel === "ai_chat" ? "天禧AI助理答复" : "门店回复")}：${escapeHtml(item.replyMessage)}</span>` : `<span>门店暂未回复，系统已记录你的需求。</span>`}
+          ${adminFollowUpMessage ? `<span style="color:#4c1a1c;font-weight:820;">门店补充回复：${escapeHtml(adminFollowUpMessage)}</span>` : ""}
+          ${adminFollowUpAt ? `<span style="color:#6c2326;">补充时间：${escapeHtml(adminFollowUpAt.replace("T", " ").slice(0, 16))}${adminFollowUpBy ? `｜${escapeHtml(adminFollowUpBy)}` : ""}</span>` : ""}
+          ${replyPayload.followUpAction ? `<span style="color:#6c2326;">跟进状态：${escapeHtml(replyPayload.followUpAction)}</span>` : ""}
+          <button class="portal-reply-btn" type="button" data-mine-reply='${escapeHtml(JSON.stringify({
+            id: item.id || "",
+            topic: item.topic || (item.channel === "ai_chat" ? "天禧AI助理对话" : "互动留言"),
+            channel: item.channel || "wish",
+            name: item.name || "同学",
+            question: item.message || ""
+          }))}'>继续补充这条</button>
+          ${renderSuggestedProducts(suggestedProducts)}
+        </article>
+      `;
+      }).join("");
+      portalMineList.querySelectorAll("[data-mine-reply]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          try {
+            const raw = JSON.parse(button.getAttribute("data-mine-reply") || "{}");
+            startPortalReply(buildReplyContext("my_thread", {
+              id: raw.id,
+              topic: raw.topic,
+              channel: raw.channel,
+              name: raw.name,
+              question: raw.question,
+              message: raw.question,
+            }));
+          } catch (error) {
+          }
+        });
+      });
+    }
+
+    async function loadPortalMine() {
+      const auth = loadPortalAuth();
+      if (!auth.phone || !auth.token) {
+        portalMineList.innerHTML = `<article class="lead-item"><strong>未登录</strong><span>先输入手机号登录，再查看自己的提问、上传照片和门店回复。</span></article>`;
+        renderPortalChatFromMessages([]);
+        return;
+      }
+      try {
+        const payload = await portalFetchJson(`${portalMessagesApiUrl}?phone=${encodeURIComponent(auth.phone)}&token=${encodeURIComponent(auth.token)}&limit=60`, {
+          method: "GET",
+          headers: { "Accept": "application/json" }
+        });
+        renderPortalMine(payload.items || []);
+        renderPortalChatFromMessages(payload.items || []);
+      } catch (error) {
+        clearPortalAuth();
+        renderPortalViewer();
+        renderPortalMine([]);
+      }
+    }
+
+    function renderPortalChatFromMessages(items) {
+      const chats = (Array.isArray(items) ? items : []).filter(item => item.channel === "ai_chat").slice(0, 8).reverse();
+      if (!chats.length) {
+        portalChatMessages.innerHTML = `<article class="lead-item"><strong>天禧AI助理</strong><span>先登录手机号，再发你的问题。我会按专业、预算、校园场景和每日同步知识库给出建议。</span></article>`;
+        return;
+      }
+      portalChatMessages.innerHTML = chats.map(item => {
+        const replyPayload = normalizeReplyPayload(item.replyPayload);
+        const knowledgeTitles = Array.isArray(replyPayload.knowledge?.items)
+          ? replyPayload.knowledge.items.map(entry => entry.title || "").filter(Boolean)
+          : (Array.isArray(replyPayload.knowledgeSummary?.titles) ? replyPayload.knowledgeSummary.titles.filter(Boolean) : []);
+        const adminFollowUpMessage = String(replyPayload.adminFollowUpMessage || "");
+        const adminFollowUpBy = String(replyPayload.adminFollowUpBy || "");
+        return `
+        <article class="lead-item">
+          <strong>我</strong>
+          <span>${escapeHtml(item.message || "")}</span>
+          <strong style="margin-top:6px;">${escapeHtml(item.replyBy || "天禧AI助理")}</strong>
+          <span>${escapeHtml(item.replyMessage || "")}</span>
+          ${adminFollowUpMessage ? `<strong style="margin-top:6px;">${escapeHtml(adminFollowUpBy || "门店顾问")}</strong><span>${escapeHtml(adminFollowUpMessage)}</span>` : ""}
+          ${knowledgeTitles.length ? `<span style="color:#6c5759;">参考知识：${escapeHtml(knowledgeTitles.slice(0, 2).join(" / "))}</span>` : ""}
+        </article>
+      `;
+      }).join("");
+    }
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ""));
+        reader.onerror = () => reject(new Error("图片读取失败"));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderRecommendationResult(payload) {
+      latestRecommendation = payload || { items: [] };
+      const items = Array.isArray(payload?.items) ? payload.items : [];
+      if (!items.length) {
+        recommendResult.innerHTML = `<article class="card red"><h3>暂未筛到合适方向</h3><p>换一个预算区间或性能偏好再试，我会重新按当前推荐规则筛选。</p></article>`;
+        return;
+      }
+      recommendResult.innerHTML = `
+        <article class="card red"><h3>推荐逻辑</h3><p>${escapeHtml(payload.ruleFocus || "已按专业和预算筛选推荐方向。")}</p></article>
+        ${items.map(item => `
+          <article class="card">
+            <h3>${escapeHtml(item.productName || "")}</h3>
+            <p>${escapeHtml(item.category || "")}</p>
+            ${item.fitSummary ? `<p>${escapeHtml(item.fitSummary || "")}</p>` : ""}
+            <p>${escapeHtml(renderMarketingActivityText(item))}</p>
+          </article>
+        `).join("")}
+      `;
+    }
+
+    function renderRecommendationPlaceholder() {
+      recommendResult.innerHTML = `
+        <article class="card red">
+          <h3>按专业和预算生成推荐方向</h3>
+          <p>先选择专业、预算和性能倾向，再点击“生成推荐方向”。首屏不再自动请求推荐接口，避免多人同时打开时把入口链路打满。</p>
+        </article>
+      `;
+    }
+
+    function renderKnowledgeGuides(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        guideList.innerHTML = `<article class="video-card"><small>暂无内容</small><h3>今日知识分享尚未生成</h3><p class="meta">稍后会按专业方向、Win11 电脑使用技巧和门店活动方向自动同步。</p></article>`;
+        return;
+      }
+      guideList.innerHTML = rows.map((item, index) => `
+        <a class="video-card" href="/gaokao-2026/knowledge.html?id=${encodeURIComponent(item.id || "")}">
+          <small>分享 ${String(index + 1).padStart(2, "0")}</small>
+          <h3>${escapeHtml(item.title || "")}</h3>
+          <p class="meta">${escapeHtml(item.summary || item.subtitle || "")}</p>
+          <div class="tags">
+            ${(Array.isArray(item.campusScenes) ? item.campusScenes.slice(0, 1) : []).map(scene => `<span>${escapeHtml(scene)}</span>`).join("")}
+            ${(Array.isArray(item.dailyTopics) ? item.dailyTopics.slice(0, 2) : []).map(topic => `<span>${escapeHtml(topic)}</span>`).join("")}
+          </div>
+        </a>
+      `).join("");
+    }
+
+    function renderDefaultKnowledgeGuides() {
+      renderKnowledgeGuides([
+        {
+          id: "computer-ai",
+          title: "计算机 / 人工智能专业怎么选电脑",
+          summary: "重点看 CPU、内存、硬盘和接口，优先保证开发环境、多任务和后续扩展余量。",
+          campusScenes: ["宿舍写代码 / 图书馆整理资料"],
+          dailyTopics: ["高考后第一台开发电脑怎么选", "16GB 和 32GB 怎么取舍"]
+        },
+        {
+          id: "design-media",
+          title: "设计 / 传媒 / 建筑 / 工程怎么选",
+          summary: "重点看显卡、屏幕色域、硬盘容量和多软件稳定性，优先性能本方向。",
+          campusScenes: ["剪辑 / 建模 / 渲染"],
+          dailyTopics: ["屏幕色域和显卡怎么平衡", "性能本和轻薄本怎么选"]
+        },
+        {
+          id: "arts-business",
+          title: "文科 / 经管 / 师范 / 法学怎么选",
+          summary: "优先轻薄、续航、护眼屏和资料管理体验，适合经常带去课堂和图书馆。",
+          campusScenes: ["课堂 / 图书馆 / 自习室"],
+          dailyTopics: ["通勤型轻薄本怎么选", "预算有限先保什么配置"]
+        }
+      ]);
+    }
+
+    function scheduleRemoteHydration(task) {
+      if (!preferDeferredHydration) {
+        task();
+        return;
+      }
+      if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(task, { timeout: remoteHydrationDelayMs + 800 });
+        return;
+      }
+      window.setTimeout(task, remoteHydrationDelayMs);
+    }
+
+    async function loadKnowledgeGuides() {
+      try {
+        const payload = await portalFetchJson(`${portalKnowledgeGuideApiUrl}?limit=6`, {
+          method: "GET",
+          headers: { "Accept": "application/json" }
+        });
+        renderKnowledgeGuides(payload.items || []);
+      } catch (error) {
+        renderKnowledgeGuides([]);
+      }
+    }
+
+    async function submitPortalLogin() {
+      portalLoginSubmitBtn.disabled = true;
+      portalLoginSubmitBtn.textContent = "登录中...";
+      try {
+        const payload = await portalFetchJson(portalLoginApiUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            phone: String(portalLoginPhone.value || "").trim(),
+            name: String(portalLoginName.value || "").trim()
+          })
+        });
+        const viewer = payload.viewer || {};
+        savePortalAuth({
+          phone: String(portalLoginPhone.value || "").trim(),
+          token: viewer.token || "",
+          displayName: viewer.displayName || "同学",
+          phoneMasked: viewer.phone || ""
+        });
+        closePortalLoginModal();
+        renderPortalViewer();
+        await loadPortalMine();
+        if (portalPendingReplyContext) {
+          const pending = portalPendingReplyContext;
+          portalPendingReplyContext = null;
+          await startPortalReply(pending);
+        }
+      } finally {
+        portalLoginSubmitBtn.disabled = false;
+        portalLoginSubmitBtn.textContent = "登录查看我的消息";
+      }
+    }
+
+    async function submitPortalMessage() {
+      const auth = await ensurePortalLogin();
+      portalSubmitBtn.disabled = true;
+      portalSubmitBtn.textContent = "提交中...";
+      try {
+        await portalFetchJson(portalMessagesApiUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            phone: auth.phone,
+            token: auth.token,
+            name: auth.displayName || "",
+            channel: portalChannel.value,
+            topic: portalTopic.value,
+            wishTag: portalChannel.value === "wish" ? portalTopic.value : "",
+            message: portalMessage.value,
+            major: recommendMajor.value,
+            budget: recommendBudget.value,
+            purchaseTime: document.getElementById("time")?.value || "",
+            replyToMessageId: portalReplyContext?.messageId || "",
+            replyToTopic: portalReplyContext?.topic || "",
+            replyToChannel: portalReplyContext?.channel || "",
+            replySource: portalReplyContext?.source || "",
+            imageBase64: portalUploadData,
+            imageMimeType: portalUploadMimeType,
+            imageName: portalUploadName
+          })
+        });
+        portalTopic.value = "";
+        portalMessage.value = "";
+        portalPhotoInput.value = "";
+        portalUploadData = "";
+        portalUploadMimeType = "";
+        portalUploadName = "";
+        portalPhotoPreview.classList.remove("is-visible");
+        portalPhotoPreview.removeAttribute("src");
+        clearPortalReplyContext();
+        await Promise.all([loadPortalFeed(), loadPortalPhotoFeed(), loadPortalMine()]);
+        setPortalTab("mine");
+      } finally {
+        portalSubmitBtn.disabled = false;
+        portalSubmitBtn.textContent = "提交许愿 / 咨询";
+      }
+    }
+
+    async function submitRecommendation() {
+      recommendSubmitBtn.disabled = true;
+      recommendSubmitBtn.textContent = "筛选中...";
+      try {
+        const payload = await portalFetchJson(portalRecommendApiUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            major: recommendMajor.value,
+            budget: recommendBudget.value,
+            portability: recommendPortability.value,
+            performanceNeed: recommendPerformance.value,
+            aiFocus: recommendAiFocus.value
+          })
+        });
+        renderRecommendationResult(payload);
+      } finally {
+        recommendSubmitBtn.disabled = false;
+        recommendSubmitBtn.textContent = "生成推荐方向";
+      }
+    }
+
+    async function submitPortalChat() {
+      const auth = await ensurePortalLogin();
+      const content = String(portalChatInput.value || "").trim();
+      if (!content) return;
+      portalChatSendBtn.disabled = true;
+      portalChatSendBtn.textContent = "AI 思考中...";
+      try {
+        const payload = await portalFetchJson(portalAiChatApiUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            phone: auth.phone,
+            token: auth.token,
+            message: content,
+            major: recommendMajor.value,
+            budget: recommendBudget.value,
+            recommendationSkuKeys: Array.isArray(latestRecommendation.items) ? latestRecommendation.items.map(item => item.skuKey) : []
+          })
+        });
+        portalChatInput.value = "";
+        if (payload.recommendation) {
+          renderRecommendationResult(payload.recommendation);
+        }
+        await loadPortalMine();
+        setPortalTab("chat");
+      } finally {
+        portalChatSendBtn.disabled = false;
+        portalChatSendBtn.textContent = "发送给天禧AI助理";
+      }
+    }
+
+    function loadLeads() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        return saved.length ? saved : starterLeads;
+      } catch (error) {
+        return starterLeads;
+      }
+    }
+
+    function saveLead(lead) {
+      const current = loadLeads().filter(item => item.phone !== lead.phone);
+      const next = [lead, ...current].slice(0, 8);
+      localStorage.setItem(storageKey, JSON.stringify(next));
+      renderLeadItems(next);
+    }
+
+    function renderLeadItems(items) {
+      leadList.innerHTML = items.map(item => `
+        <article class="lead-item">
+          <strong>${escapeHtml(item.name)} · ${escapeHtml(item.phone)}</strong>
+          <span>${escapeHtml(item.major)} ｜ 预算 ${escapeHtml(item.budget)} ｜ ${escapeHtml(item.status)}</span>
+        </article>
+      `).join("");
+    }
+
+    async function fetchRemoteLeads() {
+      try {
+        const response = await fetch(`${leadApiUrl}?limit=8`, {
+          method: "GET",
+          headers: { "Accept": "application/json" }
+        });
+        if (!response.ok) return null;
+        const payload = await response.json();
+        return Array.isArray(payload.leads) ? payload.leads : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    async function submitLeadToBackend(rawLead) {
+      const response = await fetch(leadApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(rawLead)
+      });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.detail || "提交失败");
+      }
+      return response.json();
+    }
+
+    async function claimElectronicCoupon(rawLead) {
+      const response = await fetch(eCouponApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ ...rawLead, action: "e_coupon_claim", interest: rawLead.interest || "电子版优惠券" })
+      });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.detail || "电子券领取失败");
+      }
+      return response.json();
+    }
+
+    function renderElectronicCoupon(coupon) {
+      if (!coupon) return;
+      const validTo = coupon.validTo ? coupon.validTo.replace(/^2026-0?6-/, "6月").replace(/$/, "日").replace("6月21日", "6月21日") : "6月21日";
+      eCouponResult.classList.add("is-visible");
+      eCouponResult.innerHTML = `
+        <div class="e-coupon-ticket">
+          <div class="ticket-inner">
+            <div class="ticket-value">
+              <small>服务权益</small>
+              <strong>${escapeHtml(coupon.offerValue || "699")}</strong>
+              <span>${escapeHtml(coupon.offerSecondary || "三人同行升 899")}</span>
+            </div>
+            <div class="ticket-copy">
+              <h3>${escapeHtml(coupon.offerTitle || "高考生电子优惠券")}</h3>
+              <p>${escapeHtml(coupon.redeemText || "到店出示券码，门店核验后生效。")}</p>
+              <div class="ticket-code">${escapeHtml(coupon.serviceCode || coupon.code)}</div>
+              <p>电子券号：${escapeHtml(coupon.code)}</p>
+              <p>有效期至 ${escapeHtml(validTo)}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCouponPending(messageText) {
+      eCouponResult.classList.add("is-visible");
+      eCouponResult.innerHTML = `
+        <div class="e-coupon-ticket">
+          <div class="ticket-inner">
+            <div class="ticket-value">
+              <small>已登记</small>
+              <strong>699</strong>
+              <span>权益已锁定</span>
+            </div>
+            <div class="ticket-copy">
+              <h3>门店已收到领取信息</h3>
+              <p>${escapeHtml(messageText)}</p>
+              <div class="ticket-code">到店报手机号核验</div>
+              <p>联想体验店（新野书院路店）｜15637798222</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function renderLeads() {
+      const remoteLeads = await fetchRemoteLeads();
+      renderLeadItems(remoteLeads && remoteLeads.length ? remoteLeads : loadLeads());
+    }
+
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const source = params.get("source") || "mobile";
+      const rawLead = {
+        name: String(data.get("name") || "").trim(),
+        phone: String(data.get("phone") || "").trim(),
+        major: String(data.get("major") || "").trim(),
+        budget: String(data.get("budget") || "").trim(),
+        purchaseTime: String(data.get("time") || "").trim(),
+        interest: String(data.get("interest") || "电子版优惠券").trim(),
+        message: String(data.get("message") || "").trim(),
+        campaign: params.get("campaign") || "gaokao2026",
+        source,
+        action: "e_coupon_claim"
+      };
+      const fallbackLead = {
+        name: maskName(rawLead.name),
+        phone: maskPhone(rawLead.phone),
+        major: rawLead.major,
+        budget: rawLead.budget,
+        status: "已登记领券",
+        source: params.get("source") || "mobile"
+      };
+      leadSubmit.disabled = true;
+      leadSubmit.textContent = "正在生成电子券...";
+      try {
+        const payload = await claimElectronicCoupon(rawLead);
+        const returnedLeads = Array.isArray(payload.leads) && payload.leads.length ? payload.leads : [payload.lead].filter(Boolean);
+        renderLeadItems(returnedLeads.length ? returnedLeads : [fallbackLead]);
+        renderElectronicCoupon(payload.coupon);
+        form.reset();
+      } catch (error) {
+        saveLead(fallbackLead);
+        renderLeadItems(loadLeads());
+        renderCouponPending("当前网络未完成券码生成，门店会按登记信息保留本次权益。到店报手机号即可核验。");
+        form.reset();
+      } finally {
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = "提交并领取电子优惠券";
+      }
+    });
+
+    document.querySelectorAll("[data-wish]").forEach(button => {
+      button.addEventListener("click", () => {
+        const wish = button.getAttribute("data-wish");
+        message.value = `我想生成一张“${wish}”主题的高考纪念 AI 照片，并咨询适合的电脑。`;
+        portalChannel.value = "wish";
+        portalTopic.value = `${wish} 主题许愿`;
+        portalMessage.value = `我想生成一张“${wish}”主题的高考纪念 AI 照片，并顺便咨询适合的电脑。`;
+        setPortalTab("wish");
+      });
+    });
+
+    document.querySelectorAll("[data-portal-tab]").forEach(button => {
+      button.addEventListener("click", () => {
+        setPortalTab(button.getAttribute("data-portal-tab") || "wish");
+      });
+    });
+
+    portalLoginBtn.addEventListener("click", () => {
+      const auth = loadPortalAuth();
+      if (auth.phone && auth.token) {
+        clearPortalAuth();
+        renderPortalViewer();
+        renderPortalMine([]);
+      }
+      openPortalLoginModal(auth.phone || "");
+    });
+    portalLoginSubmitBtn.addEventListener("click", submitPortalLogin);
+    portalLoginCloseBtn.addEventListener("click", closePortalLoginModal);
+    portalReplyTargetClearBtn.addEventListener("click", clearPortalReplyContext);
+    wechatShortcutBtn.addEventListener("click", openWechatModal);
+    wechatOpenAppBtn.addEventListener("click", () => {
+      wechatStatus.textContent = "正在尝试打开本地微信 App；若未自动跳转，请先复制微信号 15637798222。";
+    });
+    wechatModalClose.addEventListener("click", closeWechatModal);
+    wechatCopyBtn.addEventListener("click", copyWechatContact);
+    portalLoginModal.addEventListener("click", event => {
+      if (event.target === portalLoginModal) {
+        closePortalLoginModal();
+      }
+    });
+    wechatModal.addEventListener("click", event => {
+      if (event.target === wechatModal) {
+        closeWechatModal();
+      }
+    });
+    portalSubmitBtn.addEventListener("click", async () => {
+      try {
+        await submitPortalMessage();
+      } catch (error) {
+        if (error?.message) alert(error.message);
+      }
+    });
+    recommendSubmitBtn.addEventListener("click", async () => {
+      try {
+        await submitRecommendation();
+      } catch (error) {
+        recommendResult.innerHTML = `<article class="card red"><h3>推荐失败</h3><p>${escapeHtml(error.message || "请稍后再试")}</p></article>`;
+      }
+    });
+    portalChatSendBtn.addEventListener("click", async () => {
+      try {
+        await submitPortalChat();
+      } catch (error) {
+        if (error?.message) alert(error.message);
+      }
+    });
+    portalPhotoInput.addEventListener("change", async event => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      portalUploadName = file.name || "portal-photo";
+      portalUploadMimeType = file.type || "image/jpeg";
+      try {
+        portalUploadData = await fileToDataUrl(file);
+        portalPhotoPreview.src = portalUploadData;
+        portalPhotoPreview.classList.add("is-visible");
+      } catch (error) {
+        portalUploadData = "";
+        portalUploadMimeType = "";
+        portalUploadName = "";
+        portalPhotoPreview.classList.remove("is-visible");
+        alert(error.message || "图片读取失败");
+      }
+    });
+
+    document.querySelectorAll(".quick-bookmarks summary a, .quick-bookmarks summary button").forEach(link => {
+      link.addEventListener("click", event => {
+        event.stopPropagation();
+      });
+    });
+
+    document.querySelectorAll(".js-open-lead-modal").forEach(button => {
+      button.addEventListener("click", () => {
+        openLeadModal();
+      });
+    });
+
+    document.querySelectorAll(".progressive-img").forEach(image => {
+      const markLoaded = () => image.classList.add("is-loaded");
+      if (image.complete) {
+        markLoaded();
+      } else {
+        image.addEventListener("load", markLoaded, { once: true });
+      }
+    });
+
+    function closeAssetViewer() {
+      assetViewer.classList.remove("is-open");
+      assetViewer.setAttribute("aria-hidden", "true");
+      viewerImage.removeAttribute("src");
+      viewerImage.alt = "";
+      syncBodyScrollLock();
+    }
+
+    function openAssetViewer(title, src, alt = "") {
+      viewerTitle.textContent = title || "图片查看";
+      viewerImage.alt = alt || title || "图片查看";
+      viewerImage.src = src || "";
+      assetViewer.classList.add("is-open");
+      assetViewer.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    document.querySelectorAll("[data-full]").forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.getAttribute("data-title") || "厂家活动素材";
+        const full = card.getAttribute("data-full");
+        if (!full) return;
+        openAssetViewer(title, full, title);
+      });
+    });
+
+    viewerClose.addEventListener("click", closeAssetViewer);
+    assetViewer.addEventListener("click", event => {
+      if (event.target === assetViewer) {
+        closeAssetViewer();
+      }
+    });
+    leadModalClose.addEventListener("click", closeLeadModal);
+    leadModal.addEventListener("click", event => {
+      if (event.target === leadModal) {
+        closeLeadModal();
+      }
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && assetViewer.classList.contains("is-open")) {
+        closeAssetViewer();
+      }
+      if (event.key === "Escape" && leadModal.classList.contains("is-open")) {
+        closeLeadModal();
+      }
+      if (event.key === "Escape" && wechatModal.classList.contains("is-open")) {
+        closeWechatModal();
+      }
+      if (event.key === "Escape" && portalLoginModal.classList.contains("is-open")) {
+        closePortalLoginModal();
+      }
+    });
+
+    renderLeadItems(loadLeads());
+    renderPortalViewer();
+    renderPortalMine([]);
+    renderDefaultKnowledgeGuides();
+    renderDefaultPortalFeed();
+    loadPortalMine();
+    renderRecommendationPlaceholder();
+    scheduleRemoteHydration(() => {
+      renderLeads();
+      loadKnowledgeGuides();
+      loadPortalFeed();
+      loadPortalPhotoFeed();
+    });
+
+    if (params.get("action") === "lead" || params.get("action") === "e_coupon_claim") {
+      if (!message.value) {
+        message.value = "通过高考优惠券扫码进入，想登记领取电子版优惠券。";
+      }
+      window.setTimeout(() => {
+        openLeadModal();
+      }, 400);
+    }
+  </script>
+</body>
+</html>

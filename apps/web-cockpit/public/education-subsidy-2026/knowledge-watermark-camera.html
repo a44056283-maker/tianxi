@@ -1,0 +1,173 @@
+# 今日水印相机VIP 集成方案（2026-06-09 v1.0）
+
+## 链路概览
+
+```
+iOS (员工)  ─拍照+水印+上传─→  云盘 (WebDAV/SMB)
+                                    │
+                                    ↓ (rsync/挂载)
+                          /Volumes/TianLu_Storage/Shared/今日水印相机/incoming/
+                                    │
+                                    ↓ (每 5 分钟扫描)
+                  watermark_camera_sync.py (本地 CLI)
+                                    │
+              ┌─────────────────────┼─────────────────────┐
+              ↓                     ↓                     ↓
+     OCR 服务 (8765)      match-serial/order/phone    POST /records
+     rapidocr_onnx       销售流水匹配 (8000)         教育补贴 SQL
+              │                     │                     │
+              └─────────────────────┴─────────────────────┘
+                                    ↓
+                  移动到 processed/{date}/{staff}/
+                                    ↓
+                  生成 sync_report_{date}.json
+```
+
+## 关键路径
+
+| 用途 | 路径 |
+|------|------|
+| 入站目录 | `/Volumes/TianLu_Storage/Shared/今日水印相机/incoming/` |
+| 已处理 | `/Volumes/TianLu_Storage/Shared/今日水印相机/processed/{date}/{staff}/` |
+| 失败 | `/Volumes/TianLu_Storage/Shared/今日水印相机/failed/{date}/` |
+| 同步报告 | `/Volumes/TianLu_Storage/Shared/今日水印相机/reports/sync_report_{date}.json` |
+| 应用日志 | `~/Library/Logs/lenovo-smart-retail/watermark-camera-sync.log` |
+| 配置文件 | `config/watermark_camera_path_mapping.json` |
+
+## 员工水印约定
+
+每张图片文件名应该包含以下信息（任选其一即可，CLI 都有解析 fallback）：
+
+### 方案 1：文件名编码（推荐，最稳定）
+```
+EMP003_梁伟_三件套_XS26060821445335779_20260609_120000.png
+  │     │     │         │                      │
+  │     │     │         │                      └─ 时间戳 (YYYYMMDD_HHMMSS)
+  │     │     │         └─ 订单号 (可选, 与 SN 至少一个)
+  │     │     └─ 扫法 (三件套/单扫/多扫/两件套)
+  │     └─ 员工中文名 (梁伟/郭楠/李建定/郭晨臣)
+  └─ EMP ID (EMP003/EMP004/EMP005/EMP006)
+```
+
+### 方案 2：图片 EXIF
+- `Artist` 字段：员工中文名
+- `DateTimeOriginal`：拍摄时间
+- `Software`：固定为 "今日水印相机VIP"
+
+### 方案 3：图片 OCR 提取
+- 客户姓名：李小明
+- 客户电话：13812345678
+- 代扫电话：13987654321
+- 订单号：XS26060821445335779
+- SN: BH022VR7
+- 教育补贴：500元
+- 代扫服务费：30元
+
+## 员工 ID 映射
+
+| 中文名 | EMP ID | 角色 |
+|--------|--------|------|
+| 梁伟 | EMP003 | manager (店长) |
+| 郭楠 | EMP004 | manager (店长) |
+| 李建定 | EMP005 | service_advisor (服务顾问) |
+| 郭晨臣 | EMP006 | service_advisor (服务顾问) |
+
+## 性能分成
+
+- **店长 (manager)**: 服务费 20% + 智享金 10%
+- **服务顾问 (service_advisor)**: 服务费 80% + 智享金 90%
+
+## 三种扫法
+
+| 扫法 | 默认服务费 | 默认智享金 | 触发条件 |
+|------|----------|----------|----------|
+| `single_scan` (单扫) | ¥50 (智店通) / ¥30 (教育补) | ¥0 | 文件名含"单"/"single" |
+| `multi_scan` (多扫) | ¥50 | ¥0 | 文件名含"多"/"multi" |
+| `two_piece` (二件套) | ¥130 | ¥0 | 文件名含"两件"/"two_piece" |
+| `three_piece` (三件套) | ¥300 | ¥2000 | 文件名含"三件套"/"three_piece" |
+
+## 手动操作
+
+### 触发单次同步
+```bash
+cd /Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit
+python3 scripts/watermark_camera_sync.py --once
+```
+
+### Dry-run（不入库）
+```bash
+python3 scripts/watermark_camera_sync.py --dry-run --once
+```
+
+### 持续监听（每 5 分钟）
+```bash
+python3 scripts/watermark_camera_sync.py --watch
+```
+
+### 安装 launchd 守护进程
+```bash
+bash scripts/install_watermark_camera_sync.sh
+```
+
+### 查看守护进程状态
+```bash
+launchctl list | grep watermark-camera
+```
+
+### 查看日志
+```bash
+tail -f ~/Library/Logs/lenovo-smart-retail/watermark-camera-sync.log
+```
+
+## 故障排查
+
+### 1. "database is locked"
+**原因**：SQLite 写锁竞争。  
+**解决**：API server 内部已用单连接 (commit 2026-06-09)，仍出现时可手动：
+```bash
+python3 -c "import sqlite3; c=sqlite3.connect('apps/api-server/data/retail-core.sqlite3', timeout=20); c.execute('PRAGMA wal_checkpoint(TRUNCATE)'); c.close()"
+```
+
+### 2. "OCR call failed"
+**原因**：OCR 服务 (port 8765) 未启动。  
+**解决**：
+```bash
+launchctl load -w ~/Library/LaunchAgents/com.lenovo-smart-retail.ocr-service.plist
+curl -s http://127.0.0.1:8765/health
+```
+
+### 3. "submit record failed"
+**原因**：API server (port 8000) 异常。  
+**解决**：
+```bash
+launchctl unload ~/Library/LaunchAgents/com.lenovo-smart-retail.api-server.plist
+launchctl load -w ~/Library/LaunchAgents/com.lenovo-smart-retail.api-server.plist
+curl -s http://127.0.0.1:8000/api/education-scan/v2/stats
+```
+
+### 4. 文件没有被识别
+**检查文件名格式**：必须含 `EMP003-006` 之一，或中文员工名。  
+**手动验证**：
+```bash
+python3 -c "
+from pathlib import Path
+import sys; sys.path.insert(0, 'scripts')
+from watermark_camera_sync import extract_metadata_from_filename
+print(extract_metadata_from_filename('EMP003_梁伟_三件套_xxx.png'))
+"
+```
+
+## 验收标准
+
+- ✅ 拍照 → 落地到 `incoming/` → 自动入库 → 移动到 `processed/`
+- ✅ 失败 → 移动到 `failed/`，保留可重试
+- ✅ OCR 识别成功率 > 80%
+- ✅ 匹配成功 → 自动锁定 8 字段（订单/客户/SN/SKU/产品/PN/规格/折扣）
+- ✅ 性能归属自动计算（店长 20%/服务顾问 80%）
+- ✅ sync_report_{date}.json 全链路审计
+- ✅ launchd 守护进程自动运行
+- ✅ 失败重试（最多 3 次，指数退避 2/4/8 秒）
+
+## 版本历史
+
+- **v1.0 (2026-06-09)**: 初版，支持单扫/多扫/二件套/三件套，4 名员工，自动 OCR + SQL 同步

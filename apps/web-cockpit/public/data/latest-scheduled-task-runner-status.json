@@ -1,0 +1,251 @@
+{
+  "generatedAt": "2026-06-12T10:36:54.718691+08:00",
+  "runnerMode": "full-schedule-managed",
+  "historicalCatchupPolicy": "same_day_latest_slot_if_no_run",
+  "slotRetryPolicy": "queued_serial_execution_waits_for_task_lock",
+  "taskQueuePolicy": "same-time slots run by priority: zhidiantong main-chain first, detail rebuild second, then quote/price/warranty/supporting tasks",
+  "pollSeconds": 60,
+  "watchdogEnabled": false,
+  "pausedTasks": [],
+  "businessOutcomePolicy": "exitCode=0 只代表脚本执行；businessOutcome 不是 real_completed 时自动标记 completed_with_business_gap 并进入补采队列。",
+  "recoveryQueue": {
+    "path": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-morning-recovery-queue.json",
+    "generatedAt": "2026-06-12T10:05:49+08:00",
+    "summary": {
+      "mustRunCount": 4,
+      "verifyOnlyCount": 0,
+      "deferCount": 1,
+      "openSyncGapCount": 0,
+      "retailPriceVerificationCount": 50,
+      "warrantyGapCount": 129
+    }
+  },
+  "autoManagedTasks": [
+    {
+      "taskName": "zhidiantong-sync-cycle",
+      "label": "智店通统一同步轮次",
+      "schedule": [
+        "11:15",
+        "12:00",
+        "12:45",
+        "13:30",
+        "14:15",
+        "15:00",
+        "15:45",
+        "16:30",
+        "17:15",
+        "18:00",
+        "19:00",
+        "19:30",
+        "20:15",
+        "21:00",
+        "21:45"
+      ],
+      "lastRun": "2026-06-11T21:52:21.552194+08:00"
+    },
+    {
+      "taskName": "daily-price-channel-check",
+      "label": "分销商群报价同步",
+      "schedule": [
+        "11:30",
+        "13:45"
+      ],
+      "lastRun": "2026-06-11T13:47:03.835897+08:00"
+    },
+    {
+      "taskName": "daily-gray-channel-check",
+      "label": "灰渠公众号报价同步",
+      "schedule": [
+        "11:50",
+        "13:50"
+      ],
+      "lastRun": "2026-06-11T13:52:05.020316+08:00"
+    },
+    {
+      "taskName": "daily-jd-lenovo-price-sync",
+      "label": "京东联想零售价复核",
+      "schedule": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "lastRun": "2026-06-12T10:02:34.440844+08:00"
+    },
+    {
+      "taskName": "sync-health-spot-check",
+      "label": "同步动作不定时抽检",
+      "schedule": [
+        "营业时段 10:00-22:00 不定时抽检（约 35-75 分钟）"
+      ],
+      "lastRun": "2026-06-12T10:05:49.933630+08:00"
+    },
+    {
+      "taskName": "daily-competitor-monitor-check",
+      "label": "竞品监控排行更新",
+      "schedule": [
+        "04:00"
+      ],
+      "lastRun": "2026-06-12T04:03:57.175513+08:00"
+    },
+    {
+      "taskName": "sn-warranty-backfill",
+      "label": "SN 保修补录",
+      "schedule": [
+        "12:20",
+        "15:20",
+        "19:20"
+      ],
+      "lastRun": "2026-06-11T19:24:10.871906+08:00"
+    },
+    {
+      "taskName": "daily-stale-inventory-check",
+      "label": "陈旧库存审计",
+      "schedule": [
+        "01:00"
+      ],
+      "lastRun": "2026-06-12T01:04:13.286799+08:00"
+    },
+    {
+      "taskName": "daily-development-plan-update",
+      "label": "开发计划日更",
+      "schedule": [
+        "13:00"
+      ],
+      "lastRun": "2026-06-11T13:03:26.826564+08:00"
+    },
+    {
+      "taskName": "daily-audit-and-snapshot-rebuild",
+      "label": "明细补链与快照重建",
+      "schedule": [
+        "12:25",
+        "15:25",
+        "19:25",
+        "21:30"
+      ],
+      "lastRun": "2026-06-11T21:36:21.724544+08:00"
+    }
+  ],
+  "watchOnlyTasks": [
+    {
+      "taskName": "daily-sn-sales-compliance-refresh",
+      "label": "SN有效销量合规预警日更",
+      "requiresComputerUse": false,
+      "category": "合规校验"
+    },
+    {
+      "taskName": "gaokao-ai-knowledge-refresh",
+      "label": "高考 AI 知识库刷新",
+      "requiresComputerUse": false,
+      "category": "营销知识库"
+    },
+    {
+      "taskName": "gaokao-daily-learning-refresh",
+      "label": "高考库存话术与每日学习刷新",
+      "requiresComputerUse": false,
+      "category": "营销知识库"
+    },
+    {
+      "taskName": "gaokao-major-guide-refresh",
+      "label": "高考电脑选购知识刷新",
+      "requiresComputerUse": false,
+      "category": "营销知识库"
+    }
+  ],
+  "lastWatchdog": null,
+  "lastTaskRuns": {
+    "daily-stale-inventory-check@2026-06-12T01:00": {
+      "taskName": "daily-stale-inventory-check",
+      "status": "completed_with_business_gap",
+      "retryable": false,
+      "exitCode": 0,
+      "startedAt": "2026-06-12T01:00:37.179362+08:00",
+      "finishedAt": "2026-06-12T01:04:13.286799+08:00",
+      "durationMs": 216107,
+      "stdoutTail": [
+        "      \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json\"",
+        "    ]",
+        "  }",
+        "}",
+        "external offload complete: /Volumes/TianLu_Storage/联想智慧零售采集备份/daily/2026-06-12"
+      ],
+      "stderrTail": [],
+      "businessOutcome": "executed_not_closed",
+      "businessClosed": false,
+      "manualActionRequired": true,
+      "blockingReason": "当天智店通出入库未收口（executed_not_closed：采购入库进货成本价仍缺 1 条同日记录，当前不能写成出入库明细已收口。）"
+    },
+    "daily-competitor-monitor-check@2026-06-12T04:00": {
+      "taskName": "daily-competitor-monitor-check",
+      "status": "completed_with_business_gap",
+      "retryable": false,
+      "exitCode": 0,
+      "startedAt": "2026-06-12T04:00:21.952718+08:00",
+      "finishedAt": "2026-06-12T04:03:57.175513+08:00",
+      "durationMs": 215222,
+      "stdoutTail": [
+        "      \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json\"",
+        "    ]",
+        "  }",
+        "}",
+        "external offload complete: /Volumes/TianLu_Storage/联想智慧零售采集备份/daily/2026-06-12"
+      ],
+      "stderrTail": [],
+      "businessOutcome": "executed_not_closed",
+      "businessClosed": false,
+      "manualActionRequired": true,
+      "blockingReason": "缺少页面内容复核证据，当前只能记为已执行未收口。"
+    },
+    "daily-jd-lenovo-price-sync@2026-06-12T10:00": {
+      "taskName": "daily-jd-lenovo-price-sync",
+      "status": "completed_with_business_gap",
+      "retryable": false,
+      "exitCode": 0,
+      "startedAt": "2026-06-12T10:00:18.944623+08:00",
+      "finishedAt": "2026-06-12T10:02:34.440844+08:00",
+      "durationMs": 135496,
+      "stdoutTail": [
+        "  \"apiRetailZoneStatus\": \"ok\",",
+        "  \"apiRetailZoneChecks\": 92,",
+        "  \"issueCount\": 0",
+        "}",
+        "external offload complete: /Volumes/TianLu_Storage/联想智慧零售采集备份/daily/2026-06-12"
+      ],
+      "stderrTail": [],
+      "businessOutcome": "executed_not_closed",
+      "businessClosed": false,
+      "manualActionRequired": true,
+      "blockingReason": "仍有 50 条已锁定链接待真实手工复核"
+    },
+    "sync-health-spot-check@2026-06-12Tirregular-79": {
+      "taskName": "sync-health-spot-check",
+      "status": "completed_with_business_gap",
+      "retryable": false,
+      "exitCode": 0,
+      "startedAt": "2026-06-12T10:02:34.484762+08:00",
+      "finishedAt": "2026-06-12T10:05:49.933630+08:00",
+      "durationMs": 195448,
+      "stdoutTail": [
+        "      \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json\"",
+        "    ]",
+        "  }",
+        "}",
+        "external offload complete: /Volumes/TianLu_Storage/联想智慧零售采集备份/daily/2026-06-12"
+      ],
+      "stderrTail": [],
+      "businessOutcome": "executed_not_closed",
+      "businessClosed": false,
+      "manualActionRequired": true,
+      "blockingReason": "同步动作抽检未通过：库存终端仍有 31 处库存/SN 不一致。"
+    }
+  }
+}

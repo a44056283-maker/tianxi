@@ -1,0 +1,215 @@
+# 复制为 config/selectors.yaml 后，根据实际智店通页面修改。
+# 只配置白名单页面和只读动作。
+
+entities:
+  orders:
+    enabled: true
+    description: "销售订单列表"
+    start_url: "/"
+    menu_selector: "text=销售订单"
+    frame_selector: null
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "提交"
+      - "审核"
+      - "确认"
+      - "付款"
+      - "退款"
+      - "作废"
+      - "保存"
+    filters:
+      start_date: "input[name='startDate']"
+      end_date: "input[name='endDate']"
+      store: "select[name='store']"
+      status: null
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - order_no
+        - order_time
+        - store_code
+        - sku
+        - product_name
+        - qty
+        - amount
+        - status
+      record_id_fields:
+        - order_no
+        - sku
+    export:
+      button: null
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: null
+      json_path: null
+
+  inventory:
+    enabled: true
+    description: "库存查询"
+    start_url: "/"
+    menu_selector: "text=库存查询"
+    frame_selector: null
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "提交"
+      - "审核"
+      - "确认"
+      - "付款"
+      - "退款"
+      - "作废"
+      - "保存"
+    filters:
+      start_date: null
+      end_date: null
+      store: "select[name='store']"
+      warehouse: null
+      sku: null
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - store_code
+        - warehouse_code
+        - sku
+        - product_name
+        - available_qty
+        - locked_qty
+        - in_transit_qty
+      record_id_fields:
+        - store_code
+        - warehouse_code
+        - sku
+    export:
+      button: "button:has-text('导出')"
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: null
+      json_path: null
+
+  products:
+    enabled: true
+    description: "商品档案"
+    start_url: "/"
+    menu_selector: "text=商品档案"
+    frame_selector: null
+    wait_selector: "table tbody tr"
+    dangerous_texts: ["新增", "删除", "提交", "审核", "确认", "付款", "退款", "作废", "保存"]
+    filters:
+      start_date: null
+      end_date: null
+      store: null
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - sku
+        - barcode
+        - product_name
+        - brand
+        - model
+        - status
+      record_id_fields:
+        - sku
+    export:
+      button: null
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: null
+      json_path: null
+
+  refunds:
+    enabled: true
+    description: "退货退款"
+    start_url: "/"
+    menu_selector: "text=退货退款"
+    frame_selector: null
+    wait_selector: "table tbody tr"
+    dangerous_texts: ["新增", "删除", "提交", "审核", "确认", "付款", "退款", "作废", "保存"]
+    filters:
+      start_date: "input[name='startDate']"
+      end_date: "input[name='endDate']"
+      store: "select[name='store']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - refund_no
+        - order_no
+        - refund_time
+        - store_code
+        - sku
+        - qty
+        - amount
+        - status
+      record_id_fields:
+        - refund_no
+        - sku
+    export:
+      button: null
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: null
+      json_path: null
+
+  transfers:
+    enabled: true
+    description: "调拨/入库/出库单"
+    start_url: "/"
+    menu_selector: "text=调拨"
+    frame_selector: null
+    wait_selector: "table tbody tr"
+    dangerous_texts: ["新增", "删除", "提交", "审核", "确认", "付款", "退款", "作废", "保存", "入库确认", "出库确认"]
+    filters:
+      start_date: "input[name='startDate']"
+      end_date: "input[name='endDate']"
+      store: "select[name='store']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - transfer_no
+        - transfer_time
+        - source_store
+        - target_store
+        - sku
+        - qty
+        - status
+      record_id_fields:
+        - transfer_no
+        - sku
+    export:
+      button: null
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: null
+      json_path: null

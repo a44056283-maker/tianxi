@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-06-11T20:29:31.644Z",
+  "source": "zdt_sync_openclaw_starter",
+  "databaseUrl": "postgresql://zdt:zdt@localhost:5432/zdt_sync",
+  "connected": true,
+  "staleThresholdMinutes": 90,
+  "isFresh": false,
+  "entitySummaries": [],
+  "totals": {
+    "totalRecords": 0,
+    "todayRecords": 0
+  },
+  "warnings": [
+    "Connection error: connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\nMultiple connection attempts failed. All failures were:\n- host: 'localhost', port: '5432', hostaddr: '::1': connection failed: connection to server at \"::1\", port 5432 failed: could not receive data from server: Connection refused\n- host: 'localhost', port: '5432', hostaddr: '127.0.0.1': connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused",
+    "zdt_sync 数据库可连接，但未读取到任何实体数据。请确认 ZDT CLI 是否已完成首次采集。"
+  ]
+}

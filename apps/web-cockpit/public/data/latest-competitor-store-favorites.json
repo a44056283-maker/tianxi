@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-06-11T20:00:22.775Z",
+  "storeCount": 5,
+  "stores": [
+    {
+      "brand": "联想京东自营",
+      "storeName": "联想京东自营旗舰店",
+      "storeUrl": "https://lenovo1.jd.com/",
+      "sourceNote": "京东联想自营店，独立于零售库存，进入轻薄笔记本、游戏笔记本、平板电脑三个分类按销量各采集 TOP10"
+    },
+    {
+      "brand": "THINK笔记本",
+      "storeName": "ThinkPad京东自营旗舰店",
+      "storeUrl": "https://mall.jd.com/index-1000000158.html",
+      "sourceNote": "京东自营店首页，当前无独立游戏本分类；按店铺商品列表切到销量排序后采笔记本 TOP10，过滤配件、台式机与服务类"
+    },
+    {
+      "brand": "华硕笔记本",
+      "storeName": "华硕京东自营官方旗舰店",
+      "storeUrl": "https://mall.jd.com/index-1000000182.html",
+      "sourceNote": "京东自营店首页，必须进入轻薄笔记本和游戏笔记本两个口径分别按销量排序"
+    },
+    {
+      "brand": "惠普笔记本",
+      "storeName": "惠普京东自营旗舰店",
+      "storeUrl": "https://mall.jd.com/index-1000482851.html?cu=true",
+      "sourceNote": "京东自营店首页，当前只有轻薄笔记本分类；游戏主机为台式机口径，不能混入惠普笔记本竞品库"
+    },
+    {
+      "brand": "华为笔记本",
+      "storeName": "华为京东自营旗舰店",
+      "storeUrl": "https://mall.jd.com/view_search-466323-8779620-1-0-20-1.html",
+      "sourceNote": "京东自营店笔记本电脑分类页，必须按销量排序，禁止首页手机热区混入"
+    }
+  ]
+}

@@ -1,0 +1,1076 @@
+{
+  "generatedAt": "2026-05-11T06:35:46.068Z",
+  "policy": {
+    "computer": "电脑类按15%，封顶1500元，不设6000门槛",
+    "phoneTablet": "手机/平板6000元以下按15%，封顶500元；6000元及以上不补",
+    "nonSubsidy": "配件、显示器、打印机、耳机音箱等非国补"
+  },
+  "summary": {
+    "电脑": {
+      "skuCount": 41,
+      "subsidizedCount": 41
+    },
+    "平板": {
+      "skuCount": 11,
+      "subsidizedCount": 11
+    },
+    "手机": {
+      "skuCount": 4,
+      "subsidizedCount": 4
+    },
+    "非国补": {
+      "skuCount": 43,
+      "subsidizedCount": 0
+    }
+  },
+  "problemCount": 0,
+  "problems": [],
+  "rows": [
+    {
+      "skuKey": "20003126",
+      "productName": "联想拯救者 R9000P R9-8945HX/32G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 18089,
+      "postSubsidyPrice": 16589,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003129",
+      "productName": "联想拯救者 Y7000 i7-14650HX/24G/512GSSD/RTX5060-8G/WIN11/15.3寸/钛晶黑RTX 5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 9999,
+      "postSubsidyPrice": 8499,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003124",
+      "productName": "联想拯救者 R7000P R9-8945HX/16G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 13669,
+      "postSubsidyPrice": 12169,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003527",
+      "productName": "拯救者 M6 X SE 游戏鼠标 白色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 59,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20004338",
+      "productName": "小新 蓝牙无线鼠标Plus - 月幕白",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 49,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20004361",
+      "productName": "家用23.8英寸IPS云灰色液晶显示器L2435/TPV/A/R",
+      "category": "显示器",
+      "family": "非国补",
+      "preSubsidyPrice": 729,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003275",
+      "productName": "联想拯救者有线电竞耳机R360 黑色",
+      "category": "耳机音箱",
+      "family": "非国补",
+      "preSubsidyPrice": 89,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20004215",
+      "productName": "联想小新 X30 散热支架 灰色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 29,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003163",
+      "productName": "小新 14 IRH10GRXI713620H 24G 1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 5619,
+      "postSubsidyPrice": 4776,
+      "expectedSubsidy": 843,
+      "actualSubsidy": 843,
+      "ok": true
+    },
+    {
+      "skuKey": "20004532",
+      "productName": "联想AI智能主动降噪耳机 X600 曜石金",
+      "category": "耳机音箱",
+      "family": "非国补",
+      "preSubsidyPrice": 169,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000276",
+      "productName": "联想（Lenovo）小新蓝牙轻音鼠标 深空灰",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 39,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003416",
+      "productName": "拯救者K7机械键盘 焕新版",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 249,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000347",
+      "productName": "联想手写笔",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 149,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003130",
+      "productName": "联想拯救者 Y9000P Ultra 9-275HX/32G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX 5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 20159,
+      "postSubsidyPrice": 18659,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003216",
+      "productName": "Legion Y7000P IRX10I9-14900HX 16G 1TB RTX5060-8G 2.5K 240HZ  碳晶黑",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 13849,
+      "postSubsidyPrice": 12349,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20002781",
+      "productName": "小新Air 13 ARP10BLXR716G51211C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 4949,
+      "postSubsidyPrice": 4207,
+      "expectedSubsidy": 742,
+      "actualSubsidy": 742,
+      "ok": true
+    },
+    {
+      "skuKey": "20003886",
+      "productName": "Lecoo N155D2125H32G1TG-11",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7589,
+      "postSubsidyPrice": 6451,
+      "expectedSubsidy": 1138,
+      "actualSubsidy": 1138,
+      "ok": true
+    },
+    {
+      "skuKey": "20003833",
+      "productName": "小新 K1S 轻音无线键鼠套装 68键盘+鼠标",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 119,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000779",
+      "productName": "小新折叠散热支架X2 Slim",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 39,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003716",
+      "productName": "联想（Lenovo）拯救者C140氮化镓适配器",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 189,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003717",
+      "productName": "联想（Lenovo）拯救者C140氮化镓适配器",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 259,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003128",
+      "productName": "联想拯救者 Y7000 i7-14650HX/16G/512GSSD/RTX5060-8G/WIN11/15.3寸/钛晶黑RTX 5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 13939,
+      "postSubsidyPrice": 12439,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003127",
+      "productName": "联想拯救者 Y7000 i7-13650HX/24G/1TSSD/RTX5060-8G/WIN11/15.3寸/钛晶黑RTX 5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 9389,
+      "postSubsidyPrice": 7981,
+      "expectedSubsidy": 1408,
+      "actualSubsidy": 1408,
+      "ok": true
+    },
+    {
+      "skuKey": "20005827",
+      "productName": "小新Pro 16c AHP10RGRXR732G1TB11C",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 8009,
+      "postSubsidyPrice": 6808,
+      "expectedSubsidy": 1201,
+      "actualSubsidy": 1201,
+      "ok": true
+    },
+    {
+      "skuKey": "20002811",
+      "productName": "小新Pro 16c IAH10GRXU532G1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 8869,
+      "postSubsidyPrice": 7539,
+      "expectedSubsidy": 1330,
+      "actualSubsidy": 1330,
+      "ok": true
+    },
+    {
+      "skuKey": "20003937",
+      "productName": "PHN MOTO XT2427-4 CN GG 12+ 256 DS RTL NEW（S50 Neo 12+256即墨）",
+      "category": "智能生活",
+      "family": "手机",
+      "preSubsidyPrice": 1409,
+      "postSubsidyPrice": 1198,
+      "expectedSubsidy": 211,
+      "actualSubsidy": 211,
+      "ok": true
+    },
+    {
+      "skuKey": "20006651",
+      "productName": "天逸510S-08IRR I51340016G512W-11Q2",
+      "category": "商务台式",
+      "family": "电脑",
+      "preSubsidyPrice": 4929,
+      "postSubsidyPrice": 4190,
+      "expectedSubsidy": 739,
+      "actualSubsidy": 739,
+      "ok": true
+    },
+    {
+      "skuKey": "20004689",
+      "productName": "Lecoo N175L 2Intel125H32G1T-11（来酷Lecoo Air16酷睿版16英寸）",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7349,
+      "postSubsidyPrice": 6247,
+      "expectedSubsidy": 1102,
+      "actualSubsidy": 1102,
+      "ok": true
+    },
+    {
+      "skuKey": "20002886",
+      "productName": "来酷Lecoo 14 i5-13420 16G 1T 2.2K",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 4069,
+      "postSubsidyPrice": 3459,
+      "expectedSubsidy": 610,
+      "actualSubsidy": 610,
+      "ok": true
+    },
+    {
+      "skuKey": "20004646",
+      "productName": "联想拯救者电竞耳机Star Y360 冰魄白",
+      "category": "耳机音箱",
+      "family": "非国补",
+      "preSubsidyPrice": 89,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000579",
+      "productName": "小新 K1 轻音无线键鼠套装 月慕白 84键盘+鼠标",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 139,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006816",
+      "productName": "联想平板 拯救者Y700钢化膜",
+      "category": "平板电脑",
+      "family": "非国补",
+      "preSubsidyPrice": 39,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006814",
+      "productName": "联想平板 拯救者 Y700 保护夹(碳晶黑)",
+      "category": "平板电脑",
+      "family": "非国补",
+      "preSubsidyPrice": 69,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20001168",
+      "productName": "拯救者Z系列冰刃支架",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 79,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20005569",
+      "productName": "小新 蓝牙无线鼠标 Plus - 天青蓝",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 49,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003788",
+      "productName": "联想 MK9 98键机械键盘 樱花白/曜石黑",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 99,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003752",
+      "productName": "联想小新 K5 客制化机械键盘",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 149,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003751",
+      "productName": "联想小新 K5 客制化机械键盘",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 139,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000386",
+      "productName": "拯救者双肩包C1-黑色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 69,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20004671",
+      "productName": "Legion Y9000P IAX10BKEU932G1TB11C 5060",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 20159,
+      "postSubsidyPrice": 18659,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20004055",
+      "productName": "小新 16 IRH10GRXI513420H24G51211C",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 6549,
+      "postSubsidyPrice": 5567,
+      "expectedSubsidy": 982,
+      "actualSubsidy": 982,
+      "ok": true
+    },
+    {
+      "skuKey": "20003821",
+      "productName": "小新熊猫Panda Pro黑白激光智慧多功能一体打印机 西岭白/青城灰",
+      "category": "打印机",
+      "family": "非国补",
+      "preSubsidyPrice": 969,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003167",
+      "productName": "Lecoo N155A2R725532G1TG-11",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 5119,
+      "postSubsidyPrice": 4351,
+      "expectedSubsidy": 768,
+      "actualSubsidy": 768,
+      "ok": true
+    },
+    {
+      "skuKey": "20004219",
+      "productName": "联想小新氮化镓125多口适配器",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 129,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000225",
+      "productName": "联想（Lenovo）小新平板支架",
+      "category": "平板电脑",
+      "family": "非国补",
+      "preSubsidyPrice": 39,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003814",
+      "productName": "拯救者 M6 X 游戏鼠标 冰魄白/幻影黑",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 89,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003812",
+      "productName": "拯救者 M6XS 游戏鼠标 冰魄白/幻影黑",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 99,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003418",
+      "productName": "小新 小Q蓝牙鼠标-灰色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 29,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000690",
+      "productName": "小新 M3 轻音鼠标（暮霭灰）",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 49,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20000429",
+      "productName": "小新 M1 轻音鼠标 2.4G无线版（暮霭灰）",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 29,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003230",
+      "productName": "拯救者多功能双肩包 C4",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 139,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20001158",
+      "productName": "联想（Lenovo）小新 轻便双肩背包Air 1 霜雪灰",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 69,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006213",
+      "productName": "联想移动硬盘 F508 1T 风暴灰",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 489,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20003131",
+      "productName": "联想拯救者 Y9000P Ultra 9-275HX/32G/1TSSD/RTX5070-8G/WIN11/16寸/钛晶黑RTX 5070",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 16799,
+      "postSubsidyPrice": 15299,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003938",
+      "productName": "Legion Y7000P IRX10BKEI714700HX16G1TB11C",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 11139,
+      "postSubsidyPrice": 9639,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20002022",
+      "productName": "小新Pro 16 IAH10GRXULTRA5 32G 1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 8569,
+      "postSubsidyPrice": 7284,
+      "expectedSubsidy": 1285,
+      "actualSubsidy": 1285,
+      "ok": true
+    },
+    {
+      "skuKey": "20006837",
+      "productName": "小新Pro 14 IPH11GRXU532G1TB11C",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 8899,
+      "postSubsidyPrice": 7564,
+      "expectedSubsidy": 1335,
+      "actualSubsidy": 1335,
+      "ok": true
+    },
+    {
+      "skuKey": "20006831",
+      "productName": "小新Pro 16GT IPH11GRXU532G1TB11C",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 10989,
+      "postSubsidyPrice": 9489,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20001595",
+      "productName": "小新Air 15 ARP10GRXR716G51211C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 4879,
+      "postSubsidyPrice": 4147,
+      "expectedSubsidy": 732,
+      "actualSubsidy": 732,
+      "ok": true
+    },
+    {
+      "skuKey": "20001669",
+      "productName": "小新Pro 14 IMH9GRXULT532G1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 6089,
+      "postSubsidyPrice": 5176,
+      "expectedSubsidy": 913,
+      "actualSubsidy": 913,
+      "ok": true
+    },
+    {
+      "skuKey": "20002032",
+      "productName": "小新Pro 14c AKP10GRXAIR732G1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7119,
+      "postSubsidyPrice": 6051,
+      "expectedSubsidy": 1068,
+      "actualSubsidy": 1068,
+      "ok": true
+    },
+    {
+      "skuKey": "20003065",
+      "productName": "moto edge 60 Pro 12+256 谜香甘草",
+      "category": "智能生活",
+      "family": "手机",
+      "preSubsidyPrice": 2469,
+      "postSubsidyPrice": 2099,
+      "expectedSubsidy": 370,
+      "actualSubsidy": 370,
+      "ok": true
+    },
+    {
+      "skuKey": "20003058",
+      "productName": "moto razr 60 12+512 午夜苍蓝",
+      "category": "智能生活",
+      "family": "手机",
+      "preSubsidyPrice": 4199,
+      "postSubsidyPrice": 3699,
+      "expectedSubsidy": 500,
+      "actualSubsidy": 500,
+      "ok": true
+    },
+    {
+      "skuKey": "20000465",
+      "productName": "联想小新鲸鱼彩色喷墨多功能打印机",
+      "category": "打印机",
+      "family": "非国补",
+      "preSubsidyPrice": 849,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20001545",
+      "productName": "彩色喷墨多功能一体机 CM408",
+      "category": "打印机",
+      "family": "非国补",
+      "preSubsidyPrice": 849,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20002614",
+      "productName": "TB520FU TAB 12G+256GTE-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 3789,
+      "postSubsidyPrice": 3289,
+      "expectedSubsidy": 500,
+      "actualSubsidy": 500,
+      "ok": true
+    },
+    {
+      "skuKey": "20006803",
+      "productName": "TB323FU TAB 16G+512GWH-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 4049,
+      "postSubsidyPrice": 3549,
+      "expectedSubsidy": 500,
+      "actualSubsidy": 500,
+      "ok": true
+    },
+    {
+      "skuKey": "20002909",
+      "productName": "TB322FC TAB 16G+512GBL-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 4339,
+      "postSubsidyPrice": 3839,
+      "expectedSubsidy": 500,
+      "actualSubsidy": 500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003015",
+      "productName": "TB321FU TAB 12G+256GBL-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 2999,
+      "postSubsidyPrice": 2549,
+      "expectedSubsidy": 450,
+      "actualSubsidy": 450,
+      "ok": true
+    },
+    {
+      "skuKey": "20003436",
+      "productName": "小新平板 12.1 卷云灰",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 1589,
+      "postSubsidyPrice": 1351,
+      "expectedSubsidy": 238,
+      "actualSubsidy": 238,
+      "ok": true
+    },
+    {
+      "skuKey": "20003432",
+      "productName": "小新平板 Pro GT 浅海贝",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 2459,
+      "postSubsidyPrice": 2090,
+      "expectedSubsidy": 369,
+      "actualSubsidy": 369,
+      "ok": true
+    },
+    {
+      "skuKey": "20003686",
+      "productName": "Legion 27Q-10(H25270QG0) 27 Monitor-HDMI",
+      "category": "显示器",
+      "family": "非国补",
+      "preSubsidyPrice": 1029,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20004217",
+      "productName": "天逸510S-08IRR I3141008G512W-11Q",
+      "category": "商务台式",
+      "family": "电脑",
+      "preSubsidyPrice": 4129,
+      "postSubsidyPrice": 3510,
+      "expectedSubsidy": 619,
+      "actualSubsidy": 619,
+      "ok": true
+    },
+    {
+      "skuKey": "20002841",
+      "productName": "GeekPro-17IRR I514400F16G1TG5B11Q (5060)RTX5060",
+      "category": "游戏主机",
+      "family": "电脑",
+      "preSubsidyPrice": 7799,
+      "postSubsidyPrice": 6629,
+      "expectedSubsidy": 1170,
+      "actualSubsidy": 1170,
+      "ok": true
+    },
+    {
+      "skuKey": "20002457",
+      "productName": "小新 27-IRH I513420H16G1TL-11Q集成显卡",
+      "category": "一体机",
+      "family": "电脑",
+      "preSubsidyPrice": 5589,
+      "postSubsidyPrice": 4751,
+      "expectedSubsidy": 838,
+      "actualSubsidy": 838,
+      "ok": true
+    },
+    {
+      "skuKey": "20003290",
+      "productName": "来酷(Lecoo)斗战者 战7000 2025",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 10779,
+      "postSubsidyPrice": 9279,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003789",
+      "productName": "来酷斗战者战7000 锐龙版",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 10579,
+      "postSubsidyPrice": 9079,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20003662",
+      "productName": "斗战者N176 2R98945HX16G1T5060G80W-11",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 9369,
+      "postSubsidyPrice": 7964,
+      "expectedSubsidy": 1405,
+      "actualSubsidy": 1405,
+      "ok": true
+    },
+    {
+      "skuKey": "20002916",
+      "productName": "TB335FC TAB 8G+256GLG-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 1699,
+      "postSubsidyPrice": 1444,
+      "expectedSubsidy": 255,
+      "actualSubsidy": 255,
+      "ok": true
+    },
+    {
+      "skuKey": "20002604",
+      "productName": "TB375FC TAB 8G+256GLG-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 2419,
+      "postSubsidyPrice": 2056,
+      "expectedSubsidy": 363,
+      "actualSubsidy": 363,
+      "ok": true
+    },
+    {
+      "skuKey": "20003645",
+      "productName": "SSD火力强化-AM6C1 1T",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 1209,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20005628",
+      "productName": "联想极光鼠标GM11 Pro 三模版 白色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 109,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20005624",
+      "productName": "联想极光键盘 GK10 Pro 三模版 83键 静音轴 白色",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 369,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006819",
+      "productName": "联想平板 小新 Pro 13系列钢化膜",
+      "category": "平板电脑",
+      "family": "非国补",
+      "preSubsidyPrice": 49,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006818",
+      "productName": "联想平板 小新 Pro 13 系列保护夹 灰色",
+      "category": "平板电脑",
+      "family": "非国补",
+      "preSubsidyPrice": 79,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20002013",
+      "productName": "小新 14c IRH10GRXI513420H16G51211C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7069,
+      "postSubsidyPrice": 6009,
+      "expectedSubsidy": 1060,
+      "actualSubsidy": 1060,
+      "ok": true
+    },
+    {
+      "skuKey": "20003356",
+      "productName": "PHN MOTO XT2527-3 CN SB 12+256 DS RTL",
+      "category": "智能生活",
+      "family": "手机",
+      "preSubsidyPrice": 2149,
+      "postSubsidyPrice": 1827,
+      "expectedSubsidy": 322,
+      "actualSubsidy": 322,
+      "ok": true
+    },
+    {
+      "skuKey": "20006806",
+      "productName": "TB376FC TAB 8G+256GLG-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 2999,
+      "postSubsidyPrice": 2549,
+      "expectedSubsidy": 450,
+      "actualSubsidy": 450,
+      "ok": true
+    },
+    {
+      "skuKey": "20002917",
+      "productName": "TB335FC TAB 8G+128GLG-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 1379,
+      "postSubsidyPrice": 1172,
+      "expectedSubsidy": 207,
+      "actualSubsidy": 207,
+      "ok": true
+    },
+    {
+      "skuKey": "20003659",
+      "productName": "联想原厂 1T SSD升级服务（AM6B1-1T）",
+      "category": "电脑配件",
+      "family": "非国补",
+      "preSubsidyPrice": 1619,
+      "expectedSubsidy": 0,
+      "actualSubsidy": 0,
+      "ok": true
+    },
+    {
+      "skuKey": "20006372",
+      "productName": "小新Pro16  R7-H255 24G 1T 2.8K OLED 120Hz",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7449,
+      "postSubsidyPrice": 6332,
+      "expectedSubsidy": 1117,
+      "actualSubsidy": 1117,
+      "ok": true
+    },
+    {
+      "skuKey": "20007040",
+      "productName": "斗战者N176B 2I713645HX16G512G5060G60W-11",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 9999,
+      "postSubsidyPrice": 8499,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20006381",
+      "productName": "小新Pro14  R7-H255 24G 1T 2.8K OLED 120Hz",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7199,
+      "postSubsidyPrice": 6119,
+      "expectedSubsidy": 1080,
+      "actualSubsidy": 1080,
+      "ok": true
+    },
+    {
+      "skuKey": "20004003",
+      "productName": "小新 14 IRH10GRXI513420H24G51211C",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7679,
+      "postSubsidyPrice": 6527,
+      "expectedSubsidy": 1152,
+      "actualSubsidy": 1152,
+      "ok": true
+    },
+    {
+      "skuKey": "20002034",
+      "productName": "小新 14 IRH10GRXI513420H 24G 51211C 集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 7679,
+      "postSubsidyPrice": 6527,
+      "expectedSubsidy": 1152,
+      "actualSubsidy": 1152,
+      "ok": true
+    },
+    {
+      "skuKey": "20004481",
+      "productName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+      "category": "平板电脑",
+      "family": "平板",
+      "preSubsidyPrice": 2419,
+      "postSubsidyPrice": 2056,
+      "expectedSubsidy": 363,
+      "actualSubsidy": 363,
+      "ok": true
+    },
+    {
+      "skuKey": "20006725",
+      "productName": "Legion Y7000 IRX10BKEI713650HX16G1TB11C",
+      "category": "游戏笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 13399,
+      "postSubsidyPrice": 11899,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    },
+    {
+      "skuKey": "20002039",
+      "productName": "小新 15c IRH10RGRXCORE516G51211C集成显卡",
+      "category": "轻薄笔记本",
+      "family": "电脑",
+      "preSubsidyPrice": 6729,
+      "postSubsidyPrice": 5720,
+      "expectedSubsidy": 1009,
+      "actualSubsidy": 1009,
+      "ok": true
+    },
+    {
+      "skuKey": "20004915",
+      "productName": "GeekPro-17IRR I51440024G1TG5B11Q (5060)",
+      "category": "游戏主机",
+      "family": "电脑",
+      "preSubsidyPrice": 10089,
+      "postSubsidyPrice": 8589,
+      "expectedSubsidy": 1500,
+      "actualSubsidy": 1500,
+      "ok": true
+    }
+  ]
+}

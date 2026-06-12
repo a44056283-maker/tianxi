@@ -1,0 +1,92 @@
+{
+  "createdAt": "2026-06-05",
+  "lastDeepCrawlAt": "2026-06-05",
+  "purpose": "公开页面 UI/ERP/POS 模式研究，不保存第三方源码、图片或商品数据。",
+  "sources": [
+    {
+      "name": "Apple 中国 - 购买 Mac",
+      "url": "https://www.apple.com.cn/shop/buy-mac",
+      "observedPatterns": [
+        "极简顶部导航",
+        "横向产品选择",
+        "服务权益卡片",
+        "购买流程辅助信息",
+        "大留白和低噪声文字"
+      ],
+      "reuseBoundary": "只学习层级、留白、卡片节奏和服务权益结构，不复制素材。"
+    },
+    {
+      "name": "京东 - 联想京东自营旗舰店",
+      "url": "https://mall.jd.com/index-1000000157.html?from=pc",
+      "observedPatterns": [
+        "店铺聚合页",
+        "商品比较",
+        "高密度商品卡",
+        "价格与活动强提示",
+        "自营/配送/售后标签"
+      ],
+      "reuseBoundary": "只学习电商高密度筛选和商品状态表达，不采集商品数据。"
+    },
+    {
+      "name": "联想商城 - ThinkPad 商品详情",
+      "url": "https://item.lenovo.com.cn/product/1043426.html",
+      "observedPatterns": [
+        "商品标题与完整配置副标题",
+        "价格区与活动区分离",
+        "增值服务与配送区域",
+        "详情/配置/评价/服务页签",
+        "立即购买与加入购物车固定操作"
+      ],
+      "reuseBoundary": "只学习商品详情结构，不复用页面源码或图片。"
+    },
+    {
+      "name": "华为官网 - 笔记本",
+      "url": "https://consumer.huawei.com/cn/laptops/",
+      "observedPatterns": [
+        "产品族首页",
+        "快速预览分类",
+        "了解更多/购买双按钮",
+        "价格仅供参考提示",
+        "页脚服务支持分区"
+      ],
+      "reuseBoundary": "只学习产品族入口与双动作按钮结构。"
+    },
+    {
+      "name": "管家婆 iShop 官网",
+      "url": "https://www.graspishop.com/ishop/",
+      "observedPatterns": [
+        "多端应用说明",
+        "POS 收银端能力",
+        "进销存财闭环",
+        "角色/职级个性化功能",
+        "移动端/平板端/电脑端/POS 场景"
+      ],
+      "reuseBoundary": "只学习 ERP/POS 业务模块组织方式。"
+    },
+    {
+      "name": "管家婆分销 ERP A8 TOP 产品说明书",
+      "url": "https://mkp-res.hc-cdn.com/marketplace/public/app/attachment/20211223/c5630e31-fa61-47e5-a6da-2cd5d58f3e9d/2112230209246208.pdf",
+      "observedPatterns": [
+        "登录账套",
+        "功能导航",
+        "基础资料",
+        "商品档案",
+        "期初建账",
+        "采购/销售/仓储/财务一体化"
+      ],
+      "reuseBoundary": "只学习 ERP 信息架构，不复制说明书内容。"
+    },
+    {
+      "name": "2026-06-05 深度公开爬取批次",
+      "url": "research/deep-crawl-2026-06-05.md",
+      "observedPatterns": [
+        "Apple 购买流程",
+        "京东店铺与商品详情模块化",
+        "联想官旗商品详情和商品编号",
+        "华为产品族与服务支持",
+        "管家婆 ERP/POS 进销存与收银闭环"
+      ],
+      "reuseBoundary": "本条为本地研究批次索引，后续 UI 改造先问用户模块目标，再按 superpowers/gstack 执行。"
+    }
+  ]
+}

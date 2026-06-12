@@ -1,0 +1,496 @@
+:root {
+  color-scheme: light;
+  --lenovo-red: #e2231a;
+  --jd-blue: #1d64d8;
+  --ink: #1d2533;
+  --muted: #667085;
+  --line: #dde5f2;
+  --panel: #ffffff;
+  --soft: #f4f7fb;
+  --soft-blue: #eaf2ff;
+  --green: #168a53;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 292px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  background: #f8fafc;
+  border-right: 1px solid var(--line);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 42px;
+  color: #fff;
+  background: var(--lenovo-red);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-block h1,
+.brand-block p,
+.top-bar h2,
+.top-bar p,
+.module-card h3,
+.workflow-card h3,
+.bottom-grid h3 {
+  margin: 0;
+}
+
+.brand-block h1 {
+  font-size: 18px;
+}
+
+.brand-block p,
+.eyebrow,
+.nav-footer span,
+.status-strip,
+.truth-panel span {
+  color: var(--muted);
+}
+
+.module-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-item {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink);
+  padding: 12px;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #fff;
+  border-color: #f1b8b4;
+  box-shadow: 0 8px 24px rgba(29, 37, 51, 0.06);
+}
+
+.nav-item.active strong {
+  color: var(--lenovo-red);
+}
+
+.nav-item span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.nav-footer {
+  margin-top: auto;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.nav-footer strong,
+.nav-footer span {
+  display: block;
+}
+
+.workspace {
+  min-width: 0;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.top-bar,
+.truth-panel,
+.card-header,
+.bottom-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top-bar {
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.top-bar h2 {
+  margin-top: 4px;
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: 0;
+}
+
+.status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-strip span,
+.pill,
+.index-label,
+.tag-cloud span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--soft-blue);
+  color: var(--jd-blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.truth-panel {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--lenovo-red);
+  border-radius: 8px;
+}
+
+.truth-panel strong,
+.truth-panel span {
+  display: block;
+}
+
+#installButton {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: var(--lenovo-red);
+  cursor: pointer;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: 18px;
+}
+
+.module-card,
+.workflow-card,
+.bottom-grid article {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 16px 36px rgba(29, 37, 51, 0.06);
+}
+
+.module-card h3,
+.workflow-card h3,
+.bottom-grid h3 {
+  font-size: 20px;
+}
+
+.index-label {
+  min-width: 44px;
+  justify-content: center;
+  color: #fff;
+  background: var(--lenovo-red);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.subpage-area {
+  margin-top: 16px;
+}
+
+.subpage-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.subpage-tabs button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.subpage-tabs button.active {
+  color: #fff;
+  border-color: var(--lenovo-red);
+  background: var(--lenovo-red);
+}
+
+.live-data-panel {
+  min-height: 190px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcff;
+}
+
+.live-data-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.live-data-head strong,
+.live-data-head span {
+  display: block;
+}
+
+.live-data-head span,
+.live-row span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.live-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.live-summary {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.live-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.live-summary strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.live-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.live-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.live-row strong {
+  overflow-wrap: anywhere;
+}
+
+.warn-text {
+  color: var(--lenovo-red);
+}
+
+.metric {
+  min-height: 112px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.step-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.step {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.step.active {
+  color: #fff;
+  border-color: var(--jd-blue);
+  background: var(--jd-blue);
+}
+
+.step-detail {
+  min-height: 178px;
+  padding: 14px;
+  border-radius: 8px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  line-height: 1.7;
+}
+
+.bottom-grid {
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.bottom-grid article {
+  flex: 1;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.acceptance-list {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acceptance-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.acceptance-list span {
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .module-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .content-grid,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .workspace,
+  .side-nav {
+    padding: 14px;
+  }
+
+  .brand-block,
+  .top-bar,
+  .truth-panel,
+  .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .module-nav,
+  .metric-grid,
+  .live-summary-grid,
+  .step-list {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    min-height: auto;
+  }
+
+  .acceptance-list li {
+    flex-direction: column;
+  }
+
+  .acceptance-list span {
+    text-align: left;
+  }
+
+  .live-data-head,
+  .live-row {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,183 @@
+"""今日水印相机 OpenAPI客户端.
+
+依赖:
+ - 环境变量 XHEY_GROUP_KEY, XHEY_GROUP_SECRET
+ - 或从 ~/.xhey_credentials.json读 (key + secret)
+
+当前状态 (2026-06-10): dry-run模式 — 等用户确认 key 后切换 DRY_RUN=False.
+"""
+import hashlib
+import hmac
+import json
+import os
+import ssl
+import time
+import urllib.parse
+import urllib.request
+from dataclasses import dataclass, field
+from typing import Any
+
+BASE_URL = "https://openapi.xhey.top"
+DRY_RUN = os.environ.get("XHEY_DRY_RUN", "true").lower() in ("1", "true", "yes")
+
+#加载凭证 (env -> file -> fail)
+def _load_credentials():
+ key = os.environ.get("XHEY_GROUP_KEY", "")
+ secret = os.environ.get("XHEY_GROUP_SECRET", "")
+ if key and secret:
+ return key, secret
+ #备用文件
+ cred_path = os.path.expanduser("~/.xhey_credentials.json")
+ if os.path.exists(cred_path):
+ try:
+ with open(cred_path) as f:
+ d = json.load(f)
+ return d.get("groupKey", ""), d.get("groupSecret", "")
+ except Exception:
+ pass
+ return "", ""
+
+
+@dataclass
+class XheyPhoto:
+ photo_id: str
+ user_id: str
+ user_name: str
+ taken_at: int # Unix timestamp
+ watermark_text: str
+ media_url: str
+ extra: dict = field(default_factory=dict)
+
+
+class XheyClient:
+ """今日水印相机 OpenAPI客户端."""
+
+ def __init__(self, group_key: str = "", group_secret: str = "", dry_run: bool | None = None):
+ self.group_key, self.group_secret = (group_key, group_secret) if group_key else _load_credentials()
+ self.dry_run = dry_run if dry_run is not None else DRY_RUN
+ if not self.dry_run and (not self.group_key or not self.group_secret):
+ raise ValueError("XHEY_GROUP_KEY / XHEY_GROUP_SECRET 未设置")
+
+ def _sign(self, payload: dict) -> str:
+ canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+ sig = hmac.new(self.group_secret.encode("utf-8"), canonical.encode("utf-8"), hashlib.sha256).hexdigest()
+ return sig, canonical
+
+ def _post(self, endpoint: str, body: dict) -> dict:
+ ts = int(time.time())
+ body_with_ts = dict(body)
+ body_with_ts["timestamp"] = ts
+ sig, canonical = self._sign(body_with_ts)
+ ctx = ssl.create_default_context()
+ ctx.check_hostname = False
+ ctx.verify_mode = ssl.CERT_NONE
+ headers = {
+ "Content-Type": "application/json",
+ "X-Group-Key": self.group_key,
+ "X-Sign": sig,
+ "X-Timestamp": str(ts),
+ }
+ url = BASE_URL + endpoint
+ print(f"[xhey] POST {url}")
+ print(f" canonical: {canonical}")
+ print(f" sig: {sig[:16]}...")
+ req = urllib.request.Request(url, headers=headers, data=canonical.encode("utf-8"), method="POST")
+ resp = urllib.request.urlopen(req, timeout=10, context=ctx)
+ raw = resp.read().decode("utf-8")
+ return json.loads(raw)
+
+ def search_photos(self, start_time: int, end_time: int, user_ids: list | None = None,
+ watermark_keywords: list | None = None, media_type: int =0) -> list[XheyPhoto]:
+ """拉取时间范围内照片列表.
+
+ Args:
+ start_time, end_time: Unix timestamp 秒
+ user_ids:员工 open-{teamid}-s{...}列表 (None =全部员工)
+ watermark_keywords:最多3 个, 每个 ≤15字符
+ media_type:0=照片,1=视频
+
+ Returns:
+ [XheyPhoto, ...]
+ """
+ if len(watermark_keywords or []) >3:
+ raise ValueError("watermark_keywords最多3 个")
+ for kw in watermark_keywords or []:
+ if len(kw) >15:
+ raise ValueError(f"关键词 '{kw}'超过15字符")
+
+ body = {
+ "startTime": start_time,
+ "endTime": end_time,
+ "mediaType": media_type,
+ }
+ if user_ids:
+ body["userIds"] = user_ids
+ if watermark_keywords:
+ body["watermarkContent"] = watermark_keywords
+
+ if self.dry_run:
+ print(f"[xhey DRY-RUN] 模拟调用 search_photos startTime={start_time} endTime={end_time}")
+ return self._mock_photos(start_time, end_time, watermark_keywords or [])
+
+ resp = self._post("/v2/group/photo/search", body)
+ if resp.get("code") !=200:
+ raise RuntimeError(f"xhey API error: code={resp.get('code')} msg={resp.get('msg')}")
+ items = (resp.get("data") or {}).get("list") or resp.get("data") or []
+ photos = []
+ for it in items:
+ photos.append(XheyPhoto(
+ photo_id=str(it.get("photoId") or it.get("id") or ""),
+ user_id=str(it.get("userID") or it.get("userId") or ""),
+ user_name=str(it.get("userName") or it.get("name") or ""),
+ taken_at=int(it.get("time") or it.get("takenAt") or0),
+ watermark_text=str(it.get("watermarkContent") or it.get("watermark") or ""),
+ media_url=str(it.get("mediaUrl") or it.get("url") or ""),
+ extra=it,
+ ))
+ return photos
+
+ def _mock_photos(self, start_time: int, end_time: int, keywords: list) -> list[XheyPhoto]:
+ """Dry-run mock: 返回模拟3 条教育补凭证."""
+ import random
+ mock = [
+ XheyPhoto("mock-001", "open-lenovo-001", "梁伟 (EMP003)", start_time +600, "我是梁伟 教育补凭证 单扫订单XS26060900012345客户张三 SN:BH022VR7", "https://mock.xhey.top/p/mock-001.jpg", {"mock": True}),
+ XheyPhoto("mock-002", "open-lenovo-002", "李建定 (EMP005)", start_time +1200, "我是李建定 教育补凭证 三件套 SN:BH022VR8 BH022VR9 BH023AA1", "https://mock.xhey.top/p/mock-002.jpg", {"mock": True}),
+ XheyPhoto("mock-003", "open-lenovo-003", "郭晨臣 (EMP006)", start_time +1800, "我是郭晨臣库存流水 出库 SN:BH023AA2", "https://mock.xhey.top/p/mock-003.jpg", {"mock": True}),
+ ]
+ return mock
+
+ def download_photo(self, url: str, dest_path: str) -> bool:
+ """下载照片到本地路径. dry-run模式返回 False."""
+ if self.dry_run:
+ print(f"[xhey DRY-RUN] 不下载 {url}")
+ return False
+ ctx = ssl.create_default_context()
+ ctx.check_hostname = False
+ ctx.verify_mode = ssl.CERT_NONE
+ req = urllib.request.Request(url)
+ resp = urllib.request.urlopen(req, timeout=30, context=ctx)
+ os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+ with open(dest_path, "wb") as f:
+ f.write(resp.read())
+ return True
+
+
+def main():
+ """CLI demo."""
+ import argparse
+ ap = argparse.ArgumentParser()
+ ap.add_argument("--hours", type=int, default=1, help="拉取最近 N 小时")
+ ap.add_argument("--keywords", nargs="+", default=["教育补"], help="水印关键词 (≤3 个, 每个 ≤15字符)")
+ ap.add_argument("--dry-run", action="store_true", help="强制 dry-run模式")
+ args = ap.parse_args()
+ client = XheyClient(dry_run=True if args.dry_run else None)
+ now = int(time.time())
+ start = now - args.hours *3600
+ photos = client.search_photos(start, now, watermark_keywords=args.keywords)
+ print(f"\n===拉取到 {len(photos)} 张照片 ===")
+ for p in photos:
+ print(f" - {p.photo_id} | {p.user_name} | {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(p.taken_at))} | {p.watermark_text[:60]}")
+
+
+if __name__ == "__main__":
+ main()

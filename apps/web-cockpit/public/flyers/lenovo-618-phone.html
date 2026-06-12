@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>联想618手机门店促销页</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #12091f;
+      color: #fff7ff;
+      overflow-x: hidden;
+    }
+    .promo-page {
+      width: 100%;
+      max-width: 2160px;
+      margin: 0 auto;
+      padding: clamp(16px, 2vw, 28px);
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% 6%, rgba(147, 51, 234, 0.3), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(236, 72, 153, 0.18), transparent 34%),
+        linear-gradient(145deg, #24113f, #0b1020);
+      min-height: max(100vh, calc(min(100vw, 2160px) * 1.758333));
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 24px;
+      background: linear-gradient(135deg, #7c3aed 0%, #db2777 48%, #111827 100%);
+      color: #fff7ff;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+    }
+    .hero-title::after {
+      content: "618";
+      position: absolute;
+      right: 22px;
+      bottom: -28px;
+      font-size: 148px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(255,255,255,0.12);
+      letter-spacing: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .hero-title p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 860px;
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(255,247,255,0.8);
+    }
+    .hero-side {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .side-card {
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+    .side-card span {
+      display: block;
+      color: rgba(255,247,255,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .side-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .series-filter {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      background: rgba(18,9,31,0.86);
+      backdrop-filter: blur(12px);
+    }
+    .series-filter button {
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #f5d0fe;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .series-filter button.active {
+      background: #f0abfc;
+      color: #2e1065;
+    }
+    .series-filter span {
+      opacity: 0.78;
+      margin-left: 4px;
+    }
+    .product-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .product-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+    }
+    .product-card[hidden] { display: none; }
+    .product-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      color: rgba(255,247,255,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .rank,
+    .series-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: linear-gradient(160deg, #f0abfc, #ec4899);
+      color: #2e1065;
+      font-weight: 900;
+    }
+    .series-tag {
+      background: rgba(240,171,252,0.16);
+      color: #f5d0fe;
+    }
+    .product-card h2 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.28;
+      letter-spacing: 0;
+      word-break: normal;
+    }
+    .product-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    .product-main-title,
+    .product-subtitle {
+      display: inline;
+      min-width: 0;
+      color: #fff;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .price-track {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .price-cell {
+      min-height: 112px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(10,10,20,0.58);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    .price-cell span,
+    .price-cell em {
+      font-style: normal;
+      color: rgba(255,247,255,0.66);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .price-cell strong {
+      color: #fce7f3;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .price-cell.final {
+      background: linear-gradient(160deg, #581c87, #db2777);
+      border-color: rgba(255,255,255,0.34);
+    }
+    .price-cell.final span,
+    .price-cell.final em {
+      color: rgba(255,255,255,0.84);
+    }
+    .price-cell.final strong {
+      color: #fff;
+    }
+    .activity-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .activity-badges span {
+      display: inline-grid;
+      gap: 3px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(240,171,252,0.16);
+      color: #f5d0fe;
+    }
+    .activity-badges b {
+      font-size: 11px;
+    }
+    .activity-badges strong {
+      color: #f0abfc;
+      font-size: 18px;
+    }
+    .muted {
+      color: rgba(255,247,255,0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .notice {
+      margin-top: 16px;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(240,171,252,0.14);
+      border: 2px solid #f0abfc;
+      color: #fff1ff;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 900;
+    }
+    .footer {
+      margin-top: 10px;
+      color: rgba(255,247,255,0.66);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    @media (max-width: 860px) {
+      .promo-page { padding: 14px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .price-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .price-track { grid-template-columns: 1fr; }
+      .hero-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-card h2 { font-size: 18px; }
+    }
+    @media (orientation: portrait) {
+      .promo-page {
+        width: 100vw;
+        max-width: none;
+        padding: 20px 16px 30px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .hero-side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .series-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      .series-filter button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+      .product-grid {
+        gap: 14px;
+      }
+      .product-card {
+        padding: 16px;
+      }
+      .price-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (orientation: portrait) and (min-width: 1200px) {
+      .promo-page {
+        padding: 34px 26px 46px;
+      }
+      h1 {
+        font-size: clamp(52px, 4.8vw, 84px);
+      }
+      .hero-title p {
+        font-size: 26px;
+        line-height: 1.5;
+      }
+      .side-card span {
+        font-size: 20px;
+      }
+      .side-card strong {
+        font-size: 48px;
+      }
+      .series-filter button {
+        min-height: 56px;
+        padding: 0 20px;
+        font-size: 22px;
+      }
+      .product-topline {
+        font-size: 20px;
+        gap: 10px;
+      }
+      .rank,
+      .series-tag {
+        min-height: 38px;
+        padding: 0 14px;
+      }
+      .product-card h2 {
+        font-size: clamp(34px, 3.1vw, 50px);
+        line-height: 1.3;
+      }
+      .product-subtitle {
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .price-cell {
+        min-height: 170px;
+        padding: 18px;
+      }
+      .price-cell span,
+      .price-cell em {
+        font-size: 20px;
+      }
+      .price-cell strong {
+        font-size: clamp(36px, 3.2vw, 54px);
+      }
+      .notice {
+        font-size: 24px;
+        line-height: 1.6;
+      }
+      .footer {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="promo-page">
+    <section class="hero">
+      <div class="hero-title">
+        <span class="eyebrow">联想618 · MOTO 手机焕新</span>
+        <h1>moto razr / edge / g 系列专场</h1>
+        <p>完整展示全部库存 MOTO 手机：按 razr、edge、g、S 系列快速筛选，同步展示原门店挂牌价、营销/教育补、活动后国补前执行价和全量服务国补后价。</p>
+      </div>
+      <div class="hero-side">
+        <div class="side-card"><span>全部商品</span><strong>10</strong></div>
+        <div class="side-card"><span>带营销/教育补</span><strong>0</strong></div>
+        <div class="side-card"><span>价格口径</span><strong>实时同步</strong></div>
+        <div class="side-card"><span>展示模式</span><strong>全量促销</strong></div>
+      </div>
+    </section>
+    <nav class="series-filter" aria-label="产品型号筛选">
+      <button type="button" class="active" data-filter="全部">全部 <span>10</span></button><button type="button" data-filter="其它型号">其它型号 <span>5</span></button><button type="button" data-filter="moto g">moto g <span>2</span></button><button type="button" data-filter="moto edge">moto edge <span>1</span></button><button type="button" data-filter="moto razr">moto razr <span>1</span></button><button type="button" data-filter="moto S">moto S <span>1</span></button>
+    </nav>
+    <section class="product-grid">
+      
+    <article
+      class="product-card phone"
+      data-series="其它型号"
+      data-sku-key="20004637"
+      data-base-store-price=""
+      data-static-adjusted-price="2599"
+      data-static-final-price="2209.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">01</span>
+        <span class="series-tag">其它型号</span>
+        <span>SKU 20004637</span>
+        <span>库存 9 台 · 可售 9 · SN 9</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto X70 Air 超轻薄直屏 多面耐摔 强力抗水</span>
+        <span class="product-subtitle">12GB / 256GB / 韵绿 · PBA40002CN · PBA40002CN · PBA40002CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBA40002CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥2,599</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥2,209.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="其它型号"
+      data-sku-key="20004636"
+      data-base-store-price=""
+      data-static-adjusted-price="2599"
+      data-static-final-price="2209.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">02</span>
+        <span class="series-tag">其它型号</span>
+        <span>SKU 20004636</span>
+        <span>库存 3 台 · 可售 3 · SN 3</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto X70 Air 超轻薄直屏 多面耐摔 强力抗水 5GAI手机</span>
+        <span class="product-subtitle">12GB / 256GB / 青巧 · PBA40001CN · PBA40001CN · PBA40001CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBA40001CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥2,599</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥2,209.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="moto S"
+      data-sku-key="20003937"
+      data-base-store-price="1499"
+      data-static-adjusted-price="1499"
+      data-static-final-price="1274.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">03</span>
+        <span class="series-tag">moto S</span>
+        <span>SKU 20003937</span>
+        <span>库存 2 台 · 可售 2 · SN 2</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto S50 Neo老人机新款全网通5000mAh大电池窄边框屏幕夜景大师拍摄5GAI智能手机</span>
+        <span class="product-subtitle">12GB / 256GB / 即墨 · PB2C0014CN · PB2C0014CN · PB2C0014CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PB2C0014CN · 原门店挂牌价</span>
+          <strong class="store-price-value">¥1,499</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥1,499</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥1,274.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="其它型号"
+      data-sku-key="20007812"
+      data-base-store-price=""
+      data-static-adjusted-price=""
+      data-static-final-price=""
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">04</span>
+        <span class="series-tag">其它型号</span>
+        <span>SKU 20007812</span>
+        <span>库存 2 台 · 可售 2 · SN 2</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想PHN MOTO XT2651-4 CN BB 16+512 DS RTL</span>
+        <span class="product-subtitle">16GB / 512GB · PBB10000CN · PBB10000CN · PBB10000CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBB10000CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">—</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">—</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="moto edge"
+      data-sku-key="20003065"
+      data-base-store-price="2699"
+      data-static-adjusted-price="2699"
+      data-static-final-price="2294.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">05</span>
+        <span class="series-tag">moto edge</span>
+        <span>SKU 20003065</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto edge 60 Pro</span>
+        <span class="product-subtitle">12GB / 256GB / 谜香甘草 / XT2507-5 · PB7V0000CN · PB7V0000CN · PB7V0000CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PB7V0000CN · 原门店挂牌价</span>
+          <strong class="store-price-value">¥2,699</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥2,699</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥2,294.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="moto g"
+      data-sku-key="20003356"
+      data-base-store-price="1699"
+      data-static-adjusted-price="1699"
+      data-static-final-price="1444.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">06</span>
+        <span class="series-tag">moto g</span>
+        <span>SKU 20003356</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto g100 Pro</span>
+        <span class="product-subtitle">12GB / 256GB / 松烟蓝 · PB7N0017CN · PB7N0017CN · PB7N0017CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PB7N0017CN · 原门店挂牌价</span>
+          <strong class="store-price-value">¥1,699</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥1,699</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥1,444.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="moto g"
+      data-sku-key="20004855"
+      data-base-store-price="1199"
+      data-static-adjusted-price="1199"
+      data-static-final-price="1019.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">07</span>
+        <span class="series-tag">moto g</span>
+        <span>SKU 20004855</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto g100s 高刷LCD护眼屏 7000mAh大电池 多功能NFC 应用六开 5G手机</span>
+        <span class="product-subtitle">8GB / 128GB / 海蓝 · PBAG0006CN · PBAG0006CN · PBAG0006CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBAG0006CN · 原门店挂牌价</span>
+          <strong class="store-price-value">¥1,199</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥1,199</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥1,019.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="moto razr"
+      data-sku-key="20003058"
+      data-base-store-price=""
+      data-static-adjusted-price="4299"
+      data-static-final-price="3799"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">08</span>
+        <span class="series-tag">moto razr</span>
+        <span>SKU 20003058</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto Razr 60 第6代折叠屏 IP48级防尘抗水</span>
+        <span class="product-subtitle">12GB / 512GB · PB870005CN · PB870005CN · PB870005CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PB870005CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥4,299</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥3,799</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="其它型号"
+      data-sku-key="20004635"
+      data-base-store-price=""
+      data-static-adjusted-price="2599"
+      data-static-final-price="2209.15"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">09</span>
+        <span class="series-tag">其它型号</span>
+        <span>SKU 20004635</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto X70 Air</span>
+        <span class="product-subtitle">12GB / 256GB / 凌灰 · PBA40000CN · PBA40000CN · PBA40000CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBA40000CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥2,599</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥2,209.15</strong>
+        </div>
+      </div>
+    </article>
+  
+    <article
+      class="product-card phone"
+      data-series="其它型号"
+      data-sku-key="20006190"
+      data-base-store-price=""
+      data-static-adjusted-price="4499"
+      data-static-final-price="3999"
+      data-boost-amount="0"
+      data-education-amount="0"
+      data-product-family="phone"
+    >
+      <div class="product-topline">
+        <span class="rank">10</span>
+        <span class="series-tag">其它型号</span>
+        <span>SKU 20006190</span>
+        <span>库存 1 台 · 可售 1 · SN 1</span>
+      </div>
+      <h2 class="product-title-line">
+        <span class="product-main-title">联想moto X70 Air Pro 双</span>
+        <span class="product-subtitle">骁龙8 / 12GB / 256GB / 8K · PBAA0005CN · PBAA0005CN · PBAA0005CN</span>
+      </h2>
+      <div class="price-track">
+        <div class="price-cell store">
+          <span>PN/MTM PBAA0005CN · 原门店挂牌价</span>
+          <strong class="store-price-value">—</strong>
+        </div>
+        <div class="price-cell campaign">
+          <span class="campaign-summary">活动满减</span>
+          <div class="campaign-content"><span class="muted">暂无本期营销/教育补满减</span></div>
+        </div>
+        <div class="price-cell before-subsidy">
+          <span>活动后国补前执行价</span>
+          <strong class="before-subsidy-value">¥4,499</strong>
+          
+        </div>
+        <div class="price-cell final">
+          <span>全量服务国补后</span>
+          <strong class="final-price-value">¥3,999</strong>
+        </div>
+      </div>
+    </article>
+  
+    </section>
+    <div class="notice">醒目备注：教育补需客户具备有效学生证明；如客户无学生证明且需代验证服务，成交核算时必须从教育补优惠中扣除代验证服务费，当前门店代验证费用按 ¥50/次 记录。</div>
+    <div class="footer">数据来源：实时零售报价英雄卡、营销/教育补活动库、门店库存快照。生成时间：2026/6/12 10:36:43。价格随前端快照与英雄卡数据更新。</div>
+  </main>
+  <script>
+    const apiBase = (() => {
+      if (location.protocol === 'file:') return 'http://127.0.0.1:8000'
+      if (['127.0.0.1', 'localhost', '::1'].includes(location.hostname)) return location.protocol + '//' + location.hostname + ':8000'
+      return location.origin
+    })()
+    const formatPrice = (value, fallback = '—') => {
+      const number = Number(value)
+      if (!Number.isFinite(number) || number <= 0) return fallback
+      const rounded = Math.round(number * 100) / 100
+      return '¥' + rounded.toLocaleString('zh-CN', {
+        minimumFractionDigits: Number.isInteger(rounded) ? 0 : 2,
+        maximumFractionDigits: 2,
+      })
+    }
+    const getFamilyCap = (family) => {
+      if (family === 'computer') return 1500
+      if (family === 'tablet' || family === 'phone') return 500
+      return 0
+    }
+    const calculateSubsidyPrice = (price, family) => {
+      const number = Number(price)
+      if (!Number.isFinite(number) || number <= 0) return undefined
+      if ((family === 'tablet' || family === 'phone') && number >= 6000) return undefined
+      if (family !== 'computer' && family !== 'tablet' && family !== 'phone') return undefined
+      const cap = getFamilyCap(family)
+      const subsidy = family === 'computer'
+        ? Math.min(number * 0.15, cap)
+        : Math.min(number * 0.15, cap)
+      return Math.round((number - subsidy) * 100) / 100
+    }
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date())
+    const renderStorePromotion = (promotion) => {
+      const label = promotion.mode === 'fixed_price'
+        ? '店面活动价'
+        : '店面满减'
+      const detail = promotion.mode === 'fixed_price'
+        ? formatPrice(promotion.value, '—')
+        : '-' + formatPrice(promotion.value, '—')
+      const note = promotion.note ? '<em>' + promotion.note + '</em>' : ''
+      return '<div class="activity-badges"><span><b>' + label + '</b><strong>' + detail + '</strong></span></div>' + note
+    }
+    const filterButtons = Array.from(document.querySelectorAll('.series-filter button'))
+    const cards = Array.from(document.querySelectorAll('.product-card'))
+    const currentFlyerFile = "lenovo-618-phone.html"
+    let currentGeneratedAt = "2026-06-12T02:36:43.549Z"
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter
+        filterButtons.forEach((item) => item.classList.toggle('active', item === button))
+        cards.forEach((card) => {
+          card.hidden = filter !== '全部' && card.dataset.series !== filter
+        })
+      })
+    })
+    async function refreshFlyerFromSqlProjection() {
+      try {
+        const response = await fetch('/flyers/lenovo-618-flyers-data.json?ts=' + Date.now(), { cache: 'no-store' })
+        if (!response.ok) return
+        const payload = await response.json()
+        const nextGeneratedAt = String(payload.generatedAt || '')
+        const page = Array.isArray(payload.pages) ? payload.pages.find((item) => item && item.filename === currentFlyerFile) : null
+        if (!page) return
+        if (nextGeneratedAt && nextGeneratedAt !== currentGeneratedAt) {
+          currentGeneratedAt = nextGeneratedAt
+          window.location.reload()
+        }
+      } catch (error) {
+        console.warn('flyer refresh check failed', error)
+      }
+    }
+    window.setInterval(refreshFlyerFromSqlProjection, 1800000)
+  </script>
+</body>
+</html>

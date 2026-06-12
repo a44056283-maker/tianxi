@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#E2231A" />
+    <meta name="apple-mobile-web-app-title" content="联想智慧零售系统" />
+    <title>联想智慧零售系统</title>
+    <meta name="codex-build-version" content="20260603-retail-tabs-bottom-v2" />
+    <script>
+      ;(() => {
+        try {
+          const buildVersion = '20260603-retail-tabs-bottom-v3'
+          const storageKey = 'lenovo-retail-build-version'
+          const reloadKey = 'lenovo-retail-build-reloaded'
+          const lastVersion = localStorage.getItem(storageKey)
+          const alreadyReloaded = sessionStorage.getItem(reloadKey) === buildVersion
+          if (lastVersion !== buildVersion) {
+            localStorage.setItem(storageKey, buildVersion)
+            if (!alreadyReloaded) {
+              sessionStorage.setItem(reloadKey, buildVersion)
+              const url = new URL(window.location.href)
+              url.searchParams.set('ts', buildVersion)
+              window.location.replace(url.toString())
+            }
+          }
+        } catch (error) {
+          console.warn('build version refresh guard failed', error)
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div style="min-height:100vh;display:grid;place-items:center;padding:24px;background:#fff7e8;color:#172033;font-family:Arial,'Microsoft YaHei',sans-serif;text-align:center">
+        <div>
+          <h1 style="margin:0 0 12px;font-size:24px;color:#e2231a">联想智慧零售系统正在加载</h1>
+          <p style="margin:0 0 8px;font-size:15px">如果长时间停留在这里，请刷新页面，或更换 Chrome/Edge 浏览器。</p>
+          <p style="margin:0 0 8px;font-size:13px;color:#667085">收银端地址：/android-pos · 后端地址：/backend-console</p>
+          <p style="margin:0;font-size:13px"><a style="color:#e2231a;font-weight:700" href="/android-pos-lite.html">旧版浏览器点这里进入兼容收银 Lite</a></p>
+        </div>
+      </div>
+    </div>
+    <script nomodule>
+      if (location.pathname.indexOf('/android-pos') === 0) location.replace('/android-pos-lite.html')
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

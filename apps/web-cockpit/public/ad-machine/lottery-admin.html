@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>购机抽奖后台</title>
+  <style>
+    :root {
+      --bg: #09070a;
+      --panel: rgba(23, 11, 14, 0.92);
+      --panel-2: rgba(36, 12, 15, 0.94);
+      --line: rgba(255, 220, 176, 0.14);
+      --gold: #ffd778;
+      --text: #fff7ef;
+      --muted: rgba(255, 240, 220, 0.72);
+      --accent: #ff5339;
+      --good: #6dffbe;
+      --warn: #ffd778;
+      --danger: #ff9d85;
+      --shadow: 0 18px 54px rgba(0, 0, 0, 0.34);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 83, 57, 0.26), transparent 24%),
+        radial-gradient(circle at 86% 7%, rgba(255, 215, 120, 0.16), transparent 24%),
+        linear-gradient(135deg, #16060a 0%, #09070a 58%, #07060a 100%);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    .page {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .hero, .panel {
+      background: linear-gradient(180deg, rgba(35, 11, 14, 0.96), rgba(12, 8, 10, 0.98));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .hero {
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(360px, 0.9fr);
+      gap: 18px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(255, 235, 198, 0.08);
+      border: 1px solid rgba(255, 235, 198, 0.16);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+    h1 { margin: 12px 0 8px; font-size: 42px; line-height: 1; }
+    .hero p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; font-weight: 700; }
+    .hero-actions { display: grid; gap: 12px; }
+    .button {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ff8b31, #ff4738);
+      color: #fffaf3;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(255, 83, 57, 0.24);
+    }
+    .button[disabled] { opacity: .45; cursor: not-allowed; box-shadow: none; }
+    .ghost { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); box-shadow: none; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .status-bar {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .stat-card, .round-card, .record-card, .issue-card, .pending-card {
+      padding: 16px 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 235, 198, 0.12);
+      background: rgba(255,255,255,.04);
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .stat-card strong { color: var(--gold); font-size: 14px; }
+    .stat-card .big { font-size: 32px; line-height: 1; font-weight: 1000; }
+    .stat-card .sub { color: var(--muted); font-size: 14px; font-weight: 700; }
+    .panel { padding: 18px; display: grid; gap: 14px; }
+    .panel h2 { margin: 0; font-size: 26px; }
+    .panel .subhead { color: var(--muted); font-size: 14px; font-weight: 700; }
+    .list { display: grid; gap: 12px; max-height: 760px; overflow: auto; padding-right: 4px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px;
+      font-size: 12px; font-weight: 900; letter-spacing: .04em;
+      background: rgba(255,255,255,.06); color: #ffe9c6; border: 1px solid rgba(255,255,255,.08);
+    }
+    .pill.good { color: #072614; background: rgba(109,255,190,.92); border-color: transparent; }
+    .pill.warn { color: #3b2600; background: rgba(255,215,120,.92); border-color: transparent; }
+    .pill.danger { color: #390d00; background: rgba(255,157,133,.92); border-color: transparent; }
+    .record-title { font-size: 20px; line-height: 1.35; font-weight: 930; }
+    .record-meta, .issue-meta { color: var(--muted); font-size: 14px; line-height: 1.5; font-weight: 700; }
+    .record-side { color: var(--gold); font-size: 18px; font-weight: 950; }
+    .empty { padding: 28px; text-align: center; color: var(--muted); font-size: 18px; font-weight: 800; }
+    @media (max-width: 1280px) {
+      .hero, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">店内局域网后台</span>
+        <h1>购机抽奖管理台</h1>
+        <p>这里只管轮次、记录、公示和异常 SN，不改广告机主视觉。当前规则是：上一池未抽完，不能开启下一池。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="refreshButton" class="button ghost" type="button">刷新后台数据</button>
+        <button id="openRoundButton" class="button" type="button" disabled>开启下一池</button>
+        <div id="statusBar" class="status-bar">正在加载...</div>
+      </div>
+    </section>
+
+    <section class="grid-4" id="summaryGrid"></section>
+
+    <section class="panel">
+      <h2>奖池轮次</h2>
+      <div class="subhead">这里只允许在上一池剩余为 0 时手动开下一池。</div>
+      <div class="list" id="roundsList"></div>
+    </section>
+
+    <section class="grid-2">
+      <section class="panel">
+        <h2>正式抽奖记录</h2>
+        <div class="subhead">已写入 SQL 的正式中奖记录，包含订单匹配与库存匹配状态。</div>
+        <div class="list" id="formalRecords"></div>
+      </section>
+      <section class="panel">
+        <h2>模拟抽奖记录</h2>
+        <div class="subhead">只做现场互动展示，不占正式奖池。</div>
+        <div class="list" id="mockRecords"></div>
+      </section>
+    </section>
+
+    <section class="grid-2">
+      <section class="panel">
+        <h2>异常 SN / 未匹配记录</h2>
+        <div class="subhead">只认 SN 参与，但后台要明确哪些没有匹配到库存或销售订单。</div>
+        <div class="list" id="issuesList"></div>
+      </section>
+      <section class="panel">
+        <h2>待抽客户</h2>
+        <div class="subhead">已经扫码报名但还未正式抽奖的客户。</div>
+        <div class="list" id="pendingList"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./config.local.js"></script>
+  <script>
+    const localConfig = window.__AD_MACHINE_CONFIG__ || {};
+    const apiBase = String(localConfig.apiBase || 'http://127.0.0.1:8000').replace(/\/$/, '');
+    const state = { admin: null };
+
+    const summaryGrid = document.getElementById('summaryGrid');
+    const roundsList = document.getElementById('roundsList');
+    const formalRecords = document.getElementById('formalRecords');
+    const mockRecords = document.getElementById('mockRecords');
+    const issuesList = document.getElementById('issuesList');
+    const pendingList = document.getElementById('pendingList');
+    const statusBar = document.getElementById('statusBar');
+    const refreshButton = document.getElementById('refreshButton');
+    const openRoundButton = document.getElementById('openRoundButton');
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+    }
+
+    function formatDate(value) {
+      if (!value) return '--';
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      const y = String(date.getFullYear()).slice(-2);
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const d = String(date.getDate()).padStart(2, '0');
+      const hh = String(date.getHours()).padStart(2, '0');
+      const mm = String(date.getMinutes()).padStart(2, '0');
+      return `${y}/${m}/${d} ${hh}:${mm}`;
+    }
+
+    function pill(label, kind = '') {
+      return `<span class="pill ${kind}">${escapeHtml(label)}</span>`;
+    }
+
+    function setStatus(text, isError = false) {
+      statusBar.textContent = text;
+      statusBar.style.color = isError ? 'var(--danger)' : 'var(--muted)';
+    }
+
+    function renderSummary(admin) {
+      const dashboard = admin.dashboard || {};
+      const round = dashboard.round || {};
+      const summary = dashboard.participantSummary || {};
+      const latest = dashboard.latestDraw || null;
+      summaryGrid.innerHTML = [
+        { label: '当前轮次', value: `第 ${round.roundNo || '--'} 池`, sub: round.status === 'active' ? '正在抽奖中' : '待开启下一池' },
+        { label: '剩余奖卡', value: `${round.remainingCount ?? 0}`, sub: `总数 ${round.totalCount ?? 0}` },
+        { label: '累计参与', value: `${summary.totalCount ?? 0}`, sub: `正式 ${summary.formalCount ?? 0} / 模拟 ${summary.mockCount ?? 0}` },
+        { label: '最新开奖', value: latest ? `${latest.serviceYears} 年` : '--', sub: latest ? `${latest.maskedName} · ${latest.prizeName}` : '暂无开奖记录' },
+      ].map((item) => `
+        <article class="stat-card">
+          <strong>${escapeHtml(item.label)}</strong>
+          <div class="big">${escapeHtml(item.value)}</div>
+          <div class="sub">${escapeHtml(item.sub)}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderRounds(rounds) {
+      if (!rounds.length) {
+        roundsList.innerHTML = '<div class="empty">暂无奖池轮次。</div>';
+        return;
+      }
+      roundsList.innerHTML = rounds.map((item) => `
+        <article class="round-card">
+          <div class="pill-row">
+            ${pill(`第 ${item.roundNo} 池`, item.status === 'active' ? 'good' : item.remainingCount > 0 ? 'warn' : '')}
+            ${pill(item.status === 'active' ? '进行中' : item.remainingCount <= 0 ? '已抽完' : item.status)}
+            ${pill(`高价值触发 ${item.highValueDrawCount || 0} 次`)}
+          </div>
+          <div class="record-title">剩余 ${item.remainingCount} / ${item.totalCount}</div>
+          <div class="record-meta">开启：${formatDate(item.openedAt)}${item.closedAt ? ` ｜ 抽完：${formatDate(item.closedAt)}` : ''}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderRecords(target, records, emptyText) {
+      if (!records.length) {
+        target.innerHTML = `<div class="empty">${escapeHtml(emptyText)}</div>`;
+        return;
+      }
+      target.innerHTML = records.map((item) => `
+        <article class="record-card">
+          <div class="pill-row">
+            ${pill(item.entryType === 'formal' ? '正式抽奖' : '模拟抽奖', item.entryType === 'formal' ? 'good' : 'warn')}
+            ${pill(item.inventoryMatchStatus === 'matched' ? '库存已匹配' : '库存未匹配', item.inventoryMatchStatus === 'matched' ? 'good' : 'danger')}
+            ${pill(item.orderMatchStatus === 'matched' ? '订单已匹配' : '订单未匹配', item.orderMatchStatus === 'matched' ? 'good' : 'warn')}
+          </div>
+          <div class="record-title">${escapeHtml(item.maskedName || item.customerName)} · ${escapeHtml(item.productModel || '未填写机型')}</div>
+          <div class="record-side">${escapeHtml(item.prizeName)} ｜ ${Number(item.faceValue || 0)} 元</div>
+          <div class="record-meta">SN：${escapeHtml(item.serialNumber || '--')} ｜ SKU：${escapeHtml(item.skuKey || '--')} ｜ 订单：${escapeHtml(item.orderNo || '--')}</div>
+          <div class="record-meta">结果码：${escapeHtml(item.resultCode || '--')} ｜ ${formatDate(item.createdAt)}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderIssues(items) {
+      if (!items.length) {
+        issuesList.innerHTML = '<div class="empty">当前没有未匹配的正式报名记录。</div>';
+        return;
+      }
+      issuesList.innerHTML = items.map((item) => `
+        <article class="issue-card">
+          <div class="pill-row">
+            ${pill(item.inventoryMatchStatus === 'matched' ? '库存已匹配' : '库存未匹配', item.inventoryMatchStatus === 'matched' ? 'good' : 'danger')}
+            ${pill(item.orderMatchStatus === 'matched' ? '订单已匹配' : '订单未匹配', item.orderMatchStatus === 'matched' ? 'good' : 'warn')}
+            ${pill(item.status === 'eligible' ? '待抽奖' : item.status)}
+          </div>
+          <div class="record-title">${escapeHtml(item.maskedName)} · ${escapeHtml(item.productModel || '未填写机型')}</div>
+          <div class="issue-meta">SN：${escapeHtml(item.serialNumber)} ｜ SKU：${escapeHtml(item.skuKey || '--')} ｜ 订单：${escapeHtml(item.orderNo || '--')}</div>
+          <div class="issue-meta">${formatDate(item.createdAt)}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderPending(items) {
+      if (!items.length) {
+        pendingList.innerHTML = '<div class="empty">当前没有待正式抽奖的客户。</div>';
+        return;
+      }
+      pendingList.innerHTML = items.map((item) => `
+        <article class="pending-card">
+          <div class="pill-row">
+            ${pill('待正式抽奖', 'warn')}
+            ${pill(item.inventoryMatchStatus === 'matched' ? '库存已匹配' : '库存未匹配', item.inventoryMatchStatus === 'matched' ? 'good' : 'danger')}
+            ${pill(item.orderMatchStatus === 'matched' ? '订单已匹配' : '订单未匹配', item.orderMatchStatus === 'matched' ? 'good' : 'warn')}
+          </div>
+          <div class="record-title">${escapeHtml(item.customerName)} · ${escapeHtml(item.productModel || '未填写机型')}</div>
+          <div class="issue-meta">SN：${escapeHtml(item.serialNumber)} ｜ SKU：${escapeHtml(item.skuKey || '--')}</div>
+          <div class="issue-meta">${formatDate(item.createdAt)}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderAdmin(admin) {
+      state.admin = admin;
+      renderSummary(admin);
+      renderRounds(admin.rounds || []);
+      renderRecords(formalRecords, admin.formalRecords || [], '暂无正式抽奖记录。');
+      renderRecords(mockRecords, admin.mockRecords || [], '暂无模拟抽奖记录。');
+      renderIssues(admin.unmatchedParticipants || []);
+      renderPending(admin.pendingParticipants || []);
+      const controls = admin.controls || {};
+      openRoundButton.disabled = !controls.canOpenNextRound;
+      openRoundButton.textContent = controls.canOpenNextRound ? `开启第 ${controls.nextRoundNo} 池` : (controls.activeRoundExists ? '当前奖池进行中' : '上一池未抽完');
+      const round = (admin.dashboard || {}).round || {};
+      setStatus(`当前：第 ${round.roundNo || '--'} 池 ｜ 剩余 ${round.remainingCount ?? 0} 张 ｜ ${new Date().toLocaleString('zh-CN')}`);
+    }
+
+    async function fetchJson(url, options = {}) {
+      const response = await fetch(url, { headers: { 'Content-Type': 'application/json' }, ...options });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || payload.ok === false) {
+        const message = payload?.detail?.message || payload?.detail?.error || payload?.message || `请求失败：${response.status}`;
+        throw new Error(message);
+      }
+      return payload;
+    }
+
+    async function loadAdmin() {
+      setStatus('正在刷新后台数据...');
+      const payload = await fetchJson(`${apiBase}/api/ad-machine/lottery/admin/dashboard`);
+      renderAdmin(payload);
+    }
+
+    async function openNextRound() {
+      if (openRoundButton.disabled) return;
+      openRoundButton.disabled = true;
+      setStatus('正在开启下一池...');
+      try {
+        const payload = await fetchJson(`${apiBase}/api/ad-machine/lottery/admin/open-next-round`, { method: 'POST', body: JSON.stringify({}) });
+        renderAdmin(payload.admin);
+        setStatus(`已开启第 ${payload.roundNo} 池。`);
+      } catch (error) {
+        setStatus(error.message || '开启下一池失败。', true);
+        if (state.admin) renderAdmin(state.admin);
+      }
+    }
+
+    refreshButton.addEventListener('click', () => { loadAdmin().catch((error) => setStatus(error.message || '刷新失败。', true)); });
+    openRoundButton.addEventListener('click', () => { openNextRound().catch((error) => setStatus(error.message || '开启失败。', true)); });
+
+    loadAdmin().catch((error) => {
+      setStatus(error.message || '后台加载失败。', true);
+      summaryGrid.innerHTML = '<div class="empty">后台数据加载失败，请确认当前为店内局域网并且本地 API 已启动。</div>';
+    });
+  </script>
+</body>
+</html>

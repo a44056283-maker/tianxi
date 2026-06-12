@@ -1,0 +1,11 @@
+[Unit]
+Description=zdt-sync orders collection
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/zdt-sync
+ExecStart=/opt/zdt-sync/.venv/bin/zdt-sync collect orders --incremental
+User=zdt
+Group=zdt
+EnvironmentFile=/opt/zdt-sync/.env

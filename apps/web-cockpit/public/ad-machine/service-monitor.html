@@ -1,0 +1,1279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广告机触屏营销服务页</title>
+  <style>
+    :root {
+      --bg-a: #12060a;
+      --bg-b: #241118;
+      --bg-c: #091019;
+      --text: #fff3dd;
+      --gold: #ffd56f;
+      --line: rgba(255, 214, 120, 0.28);
+      --panel: rgba(255, 255, 255, 0.05);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 0%, rgba(255, 176, 78, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(237, 28, 36, 0.18), transparent 32%),
+        linear-gradient(145deg, var(--bg-a) 0%, var(--bg-b) 45%, var(--bg-c) 100%);
+    }
+    .page {
+      width: 100vw;
+      height: 100vh;
+      padding: clamp(12px, .9vw, 18px);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: clamp(10px, .74vw, 16px);
+    }
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(255, 216, 126, 0.26), transparent 24%),
+        linear-gradient(135deg, rgba(76, 16, 18, 0.96), rgba(12, 14, 22, 0.94));
+      padding: clamp(18px, 1.28vw, 30px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      box-shadow: 0 18px 46px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .hero-copy {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+    .hero-badge {
+      width: fit-content;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 224, 144, .42);
+      background: linear-gradient(135deg, rgba(255, 216, 112, .2), rgba(255, 255, 255, .06));
+      color: #ffe6a6;
+      font-size: clamp(15px, .84vw, 20px);
+      font-weight: 980;
+      letter-spacing: .12em;
+    }
+    .hero-title {
+      margin: 0;
+      font-size: clamp(34px, 2.35vw, 56px);
+      line-height: .96;
+      font-weight: 1000;
+      color: #fff7ed;
+    }
+    .hero-subtitle {
+      margin: 0;
+      font-size: clamp(16px, 1vw, 22px);
+      line-height: 1.28;
+      color: rgba(255, 241, 220, .88);
+      font-weight: 700;
+    }
+    .hero-overview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      min-width: 420px;
+    }
+    .overview-item {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .18);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding: 12px 14px;
+      display: grid;
+      gap: 4px;
+    }
+    .overview-label {
+      font-size: clamp(12px, .7vw, 14px);
+      color: rgba(255, 230, 186, .72);
+      font-weight: 800;
+    }
+    .overview-value {
+      font-size: clamp(24px, 1.55vw, 34px);
+      color: #fff4cf;
+      font-weight: 1000;
+      line-height: .95;
+    }
+    .overview-value.bad { color: #ffae96; }
+    .monitor-shell {
+      min-height: 0;
+      border: 1px solid rgba(255, 218, 126, .26);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 215, 120, .08), transparent 22%),
+        linear-gradient(160deg, rgba(17, 13, 20, .95), rgba(11, 16, 25, .96));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 18px 46px rgba(0,0,0,.28);
+      padding: clamp(14px, .95vw, 22px);
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto auto;
+      gap: clamp(12px, .7vw, 16px);
+      overflow: hidden;
+    }
+    .status-ribbon {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .status-ribbon-panel {
+      border: 1px solid rgba(255, 224, 146, .2);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+      padding: 8px;
+    }
+    .status-ribbon-panel > summary {
+      list-style: none;
+      cursor: pointer;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 224, 146, .16);
+      background: rgba(255,255,255,.03);
+      color: #ffe9b7;
+      font-weight: 900;
+      font-size: clamp(14px, .88vw, 17px);
+    }
+    .status-ribbon-panel > summary::-webkit-details-marker { display: none; }
+    .status-ribbon-panel:not([open]) .status-ribbon { display: none; }
+    .ribbon-summary,
+    .ribbon-health {
+      min-height: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .18);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      padding: 12px 14px;
+      display: grid;
+      gap: 8px;
+    }
+    .ribbon-summary strong,
+    .ribbon-health strong {
+      font-size: clamp(15px, .88vw, 18px);
+      line-height: 1.08;
+      color: #ffebb8;
+    }
+    .ribbon-summary p,
+    .ribbon-health p {
+      margin: 0;
+      font-size: clamp(13px, .76vw, 15px);
+      line-height: 1.28;
+      color: rgba(255, 241, 220, .86);
+    }
+    .ribbon-summary p.bad {
+      color: #ffb8ab;
+      font-weight: 900;
+    }
+    .health-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .health-chip {
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      color: rgba(255, 241, 220, .92);
+      font-size: clamp(12px, .72vw, 14px);
+      font-weight: 900;
+      letter-spacing: .03em;
+      white-space: nowrap;
+    }
+    .health-chip.healthy {
+      border-color: rgba(104,255,187,.24);
+      color: #93ffd3;
+      background: rgba(52, 216, 149, .08);
+    }
+    .health-chip.unhealthy {
+      border-color: rgba(255,122,103,.34);
+      color: #ffb0a8;
+      background: rgba(255, 90, 90, .1);
+    }
+    .status-main-layout {
+      min-height: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(360px, .65fr);
+      gap: clamp(12px, .8vw, 18px);
+      align-items: stretch;
+    }
+    .status-left-column {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 12px;
+    }
+    .status-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 224, 146, .18);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding: 16px 18px;
+    }
+    .status-copy {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+    .status-kicker {
+      font-size: clamp(14px, .8vw, 18px);
+      font-weight: 900;
+      letter-spacing: .16em;
+      color: #ffdea1;
+      opacity: .92;
+    }
+    .status-title {
+      margin: 0;
+      font-size: clamp(42px, 2.9vw, 66px);
+      font-weight: 1000;
+      line-height: .96;
+      color: #fff4d4;
+    }
+    .status-subtitle { display: none; }
+    .status-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      gap: 10px;
+    }
+    .module-repair-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .action-button {
+      min-width: clamp(132px, 8vw, 176px);
+      min-height: clamp(62px, 3.5vw, 82px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .34);
+      background: linear-gradient(140deg, rgba(255, 191, 84, .22), rgba(255,255,255,.06));
+      color: #fff0ca;
+      font-size: clamp(21px, 1.24vw, 30px);
+      font-weight: 950;
+      letter-spacing: .04em;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
+    }
+    .action-button:hover,
+    .action-button:active { transform: translateY(-1px); border-color: rgba(255,226,146,.66); }
+    .action-button[disabled] { opacity: .62; cursor: progress; }
+    .action-button.secondary { background: linear-gradient(140deg, rgba(79, 122, 255, .22), rgba(255,255,255,.05)); }
+    .action-button.warn { background: linear-gradient(140deg, rgba(255, 125, 80, .26), rgba(255,255,255,.06)); }
+    .action-button.toggle.on {
+      background: linear-gradient(140deg, rgba(52, 216, 149, .28), rgba(255,255,255,.05));
+      border-color: rgba(112, 255, 196, .46);
+    }
+    .status-body {
+      min-height: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+    .status-grid {
+      min-height: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      overflow: auto;
+      padding-right: 3px;
+    }
+    .status-card {
+      min-height: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .18);
+      background: linear-gradient(155deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      gap: 12px;
+      align-items: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .status-card.is-healthy { border-color: rgba(104,255,187,.24); }
+    .status-card.is-unhealthy { border-color: rgba(255,122,103,.38); }
+    .status-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      min-width: 0;
+    }
+    .status-card-title {
+      margin: 0;
+      font-size: clamp(18px, 1.08vw, 24px);
+      font-weight: 900;
+      color: #ffecb7;
+      line-height: 1.12;
+    }
+    .status-pill {
+      min-width: 66px;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(12px, .72vw, 15px);
+      font-weight: 950;
+      letter-spacing: .06em;
+    }
+    .status-pill.healthy { background: rgba(72,217,155,.16); color: #87ffd0; }
+    .status-pill.unhealthy { background: rgba(255,90,90,.16); color: #ffb0a8; }
+    .status-metrics {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .status-latency {
+      font-size: clamp(36px, 2.2vw, 52px);
+      font-weight: 1000;
+      color: #fff3cf;
+      line-height: .92;
+    }
+    .status-unit {
+      font-size: clamp(15px, .95vw, 20px);
+      color: rgba(255, 239, 214, .75);
+      font-weight: 800;
+    }
+    .status-detail, .status-meta, .repair-log, .timeline-item span {
+      margin: 0;
+      font-size: clamp(14px, .9vw, 18px);
+      line-height: 1.24;
+      color: rgba(255, 241, 220, .84);
+    }
+    .status-meta { color: rgba(255, 223, 170, .7); font-weight: 780; }
+    .status-main-info {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+    .status-row-action {
+      min-height: 54px;
+      min-width: 132px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 224, 146, .34);
+      background: linear-gradient(140deg, rgba(255, 191, 84, .22), rgba(255,255,255,.06));
+      color: #fff0ca;
+      font-size: clamp(14px, .88vw, 18px);
+      font-weight: 920;
+      cursor: pointer;
+    }
+    .status-row-action.secondary {
+      background: linear-gradient(140deg, rgba(79, 122, 255, .22), rgba(255,255,255,.05));
+    }
+    .status-row-action.warn {
+      background: linear-gradient(140deg, rgba(255, 125, 80, .26), rgba(255,255,255,.06));
+    }
+    .status-row-action[disabled] { opacity: .62; cursor: progress; }
+    .status-card-headline {
+      margin: 0;
+      font-size: clamp(13px, .76vw, 16px);
+      color: rgba(255, 241, 220, .82);
+      line-height: 1.18;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .status-side {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255, 224, 146, .2);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      padding: 12px;
+      overflow: hidden;
+    }
+    .action-stack {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .2);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding: 10px;
+      display: grid;
+      gap: 10px;
+    }
+    .unified-action-zone {
+      min-height: 0;
+      height: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .2);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding: 10px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 10px;
+    }
+    .unified-action-grid {
+      min-height: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 10px;
+    }
+    .unified-action-grid .action-button {
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+    }
+    .logs-section {
+      border: 1px solid rgba(255, 224, 146, .2);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      min-height: 0;
+    }
+    .action-stack-title {
+      margin: 0;
+      font-size: clamp(21px, 1.28vw, 30px);
+      line-height: 1.1;
+      color: #ffe7ad;
+      font-weight: 950;
+    }
+    .action-stack-sub {
+      margin: 0;
+      font-size: clamp(13px, .76vw, 16px);
+      line-height: 1.25;
+      color: rgba(255, 241, 220, .82);
+    }
+    .repair-card, .timeline-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .18);
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      padding: 12px 14px;
+      display: grid;
+      gap: 8px;
+      min-height: 0;
+    }
+    .repair-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .repair-title, .timeline-title {
+      margin: 0;
+      font-size: clamp(21px, 1.22vw, 30px);
+      font-weight: 940;
+      color: #ffe8af;
+    }
+    .repair-state { font-size: clamp(13px, .76vw, 15px); color: rgba(255, 240, 212, .84); font-weight: 800; }
+    .timeline-list {
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      overflow: auto;
+    }
+    .timeline-item {
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.04);
+      padding: 9px 10px;
+      display: grid;
+      gap: 4px;
+    }
+    .timeline-item strong { font-size: clamp(13px, .74vw, 15px); color: #fff0c9; }
+    .diag-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 224, 146, .18);
+      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      padding: 10px 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .diag-title {
+      margin: 0;
+      font-size: clamp(14px, .82vw, 18px);
+      font-weight: 920;
+      color: #ffe7ad;
+    }
+    .diag-list {
+      display: grid;
+      gap: 6px;
+      max-height: 160px;
+      overflow: auto;
+    }
+    .diag-item {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+      background: rgba(255,255,255,.03);
+      padding: 8px 9px;
+      display: grid;
+      gap: 4px;
+    }
+    .diag-item strong {
+      font-size: clamp(12px, .72vw, 14px);
+      line-height: 1.2;
+      color: #fff4d2;
+    }
+    .diag-item span {
+      font-size: clamp(11px, .68vw, 13px);
+      line-height: 1.24;
+      color: rgba(255, 238, 211, .82);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .diag-ok { color: #9dffd6 !important; }
+    .diag-bad { color: #ffb4aa !important; }
+    @media (orientation: portrait) {
+      .page {
+        padding: clamp(10px, 1.15vw, 18px);
+        grid-template-rows: 17vh minmax(0, 1fr);
+        gap: 10px;
+      }
+      .hero {
+        padding: clamp(12px, 1.05vw, 18px);
+        border-radius: 18px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+        gap: 10px;
+      }
+      .hero-title {
+        font-size: clamp(30px, 3.1vw, 46px);
+      }
+      .hero-subtitle {
+        font-size: clamp(13px, 1.25vw, 20px);
+        line-height: 1.18;
+      }
+      .hero-overview {
+        min-width: 0;
+        gap: 8px;
+      }
+      .overview-item {
+        border-radius: 12px;
+        padding: 8px 10px;
+      }
+      .monitor-shell {
+        border-radius: 18px;
+        padding: 10px;
+        gap: 10px;
+      }
+      .status-ribbon {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .ribbon-summary,
+      .ribbon-health {
+        padding: 8px 10px;
+        gap: 5px;
+      }
+      .status-main-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        gap: 8px;
+      }
+      .status-left-column {
+        gap: 8px;
+      }
+      .status-head {
+        padding: 10px 12px;
+      }
+      .status-kicker {
+        font-size: clamp(12px, 1.05vw, 16px);
+      }
+      .status-title {
+        font-size: clamp(30px, 2.8vw, 44px);
+        line-height: 1;
+      }
+      .status-grid {
+        gap: 7px;
+      }
+      .status-card {
+        padding: 9px 10px;
+        border-radius: 12px;
+        gap: 8px;
+      }
+      .status-card-title {
+        font-size: clamp(17px, 1.25vw, 22px);
+      }
+      .status-card-headline,
+      .status-meta {
+        font-size: clamp(12px, .95vw, 16px);
+      }
+      .status-latency {
+        font-size: clamp(30px, 2.7vw, 44px);
+      }
+      .status-unit {
+        font-size: clamp(13px, 1vw, 18px);
+      }
+      .status-row-action {
+        min-height: 46px;
+        min-width: 102px;
+        border-radius: 10px;
+        font-size: clamp(13px, 1vw, 16px);
+      }
+      .status-side {
+        padding: 8px;
+        gap: 8px;
+      }
+      .action-stack,
+      .unified-action-zone,
+      .repair-card,
+      .diag-card {
+        border-radius: 12px;
+        padding: 8px;
+      }
+      .unified-action-grid { grid-template-columns: 1fr; }
+      .logs-section {
+        grid-template-columns: 1fr;
+      }
+      .action-stack-title,
+      .repair-title,
+      .timeline-title {
+        font-size: clamp(16px, 1.2vw, 22px);
+      }
+      .action-button {
+        min-width: 0;
+        min-height: 52px;
+        font-size: clamp(16px, 1.2vw, 22px);
+        border-radius: 12px;
+      }
+      .timeline-item {
+        border-radius: 10px;
+        padding: 8px;
+      }
+    }
+    @media (max-width: 900px) {
+      html, body { overflow: auto; }
+      .page { height: auto; min-height: 100vh; }
+      .hero, .status-ribbon, .status-main-layout, .status-body, .hero-overview, .logs-section { grid-template-columns: 1fr; }
+      .status-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-badge">AD MACHINE BACKSTAGE</span>
+        <h1 class="hero-title">广告机触屏营销服务页</h1>
+        <p class="hero-subtitle">独立承接广告机前后端状态监控、数据流刷新和自愈操作。该页仅作为后台巡检/修复入口，不再出现在客户展示内容中。</p>
+      </div>
+      <section class="hero-overview">
+        <article class="overview-item">
+          <span class="overview-label">健康链路</span>
+          <strong class="overview-value" id="healthyCountValue">-</strong>
+        </article>
+        <article class="overview-item">
+          <span class="overview-label">异常链路</span>
+          <strong class="overview-value bad" id="unhealthyCountValue">-</strong>
+        </article>
+        <article class="overview-item">
+          <span class="overview-label">最近探测</span>
+          <strong class="overview-value" id="updatedAtValue">--:--:--</strong>
+        </article>
+      </section>
+    </section>
+    <section class="monitor-shell" aria-label="广告机数据流自动侦测与修复中心">
+      <div class="status-main-layout">
+        <section class="status-left-column">
+          <header class="status-head">
+            <div class="status-copy">
+              <span class="status-kicker">AD-MACHINE FLOW WATCH</span>
+              <h2 class="status-title">广告机数据流自动侦测与修复中心</h2>
+              <p class="status-subtitle">持续侦测商品零售区、营销活动、运行时和前后端服务状态；支持一键启动、一键修复、掉线自动拉起和快照刷新。</p>
+            </div>
+          </header>
+          <div class="status-body">
+            <section class="status-grid" id="serviceStatusGrid" aria-live="polite"></section>
+          </div>
+        </section>
+        <aside class="status-side">
+          <section class="unified-action-zone">
+            <h3 class="action-stack-title">功能按钮区</h3>
+            <p class="action-stack-sub">修复和全局操作统一在此区域，不再分栏。</p>
+            <div class="unified-action-grid">
+              <button class="action-button warn" id="statusRepairRetailZoneButton" type="button">修复零售区数据</button>
+              <button class="action-button warn" id="statusRepairMarketingButton" type="button">修复营销/教育补</button>
+              <button class="action-button secondary" id="statusStartApiButton" type="button">启动 API 服务</button>
+              <button class="action-button secondary" id="statusStartWebButton" type="button">启动 5174 前端</button>
+              <button class="action-button secondary" id="statusRefreshDataButton" type="button">刷新数据流</button>
+              <button class="action-button secondary" id="statusStartButton" type="button">一键启动</button>
+              <button class="action-button" id="statusRepairButton" type="button">一键修复</button>
+              <button class="action-button toggle" id="statusAutoRepairButton" type="button" aria-pressed="false">自动修复：关</button>
+              <button class="action-button secondary" id="statusCacheWarmupButton" type="button">下载极速缓存</button>
+              <button class="action-button toggle on" id="statusCacheAutoButton" type="button" aria-pressed="true" disabled>自动缓存：每1小时清理</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+      <section class="logs-section">
+          <section class="repair-card">
+            <div class="repair-head">
+              <h3 class="repair-title">修复执行状态</h3>
+              <span class="repair-state" id="repairStateLabel">待命</span>
+            </div>
+            <p class="repair-log" id="repairLogText">等待首次探测…</p>
+          </section>
+          <section class="diag-card">
+            <h3 class="diag-title">命令诊断明细</h3>
+            <div class="diag-list" id="commandDiagnosticList">
+              <div class="diag-item">
+                <strong>尚未执行修复动作</strong>
+                <span>点击启动/修复按钮后显示命令级结果。</span>
+              </div>
+            </div>
+          </section>
+          <section class="timeline-card">
+            <h3 class="timeline-title">实时日志状态区</h3>
+            <ul class="timeline-list" id="serviceTimelineList"></ul>
+          </section>
+      </section>
+      <details class="status-ribbon-panel">
+        <summary>状态摘要（点击展开）</summary>
+        <section class="status-ribbon" aria-label="广告机状态速览">
+          <article class="ribbon-summary">
+            <strong>当前状态总览</strong>
+            <p id="statusHeadlineText">等待首次探测…</p>
+            <p id="statusProblemText">暂未读取到异常模块。</p>
+          </article>
+          <article class="ribbon-health">
+            <strong>模块状态栏</strong>
+            <div class="health-chip-row" id="healthChipRow"></div>
+          </article>
+        </section>
+      </details>
+    </section>
+  </main>
+  <script>
+    const serviceStatusGrid = document.getElementById('serviceStatusGrid')
+    const statusRefreshDataButton = document.getElementById('statusRefreshDataButton')
+    const statusStartButton = document.getElementById('statusStartButton')
+    const statusStartApiButton = document.getElementById('statusStartApiButton')
+    const statusStartWebButton = document.getElementById('statusStartWebButton')
+    const statusRepairButton = document.getElementById('statusRepairButton')
+    const statusAutoRepairButton = document.getElementById('statusAutoRepairButton')
+    const statusCacheWarmupButton = document.getElementById('statusCacheWarmupButton')
+    const statusCacheAutoButton = document.getElementById('statusCacheAutoButton')
+    const statusRepairRetailZoneButton = document.getElementById('statusRepairRetailZoneButton')
+    const statusRepairMarketingButton = document.getElementById('statusRepairMarketingButton')
+    const healthyCountValue = document.getElementById('healthyCountValue')
+    const unhealthyCountValue = document.getElementById('unhealthyCountValue')
+    const updatedAtValue = document.getElementById('updatedAtValue')
+    const statusHeadlineText = document.getElementById('statusHeadlineText')
+    const statusProblemText = document.getElementById('statusProblemText')
+    const healthChipRow = document.getElementById('healthChipRow')
+    const repairStateLabel = document.getElementById('repairStateLabel')
+    const repairLogText = document.getElementById('repairLogText')
+    const commandDiagnosticList = document.getElementById('commandDiagnosticList')
+    const serviceTimelineList = document.getElementById('serviceTimelineList')
+    const statusState = {
+      pollingTimer: null,
+      autoRepair: localStorage.getItem('lenovo-ad-machine-auto-repair') === '1',
+      repairInFlight: false,
+      lastAutoRepairAt: 0,
+      timeline: [],
+      apiBaseIndex: 0,
+      apiBaseCandidates: [],
+      lastCommandDiagnostics: [],
+      cacheAuto: true,
+      cacheTimer: null,
+    }
+
+    function buildCacheWarmupUrls(ts = Date.now()) {
+      return [
+        '/ad-machine/index.html',
+        '/ad-machine/flyer-gaming.html?adMachine=1',
+        '/ad-machine/flyer-thin-light.html?adMachine=1',
+        '/ad-machine/flyer-tablet.html?adMachine=1',
+        '/ad-machine/flyer-phone.html?adMachine=1',
+        '/ad-machine/full-service.html',
+        '/ad-machine/lottery.html',
+        '/ad-machine/lottery-entry.html',
+        '/ad-machine/accessory-flash-sale.html',
+        '/ad-machine/after-sales-pure.html',
+        '/ad-machine/service-monitor.html',
+        '/ad-machine/after-sales-entry.html',
+        '/ad-machine/after-sales-entry-qr.png',
+        '/ad-machine/lottery-entry-qr.png',
+        `/flyers/lenovo-618-flyers-data.json?ts=${ts}`,
+      ]
+    }
+
+    async function ensureServiceWorkerReady() {
+      if (!('serviceWorker' in navigator)) throw new Error('当前浏览器不支持 Service Worker')
+      let registration = await navigator.serviceWorker.getRegistration('/')
+      if (!registration) {
+        registration = await navigator.serviceWorker.register('/sw-ad-machine.js?v=20260606-runtime-refresh30m-v30', { scope: '/' })
+      }
+      if (!navigator.serviceWorker.controller) {
+        await new Promise((resolve) => {
+          const timer = setTimeout(resolve, 1500)
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            clearTimeout(timer)
+            resolve()
+          }, { once: true })
+        })
+      }
+      return registration
+    }
+
+    function waitForSwMessage(expectedType, timeout = 20000) {
+      return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('缓存任务响应超时')), timeout)
+        const handler = (event) => {
+          if (event?.data?.type !== expectedType) return
+          clearTimeout(timer)
+          navigator.serviceWorker.removeEventListener('message', handler)
+          resolve(event.data.payload || {})
+        }
+        navigator.serviceWorker.addEventListener('message', handler)
+      })
+    }
+
+    async function runCacheWarmup() {
+      setActionBusy(true)
+      setRepairState('缓存下载中', '正在下载核心页面和数据到本机缓存…')
+      pushTimeline('缓存下载', '已触发本机缓存预加载。')
+      try {
+        await ensureServiceWorkerReady()
+        const urls = buildCacheWarmupUrls()
+        const responseTask = waitForSwMessage('AD_MACHINE_WARMUP_DONE')
+        navigator.serviceWorker.controller?.postMessage({ type: 'AD_MACHINE_WARMUP', urls })
+        const payload = await responseTask
+        const success = Number(payload.success || 0)
+        const total = Number(payload.total || 0)
+        setRepairState('缓存下载完成', `本机缓存更新完成：${success}/${total}`)
+        pushTimeline('缓存下载完成', `本机缓存成功写入 ${success}/${total} 项。`)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        setRepairState('缓存下载失败', message)
+        pushTimeline('缓存下载失败', message)
+      } finally {
+        setActionBusy(false)
+        renderAutoRepairState()
+        renderAutoCacheState()
+      }
+    }
+
+    async function runCacheCleanup(maxAgeHours = 1) {
+      setActionBusy(true)
+      setRepairState('缓存清理中', `正在清理 ${maxAgeHours} 小时前的过期缓存…`)
+      pushTimeline('缓存清理', '已触发本机过期缓存清理。')
+      try {
+        await ensureServiceWorkerReady()
+        const responseTask = waitForSwMessage('AD_MACHINE_CACHE_CLEANUP_DONE')
+        navigator.serviceWorker.controller?.postMessage({ type: 'AD_MACHINE_CACHE_CLEANUP', maxAgeHours })
+        const payload = await responseTask
+        const removed = Number(payload.removed || 0)
+        setRepairState('缓存清理完成', `已清理过期缓存 ${removed} 项。`)
+        pushTimeline('缓存清理完成', `本机已清理过期缓存 ${removed} 项。`)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        setRepairState('缓存清理失败', message)
+        pushTimeline('缓存清理失败', message)
+      } finally {
+        setActionBusy(false)
+        renderAutoRepairState()
+        renderAutoCacheState()
+      }
+    }
+    function resolveApiBaseCandidates() {
+      const candidates = []
+      if (location.protocol !== 'file:' && location.origin) {
+        candidates.push(location.origin)
+      }
+      const queryBase = new URLSearchParams(location.search).get('apiBase')
+      const persistedBase = localStorage.getItem('lenovo-ad-machine-api-base')
+      const localConfig = window.__AD_MACHINE_LOCAL_CONFIG__ || {}
+      const configBase = String(localConfig.adMachineApiBaseUrl || localConfig.lotteryLanBaseUrl || '').trim()
+      ;[queryBase, persistedBase, configBase].forEach((value) => {
+        if (value && !candidates.includes(value)) candidates.push(value)
+      })
+      if (location.protocol === 'file:') {
+        candidates.push('http://127.0.0.1:8000', 'http://192.168.13.104:8000')
+      }
+      const hostname = location.hostname || '127.0.0.1'
+      if (hostname === '127.0.0.1' || hostname === 'localhost' || /^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
+        candidates.push(`${location.protocol}//${hostname}:8000`, `http://${hostname}:5174`, 'http://127.0.0.1:8000')
+      } else {
+        candidates.push(location.origin, `${location.protocol}//${hostname}:8000`, `http://${hostname}:8000`)
+      }
+      return [...new Set(candidates.map((item) => item.replace(/\/$/, '')))]
+    }
+    statusState.apiBaseCandidates = resolveApiBaseCandidates()
+    let SERVICE_API_BASE = statusState.apiBaseCandidates[0] || 'http://127.0.0.1:8000'
+    function rotateApiBase() {
+      if (!statusState.apiBaseCandidates.length) return SERVICE_API_BASE
+      statusState.apiBaseIndex = (statusState.apiBaseIndex + 1) % statusState.apiBaseCandidates.length
+      SERVICE_API_BASE = statusState.apiBaseCandidates[statusState.apiBaseIndex]
+      return SERVICE_API_BASE
+    }
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 3200) {
+      const controller = new AbortController()
+      const timer = setTimeout(() => controller.abort(), timeoutMs)
+      try {
+        return await fetch(url, { ...options, signal: controller.signal })
+      } finally {
+        clearTimeout(timer)
+      }
+    }
+    async function fetchServiceApi(path, options = {}) {
+      const candidates = statusState.apiBaseCandidates.length ? statusState.apiBaseCandidates : [SERVICE_API_BASE]
+      let lastError = null
+      for (let index = 0; index < candidates.length; index += 1) {
+        const base = candidates[(statusState.apiBaseIndex + index) % candidates.length]
+        const target = `${base}${path}`
+        try {
+          const response = await fetchWithTimeout(target, {
+            cache: 'no-store',
+            ...options,
+            headers: {
+              'Content-Type': 'application/json',
+              ...(options.headers || {}),
+            },
+          })
+          if (!response.ok) {
+            const body = await response.text().catch(() => '')
+            throw new Error(`${response.status} ${body || response.statusText}`.trim())
+          }
+          SERVICE_API_BASE = base
+          statusState.apiBaseIndex = (statusState.apiBaseIndex + index) % candidates.length
+          localStorage.setItem('lenovo-ad-machine-api-base', base)
+          return response.json()
+        } catch (error) {
+          lastError = error
+          rotateApiBase()
+        }
+      }
+      const message = lastError instanceof Error ? lastError.message : String(lastError || 'Load failed')
+      throw new Error(`接口不可用（${message}）`)
+    }
+    function pushTimeline(title, detail) {
+      statusState.timeline.unshift({ title, detail, time: new Date().toLocaleTimeString('zh-CN', { hour12: false }) })
+      statusState.timeline = statusState.timeline.slice(0, 8)
+      renderTimeline()
+    }
+    function renderTimeline() {
+      serviceTimelineList.innerHTML = statusState.timeline.map((entry) => `
+        <li class="timeline-item">
+          <strong>${entry.time} · ${entry.title}</strong>
+          <span>${entry.detail}</span>
+        </li>
+      `).join('')
+    }
+    function formatUpdatedAt(value) {
+      if (!value) return '--:--:--'
+      const date = new Date(value)
+      if (Number.isNaN(date.getTime())) return '--:--:--'
+      return date.toLocaleTimeString('zh-CN', { hour12: false })
+    }
+    function setRepairState(stateLabel, logText) {
+      repairStateLabel.textContent = stateLabel
+      repairLogText.textContent = logText
+    }
+    function renderCommandDiagnostics(diags = []) {
+      statusState.lastCommandDiagnostics = Array.isArray(diags) ? diags : []
+      if (!statusState.lastCommandDiagnostics.length) {
+        commandDiagnosticList.innerHTML = `
+          <div class="diag-item">
+            <strong>尚未执行修复动作</strong>
+            <span>点击启动/修复按钮后显示命令级结果。</span>
+          </div>
+        `
+        return
+      }
+      commandDiagnosticList.innerHTML = statusState.lastCommandDiagnostics.map((item) => {
+        const ok = Boolean(item.ok)
+        const className = ok ? 'diag-ok' : 'diag-bad'
+        const codeText = item.returncode === null || item.returncode === undefined ? 'n/a' : String(item.returncode)
+        const outText = (item.stderr || item.stdout || item.detail || '无输出').slice(0, 280)
+        return `
+          <div class="diag-item">
+            <strong class="${className}">${item.name} · ${ok ? '命令成功' : '命令失败'} · code=${codeText}</strong>
+            <span>${outText}</span>
+          </div>
+        `
+      }).join('')
+    }
+    function setActionBusy(busy) {
+      statusState.repairInFlight = busy
+      statusStartButton.disabled = busy
+      statusRepairButton.disabled = busy
+      statusRefreshDataButton.disabled = busy
+      statusStartApiButton.disabled = busy
+      statusStartWebButton.disabled = busy
+      statusRepairRetailZoneButton.disabled = busy
+      statusRepairMarketingButton.disabled = busy
+      statusAutoRepairButton.disabled = busy
+      statusCacheWarmupButton.disabled = busy
+      statusCacheAutoButton.disabled = true
+    }
+    function renderAutoRepairState() {
+      statusAutoRepairButton.classList.toggle('on', statusState.autoRepair)
+      statusAutoRepairButton.setAttribute('aria-pressed', String(statusState.autoRepair))
+      statusAutoRepairButton.textContent = `自动修复：${statusState.autoRepair ? '开' : '关'}`
+    }
+    function renderAutoCacheState() {
+      statusState.cacheAuto = true
+      statusCacheAutoButton.classList.add('on')
+      statusCacheAutoButton.setAttribute('aria-pressed', 'true')
+      statusCacheAutoButton.textContent = '自动缓存：每1小时清理'
+    }
+
+    function syncCacheAutoTimer() {
+      if (statusState.cacheTimer) {
+        clearInterval(statusState.cacheTimer)
+        statusState.cacheTimer = null
+      }
+      if (!statusState.cacheAuto) return
+      statusState.cacheTimer = setInterval(async () => {
+        if (statusState.repairInFlight) return
+        await runCacheWarmup()
+        await runCacheCleanup(1)
+      }, 60 * 60 * 1000)
+    }
+    function renderServiceCards(payload) {
+      const services = Array.isArray(payload.services) ? payload.services : []
+      const metricParts = (item) => {
+        if (item.issueType === 'snapshot_stale') {
+          const seconds = Number(item?.meta?.ageSeconds)
+          return {
+            value: Number.isFinite(seconds) ? String(seconds) : '--',
+            unit: 's',
+          }
+        }
+        return {
+          value: Number.isFinite(item.latencyMs) ? String(item.latencyMs) : '--',
+          unit: 'ms',
+        }
+      }
+      serviceStatusGrid.innerHTML = services.map((item) => {
+        const metric = metricParts(item)
+        return `
+        <article class="status-card ${item.ok ? 'is-healthy' : 'is-unhealthy'}">
+          <div class="status-main-info">
+            <div class="status-card-head">
+              <h3 class="status-card-title">${item.title}</h3>
+              <span class="status-pill ${item.ok ? 'healthy' : 'unhealthy'}">${item.ok ? '正常' : '异常'}</span>
+            </div>
+            <p class="status-card-headline">${item.detail || '无明细'}</p>
+            <p class="status-meta">链路：${item.key}${item.statusCode ? ` · HTTP ${item.statusCode}` : ''}</p>
+          </div>
+          <div class="status-metrics">
+            <strong class="status-latency">${metric.value}</strong>
+            <span class="status-unit">${metric.unit}</span>
+          </div>
+        </article>
+      `}).join('')
+      healthyCountValue.textContent = String(payload.healthyCount ?? 0)
+      unhealthyCountValue.textContent = String(payload.unhealthyCount ?? 0)
+      updatedAtValue.textContent = formatUpdatedAt(payload.updatedAt)
+      healthChipRow.innerHTML = services.map((item) => `
+        <span class="health-chip ${item.ok ? 'healthy' : 'unhealthy'}">${item.title}${item.ok ? ' 正常' : ' 异常'}</span>
+      `).join('')
+      const unhealthyServices = services.filter((item) => !item.ok)
+      statusHeadlineText.textContent = unhealthyServices.length > 0
+        ? `当前检测到 ${unhealthyServices.length} 个异常模块，已可直接定位并执行修复。`
+        : '当前前后端、数据流和广告机运行时链路全部正常。'
+      statusProblemText.textContent = unhealthyServices.length > 0
+        ? `异常模块：${unhealthyServices.map((item) => item.title).join('、')}`
+        : '当前没有异常模块。'
+      statusProblemText.classList.toggle('bad', unhealthyServices.length > 0)
+    }
+    async function runServiceAction(action) {
+      setActionBusy(true)
+      const actionLabel = action === 'start' ? '一键启动' : action === 'repair' ? '一键修复' : '刷新数据流'
+      setRepairState(action === 'refresh-data' ? '刷新中' : action === 'start' ? '启动中' : '修复中', `正在执行 ${actionLabel}…`)
+      pushTimeline(actionLabel, action === 'refresh-data' ? '已下发到本机数据刷新链。' : '已下发到本机启动脚本。')
+      try {
+        const payload = await fetchServiceApi(`/api/ad-machine/service-status/${action}`, { method: 'POST' })
+        renderServiceCards(payload.serviceStatus || {})
+        const commandResults = []
+        if (payload.commandResults && typeof payload.commandResults === 'object') {
+          Object.entries(payload.commandResults).forEach(([key, value]) => {
+            const item = value || {}
+            commandResults.push({
+              name: `${key}（首轮）`,
+              ok: Boolean(item.ok),
+              returncode: item.returncode,
+              stdout: item.stdout,
+              stderr: item.stderr,
+              detail: item.error,
+            })
+          })
+          if (payload.retryResults && typeof payload.retryResults === 'object') {
+            Object.entries(payload.retryResults).forEach(([key, value]) => {
+              const item = value || {}
+              commandResults.push({
+                name: `${key}（重试）`,
+                ok: Boolean(item.ok),
+                returncode: item.returncode,
+                stdout: item.stdout,
+                stderr: item.stderr,
+                detail: item.error,
+              })
+            })
+          }
+        } else {
+          commandResults.push({
+            name: payload.mode === 'kickstart' ? 'runtime-kickstart' : action,
+            ok: Boolean(payload.ok),
+            returncode: payload.returncode,
+            stdout: payload.stdout,
+            stderr: payload.stderr,
+            detail: payload.effective ? '服务已恢复在线。' : '',
+          })
+        }
+        renderCommandDiagnostics(commandResults)
+        const ok = Boolean(payload.ok)
+        const effective = Boolean(payload.effective ?? payload.recoveredAfterRestart ?? ok)
+        if (ok) {
+          setRepairState('执行完成', `${actionLabel}已执行，当前状态卡已刷新。`)
+          pushTimeline('执行完成', '服务状态已刷新。')
+        } else if (effective) {
+          setRepairState('执行完成（降级）', `${actionLabel}执行链路存在非零返回，但服务已恢复在线。`)
+          pushTimeline('执行完成（降级）', payload.stderr || payload.stdout || '服务已恢复，建议后续复核执行日志。')
+        } else {
+          setRepairState('执行失败', `执行失败：${payload.stderr || payload.stdout || '无输出'}`)
+          pushTimeline('执行失败', payload.stderr || payload.stdout || '脚本无输出')
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        setRepairState('执行失败', message)
+        pushTimeline('执行失败', message)
+      } finally {
+        setActionBusy(false)
+        renderAutoRepairState()
+      }
+    }
+    async function runModuleRepair(moduleKey) {
+      const titleMap = {
+        retailZone: '零售区数据修复',
+        marketingBoost: '营销/教育补修复',
+      }
+      const actionLabel = titleMap[moduleKey] || '模块修复'
+      setActionBusy(true)
+      setRepairState('模块修复中', `正在执行 ${actionLabel}…`)
+      pushTimeline(actionLabel, '已下发单模块修复。')
+      try {
+        const payload = await fetchServiceApi(`/api/ad-machine/service-status/repair-module/${moduleKey}`, { method: 'POST' })
+        renderServiceCards(payload.serviceStatus || {})
+        renderCommandDiagnostics([
+          {
+            name: `${moduleKey}-build`,
+            ok: Boolean(payload.commandResult?.ok),
+            returncode: payload.commandResult?.returncode,
+            stdout: payload.commandResult?.stdout,
+            stderr: payload.commandResult?.stderr,
+            detail: payload.commandResult?.error,
+          },
+        ])
+        const ok = Boolean(payload.ok)
+        const beforeCause = payload.before?.meta?.cause || 'unknown'
+        const afterDetail = payload.after?.detail || '无详情'
+        const summary = ok
+          ? `${actionLabel}成功（原因：${beforeCause}）。${afterDetail}`
+          : `${actionLabel}失败（原因：${beforeCause}）。${payload.commandResult?.stderr || payload.commandResult?.stdout || afterDetail}`
+        setRepairState(ok ? '模块修复完成' : '模块修复失败', summary)
+        pushTimeline(ok ? '模块修复完成' : '模块修复失败', summary)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        setRepairState('模块修复失败', message)
+        pushTimeline('模块修复失败', message)
+      } finally {
+        setActionBusy(false)
+        renderAutoRepairState()
+      }
+    }
+    async function loadServiceStatus(trigger = 'poll') {
+      try {
+        const payload = await fetchServiceApi('/api/ad-machine/service-status')
+        renderServiceCards(payload)
+        if (trigger === 'poll') {
+          setRepairState(statusState.repairInFlight ? '执行中' : '在线监测', payload.unhealthyCount > 0 ? `检测到 ${payload.unhealthyCount} 条异常链路。` : '当前核心链路全部正常。')
+        }
+        if (payload.unhealthyCount > 0 && statusState.autoRepair && !statusState.repairInFlight) {
+          const now = Date.now()
+          if (now - statusState.lastAutoRepairAt > 45000) {
+            statusState.lastAutoRepairAt = now
+            const services = Array.isArray(payload.services) ? payload.services : []
+            const unhealthyServices = services.filter((item) => !item.ok)
+            const moduleRepairKeys = unhealthyServices
+              .filter((item) => item.issueType === 'snapshot_stale' && (item.key === 'retailZone' || item.key === 'marketingBoost'))
+              .map((item) => item.key)
+            const onlyTargetModules = moduleRepairKeys.length > 0 && moduleRepairKeys.length === unhealthyServices.length
+            if (onlyTargetModules) {
+              pushTimeline('自动修复触发', `检测到 ${moduleRepairKeys.length} 条数据快照异常，自动执行单模块修复。`)
+              for (const key of moduleRepairKeys) {
+                await runModuleRepair(key)
+              }
+            } else {
+              const snapshotOnly = unhealthyServices.length > 0 && unhealthyServices.every((item) => item.issueType === 'snapshot_stale')
+              pushTimeline('自动修复触发', snapshotOnly ? `检测到 ${payload.unhealthyCount} 条快照老化链路，自动刷新数据流。` : `检测到 ${payload.unhealthyCount} 条服务异常链路，自动执行修复。`)
+              await runServiceAction(snapshotOnly ? 'refresh-data' : 'repair')
+            }
+          }
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        setRepairState('监测异常', message)
+        if (!statusState.repairInFlight) {
+          pushTimeline('状态读取失败', `${message}；已自动切换探测地址继续重试。`)
+        }
+      }
+    }
+    statusRefreshDataButton.addEventListener('click', () => runServiceAction('refresh-data'))
+    statusStartButton.addEventListener('click', () => runServiceAction('start'))
+    statusRepairButton.addEventListener('click', () => runServiceAction('repair'))
+    statusRepairRetailZoneButton.addEventListener('click', () => runModuleRepair('retailZone'))
+    statusRepairMarketingButton.addEventListener('click', () => runModuleRepair('marketingBoost'))
+    statusStartApiButton.addEventListener('click', () => runServiceAction('start'))
+    statusStartWebButton.addEventListener('click', () => runServiceAction('start'))
+    statusAutoRepairButton.addEventListener('click', () => {
+      statusState.autoRepair = !statusState.autoRepair
+      localStorage.setItem('lenovo-ad-machine-auto-repair', statusState.autoRepair ? '1' : '0')
+      renderAutoRepairState()
+      setRepairState(statusState.autoRepair ? '自动修复已开启' : '自动修复已关闭', statusState.autoRepair ? '后续检测到掉线会自动调用修复脚本。' : '当前仅保留状态监测，不自动执行修复。')
+    })
+    statusCacheWarmupButton.addEventListener('click', () => runCacheWarmup())
+    statusCacheAutoButton.addEventListener('click', () => {
+      setRepairState('自动缓存已锁定', '当前已固定每1小时自动清理过期缓存。')
+      pushTimeline('自动缓存策略', '自动缓存与清理已固定为每1小时执行。')
+    })
+    renderAutoRepairState()
+    renderAutoCacheState()
+    syncCacheAutoTimer()
+    pushTimeline('状态中心启动', '后台巡检页已加载。')
+    loadServiceStatus('initial')
+    statusState.pollingTimer = setInterval(() => loadServiceStatus('poll'), 1800000)
+  </script>
+</body>
+</html>

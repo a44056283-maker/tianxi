@@ -1,0 +1,406 @@
+{
+  "generatedAt": "2026-05-25 10:21:05 CST",
+  "sourceDocument": "/Users/luxiangnan/Desktop/联想智慧零售项目/商业化形成API对接.MD.docx",
+  "overallScore": 49,
+  "targetStage": {
+    "label": "试点版",
+    "targetScore": 70
+  },
+  "stageTargets": [
+    {
+      "label": "试点版",
+      "targetScore": 70
+    },
+    {
+      "label": "标准商用版",
+      "targetScore": 85
+    },
+    {
+      "label": "连锁复制版",
+      "targetScore": 100
+    }
+  ],
+  "priorityModules": [
+    "库存 / SN",
+    "出入库",
+    "营销 / 价保 / 补贴"
+  ],
+  "baselineNotes": [
+    "当前系统应按可售卖标准推进，而不是继续按自用补功能推进。",
+    "现阶段商业化建议定位为 3C/电脑门店经营中台，不包装成通用 ERP。"
+  ],
+  "userReportedFacts": [
+    "原始商业化判断基线来自《商业化形成API对接.MD.docx》，其中把系统初始成熟度评为约 33/100。",
+    "用户要求以后在本对话持续推进商业化，并优先把库存、出入库、营销模块做到可售卖。",
+    "当前目标不是直接卖成熟 SaaS，而是先做到 70 分可卖试点版，再冲 85 分标准商用版，最后到 100 分连锁复制版。"
+  ],
+  "dimensions": [
+    {
+      "key": "product",
+      "label": "产品完整度",
+      "score": 11,
+      "maxScore": 20,
+      "evidence": [
+        "SKU、SN、库存流水主表已落 SQLite。",
+        "销售单、采购单基础表已存在。",
+        "营销活动和价保快照已具备展示链。",
+        "出入库订单闭环已具备 registry + gap queue。",
+        "主书签页默认口径已切到 api_strict 审计。",
+        "保修补齐队列和后台补录链已存在。"
+      ],
+      "blockers": [
+        "前端 service 仍保留 mock 引用，说明展示层还有过渡实现。",
+        "多个定时任务仍处于未收口或阻塞状态。"
+      ]
+    },
+    {
+      "key": "data",
+      "label": "数据架构",
+      "score": 13,
+      "maxScore": 20,
+      "evidence": [
+        "商业主库 SQLite 已长期运行。",
+        "snapshot_cache 已承接主要静态快照镜像。",
+        "订单闭环缺口已结构化入库。",
+        "已存在 SQL 备份归档脚本。",
+        "SQL 主链 + 快照镜像边界已有专门审计文档。"
+      ],
+      "blockers": [
+        "核心业务表尚未补 tenant_id / store_id。",
+        "市场价格、链接、营销历史仍有 snapshot_cache 过渡态。"
+      ]
+    },
+    {
+      "key": "delivery",
+      "label": "商业交付能力",
+      "score": 5,
+      "maxScore": 15,
+      "evidence": [
+        "本地 API 已具备销售单/采购单基础写入入口。",
+        "本地零售同步模块和智店通同步骨架已存在。",
+        "备份归档可作为试点交付基础能力。"
+      ],
+      "blockers": [
+        "仍缺标准的新租户、新门店、初始化导入向导。",
+        "还没有形成正式的实施包、恢复演练和客户开通流程。"
+      ]
+    },
+    {
+      "key": "tenant",
+      "label": "多租户与权限",
+      "score": 1,
+      "maxScore": 10,
+      "evidence": [
+        "配置层已出现 tenantId 字段。"
+      ],
+      "blockers": [
+        "SQL 主表没有 tenant_id / store_id 全链路字段。",
+        "缺少 user / role / permission / audit_log 这类商业权限基础表。"
+      ]
+    },
+    {
+      "key": "api",
+      "label": "API 与集成能力",
+      "score": 6,
+      "maxScore": 10,
+      "evidence": [
+        "FastAPI 已有本地写入类接口输入模型。",
+        "本地同步和第三方同步骨架已存在。",
+        "前端已按 api_strict 审计主读链。",
+        "外部系统与同步任务表已存在。"
+      ],
+      "blockers": [
+        "未看到正式 OpenAPI 文档、鉴权、错误码和回调规范。",
+        "现阶段更像内部 API，不是客户可直接对接的标准接口包。"
+      ]
+    },
+    {
+      "key": "ops",
+      "label": "稳定性与运维",
+      "score": 6,
+      "maxScore": 10,
+      "evidence": [
+        "定时任务体系、回执、watchdog 已成形。",
+        "备份归档脚本已落地。",
+        "已有启动链和服务巡检记录。",
+        "watchdog 最近一次巡检时间可追。"
+      ],
+      "blockers": [
+        "今天仍有多个任务未收口，说明运行稳定性还不够商业级。",
+        "API、前端、微信桥、浏览器会话仍依赖环境条件，恢复链未完全标准化。"
+      ]
+    },
+    {
+      "key": "docs",
+      "label": "文档与实施",
+      "score": 5,
+      "maxScore": 10,
+      "evidence": [
+        "ai-context 文档、测试日志、交接文档较完整。",
+        "书签页 SQL 对接审计文档已单列。",
+        "已有持续测试日志。"
+      ],
+      "blockers": [
+        "缺对外的实施手册、初始化手册、客户 API 对接手册。",
+        "还没有正式报价模板、合同边界、SLA 文档。"
+      ]
+    },
+    {
+      "key": "pricing",
+      "label": "定价与合同化",
+      "score": 2,
+      "maxScore": 5,
+      "evidence": [
+        "已形成按平台费 + 模块费 + 对接费 + 运维费的商业化定价思路。"
+      ],
+      "blockers": [
+        "仍缺正式模块报价单、合同边界、实施边界和运维 SLA 模板。"
+      ]
+    }
+  ],
+  "moduleProgress": [
+    {
+      "key": "inventory",
+      "label": "库存 / SN",
+      "score": 68,
+      "summary": "库存、SN、保修、主表和前端展示已经有真实主链，但仍存在前端过渡读链和商业化隔离缺口。"
+    },
+    {
+      "key": "movements",
+      "label": "出入库",
+      "score": 55,
+      "summary": "销售出库、采购入库、其他出库和订单闭环已经结构化，但当天金额快照缺口仍会导致任务未收口。"
+    },
+    {
+      "key": "marketing",
+      "label": "营销 / 价保 / 补贴",
+      "score": 48,
+      "summary": "营销、价保、教育补已有展示与历史材料，但目前仍以快照镜像和局部历史表为主，离商业化历史链还差一段。"
+    }
+  ],
+  "systemScan": {
+    "sql": {
+      "dbExists": true,
+      "tables": [
+        "admin_user",
+        "customer",
+        "distributor_quote_current",
+        "external_system",
+        "gray_wholesale_quote_current",
+        "inventory_movement",
+        "inventory_price_signal_current",
+        "order_sync_registry",
+        "price_tag_binding",
+        "price_tag_device",
+        "price_tag_template",
+        "price_tag_update_task",
+        "product",
+        "product_business_rule",
+        "product_category_node",
+        "product_change_log",
+        "product_collection_override",
+        "product_evidence",
+        "product_master",
+        "product_price_adjustment",
+        "product_source_link",
+        "product_sync_replay",
+        "purchase_order",
+        "purchase_order_line",
+        "sales_order",
+        "sales_order_line",
+        "sales_price_protection_history",
+        "scheduled_task_change_log",
+        "scheduled_task_profile",
+        "serial_item",
+        "sku",
+        "sku_category_mapping",
+        "snapshot_cache",
+        "staff",
+        "store_manual_promotion",
+        "supplier",
+        "sync_gap_queue",
+        "sync_task"
+      ],
+      "counts": {
+        "product": 3793,
+        "sku": 3793,
+        "serial_item": 393,
+        "inventory_movement": 824,
+        "sales_order": 71,
+        "sales_order_line": 71,
+        "purchase_order": 0,
+        "purchase_order_line": 0,
+        "external_system": 4,
+        "sync_task": 4,
+        "order_sync_registry": 48,
+        "sync_gap_queue": 36,
+        "snapshot_cache": 24,
+        "warranty_record": null,
+        "sales_price_protection_history": 68,
+        "distributor_quote_current": 172,
+        "gray_wholesale_quote_current": 260,
+        "inventory_price_signal_current": 105,
+        "product_library_product": null,
+        "product_library_evidence": null,
+        "product_library_source_link": null
+      },
+      "openSyncGapCount": 30,
+      "openSyncGapSeverity": {
+        "warning": 30
+      },
+      "tableHasTenantStore": {
+        "sku": false,
+        "serial_item": false,
+        "inventory_movement": false,
+        "sales_order": false,
+        "purchase_order": false
+      }
+    },
+    "scheduledTasks": {
+      "taskCount": 12,
+      "outcomes": {
+        "blocked_missing_input": 2,
+        "real_completed": 7,
+        "executed_not_closed": 3
+      },
+      "statuses": {
+        "completed_with_warnings": 6,
+        "completed": 6
+      },
+      "tasks": [
+        {
+          "taskName": "daily-audit-and-snapshot-rebuild",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-24T11:37:19.600Z"
+        },
+        {
+          "taskName": "daily-competitor-monitor-check",
+          "status": "completed_with_warnings",
+          "executionOutcome": "executed_not_closed",
+          "blockingReason": "当天手工竞品文件只有 40 条，完整性门禁为 incomplete；已用当天真实采集覆盖 联想京东自营、THINK笔记本，其余 华硕笔记本、惠普笔记本、华为笔记本 保留上一版基线并继续标记未收口。",
+          "finishedAt": "2026-05-24T22:29:27.005Z"
+        },
+        {
+          "taskName": "daily-development-plan-update",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-24T13:01:19.552Z"
+        },
+        {
+          "taskName": "daily-gray-channel-check",
+          "status": "completed_with_warnings",
+          "executionOutcome": "blocked_missing_input",
+          "blockingReason": "灰渠公众号缺少当天有效原文，当前采用最后一次有效原文 2026-05-15",
+          "finishedAt": "2026-05-24T06:11:07.979Z"
+        },
+        {
+          "taskName": "daily-jd-lenovo-price-sync",
+          "status": "completed_with_warnings",
+          "executionOutcome": "executed_not_closed",
+          "blockingReason": "任务1未收口：1 条缺价，1 条前端空白",
+          "finishedAt": "2026-05-24T17:23:06.751Z"
+        },
+        {
+          "taskName": "daily-price-channel-check",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-23T05:46:41.600Z"
+        },
+        {
+          "taskName": "daily-stale-inventory-check",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-25T01:01:00.340Z"
+        },
+        {
+          "taskName": "sn-warranty-backfill",
+          "status": "completed_with_warnings",
+          "executionOutcome": "executed_not_closed",
+          "blockingReason": "已发现 4 个 2026-05-24 当天手工保修证据文件；当前仍需继续在 Chrome 可见会话中手工查询剩余 SN，并在每批后运行本地导入与队列重建。保修队列剩余 55 条。",
+          "finishedAt": "2026-05-24T11:25:17.462Z"
+        },
+        {
+          "taskName": "zhidiantong-sync-12",
+          "status": "completed_with_warnings",
+          "executionOutcome": "blocked_missing_input",
+          "blockingReason": "未发现可导入的智店通库存流水/销售/入库/其他出库原始文件。",
+          "finishedAt": "2026-05-17T22:54:29.286Z"
+        },
+        {
+          "taskName": "zhidiantong-sync-15",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-15T08:58:21.094Z"
+        },
+        {
+          "taskName": "zhidiantong-sync-19",
+          "status": "completed",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-15T09:20:50.689Z"
+        },
+        {
+          "taskName": "zhidiantong-sync-cycle",
+          "status": "completed_with_warnings",
+          "executionOutcome": "real_completed",
+          "blockingReason": "",
+          "finishedAt": "2026-05-24T14:00:40.048Z"
+        }
+      ],
+      "watchdog": {
+        "generatedAt": "2026-05-25T01:01:01.175Z",
+        "missedCount": 1,
+        "attentionCount": 1,
+        "pendingCount": 9
+      }
+    },
+    "files": {
+      "hasMockImport": true,
+      "hasApiStrictAudit": true,
+      "hasSnapshotCacheMention": true,
+      "hasOrderClosureTablesMention": true,
+      "hasBackupScript": true,
+      "hasLaunchAgentAuditLog": true,
+      "hasApiCreateOrderInputs": true,
+      "hasLocalSyncModule": true,
+      "hasMarketingSnapshot": true,
+      "hasPriceProtectionSnapshot": true,
+      "hasWarrantyQueueSnapshot": true,
+      "snapshotFilesPresent": [
+        "latest-standard-inventory-snapshot.json",
+        "latest-adjusted-inventory-snapshot.json",
+        "latest-inventory-master-snapshot.json",
+        "latest-inventory-movements.json",
+        "latest-retail-zone-snapshot.json",
+        "latest-price-protection-snapshot.json",
+        "latest-marketing-boost-snapshot.json",
+        "latest-marketing-boost-hero-snapshot.json",
+        "latest-distributor-quotes.json",
+        "latest-gray-wholesale-quotes.json",
+        "latest-retail-core-price-signals.json",
+        "latest-scheduled-task-dashboard.json"
+      ],
+      "docSetPresent": true
+    }
+  },
+  "blockers": [
+    "核心业务表尚未补 tenant_id / store_id，多租户和门店隔离还没有真正落库。",
+    "前端 `service.ts` 仍保留 mock 引用，说明展示层还有过渡实现没有完全清掉。",
+    "市场价格、链接、营销活动大量数据仍处于 `snapshot_cache` 过渡态，历史表尚未全面规范化。",
+    "当前 `sync_gap_queue` 仍有 30 条 open 缺口，出入库尚未完全商业级收口。",
+    "最近一次 watchdog 仍有 missed=1 / attention=1。"
+  ],
+  "nextActions": [
+    "先把 `库存 / SN / 出入库 / 营销` 相关核心业务表补 `tenant_id / store_id`，同时补 `tenant / store / user / role / permission` 基础表。",
+    "继续把 `marketplace-prices / product-url-locks / marketing-boost / education-agent-scan / competitor-monitor / warranty-check-queue` 从 `snapshot_cache` 推进到正式 SQL 历史表或读模型。",
+    "优先收口今天的出入库缺口：补齐缺失 `orderData / orderProductData` 金额快照，清空 `sync_gap_queue` 当前 open 项。",
+    "把前端 `inventoryQuote/service.ts` 的 mock/静态兜底进一步收紧，确保商业化看板默认只吃 API/SQL 主链。",
+    "补第一版对外产物：最小 API 文档、初始化导入 SOP、备份恢复 SOP、模块报价清单。"
+  ]
+}

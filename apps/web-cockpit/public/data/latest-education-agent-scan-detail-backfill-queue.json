@@ -1,0 +1,1024 @@
+{
+  "generatedAt": "2026-06-12T02:35:16.955Z",
+  "source": "education_subsidy_agent_scan_summary",
+  "date": "2026-06-12",
+  "count": 35,
+  "items": [
+    {
+      "id": "education-agent-20260606-zdt-inbound-legion-y7000x-mp2trx5d",
+      "orderNumber": "XS26060676836687959",
+      "serialNumbers": [
+        "MP2TRX5D"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "Legion Y7000X IAX11BKEU716G1TB11C",
+      "skuKey": "20007932",
+      "pnMtm": "83VK0048CD",
+      "outboundDate": "2026-06-06 17:10:39",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "全孝璇",
+      "currentCustomerPhone": "18602971154",
+      "currentAgentPhone": "18602971154",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quanxiaoxuan-single-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-legion-y7000x-mp30w9tg",
+      "orderNumber": "XS26060631514668659",
+      "serialNumbers": [
+        "MP30W9TG"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "Legion Y7000X IAX11BKEU716G1TB11C",
+      "skuKey": "20007932",
+      "pnMtm": "83VK0048CD",
+      "outboundDate": "2026-06-06 18:17:44",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "叶若庭",
+      "currentCustomerPhone": "18682903442",
+      "currentAgentPhone": "18682903442",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/yeruoting-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-legion-y9000p-pf6avdlh",
+      "orderNumber": "XS26060640976348359",
+      "serialNumbers": [
+        "PF6AVDLH"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "Legion Y9000P IAX10BKJU916G1TB11C",
+      "skuKey": "20007941",
+      "pnMtm": "83F4000CCD",
+      "outboundDate": "2026-06-06 18:01:01",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "韩梦雅",
+      "currentCustomerPhone": "17630759313",
+      "currentAgentPhone": "17630759313",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/hanmengya-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-legion-y9000p-pf6d208m",
+      "orderNumber": "XS26060634205927459",
+      "serialNumbers": [
+        "PF6D208M"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "Legion Y9000P IRX11BKEI916G1TB11C",
+      "skuKey": "20007936",
+      "pnMtm": "LenovoCareZH05",
+      "outboundDate": "2026-06-06 17:22:35",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "瞿心爽",
+      "currentCustomerPhone": "17602954953",
+      "currentAgentPhone": "17602954953",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quxinshuang-three-piece-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-padpro-ha2cz5y1",
+      "orderNumber": "XS26060634205927459",
+      "serialNumbers": [
+        "HA2CZ5Y1"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+      "skuKey": "20004481",
+      "pnMtm": "ZAE70012CN",
+      "outboundDate": "2026-06-06 17:22:35",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "瞿心爽",
+      "currentCustomerPhone": "17602954953",
+      "currentAgentPhone": "17602954953",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quxinshuang-three-piece-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-tb323fu-ha2fpmp2",
+      "orderNumber": "XS26060683208777759",
+      "serialNumbers": [
+        "HA2FPMP2"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "TB323FU TAB 16G+512GWH-CN",
+      "skuKey": "20006803",
+      "pnMtm": "ZAH20041CN",
+      "outboundDate": "2026-06-06 17:12:52",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "全孝璇",
+      "currentCustomerPhone": "18602971154",
+      "currentAgentPhone": "18602971154",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quanxiaoxuan-two-piece-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-tb376fc-ha2hsflk",
+      "orderNumber": "XS26060631514668659",
+      "serialNumbers": [
+        "HA2HSFLK"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "TB376FC TAB 8G+256GLG-CN",
+      "skuKey": "20006806",
+      "pnMtm": "ZAH50004CN",
+      "outboundDate": "2026-06-06 18:17:44",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "叶若庭",
+      "currentCustomerPhone": "18682903442",
+      "currentAgentPhone": "18682903442",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/yeruoting-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-tb710fu-ha29fglz",
+      "orderNumber": "XS26060640976348359",
+      "serialNumbers": [
+        "HA29FGLZ"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "小新平板 Pro GT 浅海贝",
+      "skuKey": "20003432",
+      "pnMtm": "ZAG60169CN",
+      "outboundDate": "2026-06-06 18:01:01",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "韩梦雅",
+      "currentCustomerPhone": "17630759313",
+      "currentAgentPhone": "17630759313",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/hanmengya-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-xt2553-2-358071170810153",
+      "orderNumber": "XS26060683208777759",
+      "serialNumbers": [
+        "358071170810153"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "moto razr 60 12+512 午夜苍蓝",
+      "skuKey": "20003058",
+      "pnMtm": "PB870005CN",
+      "outboundDate": "2026-06-06 17:12:52",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "全孝璇",
+      "currentCustomerPhone": "18602971154",
+      "currentAgentPhone": "18602971154",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quanxiaoxuan-two-piece-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-xt2601-1-356070750923016",
+      "orderNumber": "XS26060634205927459",
+      "serialNumbers": [
+        "356070750923016"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "PHN MOTO XT2601-1 CN GG 12+256 DS RTL（X70 Air 12+256凌灰）",
+      "skuKey": "20004635",
+      "pnMtm": "PBA40000CN",
+      "outboundDate": "2026-06-06 17:22:35",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "瞿心爽",
+      "currentCustomerPhone": "17602954953",
+      "currentAgentPhone": "17602954953",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/quxinshuang-three-piece-name-phone-backfill",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-xt2601-1-356070751591432",
+      "orderNumber": "XS26060631514668659",
+      "serialNumbers": [
+        "356070751591432"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "PHN MOTO XT2601-1 CN BZG 12+256 DS RTL（X70 Air 12+256韵绿）",
+      "skuKey": "20004637",
+      "pnMtm": "PBA40002CN",
+      "outboundDate": "2026-06-06 18:17:44",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "叶若庭",
+      "currentCustomerPhone": "18682903442",
+      "currentAgentPhone": "18682903442",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/yeruoting-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260606-zdt-inbound-xt2603-1-357665360827090",
+      "orderNumber": "XS26060640976348359",
+      "serialNumbers": [
+        "357665360827090"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-06",
+      "productName": "PHN MOTO XT2603-1 CN C 16+512 DS RTL（X70 Air Pro 16+512墨岚黑）",
+      "skuKey": "20006190",
+      "pnMtm": "PBAA0005CN",
+      "outboundDate": "2026-06-06 18:01:01",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "卢向楠",
+      "currentCustomerName": "韩梦雅",
+      "currentCustomerPhone": "17630759313",
+      "currentAgentPhone": "17630759313",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-06/hanmengya-three-piece-bundle",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260601-zdt-yoga-mp30wppy",
+      "orderNumber": "XS26060154784063629",
+      "serialNumbers": [
+        "MP30WPPY"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-01",
+      "productName": "YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）",
+      "skuKey": "20006289",
+      "pnMtm": "83JX000ACD",
+      "outboundDate": "2026-06-01 08:49:53",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "龙之强",
+      "currentCustomerPhone": "19268449216",
+      "currentAgentPhone": "19268449216",
+      "currentVoucherCode": "3514610617371566",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-01/MP30WPPY",
+      "missingFields": [
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260601-zdt-yoga-mp30wtlt",
+      "orderNumber": "XS26060119664073329",
+      "serialNumbers": [
+        "MP30WTLT"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-06-01",
+      "productName": "YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）",
+      "skuKey": "20006289",
+      "pnMtm": "83JX000ACD",
+      "outboundDate": "2026-06-01 08:42:55",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "孙澳娟",
+      "currentCustomerPhone": "19252775746",
+      "currentAgentPhone": "19252775746",
+      "currentVoucherCode": "3514571380454353",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-06-01/MP30WTLT",
+      "missingFields": [
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-moto-355986410741053",
+      "orderNumber": "XS26053182974981529",
+      "serialNumbers": [
+        "355986410741053"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "PHN MOTO XT2651-4 CN BB 16+512 DS RTL(razr fold 16+512绅士雅黑)",
+      "skuKey": "20007812",
+      "pnMtm": "PBB10000CN",
+      "outboundDate": "2026-05-31 19:20:19",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "系统同步",
+      "currentCustomerName": "付馨玉",
+      "currentCustomerPhone": "13349557294",
+      "currentAgentPhone": "13349557294",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/355986410741053",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-moto-355986410742739",
+      "orderNumber": "XS26053131554072229",
+      "serialNumbers": [
+        "355986410742739"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "PHN MOTO XT2651-4 CN BB 16+512 DS RTL(razr fold 16+512绅士雅黑)",
+      "skuKey": "20007812",
+      "pnMtm": "PBB10000CN",
+      "outboundDate": "2026-05-31 19:32:58",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "系统同步",
+      "currentCustomerName": "贾玉晴",
+      "currentCustomerPhone": "19903846504",
+      "currentAgentPhone": "19903846504",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/355986410742739",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-tablet-ha2htfdc",
+      "orderNumber": "XS26053131554072229",
+      "serialNumbers": [
+        "HA2HTFDC"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "TB376FC TAB 8G+256GLG-CN",
+      "skuKey": "20006806",
+      "pnMtm": "ZAH50004CN",
+      "outboundDate": "2026-05-31 19:32:58",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "贾玉晴",
+      "currentCustomerPhone": "19903846504",
+      "currentAgentPhone": "19903846504",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/HA2HTFDC",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-tablet-ha2hw7ea",
+      "orderNumber": "XS26053182974981529",
+      "serialNumbers": [
+        "HA2HW7EA"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "TB376FC TAB 8G+256GLG-CN",
+      "skuKey": "20006806",
+      "pnMtm": "ZAH50004CN",
+      "outboundDate": "2026-05-31 19:20:19",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "付馨玉",
+      "currentCustomerPhone": "13349557294",
+      "currentAgentPhone": "13349557294",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/HA2HW7EA",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-yoga-mp30wng1",
+      "orderNumber": "XS26053131554072229",
+      "serialNumbers": [
+        "MP30WNG1"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）",
+      "skuKey": "20006289",
+      "pnMtm": "83JX000ACD",
+      "outboundDate": "2026-05-31 19:32:58",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "贾玉晴",
+      "currentCustomerPhone": "19903846504",
+      "currentAgentPhone": "19903846504",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/MP30WNG1",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260531-zdt-yoga-mp30wtmb",
+      "orderNumber": "XS26053182974981529",
+      "serialNumbers": [
+        "MP30WTMB"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-31",
+      "productName": "YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）",
+      "skuKey": "20006289",
+      "pnMtm": "83JX000ACD",
+      "outboundDate": "2026-05-31 19:20:19",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "付馨玉",
+      "currentCustomerPhone": "13349557294",
+      "currentAgentPhone": "13349557294",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-31/MP30WTMB",
+      "missingFields": [
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-scan-2026-05-30-bh01xmrk",
+      "orderNumber": "XS26053078505338109",
+      "serialNumbers": [
+        "BH01XMRK"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-30",
+      "productName": "Legion Y9000P IAX10BKEU932G1TB11C 5060",
+      "skuKey": "20004671",
+      "pnMtm": "83F40006CD",
+      "outboundDate": "2026-05-30 09:41:39",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "谭艳",
+      "currentCustomerPhone": "15519146239",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "3460141202894114",
+      "currentVoucherVerifiedAt": "2026-05-30 09:42:25",
+      "currentReportStatus": "上报完成",
+      "sourceFile": "apps/inventory-sync/artifacts/manual/education-agent-scan/education-agent-scan-2026-05-30-recovered-yesterday-gap.json",
+      "missingFields": [
+        "代扫电话"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-scan-2026-05-30-bh01xmsa",
+      "orderNumber": "XS26053022564378409",
+      "serialNumbers": [
+        "BH01XMSA"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-30",
+      "productName": "Legion Y9000P IAX10BKEU932G1TB11C 5060",
+      "skuKey": "20004671",
+      "pnMtm": "83F40006CD",
+      "outboundDate": "2026-05-30 09:51:05",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "codex-ui",
+      "currentCustomerName": "田甜",
+      "currentCustomerPhone": "13339601520",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "3460001354336506",
+      "currentVoucherVerifiedAt": "2026-05-30 09:52:26",
+      "currentReportStatus": "上报完成",
+      "sourceFile": "apps/inventory-sync/artifacts/manual/education-agent-scan/education-agent-scan-2026-05-30-recovered-yesterday-gap.json",
+      "missingFields": [
+        "代扫电话"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-scan-2026-05-30-pf5m0v08",
+      "orderNumber": "XS26053048362373119",
+      "serialNumbers": [
+        "PF5M0V08"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-30",
+      "productName": "联想拯救者 R9000P R9-8945HX/32G/1TSSD/RTX5060-8G/WIN11/16寸/钛晶黑RTX5060",
+      "skuKey": "20003126",
+      "pnMtm": "83LV0006CD",
+      "outboundDate": "2026-05-30 17:32:34",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "郭楠",
+      "currentCustomerName": "江暖暖",
+      "currentCustomerPhone": "17880965953",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "35347480794183094",
+      "currentVoucherVerifiedAt": "2026-05-30 17:33:10",
+      "currentReportStatus": "上报完成",
+      "sourceFile": "apps/inventory-sync/artifacts/manual/education-agent-scan/education-agent-scan-2026-05-30-recovered-yesterday-gap.json",
+      "missingFields": [
+        "代扫电话"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260529-pf6a6dts",
+      "orderNumber": "XS26052919223096509",
+      "serialNumbers": [
+        "PF6A6DTS"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-29",
+      "productName": "Legion Y9000P IRX11BKEI916G1TB11C",
+      "skuKey": "20007936",
+      "pnMtm": "83QF0002CD",
+      "outboundDate": "2026-05-29 17:55:00",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "李建定",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-education-agent-scan-sync-gap.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260529-pf6ca7ll",
+      "orderNumber": "XS26052949122057409",
+      "serialNumbers": [
+        "PF6CA7LL"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-29",
+      "productName": "Legion Y7000P IAX10BKEU716G1TB11C",
+      "skuKey": "20007931",
+      "pnMtm": "83F300AXCD",
+      "outboundDate": "2026-05-29 19:24:00",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "李建定",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-education-agent-scan-sync-gap.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260529-pf6d1yvx",
+      "orderNumber": "XS26052915418037909",
+      "serialNumbers": [
+        "PF6D1YVX"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-29",
+      "productName": "Legion Y9000P IRX11BKEI916G1TB11C",
+      "skuKey": "20007936",
+      "pnMtm": "83QF0002CD",
+      "outboundDate": "2026-05-29 19:21:38",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "李建定",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-education-agent-scan-sync-gap.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260529-pf6d2nw8",
+      "orderNumber": "XS26052912721956809",
+      "serialNumbers": [
+        "PF6D2NW8"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-29",
+      "productName": "Legion Y9000P IRX11BKEI916G1TB11C",
+      "skuKey": "20007936",
+      "pnMtm": "83QF0002CD",
+      "outboundDate": "2026-05-29 19:09:21",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-education-agent-scan-sync-gap.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260528-zdt-backfill-pf6c35b9",
+      "orderNumber": "XS26052830962598298",
+      "serialNumbers": [
+        "PF6C35B9"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-28",
+      "productName": "Legion Y7000P IAX10",
+      "skuKey": "10007231_20007931",
+      "pnMtm": "83F300AXCD",
+      "outboundDate": "2026-05-28 17:23:48",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "3470400369106442",
+      "currentVoucherVerifiedAt": "2026-05-28 17:28:23",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-28/PF6C35B9",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-scan-2026-05-28-tb375fc-ha245tgw",
+      "orderNumber": "XS26052847639227498",
+      "serialNumbers": [
+        "HA245TGW"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-28",
+      "productName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+      "skuKey": "10003903_20004481",
+      "pnMtm": "ZAE70012CN",
+      "outboundDate": "2026-05-28",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-scan-2026-05-28-tb375fc-ha2466tm",
+      "orderNumber": "XS26052879921247298",
+      "serialNumbers": [
+        "HA2466TM"
+      ],
+      "sourceGroupName": "教育补贴群",
+      "collectionSource": "教育补贴群",
+      "scanDate": "2026-05-28",
+      "productName": "PadPro12.7银色 TB375FC TAB 8G+256GCL-CN",
+      "skuKey": "10003903_20004481",
+      "pnMtm": "ZAE70012CN",
+      "outboundDate": "2026-05-28",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "",
+      "currentCustomerPhone": "",
+      "currentAgentPhone": "",
+      "currentVoucherCode": "",
+      "currentVoucherVerifiedAt": "",
+      "currentReportStatus": "待上报",
+      "sourceFile": "apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+      "missingFields": [
+        "客户姓名",
+        "客户电话",
+        "代扫电话",
+        "券编号",
+        "核销时间",
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260527-zdt-backfill-mp30w9g1",
+      "orderNumber": "XS26052745876122898",
+      "serialNumbers": [
+        "MP30W9G1"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-27",
+      "productName": "Legion Y7000X IAX11",
+      "skuKey": "10007232_20007932",
+      "pnMtm": "83VK0048CD",
+      "outboundDate": "2026-05-27 16:51:38",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "卫紫芳",
+      "currentCustomerPhone": "16287410771",
+      "currentAgentPhone": "16287410771",
+      "currentVoucherCode": "3455712074502292",
+      "currentVoucherVerifiedAt": "2026-05-27 16:50:42",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-27/MP30W9G1",
+      "missingFields": [
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260523-zdt-backfill-ha2he9q8",
+      "orderNumber": "XS26052446676482878",
+      "serialNumbers": [
+        "HA2HE9Q8"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-23",
+      "productName": "TB323FU",
+      "skuKey": "10006122_20006802",
+      "pnMtm": "ZAH20097CN",
+      "outboundDate": "2026-05-24 08:50:39",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "崔申竣",
+      "currentCustomerPhone": "15267144678",
+      "currentAgentPhone": "15267144678",
+      "currentVoucherCode": "2441430144241531",
+      "currentVoucherVerifiedAt": "2026-05-23 14:47:44",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-23/HA2HE9Q8",
+      "missingFields": [
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260522-zdt-backfill-pf6aw110",
+      "orderNumber": "XS26052262574834168",
+      "serialNumbers": [
+        "PF6AW110"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-22",
+      "productName": "Legion R9000P ADR10M",
+      "skuKey": "10007234_20007934",
+      "pnMtm": "83QC0002CD",
+      "outboundDate": "2026-05-22 18:08:14",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "卫时媛",
+      "currentCustomerPhone": "13297974703",
+      "currentAgentPhone": "13297974703",
+      "currentVoucherCode": "3390851780473970",
+      "currentVoucherVerifiedAt": "2026-05-22 18:07:18",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-22/PF6AW110",
+      "missingFields": [
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260522-zdt-backfill-pf6d13cq",
+      "orderNumber": "XS26052232703954968",
+      "serialNumbers": [
+        "PF6D13CQ"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-22",
+      "productName": "Legion Y9000P IRX11",
+      "skuKey": "10007236_20007936",
+      "pnMtm": "83QF0002CD",
+      "outboundDate": "2026-05-22 18:12:12",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "柯月桂",
+      "currentCustomerPhone": "18879172581",
+      "currentAgentPhone": "18879172581",
+      "currentVoucherCode": "3391001541704678",
+      "currentVoucherVerifiedAt": "2026-05-22 18:10:58",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-22/PF6D13CQ",
+      "missingFields": [
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    },
+    {
+      "id": "education-agent-20260521-zdt-backfill-mp2tryzj",
+      "orderNumber": "XS26052141591588558",
+      "serialNumbers": [
+        "MP2TRYZJ"
+      ],
+      "sourceGroupName": "智店通入库群",
+      "collectionSource": "智店通入库群",
+      "scanDate": "2026-05-21",
+      "productName": "Legion Y7000X IAX11",
+      "skuKey": "10007232_20007932",
+      "pnMtm": "83VK0048CD",
+      "outboundDate": "2026-05-21 14:27:30",
+      "outboundStoreName": "联想体验店（新野县书院路）",
+      "outboundOperatorName": "梁伟",
+      "currentCustomerName": "牛咏欢",
+      "currentCustomerPhone": "16284450345",
+      "currentAgentPhone": "16284450345",
+      "currentVoucherCode": "3373721611103659",
+      "currentVoucherVerifiedAt": "2026-05-21 14:24:10",
+      "currentReportStatus": "待上报",
+      "sourceFile": "manual://wechat/zdt-inbound-group/2026-05-21/MP2TRYZJ",
+      "missingFields": [
+        "上报状态"
+      ],
+      "hint": "优先按 SN 回查销售单、客户卡片与核销截图；若同 SN 存在更新版本，以最新可见图片时间覆盖旧值"
+    }
+  ]
+}

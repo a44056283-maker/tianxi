@@ -1,0 +1,1446 @@
+{
+  "items": [
+    {
+      "id": "CUS-13598208832",
+      "name": "13598208832",
+      "phone": "13598208832",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-06-11 11:50:10",
+      "total_paid_amount": 7999.0
+    },
+    {
+      "id": "CUS-19071001019",
+      "name": "19071001019",
+      "phone": "19071001019",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-06-10 14:40:00",
+      "total_paid_amount": 639.0
+    },
+    {
+      "id": "CUS-15037768963",
+      "name": "15037768963",
+      "phone": "15037768963",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 3,
+      "latest_order_date": "2026-06-02 18:44:19",
+      "total_paid_amount": 28497.0
+    },
+    {
+      "id": "CUS-18272762479",
+      "name": "18272762479",
+      "phone": "18272762479",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-31 19:02:00",
+      "total_paid_amount": 6538.0
+    },
+    {
+      "id": "CUS-15937772765",
+      "name": "15937772765",
+      "phone": "15937772765",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-31 15:36:04",
+      "total_paid_amount": 7999.0
+    },
+    {
+      "id": "CUS-13837743339",
+      "name": "13837743339",
+      "phone": "13837743339",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 4,
+      "latest_order_date": "2026-05-31 11:37:09",
+      "total_paid_amount": 23196.0
+    },
+    {
+      "id": "CUS-13525150898",
+      "name": "13525150898",
+      "phone": "13525150898",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-31 09:44:04",
+      "total_paid_amount": 6538.0
+    },
+    {
+      "id": "CUS-13683918232",
+      "name": "13683918232",
+      "phone": "13683918232",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-29 19:12:42",
+      "total_paid_amount": 6538.0
+    },
+    {
+      "id": "CUS-18537797206",
+      "name": "18537797206",
+      "phone": "18537797206",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 4,
+      "latest_order_date": "2026-05-29 15:09:09",
+      "total_paid_amount": 37996.0
+    },
+    {
+      "id": "CUS-广告机占位",
+      "name": "广告机占位",
+      "phone": "",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-26 00:00:00",
+      "total_paid_amount": 143.99
+    },
+    {
+      "id": "CUS-17596776591",
+      "name": "17596776591",
+      "phone": "17596776591",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-19 10:32:53",
+      "total_paid_amount": 6538.0
+    },
+    {
+      "id": "CUS-15938429865",
+      "name": "15938429865",
+      "phone": "15938429865",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-16 18:11:35",
+      "total_paid_amount": 839.0
+    },
+    {
+      "id": "CUS-18736693558",
+      "name": "18736693558",
+      "phone": "18736693558",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-13 12:03:09",
+      "total_paid_amount": 6368.0
+    },
+    {
+      "id": "CUS-测试客户",
+      "name": "测试客户",
+      "phone": "",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-12 00:00:00",
+      "total_paid_amount": 59.99
+    },
+    {
+      "id": "CUS-18336647507",
+      "name": "18336647507",
+      "phone": "18336647507",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-05 14:43:53",
+      "total_paid_amount": 11068.0
+    },
+    {
+      "id": "CUS-15637789995",
+      "name": "15637789995",
+      "phone": "15637789995",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2026-05-05 09:04:53",
+      "total_paid_amount": 56992.0
+    },
+    {
+      "id": "CUS-19103776733",
+      "name": "19103776733",
+      "phone": "19103776733",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-03 09:38:14",
+      "total_paid_amount": 6098.0
+    },
+    {
+      "id": "CUS-15090139575",
+      "name": "15090139575",
+      "phone": "15090139575",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-01 15:26:42",
+      "total_paid_amount": 1199.0
+    },
+    {
+      "id": "CUS-19939348095",
+      "name": "19939348095",
+      "phone": "19939348095",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-05-01 14:26:27",
+      "total_paid_amount": 5898.0
+    },
+    {
+      "id": "CUS-13333669268",
+      "name": "13333669268",
+      "phone": "13333669268",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-22 10:46:09",
+      "total_paid_amount": 869.0
+    },
+    {
+      "id": "CUS-13333603062",
+      "name": "13333603062",
+      "phone": "13333603062",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-20 14:50:01",
+      "total_paid_amount": 799.0
+    },
+    {
+      "id": "CUS-17625483120",
+      "name": "17625483120",
+      "phone": "17625483120",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-16 14:58:17",
+      "total_paid_amount": 6098.0
+    },
+    {
+      "id": "CUS-15539937263",
+      "name": "15539937263",
+      "phone": "15539937263",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-15 15:06:27",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-18237722830",
+      "name": "18237722830",
+      "phone": "18237722830",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-14 11:28:13",
+      "total_paid_amount": 7499.0
+    },
+    {
+      "id": "CUS-15938829251",
+      "name": "15938829251",
+      "phone": "15938829251",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-11 16:07:12",
+      "total_paid_amount": 6098.0
+    },
+    {
+      "id": "CUS-19339556980",
+      "name": "19339556980",
+      "phone": "19339556980",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-11 11:13:35",
+      "total_paid_amount": 6098.0
+    },
+    {
+      "id": "CUS-15837731912",
+      "name": "15837731912",
+      "phone": "15837731912",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-10 15:10:43",
+      "total_paid_amount": 4198.0
+    },
+    {
+      "id": "CUS-16696304325",
+      "name": "16696304325",
+      "phone": "16696304325",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-08 11:54:55",
+      "total_paid_amount": 6098.0
+    },
+    {
+      "id": "CUS-18799837599",
+      "name": "18799837599",
+      "phone": "18799837599",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-03 15:01:21",
+      "total_paid_amount": 699.0
+    },
+    {
+      "id": "CUS-18436756599",
+      "name": "18436756599",
+      "phone": "18436756599",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-03 15:01:10",
+      "total_paid_amount": 6198.0
+    },
+    {
+      "id": "CUS-13949368687",
+      "name": "13949368687",
+      "phone": "13949368687",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-04-02 09:42:59",
+      "total_paid_amount": 6698.0
+    },
+    {
+      "id": "CUS-15083388690",
+      "name": "15083388690",
+      "phone": "15083388690",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-29 18:05:20",
+      "total_paid_amount": 6999.0
+    },
+    {
+      "id": "CUS-15637752826",
+      "name": "15637752826",
+      "phone": "15637752826",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2026-03-29 17:04:16",
+      "total_paid_amount": 6764.98
+    },
+    {
+      "id": "CUS-13145559250",
+      "name": "13145559250",
+      "phone": "13145559250",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-27 11:23:18",
+      "total_paid_amount": 4198.0
+    },
+    {
+      "id": "CUS-13623779965",
+      "name": "13623779965",
+      "phone": "13623779965",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-22 09:49:31",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-17527660605",
+      "name": "17527660605",
+      "phone": "17527660605",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-20 15:10:04",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-13827339535",
+      "name": "13827339535",
+      "phone": "13827339535",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-19 12:00:33",
+      "total_paid_amount": 3399.0
+    },
+    {
+      "id": "CUS-13525157907",
+      "name": "13525157907",
+      "phone": "13525157907",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-19 09:53:08",
+      "total_paid_amount": 6999.0
+    },
+    {
+      "id": "CUS-18739025506",
+      "name": "18739025506",
+      "phone": "18739025506",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-16 14:57:39",
+      "total_paid_amount": 3399.0
+    },
+    {
+      "id": "CUS-18238113206",
+      "name": "18238113206",
+      "phone": "18238113206",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-16 14:13:05",
+      "total_paid_amount": 2199.0
+    },
+    {
+      "id": "CUS-19037265030",
+      "name": "19037265030",
+      "phone": "19037265030",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-15 17:51:00",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-18203826805",
+      "name": "18203826805",
+      "phone": "18203826805",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-15 16:50:12",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-19339981987",
+      "name": "19339981987",
+      "phone": "19339981987",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-15 12:04:26",
+      "total_paid_amount": 699.0
+    },
+    {
+      "id": "CUS-15672777449",
+      "name": "15672777449",
+      "phone": "15672777449",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-11 10:28:37",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-15083344404",
+      "name": "15083344404",
+      "phone": "15083344404",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-11 09:53:25",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-18695970896",
+      "name": "18695970896",
+      "phone": "18695970896",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-07 15:38:31",
+      "total_paid_amount": 2199.0
+    },
+    {
+      "id": "CUS-15333778919",
+      "name": "15333778919",
+      "phone": "15333778919",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-07 15:22:10",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-16668191920",
+      "name": "16668191920",
+      "phone": "16668191920",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-07 14:38:41",
+      "total_paid_amount": 12098.0
+    },
+    {
+      "id": "CUS-18338369967",
+      "name": "18338369967",
+      "phone": "18338369967",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-03-07 11:55:27",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-18337717193",
+      "name": "18337717193",
+      "phone": "18337717193",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-23 15:06:29",
+      "total_paid_amount": 3799.0
+    },
+    {
+      "id": "CUS-19837703959",
+      "name": "19837703959",
+      "phone": "19837703959",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-23 11:20:37",
+      "total_paid_amount": 8499.0
+    },
+    {
+      "id": "CUS-17596792306",
+      "name": "17596792306",
+      "phone": "17596792306",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-21 11:05:40",
+      "total_paid_amount": 11699.0
+    },
+    {
+      "id": "CUS-19511065968",
+      "name": "19511065968",
+      "phone": "19511065968",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-20 17:18:36",
+      "total_paid_amount": 4599.0
+    },
+    {
+      "id": "CUS-17630697466",
+      "name": "17630697466",
+      "phone": "17630697466",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-20 16:30:05",
+      "total_paid_amount": 6999.0
+    },
+    {
+      "id": "CUS-15688151566",
+      "name": "15688151566",
+      "phone": "15688151566",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-18 14:58:26",
+      "total_paid_amount": 7398.0
+    },
+    {
+      "id": "CUS-17530667262",
+      "name": "17530667262",
+      "phone": "17530667262",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-14 13:45:23",
+      "total_paid_amount": 6368.0
+    },
+    {
+      "id": "CUS-19137763731",
+      "name": "19137763731",
+      "phone": "19137763731",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-06 14:44:10",
+      "total_paid_amount": 8999.0
+    },
+    {
+      "id": "CUS-19837787361",
+      "name": "19837787361",
+      "phone": "19837787361",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2026-02-05 16:56:30",
+      "total_paid_amount": 13.98
+    },
+    {
+      "id": "CUS-18738778289",
+      "name": "18738778289",
+      "phone": "18738778289",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-02-02 11:51:47",
+      "total_paid_amount": 999.0
+    },
+    {
+      "id": "CUS-18738799992",
+      "name": "18738799992",
+      "phone": "18738799992",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-28 09:55:15",
+      "total_paid_amount": 4999.0
+    },
+    {
+      "id": "CUS-18624803486",
+      "name": "18624803486",
+      "phone": "18624803486",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-23 17:29:27",
+      "total_paid_amount": 7199.0
+    },
+    {
+      "id": "CUS-19712711130",
+      "name": "19712711130",
+      "phone": "19712711130",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-21 18:00:40",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-19139265573",
+      "name": "19139265573",
+      "phone": "19139265573",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-20 17:16:53",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-19712727565",
+      "name": "19712727565",
+      "phone": "19712727565",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-20 16:22:26",
+      "total_paid_amount": 5199.0
+    },
+    {
+      "id": "CUS-18338227863",
+      "name": "18338227863",
+      "phone": "18338227863",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-20 09:37:51",
+      "total_paid_amount": 5199.0
+    },
+    {
+      "id": "CUS-15637784262",
+      "name": "15637784262",
+      "phone": "15637784262",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 17:42:15",
+      "total_paid_amount": 6.99
+    },
+    {
+      "id": "CUS-17657350350",
+      "name": "17657350350",
+      "phone": "17657350350",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 17:29:10",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-13598251563",
+      "name": "13598251563",
+      "phone": "13598251563",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 16:43:56",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-17837296988",
+      "name": "17837296988",
+      "phone": "17837296988",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 14:47:34",
+      "total_paid_amount": 6.99
+    },
+    {
+      "id": "CUS-19293771907",
+      "name": "19293771907",
+      "phone": "19293771907",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 10:26:23",
+      "total_paid_amount": 699.0
+    },
+    {
+      "id": "CUS-18160496084",
+      "name": "18160496084",
+      "phone": "18160496084",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-18 10:22:40",
+      "total_paid_amount": 4999.0
+    },
+    {
+      "id": "CUS-15137711891",
+      "name": "15137711891",
+      "phone": "15137711891",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-17 10:46:15",
+      "total_paid_amount": 5199.0
+    },
+    {
+      "id": "CUS-16696396355",
+      "name": "16696396355",
+      "phone": "16696396355",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-16 11:21:21",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-15538751683",
+      "name": "15538751683",
+      "phone": "15538751683",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-16 11:15:21",
+      "total_paid_amount": 5199.0
+    },
+    {
+      "id": "CUS-18937743226",
+      "name": "18937743226",
+      "phone": "18937743226",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-14 17:08:39",
+      "total_paid_amount": 8499.0
+    },
+    {
+      "id": "CUS-17539983269",
+      "name": "17539983269",
+      "phone": "17539983269",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-14 11:31:50",
+      "total_paid_amount": 4999.0
+    },
+    {
+      "id": "CUS-18739031031",
+      "name": "18739031031",
+      "phone": "18739031031",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-03 11:40:51",
+      "total_paid_amount": 8699.0
+    },
+    {
+      "id": "CUS-13261077182",
+      "name": "13261077182",
+      "phone": "13261077182",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2026-01-02 11:03:26",
+      "total_paid_amount": 3300.0
+    },
+    {
+      "id": "CUS-19836723381",
+      "name": "19836723381",
+      "phone": "19836723381",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-30 12:58:34",
+      "total_paid_amount": 3299.0
+    },
+    {
+      "id": "CUS-17837713788",
+      "name": "17837713788",
+      "phone": "17837713788",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-26 09:46:13",
+      "total_paid_amount": 299.0
+    },
+    {
+      "id": "CUS-18317220954",
+      "name": "18317220954",
+      "phone": "18317220954",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-22 15:38:12",
+      "total_paid_amount": 1280.0
+    },
+    {
+      "id": "CUS-18937791822",
+      "name": "18937791822",
+      "phone": "18937791822",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-22 09:36:48",
+      "total_paid_amount": 3799.0
+    },
+    {
+      "id": "CUS-18337738172",
+      "name": "18337738172",
+      "phone": "18337738172",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-20 18:38:35",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-13262088865",
+      "name": "13262088865",
+      "phone": "13262088865",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-19 11:40:07",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-15893313528",
+      "name": "15893313528",
+      "phone": "15893313528",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-17 09:42:20",
+      "total_paid_amount": 700.0
+    },
+    {
+      "id": "CUS-13949338766",
+      "name": "13949338766",
+      "phone": "13949338766",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-16 16:11:26",
+      "total_paid_amount": 7699.0
+    },
+    {
+      "id": "CUS-18625588937",
+      "name": "18625588937",
+      "phone": "18625588937",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-15 18:18:01",
+      "total_paid_amount": 3700.0
+    },
+    {
+      "id": "CUS-17530759267",
+      "name": "17530759267",
+      "phone": "17530759267",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-15 12:45:05",
+      "total_paid_amount": 3799.0
+    },
+    {
+      "id": "CUS-13030906794",
+      "name": "13030906794",
+      "phone": "13030906794",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-09 15:33:49",
+      "total_paid_amount": 28999.0
+    },
+    {
+      "id": "CUS-17344090627",
+      "name": "17344090627",
+      "phone": "17344090627",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-08 19:56:46",
+      "total_paid_amount": 21999.0
+    },
+    {
+      "id": "CUS-18338194687",
+      "name": "18338194687",
+      "phone": "18338194687",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-08 11:14:37",
+      "total_paid_amount": 1280.0
+    },
+    {
+      "id": "CUS-15839978777",
+      "name": "15839978777",
+      "phone": "15839978777",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-08 09:53:05",
+      "total_paid_amount": 27297.0
+    },
+    {
+      "id": "CUS-13723006415",
+      "name": "13723006415",
+      "phone": "13723006415",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-06 15:02:36",
+      "total_paid_amount": 6497.0
+    },
+    {
+      "id": "CUS-13525179203",
+      "name": "13525179203",
+      "phone": "13525179203",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-05 08:48:19",
+      "total_paid_amount": 4297.0
+    },
+    {
+      "id": "CUS-19513006675",
+      "name": "19513006675",
+      "phone": "19513006675",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-12-04 13:40:01",
+      "total_paid_amount": 9696.0
+    },
+    {
+      "id": "CUS-13837715161",
+      "name": "13837715161",
+      "phone": "13837715161",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-12-03 10:23:59",
+      "total_paid_amount": 17998.0
+    },
+    {
+      "id": "CUS-17656685222",
+      "name": "17656685222",
+      "phone": "17656685222",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-30 14:04:56",
+      "total_paid_amount": 1053.99
+    },
+    {
+      "id": "CUS-18736642211",
+      "name": "18736642211",
+      "phone": "18736642211",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-30 11:03:45",
+      "total_paid_amount": 3949.0
+    },
+    {
+      "id": "CUS-15037718051",
+      "name": "15037718051",
+      "phone": "15037718051",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-30 10:19:25",
+      "total_paid_amount": 7999.0
+    },
+    {
+      "id": "CUS-18037700035",
+      "name": "18037700035",
+      "phone": "18037700035",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-30 10:12:07",
+      "total_paid_amount": 999.0
+    },
+    {
+      "id": "CUS-13598276393",
+      "name": "13598276393",
+      "phone": "13598276393",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-27 14:25:30",
+      "total_paid_amount": 4999.0
+    },
+    {
+      "id": "CUS-18338272733",
+      "name": "18338272733",
+      "phone": "18338272733",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-26 15:41:06",
+      "total_paid_amount": 4299.0
+    },
+    {
+      "id": "CUS-18238190120",
+      "name": "18238190120",
+      "phone": "18238190120",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-22 17:22:58",
+      "total_paid_amount": 4799.0
+    },
+    {
+      "id": "CUS-19838739857",
+      "name": "19838739857",
+      "phone": "19838739857",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-19 14:11:31",
+      "total_paid_amount": 3802.99
+    },
+    {
+      "id": "CUS-18737700452",
+      "name": "18737700452",
+      "phone": "18737700452",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-17 12:54:15",
+      "total_paid_amount": 3802.99
+    },
+    {
+      "id": "CUS-17891913340",
+      "name": "17891913340",
+      "phone": "17891913340",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-15 15:06:58",
+      "total_paid_amount": 3599.0
+    },
+    {
+      "id": "CUS-18736580622",
+      "name": "18736580622",
+      "phone": "18736580622",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-14 18:22:02",
+      "total_paid_amount": 3799.0
+    },
+    {
+      "id": "CUS-19838636925",
+      "name": "19838636925",
+      "phone": "19838636925",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-14 14:13:18",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-18937709657",
+      "name": "18937709657",
+      "phone": "18937709657",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-13 09:54:20",
+      "total_paid_amount": 7699.0
+    },
+    {
+      "id": "CUS-15236018789",
+      "name": "15236018789",
+      "phone": "15236018789",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-12 10:13:14",
+      "total_paid_amount": 399.0
+    },
+    {
+      "id": "CUS-18211821916",
+      "name": "18211821916",
+      "phone": "18211821916",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-11 15:27:29",
+      "total_paid_amount": 3599.0
+    },
+    {
+      "id": "CUS-18338301608",
+      "name": "18338301608",
+      "phone": "18338301608",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-10 18:54:34",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-17630650283",
+      "name": "17630650283",
+      "phone": "17630650283",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-10 16:35:35",
+      "total_paid_amount": 9598.0
+    },
+    {
+      "id": "CUS-18749036210",
+      "name": "18749036210",
+      "phone": "18749036210",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-10 10:55:08",
+      "total_paid_amount": 5399.0
+    },
+    {
+      "id": "CUS-15837702259",
+      "name": "15837702259",
+      "phone": "15837702259",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-09 17:28:41",
+      "total_paid_amount": 5399.0
+    },
+    {
+      "id": "CUS-15637786727",
+      "name": "15637786727",
+      "phone": "15637786727",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-09 14:11:20",
+      "total_paid_amount": 3586.99
+    },
+    {
+      "id": "CUS-18838616088",
+      "name": "18838616088",
+      "phone": "18838616088",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-09 13:55:13",
+      "total_paid_amount": 5399.0
+    },
+    {
+      "id": "CUS-18237737365",
+      "name": "18237737365",
+      "phone": "18237737365",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-09 09:24:44",
+      "total_paid_amount": 10798.0
+    },
+    {
+      "id": "CUS-13937727204",
+      "name": "13937727204",
+      "phone": "13937727204",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-08 11:53:29",
+      "total_paid_amount": 5699.0
+    },
+    {
+      "id": "CUS-16638758999",
+      "name": "16638758999",
+      "phone": "16638758999",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-08 10:43:04",
+      "total_paid_amount": 11398.0
+    },
+    {
+      "id": "CUS-13613995929",
+      "name": "13613995929",
+      "phone": "13613995929",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-06 09:44:03",
+      "total_paid_amount": 8199.0
+    },
+    {
+      "id": "CUS-18939225619",
+      "name": "18939225619",
+      "phone": "18939225619",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-02 09:26:08",
+      "total_paid_amount": 8199.0
+    },
+    {
+      "id": "CUS-13598273046",
+      "name": "13598273046",
+      "phone": "13598273046",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-11-01 17:38:58",
+      "total_paid_amount": 3802.99
+    },
+    {
+      "id": "CUS-13949355953",
+      "name": "13949355953",
+      "phone": "13949355953",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-01 16:41:38",
+      "total_paid_amount": 3799.0
+    },
+    {
+      "id": "CUS-15203865697",
+      "name": "15203865697",
+      "phone": "15203865697",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-01 15:16:27",
+      "total_paid_amount": 8699.0
+    },
+    {
+      "id": "CUS-18737756080",
+      "name": "18737756080",
+      "phone": "18737756080",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-01 13:22:08",
+      "total_paid_amount": 5699.0
+    },
+    {
+      "id": "CUS-13323686390",
+      "name": "13323686390",
+      "phone": "13323686390",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-11-01 13:06:47",
+      "total_paid_amount": 5699.0
+    },
+    {
+      "id": "CUS-16603771467",
+      "name": "16603771467",
+      "phone": "16603771467",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-31 16:38:20",
+      "total_paid_amount": 5699.0
+    },
+    {
+      "id": "CUS-15935175555",
+      "name": "15935175555",
+      "phone": "15935175555",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-31 11:02:09",
+      "total_paid_amount": 3.99
+    },
+    {
+      "id": "CUS-17737753693",
+      "name": "17737753693",
+      "phone": "17737753693",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-30 14:04:22",
+      "total_paid_amount": 3802.99
+    },
+    {
+      "id": "CUS-15737618976",
+      "name": "15737618976",
+      "phone": "15737618976",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-27 11:21:14",
+      "total_paid_amount": 3499.0
+    },
+    {
+      "id": "CUS-18203866271",
+      "name": "18203866271",
+      "phone": "18203866271",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-26 14:54:23",
+      "total_paid_amount": 4999.0
+    },
+    {
+      "id": "CUS-18238199606",
+      "name": "18238199606",
+      "phone": "18238199606",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-26 09:43:00",
+      "total_paid_amount": 5699.0
+    },
+    {
+      "id": "CUS-19561570312",
+      "name": "19561570312",
+      "phone": "19561570312",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-25 16:37:58",
+      "total_paid_amount": 20997.0
+    },
+    {
+      "id": "CUS-18336682516",
+      "name": "18336682516",
+      "phone": "18336682516",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-22 18:17:22",
+      "total_paid_amount": 4898.0
+    },
+    {
+      "id": "CUS-13938991708",
+      "name": "13938991708",
+      "phone": "13938991708",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-22 15:38:53",
+      "total_paid_amount": 10197.0
+    },
+    {
+      "id": "CUS-15188210687",
+      "name": "15188210687",
+      "phone": "15188210687",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-21 17:44:07",
+      "total_paid_amount": 3999.0
+    },
+    {
+      "id": "CUS-18736609719",
+      "name": "18736609719",
+      "phone": "18736609719",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-21 09:48:27",
+      "total_paid_amount": 9299.0
+    },
+    {
+      "id": "CUS-15093002915",
+      "name": "15093002915",
+      "phone": "15093002915",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-20 14:48:23",
+      "total_paid_amount": 7399.0
+    },
+    {
+      "id": "CUS-15090143125",
+      "name": "15090143125",
+      "phone": "15090143125",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-20 12:28:56",
+      "total_paid_amount": 9798.0
+    },
+    {
+      "id": "CUS-16638642896",
+      "name": "16638642896",
+      "phone": "16638642896",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-19 15:11:29",
+      "total_paid_amount": 9299.0
+    },
+    {
+      "id": "CUS-13782165628",
+      "name": "13782165628",
+      "phone": "13782165628",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-19 14:32:09",
+      "total_paid_amount": 11599.0
+    },
+    {
+      "id": "CUS-18039317922",
+      "name": "18039317922",
+      "phone": "18039317922",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-18 18:29:53",
+      "total_paid_amount": 8042.98
+    },
+    {
+      "id": "CUS-18337722028",
+      "name": "18337722028",
+      "phone": "18337722028",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-18 15:03:35",
+      "total_paid_amount": 3599.0
+    },
+    {
+      "id": "CUS-13607630789",
+      "name": "13607630789",
+      "phone": "13607630789",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-18 14:24:07",
+      "total_paid_amount": 11699.0
+    },
+    {
+      "id": "CUS-15139086670",
+      "name": "15139086670",
+      "phone": "15139086670",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-18 13:30:15",
+      "total_paid_amount": 12297.0
+    },
+    {
+      "id": "CUS-13333699829",
+      "name": "13333699829",
+      "phone": "13333699829",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-18 11:31:42",
+      "total_paid_amount": 5802.99
+    },
+    {
+      "id": "CUS-15937788161",
+      "name": "15937788161",
+      "phone": "15937788161",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 2,
+      "latest_order_date": "2025-10-17 15:39:15",
+      "total_paid_amount": 15196.0
+    },
+    {
+      "id": "CUS-18928816398",
+      "name": "18928816398",
+      "phone": "18928816398",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-17 11:47:48",
+      "total_paid_amount": 4900.0
+    },
+    {
+      "id": "CUS-15539956622",
+      "name": "15539956622",
+      "phone": "15539956622",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-16 18:08:41",
+      "total_paid_amount": 9299.0
+    },
+    {
+      "id": "CUS-15038718366",
+      "name": "15038718366",
+      "phone": "15038718366",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-16 16:52:05",
+      "total_paid_amount": 5799.0
+    },
+    {
+      "id": "CUS-18736503921",
+      "name": "18736503921",
+      "phone": "18736503921",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-16 09:59:27",
+      "total_paid_amount": 8999.0
+    },
+    {
+      "id": "CUS-15893506212",
+      "name": "15893506212",
+      "phone": "15893506212",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-15 17:03:42",
+      "total_paid_amount": 8899.0
+    },
+    {
+      "id": "CUS-13400692610",
+      "name": "13400692610",
+      "phone": "13400692610",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-14 16:44:39",
+      "total_paid_amount": 5099.0
+    },
+    {
+      "id": "CUS-15538449272",
+      "name": "15538449272",
+      "phone": "15538449272",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-14 14:47:21",
+      "total_paid_amount": 99.0
+    },
+    {
+      "id": "CUS-15538720615",
+      "name": "15538720615",
+      "phone": "15538720615",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-14 10:16:49",
+      "total_paid_amount": 869.0
+    },
+    {
+      "id": "CUS-17638231935",
+      "name": "17638231935",
+      "phone": "17638231935",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-14 09:45:22",
+      "total_paid_amount": 3599.0
+    },
+    {
+      "id": "CUS-15936186268",
+      "name": "15936186268",
+      "phone": "15936186268",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 1,
+      "latest_order_date": "2025-10-13 14:06:09",
+      "total_paid_amount": 5199.0
+    },
+    {
+      "id": "CUS-15637798222",
+      "name": "匿名",
+      "phone": "15637798222",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 4,
+      "latest_order_date": "2025-10-13 11:39:29",
+      "total_paid_amount": 9402.97
+    },
+    {
+      "id": "CUS-匿名",
+      "name": "匿名",
+      "phone": "",
+      "created_at": "2026-06-12T02:36:36.117583+00:00",
+      "order_count": 4,
+      "latest_order_date": "2025-10-13 11:39:29",
+      "total_paid_amount": 9402.97
+    }
+  ],
+  "count": 160,
+  "source": "retail_core.customer"
+}

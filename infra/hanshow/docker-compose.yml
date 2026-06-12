@@ -1,0 +1,77 @@
+services:
+  hanshow-mysql:
+    image: mysql:8.0
+    container_name: hanshow-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: hanshow_root_123
+      MYSQL_DATABASE: hanshow_shopweb
+      MYSQL_USER: hanshow
+      MYSQL_PASSWORD: hanshow_123
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-phanshow_root_123"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  hanshow-tomcat:
+    image: tomcat:8.5-jdk8-temurin
+    container_name: hanshow-tomcat
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      JAVA_OPTS: >-
+        -Xms512m
+        -Xmx2048m
+        -Dfile.encoding=UTF-8
+    ports:
+      - "18080:8080"
+    volumes:
+      - ./deploy/shopweb:/usr/local/tomcat/webapps
+      - ./logs/tomcat:/usr/local/tomcat/logs
+    depends_on:
+      hanshow-mysql:
+        condition: service_healthy
+
+  hanshow-eslworking:
+    image: eclipse-temurin:8-jre
+    container_name: hanshow-eslworking
+    restart: unless-stopped
+    working_dir: /opt/eslworking
+    environment:
+      TZ: Asia/Shanghai
+      ESL_HTTP_PORT: "9000"
+      ESL_APG2_PORT: "1234"
+      ESL_APG1_PORT: "21"
+    ports:
+      - "19000:9000"
+      - "11234:1234"
+      - "10021:21"
+    volumes:
+      - ./deploy/eslworking:/opt/eslworking
+      - ./logs/eslworking:/opt/eslworking/log
+    command: >
+      sh -c '
+        if [ ! -f /opt/eslworking/bin/eslworking.sh ] && [ ! -f /opt/eslworking/bin/eslworking.bat ]; then
+          echo "[hanshow-eslworking] 等待厂商 ESL-Working 安装包落地到 infra/hanshow/deploy/eslworking";
+          echo "[hanshow-eslworking] 当前仅完成运行环境骨架，未启动正式服务";
+          tail -f /dev/null;
+        fi;
+        if [ -f /opt/eslworking/bin/eslworking.sh ]; then
+          chmod +x /opt/eslworking/bin/eslworking.sh;
+          /opt/eslworking/bin/eslworking.sh;
+        else
+          echo "[hanshow-eslworking] 仅检测到 Windows 启动脚本，当前容器无法直接启动";
+          tail -f /dev/null;
+        fi
+      '

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "LOCAL-SYNC-20260601124748",
+    "external_system_id": "local_sync_port",
+    "task_type": "run_local_sync_pipeline",
+    "entity_type": "local_sync_pipeline",
+    "entity_id": "inventory-master-sync",
+    "status": "completed",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-06-01T04:47:48.782933+00:00",
+    "updated_at": "2026-06-01T04:50:24.906015+00:00"
+  },
+  {
+    "id": "AUTO-ZDT-SQL-BRIDGE",
+    "external_system_id": "zhidiantong",
+    "task_type": "auto_sql_bridge_sync",
+    "entity_type": "openclaw_signature",
+    "entity_id": "inventory_order_sync",
+    "status": "completed",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-31T10:08:58.793520+00:00",
+    "updated_at": "2026-06-12T02:33:13.918937+00:00"
+  },
+  {
+    "id": "SYNC-PT-20260526045421-20007936",
+    "external_system_id": "price_tag_gateway",
+    "task_type": "push_price_tag_update",
+    "entity_type": "price_tag_update_task",
+    "entity_id": "PT-20260526045421-20007936",
+    "status": "pending",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-25T20:54:21.682141+00:00",
+    "updated_at": "2026-05-25T20:54:21.682141+00:00"
+  },
+  {
+    "id": "LOCAL-SYNC-20260515200020",
+    "external_system_id": "local_sync_port",
+    "task_type": "run_local_sync_pipeline",
+    "entity_type": "local_sync_pipeline",
+    "entity_id": "inventory-master-sync",
+    "status": "completed",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-15T12:00:20.981683+00:00",
+    "updated_at": "2026-05-15T12:00:21.560898+00:00"
+  },
+  {
+    "id": "LOCAL-SYNC-20260515195948",
+    "external_system_id": "local_sync_port",
+    "task_type": "run_local_sync_pipeline",
+    "entity_type": "local_sync_pipeline",
+    "entity_id": "inventory-master-sync",
+    "status": "failed",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-15T11:59:48.348916+00:00",
+    "updated_at": "2026-05-15T11:59:48.648057+00:00"
+  },
+  {
+    "id": "LOCAL-SYNC-20260515195909",
+    "external_system_id": "local_sync_port",
+    "task_type": "run_local_sync_pipeline",
+    "entity_type": "local_sync_pipeline",
+    "entity_id": "inventory-master-sync",
+    "status": "failed",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-15T11:59:09.948069+00:00",
+    "updated_at": "2026-05-15T11:59:10.393182+00:00"
+  },
+  {
+    "id": "SYNC-replay-2064388b51f22a0c80a1e6bf",
+    "external_system_id": "local_sync_port",
+    "task_type": "replay_history_sync",
+    "entity_type": "product_sync_replay",
+    "entity_id": "replay-2064388b51f22a0c80a1e6bf",
+    "status": "pending",
+    "retry_count": 0,
+    "last_error": "",
+    "created_at": "2026-05-15T11:59:09.487350+00:00",
+    "updated_at": "2026-05-15T11:59:09.487350+00:00"
+  }
+]

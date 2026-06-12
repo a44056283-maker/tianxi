@@ -1,0 +1,11 @@
+[Unit]
+Description=Run zdt-sync orders every 2 minutes
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=120
+AccuracySec=10
+Unit=zdt-sync-orders.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+stores:
+  - code: STORE001
+    name: 示例门店 1
+    enabled: true
+  - code: STORE002
+    name: 示例门店 2
+    enabled: false

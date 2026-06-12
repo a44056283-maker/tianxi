@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>购机抽奖报名</title>
+  <style>
+    :root {
+      --bg: #0b0708;
+      --panel: rgba(28, 10, 12, 0.94);
+      --panel-2: rgba(255, 255, 255, 0.06);
+      --line: rgba(255, 232, 198, 0.14);
+      --gold: #ffd778;
+      --accent: #ff563a;
+      --text: #fff7ef;
+      --muted: rgba(255, 244, 225, 0.72);
+      --good: #72f4be;
+      --danger: #ff9c8a;
+      --shadow: 0 20px 64px rgba(0, 0, 0, 0.34);
+      --vh: 1vh;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(255, 91, 57, 0.28), transparent 28%),
+        linear-gradient(160deg, #18080b, #090709 60%, #07070a);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    body {
+      padding: max(14px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      min-height: calc(var(--vh) * 100);
+    }
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      display: grid;
+      gap: clamp(12px, 3vw, 18px);
+    }
+    .hero,
+    .panel {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(32, 9, 12, 0.98), rgba(12, 7, 10, 0.98)),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero {
+      position: relative;
+      min-height: 300px;
+      padding: clamp(20px, 5vw, 34px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(230px, 0.94fr);
+      gap: clamp(16px, 4vw, 28px);
+      align-items: center;
+      background:
+        radial-gradient(circle at 78% 28%, rgba(255, 222, 132, 0.28), transparent 24%),
+        radial-gradient(circle at 32% 0%, rgba(255, 91, 57, 0.34), transparent 26%),
+        linear-gradient(145deg, rgba(55, 13, 15, 0.98), rgba(12, 7, 10, 0.98) 62%);
+      isolation: isolate;
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hero::before {
+      inset: -22%;
+      background:
+        conic-gradient(from 215deg at 72% 42%, transparent 0deg, rgba(255, 216, 134, 0.18) 42deg, transparent 94deg, rgba(255, 86, 58, 0.2) 132deg, transparent 188deg),
+        radial-gradient(circle at 76% 46%, rgba(255, 245, 190, 0.18), transparent 34%);
+      animation: hero-radiance 6.8s linear infinite;
+    }
+    .hero::after {
+      left: 7%;
+      right: 7%;
+      bottom: -18px;
+      height: 42px;
+      border-radius: 999px;
+      background: radial-gradient(ellipse at center, rgba(255, 88, 56, 0.32), transparent 68%);
+      filter: blur(8px);
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 12px;
+    }
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 245px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 235, 198, 0.18);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255, 226, 154, 0.2), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.12));
+      box-shadow:
+        inset 0 0 48px rgba(255, 235, 198, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+      min-height: 245px;
+      display: block;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 235, 198, 0.12);
+      color: #ffe9c6;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .hero small {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 215, 120, 0.12);
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(34px, 8vw, 58px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 3.6vw, 18px);
+      line-height: 1.55;
+      font-weight: 720;
+    }
+    .panel {
+      padding: clamp(16px, 4vw, 22px);
+      display: grid;
+      gap: 14px;
+    }
+    .panel h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .notice {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 760;
+    }
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .field label {
+      color: #ffe8c6;
+      font-size: 15px;
+      font-weight: 860;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      min-height: 54px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 0 16px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      font-size: max(16px, 1rem);
+      font-weight: 820;
+      outline: none;
+    }
+    .scan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .scan-btn {
+      min-width: 118px;
+      min-height: 54px;
+      border: 1px solid rgba(255, 215, 120, 0.24);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 215, 120, 0.16), rgba(255, 86, 58, 0.14));
+      color: #fff2d2;
+      font-size: 15px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+    .scan-btn:disabled {
+      opacity: 0.56;
+      cursor: not-allowed;
+    }
+    .scan-tip {
+      color: rgba(255, 236, 210, 0.62);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 760;
+    }
+    .scan-tip strong {
+      color: #ffe8be;
+      font-weight: 900;
+    }
+    .suggestions {
+      display: none;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .suggestions.show {
+      display: grid;
+    }
+    .suggestion-btn {
+      border: 1px solid rgba(255, 236, 210, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      text-align: left;
+      padding: 12px 14px;
+      cursor: pointer;
+      display: grid;
+      gap: 4px;
+    }
+    .suggestion-btn strong {
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 900;
+      color: #fff4df;
+    }
+    .suggestion-btn span {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 760;
+      word-break: break-all;
+    }
+    .scan-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .scan-modal.show {
+      display: flex;
+    }
+    .scan-sheet {
+      width: min(100%, 760px);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 232, 198, 0.16);
+      background: linear-gradient(180deg, rgba(28, 10, 12, 0.98), rgba(10, 7, 8, 0.98));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .scan-sheet h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .scan-sheet p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 760;
+    }
+    .scan-preview {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #050506;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 280px;
+    }
+    .scan-preview video {
+      width: 100%;
+      display: block;
+      min-height: 280px;
+      max-height: 62vh;
+      object-fit: cover;
+      background: #050506;
+    }
+    .scan-frame {
+      position: absolute;
+      inset: 12% 12%;
+      border-radius: 22px;
+      border: 3px solid rgba(255, 215, 120, 0.9);
+      box-shadow:
+        0 0 0 9999px rgba(0, 0, 0, 0.18),
+        0 0 24px rgba(255, 215, 120, 0.28);
+      pointer-events: none;
+    }
+    .scan-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .field textarea {
+      min-height: 96px;
+      padding: 14px 16px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(255, 215, 120, 0.52);
+      box-shadow: 0 0 0 4px rgba(255, 215, 120, 0.12);
+    }
+    .match-card {
+      min-height: 96px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.05);
+      display: grid;
+      gap: 6px;
+      align-content: center;
+    }
+    .match-card.good {
+      border-color: rgba(114, 244, 190, 0.3);
+      background: linear-gradient(135deg, rgba(114, 244, 190, 0.12), rgba(255, 215, 120, 0.08));
+    }
+    .match-card.warn {
+      border-color: rgba(255, 215, 120, 0.22);
+      background: linear-gradient(135deg, rgba(255, 215, 120, 0.12), rgba(255, 86, 58, 0.08));
+    }
+    .match-card strong {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 950;
+      color: var(--text);
+    }
+    .match-card span {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 760;
+      word-break: break-all;
+    }
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+    .submit-btn,
+    .ghost-btn {
+      min-height: 62px;
+      border: 0;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+    .submit-btn {
+      background: linear-gradient(135deg, #ffd778, #ff563a);
+      color: #2d0908;
+      box-shadow: 0 18px 38px rgba(255, 121, 75, 0.24);
+    }
+    .ghost-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+    }
+    .status {
+      min-height: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 800;
+    }
+    .status.good { color: var(--good); }
+    .status.danger { color: var(--danger); }
+    .hidden {
+      display: none !important;
+    }
+    @keyframes hero-radiance {
+      from { transform: rotate(0deg) scale(1); }
+      to { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes hero-card-float {
+      0%, 100% { transform: translateY(0); filter: brightness(1); }
+      50% { transform: translateY(-10px); filter: brightness(1.14); }
+    }
+    @keyframes hero-spark-run {
+      0% { transform: translateX(-18px); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateX(18px); opacity: 0; }
+    }
+    .service-card-svg {
+      animation: hero-card-float 3.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .hero-sparks circle {
+      animation: hero-spark-run 2.2s ease-in-out infinite;
+    }
+    .hero-sparks circle:nth-child(2) { animation-delay: 0.35s; }
+    .hero-sparks circle:nth-child(3) { animation-delay: 0.7s; }
+    .hero-sparks circle:nth-child(4) { animation-delay: 1.05s; }
+    @media (max-width: 680px) {
+      body {
+        padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+      }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 18px;
+        border-radius: 24px;
+      }
+      .hero-visual {
+        min-height: clamp(190px, 52vw, 260px);
+        order: -1;
+      }
+      .hero-visual svg {
+        min-height: clamp(190px, 52vw, 260px);
+      }
+      .hero small {
+        min-height: 32px;
+        font-size: 12px;
+      }
+      .hero-badges span {
+        flex: 1 1 calc(50% - 8px);
+        justify-content: center;
+        font-size: 12px;
+      }
+      .panel {
+        border-radius: 24px;
+      }
+      .actions {
+        position: sticky;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        z-index: 5;
+        padding-top: 8px;
+        background: linear-gradient(180deg, transparent, rgba(10, 7, 8, 0.92) 22%);
+      }
+      .submit-btn,
+      .ghost-btn {
+        min-height: 58px;
+        border-radius: 18px;
+      }
+    }
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <small>Lenovo Care · 服务英雄归来</small>
+        <h1>提交 SN<br />解锁你的服务英雄卡</h1>
+        <p>购机后填写资料，广告机现场开抽。最高五年联想智惠服务，带着专属服务金凯旋上屏。</p>
+        <div class="hero-badges">
+          <span>真实 SN 凭证</span>
+          <span>现场大屏开奖</span>
+          <span>最高 ¥869 服务金</span>
+          <span>结果同步后台</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 360" role="img">
+          <defs>
+            <radialGradient id="portalGlow" cx="50%" cy="46%" r="58%">
+              <stop offset="0%" stop-color="#fff0b8" stop-opacity="0.95" />
+              <stop offset="38%" stop-color="#ffbe52" stop-opacity="0.38" />
+              <stop offset="100%" stop-color="#ff563a" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="cardGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff2b8" />
+              <stop offset="46%" stop-color="#ffd36a" />
+              <stop offset="100%" stop-color="#ff603e" />
+            </linearGradient>
+            <linearGradient id="heroBody" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff4cc" stop-opacity="0.92" />
+              <stop offset="100%" stop-color="#ff5a3c" stop-opacity="0.84" />
+            </linearGradient>
+            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1  0 0.72 0 0 0.54  0 0 0.35 0 0.18  0 0 0 1 0" result="glow" />
+              <feMerge>
+                <feMergeNode in="glow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="520" height="360" rx="28" fill="#12080a" />
+          <ellipse cx="260" cy="178" rx="182" ry="150" fill="url(#portalGlow)" />
+          <path d="M72 286 C132 252 389 254 450 286" fill="none" stroke="#ffd778" stroke-width="3" opacity="0.34" />
+          <path d="M98 306 C158 278 362 278 424 306" fill="none" stroke="#ff563a" stroke-width="5" opacity="0.34" />
+          <g opacity="0.5">
+            <path d="M58 72 L192 126" stroke="#ffd778" stroke-width="2" />
+            <path d="M462 70 L330 126" stroke="#ffd778" stroke-width="2" />
+            <path d="M72 222 L178 204" stroke="#ff8b54" stroke-width="2" />
+            <path d="M448 222 L342 204" stroke="#ff8b54" stroke-width="2" />
+          </g>
+          <g class="hero-sparks" fill="#fff1b8">
+            <circle cx="102" cy="96" r="5" />
+            <circle cx="420" cy="94" r="4" />
+            <circle cx="86" cy="240" r="4" />
+            <circle cx="438" cy="238" r="5" />
+          </g>
+          <g filter="url(#softGlow)">
+            <path d="M262 78 C225 104 204 148 206 198 C207 245 228 279 260 299 C293 278 314 245 315 198 C316 148 296 104 262 78Z" fill="rgba(255,255,255,0.08)" stroke="#ffd778" stroke-width="3" />
+            <circle cx="262" cy="105" r="33" fill="url(#heroBody)" />
+            <path d="M198 195 C218 161 241 147 262 147 C284 147 308 162 327 195 L308 270 L216 270 Z" fill="url(#heroBody)" />
+            <path d="M201 183 L130 240 C121 247 125 263 138 265 L213 274 Z" fill="#ff704c" opacity="0.82" />
+            <path d="M323 183 L394 240 C403 247 399 263 386 265 L311 274 Z" fill="#ff704c" opacity="0.82" />
+          </g>
+          <g class="service-card-svg" filter="url(#softGlow)">
+            <rect x="316" y="82" width="142" height="186" rx="22" fill="url(#cardGold)" />
+            <rect x="328" y="96" width="118" height="162" rx="16" fill="rgba(46,8,8,0.72)" stroke="#fff0b8" stroke-width="2" />
+            <text x="387" y="132" fill="#fff1b8" font-size="18" font-weight="900" text-anchor="middle">服务英雄卡</text>
+            <text x="387" y="172" fill="#ffd778" font-size="34" font-weight="1000" text-anchor="middle">¥869</text>
+            <text x="387" y="204" fill="#fff7ef" font-size="17" font-weight="900" text-anchor="middle">最高五年智惠</text>
+            <path d="M352 226 H422" stroke="#ffd778" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <g opacity="0.9">
+            <rect x="64" y="126" width="104" height="74" rx="18" fill="rgba(255,255,255,0.08)" stroke="#ffd778" />
+            <text x="116" y="157" fill="#fff1b8" font-size="17" font-weight="900" text-anchor="middle">SN 凭证</text>
+            <text x="116" y="182" fill="#ffd778" font-size="14" font-weight="900" text-anchor="middle">一机一次</text>
+            <rect x="78" y="224" width="122" height="68" rx="18" fill="rgba(255,255,255,0.08)" stroke="#ff8b54" />
+            <text x="139" y="254" fill="#fff1b8" font-size="17" font-weight="900" text-anchor="middle">大屏开奖</text>
+            <text x="139" y="278" fill="#ffd778" font-size="14" font-weight="900" text-anchor="middle">现场见证</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="panel" id="blockedPanel" hidden>
+      <h2>当前不可提交</h2>
+      <div class="notice">此报名入口只允许在门店局域网或已配置广告机域名内访问。请连接门店 Wi‑Fi、通过广告机二维码重新进入，或联系店员协助处理。</div>
+    </section>
+
+    <section class="panel" id="formPanel">
+      <h2>填写抽奖资料</h2>
+      <div class="notice">正式抽奖仍需填写姓名、手机号和购机 SN。系统会优先按 SN 自动识别机型；如需先识别型号，也可扫描 MTM / PN / 69码 进行辅助匹配。</div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="customerName">客户姓名</label>
+          <input id="customerName" placeholder="请输入姓名" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">手机号码</label>
+          <input id="phone" placeholder="请输入手机号" inputmode="numeric" autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label for="serialNumber">购机 SN</label>
+          <div class="scan-row">
+            <input id="serialNumber" placeholder="请输入或粘贴购机 SN" autocapitalize="characters" />
+            <button class="scan-btn" id="scanSnBtn" type="button">扫码识别</button>
+          </div>
+          <div class="scan-tip"><strong>微信内优先调用扫一扫。</strong> 非微信环境再退回实时摄像头或拍照/选图识别。</div>
+        </div>
+
+        <div class="field">
+          <label for="referenceCode">MTM / PN / 69码（可选）</label>
+          <div class="scan-row">
+            <input id="referenceCode" placeholder="可扫描 MTM / PN / 69码 辅助识别机型" autocapitalize="characters" />
+            <button class="scan-btn" id="scanReferenceBtn" type="button">扫码识别</button>
+          </div>
+          <div class="scan-tip"><strong>支持模糊联想和微信扫一扫。</strong> 非微信环境可直接对准 MTM / PN / 69码 拍照识别。</div>
+          <div class="suggestions" id="referenceSuggestions"></div>
+        </div>
+
+        <div class="field">
+          <label>系统自动识别机型</label>
+          <div class="match-card" id="matchCard">
+            <strong id="matchTitle">等待输入识别码</strong>
+            <span id="matchMeta">输入 SN 后自动识别产品型号；也可先扫描 MTM / PN / 69码 辅助识别。</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="note">备注（可选）</label>
+          <textarea id="note" placeholder="可填写颜色、客户说明、购机渠道等补充信息"></textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="submit-btn" id="submitBtn" type="button">提交正式抽奖资料</button>
+        <button class="ghost-btn" id="clearBtn" type="button">清空重填</button>
+      </div>
+      <div class="status" id="status">正在准备自动识别服务...</div>
+    </section>
+  </div>
+
+  <div class="scan-modal" id="scanModal" hidden>
+    <div class="scan-sheet">
+      <h3 id="scanTitle">扫码识别中</h3>
+      <p id="scanHint">请把条码或二维码放入取景框中央，系统会自动识别。</p>
+      <div class="scan-preview">
+        <video id="scanVideo" playsinline autoplay muted></video>
+        <div class="scan-frame"></div>
+      </div>
+      <div class="scan-actions">
+        <button class="submit-btn" id="scanStopBtn" type="button">停止扫码</button>
+        <button class="ghost-btn" id="scanRetryBtn" type="button">重新开启</button>
+      </div>
+      <div class="status" id="scanStatus">正在准备摄像头...</div>
+    </div>
+  </div>
+  <input id="scanFileInput" type="file" accept="image/*" capture="environment" hidden />
+
+  <script>
+    const state = {
+      matchedSkuKey: '',
+      matchedProductModel: '',
+      matchedPnmTm: '',
+      matchedProductCode: '',
+      matchedBarcode: '',
+      matchedBy: '',
+      matchStatus: 'idle',
+      referenceSuggestions: [],
+      scanMode: '',
+      scanStream: null,
+      scanTimer: 0,
+      canUseLiveCamera: false,
+      isWeChat: false,
+      wechatSdkReady: false,
+      wechatSdkEnabled: false,
+      wechatSdkPromise: null,
+      wechatSdkMessage: ''
+    }
+    const apiBase = (() => {
+      if (location.protocol === 'file:') return 'http://127.0.0.1:8000'
+      if (['127.0.0.1', 'localhost', '::1'].includes(location.hostname)) return `${location.protocol}//${location.hostname}:8000`
+      return location.origin
+    })()
+
+    function applyViewportHeight() {
+      const height = window.visualViewport?.height || window.innerHeight || 0
+      document.documentElement.style.setProperty('--vh', `${height * 0.01}px`)
+    }
+
+    function qs(id) {
+      return document.getElementById(id)
+    }
+
+    function isLanHost(hostname) {
+      const host = String(hostname || '').toLowerCase()
+      if (!host) return false
+      if (host === 'localhost' || host === '127.0.0.1') return true
+      if (host === 'ad.tianlu2026.org') return true
+      if (host.startsWith('192.168.') || host.startsWith('10.')) return true
+      if (host.startsWith('172.')) {
+        const parts = host.split('.')
+        const second = Number(parts[1] || -1)
+        return second >= 16 && second <= 31
+      }
+      return false
+    }
+
+    function setStatus(message, tone = '') {
+      const node = qs('status')
+      node.textContent = message
+      node.className = tone ? `status ${tone}` : 'status'
+    }
+
+    function sanitizePhone(value) {
+      return String(value || '').replace(/[^\d]/g, '')
+    }
+
+    function isWeChatBrowser() {
+      return /micromessenger/i.test(String(navigator.userAgent || ''))
+    }
+
+    function loadExternalScript(src) {
+      return new Promise((resolve, reject) => {
+        const existing = document.querySelector(`script[data-external-src="${src}"]`)
+        if (existing) {
+          if (existing.dataset.loaded === '1') {
+            resolve()
+            return
+          }
+          existing.addEventListener('load', () => resolve(), { once: true })
+          existing.addEventListener('error', () => reject(new Error(`load_failed:${src}`)), { once: true })
+          return
+        }
+        const script = document.createElement('script')
+        script.src = src
+        script.async = true
+        script.dataset.externalSrc = src
+        script.addEventListener('load', () => {
+          script.dataset.loaded = '1'
+          resolve()
+        }, { once: true })
+        script.addEventListener('error', () => reject(new Error(`load_failed:${src}`)), { once: true })
+        document.head.appendChild(script)
+      })
+    }
+
+    function supportsLiveCamera() {
+      return Boolean(window.isSecureContext && 'BarcodeDetector' in window && navigator.mediaDevices?.getUserMedia)
+    }
+
+    function supportsImageDecode() {
+      return Boolean('BarcodeDetector' in window)
+    }
+
+    function normalizeReferenceCode(value) {
+      return String(value || '').replace(/[^A-Z0-9]/g, '').toUpperCase()
+    }
+
+    function normalizeScannedValue(value) {
+      const raw = String(value || '').trim()
+      if (!raw) return ''
+      const matched = raw.match(/^([A-Za-z0-9_]+),(.+)$/)
+      if (!matched) return raw
+      const prefix = String(matched[1] || '').toUpperCase()
+      if (['CODE_128', 'CODE_39', 'CODE_93', 'EAN_13', 'EAN_8', 'UPC_A', 'UPC_E', 'ITF', 'BAR_CODE'].includes(prefix)) {
+        return String(matched[2] || '').trim()
+      }
+      return raw
+    }
+
+    async function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(String(reader.result || ''))
+        reader.onerror = () => reject(new Error('图片读取失败'))
+        reader.readAsDataURL(file)
+      })
+    }
+
+    async function loadImageBitmapCompat(file) {
+      if (typeof createImageBitmap === 'function') {
+        try {
+          return await createImageBitmap(file)
+        } catch (error) {
+          console.warn('createImageBitmap failed, fallback to HTMLImageElement', error)
+        }
+      }
+      const dataUrl = await fileToDataUrl(file)
+      return new Promise((resolve, reject) => {
+        const image = new Image()
+        image.onload = () => resolve(image)
+        image.onerror = () => reject(new Error('图片加载失败'))
+        image.src = dataUrl
+      })
+    }
+
+    async function buildCompressedImageBase64(file) {
+      const bitmap = await loadImageBitmapCompat(file)
+      const maxSide = 1600
+      const scale = Math.min(1, maxSide / Math.max(bitmap.width || 1, bitmap.height || 1))
+      const width = Math.max(1, Math.round((bitmap.width || 1) * scale))
+      const height = Math.max(1, Math.round((bitmap.height || 1) * scale))
+      const canvas = document.createElement('canvas')
+      canvas.width = width
+      canvas.height = height
+      const context = canvas.getContext('2d', { alpha: false })
+      if (!context) throw new Error('图片压缩失败')
+      context.fillStyle = '#ffffff'
+      context.fillRect(0, 0, width, height)
+      context.drawImage(bitmap, 0, 0, width, height)
+      bitmap.close?.()
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.86)
+      return String(dataUrl || '').replace(/^data:image\/[a-zA-Z0-9.+-]+;base64,/, '')
+    }
+
+    function openFilePicker(mode) {
+      state.scanMode = mode
+      const input = qs('scanFileInput')
+      input.value = ''
+      if (typeof input.showPicker === 'function') {
+        input.showPicker()
+        return
+      }
+      input.click()
+    }
+
+    async function recognizeCodeWithService(file, mode) {
+      const imageBase64 = await buildCompressedImageBase64(file)
+      const response = await fetch(`${apiBase}/api/ad-machine/barcode-recognize`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          imageBase64,
+          mode
+        })
+      })
+      const payload = await response.json()
+      if (!response.ok || !payload?.ok) {
+        throw new Error(payload?.message || payload?.detail?.message || '服务端条码识别失败')
+      }
+      const recognized = normalizeScannedValue(payload.recognizedCode)
+      const candidates = Array.isArray(payload.candidates)
+        ? payload.candidates.map(item => normalizeScannedValue(item)).filter(Boolean)
+        : []
+      return {
+        recognizedCode: recognized,
+        confidence: String(payload.confidence || ''),
+        codeType: String(payload.codeType || ''),
+        candidates,
+        sourceVariant: String(payload.sourceVariant || ''),
+        reason: String(payload.message || '')
+      }
+    }
+
+    function renderMatchedProduct(title, meta = '', tone = '') {
+      const card = qs('matchCard')
+      qs('matchTitle').textContent = title
+      qs('matchMeta').textContent = meta
+      card.className = tone ? `match-card ${tone}` : 'match-card'
+    }
+
+    function resetMatchState(title = '等待输入识别码', meta = '输入 SN 后自动识别产品型号；也可先扫描 MTM / PN / 69码 辅助识别。', tone = '') {
+      state.matchedSkuKey = ''
+      state.matchedProductModel = ''
+      state.matchedPnmTm = ''
+      state.matchedProductCode = ''
+      state.matchedBarcode = ''
+      state.matchedBy = ''
+      state.matchStatus = 'idle'
+      renderMatchedProduct(title, meta, tone)
+    }
+
+    function renderReferenceSuggestions(items = []) {
+      const container = qs('referenceSuggestions')
+      state.referenceSuggestions = Array.isArray(items) ? items.slice(0, 6) : []
+      if (!state.referenceSuggestions.length) {
+        container.className = 'suggestions'
+        container.innerHTML = ''
+        return
+      }
+      container.className = 'suggestions show'
+      container.innerHTML = state.referenceSuggestions.map((item, index) => `
+        <button class="suggestion-btn" type="button" data-suggestion-index="${index}">
+          <strong>${item.productModel || '未命名机型'}</strong>
+          <span>${[item.pnMtm ? `PN/MTM ${item.pnMtm}` : '', item.productCode ? `商品编码 ${item.productCode}` : '', item.skuKey ? `SKU ${item.skuKey}` : ''].filter(Boolean).join(' · ')}</span>
+        </button>
+      `).join('')
+    }
+
+    async function fetchReferenceSuggestions() {
+      const keyword = normalizeReferenceCode(qs('referenceCode').value)
+      if (keyword.length < 2) {
+        renderReferenceSuggestions([])
+        return
+      }
+      try {
+        const response = await fetch(`${apiBase}/api/ad-machine/lottery/product-options?keyword=${encodeURIComponent(keyword)}&limit=6`, { cache: 'no-store' })
+        const payload = await response.json()
+        if (!response.ok || !payload.ok || !Array.isArray(payload.items)) {
+          renderReferenceSuggestions([])
+          return
+        }
+        renderReferenceSuggestions(payload.items)
+      } catch (error) {
+        console.error(error)
+        renderReferenceSuggestions([])
+      }
+    }
+
+    function applyReferenceSuggestion(index) {
+      const item = state.referenceSuggestions[Number(index)]
+      if (!item) return
+      qs('referenceCode').value = String(item.pnMtm || item.productCode || '').trim().toUpperCase()
+      renderReferenceSuggestions([])
+      lookupProductMatch()
+    }
+
+    async function lookupProductMatch() {
+      const serialNumber = String(qs('serialNumber').value || '').trim().toUpperCase()
+      const referenceCode = String(qs('referenceCode').value || '').trim().toUpperCase()
+      const normalizedReference = normalizeReferenceCode(referenceCode)
+      if (!serialNumber && !normalizedReference) {
+        resetMatchState()
+        return
+      }
+      if (serialNumber && serialNumber.length < 6 && normalizedReference.length < 4) {
+        resetMatchState('SN 长度不足', '请继续输入完整 SN，或补充 MTM / PN / 69码 后再自动识别。', 'warn')
+        return
+      }
+      const useSerialLookup = serialNumber.length >= 6
+      renderMatchedProduct(
+        useSerialLookup ? '正在识别 SN...' : '正在识别 MTM / PN / 69码...',
+        useSerialLookup ? '系统正在核验库存与产品资料。' : '系统正在核验产品主档与库存资料。'
+      )
+      try {
+        const endpoint = useSerialLookup
+          ? `${apiBase}/api/ad-machine/lottery/serial-lookup?serialNumber=${encodeURIComponent(serialNumber)}`
+          : `${apiBase}/api/ad-machine/lottery/reference-lookup?referenceCode=${encodeURIComponent(normalizedReference)}`
+        const response = await fetch(endpoint, { cache: 'no-store' })
+        const payload = await response.json()
+        if (!response.ok || !payload.ok) {
+          throw new Error(payload?.detail?.message || 'serial_lookup_failed')
+        }
+        state.matchedSkuKey = String(payload.skuKey || '')
+        state.matchedProductModel = String(payload.productModel || '')
+        state.matchedPnmTm = String(payload.pnMtm || '')
+        state.matchedProductCode = String(payload.productCode || '')
+        state.matchedBarcode = String(payload.barcode || '')
+        state.matchedBy = useSerialLookup ? 'serial' : 'reference'
+        const status = String(payload.inventoryMatchStatus || '')
+        state.matchStatus = status === 'matched' || status === 'catalog_matched' || status === 'projection_matched'
+          ? 'matched'
+          : 'unmatched'
+        if (state.matchStatus === 'matched') {
+          const metaParts = [
+            state.matchedSkuKey ? `SKU ${state.matchedSkuKey}` : '',
+            state.matchedPnmTm ? `PN/MTM ${state.matchedPnmTm}` : '',
+            state.matchedProductCode ? `商品编码 ${state.matchedProductCode}` : '',
+            state.matchedBarcode ? `69码 ${state.matchedBarcode}` : ''
+          ].filter(Boolean)
+          renderMatchedProduct(
+            state.matchedProductModel || '已匹配机型',
+            metaParts.join(' · ') || '已匹配产品主档',
+            'good'
+          )
+          setStatus(useSerialLookup ? 'SN 已匹配到库存机型，可直接提交正式抽奖资料。' : '已通过 MTM / PN / 69码 匹配到机型；正式抽奖仍需填写购机 SN。', 'good')
+        } else {
+          renderMatchedProduct(
+            state.matchedProductModel || (useSerialLookup ? 'SN 未匹配机型' : '识别码未匹配机型'),
+            useSerialLookup ? '该 SN 未在当前库存中识别到标准机型，提交后将标记为待店员复核。' : '当前 MTM / PN / 69码 未识别到标准机型，请核对后再提交正式抽奖资料。',
+            'warn'
+          )
+          setStatus(useSerialLookup ? '该 SN 未匹配到库存机型，提交后会进入待店员复核状态。' : '该识别码未匹配到机型，请继续填写或联系店员复核。')
+        }
+      } catch (error) {
+        console.error(error)
+        resetMatchState(
+          useSerialLookup ? 'SN 识别失败' : 'MTM / PN / 69码 识别失败',
+          error.message || '请稍后重试，或联系店员协助。',
+          'warn'
+        )
+        setStatus(error.message || '自动识别失败，请稍后重试。', 'danger')
+      }
+    }
+
+    function clearForm() {
+      qs('customerName').value = ''
+      qs('phone').value = ''
+      qs('serialNumber').value = ''
+      qs('referenceCode').value = ''
+      qs('note').value = ''
+      renderReferenceSuggestions([])
+      resetMatchState()
+      setStatus('已清空，可重新填写。')
+    }
+
+    function setScanStatus(message, tone = '') {
+      const node = qs('scanStatus')
+      node.textContent = message
+      node.className = tone ? `status ${tone}` : 'status'
+    }
+
+    function stopScanLoop() {
+      if (state.scanTimer) {
+        clearTimeout(state.scanTimer)
+        state.scanTimer = 0
+      }
+      if (state.scanStream) {
+        state.scanStream.getTracks().forEach(track => track.stop())
+        state.scanStream = null
+      }
+      const video = qs('scanVideo')
+      video.pause()
+      video.srcObject = null
+    }
+
+    function closeScanModal() {
+      stopScanLoop()
+      state.scanMode = ''
+      const modal = qs('scanModal')
+      modal.hidden = true
+      modal.classList.remove('show')
+    }
+
+    async function detectCodeFromFile(file, mode) {
+      if (!file) return
+      const targetLabel = mode === 'serial' ? 'SN' : 'MTM / PN / 69码'
+      try {
+        setStatus(`正在上传${targetLabel}图片到服务端识别，请稍候...`)
+        let rawValue = ''
+        let usedService = false
+        try {
+          const serviceResult = await recognizeCodeWithService(file, mode)
+          rawValue = serviceResult.recognizedCode
+          usedService = Boolean(rawValue)
+          if (!rawValue && serviceResult.candidates.length) {
+            rawValue = serviceResult.candidates[0]
+            usedService = Boolean(rawValue)
+          }
+        } catch (error) {
+          console.error(error)
+        }
+        if (!rawValue) {
+          if (!supportsImageDecode()) {
+            setStatus(`服务端未识别到有效${targetLabel}，当前浏览器也不支持本地图片识别，请手动填写。`, 'danger')
+            return
+          }
+          setStatus(`服务端未识别到有效${targetLabel}，正在切换本地图片识别...`)
+          const bitmap = await loadImageBitmapCompat(file)
+          const detector = new BarcodeDetector({
+            formats: ['code_128', 'code_39', 'code_93', 'ean_13', 'ean_8', 'upc_a', 'upc_e', 'itf', 'qr_code']
+          })
+          const codes = await detector.detect(bitmap)
+          bitmap.close?.()
+          if (!Array.isArray(codes) || !codes.length) {
+            setStatus(`没有识别到有效${targetLabel}，请重新拍照或手动填写。`, 'danger')
+            return
+          }
+          rawValue = normalizeScannedValue(codes[0].rawValue)
+        }
+        if (!rawValue) {
+          setStatus(`识别结果为空，请重新拍照${targetLabel}。`, 'danger')
+          return
+        }
+        if (mode === 'serial') {
+          qs('serialNumber').value = rawValue.toUpperCase()
+        } else {
+          qs('referenceCode').value = rawValue.toUpperCase()
+          renderReferenceSuggestions([])
+        }
+        setStatus(`${usedService ? '服务端' : '本地'}已识别：${rawValue}`, 'good')
+        await lookupProductMatch()
+      } catch (error) {
+        console.error(error)
+        setStatus(error.message || '图片识别失败，请重试。', 'danger')
+      } finally {
+        qs('scanFileInput').value = ''
+      }
+    }
+
+    async function pollScanFrame(detector) {
+      const video = qs('scanVideo')
+      if (!state.scanStream || state.scanMode === '') return
+      try {
+        const codes = await detector.detect(video)
+        if (Array.isArray(codes) && codes.length) {
+            const rawValue = normalizeScannedValue(codes[0].rawValue)
+          if (rawValue) {
+            if (state.scanMode === 'serial') {
+              qs('serialNumber').value = rawValue.toUpperCase()
+            } else {
+              qs('referenceCode').value = rawValue.toUpperCase()
+            }
+            setScanStatus(`已识别：${rawValue}`, 'good')
+            closeScanModal()
+            await lookupProductMatch()
+            return
+          }
+        }
+      } catch (error) {
+        console.error(error)
+      }
+      state.scanTimer = window.setTimeout(() => pollScanFrame(detector), 220)
+    }
+
+    async function ensureWechatSdkReady() {
+      if (!state.isWeChat) return false
+      if (state.wechatSdkReady && window.wx) return true
+      if (state.wechatSdkPromise) return state.wechatSdkPromise
+      state.wechatSdkPromise = (async () => {
+        try {
+          await loadExternalScript('https://res.wx.qq.com/open/js/jweixin-1.6.0.js')
+          if (!window.wx?.config) {
+            state.wechatSdkMessage = '微信 JS-SDK 未加载成功。'
+            return false
+          }
+          const pageUrl = String(location.href || '').split('#')[0]
+          const response = await fetch(`${apiBase}/api/ad-machine/lottery/wechat-sdk-config?url=${encodeURIComponent(pageUrl)}`, {
+            cache: 'no-store'
+          })
+          const payload = await response.json()
+          if (!response.ok || !payload.ok || !payload.enabled) {
+            state.wechatSdkMessage = payload?.message || '微信公众号签名未配置。'
+            return false
+          }
+          const ready = await new Promise(resolve => {
+            let settled = false
+            const finish = value => {
+              if (settled) return
+              settled = true
+              resolve(value)
+            }
+            window.wx.config({
+              debug: false,
+              appId: payload.appId,
+              timestamp: Number(payload.timestamp || 0),
+              nonceStr: String(payload.nonceStr || ''),
+              signature: String(payload.signature || ''),
+              jsApiList: Array.isArray(payload.jsApiList) && payload.jsApiList.length ? payload.jsApiList : ['scanQRCode']
+            })
+            window.wx.ready(() => {
+              state.wechatSdkEnabled = true
+              state.wechatSdkReady = true
+              state.wechatSdkMessage = '微信扫一扫已就绪。'
+              finish(true)
+            })
+            window.wx.error(error => {
+              console.error(error)
+              state.wechatSdkMessage = '微信扫一扫签名失败，已切换浏览器识别。'
+              finish(false)
+            })
+            window.setTimeout(() => finish(false), 4500)
+          })
+          return Boolean(ready)
+        } catch (error) {
+          console.error(error)
+          state.wechatSdkMessage = error.message || '微信 JS-SDK 初始化失败。'
+          return false
+        } finally {
+          state.wechatSdkPromise = null
+        }
+      })()
+      return state.wechatSdkPromise
+    }
+
+    async function startWechatScan(mode) {
+      if (!window.wx?.scanQRCode) return false
+      const targetLabel = mode === 'serial' ? 'SN' : 'MTM / PN / 69码'
+      const result = await new Promise(resolve => {
+        window.wx.scanQRCode({
+          needResult: 1,
+          scanType: ['qrCode', 'barCode'],
+          success: res => resolve({ ok: true, rawValue: res?.resultStr || '' }),
+          fail: error => resolve({ ok: false, error }),
+          cancel: () => resolve({ ok: false, cancelled: true })
+        })
+      })
+      if (!result?.ok) {
+        if (result?.cancelled) {
+          setStatus(`已取消${targetLabel}微信扫码。`)
+          return true
+        }
+        setStatus(`微信扫一扫未成功返回${targetLabel}，已切换浏览器识别。`)
+        return false
+      }
+      const rawValue = normalizeScannedValue(result.rawValue)
+      if (!rawValue) {
+        setStatus(`微信扫一扫没有识别到有效${targetLabel}。`, 'danger')
+        return true
+      }
+      if (mode === 'serial') {
+        qs('serialNumber').value = rawValue.toUpperCase()
+      } else {
+        qs('referenceCode').value = rawValue.toUpperCase()
+        renderReferenceSuggestions([])
+      }
+      setStatus(`微信扫一扫已识别：${rawValue}`, 'good')
+      await lookupProductMatch()
+      return true
+    }
+
+    async function startScan(mode) {
+      const targetLabel = mode === 'serial' ? 'SN' : 'MTM / PN / 69码'
+      if (state.isWeChat) {
+        const sdkReady = await ensureWechatSdkReady().catch(() => false)
+        if (sdkReady) {
+          const handled = await startWechatScan(mode).catch(() => false)
+          if (handled) return
+        }
+        openFilePicker(mode)
+        setStatus(`微信扫一扫不可用，已切换为${targetLabel}拍照识别，系统会优先调用服务端自动识别。`)
+        return
+      }
+      if (!supportsLiveCamera()) {
+        if (supportsImageDecode()) {
+          openFilePicker(mode)
+          const prefix = '当前环境不支持实时摄像头'
+          setStatus(`${prefix}，已切换为${targetLabel}拍照/选图识别。`)
+        } else {
+          openFilePicker(mode)
+          setStatus(`当前环境不支持实时扫码，已切换为${targetLabel}拍照上传识别。`)
+        }
+        return
+      }
+      closeScanModal()
+      state.scanMode = mode
+      qs('scanTitle').textContent = mode === 'serial' ? '扫描购机 SN' : '扫描 MTM / PN / 69码'
+      qs('scanHint').textContent = mode === 'serial'
+        ? '请把购机 SN 条码放入取景框中央，识别后会自动回填。'
+        : '请把 MTM / PN / 69码 条码放入取景框中央，识别后会自动回填。'
+      const modal = qs('scanModal')
+      modal.hidden = false
+      modal.classList.add('show')
+      setScanStatus('正在开启摄像头...')
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: { ideal: 'environment' },
+            width: { ideal: 1920 },
+            height: { ideal: 1080 }
+          },
+          audio: false
+        })
+        state.scanStream = stream
+        const video = qs('scanVideo')
+        video.srcObject = stream
+        await video.play()
+        const detector = new BarcodeDetector({
+          formats: ['code_128', 'code_39', 'code_93', 'ean_13', 'ean_8', 'upc_a', 'upc_e', 'itf', 'qr_code']
+        })
+        setScanStatus('摄像头已开启，请对准条码或二维码。')
+        await pollScanFrame(detector)
+      } catch (error) {
+        console.error(error)
+        closeScanModal()
+        if (supportsImageDecode()) {
+          openFilePicker(mode)
+          setStatus(`实时摄像头开启失败，已切换为${targetLabel}拍照/选图识别。`)
+        } else {
+          setScanStatus(error.message || '摄像头开启失败。', 'danger')
+        }
+      }
+    }
+
+    async function submitParticipant() {
+      const customerName = String(qs('customerName').value || '').trim()
+      const phone = sanitizePhone(qs('phone').value)
+      const serialNumber = String(qs('serialNumber').value || '').trim().toUpperCase()
+      const note = String(qs('note').value || '').trim()
+
+      if (!customerName) {
+        setStatus('请先填写客户姓名。', 'danger')
+        return
+      }
+      if (phone.length < 11) {
+        setStatus('请填写正确的手机号码。', 'danger')
+        return
+      }
+      if (!serialNumber) {
+        setStatus('正式抽奖必须填写购机 SN。', 'danger')
+        return
+      }
+
+      setStatus('资料提交中，请稍候...', '')
+      qs('submitBtn').disabled = true
+      try {
+        const response = await fetch(`${apiBase}/api/ad-machine/lottery/participants`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customerName,
+            phone,
+            productModel: state.matchedProductModel || '',
+            skuKey: state.matchedSkuKey || '',
+            serialNumber,
+            note
+          })
+        })
+        const payload = await response.json()
+        if (!response.ok || !payload.ok) {
+          const message = payload?.detail?.message || '提交失败，请联系店员。'
+          throw new Error(message)
+        }
+        setStatus(`提交成功：${payload.participant.maskedName} 已进入广告机待抽奖队列。`, 'good')
+        qs('serialNumber').value = ''
+        qs('referenceCode').value = ''
+        qs('note').value = ''
+        resetMatchState('已提交成功', '客户资料已进入待抽奖队列，下一位客户可继续填写。', 'good')
+      } catch (error) {
+        console.error(error)
+        setStatus(error.message || '提交失败，请稍后重试。', 'danger')
+      } finally {
+        qs('submitBtn').disabled = false
+      }
+    }
+
+    window.addEventListener('resize', applyViewportHeight)
+    window.visualViewport?.addEventListener('resize', applyViewportHeight)
+    applyViewportHeight()
+
+    if (!isLanHost(window.location.hostname)) {
+      qs('blockedPanel').hidden = false
+      qs('formPanel').classList.add('hidden')
+    } else {
+      state.isWeChat = isWeChatBrowser()
+      state.canUseLiveCamera = supportsLiveCamera()
+      resetMatchState()
+      if (state.isWeChat) {
+        setStatus('请输入姓名、手机号和购机 SN；微信内点击扫码后将直接拍照，并优先调用服务端自动识别。')
+      } else {
+        setStatus(state.canUseLiveCamera
+          ? '请输入姓名、手机号和购机 SN；支持实时摄像头扫码与辅助识别。'
+          : '请输入姓名、手机号和购机 SN；当前环境将优先使用拍照/选图识别。')
+      }
+    }
+
+    qs('serialNumber').addEventListener('blur', lookupProductMatch)
+    qs('serialNumber').addEventListener('change', lookupProductMatch)
+    qs('referenceCode').addEventListener('blur', lookupProductMatch)
+    qs('referenceCode').addEventListener('change', lookupProductMatch)
+    qs('referenceCode').addEventListener('input', fetchReferenceSuggestions)
+    qs('referenceSuggestions').addEventListener('click', event => {
+      const button = event.target.closest('[data-suggestion-index]')
+      if (!button) return
+      applyReferenceSuggestion(button.dataset.suggestionIndex)
+    })
+    qs('scanSnBtn').addEventListener('click', () => startScan('serial'))
+    qs('scanReferenceBtn').addEventListener('click', () => startScan('reference'))
+    qs('scanStopBtn').addEventListener('click', closeScanModal)
+    qs('scanRetryBtn').addEventListener('click', () => startScan(state.scanMode || 'reference'))
+    qs('scanModal').addEventListener('click', event => {
+      if (event.target === qs('scanModal')) closeScanModal()
+    })
+    qs('scanFileInput').addEventListener('change', event => {
+      const file = event.target.files?.[0]
+      detectCodeFromFile(file, state.scanMode || 'reference')
+    })
+    qs('submitBtn').addEventListener('click', submitParticipant)
+    qs('clearBtn').addEventListener('click', clearForm)
+  </script>
+</body>
+</html>

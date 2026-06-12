@@ -1,0 +1,10 @@
+{
+  "name": "联想智慧零售系统商用专业版 V1.0",
+  "short_name": "智慧零售商用版",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f7fb",
+  "theme_color": "#e2231a",
+  "icons": []
+}
+

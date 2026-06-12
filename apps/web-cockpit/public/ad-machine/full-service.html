@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全量服务图形化介绍</title>
+  <style>
+    :root {
+      --bg-a: #16070a;
+      --bg-b: #341016;
+      --bg-c: #0d1017;
+      --text: #fff3dd;
+      --gold: #ffd56f;
+      --line: rgba(255, 214, 120, 0.32);
+      --panel: rgba(255, 255, 255, 0.06);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 14% 0%, rgba(255, 176, 78, 0.24), transparent 28%),
+                  linear-gradient(145deg, var(--bg-a) 0%, var(--bg-b) 45%, var(--bg-c) 100%);
+    }
+
+    .page {
+      width: 100vw;
+      height: 100vh;
+      padding: clamp(12px, .9vw, 18px);
+      display: grid;
+      grid-template-rows: minmax(224px, .5fr) minmax(0, 1.5fr);
+      gap: clamp(10px, .74vw, 16px);
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(255, 216, 126, 0.34), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(255, 77, 45, 0.22), transparent 28%),
+        linear-gradient(135deg, rgba(76, 16, 18, 0.96), rgba(12, 14, 22, 0.94));
+      padding: clamp(18px, 1.28vw, 30px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(720px, .95fr);
+      align-content: center;
+      gap: clamp(16px, 1.1vw, 28px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 46px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
+      min-height: 0;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -45% -18%;
+      background:
+        conic-gradient(from 230deg at 50% 50%, transparent 0 28%, rgba(255, 223, 139, .28) 35%, transparent 43%, rgba(255, 85, 48, .2) 58%, transparent 70% 100%);
+      animation: leagueSweep 8s linear infinite;
+      opacity: .62;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "SERVICE HEROES";
+      position: absolute;
+      right: clamp(20px, 2vw, 44px);
+      bottom: -0.16em;
+      color: rgba(255, 221, 135, .08);
+      font-size: clamp(86px, 7.5vw, 172px);
+      line-height: .72;
+      font-weight: 1000;
+      letter-spacing: -.08em;
+      pointer-events: none;
+    }
+    .hero-copy,
+    .summary-deck {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy {
+      display: grid;
+      align-content: center;
+      gap: clamp(8px, .58vw, 14px);
+      min-width: 0;
+    }
+    .hero-badge {
+      width: fit-content;
+      min-height: clamp(36px, 2.1vw, 50px);
+      display: inline-flex;
+      align-items: center;
+      padding: 0 clamp(18px, 1.1vw, 28px);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 224, 144, .42);
+      background: linear-gradient(135deg, rgba(255, 216, 112, .2), rgba(255, 255, 255, .06));
+      color: #ffe6a6;
+      font-size: clamp(16px, .9vw, 24px);
+      font-weight: 980;
+      letter-spacing: .12em;
+      box-shadow: 0 0 24px rgba(255, 196, 80, .18);
+    }
+    .hero .l1 { font-size: clamp(34px, 2.65vw, 64px); font-weight: 980; line-height: .96; }
+    .hero .l2 { font-size: clamp(48px, 3.6vw, 90px); font-weight: 1000; line-height: .9; color: var(--gold); text-shadow: 0 3px 0 rgba(88,16,0,.6),0 0 34px rgba(255,193,72,.58); }
+    .hero .l3 { font-size: clamp(22px, 1.45vw, 36px); font-weight: 900; color: rgba(255,246,226,.95); line-height: 1.18; }
+
+    .summary-deck {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
+      align-content: stretch;
+    }
+    .summary-card {
+      border: 1px solid rgba(255, 220, 146, 0.32);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      padding: 10px 12px;
+      display: grid;
+      gap: 5px;
+      min-height: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 28px rgba(0,0,0,.22);
+    }
+    .summary-title {
+      margin: 0;
+      font-size: clamp(16px, 1vw, 24px);
+      font-weight: 920;
+      color: #ffe39a;
+      line-height: 1.05;
+    }
+    .summary-main {
+      margin: 0;
+      font-size: clamp(26px, 1.9vw, 44px);
+      font-weight: 1000;
+      line-height: 0.95;
+      color: #fff2cb;
+      text-shadow: 0 0 18px rgba(255, 195, 73, 0.34);
+    }
+    .summary-sub {
+      margin: 0;
+      font-size: clamp(12px, .76vw, 16px);
+      line-height: 1.18;
+      color: rgba(255, 238, 210, 0.9);
+      font-weight: 800;
+    }
+
+    .cards {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: clamp(6px, .45vw, 10px);
+      overflow: hidden;
+    }
+    .card {
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+      padding: clamp(2px, .18vw, 4px);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover,
+    .card:active {
+      transform: translateY(-2px) scale(1.01);
+      border-color: rgba(255, 226, 146, 0.56);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(140deg, rgba(255,208,115,.08), transparent 50%);
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      aspect-ratio: 1080 / 1920;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 220, 146, 0.24);
+      display: block;
+      background:
+        radial-gradient(circle at center, rgba(255, 215, 120, 0.1), transparent 54%),
+        rgba(0, 0, 0, 0.16);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      opacity: 1;
+      filter: saturate(1) blur(0);
+      transform: scale(1);
+      transition: box-shadow .24s ease, transform .24s ease;
+    }
+    .hero-image.loaded {
+      transform: scale(1);
+    }
+    .image-skeleton {
+      position: absolute;
+      left: clamp(2px, .18vw, 4px);
+      right: clamp(2px, .18vw, 4px);
+      top: clamp(2px, .18vw, 4px);
+      bottom: clamp(2px, .18vw, 4px);
+      aspect-ratio: 1080 / 1920;
+      border-radius: 12px;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.05) 0%, rgba(255, 218, 130, .18) 42%, rgba(255,255,255,.05) 72%),
+        radial-gradient(circle at 50% 40%, rgba(255, 205, 105, .15), transparent 52%),
+        rgba(0,0,0,.18);
+      background-size: 220% 100%, 100% 100%, 100% 100%;
+      animation: skeletonRun 1.1s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-image.loaded + .image-skeleton {
+      display: none;
+    }
+    .card-title {
+      display: none;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center, rgba(255, 204, 112, 0.14), transparent 24%),
+        radial-gradient(circle at center, rgba(38, 14, 18, 0.48), rgba(0, 0, 0, 0.88));
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 20px;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox-panel {
+      width: min(34vw, 760px);
+      min-width: 520px;
+      max-width: 760px;
+      height: min(92vh, 1500px);
+      border: 2px solid rgba(255, 222, 140, 0.88);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 215, 126, 0.08), rgba(255, 255, 255, 0) 12%),
+        linear-gradient(150deg, rgba(24, 12, 16, 0.97), rgba(9, 11, 17, 0.98));
+      box-shadow:
+        0 0 0 2px rgba(255, 185, 67, 0.22),
+        0 28px 80px rgba(0,0,0,0.66),
+        0 0 72px rgba(255, 197, 88, 0.18);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      animation: panelIn .24s ease-out;
+    }
+    .lightbox-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255, 220, 146, 0.3);
+      background: linear-gradient(180deg, rgba(255, 214, 118, 0.08), rgba(255,255,255,0));
+    }
+    .lightbox-title {
+      margin: 0;
+      font-size: clamp(28px, 2vw, 48px);
+      font-weight: 980;
+      color: #ffe7ad;
+      text-shadow: 0 0 18px rgba(255, 197, 88, 0.56);
+      line-height: 1;
+    }
+    .lightbox-close {
+      border: 1px solid rgba(255, 220, 146, 0.62);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,194,82,0.08));
+      color: #ffeaca;
+      font-weight: 900;
+      font-size: clamp(18px, 1.05vw, 24px);
+      padding: 10px 18px;
+      cursor: pointer;
+    }
+    .lightbox-image-wrap {
+      min-height: 0;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+    }
+    .lightbox-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 220, 146, 0.5);
+      box-shadow:
+        0 20px 46px rgba(0,0,0,0.48),
+        0 0 36px rgba(255, 195, 73, 0.12);
+    }
+    @media (max-width: 900px) {
+      .page {
+        grid-template-rows: minmax(240px, auto) minmax(0, auto);
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+      }
+      html, body {
+        overflow: auto;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .summary-deck { grid-template-columns: 1fr; }
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+      }
+      .lightbox-panel {
+        width: min(88vw, 760px);
+        min-width: 0;
+      }
+    }
+    @keyframes panelIn {
+      from { transform: scale(.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes leagueSweep {
+      from { transform: rotate(0deg) scale(1); }
+      to { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes skeletonRun {
+      from { background-position: 180% 0, 0 0, 0 0; }
+      to { background-position: -80% 0, 0 0, 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="全量服务图形化介绍">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-badge">LENOVO SERVICE HEROES</span>
+        <span class="l1">联想全量服务图形化介绍</span>
+        <span class="l2">八位服务英雄，同屏集结</span>
+        <span class="l3">把购机赠品、延保、系统、清灰、AI 与全国联保一次讲清，让客户看得见、查得到、愿意点开。</span>
+      </div>
+      <section class="summary-deck" aria-label="全量服务汇总信息卡牌">
+        <article class="summary-card">
+          <h3 class="summary-title">购机权益总价值</h3>
+          <p class="summary-main">¥4,000+</p>
+          <p class="summary-sub">含 AI、Office、清灰、系统服务、延保服务金等组合权益（以当期活动为准）</p>
+        </article>
+        <article class="summary-card">
+          <h3 class="summary-title">服务保障周期</h3>
+          <p class="summary-main">3-5年</p>
+          <p class="summary-sub">抽奖可获得 3 年至 5 年智惠保障层级，支持门店现场核验执行</p>
+        </article>
+        <article class="summary-card">
+          <h3 class="summary-title">客户可感知能力</h3>
+          <p class="summary-main">可查 · 可验 · 可兑现</p>
+          <p class="summary-sub">SN核验、服务入口、联保网络和执行口径都可当场展示</p>
+        </article>
+      </section>
+    </section>
+
+    <section class="cards" aria-label="8张服务图卡展示">
+      <article class="card" data-title="延保服务金 · 抽奖权益"><img class="hero-image" src="/ad-machine/service-hero-cards/package-20260527/thumbs/card-01-draw.jpg?v=20260527-cardfix8" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-01-draw.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-01-draw.jpg?v=20260527-cardfix8" alt="延保服务金抽奖" width="1080" height="1920" decoding="async" fetchpriority="high" loading="eager"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="AI天禧 · 智能助理"><img class="hero-image" src="/ad-machine/service-hero-cards/package-20260527/thumbs/card-02-ai.jpg?v=20260527-cardfix8" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-02-ai.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-02-ai.jpg?v=20260527-cardfix8" alt="AI天禧智能体" width="1080" height="1920" decoding="async" loading="eager"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="Office学生版 · 学创工具包"><img class="hero-image" src="/ad-machine/service-hero-cards/package-20260527/thumbs/card-03-office.jpg?v=20260527-cardfix8" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-03-office.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-03-office.jpg?v=20260527-cardfix8" alt="正版Office学生版" width="1080" height="1920" decoding="async" loading="eager"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="原厂系统 · 修复加速服务"><img class="hero-image" src="/ad-machine/service-hero-cards/package-20260527/thumbs/card-04-system.jpg?v=20260527-cardfix8" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-04-system.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-04-system.jpg?v=20260527-cardfix8" alt="原厂系统服务" width="1080" height="1920" decoding="async" loading="eager"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="深度清灰 · 散热养护服务"><img class="hero-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-05-clean.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-05-clean.jpg?v=20260527-cardfix8" alt="深度除尘清灰" width="1080" height="1920" decoding="async" loading="lazy"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="Lenovo Care · 智惠守护"><img class="hero-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-06-care.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-06-care.jpg?v=20260527-cardfix8" alt="LenovoCare智惠服务" width="1080" height="1920" decoding="async" loading="lazy"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="意外保障 · 180天核验通道"><img class="hero-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-07-verify.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-07-verify.jpg?v=20260527-cardfix8" alt="180天内可选意外保" width="1080" height="1920" decoding="async" loading="lazy"><span class="image-skeleton"></span></article>
+      <article class="card" data-title="全国联保 · 官方服务网络"><img class="hero-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-thumb="/ad-machine/service-hero-cards/package-20260527/thumbs/card-08-network.jpg?v=20260527-cardfix8" data-full="/ad-machine/service-hero-cards/package-20260527/full/card-08-network.jpg?v=20260527-cardfix8" alt="全量服务英雄卡" width="1080" height="1920" decoding="async" loading="lazy"><span class="image-skeleton"></span></article>
+    </section>
+
+  </main>
+
+  <section class="lightbox" id="cardLightbox" aria-hidden="true">
+    <article class="lightbox-panel">
+      <header class="lightbox-head">
+        <h2 class="lightbox-title" id="lightboxTitle"></h2>
+        <button class="lightbox-close" id="lightboxClose" type="button">关闭</button>
+      </header>
+      <div class="lightbox-image-wrap">
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      </div>
+    </article>
+  </section>
+
+  <script>
+    const lightbox = document.getElementById('cardLightbox');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const cardImages = Array.from(document.querySelectorAll('.hero-image'));
+    function markLoaded(imageEl) {
+      imageEl.classList.add('loaded');
+    }
+
+    function loadFullImage(imageEl) {
+      const fullSrc = imageEl.dataset.full;
+      if (!fullSrc || imageEl.dataset.fullLoaded === 'true') return;
+      const loader = new Image();
+      loader.decoding = 'async';
+      loader.onload = () => {
+        imageEl.src = fullSrc;
+        imageEl.dataset.fullLoaded = 'true';
+        markLoaded(imageEl);
+      };
+      loader.onerror = () => markLoaded(imageEl);
+      loader.src = fullSrc;
+    }
+
+    function hydrateThumb(imageEl) {
+      const thumb = imageEl.dataset.thumb;
+      if (!thumb || imageEl.dataset.thumbHydrated === 'true') return;
+      imageEl.dataset.thumbHydrated = 'true';
+      imageEl.src = thumb;
+    }
+    cardImages.forEach((imageEl, index) => {
+      if (index >= 4) {
+        const onVisible = () => hydrateThumb(imageEl);
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              onVisible();
+              io.disconnect();
+            });
+          }, { rootMargin: '80px' });
+          io.observe(imageEl);
+        } else {
+          setTimeout(onVisible, 300 + index * 80);
+        }
+      }
+      if (imageEl.complete) markLoaded(imageEl);
+      imageEl.addEventListener('load', () => markLoaded(imageEl), { once: true });
+    });
+    setTimeout(() => {
+      cardImages.slice(4).forEach((img, i) => setTimeout(() => hydrateThumb(img), i * 120));
+    }, 900);
+
+    function openCardLightbox(cardEl) {
+      const imageEl = cardEl.querySelector('.hero-image');
+      if (!imageEl) return;
+      loadFullImage(imageEl);
+      lightboxTitle.textContent = cardEl.dataset.title || imageEl.alt || '';
+      lightboxImage.src = imageEl.dataset.full || imageEl.src;
+      lightboxImage.alt = imageEl.alt || '';
+      lightbox.classList.add('show');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCardLightbox() {
+      lightbox.classList.remove('show');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    document.querySelectorAll('.card').forEach((card) => {
+      card.addEventListener('click', () => openCardLightbox(card));
+    });
+
+    lightboxClose.addEventListener('click', closeCardLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeCardLightbox();
+    });
+  </script>
+</body>
+</html>

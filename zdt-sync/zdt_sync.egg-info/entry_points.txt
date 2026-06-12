@@ -1,0 +1,2 @@
+[console_scripts]
+zdt-sync = zdt_sync.cli:app

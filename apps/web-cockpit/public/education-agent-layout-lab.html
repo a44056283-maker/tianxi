@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教育补代扫布局试验页</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --line: #d9e3ef;
+        --line-soft: #e9eff6;
+        --text: #0f172a;
+        --muted: #64748b;
+        --blue: #2f6cde;
+        --blue-soft: #eef5ff;
+        --lenovo: #e2231a;
+        --gold: #fff3cf;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f7fbff 0%, #f3f6fb 100%);
+        color: var(--text);
+        font: 14px/1.45 "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      .page {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+      }
+
+      .hero-title {
+        display: grid;
+        gap: 6px;
+      }
+
+      .hero-title strong {
+        position: relative;
+        padding-left: 14px;
+        font-size: 24px;
+      }
+
+      .hero-title strong::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 4px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--lenovo);
+      }
+
+      .hero-title span,
+      .hero-meta span {
+        color: var(--muted);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        align-content: flex-start;
+      }
+
+      .hero-chip {
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fafcff;
+        white-space: nowrap;
+      }
+
+      .option-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .option {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .option-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--line-soft);
+        background: #fbfdff;
+      }
+
+      .option-head strong {
+        font-size: 18px;
+      }
+
+      .option-head span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+      }
+
+      .option-tag {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        padding: 5px 10px;
+        border: 1px solid #bfd2ea;
+        border-radius: 999px;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .summary-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 10px 18px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .summary-card {
+        flex: 0 1 170px;
+        min-height: 62px;
+        padding: 8px 14px 7px;
+        border-right: 1px solid var(--line-soft);
+        background: transparent;
+      }
+
+      .summary-card:last-child {
+        border-right: 0;
+      }
+
+      .summary-card b {
+        display: block;
+        margin-top: 4px;
+        font-size: 31px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+
+      .summary-card span,
+      .summary-card em {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.25;
+        font-style: normal;
+      }
+
+      .summary-card span {
+        letter-spacing: 0.02em;
+      }
+
+      .nav-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .nav-flex span {
+        padding: 5px 10px;
+        border: 1px solid #c8d6e6;
+        border-radius: 5px;
+        background: #fff;
+        color: #42556f;
+        font-size: 12px;
+      }
+
+      .nav-flex span.active {
+        border-color: var(--blue);
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-weight: 700;
+      }
+
+      .rows {
+        padding: 0 18px 18px;
+      }
+
+      .row-card {
+        display: grid;
+        grid-template-columns: 180px 1.6fr 220px 280px;
+        margin-top: 12px;
+        border: 1px solid var(--line-soft);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .cell {
+        min-width: 0;
+        padding: 14px 16px;
+        border-right: 1px solid var(--line-soft);
+      }
+
+      .cell:last-child { border-right: 0; }
+      .cell strong { display: block; font-size: 15px; }
+      .cell span, .cell em {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-style: normal;
+      }
+
+      .mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px 10px;
+        margin-top: 8px;
+      }
+
+      .mini-grid div,
+      .tiny-table div {
+        min-width: 0;
+      }
+
+      .mini-grid b,
+      .tiny-table b {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .mini-grid span,
+      .tiny-table span {
+        color: var(--text);
+      }
+
+      .tiny-table {
+        display: grid;
+        grid-template-columns: 70px 1.4fr 120px 120px;
+        gap: 0;
+        margin-top: 10px;
+        border: 1px solid var(--line-soft);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .tiny-table div {
+        padding: 8px 10px;
+        border-right: 1px solid var(--line-soft);
+        border-top: 1px solid var(--line-soft);
+        background: #fff;
+      }
+
+      .tiny-table div:nth-child(-n + 4) {
+        border-top: 0;
+        background: #f8fafc;
+      }
+
+      .tiny-table div:nth-child(4n) { border-right: 0; }
+
+      .table-layout {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table-layout th,
+      .table-layout td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line-soft);
+        vertical-align: top;
+        text-align: left;
+      }
+
+      .table-layout th {
+        background: #f8fafc;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .table-layout tr:last-child td { border-bottom: 0; }
+
+      .table-layout .price-hot {
+        background: linear-gradient(180deg, #fffdf3 0%, var(--gold) 100%);
+        font-weight: 700;
+      }
+
+      .sheet-like {
+        padding: 14px 18px 18px;
+      }
+
+      .sheet-block {
+        border: 1px solid var(--line-soft);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .sheet-head {
+        display: grid;
+        grid-template-columns: 52px 1.8fr repeat(4, minmax(140px, 1fr));
+        background: #f8fafc;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .sheet-head div,
+      .sheet-row div {
+        padding: 10px 12px;
+        border-right: 1px solid var(--line-soft);
+      }
+
+      .sheet-head div:last-child,
+      .sheet-row div:last-child {
+        border-right: 0;
+      }
+
+      .sheet-row {
+        display: grid;
+        grid-template-columns: 52px 1.8fr repeat(4, minmax(140px, 1fr));
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .sheet-row .hot {
+        background: linear-gradient(180deg, #fffdf3 0%, var(--gold) 100%);
+        font-weight: 700;
+      }
+
+      .sheet-row strong { font-size: 13px; }
+      .sheet-row span { color: var(--muted); font-size: 12px; }
+
+      .dense-layout {
+        padding: 14px 18px 18px;
+      }
+
+      .dense-grid {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1.7fr) 210px 250px;
+        border: 1px solid var(--line-soft);
+        border-bottom: 0;
+      }
+
+      .dense-grid > div {
+        padding: 10px 12px;
+        border-right: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .dense-grid > div:nth-child(4n) { border-right: 0; }
+      .dense-grid.head > div {
+        background: #f8fafc;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .choice-note {
+        padding: 16px 18px 20px;
+        border-top: 1px solid var(--line-soft);
+        color: var(--muted);
+      }
+
+      @media (max-width: 1200px) {
+        .row-card,
+        .sheet-head,
+        .sheet-row,
+        .dense-grid {
+          grid-template-columns: 1fr;
+        }
+        .cell,
+        .sheet-head div,
+        .sheet-row div,
+        .dense-grid > div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line-soft);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="hero-title">
+          <strong>教育补代扫布局试验页</strong>
+          <span>同一份样例数据，提供 5 套版式。你直接告诉我选 A / B / C / D / E。</span>
+        </div>
+        <div class="hero-meta">
+          <span class="hero-chip">样例记录 26</span>
+          <span class="hero-chip">单扫 11</span>
+          <span class="hero-chip">三件套 3 组</span>
+          <span class="hero-chip">异常 12</span>
+        </div>
+      </section>
+
+      <div class="option-list">
+        <section class="option">
+          <div class="option-head">
+            <div>
+              <strong>A. 连续台账表</strong>
+              <span>最像后台业务台账。一行就是一条记录，信息平铺，最稳。</span>
+            </div>
+            <div class="option-tag">推荐稳妥</div>
+          </div>
+          <div class="summary-flex">
+            <div class="summary-card"><span>总代扫产品</span><b>26</b><em>按真实设备行</em></div>
+            <div class="summary-card"><span>三件套组</span><b>3</b><em>9 条产品代扫</em></div>
+            <div class="summary-card"><span>单扫订单</span><b>11</b><em>普通教育补代扫</em></div>
+            <div class="summary-card"><span>代扫服务费</span><b>￥1,050</b><em>整单套装计一次</em></div>
+            <div class="summary-card"><span>未付记录</span><b>4</b><em>已匹配未付款</em></div>
+          </div>
+          <div class="nav-flex">
+            <span>三件套 3</span><span>二件套 2</span><span>双屏两件套 1</span><span class="active">单扫 11</span><span>异常/核销 12</span>
+          </div>
+          <div class="rows">
+            <div class="row-card">
+              <div class="cell">
+                <strong>2026/06/01</strong>
+                <span>未付</span>
+                <span>出库日期：06/01 08:49</span>
+                <em>XS26060154784063629</em>
+              </div>
+              <div class="cell">
+                <strong>YOGA Air 14 ILL10</strong>
+                <div class="mini-grid">
+                  <div><b>客户</b><span>龙之强</span></div>
+                  <div><b>电话</b><span>19268449216</span></div>
+                  <div><b>代扫电话</b><span>19268449216</span></div>
+                  <div><b>数量</b><span>1 台</span></div>
+                </div>
+                <div class="tiny-table">
+                  <div><b>类别</b></div><div><b>产品型号</b></div><div><b>MTM</b></div><div><b>SN</b></div>
+                  <div><span>电脑</span></div><div><span>YOGA Air 14 ILL10</span></div><div><span>83JX000ACD</span></div><div><span>MP30WPPY</span></div>
+                </div>
+              </div>
+              <div class="cell">
+                <strong>￥50</strong>
+                <span>服务费规则 ￥50 / 次</span>
+                <span>教育补 ￥0</span>
+              </div>
+              <div class="cell">
+                <strong>智店通入库群</strong>
+                <span>活动：教育补代扫</span>
+                <span>门店：联想体验店</span>
+                <span>出库 SKU：20006289</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="option">
+          <div class="option-head">
+            <div>
+              <strong>B. 真正表格式</strong>
+              <span>最像你刚给的 PDF。表头明确，列严格对齐，几乎没有卡片感。</span>
+            </div>
+            <div class="option-tag">最像 PDF</div>
+          </div>
+          <div class="sheet-like">
+            <div class="sheet-block">
+              <div class="sheet-head">
+                <div>序</div><div>产品与客户信息</div><div>服务费</div><div>教育补</div><div>来源 / 状态</div><div>单号 / SN</div>
+              </div>
+              <div class="sheet-row">
+                <div><strong>01</strong></div>
+                <div>
+                  <strong>YOGA Air 14 ILL10</strong>
+                  <span>客户：龙之强 / 电话：19268449216 / 数量：1 台</span>
+                </div>
+                <div><strong>￥50 / 次</strong></div>
+                <div><strong>￥0</strong></div>
+                <div><strong>智店通入库群</strong><span>未付</span></div>
+                <div class="hot"><strong>XS26060154784063629</strong><span>MP30WPPY</span></div>
+              </div>
+              <div class="sheet-row">
+                <div><strong>02</strong></div>
+                <div>
+                  <strong>TB376FC TAB 8G+256GLG-CN</strong>
+                  <span>客户：孙淑娟 / 电话：19252775746 / 数量：2 台</span>
+                </div>
+                <div><strong>￥0 / 次</strong></div>
+                <div><strong>￥260</strong></div>
+                <div><strong>智店通入库群</strong><span>未付</span></div>
+                <div class="hot"><strong>1007180504070214</strong><span>HA2HTMQY / MP30WPPY</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="option">
+          <div class="option-head">
+            <div>
+              <strong>C. 京东列表式</strong>
+              <span>上面轻摘要，下面连续列表；把产品、客户、电话拆开，阅读更直接。</span>
+            </div>
+            <div class="option-tag">电商感强</div>
+          </div>
+          <table class="table-layout">
+            <thead>
+              <tr>
+                <th>时间 / 单号</th>
+                <th>产品型号</th>
+                <th>客户姓名</th>
+                <th>电话 / SN</th>
+                <th>金额</th>
+                <th>来源 / 状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>2026/06/01</strong><br><span>XS26060154784063629</span></td>
+                <td><strong>YOGA Air 14 ILL10</strong><br><span>电脑 / MTM 83JX000ACD</span></td>
+                <td><strong>龙之强</strong><br><span>数量 1 台</span></td>
+                <td><strong>19268449216</strong><br><span>代扫电话 19268449216 / SN MP30WPPY</span></td>
+                <td class="price-hot">服务费 ￥50<br>教育补 ￥0</td>
+                <td><strong>智店通入库群</strong><br><span>未付 / SKU 20006289</span></td>
+                <td><span class="hero-chip">确认已付</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="option">
+          <div class="option-head">
+            <div>
+              <strong>D. 审计清单式</strong>
+              <span>适合异常/核销。更像复核表，字段更短、更工单化。</span>
+            </div>
+            <div class="option-tag">核对最快</div>
+          </div>
+          <div class="dense-layout">
+            <div class="dense-grid head">
+              <div>异常单号</div><div>真实销售产品</div><div>当前代扫状态</div><div>缺口说明</div>
+            </div>
+            <div class="dense-grid">
+              <div><strong>XS26060331157193639</strong><span>2026/06/03</span></div>
+              <div><strong>笔记本 + 平板 + 手机</strong><span>83VK0048CD / ZAH50004CN / PBA40002CN</span></div>
+              <div><strong>已出库未做上</strong><span>当前页无对应代扫记录</span></div>
+              <div><strong>缺采三件套</strong><span>需员工人工核对群图与券码</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="option">
+          <div class="option-head">
+            <div>
+              <strong>E. A4价格单迁移式</strong>
+              <span>直接借你 PDF 的版式逻辑。横向表头，价格和状态放右侧亮区。</span>
+            </div>
+            <div class="option-tag">纸面感最强</div>
+          </div>
+          <div class="sheet-like">
+            <div class="sheet-block">
+              <div class="sheet-head">
+                <div>序</div><div>代扫记录</div><div>服务费</div><div>教育补</div><div>门店端补价</div><div>最终状态</div>
+              </div>
+              <div class="sheet-row">
+                <div><strong>01</strong></div>
+                <div>
+                  <strong>YOGA Air 14 ILL10</strong>
+                  <span>客户 龙之强 / 电话 19268449216 / SN MP30WPPY</span>
+                </div>
+                <div><strong>￥50</strong></div>
+                <div><strong>￥0</strong></div>
+                <div><strong>出库 SKU 20006289</strong></div>
+                <div class="hot"><strong>未付</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="choice-note">
+            这套最贴近你刚发的 PDF 逻辑，但更适合后台时，我会把操作按钮和筛选条单独放上面，不塞进表内。
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+  </html>

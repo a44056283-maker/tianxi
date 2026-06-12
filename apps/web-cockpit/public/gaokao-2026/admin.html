@@ -1,0 +1,2699 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高考活动互动后台</title>
+  <style>
+    :root {
+      --red: #d71a24;
+      --red-strong: #a91520;
+      --red-dark: #6b0d14;
+      --gold: #ffd56a;
+      --ink: #211517;
+      --muted: #7b6769;
+      --line: rgba(102, 66, 69, 0.16);
+      --panel: #ffffff;
+      --paper: #fbf4ee;
+      --soft: #fff7f0;
+      --shadow: 0 14px 36px rgba(73, 24, 14, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 213, 106, 0.14), transparent 24%),
+        linear-gradient(180deg, #f6ede6 0%, #f7f1eb 100%);
+      color: var(--ink);
+    }
+
+    a { color: inherit; }
+
+    input, textarea, select, button { font: inherit; }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 10px;
+      min-height: 42px;
+      padding: 0 15px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform .16s ease, opacity .16s ease, background .16s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:disabled { opacity: .65; cursor: wait; transform: none; }
+
+    button.primary {
+      background: linear-gradient(135deg, var(--red-strong), var(--red));
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(180, 26, 39, 0.24);
+    }
+
+    button.secondary {
+      background: #211517;
+      color: #fff;
+    }
+
+    button.ghost {
+      background: #fff3de;
+      color: var(--red-dark);
+    }
+
+    button.mini {
+      min-height: 34px;
+      padding: 0 12px;
+      font-size: 12px;
+      border-radius: 999px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(215, 26, 36, 0.42);
+      box-shadow: 0 0 0 3px rgba(215, 26, 36, 0.08);
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .page {
+      max-width: 1460px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 24px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.12), transparent 45%),
+        linear-gradient(135deg, #86111a, #d71a24 62%, #ea4038);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      max-width: 880px;
+      color: rgba(255,255,255,.88);
+      line-height: 1.7;
+    }
+
+    .panel {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .section-head,
+    .toolbar,
+    .reply-actions,
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-head {
+      justify-content: space-between;
+    }
+
+    .section-head h2,
+    .section-head h3,
+    .thread-title,
+    .composer-title {
+      margin: 0;
+    }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .stats {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stat {
+      border-radius: 12px;
+      padding: 15px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.18), transparent 44%),
+        linear-gradient(135deg, #86111a, #d71a24);
+      display: grid;
+      gap: 4px;
+    }
+
+    .stat strong {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      min-height: 36px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: #fff5e7;
+      color: var(--red-dark);
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-tab.is-active {
+      background: linear-gradient(135deg, var(--red-strong), var(--red));
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(180, 26, 39, 0.18);
+    }
+
+    .filter-badge {
+      min-width: 24px;
+      height: 24px;
+      padding: 0 7px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .filter-tab.is-active .filter-badge {
+      background: rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 12px;
+      color: var(--red-dark);
+      background: #fff8ee;
+    }
+
+    .forum-shell {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 360px minmax(0, 1fr);
+      min-height: 920px;
+    }
+
+    .thread-panel,
+    .detail-panel {
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .thread-panel {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+    }
+
+    .thread-top,
+    .detail-top {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fffaf4, #fff);
+    }
+
+    .thread-search {
+      padding: 0 16px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fffaf4, #fff);
+      display: grid;
+      gap: 10px;
+    }
+
+    .thread-list {
+      overflow: auto;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      background: #fffcf8;
+    }
+
+    .thread-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    .thread-card:hover {
+      border-color: rgba(215, 26, 36, 0.28);
+      box-shadow: 0 8px 20px rgba(57, 17, 10, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .thread-card.is-active {
+      border-color: rgba(215, 26, 36, 0.38);
+      box-shadow: 0 10px 24px rgba(155, 25, 35, 0.14);
+      background: linear-gradient(180deg, #fffaf5, #fff);
+    }
+
+    .thread-card-head,
+    .thread-card-meta,
+    .detail-headline,
+    .bubble-head,
+    .composer-actions,
+    .attachment-row,
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .thread-card-head {
+      justify-content: space-between;
+    }
+
+    .thread-name {
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .thread-snippet {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #453336;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .badge.channel { background: #fde2b5; color: var(--red-dark); }
+    .badge.pending { background: #ffe7d6; color: #994400; }
+    .badge.processing { background: #fff2b0; color: #7c5b00; }
+    .badge.replied { background: #e4f3d6; color: #2e6a18; }
+    .badge.closed { background: #e8e7ff; color: #4f43b2; }
+    .badge.ai_replied { background: #f3e4ff; color: #6c1cc5; }
+    .badge.red { background: rgba(215, 26, 36, 0.1); color: var(--red-dark); }
+
+    .detail-panel {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .detail-content {
+      overflow: auto;
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      background: linear-gradient(180deg, #fff, #fffaf5 38%, #fff);
+    }
+
+    .forum-empty {
+      border: 1px dashed rgba(120, 88, 91, 0.28);
+      border-radius: 16px;
+      padding: 48px 20px;
+      text-align: center;
+      color: var(--muted);
+      background: #fffaf4;
+    }
+
+    .thread-summary {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .mini-stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fffdf9;
+      display: grid;
+      gap: 4px;
+    }
+
+    .mini-stat strong {
+      font-size: 18px;
+      color: var(--red-dark);
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .meta-card,
+    .timeline-card,
+    .composer-card,
+    .asset-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .meta-card strong,
+    .timeline-card strong,
+    .composer-card strong {
+      color: var(--red-dark);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bubble {
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      display: grid;
+      gap: 10px;
+    }
+
+    .bubble.admin {
+      background: #fff;
+      border-left: 4px solid var(--red);
+    }
+
+    .bubble.ai {
+      background: #f9f3ff;
+      border-left: 4px solid #8d34d8;
+    }
+
+    .bubble.customer {
+      background: #fffaf1;
+      border-left: 4px solid var(--gold);
+    }
+
+    .bubble-text {
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.8;
+      color: #342325;
+    }
+
+    .preview,
+    .reply-image {
+      width: min(360px, 100%);
+      display: block;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #f3ece7;
+    }
+
+    .reply-preview { display: none; }
+    .reply-preview.is-visible { display: block; }
+
+    .product-list,
+    .knowledge-list,
+    .quick-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .product-item,
+    .knowledge-item {
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fffaf4;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .quick-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quick-list button {
+      text-align: left;
+      justify-content: flex-start;
+      min-height: 44px;
+      border-radius: 12px;
+      background: #fff3de;
+      color: var(--red-dark);
+      padding: 10px 12px;
+      line-height: 1.45;
+    }
+
+    .composer-card textarea {
+      min-height: 130px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sku-input {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+    }
+
+    .split-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+    }
+
+    .helper-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .customer-profile {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fffaf4, #fff);
+    }
+
+    .customer-profile.is-empty {
+      color: var(--muted);
+      text-align: center;
+      padding: 30px 14px;
+      background: #fff;
+      border-style: dashed;
+    }
+
+    .profile-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .profile-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+      display: grid;
+      gap: 5px;
+    }
+
+    .profile-card strong {
+      color: var(--red-dark);
+    }
+
+    .profile-section {
+      display: grid;
+      gap: 10px;
+    }
+
+    .profile-section h4 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .customer-timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .timeline-body,
+    .timeline-reply {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .timeline-reply {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(215, 26, 36, .06);
+      border: 1px solid rgba(215, 26, 36, .14);
+    }
+
+    .timeline-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-image {
+      max-width: 160px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    .thread-group {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fffdf8, #fff);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .thread-group-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thread-group-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .thread-group-title {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .ops-log-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .ops-log-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .ops-form-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .queue-list {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .queue-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .photo-zone-list {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .photo-shell {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 360px minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .photo-panel {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      min-height: 420px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(73, 24, 14, 0.06);
+    }
+
+    .photo-panel-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 6px;
+      background: #fff8ee;
+    }
+
+    .photo-thread-list {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      max-height: 680px;
+      overflow: auto;
+    }
+
+    .photo-detail {
+      display: grid;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .photo-detail-empty {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .photo-thread-summary {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .photo-thread-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fffaf4;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .photo-timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .photo-bubble {
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .photo-bubble.is-root {
+      background: #fff7f1;
+      border-color: rgba(215, 26, 36, 0.14);
+    }
+
+    .photo-bubble-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .photo-bubble img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+      background: #f7f1eb;
+    }
+
+    .photo-composer {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff8ef;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .photo-public-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #5b373a;
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 820;
+    }
+
+    .photo-public-toggle input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: #d71a24;
+      flex: 0 0 auto;
+    }
+
+    .photo-ticket {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #fffaf6 0%, #fff 100%);
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+      box-shadow: 0 10px 22px rgba(73, 24, 14, 0.06);
+      cursor: pointer;
+    }
+
+    .photo-ticket.is-active {
+      border-color: rgba(215, 26, 36, 0.36);
+      box-shadow: 0 12px 28px rgba(215, 26, 36, 0.14);
+    }
+
+    .photo-ticket img {
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #f7f1eb;
+    }
+
+    .photo-ticket-title {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.3;
+      font-weight: 900;
+      color: var(--red-dark);
+    }
+
+    .inline-count {
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: rgba(215, 26, 36, .12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red-dark);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1200px) {
+      .forum-shell { grid-template-columns: 320px minmax(0, 1fr); }
+      .thread-summary,
+      .meta-grid,
+      .ops-form-grid,
+      .queue-list,
+      .photo-zone-list,
+      .photo-thread-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .photo-shell { grid-template-columns: 320px minmax(0, 1fr); }
+      .split-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 980px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: 1fr; }
+      .forum-shell { grid-template-columns: 1fr; min-height: auto; }
+      .photo-shell { grid-template-columns: 1fr; }
+      .thread-panel { min-height: 360px; }
+      .photo-zone-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 16px 12px 36px; }
+      .hero h1 { font-size: 24px; }
+      .stats,
+      .thread-summary,
+      .meta-grid,
+      .form-grid,
+      .ops-form-grid,
+      .queue-list,
+      .photo-thread-summary,
+      .quick-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>高考活动互动后台</h1>
+      <p>按论坛工单的方式管理客户咨询、许愿互动、天禧AI助理对话和门店回复。左侧看会话池，右侧看帖子详情、历史回复、推荐机型、附件和跟进动作。</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>客户采集与电子券总览</h2>
+        <span class="subtle" id="summaryMeta">正在读取汇总…</span>
+      </div>
+      <div class="stats" id="summaryStats">
+        <article class="stat"><span>客户总数</span><strong>--</strong><small>高考活动留资</small></article>
+        <article class="stat"><span>电子券已发</span><strong>--</strong><small>当前活动</small></article>
+        <article class="stat"><span>已核销</span><strong>--</strong><small>广告机 / 门店</small></article>
+        <article class="stat"><span>剩余可发</span><strong>--</strong><small>后台可调</small></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>电子券活动配置</h2>
+        <span class="subtle" id="configMeta">当前未读取配置。</span>
+      </div>
+      <div class="grid">
+        <div><label for="configTotalCount">电子券总量</label><input id="configTotalCount" type="number" min="1" step="1" /></div>
+        <div><label for="configOfferValue">权益主数字</label><input id="configOfferValue" placeholder="699" /></div>
+        <div><label for="configValidFrom">开始日期</label><input id="configValidFrom" placeholder="2026-06-05" /></div>
+        <div><label for="configValidTo">结束日期</label><input id="configValidTo" placeholder="2026-06-21" /></div>
+        <div><label for="configStoreName">门店名称</label><input id="configStoreName" /></div>
+        <div><label for="configStorePhone">门店电话</label><input id="configStorePhone" /></div>
+        <div style="grid-column: 1 / -1;"><label for="configOfferSecondary">副权益文案</label><input id="configOfferSecondary" /></div>
+        <div style="grid-column: 1 / -1;"><label for="configOfferText">权益说明</label><textarea id="configOfferText"></textarea></div>
+        <div style="grid-column: 1 / -1;"><label for="configRedeemText">核销说明</label><textarea id="configRedeemText"></textarea></div>
+      </div>
+      <div class="reply-actions">
+        <button class="primary" type="button" id="saveConfigBtn">保存券活动配置</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>客户汇总库</h2>
+        <div class="toolbar">
+          <input id="customerQuery" placeholder="搜索姓名 / 电话 / 专业 / 需求" style="max-width: 260px;" />
+          <input id="customerAssignedFilter" placeholder="负责人筛选" style="max-width: 180px;" />
+          <input id="customerTagFilter" placeholder="标签筛选" style="max-width: 180px;" />
+          <select id="customerStatusFilter" style="max-width: 220px;">
+            <option value="">全部状态</option>
+            <option value="with_coupon">已领券</option>
+            <option value="pending_reply">待回复</option>
+            <option value="redeemed">已核销</option>
+            <option value="without_coupon">未领券</option>
+          </select>
+          <label class="subtle" style="display:inline-flex;align-items:center;gap:8px;"><input id="customerDueTodayToggle" type="checkbox" style="width:auto;" /> 仅看今日应跟进</label>
+          <button class="secondary" type="button" id="refreshCustomersBtn">刷新客户库</button>
+          <button class="ghost" type="button" id="exportCustomersBtn">导出客户库</button>
+        </div>
+      </div>
+      <div class="filter-tabs" id="customerFilterTabs">
+        <button class="filter-tab is-active" type="button" data-customer-tab=""><span>全部客户</span><span class="filter-badge" data-count-key="all">0</span></button>
+        <button class="filter-tab" type="button" data-customer-tab="with_coupon"><span>已领券</span><span class="filter-badge" data-count-key="with_coupon">0</span></button>
+        <button class="filter-tab" type="button" data-customer-tab="redeemed"><span>已核销</span><span class="filter-badge" data-count-key="redeemed">0</span></button>
+        <button class="filter-tab" type="button" data-customer-tab="pending_reply"><span>待回复</span><span class="filter-badge" data-count-key="pending_reply">0</span></button>
+        <button class="filter-tab" type="button" data-customer-tab="without_coupon"><span>未领券</span><span class="filter-badge" data-count-key="without_coupon">0</span></button>
+      </div>
+      <div class="stats" id="opsSummaryStats">
+        <article class="stat"><span>活跃待跟进</span><strong>--</strong><small>仍需持续回访</small></article>
+        <article class="stat"><span>今日应跟进</span><strong>--</strong><small>排班优先处理</small></article>
+        <article class="stat"><span>待到店 / 到店中</span><strong>--</strong><small>现场转化客户</small></article>
+        <article class="stat"><span>已成交 / 已流失</span><strong>--</strong><small>看转化闭环</small></article>
+      </div>
+      <div class="profile-section">
+        <div class="section-head">
+          <h3>今日应跟进清单</h3>
+          <span class="subtle" id="dueQueueMeta">正在读取待跟进客户…</span>
+        </div>
+        <div class="queue-list" id="dueTodayQueue">
+          <article class="queue-card"><strong>正在读取…</strong></article>
+        </div>
+      </div>
+      <div class="customer-profile is-empty" id="customerProfileCard">点击下方客户行查看客户主档、领券信息、互动次数和最新状态。</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>客户</th>
+              <th>主要需求</th>
+              <th>预算 / 时间</th>
+              <th>电子券</th>
+              <th>互动次数</th>
+              <th>当前状态</th>
+            </tr>
+          </thead>
+          <tbody id="customerTableBody">
+            <tr><td colspan="6">正在读取客户汇总库…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>电子券管理库</h2>
+        <div class="toolbar">
+          <input id="couponQuery" placeholder="搜索券号 / 服务码 / 客户电话" style="max-width: 260px;" />
+          <select id="couponStatusFilter" style="max-width: 220px;">
+            <option value="">全部状态</option>
+            <option value="issued">已发放</option>
+            <option value="redeemed">已核销</option>
+          </select>
+          <button class="secondary" type="button" id="refreshCouponsBtn">刷新券库</button>
+          <button class="ghost" type="button" id="exportCouponsBtn">导出券库</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>券号</th>
+              <th>服务码</th>
+              <th>客户</th>
+              <th>专业 / 预算</th>
+              <th>状态</th>
+              <th>时间</th>
+            </tr>
+          </thead>
+          <tbody id="couponTableBody">
+            <tr><td colspan="6">正在读取电子券管理库…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>互动帖子与回复台</h2>
+        <span class="subtle" id="forumMeta">按帖子线程查看留言、天禧AI助理回复、门店回复和跟进动作。</span>
+      </div>
+
+      <div class="profile-section">
+        <div class="section-head">
+          <div>
+            <h3>独立照片工单回复专区</h3>
+            <div class="subtle" id="photoZoneMeta">独立处理合影、生图、纪念图和门店补图回复，不与普通帖子共用编辑器。</div>
+          </div>
+          <div class="toolbar">
+            <select id="photoStatusFilter" style="max-width: 220px;">
+              <option value="">全部照片线程</option>
+              <option value="waiting_image">待补结果图</option>
+              <option value="waiting_note">待补充说明</option>
+              <option value="completed">已补图回复</option>
+            </select>
+            <button class="secondary" type="button" id="refreshPhotoZoneBtn">刷新照片专区</button>
+          </div>
+        </div>
+        <div class="photo-shell">
+          <section class="photo-panel">
+            <div class="photo-panel-head">
+              <strong>照片线程列表</strong>
+              <span class="subtle">只放生图 / 合影 / 纪念图工单，按一条主线程持续跟进。</span>
+            </div>
+            <div class="photo-thread-list" id="photoReplyZone">
+              <article class="queue-card"><strong>正在读取照片线程…</strong></article>
+            </div>
+          </section>
+          <section class="photo-panel">
+            <div class="photo-panel-head">
+              <strong id="photoDetailTitle">选择左侧照片线程查看详情</strong>
+              <span class="subtle" id="photoDetailMeta">这里会显示这条照片需求的完整时间线、门店补图记录和专用回复编辑器。</span>
+            </div>
+            <div class="photo-detail" id="photoReplyDetail">
+              <div class="photo-detail-empty">当前还没有选中的照片线程。</div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="forum-shell">
+        <aside class="thread-panel">
+          <div class="thread-top">
+            <div class="section-head" style="margin-bottom: 10px;">
+              <h3>会话池</h3>
+              <span class="inline-count" id="threadCount">0</span>
+            </div>
+            <div class="subtle">按手机号脱敏归并显示。优先处理待回复、处理中和有图片需求的帖子。</div>
+          </div>
+          <div class="thread-search">
+            <div class="toolbar">
+              <input id="messageSearchInput" placeholder="搜索姓名 / 电话 / 留言 / 专业" />
+            </div>
+            <div class="toolbar">
+              <select id="statusFilter" style="max-width: 180px;">
+                <option value="">全部状态</option>
+                <option value="pending">待回复</option>
+                <option value="processing">处理中</option>
+                <option value="replied">已回复</option>
+                <option value="closed">已完成</option>
+                <option value="ai_replied">AI 已回复</option>
+              </select>
+              <select id="channelFilter" style="max-width: 180px;">
+                <option value="">全部渠道</option>
+                <option value="wish">许愿互动</option>
+                <option value="consultation">客户咨询</option>
+                <option value="ai_chat">天禧AI助理对话</option>
+              </select>
+              <button class="secondary" type="button" id="refreshBtn">刷新</button>
+            </div>
+          </div>
+          <div class="thread-list" id="threadList">
+            <div class="forum-empty">正在读取互动消息…</div>
+          </div>
+        </aside>
+
+        <section class="detail-panel">
+          <div class="detail-top">
+            <div class="section-head">
+              <div>
+                <h3 class="thread-title" id="detailTitle">选择左侧帖子查看详情</h3>
+                <div class="subtle" id="detailSubhead">会话时间线、推荐机型、客户附件和回复编辑区会显示在这里。</div>
+              </div>
+              <div class="row" id="detailBadges"></div>
+            </div>
+          </div>
+          <div class="detail-content" id="detailContent">
+            <div class="forum-empty">当前还没有选中的帖子。</div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const apiBase = location.hostname === "127.0.0.1" || location.hostname === "localhost" ? "http://127.0.0.1:8000" : "";
+
+    const summaryStats = document.getElementById("summaryStats");
+    const summaryMeta = document.getElementById("summaryMeta");
+    const opsSummaryStats = document.getElementById("opsSummaryStats");
+    const customerTableBody = document.getElementById("customerTableBody");
+    const customerProfileCard = document.getElementById("customerProfileCard");
+    const dueTodayQueue = document.getElementById("dueTodayQueue");
+    const dueQueueMeta = document.getElementById("dueQueueMeta");
+    const photoReplyZone = document.getElementById("photoReplyZone");
+    const photoZoneMeta = document.getElementById("photoZoneMeta");
+    const photoStatusFilter = document.getElementById("photoStatusFilter");
+    const refreshPhotoZoneBtn = document.getElementById("refreshPhotoZoneBtn");
+    const photoDetailTitle = document.getElementById("photoDetailTitle");
+    const photoDetailMeta = document.getElementById("photoDetailMeta");
+    const photoReplyDetail = document.getElementById("photoReplyDetail");
+    const couponTableBody = document.getElementById("couponTableBody");
+    const customerQuery = document.getElementById("customerQuery");
+    const customerAssignedFilter = document.getElementById("customerAssignedFilter");
+    const customerTagFilter = document.getElementById("customerTagFilter");
+    const customerStatusFilter = document.getElementById("customerStatusFilter");
+    const customerDueTodayToggle = document.getElementById("customerDueTodayToggle");
+    const refreshCustomersBtn = document.getElementById("refreshCustomersBtn");
+    const exportCustomersBtn = document.getElementById("exportCustomersBtn");
+    const couponQuery = document.getElementById("couponQuery");
+    const couponStatusFilter = document.getElementById("couponStatusFilter");
+    const refreshCouponsBtn = document.getElementById("refreshCouponsBtn");
+    const exportCouponsBtn = document.getElementById("exportCouponsBtn");
+    const customerFilterTabs = document.getElementById("customerFilterTabs");
+    const saveConfigBtn = document.getElementById("saveConfigBtn");
+    const configMeta = document.getElementById("configMeta");
+    const forumMeta = document.getElementById("forumMeta");
+    const threadList = document.getElementById("threadList");
+    const threadCount = document.getElementById("threadCount");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailSubhead = document.getElementById("detailSubhead");
+    const detailBadges = document.getElementById("detailBadges");
+    const detailContent = document.getElementById("detailContent");
+    const statusFilter = document.getElementById("statusFilter");
+    const channelFilter = document.getElementById("channelFilter");
+    const messageSearchInput = document.getElementById("messageSearchInput");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    const replyDraftUploads = new Map();
+    const quickReplyTemplates = [
+      "已收到你的留言，我先按你现在的专业方向和活动需求整理 2-3 台现货给你，稍后同步更具体建议。",
+      "图片方向我已经记下了。你可以继续补充想要的人物动作、背景和风格，我这边会按你的要求继续细化。",
+      "你这类需求建议先到店看一下屏幕、重量和键盘手感，我这边先帮你保留当前活动权益和推荐机型。",
+      "门店正在处理中，我会把活动方案、图片方向和适合你的现货机型一起整理给你。",
+      "如果你更看重便携、性能或使用场景中的某一项，可以继续告诉我，我会再帮你缩小到更准确的机型范围。",
+      "已收到你的许愿和咨询内容，后续回复和图片会只对你当前手机号登录可见。"
+    ];
+
+    let allMessages = [];
+    let filteredMessages = [];
+    let photoMessages = [];
+    let photoThreads = [];
+    let activePhotoThreadId = "";
+    let activeMessageId = "";
+    let currentCustomers = [];
+    let activeCustomerId = "";
+    let activeCustomerDetail = null;
+
+    function escapeHtml(value) {
+      const safeValue = value === null || value === undefined ? "" : String(value);
+      return safeValue.replace(/[&<>\"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function formatDateTime(value) {
+      const text = String(value || "");
+      return text ? text.replace("T", " ").slice(0, 16) : "--";
+    }
+
+    function statusLabel(status) {
+      const normalized = String(status || "pending");
+      return {
+        pending: "待回复",
+        processing: "处理中",
+        replied: "已回复",
+        closed: "已完成",
+        ai_replied: "AI 已回复"
+      }[normalized] || normalized;
+    }
+
+    function followUpStageLabel(value) {
+      return {
+        new_lead: "新线索",
+        contacted: "已联系",
+        advising: "方案沟通中",
+        reserved_visit: "已预约到店",
+        in_store: "到店接待中",
+        waiting_decision: "待客户决策",
+        after_sale: "成交后跟进"
+      }[String(value || "")] || String(value || "--");
+    }
+
+    function visitStatusLabel(value) {
+      return {
+        not_arrived: "未到店",
+        reserved: "已预约",
+        arrived_today: "今日到店",
+        in_store: "店内接待中",
+        visited_left: "到店已离店"
+      }[String(value || "")] || String(value || "--");
+    }
+
+    function conversionStatusLabel(value) {
+      return {
+        active: "持续跟进",
+        converted: "已成交",
+        lost: "已流失",
+        invalid: "无效线索"
+      }[String(value || "")] || String(value || "--");
+    }
+
+    function logTypeLabel(value) {
+      return {
+        follow_up: "电话/微信回访",
+        visit: "到店接待",
+        ai_consult: "AI 推荐复盘",
+        conversion: "成交记录",
+        risk: "流失风险"
+      }[String(value || "")] || String(value || "--");
+    }
+
+    function renderOpsSummary(summary) {
+      const item = summary || {};
+      opsSummaryStats.innerHTML = `
+        <article class="stat"><span>活跃待跟进</span><strong>${escapeHtml(item.activeCustomers || 0)}</strong><small>仍需持续回访</small></article>
+        <article class="stat"><span>今日应跟进</span><strong>${escapeHtml(item.dueToday || 0)}</strong><small>排班优先处理</small></article>
+        <article class="stat"><span>待到店 / 到店中</span><strong>${escapeHtml(item.waitingVisit || 0)}</strong><small>现场转化客户</small></article>
+        <article class="stat"><span>已成交 / 已流失</span><strong>${escapeHtml((item.converted || 0) + (item.lost || 0))}</strong><small>成交 ${escapeHtml(item.converted || 0)} / 流失 ${escapeHtml(item.lost || 0)}</small></article>
+      `;
+    }
+
+    function buildCustomerQueryString(includeStatus = true) {
+      const params = new URLSearchParams();
+      if (customerQuery.value) params.set("query", customerQuery.value);
+      if (customerAssignedFilter.value) params.set("assigned_to", customerAssignedFilter.value);
+      if (customerTagFilter.value) params.set("tag", customerTagFilter.value);
+      if (includeStatus && customerStatusFilter.value) params.set("status", customerStatusFilter.value);
+      if (customerDueTodayToggle.checked) params.set("due_today", "1");
+      return params.toString();
+    }
+
+    function channelLabel(channel) {
+      const normalized = String(channel || "wish");
+      return {
+        wish: "许愿互动",
+        consult: "客户咨询",
+        consultation: "客户咨询",
+        ai_chat: "天禧AI助理对话"
+      }[normalized] || normalized;
+    }
+
+    function isImageWishThread(item) {
+      const text = [item?.topic, item?.wishTag, item?.message].join(" ").toLowerCase();
+      return ["生图", "合影", "照片", "image", "photo", "同框", "ai 照", "ai照", "纪念图"].some(keyword => text.includes(keyword));
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, {
+        cache: "no-store",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        ...options
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(payload.detail || "请求失败");
+      return payload;
+    }
+
+    function readReplyPayload(item) {
+      return item && typeof item.replyPayload === "object" && item.replyPayload ? item.replyPayload : {};
+    }
+
+    function parseSkuKeys(value) {
+      return String(value || "").split(/[\n,，;；|]/).map(item => item.trim()).filter(Boolean).slice(0, 8);
+    }
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ""));
+        reader.onerror = () => reject(new Error("图片读取失败"));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function normalizeSuggestedProducts(item) {
+      const payload = readReplyPayload(item);
+      const explicitProducts = Array.isArray(payload.suggestedProducts) ? payload.suggestedProducts : [];
+      if (explicitProducts.length) {
+        return explicitProducts.map(product => ({
+          skuKey: product.skuKey || "",
+          productName: product.productName || "",
+          category: product.category || "",
+          sellableStock: product.sellableStock || 0,
+          marketingSummary: product.marketingSummary || "",
+          lenovoUrl: product.lenovoUrl || "",
+          jdUrl: product.jdUrl || ""
+        }));
+      }
+      const recommendationItems = Array.isArray(payload.recommendation?.items) ? payload.recommendation.items : [];
+      return recommendationItems.slice(0, 4).map(product => ({
+        skuKey: product.skuKey || "",
+        productName: product.productName || "",
+        category: product.category || "",
+        sellableStock: product.sellableStock || 0,
+        marketingSummary: product.marketingSummary || "",
+        lenovoUrl: product.lenovoUrl || "",
+        jdUrl: product.jdUrl || ""
+      }));
+    }
+
+    function buildHaystack(item) {
+      const metadata = item.metadata || {};
+      return [
+        item.name,
+        item.phone,
+        item.topic,
+        item.message,
+        item.replyMessage,
+        item.channel,
+        metadata.major,
+        metadata.budget,
+        metadata.purchaseTime,
+        item.wishTag
+      ].join(" ").toLowerCase();
+    }
+
+    function fillConfigForm(config) {
+      document.getElementById("configTotalCount").value = config.totalCount || 999;
+      document.getElementById("configOfferValue").value = config.offerValue || "699";
+      document.getElementById("configValidFrom").value = config.validFrom || "";
+      document.getElementById("configValidTo").value = config.validTo || "";
+      document.getElementById("configStoreName").value = config.storeName || "";
+      document.getElementById("configStorePhone").value = config.storePhone || "";
+      document.getElementById("configOfferSecondary").value = config.offerSecondary || "";
+      document.getElementById("configOfferText").value = config.offerText || "";
+      document.getElementById("configRedeemText").value = config.redeemText || "";
+    }
+
+    function renderSummary(summary) {
+      summaryStats.innerHTML = `
+        <article class="stat"><span>客户总数</span><strong>${escapeHtml(summary.totalLeads || 0)}</strong><small>高考活动留资</small></article>
+        <article class="stat"><span>电子券已发</span><strong>${escapeHtml(summary.issuedElectronicCoupons || 0)}</strong><small>活动总量 ${escapeHtml(summary.couponConfig?.totalCount || 0)}</small></article>
+        <article class="stat"><span>已核销</span><strong>${escapeHtml(summary.redeemedElectronicCoupons || 0)}</strong><small>广告机 / 门店</small></article>
+        <article class="stat"><span>剩余可发</span><strong>${escapeHtml(summary.remainingElectronicCoupons || 0)}</strong><small>${escapeHtml(summary.electronicCouponValidTo || "--")} 截止</small></article>
+      `;
+      summaryMeta.textContent = `更新时间 ${formatDateTime(summary.updatedAt)}｜券号范围 ${summary.electronicCouponStartSequence || "--"} - ${summary.electronicCouponEndSequence || "--"}`;
+      if (summary.couponConfig) fillConfigForm(summary.couponConfig);
+    }
+
+    function renderCustomers(items) {
+      const rows = Array.isArray(items) ? items : [];
+      currentCustomers = rows;
+      if (!rows.some(item => item.id === activeCustomerId)) {
+        activeCustomerId = rows[0]?.id || "";
+        activeCustomerDetail = null;
+      }
+      if (!rows.length) {
+        customerTableBody.innerHTML = '<tr><td colspan="6">当前没有客户资料。</td></tr>';
+        renderCustomerProfile(null);
+        return;
+      }
+      customerTableBody.innerHTML = rows.map(item => `
+        <tr data-customer-id="${escapeHtml(item.id || "")}" style="cursor:pointer;background:${item.id === activeCustomerId ? "#fff8ef" : "#fff"};">
+          <td><strong>${escapeHtml(item.name || "")}</strong><br /><span class="subtle">${escapeHtml(item.phone || "")}</span></td>
+          <td>${escapeHtml(item.interest || "--")}<br /><span class="subtle">${escapeHtml(item.major || item.message || "--")}</span></td>
+          <td>${escapeHtml(item.budget || "--")}<br /><span class="subtle">${escapeHtml(item.purchaseTime || "--")}</span></td>
+          <td>${item.coupon?.code ? `<strong>${escapeHtml(item.coupon.code)}</strong><br /><span class="subtle">${escapeHtml(item.coupon.serviceCode || "")}</span>` : '<span class="subtle">未领券</span>'}</td>
+          <td>${escapeHtml(item.interaction?.messageCount || 0)} 条<br /><span class="subtle">咨询 ${escapeHtml(item.interaction?.consultCount || 0)} / 天禧AI ${escapeHtml(item.interaction?.aiChatCount || 0)}</span></td>
+          <td>${escapeHtml(item.status || "--")}<br /><span class="subtle">${escapeHtml(item.ops?.assignedTo || "未指派")} / ${escapeHtml(followUpStageLabel(item.ops?.followUpStage || ""))}</span></td>
+        </tr>
+      `).join("");
+      customerTableBody.querySelectorAll("[data-customer-id]").forEach(row => {
+        row.addEventListener("click", async () => {
+          activeCustomerId = row.getAttribute("data-customer-id") || "";
+          activeCustomerDetail = null;
+          renderCustomers(currentCustomers);
+          await loadCustomerDetail(activeCustomerId);
+        });
+      });
+      if (activeCustomerDetail && activeCustomerDetail.id === activeCustomerId) {
+        renderCustomerProfile(activeCustomerDetail);
+      } else {
+        customerProfileCard.className = "customer-profile is-empty";
+        customerProfileCard.innerHTML = "正在读取客户主档详情…";
+      }
+    }
+
+    function syncCustomerFilterTabs() {
+      const current = customerStatusFilter.value || "";
+      customerFilterTabs?.querySelectorAll("[data-customer-tab]").forEach(button => {
+        button.classList.toggle("is-active", button.getAttribute("data-customer-tab") === current);
+      });
+    }
+
+    function updateCustomerFilterCounts(summary) {
+      Object.entries(summary || {}).forEach(([key, value]) => {
+        const node = customerFilterTabs?.querySelector(`[data-count-key="${key}"]`);
+        if (node) node.textContent = String(value || 0);
+      });
+    }
+
+    function renderTimelineItems(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        return '<div class="profile-card"><span class="subtle">互动时间线</span><strong>当前没有互动记录</strong></div>';
+      }
+      return rows.map(item => {
+        const replyPayload = item.replyPayload || {};
+        const knowledgeItems = Array.isArray(replyPayload.knowledge?.items) ? replyPayload.knowledge.items : [];
+        const suggestedProducts = normalizeSuggestedProducts(item);
+        return `
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="timeline-meta">
+                <span class="badge red">${escapeHtml(channelLabel(item.channel))}</span>
+                <span class="badge ${item.status === "closed" ? "closed" : item.replyMessage ? "replied" : "pending"}">${escapeHtml(statusLabel(item.status))}</span>
+                ${item.topic ? `<span class="badge">${escapeHtml(item.topic)}</span>` : ""}
+                ${item.wishTag ? `<span class="badge">${escapeHtml(item.wishTag)}</span>` : ""}
+              </div>
+              <span class="subtle">${escapeHtml(formatDateTime(item.createdAt))}</span>
+            </div>
+            <div class="timeline-body">${escapeHtml(item.message || "客户未填写详细内容")}</div>
+            ${item.imageUrl ? `<img class="timeline-image" src="${escapeHtml(item.imageUrl)}" alt="客户上传图片" loading="lazy" />` : ""}
+            ${(item.metadata?.major || item.metadata?.budget || item.metadata?.purchaseTime) ? `
+              <div class="timeline-tags">
+                ${item.metadata?.major ? `<span class="badge">${escapeHtml(item.metadata.major)}</span>` : ""}
+                ${item.metadata?.budget ? `<span class="badge">${escapeHtml(item.metadata.budget)}</span>` : ""}
+                ${item.metadata?.purchaseTime ? `<span class="badge">${escapeHtml(item.metadata.purchaseTime)}</span>` : ""}
+              </div>
+            ` : ""}
+            ${item.replyMessage || replyPayload.replyImageUrl || replyPayload.followUpAction || suggestedProducts.length ? `
+              <div class="timeline-reply">
+                ${item.replyMessage ? `<div>${escapeHtml(item.replyMessage)}</div>` : ""}
+                ${replyPayload.followUpAction ? `<div class="subtle" style="margin-top:6px;">跟进动作：${escapeHtml(replyPayload.followUpAction)}</div>` : ""}
+                ${replyPayload.replyImageUrl ? `<img class="timeline-image" src="${escapeHtml(replyPayload.replyImageUrl)}" alt="门店回复图片" loading="lazy" style="margin-top:8px;" />` : ""}
+                ${suggestedProducts.length ? `<div class="subtle" style="margin-top:8px;">推荐机型：${escapeHtml(suggestedProducts.map(product => product.productName || product.skuKey).filter(Boolean).join(" / "))}</div>` : ""}
+                ${knowledgeItems.length ? `<div class="subtle" style="margin-top:8px;">知识引用：${escapeHtml(knowledgeItems.map(entry => entry.title).filter(Boolean).join(" / "))}</div>` : ""}
+                <div class="subtle" style="margin-top:8px;">回复人：${escapeHtml(item.replyBy || "--")}｜${escapeHtml(formatDateTime(item.repliedAt))}</div>
+              </div>
+            ` : ""}
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderCustomerTimeline(groups, fallbackTimeline) {
+      const threadGroups = Array.isArray(groups) ? groups : [];
+      if (threadGroups.length) {
+        return `
+          <div class="customer-timeline">
+            ${threadGroups.map(group => `
+              <section class="thread-group">
+                <div class="thread-group-head">
+                  <div>
+                    <h5 class="thread-group-title">${escapeHtml(group.title || channelLabel(group.channel))}</h5>
+                    <div class="subtle">最近更新 ${escapeHtml(formatDateTime(group.latestAt))}</div>
+                  </div>
+                  <div class="thread-group-meta">
+                    <span class="badge red">${escapeHtml(channelLabel(group.channel))}</span>
+                    <span class="badge ${group.latestStatus === "closed" ? "closed" : Number(group.repliedCount || 0) > 0 ? "replied" : "pending"}">${escapeHtml(statusLabel(group.latestStatus || ""))}</span>
+                    ${group.wishTag ? `<span class="badge">${escapeHtml(group.wishTag)}</span>` : ""}
+                    <span class="badge">${escapeHtml(group.messageCount || 0)} 楼</span>
+                  </div>
+                </div>
+                <div class="customer-timeline">${renderTimelineItems(group.items || [])}</div>
+              </section>
+            `).join("")}
+          </div>
+        `;
+      }
+      const rows = Array.isArray(fallbackTimeline) ? fallbackTimeline : [];
+      if (!rows.length) {
+        return '<div class="profile-card"><span class="subtle">互动时间线</span><strong>当前没有互动记录</strong></div>';
+      }
+      return `<div class="customer-timeline">${renderTimelineItems(rows)}</div>`;
+    }
+
+    function renderCustomerProfile(item) {
+      if (!item) {
+        customerProfileCard.className = "customer-profile is-empty";
+        customerProfileCard.innerHTML = "点击下方客户行查看客户主档、领券信息、互动次数和最新状态。";
+        return;
+      }
+      const coupon = item.coupon || {};
+      const interaction = item.interaction || {};
+      const ops = item.ops || {};
+      const followUpLogs = Array.isArray(item.followUpLogs) ? item.followUpLogs : [];
+      customerProfileCard.className = "customer-profile";
+      customerProfileCard.innerHTML = `
+        <div class="section-head">
+          <div>
+            <h3 style="margin:0;">${escapeHtml(item.name || "--")}</h3>
+            <div class="subtle">${escapeHtml(item.phone || "--")}｜${escapeHtml(item.status || "--")}</div>
+          </div>
+          <div class="row">
+            <span class="badge red">${escapeHtml(item.source || "--")}</span>
+            <span class="badge ${coupon.status === "redeemed" ? "closed" : coupon.code ? "replied" : "pending"}">${escapeHtml(coupon.code ? (coupon.status === "redeemed" ? "已核销" : "已领券") : "未领券")}</span>
+            <button class="ghost mini" type="button" data-customer-action="export-single">导出客户主档</button>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card"><span class="subtle">专业方向</span><strong>${escapeHtml(item.major || "--")}</strong></article>
+          <article class="profile-card"><span class="subtle">预算 / 时间</span><strong>${escapeHtml(item.budget || "--")}</strong><span class="subtle">${escapeHtml(item.purchaseTime || "--")}</span></article>
+          <article class="profile-card"><span class="subtle">电子券 / 服务码</span><strong>${escapeHtml(coupon.code || "--")}</strong><span class="subtle">${escapeHtml(coupon.serviceCode || "--")}</span></article>
+          <article class="profile-card"><span class="subtle">最近互动</span><strong>${escapeHtml(statusLabel(interaction.latestStatus || "--"))}</strong><span class="subtle">${escapeHtml(formatDateTime(interaction.lastInteractionAt || item.updatedAt))}</span></article>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card"><span class="subtle">主要需求</span><strong>${escapeHtml(item.interest || "--")}</strong></article>
+          <article class="profile-card"><span class="subtle">客户留言</span><strong>${escapeHtml(item.message || "--")}</strong></article>
+          <article class="profile-card"><span class="subtle">互动次数</span><strong>${escapeHtml(interaction.messageCount || 0)} 条</strong><span class="subtle">线程 ${escapeHtml(interaction.threadCount || 0)} / 咨询 ${escapeHtml(interaction.consultCount || 0)} / 天禧AI ${escapeHtml(interaction.aiChatCount || 0)} / 待回复 ${escapeHtml(interaction.pendingCount || 0)}</span></article>
+          <article class="profile-card"><span class="subtle">建档时间</span><strong>${escapeHtml(formatDateTime(item.createdAt))}</strong><span class="subtle">更新 ${escapeHtml(formatDateTime(item.updatedAt))}</span></article>
+        </div>
+        <div class="profile-section">
+          <h4>客户运营与回访</h4>
+        <div class="profile-grid">
+          <article class="profile-card"><span class="subtle">跟进阶段</span><strong>${escapeHtml(followUpStageLabel(ops.followUpStage))}</strong><span class="subtle">${escapeHtml(conversionStatusLabel(ops.conversionStatus))}</span></article>
+          <article class="profile-card"><span class="subtle">负责人 / 意向</span><strong>${escapeHtml(ops.assignedTo || "--")}</strong><span class="subtle">意向 ${escapeHtml(ops.intentLevel || "--")}</span></article>
+          <article class="profile-card"><span class="subtle">下次跟进 / 到店状态</span><strong>${escapeHtml(formatDateTime(ops.nextFollowUpAt))}</strong><span class="subtle">${escapeHtml(visitStatusLabel(ops.visitStatus))}</span></article>
+          <article class="profile-card"><span class="subtle">最近回访</span><strong>${escapeHtml(formatDateTime(ops.lastFollowUpAt))}</strong><span class="subtle">${escapeHtml(ops.lastFollowUpResult || "--")}</span></article>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card"><span class="subtle">成交机型</span><strong>${escapeHtml(ops.soldProductModel || "--")}</strong></article>
+          <article class="profile-card"><span class="subtle">成交日期</span><strong>${escapeHtml(formatDateTime(ops.convertedAt))}</strong></article>
+          <article class="profile-card"><span class="subtle">流失原因</span><strong>${escapeHtml(ops.lostReason || "--")}</strong></article>
+          <article class="profile-card"><span class="subtle">内部标签</span><strong>${escapeHtml((ops.tags || []).join(" / ") || "--")}</strong></article>
+        </div>
+          <div class="ops-form-grid">
+            <div><label>跟进阶段</label><select id="customerOpsStage"><option value="new_lead">新线索</option><option value="contacted">已联系</option><option value="advising">方案沟通中</option><option value="reserved_visit">已预约到店</option><option value="in_store">到店接待中</option><option value="waiting_decision">待客户决策</option><option value="after_sale">成交后跟进</option></select></div>
+            <div><label>意向等级</label><select id="customerOpsIntent"><option value="S">S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select></div>
+            <div><label>负责人</label><input id="customerOpsAssigned" placeholder="门店顾问姓名" value="${escapeHtml(ops.assignedTo || "")}" /></div>
+            <div><label>下次跟进时间</label><input id="customerOpsNext" placeholder="2026-06-06 10:30" value="${escapeHtml(ops.nextFollowUpAt || "")}" /></div>
+            <div><label>到店状态</label><select id="customerOpsVisit"><option value="not_arrived">未到店</option><option value="reserved">已预约</option><option value="arrived_today">今日到店</option><option value="in_store">店内接待中</option><option value="visited_left">到店已离店</option></select></div>
+            <div><label>成交状态</label><select id="customerOpsConversion"><option value="active">持续跟进</option><option value="converted">已成交</option><option value="lost">已流失</option><option value="invalid">无效线索</option></select></div>
+            <div><label>成交机型</label><input id="customerOpsSoldModel" placeholder="如：YOGA Air 14 Aura AI 元启版" value="${escapeHtml(ops.soldProductModel || "")}" /></div>
+            <div><label>成交日期</label><input id="customerOpsConvertedAt" placeholder="2026-06-05" value="${escapeHtml(ops.convertedAt || "")}" /></div>
+            <div style="grid-column:1 / -1;"><label>流失原因</label><input id="customerOpsLostReason" placeholder="如：预算不足 / 转去其他品牌 / 暂缓购买" value="${escapeHtml(ops.lostReason || "")}" /></div>
+            <div><label>偏好类目</label><input id="customerOpsCategories" placeholder="轻薄本, 游戏本, 平板" value="${escapeHtml((ops.preferredCategories || []).join(', '))}" /></div>
+            <div><label>内部标签</label><input id="customerOpsTags" placeholder="国补, AI, 到店高意向" value="${escapeHtml((ops.tags || []).join(', '))}" /></div>
+            <div style="grid-column:1 / -1;"><label>最新内部备注</label><textarea id="customerOpsNote">${escapeHtml(ops.latestNote || "")}</textarea></div>
+          </div>
+          <div class="reply-actions">
+            <button class="primary" type="button" data-customer-action="save-ops">保存客户运营信息</button>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h4>电子券核销记录</h4>
+          <div class="profile-grid">
+            <article class="profile-card"><span class="subtle">券状态</span><strong>${escapeHtml(coupon.status || "未领券")}</strong><span class="subtle">${escapeHtml(coupon.verifyRule || "")}</span></article>
+            <article class="profile-card"><span class="subtle">发放 / 有效期</span><strong>${escapeHtml(formatDateTime(coupon.issuedAt))}</strong><span class="subtle">${escapeHtml(coupon.validTo || "--")} 截止</span></article>
+            <article class="profile-card"><span class="subtle">核销设备 / 操作人</span><strong>${escapeHtml(coupon.redeemDeviceId || "--")}</strong><span class="subtle">${escapeHtml(coupon.redeemedBy || "--")}</span></article>
+            <article class="profile-card"><span class="subtle">核销时间 / 备注</span><strong>${escapeHtml(formatDateTime(coupon.redeemedAt))}</strong><span class="subtle">${escapeHtml(coupon.redeemNote || "--")}</span></article>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h4>互动线程</h4>
+          ${renderCustomerTimeline(item.groupedThreads, item.timeline)}
+        </div>
+        <div class="profile-section">
+          <h4>回访日志</h4>
+          <div class="ops-form-grid">
+            <div><label>记录类型</label><select id="customerFollowLogType"><option value="follow_up">电话/微信回访</option><option value="visit">到店接待</option><option value="ai_consult">AI 推荐复盘</option><option value="conversion">成交记录</option><option value="risk">流失风险</option></select></div>
+            <div><label>执行人</label><input id="customerFollowActor" placeholder="门店顾问" value="${escapeHtml(ops.assignedTo || "")}" /></div>
+            <div><label>结果标签</label><input id="customerFollowResult" placeholder="已约到店 / 待二次联系" value="" /></div>
+            <div><label>计划时间</label><input id="customerFollowScheduled" placeholder="2026-06-06 10:30" value="${escapeHtml(ops.nextFollowUpAt || "")}" /></div>
+            <div style="grid-column:1 / -1;"><label>回访内容</label><textarea id="customerFollowContent" placeholder="记录本次电话、微信、到店沟通结果，以及下一步动作。"></textarea></div>
+          </div>
+          <div class="reply-actions">
+            <button class="secondary" type="button" data-customer-action="add-log">新增回访日志</button>
+          </div>
+          <div class="ops-log-list">
+            ${followUpLogs.length ? followUpLogs.map(log => `
+              <article class="ops-log-item">
+                <div class="timeline-top">
+                  <div class="timeline-meta">
+                    <span class="badge red">${escapeHtml(logTypeLabel(log.logType))}</span>
+                    ${log.resultStatus ? `<span class="badge">${escapeHtml(log.resultStatus)}</span>` : ""}
+                    ${log.actor ? `<span class="badge">${escapeHtml(log.actor)}</span>` : ""}
+                  </div>
+                  <span class="subtle">${escapeHtml(formatDateTime(log.createdAt))}</span>
+                </div>
+                <div class="timeline-body">${escapeHtml(log.content || "--")}</div>
+                ${log.scheduledAt ? `<div class="subtle">计划时间：${escapeHtml(formatDateTime(log.scheduledAt))}</div>` : ""}
+              </article>
+            `).join("") : '<div class="profile-card"><span class="subtle">回访日志</span><strong>当前还没有回访记录</strong></div>'}
+          </div>
+        </div>
+      `;
+      document.getElementById("customerOpsStage").value = ops.followUpStage || "new_lead";
+      document.getElementById("customerOpsIntent").value = ops.intentLevel || "A";
+      document.getElementById("customerOpsVisit").value = ops.visitStatus || "not_arrived";
+      document.getElementById("customerOpsConversion").value = ops.conversionStatus || "active";
+    }
+
+    async function loadCustomerDetail(customerId) {
+      if (!customerId) {
+        renderCustomerProfile(null);
+        return;
+      }
+      customerProfileCard.className = "customer-profile is-empty";
+      customerProfileCard.innerHTML = "正在读取客户主档详情…";
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers/${encodeURIComponent(customerId)}`, { method: "GET", headers: { "Accept": "application/json" } });
+        if (activeCustomerId !== customerId) return;
+        activeCustomerDetail = payload.item || null;
+        renderCustomerProfile(activeCustomerDetail);
+        const matchedThread = allMessages.find(entry => entry.customerId === customerId);
+        if (matchedThread) {
+          activeMessageId = matchedThread.id || "";
+          renderThreadList();
+          renderActiveThread();
+        }
+      } catch (error) {
+        customerProfileCard.className = "customer-profile is-empty";
+        customerProfileCard.innerHTML = `读取失败：${escapeHtml(error.message || "请稍后再试")}`;
+      }
+    }
+
+    function renderCoupons(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        couponTableBody.innerHTML = '<tr><td colspan="6">当前没有电子券记录。</td></tr>';
+        return;
+      }
+      couponTableBody.innerHTML = rows.map(item => `
+        <tr>
+          <td><strong>${escapeHtml(item.code || "")}</strong><br /><span class="subtle">序号 ${escapeHtml(item.sequenceNumber || "--")}</span></td>
+          <td>${escapeHtml(item.serviceCode || "--")}</td>
+          <td>${escapeHtml(item.customerName || "--")}<br /><span class="subtle">${escapeHtml(item.customerPhone || "--")}</span></td>
+          <td>${escapeHtml(item.major || "--")}<br /><span class="subtle">${escapeHtml(item.budget || "--")}</span></td>
+          <td>${escapeHtml(item.status || "--")}<br /><span class="subtle">${escapeHtml(item.verifyRule || "")}</span></td>
+          <td>发放 ${formatDateTime(item.issuedAt)}<br /><span class="subtle">核销 ${formatDateTime(item.redeemedAt)}</span></td>
+        </tr>
+      `).join("");
+    }
+
+    async function loadSummary() {
+      const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/summary`, { method: "GET", headers: { "Accept": "application/json" } });
+      renderSummary(payload);
+    }
+
+    async function loadCustomers() {
+      customerTableBody.innerHTML = '<tr><td colspan="6">正在读取客户汇总库…</td></tr>';
+      customerProfileCard.className = "customer-profile is-empty";
+      customerProfileCard.innerHTML = "正在读取客户主档…";
+      const queryString = buildCustomerQueryString();
+      syncCustomerFilterTabs();
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers?limit=120${queryString ? `&${queryString}` : ""}`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderCustomers(payload.items || []);
+        if (currentCustomers.length && activeCustomerId) {
+          await loadCustomerDetail(activeCustomerId);
+        } else {
+          renderCustomerProfile(null);
+        }
+        const statsQuery = buildCustomerQueryString(false);
+        const statsPayload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers/stats${statsQuery ? `?${statsQuery}` : ""}`, { method: "GET", headers: { "Accept": "application/json" } });
+        updateCustomerFilterCounts(statsPayload.counts || {});
+        await Promise.all([loadCustomerOpsSummary(), loadDueTodayQueue()]);
+      } catch (error) {
+        customerTableBody.innerHTML = `<tr><td colspan="6">读取失败：${escapeHtml(error.message || "请稍后再试")}</td></tr>`;
+        customerProfileCard.className = "customer-profile is-empty";
+        customerProfileCard.innerHTML = `读取失败：${escapeHtml(error.message || "请稍后再试")}`;
+      }
+    }
+
+    async function loadCustomerOpsSummary() {
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customer-ops/summary`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderOpsSummary(payload.summary || {});
+      } catch (error) {
+        opsSummaryStats.innerHTML = `<article class="stat"><span>客户运营概览</span><strong>--</strong><small>${escapeHtml(error.message || "读取失败")}</small></article>`;
+      }
+    }
+
+    function renderDueTodayQueue(items) {
+      const rows = Array.isArray(items) ? items : [];
+      if (!rows.length) {
+        dueTodayQueue.innerHTML = '<article class="queue-card"><strong>当前没有今日应跟进客户</strong><span class="subtle">可以继续处理普通客户池和帖子回复。</span></article>';
+        dueQueueMeta.textContent = "今日没有待跟进客户。";
+        return;
+      }
+      dueQueueMeta.textContent = `当前 ${rows.length} 位客户需要优先回访。`;
+      dueTodayQueue.innerHTML = rows.map(item => `
+        <article class="queue-card" data-queue-customer-id="${escapeHtml(item.id)}">
+          <strong>${escapeHtml(item.name || "--")}</strong>
+          <span class="subtle">${escapeHtml(item.phone || "--")}｜${escapeHtml((item.ops || {}).assignedTo || "未指派")}</span>
+          <span>${escapeHtml(followUpStageLabel((item.ops || {}).followUpStage || ""))}｜${escapeHtml(visitStatusLabel((item.ops || {}).visitStatus || ""))}</span>
+          <span class="subtle">下次跟进 ${escapeHtml(formatDateTime((item.ops || {}).nextFollowUpAt || ""))}</span>
+          <span class="subtle">${escapeHtml(item.interest || item.major || "--")}</span>
+          <div class="reply-actions" style="margin-top:10px;">
+            <button class="ghost mini" type="button" data-queue-action="complete_follow_up" data-queue-customer-id="${escapeHtml(item.id)}">完成回访</button>
+            <button class="ghost mini" type="button" data-queue-action="postpone_follow_up" data-queue-customer-id="${escapeHtml(item.id)}">顺延一天</button>
+            <button class="ghost mini" type="button" data-queue-action="mark_arrived" data-queue-customer-id="${escapeHtml(item.id)}">标记已到店</button>
+          </div>
+        </article>
+      `).join("");
+      dueTodayQueue.querySelectorAll("[data-queue-customer-id]").forEach(node => {
+        node.addEventListener("click", async event => {
+          if (event.target?.getAttribute?.("data-queue-action")) return;
+          activeCustomerId = node.getAttribute("data-queue-customer-id") || "";
+          activeCustomerDetail = null;
+          renderCustomers(currentCustomers);
+          await loadCustomerDetail(activeCustomerId);
+        });
+      });
+      dueTodayQueue.querySelectorAll("[data-queue-action]").forEach(button => {
+        button.addEventListener("click", async event => {
+          event.stopPropagation();
+          const customerId = button.getAttribute("data-queue-customer-id") || "";
+          const action = button.getAttribute("data-queue-action") || "";
+          if (!customerId || !action) return;
+          button.disabled = true;
+          try {
+            await quickCustomerQueueAction(customerId, action);
+          } catch (error) {
+            alert(error.message || "快捷动作失败");
+          } finally {
+            button.disabled = false;
+          }
+        });
+      });
+    }
+
+    async function loadDueTodayQueue() {
+      try {
+        const params = new URLSearchParams();
+        if (customerAssignedFilter.value) params.set("assigned_to", customerAssignedFilter.value);
+        if (customerTagFilter.value) params.set("tag", customerTagFilter.value);
+        params.set("due_today", "1");
+        params.set("limit", "12");
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers?${params.toString()}`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderDueTodayQueue(payload.items || []);
+      } catch (error) {
+        dueTodayQueue.innerHTML = `<article class="queue-card"><strong>读取失败</strong><span class="subtle">${escapeHtml(error.message || "请稍后再试")}</span></article>`;
+      }
+    }
+
+    async function saveCustomerOps() {
+      if (!activeCustomerId) return;
+      const payload = {
+        followUpStage: document.getElementById("customerOpsStage")?.value || "new_lead",
+        intentLevel: document.getElementById("customerOpsIntent")?.value || "A",
+        assignedTo: document.getElementById("customerOpsAssigned")?.value || "",
+        nextFollowUpAt: document.getElementById("customerOpsNext")?.value || "",
+        visitStatus: document.getElementById("customerOpsVisit")?.value || "not_arrived",
+        conversionStatus: document.getElementById("customerOpsConversion")?.value || "active",
+        soldProductModel: document.getElementById("customerOpsSoldModel")?.value || "",
+        convertedAt: document.getElementById("customerOpsConvertedAt")?.value || "",
+        lostReason: document.getElementById("customerOpsLostReason")?.value || "",
+        preferredCategories: parseSkuKeys(document.getElementById("customerOpsCategories")?.value || ""),
+        tags: parseSkuKeys(document.getElementById("customerOpsTags")?.value || ""),
+        latestNote: document.getElementById("customerOpsNote")?.value || ""
+      };
+      await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers/${encodeURIComponent(activeCustomerId)}/ops`, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      });
+      await Promise.all([loadCustomerDetail(activeCustomerId), loadCustomers()]);
+    }
+
+    async function quickCustomerQueueAction(customerId, action) {
+      await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers/${encodeURIComponent(customerId)}/ops/quick-action`, {
+        method: "POST",
+        body: JSON.stringify({
+          action,
+          actor: customerAssignedFilter.value || activeCustomerDetail?.ops?.assignedTo || "高考活动后台"
+        })
+      });
+      if (activeCustomerId === customerId) {
+        await loadCustomerDetail(customerId);
+      }
+      await Promise.all([loadCustomers(), loadMessages()]);
+    }
+
+    async function addCustomerFollowUpLog() {
+      if (!activeCustomerId) return;
+      const payload = {
+        logType: document.getElementById("customerFollowLogType")?.value || "follow_up",
+        actor: document.getElementById("customerFollowActor")?.value || "",
+        resultStatus: document.getElementById("customerFollowResult")?.value || "",
+        scheduledAt: document.getElementById("customerFollowScheduled")?.value || "",
+        content: document.getElementById("customerFollowContent")?.value || ""
+      };
+      await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/customers/${encodeURIComponent(activeCustomerId)}/follow-ups`, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      });
+      await Promise.all([loadCustomerDetail(activeCustomerId), loadCustomers()]);
+    }
+
+    async function loadCoupons() {
+      couponTableBody.innerHTML = '<tr><td colspan="6">正在读取电子券管理库…</td></tr>';
+      const status = couponStatusFilter.value ? `&status=${encodeURIComponent(couponStatusFilter.value)}` : "";
+      const query = couponQuery.value ? `&query=${encodeURIComponent(couponQuery.value)}` : "";
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/coupons?limit=160${status}${query}`, { method: "GET", headers: { "Accept": "application/json" } });
+        renderCoupons(payload.items || []);
+      } catch (error) {
+        couponTableBody.innerHTML = `<tr><td colspan="6">读取失败：${escapeHtml(error.message || "请稍后再试")}</td></tr>`;
+      }
+    }
+
+    function exportCustomers() {
+      const suffix = buildCustomerQueryString();
+      window.open(`${apiBase}/api/marketing/gaokao-2026/admin/customers/export.csv${suffix ? `?${suffix}` : ""}`, "_blank");
+    }
+
+    function exportCoupons() {
+      const status = couponStatusFilter.value ? `status=${encodeURIComponent(couponStatusFilter.value)}` : "";
+      const query = couponQuery.value ? `query=${encodeURIComponent(couponQuery.value)}` : "";
+      const suffix = [status, query].filter(Boolean).join("&");
+      window.open(`${apiBase}/api/marketing/gaokao-2026/admin/coupons/export.csv${suffix ? `?${suffix}` : ""}`, "_blank");
+    }
+
+    async function saveCouponConfig() {
+      saveConfigBtn.disabled = true;
+      saveConfigBtn.textContent = "保存中...";
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/admin/coupon-config`, {
+          method: "POST",
+          body: JSON.stringify({
+            totalCount: Number(document.getElementById("configTotalCount").value || 999),
+            offerValue: document.getElementById("configOfferValue").value,
+            validFrom: document.getElementById("configValidFrom").value,
+            validTo: document.getElementById("configValidTo").value,
+            storeName: document.getElementById("configStoreName").value,
+            storePhone: document.getElementById("configStorePhone").value,
+            offerSecondary: document.getElementById("configOfferSecondary").value,
+            offerText: document.getElementById("configOfferText").value,
+            redeemText: document.getElementById("configRedeemText").value
+          })
+        });
+        configMeta.textContent = `已保存：${formatDateTime(payload.updatedAt)}`;
+        await Promise.all([loadSummary(), loadCoupons()]);
+      } catch (error) {
+        alert(error.message || "保存失败");
+      } finally {
+        saveConfigBtn.disabled = false;
+        saveConfigBtn.textContent = "保存券活动配置";
+      }
+    }
+
+    function applyMessageFilters() {
+      const status = statusFilter.value;
+      const channel = channelFilter.value;
+      const keyword = String(messageSearchInput.value || "").trim().toLowerCase();
+      filteredMessages = allMessages.filter(item => {
+        if (status && item.status !== status) return false;
+        if (channel && item.channel !== channel) return false;
+        if (keyword && !buildHaystack(item).includes(keyword)) return false;
+        return true;
+      });
+      if (!filteredMessages.some(item => item.id === activeMessageId)) {
+        activeMessageId = filteredMessages[0]?.id || "";
+      }
+      renderPhotoReplyZone(photoMessages);
+      renderThreadList();
+      renderActiveThread();
+    }
+
+    function renderThreadList() {
+      threadCount.textContent = String(filteredMessages.length);
+      if (!filteredMessages.length) {
+        threadList.innerHTML = '<div class="forum-empty">当前筛选条件下没有帖子。</div>';
+        return;
+      }
+      threadList.innerHTML = filteredMessages.map(item => {
+        const metadata = item.metadata || {};
+        const hasImage = Boolean(item.imageUrl || readReplyPayload(item).replyImageUrl);
+        const isActive = item.id === activeMessageId;
+        return `
+          <article class="thread-card ${isActive ? "is-active" : ""}" data-thread-id="${escapeHtml(item.id)}">
+            <div class="thread-card-head">
+              <div class="thread-name">${escapeHtml(item.name || "")}</div>
+              <span class="subtle">${formatDateTime(item.createdAt)}</span>
+            </div>
+            <div class="thread-card-meta">
+              <span class="badge channel">${escapeHtml(channelLabel(item.channel))}</span>
+              <span class="badge ${escapeHtml(item.status || "pending")}">${escapeHtml(statusLabel(item.status))}</span>
+              ${hasImage ? '<span class="badge red">带图</span>' : ""}
+              ${isImageWishThread(item) ? '<span class="badge red">生图需求</span>' : ""}
+            </div>
+            <div class="thread-snippet">${escapeHtml(item.message || item.topic || "未填写内容")}</div>
+            <div class="thread-card-meta subtle">
+              <span>${escapeHtml(item.phone || "--")}</span>
+              ${item.ops?.assignedTo ? `<span>负责人 ${escapeHtml(item.ops.assignedTo)}</span>` : ""}
+              ${metadata.major ? `<span>${escapeHtml(metadata.major)}</span>` : ""}
+              ${metadata.budget ? `<span>${escapeHtml(metadata.budget)}</span>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      threadList.querySelectorAll("[data-thread-id]").forEach(node => {
+        node.addEventListener("click", () => {
+          activeMessageId = node.getAttribute("data-thread-id") || "";
+          renderPhotoReplyZone(photoMessages);
+          renderThreadList();
+          renderActiveThread();
+        });
+      });
+    }
+
+    function buildDetailBadges(item) {
+      const badges = [
+        `<span class="badge channel">${escapeHtml(channelLabel(item.channel))}</span>`,
+        `<span class="badge ${escapeHtml(item.status || "pending")}">${escapeHtml(statusLabel(item.status))}</span>`
+      ];
+      const payload = readReplyPayload(item);
+      if (payload.engine) {
+        badges.push(`<span class="badge red">引擎 ${escapeHtml(payload.engine)}</span>`);
+      }
+      if (item.imageUrl || payload.replyImageUrl) {
+        badges.push('<span class="badge red">含附件</span>');
+      }
+      return badges.join("");
+    }
+
+    function photoThreadStage(item) {
+      const payload = readReplyPayload(item);
+      if (!payload.replyImageUrl) return "waiting_image";
+      if (!payload.adminFollowUpMessage) return "waiting_note";
+      return "completed";
+    }
+
+    function photoThreadStageLabel(stage) {
+      return {
+        waiting_image: "待补结果图",
+        waiting_note: "待补充说明",
+        completed: "已补图回复"
+      }[stage] || "照片线程";
+    }
+
+    function getPhotoThreadRootId(item) {
+      const metadata = item?.metadata || {};
+      return metadata.replyToMessageId || item?.id || "";
+    }
+
+    function getPhotoReplyTarget(thread) {
+      const rows = Array.isArray(thread?.items) ? [...thread.items] : [];
+      return rows.reverse().find(entry => {
+        const payload = readReplyPayload(entry);
+        return !payload.replyImageUrl || !payload.adminFollowUpMessage || !entry.replyMessage;
+      }) || thread?.latestItem || thread?.rootItem || null;
+    }
+
+    function buildPhotoThreads(items) {
+      const rows = Array.isArray(items) ? items : [];
+      const bucket = new Map();
+      rows.forEach(item => {
+        const rootId = getPhotoThreadRootId(item);
+        const key = rootId || item.id;
+        if (!bucket.has(key)) bucket.set(key, []);
+        bucket.get(key).push(item);
+      });
+      return [...bucket.entries()].map(([rootId, threadItems]) => {
+        const ordered = [...threadItems].sort((a, b) => String(a.createdAt || "").localeCompare(String(b.createdAt || "")));
+        const rootItem = ordered.find(entry => entry.id === rootId) || ordered[0];
+        const latestItem = ordered[ordered.length - 1];
+        const replyTarget = getPhotoReplyTarget({ items: ordered, rootItem, latestItem });
+        return {
+          id: rootId || rootItem?.id || "",
+          rootItem,
+          latestItem,
+          replyTarget,
+          items: ordered,
+          stage: photoThreadStage(replyTarget || latestItem || rootItem),
+        };
+      }).sort((a, b) => String(b.latestItem?.createdAt || "").localeCompare(String(a.latestItem?.createdAt || "")));
+    }
+
+    function renderPhotoReplyDetail() {
+      const thread = photoThreads.find(item => item.id === activePhotoThreadId);
+      if (!thread) {
+        photoDetailTitle.textContent = "选择左侧照片线程查看详情";
+        photoDetailMeta.textContent = "这里会显示这条照片需求的完整时间线、门店补图记录和专用回复编辑器。";
+        photoReplyDetail.innerHTML = '<div class="photo-detail-empty">当前还没有选中的照片线程。</div>';
+        return;
+      }
+      const root = thread.rootItem || {};
+      const target = thread.replyTarget || root;
+      const targetPayload = readReplyPayload(target);
+      const noteText = targetPayload.internalNote || "";
+      const followUpAction = targetPayload.followUpAction || "";
+      const replyImageUrl = targetPayload.replyImageUrl || "";
+      const publicApproved = targetPayload.publicApproved !== false;
+      const skuSeed = Array.isArray(targetPayload.suggestedSkuKeys)
+        ? targetPayload.suggestedSkuKeys.join(", ")
+        : normalizeSuggestedProducts(target).map(product => product.skuKey).filter(Boolean).join(", ");
+      photoDetailTitle.textContent = root.topic || "照片互动线程";
+      photoDetailMeta.textContent = `${root.name || "--"}｜${root.phone || "--"}｜目标回复 ${target.topic || target.message || "当前线程"}｜${photoThreadStageLabel(thread.stage)}`;
+      photoReplyDetail.innerHTML = `
+        <div class="photo-thread-summary">
+          <article class="photo-thread-card"><span class="subtle">客户</span><strong>${escapeHtml(root.name || "--")}</strong><span>${escapeHtml(root.phone || "--")}</span></article>
+          <article class="photo-thread-card"><span class="subtle">线程阶段</span><strong>${escapeHtml(photoThreadStageLabel(thread.stage))}</strong><span>${escapeHtml(statusLabel(target.status || ""))}</span></article>
+          <article class="photo-thread-card"><span class="subtle">楼层数量</span><strong>${escapeHtml(thread.items.length || 0)}</strong><span>${escapeHtml(formatDateTime(thread.latestItem?.createdAt || ""))}</span></article>
+          <article class="photo-thread-card"><span class="subtle">当前回复目标</span><strong>${escapeHtml(target.topic || "继续补充")}</strong><span>${escapeHtml(target.metadata?.replySource || "主线程直接回复")}</span></article>
+        </div>
+        <div class="photo-timeline">
+          ${thread.items.map((item, index) => {
+            const payload = readReplyPayload(item);
+            const metadata = item.metadata || {};
+            return `
+              <article class="photo-bubble ${index === 0 ? "is-root" : ""}">
+                <div class="photo-bubble-top">
+                  <div class="row">
+                    <span class="badge red">${escapeHtml(index === 0 ? "主照片需求" : "客户补充")}</span>
+                    <span class="badge">${escapeHtml(item.channel === "ai_chat" ? "天禧AI助理对话" : item.channel === "consultation" ? "客户咨询" : "照片许愿")}</span>
+                    ${metadata.replySource ? `<span class="badge">${escapeHtml(metadata.replySource)}</span>` : ""}
+                  </div>
+                  <span class="subtle">${escapeHtml(formatDateTime(item.createdAt || ""))}</span>
+                </div>
+                <strong>${escapeHtml(item.topic || "未填写标题")}</strong>
+                <div>${escapeHtml(item.message || "客户未填写具体描述")}</div>
+                ${item.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="客户上传参考图" loading="lazy" />` : ""}
+                ${item.replyMessage ? `<div><strong>${escapeHtml(item.replyBy || "门店回复")}</strong><div>${escapeHtml(item.replyMessage)}</div></div>` : '<div class="subtle">当前还没有正式答复。</div>'}
+                ${payload.adminFollowUpMessage ? `<div><strong>${escapeHtml(payload.adminFollowUpBy || "门店补充回复")}</strong><div>${escapeHtml(payload.adminFollowUpMessage)}</div></div>` : ""}
+                ${payload.replyImageUrl ? `<img src="${escapeHtml(payload.replyImageUrl)}" alt="门店回复图片" loading="lazy" />` : ""}
+                ${payload.followUpAction ? `<div class="subtle">跟进动作：${escapeHtml(payload.followUpAction)}</div>` : ""}
+              </article>
+            `;
+          }).join("")}
+        </div>
+        <article class="photo-composer">
+          <div class="section-head">
+            <div>
+              <h3 style="margin:0;">独立照片回复编辑器</h3>
+              <div class="subtle">当前写入目标：${escapeHtml(target.topic || target.message || "这条照片互动")}</div>
+            </div>
+            <div class="row">
+              <button class="ghost mini" type="button" data-photo-jump-thread="${escapeHtml(target.id || "")}">同步查看帖子台</button>
+              <button class="ghost mini" type="button" data-photo-mark-processing="${escapeHtml(target.id || "")}">标记处理中</button>
+              <button class="ghost mini" type="button" data-photo-mark-closed="${escapeHtml(target.id || "")}">标记已完成</button>
+            </div>
+          </div>
+          <textarea id="photo-reply-${escapeHtml(target.id || "")}" placeholder="这里填写这条照片需求的正式答复，例如先确认风格、背景、人物关系和下一步补图节点。">${escapeHtml(target.replyMessage || "")}</textarea>
+          <div>
+            <label for="photo-followup-reply-${escapeHtml(target.id || "")}">门店补充说明 / 生图结果说明</label>
+            <textarea id="photo-followup-reply-${escapeHtml(target.id || "")}" placeholder="例如：已按校园红色氛围排进制作，补图前可继续补充服装、表情和构图方向。">${escapeHtml(targetPayload.adminFollowUpMessage || "")}</textarea>
+          </div>
+          <div class="form-grid">
+            <div>
+              <label for="photo-follow-${escapeHtml(target.id || "")}">跟进动作</label>
+              <input id="photo-follow-${escapeHtml(target.id || "")}" value="${escapeHtml(followUpAction)}" placeholder="例如：待补写实合影结果图" />
+            </div>
+            <div>
+              <label for="photo-status-${escapeHtml(target.id || "")}">回复状态</label>
+              <select id="photo-status-${escapeHtml(target.id || "")}">
+                <option value="pending" ${target.status === "pending" ? "selected" : ""}>待处理</option>
+                <option value="processing" ${target.status === "processing" ? "selected" : ""}>处理中</option>
+                <option value="replied" ${target.status === "replied" ? "selected" : ""}>已回复</option>
+                <option value="closed" ${target.status === "closed" ? "selected" : ""}>已完成</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div>
+              <label for="photo-sku-${escapeHtml(target.id || "")}">关联推荐机型 SKU</label>
+              <input id="photo-sku-${escapeHtml(target.id || "")}" value="${escapeHtml(skuSeed)}" placeholder="可选，多个 skuKey 用逗号分隔" />
+            </div>
+            <div>
+              <label for="photo-image-${escapeHtml(target.id || "")}">上传结果图 / 回复图</label>
+              <input id="photo-image-${escapeHtml(target.id || "")}" type="file" accept="image/*" data-photo-reply-upload="${escapeHtml(target.id || "")}" />
+            </div>
+          </div>
+          <label class="photo-public-toggle" for="photo-public-${escapeHtml(target.id || "")}">
+            <input id="photo-public-${escapeHtml(target.id || "")}" type="checkbox" ${publicApproved ? "checked" : ""} />
+            <span>允许进入前端公开照片滚动展示</span>
+          </label>
+          <div>
+            <label for="photo-note-${escapeHtml(target.id || "")}">内部备注</label>
+            <textarea id="photo-note-${escapeHtml(target.id || "")}" placeholder="记录制作进度、客户偏好、下一次联系节点。">${escapeHtml(noteText)}</textarea>
+          </div>
+          <img id="photo-preview-${escapeHtml(target.id || "")}" class="preview reply-preview ${replyImageUrl ? "is-visible" : ""}" src="${escapeHtml(replyImageUrl)}" alt="照片回复预览" />
+          <div class="reply-actions">
+            <button class="primary" type="button" data-photo-reply-id="${escapeHtml(target.id || "")}">保存照片回复</button>
+            <span class="helper-note">这里是独立照片专区，只处理前端生图 / 合影类互动。</span>
+          </div>
+        </article>
+      `;
+      bindPhotoDetailActions(thread);
+    }
+
+    function renderPhotoReplyZone(items) {
+      const rows = Array.isArray(items) ? items : [];
+      photoThreads = buildPhotoThreads(rows);
+      const stage = photoStatusFilter.value || "";
+      const filtered = photoThreads.filter(item => !stage || item.stage === stage);
+      if (!filtered.some(item => item.id === activePhotoThreadId)) {
+        activePhotoThreadId = filtered[0]?.id || "";
+      }
+      photoZoneMeta.textContent = filtered.length
+        ? `当前 ${filtered.length} 条照片互动线程${customerAssignedFilter.value ? `｜负责人 ${customerAssignedFilter.value}` : ""}`
+        : "当前没有匹配的照片互动线程。";
+      if (!filtered.length) {
+        photoReplyZone.innerHTML = '<article class="queue-card"><strong>当前没有照片互动线程</strong><span class="subtle">客户提交照片许愿并产生回复后，会出现在这里。</span></article>';
+        renderPhotoReplyDetail();
+        return;
+      }
+      photoReplyZone.innerHTML = filtered.map(thread => {
+        const item = thread.rootItem || {};
+        const payload = readReplyPayload(thread.latestItem || item);
+        const thumb = payload.replyImageUrl || thread.latestItem?.imageUrl || item.imageUrl || "";
+        const publicApproved = payload.publicApproved !== false;
+        return `
+          <article class="photo-ticket ${thread.id === activePhotoThreadId ? "is-active" : ""}" data-photo-thread-id="${escapeHtml(thread.id || "")}">
+            ${thumb ? `<img src="${escapeHtml(thumb)}" alt="照片线程缩略图" loading="lazy" />` : ""}
+            <div class="row">
+              <span class="badge red">照片互动</span>
+              <span class="badge ${(thread.replyTarget?.status || item.status) === "closed" ? "closed" : (thread.replyTarget?.replyMessage || item.replyMessage) ? "replied" : "pending"}">${escapeHtml(statusLabel(thread.replyTarget?.status || item.status || ""))}</span>
+              <span class="badge">${escapeHtml(photoThreadStageLabel(thread.stage))}</span>
+              <span class="badge">${escapeHtml(publicApproved ? "已公开" : "未公开")}</span>
+            </div>
+            <h4 class="photo-ticket-title">${escapeHtml(item.topic || "照片互动需求")}</h4>
+            <div class="subtle">${escapeHtml(item.name || "--")}｜${escapeHtml(item.phone || "--")}｜${escapeHtml(formatDateTime(thread.latestItem?.createdAt || item.createdAt))}</div>
+            <div>${escapeHtml(item.message || "客户未填写具体需求")}</div>
+            <div class="subtle">当前线程 ${escapeHtml(thread.items.length || 0)} 楼｜AI / 门店回复：${escapeHtml(payload.adminFollowUpMessage || thread.replyTarget?.replyMessage || item.replyMessage || "待补充")}</div>
+            <div class="reply-actions">
+              <button class="ghost mini" type="button" data-photo-open="${escapeHtml(thread.id || "")}">进入回复</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+      photoReplyZone.querySelectorAll("[data-photo-open]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          const id = button.getAttribute("data-photo-open") || "";
+          if (!id) return;
+          activePhotoThreadId = id;
+          activeMessageId = photoThreads.find(item => item.id === id)?.replyTarget?.id || activeMessageId;
+          renderPhotoReplyZone(photoMessages);
+        });
+      });
+      photoReplyZone.querySelectorAll("[data-photo-thread-id]").forEach(card => {
+        card.addEventListener("click", () => {
+          activePhotoThreadId = card.getAttribute("data-photo-thread-id") || "";
+          activeMessageId = photoThreads.find(item => item.id === activePhotoThreadId)?.replyTarget?.id || activeMessageId;
+          renderPhotoReplyZone(photoMessages);
+        });
+      });
+      renderPhotoReplyDetail();
+    }
+
+    function renderProducts(products) {
+      if (!products.length) return '<div class="subtle">当前没有已关联的推荐机型。</div>';
+      return `
+        <div class="product-list">
+          ${products.map(product => `
+            <div class="product-item">
+              <strong>${escapeHtml(product.productName || product.skuKey || "未命名机型")}</strong><br />
+              <span>${escapeHtml(product.category || "--")}｜现货 ${escapeHtml(product.sellableStock || 0)} 台</span>
+              ${product.marketingSummary ? `<br /><span>${escapeHtml(product.marketingSummary)}</span>` : ""}
+              ${(product.lenovoUrl || product.jdUrl) ? `<br /><span class="subtle">${product.lenovoUrl ? `<a href="${escapeHtml(product.lenovoUrl)}" target="_blank" rel="noreferrer">联想官旗</a>` : ""}${product.lenovoUrl && product.jdUrl ? "｜" : ""}${product.jdUrl ? `<a href="${escapeHtml(product.jdUrl)}" target="_blank" rel="noreferrer">京东链接</a>` : ""}</span>` : ""}
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderKnowledgeTitles(item) {
+      const payload = readReplyPayload(item);
+      const titles = Array.isArray(payload.knowledgeSummary?.titles)
+        ? payload.knowledgeSummary.titles
+        : Array.isArray(payload.knowledge?.items)
+          ? payload.knowledge.items.slice(0, 4).map(entry => entry.title).filter(Boolean)
+          : [];
+      if (!titles.length) return '<div class="subtle">当前没有已记录的知识引用。</div>';
+      return `
+        <div class="knowledge-list">
+          ${titles.map(title => `<div class="knowledge-item">${escapeHtml(title)}</div>`).join("")}
+        </div>
+      `;
+    }
+
+    function renderActiveThread() {
+      const item = filteredMessages.find(entry => entry.id === activeMessageId);
+      if (!item) {
+        detailTitle.textContent = "选择左侧帖子查看详情";
+        detailSubhead.textContent = "会话时间线、推荐机型、客户附件和回复编辑区会显示在这里。";
+        detailBadges.innerHTML = "";
+        detailContent.innerHTML = '<div class="forum-empty">当前还没有选中的帖子。</div>';
+        return;
+      }
+
+      const metadata = item.metadata || {};
+      const replyPayload = readReplyPayload(item);
+      const products = normalizeSuggestedProducts(item);
+      const noteText = replyPayload.internalNote || "";
+      const followUpAction = replyPayload.followUpAction || "";
+      const replyImageUrl = replyPayload.replyImageUrl || "";
+      const adminFollowUpMessage = replyPayload.adminFollowUpMessage || "";
+      const adminFollowUpBy = replyPayload.adminFollowUpBy || "";
+      const adminFollowUpAt = replyPayload.adminFollowUpAt || "";
+      const skuSeed = Array.isArray(replyPayload.suggestedSkuKeys) ? replyPayload.suggestedSkuKeys.join(", ") : products.map(product => product.skuKey).filter(Boolean).join(", ");
+
+      detailTitle.textContent = item.topic || channelLabel(item.channel);
+      detailSubhead.textContent = `${item.name || "未命名客户"} · ${item.phone || "--"} · 发帖 ${formatDateTime(item.createdAt)}${item.repliedAt ? ` · 最近回复 ${formatDateTime(item.repliedAt)}` : ""}`;
+      detailBadges.innerHTML = buildDetailBadges(item);
+
+      detailContent.innerHTML = `
+        <div class="thread-summary">
+          <article class="mini-stat"><span class="subtle">帖子状态</span><strong>${escapeHtml(statusLabel(item.status))}</strong></article>
+          <article class="mini-stat"><span class="subtle">互动渠道</span><strong>${escapeHtml(channelLabel(item.channel))}</strong></article>
+          <article class="mini-stat"><span class="subtle">专业方向</span><strong>${escapeHtml(metadata.major || "--")}</strong></article>
+          <article class="mini-stat"><span class="subtle">预算区间</span><strong>${escapeHtml(metadata.budget || "--")}</strong></article>
+        </div>
+
+            <div class="meta-grid">
+          <article class="meta-card">
+            <strong>客户信息</strong>
+            <div>姓名：${escapeHtml(item.name || "--")}</div>
+            <div>电话：${escapeHtml(item.phone || "--")}</div>
+            <div>购机时间：${escapeHtml(metadata.purchaseTime || "--")}</div>
+            <div>标签：${escapeHtml(item.wishTag || "--")}</div>
+          </article>
+          <article class="meta-card">
+            <strong>帖子摘要</strong>
+            <div>主题：${escapeHtml(item.topic || "--")}</div>
+            <div>留言类型：${escapeHtml(channelLabel(item.channel))}</div>
+            <div>跟进动作：${escapeHtml(followUpAction || "未设置")}</div>
+            <div>回复人：${escapeHtml(item.replyBy || "未回复")}</div>
+          </article>
+          <article class="meta-card">
+            <strong>处理提醒</strong>
+            <div>${replyImageUrl ? "已上传门店回复图，可继续补充说明。" : "当前没有门店回复图，可按论坛工单方式补充图片。"} </div>
+            <div>${products.length ? `已关联 ${products.length} 台推荐机型。` : "当前未关联推荐机型。"} </div>
+            <div>${replyPayload.engine ? `当前会话包含 ${replyPayload.engine} 引擎回复记录。` : "当前是人工工单线程。"} </div>
+            <div>${isImageWishThread(item) ? "当前线程包含生图 / 合影类需求，可追加结果图和补充说明。" : "当前按普通咨询 / AI 对话处理。"} </div>
+          </article>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card">
+            <strong>帖子时间线</strong>
+            <div class="bubble customer">
+              <div class="bubble-head">
+                <strong>${escapeHtml(item.name || "客户")}</strong>
+                <span class="subtle">${formatDateTime(item.createdAt)}</span>
+              </div>
+              <div class="bubble-text">${escapeHtml(item.message || "")}</div>
+              ${item.imageUrl ? `<img class="preview" src="${escapeHtml(item.imageUrl)}" alt="客户上传图片" />` : ""}
+            </div>
+            ${item.replyMessage ? `
+              <div class="bubble ${replyPayload.engine === "guardrail" || replyPayload.engine === "fallback" || replyPayload.engine === "minimax" ? "ai" : "admin"}">
+                <div class="bubble-head">
+                  <strong>${escapeHtml(item.replyBy || "门店回复")}</strong>
+                  <span class="subtle">${formatDateTime(item.repliedAt)}</span>
+                </div>
+                <div class="bubble-text">${escapeHtml(item.replyMessage)}</div>
+                ${replyImageUrl ? `<img class="reply-image" src="${escapeHtml(replyImageUrl)}" alt="门店回复图片" />` : ""}
+              </div>
+            ` : `
+              <div class="bubble admin">
+                <div class="bubble-head">
+                  <strong>门店待处理</strong>
+                </div>
+                <div class="bubble-text">当前还没有正式回复，建议先补状态、跟进动作和推荐机型。</div>
+              </div>
+            `}
+            ${adminFollowUpMessage ? `
+              <div class="bubble admin">
+                <div class="bubble-head">
+                  <strong>${escapeHtml(adminFollowUpBy || "门店顾问")}</strong>
+                  <span class="subtle">${formatDateTime(adminFollowUpAt)}</span>
+                </div>
+                <div class="bubble-text">${escapeHtml(adminFollowUpMessage)}</div>
+              </div>
+            ` : ""}
+          </article>
+
+          <div class="split-grid">
+            <article class="asset-card">
+              <strong>推荐机型与活动摘要</strong>
+              ${renderProducts(products)}
+            </article>
+            <article class="asset-card">
+              <strong>已引用知识条目</strong>
+              ${renderKnowledgeTitles(item)}
+            </article>
+          </div>
+
+          <article class="composer-card">
+            <div class="section-head">
+              <h3 class="composer-title">门店回复编辑器</h3>
+              <div class="row">
+                <button class="ghost mini" type="button" data-mark-processing="${escapeHtml(item.id)}">标记处理中</button>
+                <button class="ghost mini" type="button" data-mark-closed="${escapeHtml(item.id)}">标记已完成</button>
+              </div>
+            </div>
+            <div class="quick-list">
+              ${quickReplyTemplates.map((text, index) => `<button type="button" data-reply-template="${index}" data-reply-target="${escapeHtml(item.id)}">${escapeHtml(text)}</button>`).join("")}
+            </div>
+            <textarea id="reply-${escapeHtml(item.id)}" placeholder="按照论坛回复的口径填写正式答复，客户登录手机号后仅本人可见。">${escapeHtml(item.replyMessage || "")}</textarea>
+            <div>
+              <label for="followup-reply-${escapeHtml(item.id)}">${item.channel === "ai_chat" ? "门店补充回复 / 生图结果说明" : "门店补充说明（可选）"}</label>
+              <textarea id="followup-reply-${escapeHtml(item.id)}" placeholder="${item.channel === "ai_chat" ? "例如：这条是门店补充回复，可继续给客户确认到店试机、生图方向或活动细节。" : "例如：补充结果图说明、下一步联系节点或到店建议。"}">${escapeHtml(adminFollowUpMessage)}</textarea>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label for="follow-${escapeHtml(item.id)}">跟进动作</label>
+                <input id="follow-${escapeHtml(item.id)}" value="${escapeHtml(followUpAction)}" placeholder="例如：待生成写实合影 / 已约到店 / 等客户确认方向" />
+              </div>
+              <div>
+                <label for="status-${escapeHtml(item.id)}">回复状态</label>
+                <select id="status-${escapeHtml(item.id)}">
+                  <option value="pending" ${item.status === "pending" ? "selected" : ""}>待处理</option>
+                  <option value="processing" ${item.status === "processing" ? "selected" : ""}>处理中</option>
+                  <option value="replied" ${item.status === "replied" ? "selected" : ""}>已回复</option>
+                  <option value="closed" ${item.status === "closed" ? "selected" : ""}>已完成</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label for="sku-${escapeHtml(item.id)}">推荐机型 SKU</label>
+                <input class="sku-input" id="sku-${escapeHtml(item.id)}" value="${escapeHtml(skuSeed)}" placeholder="多个 skuKey 用逗号分隔" />
+              </div>
+              <div>
+                <label for="image-${escapeHtml(item.id)}">上传回复图片</label>
+                <input id="image-${escapeHtml(item.id)}" type="file" accept="image/*" data-reply-upload="${escapeHtml(item.id)}" />
+              </div>
+            </div>
+            <div>
+              <label for="note-${escapeHtml(item.id)}">内部备注</label>
+              <textarea id="note-${escapeHtml(item.id)}" placeholder="记录生成图进度、电话沟通节点、客户偏好和下一步动作。">${escapeHtml(noteText)}</textarea>
+            </div>
+            <div class="attachment-row">
+              <img id="preview-${escapeHtml(item.id)}" class="preview reply-preview ${replyImageUrl ? "is-visible" : ""}" src="${escapeHtml(replyImageUrl)}" alt="回复图片预览" />
+            </div>
+            <div class="reply-actions">
+              <button class="primary" type="button" data-reply-id="${escapeHtml(item.id)}">保存回复</button>
+              <span class="helper-note">保存后，客户端“我的提问与回复”里会立即显示最新答复和图片。</span>
+            </div>
+          </article>
+        </div>
+      `;
+
+      bindDetailActions(item);
+    }
+
+    function bindDetailActions(item) {
+      detailContent.querySelectorAll("[data-reply-template]").forEach(button => {
+        button.addEventListener("click", () => {
+          const id = button.getAttribute("data-reply-target");
+          const index = Number(button.getAttribute("data-reply-template"));
+          const textarea = document.getElementById(`reply-${id}`);
+          if (!textarea || !Number.isFinite(index)) return;
+          const content = quickReplyTemplates[index] || "";
+          textarea.value = textarea.value ? `${textarea.value}\n${content}` : content;
+        });
+      });
+
+      detailContent.querySelectorAll("[data-reply-upload]").forEach(input => {
+        input.addEventListener("change", async event => {
+          const id = input.getAttribute("data-reply-upload");
+          const file = event.target.files?.[0];
+          const preview = document.getElementById(`preview-${id}`);
+          if (!id || !file || !preview) return;
+          try {
+            const dataUrl = await fileToDataUrl(file);
+            replyDraftUploads.set(id, {
+              replyImageBase64: dataUrl,
+              replyImageMimeType: file.type || "image/jpeg",
+              replyImageName: file.name || "reply-image"
+            });
+            preview.src = dataUrl;
+            preview.classList.add("is-visible");
+          } catch (error) {
+            alert(error.message || "图片读取失败");
+          }
+        });
+      });
+
+      detailContent.querySelectorAll("[data-mark-processing]").forEach(button => {
+        button.addEventListener("click", () => {
+          const id = button.getAttribute("data-mark-processing");
+          const statusNode = document.getElementById(`status-${id}`);
+          const followNode = document.getElementById(`follow-${id}`);
+          if (statusNode) statusNode.value = "processing";
+          if (followNode && !followNode.value) followNode.value = "门店处理中，待继续回复";
+        });
+      });
+
+      detailContent.querySelectorAll("[data-mark-closed]").forEach(button => {
+        button.addEventListener("click", () => {
+          const id = button.getAttribute("data-mark-closed");
+          const statusNode = document.getElementById(`status-${id}`);
+          const followNode = document.getElementById(`follow-${id}`);
+          if (statusNode) statusNode.value = "closed";
+          if (followNode && !followNode.value) followNode.value = "当前工单已处理完成";
+        });
+      });
+
+      detailContent.querySelectorAll("[data-reply-id]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const id = button.getAttribute("data-reply-id");
+          const textarea = document.getElementById(`reply-${id}`);
+          const statusNode = document.getElementById(`status-${id}`);
+          const followNode = document.getElementById(`follow-${id}`);
+          const noteNode = document.getElementById(`note-${id}`);
+          const skuNode = document.getElementById(`sku-${id}`);
+          const followUpReplyNode = document.getElementById(`followup-reply-${id}`);
+          if (!id || !textarea) return;
+          button.disabled = true;
+          button.textContent = "保存中...";
+          try {
+            const uploadPayload = replyDraftUploads.get(id) || {};
+            await fetchJson(`${apiBase}/api/marketing/gaokao-2026/portal/admin/messages/${encodeURIComponent(id)}/reply`, {
+              method: "POST",
+              body: JSON.stringify({
+                replyMessage: textarea.value,
+                followUpReplyMessage: followUpReplyNode?.value || "",
+                responder: "高考活动后台",
+                status: statusNode?.value || "replied",
+                followUpAction: followNode?.value || "",
+                internalNote: noteNode?.value || "",
+                suggestedSkuKeys: parseSkuKeys(skuNode?.value || ""),
+                ...uploadPayload
+              })
+            });
+            replyDraftUploads.delete(id);
+            await Promise.all([loadMessages(), loadPhotoMessages(), loadCustomers()]);
+          } catch (error) {
+            alert(error.message || "保存失败");
+          } finally {
+            button.disabled = false;
+            button.textContent = "保存回复";
+          }
+        });
+      });
+    }
+
+    function bindPhotoDetailActions(thread) {
+      const target = thread?.replyTarget;
+      if (!target?.id) return;
+      const targetId = target.id;
+      photoReplyDetail.querySelectorAll("[data-photo-reply-upload]").forEach(input => {
+        input.addEventListener("change", async event => {
+          const id = input.getAttribute("data-photo-reply-upload");
+          const file = event.target.files?.[0];
+          const preview = document.getElementById(`photo-preview-${id}`);
+          if (!id || !file || !preview) return;
+          try {
+            const dataUrl = await fileToDataUrl(file);
+            replyDraftUploads.set(id, {
+              replyImageBase64: dataUrl,
+              replyImageMimeType: file.type || "image/jpeg",
+              replyImageName: file.name || "photo-reply-image"
+            });
+            preview.src = dataUrl;
+            preview.classList.add("is-visible");
+          } catch (error) {
+            alert(error.message || "图片读取失败");
+          }
+        });
+      });
+
+      photoReplyDetail.querySelectorAll("[data-photo-mark-processing]").forEach(button => {
+        button.addEventListener("click", () => {
+          const statusNode = document.getElementById(`photo-status-${targetId}`);
+          const followNode = document.getElementById(`photo-follow-${targetId}`);
+          if (statusNode) statusNode.value = "processing";
+          if (followNode && !followNode.value) followNode.value = "门店正在处理这条照片需求";
+        });
+      });
+
+      photoReplyDetail.querySelectorAll("[data-photo-mark-closed]").forEach(button => {
+        button.addEventListener("click", () => {
+          const statusNode = document.getElementById(`photo-status-${targetId}`);
+          const followNode = document.getElementById(`photo-follow-${targetId}`);
+          if (statusNode) statusNode.value = "closed";
+          if (followNode && !followNode.value) followNode.value = "照片互动已处理完成";
+        });
+      });
+
+      photoReplyDetail.querySelectorAll("[data-photo-jump-thread]").forEach(button => {
+        button.addEventListener("click", () => {
+          activeMessageId = targetId;
+          renderThreadList();
+          renderActiveThread();
+          document.querySelector(".forum-shell")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      photoReplyDetail.querySelectorAll("[data-photo-reply-id]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const textarea = document.getElementById(`photo-reply-${targetId}`);
+          const followupNode = document.getElementById(`photo-followup-reply-${targetId}`);
+          const statusNode = document.getElementById(`photo-status-${targetId}`);
+          const followNode = document.getElementById(`photo-follow-${targetId}`);
+          const noteNode = document.getElementById(`photo-note-${targetId}`);
+          const skuNode = document.getElementById(`photo-sku-${targetId}`);
+          const publicNode = document.getElementById(`photo-public-${targetId}`);
+          if (!textarea) return;
+          button.disabled = true;
+          button.textContent = "保存中...";
+          try {
+            const uploadPayload = replyDraftUploads.get(targetId) || {};
+            await fetchJson(`${apiBase}/api/marketing/gaokao-2026/portal/admin/messages/${encodeURIComponent(targetId)}/reply`, {
+              method: "POST",
+              body: JSON.stringify({
+                replyMessage: textarea.value,
+                followUpReplyMessage: followupNode?.value || "",
+                responder: "高考活动后台",
+                status: statusNode?.value || "replied",
+                followUpAction: followNode?.value || "",
+                internalNote: noteNode?.value || "",
+                suggestedSkuKeys: parseSkuKeys(skuNode?.value || ""),
+                publicApproved: Boolean(publicNode?.checked),
+                ...uploadPayload
+              })
+            });
+            replyDraftUploads.delete(targetId);
+            await Promise.all([loadPhotoMessages(), loadMessages(), loadCustomers()]);
+          } catch (error) {
+            alert(error.message || "保存失败");
+          } finally {
+            button.disabled = false;
+            button.textContent = "保存照片回复";
+          }
+        });
+      });
+    }
+
+    async function loadMessages() {
+      forumMeta.textContent = "正在刷新会话池…";
+      threadList.innerHTML = '<div class="forum-empty">正在读取互动消息…</div>';
+      const params = new URLSearchParams();
+      params.set("limit", "120");
+      if (statusFilter.value) params.set("status", statusFilter.value);
+      if (customerAssignedFilter.value) params.set("assigned_to", customerAssignedFilter.value);
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/portal/admin/messages?${params.toString()}`, { method: "GET", headers: { "Accept": "application/json" } });
+        allMessages = Array.isArray(payload.items) ? payload.items : [];
+        forumMeta.textContent = `最近更新时间 ${formatDateTime(payload.updatedAt)}｜当前载入 ${allMessages.length} 条帖子${customerAssignedFilter.value ? `｜负责人 ${customerAssignedFilter.value}` : ""}`;
+        applyMessageFilters();
+      } catch (error) {
+        threadList.innerHTML = `<div class="forum-empty">读取失败：${escapeHtml(error.message || "请稍后再试")}</div>`;
+        detailContent.innerHTML = '<div class="forum-empty">消息读取失败，暂时无法显示详情。</div>';
+      }
+    }
+
+    async function loadPhotoMessages() {
+      photoReplyZone.innerHTML = '<article class="queue-card"><strong>正在读取照片线程…</strong></article>';
+      const params = new URLSearchParams();
+      params.set("limit", "80");
+      if (customerAssignedFilter.value) params.set("assigned_to", customerAssignedFilter.value);
+      try {
+        const payload = await fetchJson(`${apiBase}/api/marketing/gaokao-2026/portal/admin/photo-messages?${params.toString()}`, { method: "GET", headers: { "Accept": "application/json" } });
+        photoMessages = Array.isArray(payload.items) ? payload.items : [];
+        renderPhotoReplyZone(photoMessages);
+      } catch (error) {
+        photoReplyZone.innerHTML = `<article class="queue-card"><strong>读取失败</strong><span class="subtle">${escapeHtml(error.message || "请稍后再试")}</span></article>`;
+        photoZoneMeta.textContent = "照片回复专区读取失败。";
+      }
+    }
+
+    refreshBtn.addEventListener("click", loadMessages);
+    refreshPhotoZoneBtn.addEventListener("click", loadPhotoMessages);
+    photoStatusFilter.addEventListener("change", () => renderPhotoReplyZone(photoMessages));
+    statusFilter.addEventListener("change", applyMessageFilters);
+    channelFilter.addEventListener("change", applyMessageFilters);
+    messageSearchInput.addEventListener("input", applyMessageFilters);
+    refreshCustomersBtn.addEventListener("click", loadCustomers);
+    refreshCouponsBtn.addEventListener("click", loadCoupons);
+    exportCustomersBtn.addEventListener("click", exportCustomers);
+    exportCouponsBtn.addEventListener("click", exportCoupons);
+    customerProfileCard.addEventListener("click", async event => {
+      const action = event.target?.getAttribute?.("data-customer-action");
+      if (!action) return;
+      try {
+        if (action === "save-ops") {
+          await saveCustomerOps();
+        } else if (action === "add-log") {
+          await addCustomerFollowUpLog();
+        } else if (action === "export-single" && activeCustomerId) {
+          window.open(`${apiBase}/api/marketing/gaokao-2026/admin/customers/${encodeURIComponent(activeCustomerId)}/export.csv`, "_blank");
+        }
+      } catch (error) {
+        alert(error.message || "操作失败");
+      }
+    });
+    customerStatusFilter.addEventListener("change", loadCustomers);
+    customerDueTodayToggle.addEventListener("change", loadCustomers);
+    couponStatusFilter.addEventListener("change", loadCoupons);
+    customerAssignedFilter.addEventListener("input", () => {
+      clearTimeout(window.__gaokaoAssignedTimer);
+      window.__gaokaoAssignedTimer = setTimeout(() => {
+        loadCustomers();
+        loadMessages();
+        loadPhotoMessages();
+      }, 220);
+    });
+    customerTagFilter.addEventListener("input", () => {
+      clearTimeout(window.__gaokaoTagTimer);
+      window.__gaokaoTagTimer = setTimeout(loadCustomers, 220);
+    });
+    customerQuery.addEventListener("input", () => {
+      clearTimeout(window.__gaokaoCustomerQueryTimer);
+      window.__gaokaoCustomerQueryTimer = setTimeout(loadCustomers, 220);
+    });
+    customerFilterTabs?.querySelectorAll("[data-customer-tab]").forEach(button => {
+      button.addEventListener("click", () => {
+        customerStatusFilter.value = button.getAttribute("data-customer-tab") || "";
+        loadCustomers();
+      });
+    });
+    saveConfigBtn.addEventListener("click", saveCouponConfig);
+
+    loadSummary().catch(error => {
+      summaryMeta.textContent = `汇总读取失败：${error.message || "请稍后再试"}`;
+    });
+    loadCustomers();
+    loadCoupons();
+    loadMessages();
+    loadPhotoMessages();
+  </script>
+</body>
+</html>

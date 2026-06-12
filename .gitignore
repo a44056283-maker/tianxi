@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Build outputs
+dist/
+dist-ssr/
+__pycache__/
+*.py[cod]
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Runtime logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+apps/api-server/data/*.sqlite3
+apps/api-server/data/local-sales-ledger.json
+
+# Generated artifacts and local captures
+artifacts/
+artifacts-*.png
+*.tmp
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- added 2026-06-08 static-only review ---
+# inventory-sync wechat-selkies debug scripts and sync log
+apps/inventory-sync/tmp-selkies-*.mjs
+apps/inventory-sync/.sync_log.txt
+# codex / automation runtime scratch
+.codex-tmp/
+.automation-runtime/
+# playwright / zdt-sync debug artefacts
+test-results/
+zdt-sync/*.png
+# accidental literal directory created by unexpanded $CODEX_HOME
+$CODEX_HOME/
+\$CODEX_HOME/
+# NOTE: apps/inventory-sync/apps/ and apps/inventory-sync/docs/ are
+#       accidental nested directories (likely relative-path bug in some
+#       inventory-sync script). NOT ignored here; see 01_CURRENT_STATE.md
+#       2026-06-08 11:26 for the 14MB data sitting in the wrong path.
+
+# trash / recovery dir for nested-apps cleanup 2026-06-08 11:47
+# (contains 6 .json files moved from apps/inventory-sync/apps/,
+#  held for user verification before final rm -rf)
+apps/inventory-sync/.trash-*/
+
+# one-off manual backup snapshots (cp -p <file>.bak.manual-YYYYMMDD-HHMM)
+# retained on disk for evidence but not tracked
+*.bak.manual-*
+
+# GitHub export hygiene
+docs/ai-context/packages/
+apps/inventory-sync/.trash-*/
+apps/inventory-sync/apps/
+apps/api-server/data/
+apps/web-cockpit/receipts/
+apps/web-cockpit/public/data/*.bak
+apps/web-cockpit/public/data/*.bak.*
+apps/web-cockpit/public/data/*.pre-*.bak
+apps/web-cockpit/public/data/*.pre-*.bak.json
+zdt-sync/.auth/
+zdt-sync/artifacts/
+zdt-sync/*.png
+$CODEX_HOME/
+\$CODEX_HOME/

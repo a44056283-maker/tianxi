@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-06-12T10:00:57+08:00",
+  "source": "latest-published-product-projection.json",
+  "status": "pass",
+  "rules": [
+    "客户可见端只允许使用 SQL/发布投影下发的 displayTitle。",
+    "采集链路、智店通导入和标准价格主档的原始 productName 只允许作为证据或 sourceProductName 保留，不允许覆盖 displayTitle。",
+    "零售英雄卡、收银端、广告机三端 displayTitle 必须一致。",
+    "主力商品（电脑、平板、手机、台式/一体机、显示器）客户可见主标题必须带配置详参；配件不按电脑配置强制。"
+  ],
+  "summary": {
+    "activePublishedProjectionItemCount": 108,
+    "titleDetailRequiredChecks": 57,
+    "channelViewChecks": 324,
+    "staticRetailZoneChecks": 92,
+    "standardPriceMasterChecks": 92,
+    "standardPriceMasterFrontendChecks": 92,
+    "apiRetailZoneStatus": "ok",
+    "apiRetailZoneChecks": 92,
+    "issueCount": 0
+  },
+  "issues": [],
+  "truncated": false
+}

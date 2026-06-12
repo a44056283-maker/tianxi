@@ -1,0 +1,31 @@
+{
+  "database": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/api-server/data/retail-core.sqlite3",
+  "seeded": {
+    "skus": 3869,
+    "serials": 425,
+    "movements": 12031,
+    "salesOrders": 983,
+    "orderRegistry": 985,
+    "warrantyRecords": 365
+  },
+  "tableCounts": {
+    "product": 4287,
+    "sku": 3869,
+    "serial_item": 1645,
+    "inventory_movement": 9274,
+    "distributor_quote_current": 157,
+    "gray_wholesale_quote_current": 262,
+    "inventory_price_signal_current": 92,
+    "product_category_node": 574,
+    "sku_category_mapping": 3869,
+    "staff": 6,
+    "sales_order": 1349,
+    "purchase_order": 622,
+    "external_system": 4,
+    "sync_task": 7,
+    "price_tag_device": 0,
+    "price_tag_binding": 0,
+    "price_tag_update_task": 11,
+    "sales_price_protection_history": 2293
+  }
+}

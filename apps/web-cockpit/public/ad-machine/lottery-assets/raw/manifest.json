@@ -1,0 +1,192 @@
+{
+  "package": "lenovo_zhihui_lucky_draw_assets",
+  "created_at": "2026-05-26T16:11:58",
+  "description": "联想智惠幸运大转盘动态视觉素材与三张奖励英雄卡。",
+  "visual_style": "暗黑金色、红宝石点缀、幻想科技英雄卡、广告机大屏展示。",
+  "prize_tiers": [
+    {
+      "tier": "rare",
+      "tier_cn": "稀有奖励",
+      "label": "智惠三年",
+      "card_asset": "images/reward_cards/reward_rare_lenovo_care_3_years.png"
+    },
+    {
+      "tier": "epic",
+      "tier_cn": "史诗奖励",
+      "label": "智惠四年",
+      "card_asset": "images/reward_cards/reward_epic_lenovo_care_4_years.png"
+    },
+    {
+      "tier": "legendary",
+      "tier_cn": "传说奖励",
+      "label": "智惠五年",
+      "card_asset": "images/reward_cards/reward_legendary_lenovo_care_5_years.png"
+    }
+  ],
+  "animation_sequence": [
+    {
+      "state": "idle",
+      "asset": "images/wheel_frames/01_idle_ready_click.png"
+    },
+    {
+      "state": "spinning",
+      "asset": "images/wheel_frames/02_spinning_motion_blur.png"
+    },
+    {
+      "state": "reveal_soon",
+      "asset": "images/wheel_frames/03_reveal_soon_suspense.png"
+    },
+    {
+      "state": "popup",
+      "asset": "images/wheel_frames/04_reward_popup_card_back.png"
+    },
+    {
+      "state": "reward_card",
+      "asset": "choose by prize_tiers.card_asset"
+    }
+  ],
+  "assets": [
+    {
+      "id": "wheel_idle",
+      "type": "wheel_frame",
+      "title": "待机/可点击抽奖帧",
+      "state": "idle",
+      "ui_text": [
+        "联想智惠幸运大转盘",
+        "购机抽奖 · 解锁专属服务英雄卡",
+        "点击抽奖"
+      ],
+      "use": "抽奖页面初始态。",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "45f59f2cce89101cb8e3c0d0b1da1448201283d309548bf9563fb96d1019e639",
+      "relative_path": "images/wheel_frames/01_idle_ready_click.png"
+    },
+    {
+      "id": "wheel_spinning",
+      "type": "wheel_frame",
+      "title": "高速旋转动效帧",
+      "state": "spinning",
+      "ui_text": [
+        "抽奖进行中"
+      ],
+      "use": "点击后进入旋转态，可叠加 CSS rotate / glow / particle。",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "fbd7815fc1137b9fa47d3863daf6838f589fbd86c99ad7f31f30b7340a70428d",
+      "relative_path": "images/wheel_frames/02_spinning_motion_blur.png"
+    },
+    {
+      "id": "wheel_reveal_soon",
+      "type": "wheel_frame",
+      "title": "即将揭晓停转帧",
+      "state": "reveal_soon",
+      "ui_text": [
+        "即将揭晓"
+      ],
+      "use": "旋转降速、指针高亮、揭晓前悬念态。",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "d239da56b57383c173e83bd116cd22524f20965944cdbeb03a6f74390ef41c84",
+      "relative_path": "images/wheel_frames/03_reveal_soon_suspense.png"
+    },
+    {
+      "id": "reward_popup",
+      "type": "popup_frame",
+      "title": "恭喜获得/翻卡弹窗",
+      "state": "popup",
+      "ui_text": [
+        "恭喜获得",
+        "服务英雄卡已解锁",
+        "点击翻开英雄卡"
+      ],
+      "use": "抽中后弹出，点击后再展示对应奖励卡。",
+      "width": 1672,
+      "height": 941,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "40872391be9a58ba92734437fd4f9a04cdfb7e9d76fa9e1ca0dcb79c30d85dbc",
+      "relative_path": "images/wheel_frames/04_reward_popup_card_back.png"
+    },
+    {
+      "id": "reward_rare_3y",
+      "type": "reward_card",
+      "tier": "rare",
+      "tier_cn": "稀有奖励",
+      "title": "Lenovo Care 智惠服务·三年",
+      "subtitle": "三年安心守护",
+      "prize_label": "智惠三年",
+      "benefits": [
+        "三年总保修期",
+        "7×24 技术支持",
+        "每年1次外观清洁",
+        "操作系统支持",
+        "20000+ 专业工程师 · 2600+ 服务网点"
+      ],
+      "use": "三等奖/基础奖励弹出卡。",
+      "width": 1086,
+      "height": 1448,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "503a550eb0de60411c89043dc50a66a4e40a4059b0da13f4117cc7a38415bd02",
+      "relative_path": "images/reward_cards/reward_rare_lenovo_care_3_years.png"
+    },
+    {
+      "id": "reward_epic_4y",
+      "type": "reward_card",
+      "tier": "epic",
+      "tier_cn": "史诗奖励",
+      "title": "Lenovo Care 智惠服务·四年",
+      "subtitle": "四年进阶守护",
+      "prize_label": "智惠四年",
+      "benefits": [
+        "四年总保修期",
+        "7×24 技术支持",
+        "每年1次外观清洁",
+        "操作系统支持",
+        "20000+ 专业工程师 · 2600+ 服务网点"
+      ],
+      "use": "二等奖/中等奖励弹出卡。",
+      "width": 1086,
+      "height": 1448,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "7ef1f093412ec6b5cc4648fdcefc6fd095fa7cafbf49193e2ffcd1eb2759cba7",
+      "relative_path": "images/reward_cards/reward_epic_lenovo_care_4_years.png"
+    },
+    {
+      "id": "reward_legendary_5y",
+      "type": "reward_card",
+      "tier": "legendary",
+      "tier_cn": "传说奖励",
+      "title": "Lenovo Care 智惠服务·五年",
+      "subtitle": "五年旗舰守护",
+      "prize_label": "智惠五年",
+      "benefits": [
+        "五年总保修期",
+        "7×24 技术支持",
+        "每年1次清洁保养",
+        "预装软件 / 操作系统支持",
+        "20000+ 专业工程师 · 2600+ 服务网点"
+      ],
+      "use": "一等奖/最高奖励弹出卡。",
+      "width": 1086,
+      "height": 1448,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "c84a84d455e15e7625d636c357b27c491b422721daa6ae443f7d07f19b053e37",
+      "relative_path": "images/reward_cards/reward_legendary_lenovo_care_5_years.png"
+    }
+  ],
+  "notes": [
+    "视觉素材可直接作为背景/关键帧，也可以让 Codex 根据状态叠加 CSS 旋转、光效、粒子和翻卡动画。",
+    "实际抽奖概率、中奖限制、核销逻辑请由业务规则单独控制。",
+    "服务权益文案最终以联想官方当期页面和门店活动规则为准。"
+  ]
+}

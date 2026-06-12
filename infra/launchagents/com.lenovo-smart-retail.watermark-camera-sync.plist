@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.lenovo-smart-retail.watermark-camera-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/luxiangnan/.local/bin/uv</string>
+        <string>run</string>
+        <string>--project</string>
+        <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit</string>
+        <string>python</string>
+        <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/watermark_camera_sync.py</string>
+        <string>--watch</string>
+        <string>--interval</string>
+        <string>300</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/Users/luxiangnan/.local/bin</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+
+    <key>WatchPaths</key>
+    <array>
+        <string>/Volumes/TianLu_Storage/Shared/今日水印相机/incoming</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/luxiangnan/Library/Logs/lenovo-smart-retail/watermark-camera-sync.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/luxiangnan/Library/Logs/lenovo-smart-retail/watermark-camera-sync.err.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

@@ -1,0 +1,724 @@
+{
+  "generatedAt": "2026-06-12T02:03:23.235Z",
+  "status": "completed",
+  "purchaseInboundTotal": 1737,
+  "missingCostCount": 85,
+  "missingSupplierCount": 2,
+  "missingSerialDisplayCount": 519,
+  "scaledCostCount": 123,
+  "absurdAmountCount": 181,
+  "sameDayMissingCostCount": 0,
+  "sameDayMissingSerialCount": 0,
+  "sameDayScaledCostCount": 0,
+  "sameDayAbsurdAmountCount": 0,
+  "manualAdjustmentCgrCount": 0,
+  "sampleMissingCostRows": [
+    {
+      "id": "PURCHASEQ-ZDT-T260523958873842_1384237798599913472-20007795",
+      "source_ref": "T260523958873842_1384237798599913472",
+      "inbound_document_no": "T260523958873842_1384237798599913472",
+      "sku_key": "20007795",
+      "quantity": 4,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "PURCHASEQ-ZDT-T260523446813742_1384237798599913472-20006802",
+      "source_ref": "T260523446813742_1384237798599913472",
+      "inbound_document_no": "T260523446813742_1384237798599913472",
+      "sku_key": "20006802",
+      "quantity": 2,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "PURCHASEQ-ZDT-T260523835813942_1384237798599913472-20007794",
+      "source_ref": "T260523835813942_1384237798599913472",
+      "inbound_document_no": "T260523835813942_1384237798599913472",
+      "sku_key": "20007794",
+      "quantity": 6,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "PURCHASEQ-T260523958873842-20007795-ROW1",
+      "source_ref": "T260523958873842",
+      "inbound_document_no": "T260523958873842",
+      "sku_key": "20007795",
+      "quantity": 2,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "PURCHASEQ-T260523835813942-20007794-ROW3",
+      "source_ref": "T260523835813942",
+      "inbound_document_no": "T260523835813942",
+      "sku_key": "20007794",
+      "quantity": 3,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "PURCHASEQ-T260523446813742-20006802-ROW2",
+      "source_ref": "T260523446813742",
+      "inbound_document_no": "T260523446813742",
+      "sku_key": "20006802",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007252_1384237798599913472",
+      "source_ref": "TDR000007252",
+      "inbound_document_no": "TDR000007252",
+      "sku_key": "20003128",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007251_1384237798599913472",
+      "source_ref": "TDR000007251",
+      "inbound_document_no": "TDR000007251",
+      "sku_key": "20003886",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007250_1384237798599913472",
+      "source_ref": "TDR000007250",
+      "inbound_document_no": "TDR000007250",
+      "sku_key": "20003662",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007249_1384237798599913472",
+      "source_ref": "TDR000007249",
+      "inbound_document_no": "TDR000007249",
+      "sku_key": "20002022",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007248_1384237798599913472",
+      "source_ref": "TDR000007248",
+      "inbound_document_no": "TDR000007248",
+      "sku_key": "20002032",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007247_1384237798599913472",
+      "source_ref": "TDR000007247",
+      "inbound_document_no": "TDR000007247",
+      "sku_key": "20002034",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007246_1384237798608302080",
+      "source_ref": "TDR000007246",
+      "inbound_document_no": "TDR000007246",
+      "sku_key": "20003128",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007245_1384237798599913472",
+      "source_ref": "TDR000007245",
+      "inbound_document_no": "TDR000007245",
+      "sku_key": "20003126",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007244_1384237798599913472",
+      "source_ref": "TDR000007244",
+      "inbound_document_no": "TDR000007244",
+      "sku_key": "20002039",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007243_1384237798599913472",
+      "source_ref": "TDR000007243",
+      "inbound_document_no": "TDR000007243",
+      "sku_key": "20001595",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007242_1384237798599913472",
+      "source_ref": "TDR000007242",
+      "inbound_document_no": "TDR000007242",
+      "sku_key": "20002781",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007241_1384237798599913472",
+      "source_ref": "TDR000007241",
+      "inbound_document_no": "TDR000007241",
+      "sku_key": "20002886",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007240_1384237798599913472",
+      "source_ref": "TDR000007240",
+      "inbound_document_no": "TDR000007240",
+      "sku_key": "20002614",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    },
+    {
+      "id": "ZDT-TDR000007239_1384237798599913472",
+      "source_ref": "TDR000007239",
+      "inbound_document_no": "TDR000007239",
+      "sku_key": "20003938",
+      "quantity": 1,
+      "unit_cost": null,
+      "supplier_name": "联想"
+    }
+  ],
+  "sampleMissingSerialRows": [
+    {
+      "id": "ZDT-1503457201036103680",
+      "source_ref": "1503457201036103680",
+      "inbound_document_no": "1503457201036103680",
+      "sku_key": "20002886",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1449830180314058756",
+      "source_ref": "1449830180314058756",
+      "inbound_document_no": "1449830180314058756",
+      "sku_key": "20002845",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1445717994245263360",
+      "source_ref": "1445717994245263360",
+      "inbound_document_no": "1445717994245263360",
+      "sku_key": "20002838",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1447171601807831040",
+      "source_ref": "1447171601807831040",
+      "inbound_document_no": "1447171601807831040",
+      "sku_key": "20002814",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1447171601849774081",
+      "source_ref": "1447171601849774081",
+      "inbound_document_no": "1447171601849774081",
+      "sku_key": "20002811",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1428761279403253760",
+      "source_ref": "1428761279403253760",
+      "inbound_document_no": "1428761279403253760",
+      "sku_key": "20002797",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1447171601832996865",
+      "source_ref": "1447171601832996865",
+      "inbound_document_no": "1447171601832996865",
+      "sku_key": "20002787",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1503457333013868544",
+      "source_ref": "1503457333013868544",
+      "inbound_document_no": "1503457333013868544",
+      "sku_key": "20002781",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1427649417947627520",
+      "source_ref": "1427649417947627520",
+      "inbound_document_no": "1427649417947627520",
+      "sku_key": "20002614",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1503457103485997056",
+      "source_ref": "1503457103485997056",
+      "inbound_document_no": "1503457103485997056",
+      "sku_key": "20002614",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1454041707574681600",
+      "source_ref": "1454041707574681600",
+      "inbound_document_no": "1454041707574681600",
+      "sku_key": "20002604",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1454041707587264513",
+      "source_ref": "1454041707587264513",
+      "inbound_document_no": "1454041707587264513",
+      "sku_key": "20002603",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1478702173048586240",
+      "source_ref": "1478702173048586240",
+      "inbound_document_no": "1478702173048586240",
+      "sku_key": "20002460",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1429775313280008192",
+      "source_ref": "1429775313280008192",
+      "inbound_document_no": "1429775313280008192",
+      "sku_key": "20002457",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1503452847599505408",
+      "source_ref": "1503452847599505408",
+      "inbound_document_no": "1503452847599505408",
+      "sku_key": "20002457",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1464645283185897472",
+      "source_ref": "1464645283185897472",
+      "inbound_document_no": "1464645283185897472",
+      "sku_key": "20002154",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1427256858903777281",
+      "source_ref": "1427256858903777281",
+      "inbound_document_no": "1427256858903777281",
+      "sku_key": "20002039",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1503458297019617280",
+      "source_ref": "1503458297019617280",
+      "inbound_document_no": "1503458297019617280",
+      "sku_key": "20002039",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1427256858899582977",
+      "source_ref": "1427256858899582977",
+      "inbound_document_no": "1427256858899582977",
+      "sku_key": "20002037",
+      "quantity": 1,
+      "serial_number": null
+    },
+    {
+      "id": "ZDT-1444643930737180672",
+      "source_ref": "1444643930737180672",
+      "inbound_document_no": "1444643930737180672",
+      "sku_key": "20002037",
+      "quantity": 1,
+      "serial_number": null
+    }
+  ],
+  "sampleScaledCostRows": [
+    {
+      "id": "ZDT-1430207535464153089",
+      "source_ref": "1430207535464153089",
+      "inbound_document_no": "1430207535464153089",
+      "sku_key": "20001545",
+      "quantity": 1,
+      "unit_cost": 85027,
+      "amount": 5866863
+    },
+    {
+      "id": "ZDT-1430207535451570178",
+      "source_ref": "1430207535451570178",
+      "inbound_document_no": "1430207535451570178",
+      "sku_key": "20000465",
+      "quantity": 1,
+      "unit_cost": 85027,
+      "amount": 5866863
+    },
+    {
+      "id": "ZDT-1504891046142152704",
+      "source_ref": "1504891046142152704",
+      "inbound_document_no": "1504891046142152704",
+      "sku_key": "20004397",
+      "quantity": 1,
+      "unit_cost": 64006,
+      "amount": 4416414
+    },
+    {
+      "id": "ZDT-1441389886232526858",
+      "source_ref": "1441389886232526858",
+      "inbound_document_no": "1441389886232526858",
+      "sku_key": "20004361",
+      "quantity": 1,
+      "unit_cost": 73465,
+      "amount": 5069085
+    },
+    {
+      "id": "ZDT-1450188685006422016",
+      "source_ref": "1450188685006422016",
+      "inbound_document_no": "1450188685006422016",
+      "sku_key": "20004181",
+      "quantity": 1,
+      "unit_cost": 62010,
+      "amount": 4278690
+    },
+    {
+      "id": "ZDT-1428340997270839297",
+      "source_ref": "1428340997270839297",
+      "inbound_document_no": "1428340997270839297",
+      "sku_key": "20002013",
+      "quantity": 3,
+      "unit_cost": 99297,
+      "amount": 7546572
+    },
+    {
+      "id": "ZDT-1507814162705862656",
+      "source_ref": "1507814162705862656",
+      "inbound_document_no": "1507814162705862656",
+      "sku_key": "20007794",
+      "quantity": 3,
+      "unit_cost": 53845,
+      "amount": 4092220
+    },
+    {
+      "id": "ZDT-1463485792700817408",
+      "source_ref": "1463485792700817408",
+      "inbound_document_no": "1463485792700817408",
+      "sku_key": "20003016",
+      "quantity": 5,
+      "unit_cost": 68939,
+      "amount": 3171194
+    },
+    {
+      "id": "ZDT-1445717994287206401",
+      "source_ref": "1445717994287206401",
+      "inbound_document_no": "1445717994287206401",
+      "sku_key": "20002604",
+      "quantity": 2,
+      "unit_cost": 91851,
+      "amount": 3582189
+    },
+    {
+      "id": "ZDT-1443915037596549120",
+      "source_ref": "1443915037596549120",
+      "inbound_document_no": "1443915037596549120",
+      "sku_key": "20004855",
+      "quantity": 2,
+      "unit_cost": 61303,
+      "amount": 2390817
+    },
+    {
+      "id": "ZDT-1445717994312372226",
+      "source_ref": "1445717994312372226",
+      "inbound_document_no": "1445717994312372226",
+      "sku_key": "20004481",
+      "quantity": 2,
+      "unit_cost": 91851,
+      "amount": 3582189
+    },
+    {
+      "id": "ZDT-1445717994303983619",
+      "source_ref": "1445717994303983619",
+      "inbound_document_no": "1445717994303983619",
+      "sku_key": "20004403",
+      "quantity": 2,
+      "unit_cost": 86803,
+      "amount": 3385317
+    },
+    {
+      "id": "ZDT-1430207535438987264",
+      "source_ref": "1430207535438987264",
+      "inbound_document_no": "1430207535438987264",
+      "sku_key": "20003821",
+      "quantity": 2,
+      "unit_cost": 51618,
+      "amount": 2013102
+    },
+    {
+      "id": "ZDT-1450789845631586306",
+      "source_ref": "1450789845631586306",
+      "inbound_document_no": "1450789845631586306",
+      "sku_key": "20002916",
+      "quantity": 2,
+      "unit_cost": 55482,
+      "amount": 2163798
+    },
+    {
+      "id": "ZDT-1448356095800717315",
+      "source_ref": "1448356095800717315",
+      "inbound_document_no": "1448356095800717315",
+      "sku_key": "20002604",
+      "quantity": 4,
+      "unit_cost": 51236,
+      "amount": 4150116
+    },
+    {
+      "id": "ZDT-1480257253531971588",
+      "source_ref": "1480257253531971588",
+      "inbound_document_no": "1480257253531971588",
+      "sku_key": "20002917",
+      "quantity": 4,
+      "unit_cost": 64348,
+      "amount": 5212188
+    },
+    {
+      "id": "ZDT-1450810037874880512",
+      "source_ref": "1450810037874880512",
+      "inbound_document_no": "1450810037874880512",
+      "sku_key": "20002013",
+      "quantity": 10,
+      "unit_cost": 81239,
+      "amount": 812390
+    },
+    {
+      "id": "ZDT-1450807510827880458",
+      "source_ref": "1450807510827880458",
+      "inbound_document_no": "1450807510827880458",
+      "sku_key": "20004055",
+      "quantity": 10,
+      "unit_cost": 91061,
+      "amount": 910610
+    },
+    {
+      "id": "ZDT-1450807510819491846",
+      "source_ref": "1450807510819491846",
+      "inbound_document_no": "1450807510819491846",
+      "sku_key": "20004003",
+      "quantity": 10,
+      "unit_cost": 88251,
+      "amount": 882510
+    },
+    {
+      "id": "ZDT-1441742000986030080",
+      "source_ref": "1441742000986030080",
+      "inbound_document_no": "1441742000986030080",
+      "sku_key": "20003164",
+      "quantity": 10,
+      "unit_cost": 64430,
+      "amount": 644300
+    }
+  ],
+  "sampleAbsurdAmountRows": [
+    {
+      "id": "PURCHASEQ-TDR000007245-20003126-ROW24",
+      "source_ref": "PURCHASEQ-TDR000007245-20003126-ROW24",
+      "inbound_document_no": "PURCHASEQ-TDR000007245-20003126-ROW24",
+      "sku_key": "20003126",
+      "quantity": 167,
+      "unit_cost": 41672557,
+      "amount": 6959317019
+    },
+    {
+      "id": "PURCHASEQ-PURCHASEQ-TDR000007245-20003126-ROW24-20003126",
+      "source_ref": "PURCHASEQ-TDR000007245-20003126-ROW24",
+      "inbound_document_no": "PURCHASEQ-TDR000007245-20003126-ROW24",
+      "sku_key": "20003126",
+      "quantity": 167,
+      "unit_cost": 41672557,
+      "amount": 6959317019
+    },
+    {
+      "id": "PURCHASEQ-TDR000007241-20002886-ROW26",
+      "source_ref": "PURCHASEQ-TDR000007241-20002886-ROW26",
+      "inbound_document_no": "PURCHASEQ-TDR000007241-20002886-ROW26",
+      "sku_key": "20002886",
+      "quantity": 167,
+      "unit_cost": 10525163,
+      "amount": 1757702221
+    },
+    {
+      "id": "PURCHASEQ-PURCHASEQ-TDR000007241-20002886-ROW26-20002886",
+      "source_ref": "PURCHASEQ-TDR000007241-20002886-ROW26",
+      "inbound_document_no": "PURCHASEQ-TDR000007241-20002886-ROW26",
+      "sku_key": "20002886",
+      "quantity": 167,
+      "unit_cost": 10525163,
+      "amount": 1757702221
+    },
+    {
+      "id": "PURCHASEQ-1450789845660946435-20002603",
+      "source_ref": "1450789845660946435",
+      "inbound_document_no": "1450789845660946435",
+      "sku_key": "20002603",
+      "quantity": 326,
+      "unit_cost": 1535576,
+      "amount": 500597776
+    },
+    {
+      "id": "ZDT-1450789845660946435",
+      "source_ref": "1450789845660946435",
+      "inbound_document_no": "1450789845660946435",
+      "sku_key": "20002603",
+      "quantity": 326,
+      "unit_cost": 1535576,
+      "amount": 500597776
+    },
+    {
+      "id": "PURCHASEQ-TDR000007234-20002917-ROW31",
+      "source_ref": "PURCHASEQ-TDR000007234-20002917-ROW31",
+      "inbound_document_no": "PURCHASEQ-TDR000007234-20002917-ROW31",
+      "sku_key": "20002917",
+      "quantity": 167,
+      "unit_cost": 2200229,
+      "amount": 367438243
+    },
+    {
+      "id": "PURCHASEQ-PURCHASEQ-TDR000007234-20002917-ROW31-20002917",
+      "source_ref": "PURCHASEQ-TDR000007234-20002917-ROW31",
+      "inbound_document_no": "PURCHASEQ-TDR000007234-20002917-ROW31",
+      "sku_key": "20002917",
+      "quantity": 167,
+      "unit_cost": 2200229,
+      "amount": 367438243
+    },
+    {
+      "id": "ZDT-1512235061399773184",
+      "source_ref": "1512235061399773184",
+      "inbound_document_no": "1512235061399773184",
+      "sku_key": "20006725",
+      "quantity": 167,
+      "unit_cost": 1095965,
+      "amount": 183026155
+    },
+    {
+      "id": "PURCHASEQ-1512235061399773184-20006725",
+      "source_ref": "1512235061399773184",
+      "inbound_document_no": "1512235061399773184",
+      "sku_key": "20006725",
+      "quantity": 167,
+      "unit_cost": 1095965,
+      "amount": 183026155
+    },
+    {
+      "id": "PURCHASEQ-1471563585030356994-20002623",
+      "source_ref": "1471563585030356994",
+      "inbound_document_no": "1471563585030356994",
+      "sku_key": "20002623",
+      "quantity": 181,
+      "unit_cost": 206366,
+      "amount": 37352246
+    },
+    {
+      "id": "ZDT-1471563585030356994",
+      "source_ref": "1471563585030356994",
+      "inbound_document_no": "1471563585030356994",
+      "sku_key": "20002623",
+      "quantity": 181,
+      "unit_cost": 206366,
+      "amount": 37352246
+    },
+    {
+      "id": "PURCHASEQ-1480257253519388674-20003124",
+      "source_ref": "1480257253519388674",
+      "inbound_document_no": "1480257253519388674",
+      "sku_key": "20003124",
+      "quantity": 432,
+      "unit_cost": 45798,
+      "amount": 19784736
+    },
+    {
+      "id": "ZDT-1480257253519388674",
+      "source_ref": "1480257253519388674",
+      "inbound_document_no": "1480257253519388674",
+      "sku_key": "20003124",
+      "quantity": 432,
+      "unit_cost": 45798,
+      "amount": 19784736
+    },
+    {
+      "id": "PURCHASEQ-1477978146007269376-20003216",
+      "source_ref": "1477978146007269376",
+      "inbound_document_no": "1477978146007269376",
+      "sku_key": "20003216",
+      "quantity": 432,
+      "unit_cost": 44200,
+      "amount": 19094400
+    },
+    {
+      "id": "ZDT-1477978146007269376",
+      "source_ref": "1477978146007269376",
+      "inbound_document_no": "1477978146007269376",
+      "sku_key": "20003216",
+      "quantity": 432,
+      "unit_cost": 44200,
+      "amount": 19094400
+    },
+    {
+      "id": "PURCHASEQ-1471563585047134209-20004912",
+      "source_ref": "1471563585047134209",
+      "inbound_document_no": "1471563585047134209",
+      "sku_key": "20004912",
+      "quantity": 326,
+      "unit_cost": 56891,
+      "amount": 18546466
+    },
+    {
+      "id": "ZDT-1471563585047134209",
+      "source_ref": "1471563585047134209",
+      "inbound_document_no": "1471563585047134209",
+      "sku_key": "20004912",
+      "quantity": 326,
+      "unit_cost": 56891,
+      "amount": 18546466
+    },
+    {
+      "id": "PURCHASEQ-1471563585055522819-20004915",
+      "source_ref": "1471563585055522819",
+      "inbound_document_no": "1471563585055522819",
+      "sku_key": "20004915",
+      "quantity": 432,
+      "unit_cost": 28233,
+      "amount": 12196656
+    },
+    {
+      "id": "ZDT-1471563585055522819",
+      "source_ref": "1471563585055522819",
+      "inbound_document_no": "1471563585055522819",
+      "sku_key": "20004915",
+      "quantity": 432,
+      "unit_cost": 28233,
+      "amount": 12196656
+    }
+  ],
+  "blockCurrentTask": false
+}

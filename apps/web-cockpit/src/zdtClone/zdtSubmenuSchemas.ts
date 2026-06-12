@@ -1,0 +1,1626 @@
+export type ZdtSubmenuSchema = {
+  topMenu: string
+  pageTitle: string
+  url: string
+  tabs: string[]
+  tableHeaders: string[]
+  placeholders: string[]
+  selectLabels: string[]
+  buttons: string[]
+  error: string | null
+}
+
+export const zdtSubmenuSchemas: Record<string, ZdtSubmenuSchema> = {
+  "店铺列表": {
+    "topMenu": "组织",
+    "pageTitle": "店铺列表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/company/shop",
+    "tabs": [],
+    "tableHeaders": [
+      "名称",
+      "编码",
+      "公司",
+      "省份",
+      "城市",
+      "区域",
+      "类型",
+      "店铺状态",
+      "负责人信息",
+      "操作"
+    ],
+    "placeholders": [
+      "店铺名称",
+      "门店编码"
+    ],
+    "selectLabels": [
+      "所属公司",
+      "所属公司",
+      "所在地区",
+      "所在地区",
+      "状态",
+      "状态",
+      "店铺名称",
+      "店铺名称",
+      "店铺类型",
+      "店铺类型",
+      "门店编码",
+      "门店编码",
+      "入驻平台",
+      "入驻平台"
+    ],
+    "buttons": [
+      "搜索"
+    ],
+    "error": null
+  },
+  "仓库列表": {
+    "topMenu": "组织",
+    "pageTitle": "仓库列表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/company/depot",
+    "tabs": [],
+    "tableHeaders": [
+      "名称",
+      "编码",
+      "公司",
+      "省份",
+      "城市",
+      "区域",
+      "仓库状态",
+      "负责人信息",
+      "操作"
+    ],
+    "placeholders": [
+      "仓库名称",
+      "仓库编码"
+    ],
+    "selectLabels": [
+      "所属公司",
+      "所属公司",
+      "所在地区",
+      "所在地区",
+      "状态",
+      "状态",
+      "仓库名称",
+      "仓库名称",
+      "仓库编码",
+      "仓库编码"
+    ],
+    "buttons": [
+      "搜索"
+    ],
+    "error": null
+  },
+  "经销商商品": {
+    "topMenu": "商品",
+    "pageTitle": "创建自有商品 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/product/list-city",
+    "tabs": [
+      "联想商品",
+      "自有商品",
+      "全部"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "商品分类",
+      "商品来源",
+      "商品类型",
+      "商品编码",
+      "状态",
+      "税率分类",
+      "税率",
+      "更新时间",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "名称/商品编码",
+      "69码",
+      "PN/MTM"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品状态",
+      "商品状态",
+      "69码",
+      "69码",
+      "PN/MTM",
+      "PN/MTM",
+      "商品类型",
+      "商品类型"
+    ],
+    "buttons": [
+      "搜索",
+      "批量发布",
+      "配置税率"
+    ],
+    "error": null
+  },
+  "门店商品": {
+    "topMenu": "商品",
+    "pageTitle": "店铺商品 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/product/list-store",
+    "tabs": [
+      "联想商品",
+      "自有商品",
+      "全部"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "商品来源",
+      "商品分类",
+      "商品类型",
+      "商品编码",
+      "状态",
+      "销售渠道",
+      "更新时间",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "名称/商品编码",
+      "PN/MTM",
+      "69码"
+    ],
+    "selectLabels": [
+      "门店",
+      "门店",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "PN/MTM",
+      "PN/MTM",
+      "69码",
+      "69码",
+      "商品类型",
+      "商品类型",
+      "商品状态",
+      "商品状态"
+    ],
+    "buttons": [
+      "搜索",
+      "批量上架",
+      "批量下架",
+      "导出",
+      "同步至OMS"
+    ],
+    "error": null
+  },
+  "仓库商品": {
+    "topMenu": "商品",
+    "pageTitle": "创建自有商品 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/product/list-depot",
+    "tabs": [
+      "联想商品",
+      "自有商品",
+      "全部"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "商品来源",
+      "商品分类",
+      "商品类型",
+      "商品编码",
+      "状态",
+      "销售渠道",
+      "更新时间",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "名称/商品编码",
+      "PN/MTM",
+      "69码"
+    ],
+    "selectLabels": [
+      "仓库",
+      "仓库",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "PN/MTM",
+      "PN/MTM",
+      "69码",
+      "69码",
+      "商品类型",
+      "商品类型",
+      "商品状态",
+      "商品状态"
+    ],
+    "buttons": [
+      "搜索",
+      "批量上架",
+      "导出"
+    ],
+    "error": null
+  },
+  "收银热卖商品": {
+    "topMenu": "商品",
+    "pageTitle": "收银热卖商品 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/product/sellinggoods",
+    "tabs": [],
+    "tableHeaders": [
+      "商品信息",
+      "分类",
+      "销售渠道",
+      "商品编码",
+      "是否组合商品",
+      "是否上架",
+      "操作"
+    ],
+    "placeholders": [],
+    "selectLabels": [
+      "门店",
+      "门店"
+    ],
+    "buttons": [
+      "搜索",
+      "选择商品"
+    ],
+    "error": null
+  },
+  "供应商管理": {
+    "topMenu": "商品",
+    "pageTitle": "供应商管理 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/product/supplier-v2",
+    "tabs": [],
+    "tableHeaders": [
+      "供应商名称",
+      "状态",
+      "所属公司",
+      "创建时间",
+      "操作"
+    ],
+    "placeholders": [
+      "请输入供应商名称"
+    ],
+    "selectLabels": [
+      "供应商名称",
+      "供应商名称",
+      "状态",
+      "状态"
+    ],
+    "buttons": [
+      "搜索",
+      "新建"
+    ],
+    "error": null
+  },
+  "线下门店订单": {
+    "topMenu": "订单",
+    "pageTitle": "订单列表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/order/order-list",
+    "tabs": [
+      "全部",
+      "待支付",
+      "支付中",
+      "已完成",
+      "已退货",
+      "已取消"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "收货信息",
+      "下单时间",
+      "送货时间",
+      "门店/微商城",
+      "配送站/仓库",
+      "实付金额",
+      "订单状态",
+      "订单来源",
+      "配送商",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "订单号",
+      "订单号",
+      "收货人手机号",
+      "收货人手机号",
+      "店铺所属",
+      "店铺所属",
+      "配送所属",
+      "配送所属",
+      "配送方式",
+      "配送方式",
+      "配送商",
+      "配送商",
+      "订单地址",
+      "订单地址",
+      "订单来源",
+      "订单来源",
+      "外部订单号",
+      "外部订单号",
+      "订单ID",
+      "订单ID"
+    ],
+    "buttons": [
+      "搜索",
+      "导出",
+      "导出明细"
+    ],
+    "error": null
+  },
+  "线下门店退单": {
+    "topMenu": "订单",
+    "pageTitle": "退款订单 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/order/order-refund",
+    "tabs": [
+      "全部",
+      "退款中",
+      "已完成"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "收货信息",
+      "门店",
+      "订单来源",
+      "退款单类型",
+      "申请人",
+      "申请退款金额",
+      "是否退货",
+      "创建时间",
+      "状态",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "订单号",
+      "订单号",
+      "退款单号",
+      "退款单号",
+      "所属店铺",
+      "所属店铺",
+      "配送所属",
+      "配送所属",
+      "申请时间",
+      "申请时间",
+      "退款单类型",
+      "退款单类型"
+    ],
+    "buttons": [
+      "搜索",
+      "导出",
+      "导出明细"
+    ],
+    "error": null
+  },
+  "线上订单": {
+    "topMenu": "订单",
+    "pageTitle": "订单列表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/order/online-order-list",
+    "tabs": [
+      "全部",
+      "待补货",
+      "待拣货",
+      "已拣货",
+      "已完成",
+      "已售后",
+      "已取消"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "收货信息",
+      "下单时间",
+      "支付时间",
+      "所属门店",
+      "实收金额",
+      "订单状态",
+      "OMS订单状态",
+      "下单人",
+      "订单渠道",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "所属门店",
+      "所属门店",
+      "下单时间",
+      "下单时间",
+      "订单渠道",
+      "订单渠道",
+      "订单号",
+      "订单号",
+      "OMS订单号",
+      "OMS订单号",
+      "渠道订单号",
+      "渠道订单号"
+    ],
+    "buttons": [
+      "搜索",
+      "导出",
+      "导出明细"
+    ],
+    "error": null
+  },
+  "线上退单": {
+    "topMenu": "订单",
+    "pageTitle": "线上退单 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/order/online-order-refund",
+    "tabs": [
+      "全部",
+      "待退货",
+      "已退货"
+    ],
+    "tableHeaders": [
+      "商品信息",
+      "申请时间",
+      "申请数量",
+      "申请退款金额",
+      "退单状态",
+      "订单渠道",
+      "所属门店",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "所属门店",
+      "所属门店",
+      "申请时间",
+      "申请时间",
+      "订单渠道",
+      "订单渠道",
+      "退单号",
+      "退单号",
+      "订单号",
+      "订单号",
+      "退单类型",
+      "退单类型"
+    ],
+    "buttons": [
+      "搜索",
+      "导出",
+      "导出明细"
+    ],
+    "error": null
+  },
+  "商品库存": {
+    "topMenu": "库存",
+    "pageTitle": "商品库存查询 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-panel",
+    "tabs": [
+      "全部",
+      "联想商品",
+      "自有商品"
+    ],
+    "tableHeaders": [
+      "商品名称",
+      "PN/MTM",
+      "规格",
+      "现有库存【400】",
+      "可售库存【400】",
+      "占用库存【0】",
+      "不可售库存【0】",
+      "待入库库存【1】",
+      "库存水位预警额",
+      "分类",
+      "商品编码",
+      "SKU编码",
+      "组织名称",
+      "组织编码",
+      "库存类型",
+      "代理价",
+      "销售成本价",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "商品信息",
+      "商品编码",
+      "商品规格",
+      "SKU编码",
+      "PN/MTM编码",
+      "SN 编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码",
+      "SKU编码",
+      "PN/MTM",
+      "PN/MTM",
+      "SN",
+      "SN",
+      "商品库存类型",
+      "商品库存类型",
+      "有库存商品"
+    ],
+    "buttons": [
+      "搜索",
+      "导出库存数量",
+      "导出库存SN",
+      "同步可售库存至即时零售平台"
+    ],
+    "error": null
+  },
+  "库位库存": {
+    "topMenu": "库存",
+    "pageTitle": "同店换库位 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-storage",
+    "tabs": [
+      "全部",
+      "联想商品",
+      "自有商品"
+    ],
+    "tableHeaders": [
+      "商品名称",
+      "PN/MTM",
+      "规格",
+      "总库存",
+      "库存",
+      "占用库存",
+      "待入库",
+      "库位",
+      "销售属性",
+      "分类",
+      "商品编码",
+      "操作"
+    ],
+    "placeholders": [
+      "商品信息",
+      "商品编码",
+      "商品规格",
+      "SKU编码",
+      "PN/MTM编码",
+      "SN 编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "库位",
+      "库位",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码",
+      "SKU编码",
+      "销售属性",
+      "销售属性",
+      "PN/MTM",
+      "PN/MTM",
+      "SN",
+      "SN"
+    ],
+    "buttons": [
+      "搜 索"
+    ],
+    "error": null
+  },
+  "库存总览": {
+    "topMenu": "库存",
+    "pageTitle": "商品库存查询 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-panel-overflow",
+    "tabs": [
+      "全部",
+      "联想商品",
+      "自有商品"
+    ],
+    "tableHeaders": [
+      "商品名称",
+      "PN/MTM",
+      "规格",
+      "现有库存【400】",
+      "可售库存【400】",
+      "占用库存【0】",
+      "不可售库存【0】",
+      "待入库库存【1】",
+      "库存水位预警额",
+      "分类",
+      "商品编码",
+      "SKU编码",
+      "库存类型",
+      "代理价",
+      "销售成本价"
+    ],
+    "placeholders": [
+      "商品信息",
+      "商品编码",
+      "商品规格",
+      "SKU编码",
+      "PN/MTM编码",
+      "SN 编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码",
+      "SKU编码",
+      "PN/MTM",
+      "PN/MTM",
+      "SN",
+      "SN",
+      "商品库存类型",
+      "商品库存类型",
+      "有库存商品"
+    ],
+    "buttons": [
+      "搜索",
+      "导出库存数量",
+      "导出库存SN",
+      "同步可售库存至即时零售平台"
+    ],
+    "error": null
+  },
+  "库存流水": {
+    "topMenu": "库存",
+    "pageTitle": "库存流水 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-stream",
+    "tabs": [],
+    "tableHeaders": [
+      "业务单编号",
+      "PN/MTM",
+      "类型",
+      "流水编号",
+      "门店/仓库",
+      "库位",
+      "销售属性",
+      "入出库方式",
+      "商品编码",
+      "SKU编码",
+      "商品明细",
+      "入出库数",
+      "变更后库存",
+      "操作人",
+      "操作时间"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期",
+      "业务类型",
+      "商品名称/编码",
+      "SKU编码/PN/MTM",
+      "业务单号"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "操作时间",
+      "操作时间",
+      "入出库类型",
+      "入出库类型",
+      "商品信息",
+      "商品信息",
+      "SKU编码/PN/MTM",
+      "SKU编码/PN/MTM",
+      "业务单号",
+      "业务单号",
+      "库位",
+      "库位",
+      "销售属性",
+      "销售属性"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "库存订单": {
+    "topMenu": "库存",
+    "pageTitle": "库存流水 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-order",
+    "tabs": [],
+    "tableHeaders": [
+      "公司编号",
+      "公司名称",
+      "门店/仓库编号",
+      "门店/仓库名称",
+      "库位",
+      "业务单据类型",
+      "业务单据编号",
+      "PN/MTM",
+      "商品编码",
+      "SKU编码",
+      "商品明细",
+      "规格",
+      "单位",
+      "入出库类型",
+      "入出库数",
+      "交易人员",
+      "交易日期",
+      "交易时间",
+      "交易备注"
+    ],
+    "placeholders": [
+      "商品编码",
+      "SKU编码/PN/MTM",
+      "商品明细",
+      "交易人员",
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "业务单据类型",
+      "业务单据类型",
+      "商品编码",
+      "商品编码",
+      "SKU编码/PN/MTM",
+      "SKU编码/PN/MTM",
+      "商品明细",
+      "商品明细",
+      "入出库类型",
+      "入出库类型",
+      "交易人员",
+      "交易人员",
+      "交易日期",
+      "交易日期",
+      "库位",
+      "库位"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "SN库存订单": {
+    "topMenu": "库存",
+    "pageTitle": "库存流水 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/sn-stock-order?shopId=654987208927359345&time%5B0%5D%5B_isAMomentObject%5D=true&time%5B0%5D%5B_isUTC%5D=false&time%5B0%5D%5B_pf%5D%5Bempty%5D=false&time%5B0%5D%5B_pf%5D%5Boverflow%5D=-2&time%5B0%5D%5B_pf%5D%5BcharsLeftOver%5D=0&time%5B0%5D%5B_pf%5D%5BnullInput%5D=false&time%5B0%5D%5B_pf%5D%5BinvalidEra%5D=&time%5B0%5D%5B_pf%5D%5BinvalidMonth%5D=&time%5B0%5D%5B_pf%5D%5BinvalidFormat%5D=false&time%5B0%5D%5B_pf%5D%5BuserInvalidated%5D=false&time%5B0%5D%5B_pf%5D%5Biso%5D=false&time%5B0%5D%5B_pf%5D%5Bera%5D=&time%5B0%5D%5B_pf%5D%5Bmeridiem%5D=&time%5B0%5D%5B_pf%5D%5Brfc2822%5D=false&time%5B0%5D%5B_pf%5D%5BweekdayMismatch%5D=false&time%5B0%5D%5B_locale%5D%5B_calendar%5D%5BsameDay%5D=%5B%E4%BB%8A%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_calendar%5D%5BnextDay%5D=%5B%E6%98%8E%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_calendar%5D%5BlastDay%5D=%5B%E6%98%A8%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_calendar%5D%5BsameElse%5D=L&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BLTS%5D=HH%3Amm%3Ass&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BLT%5D=HH%3Amm&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BL%5D=YYYY%2FMM%2FDD&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5Ah%E7%82%B9mm%E5%88%86&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5BLLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5ddddAh%E7%82%B9mm%E5%88%86&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5Bl%5D=YYYY%2FM%2FD&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5Bll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5Blll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5%20HH%3Amm&time%5B0%5D%5B_locale%5D%5B_longDateFormat%5D%5Bllll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5dddd%20HH%3Amm&time%5B0%5D%5B_locale%5D%5B_invalidDate%5D=Invalid%20date&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bfuture%5D=%25s%E5%90%8E&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bpast%5D=%25s%E5%89%8D&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bs%5D=%E5%87%A0%E7%A7%92&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bss%5D=%25d%20%E7%A7%92&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bm%5D=1%20%E5%88%86%E9%92%9F&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bmm%5D=%25d%20%E5%88%86%E9%92%9F&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bh%5D=1%20%E5%B0%8F%E6%97%B6&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bhh%5D=%25d%20%E5%B0%8F%E6%97%B6&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bd%5D=1%20%E5%A4%A9&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bdd%5D=%25d%20%E5%A4%A9&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bw%5D=1%20%E5%91%A8&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Bww%5D=%25d%20%E5%91%A8&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5BM%5D=1%20%E4%B8%AA%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5BMM%5D=%25d%20%E4%B8%AA%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5By%5D=1%20%E5%B9%B4&time%5B0%5D%5B_locale%5D%5B_relativeTime%5D%5Byy%5D=%25d%20%E5%B9%B4&time%5B0%5D%5B_locale%5D%5B_months%5D%5B0%5D=%E4%B8%80%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B1%5D=%E4%BA%8C%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B2%5D=%E4%B8%89%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B3%5D=%E5%9B%9B%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B4%5D=%E4%BA%94%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B5%5D=%E5%85%AD%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B6%5D=%E4%B8%83%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B7%5D=%E5%85%AB%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B8%5D=%E4%B9%9D%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B9%5D=%E5%8D%81%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B10%5D=%E5%8D%81%E4%B8%80%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_months%5D%5B11%5D=%E5%8D%81%E4%BA%8C%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B0%5D=1%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B1%5D=2%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B2%5D=3%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B3%5D=4%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B4%5D=5%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B5%5D=6%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B6%5D=7%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B7%5D=8%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B8%5D=9%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B9%5D=10%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B10%5D=11%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_monthsShort%5D%5B11%5D=12%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_week%5D%5Bdow%5D=1&time%5B0%5D%5B_locale%5D%5B_week%5D%5Bdoy%5D=4&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B0%5D=%E6%98%9F%E6%9C%9F%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B1%5D=%E6%98%9F%E6%9C%9F%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B2%5D=%E6%98%9F%E6%9C%9F%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B3%5D=%E6%98%9F%E6%9C%9F%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B4%5D=%E6%98%9F%E6%9C%9F%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B5%5D=%E6%98%9F%E6%9C%9F%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_weekdays%5D%5B6%5D=%E6%98%9F%E6%9C%9F%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B0%5D=%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B1%5D=%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B2%5D=%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B3%5D=%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B4%5D=%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B5%5D=%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_weekdaysMin%5D%5B6%5D=%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B0%5D=%E5%91%A8%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B1%5D=%E5%91%A8%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B2%5D=%E5%91%A8%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B3%5D=%E5%91%A8%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B4%5D=%E5%91%A8%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B5%5D=%E5%91%A8%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_weekdaysShort%5D%5B6%5D=%E5%91%A8%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_abbr%5D=zh-cn&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BsameDay%5D=%5B%E4%BB%8A%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BnextDay%5D=%5B%E6%98%8E%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BlastDay%5D=%5B%E6%98%A8%E5%A4%A9%5DLT&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BsameElse%5D=L&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLTS%5D=HH%3Amm%3Ass&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLT%5D=HH%3Amm&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BL%5D=YYYY%2FMM%2FDD&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5Ah%E7%82%B9mm%E5%88%86&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5ddddAh%E7%82%B9mm%E5%88%86&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bl%5D=YYYY%2FM%2FD&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Blll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5%20HH%3Amm&time%5B0%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bllll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5dddd%20HH%3Amm&time%5B0%5D%5B_locale%5D%5B_config%5D%5BinvalidDate%5D=Invalid%20date&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bfuture%5D=%25s%E5%90%8E&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bpast%5D=%25s%E5%89%8D&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bs%5D=%E5%87%A0%E7%A7%92&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bss%5D=%25d%20%E7%A7%92&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bm%5D=1%20%E5%88%86%E9%92%9F&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bmm%5D=%25d%20%E5%88%86%E9%92%9F&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bh%5D=1%20%E5%B0%8F%E6%97%B6&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bhh%5D=%25d%20%E5%B0%8F%E6%97%B6&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bd%5D=1%20%E5%A4%A9&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bdd%5D=%25d%20%E5%A4%A9&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bw%5D=1%20%E5%91%A8&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bww%5D=%25d%20%E5%91%A8&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5BM%5D=1%20%E4%B8%AA%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5BMM%5D=%25d%20%E4%B8%AA%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5By%5D=1%20%E5%B9%B4&time%5B0%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Byy%5D=%25d%20%E5%B9%B4&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B0%5D=%E4%B8%80%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B1%5D=%E4%BA%8C%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B2%5D=%E4%B8%89%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B3%5D=%E5%9B%9B%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B4%5D=%E4%BA%94%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B5%5D=%E5%85%AD%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B6%5D=%E4%B8%83%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B7%5D=%E5%85%AB%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B8%5D=%E4%B9%9D%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B9%5D=%E5%8D%81%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B10%5D=%E5%8D%81%E4%B8%80%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B11%5D=%E5%8D%81%E4%BA%8C%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B0%5D=1%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B1%5D=2%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B2%5D=3%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B3%5D=4%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B4%5D=5%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B5%5D=6%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B6%5D=7%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B7%5D=8%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B8%5D=9%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B9%5D=10%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B10%5D=11%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B11%5D=12%E6%9C%88&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweek%5D%5Bdow%5D=1&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweek%5D%5Bdoy%5D=4&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B0%5D=%E6%98%9F%E6%9C%9F%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B1%5D=%E6%98%9F%E6%9C%9F%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B2%5D=%E6%98%9F%E6%9C%9F%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B3%5D=%E6%98%9F%E6%9C%9F%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B4%5D=%E6%98%9F%E6%9C%9F%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B5%5D=%E6%98%9F%E6%9C%9F%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B6%5D=%E6%98%9F%E6%9C%9F%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B0%5D=%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B1%5D=%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B2%5D=%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B3%5D=%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B4%5D=%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B5%5D=%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B6%5D=%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B0%5D=%E5%91%A8%E6%97%A5&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B1%5D=%E5%91%A8%E4%B8%80&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B2%5D=%E5%91%A8%E4%BA%8C&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B3%5D=%E5%91%A8%E4%B8%89&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B4%5D=%E5%91%A8%E5%9B%9B&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B5%5D=%E5%91%A8%E4%BA%94&time%5B0%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B6%5D=%E5%91%A8%E5%85%AD&time%5B0%5D%5B_locale%5D%5B_config%5D%5Babbr%5D=zh-cn&time%5B0%5D%5B_d%5D=2026-05-31T03%3A04%3A37.499Z&time%5B0%5D%5B_isValid%5D=true&time%5B1%5D%5B_isAMomentObject%5D=true&time%5B1%5D%5B_isUTC%5D=false&time%5B1%5D%5B_pf%5D%5Bempty%5D=false&time%5B1%5D%5B_pf%5D%5Boverflow%5D=-2&time%5B1%5D%5B_pf%5D%5BcharsLeftOver%5D=0&time%5B1%5D%5B_pf%5D%5BnullInput%5D=false&time%5B1%5D%5B_pf%5D%5BinvalidEra%5D=&time%5B1%5D%5B_pf%5D%5BinvalidMonth%5D=&time%5B1%5D%5B_pf%5D%5BinvalidFormat%5D=false&time%5B1%5D%5B_pf%5D%5BuserInvalidated%5D=false&time%5B1%5D%5B_pf%5D%5Biso%5D=false&time%5B1%5D%5B_pf%5D%5Bera%5D=&time%5B1%5D%5B_pf%5D%5Bmeridiem%5D=&time%5B1%5D%5B_pf%5D%5Brfc2822%5D=false&time%5B1%5D%5B_pf%5D%5BweekdayMismatch%5D=false&time%5B1%5D%5B_locale%5D%5B_calendar%5D%5BsameDay%5D=%5B%E4%BB%8A%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_calendar%5D%5BnextDay%5D=%5B%E6%98%8E%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_calendar%5D%5BlastDay%5D=%5B%E6%98%A8%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_calendar%5D%5BsameElse%5D=L&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BLTS%5D=HH%3Amm%3Ass&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BLT%5D=HH%3Amm&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BL%5D=YYYY%2FMM%2FDD&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5Ah%E7%82%B9mm%E5%88%86&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5BLLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5ddddAh%E7%82%B9mm%E5%88%86&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5Bl%5D=YYYY%2FM%2FD&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5Bll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5Blll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5%20HH%3Amm&time%5B1%5D%5B_locale%5D%5B_longDateFormat%5D%5Bllll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5dddd%20HH%3Amm&time%5B1%5D%5B_locale%5D%5B_invalidDate%5D=Invalid%20date&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bfuture%5D=%25s%E5%90%8E&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bpast%5D=%25s%E5%89%8D&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bs%5D=%E5%87%A0%E7%A7%92&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bss%5D=%25d%20%E7%A7%92&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bm%5D=1%20%E5%88%86%E9%92%9F&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bmm%5D=%25d%20%E5%88%86%E9%92%9F&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bh%5D=1%20%E5%B0%8F%E6%97%B6&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bhh%5D=%25d%20%E5%B0%8F%E6%97%B6&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bd%5D=1%20%E5%A4%A9&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bdd%5D=%25d%20%E5%A4%A9&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bw%5D=1%20%E5%91%A8&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Bww%5D=%25d%20%E5%91%A8&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5BM%5D=1%20%E4%B8%AA%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5BMM%5D=%25d%20%E4%B8%AA%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5By%5D=1%20%E5%B9%B4&time%5B1%5D%5B_locale%5D%5B_relativeTime%5D%5Byy%5D=%25d%20%E5%B9%B4&time%5B1%5D%5B_locale%5D%5B_months%5D%5B0%5D=%E4%B8%80%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B1%5D=%E4%BA%8C%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B2%5D=%E4%B8%89%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B3%5D=%E5%9B%9B%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B4%5D=%E4%BA%94%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B5%5D=%E5%85%AD%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B6%5D=%E4%B8%83%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B7%5D=%E5%85%AB%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B8%5D=%E4%B9%9D%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B9%5D=%E5%8D%81%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B10%5D=%E5%8D%81%E4%B8%80%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_months%5D%5B11%5D=%E5%8D%81%E4%BA%8C%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B0%5D=1%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B1%5D=2%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B2%5D=3%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B3%5D=4%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B4%5D=5%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B5%5D=6%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B6%5D=7%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B7%5D=8%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B8%5D=9%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B9%5D=10%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B10%5D=11%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_monthsShort%5D%5B11%5D=12%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_week%5D%5Bdow%5D=1&time%5B1%5D%5B_locale%5D%5B_week%5D%5Bdoy%5D=4&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B0%5D=%E6%98%9F%E6%9C%9F%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B1%5D=%E6%98%9F%E6%9C%9F%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B2%5D=%E6%98%9F%E6%9C%9F%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B3%5D=%E6%98%9F%E6%9C%9F%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B4%5D=%E6%98%9F%E6%9C%9F%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B5%5D=%E6%98%9F%E6%9C%9F%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_weekdays%5D%5B6%5D=%E6%98%9F%E6%9C%9F%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B0%5D=%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B1%5D=%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B2%5D=%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B3%5D=%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B4%5D=%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B5%5D=%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_weekdaysMin%5D%5B6%5D=%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B0%5D=%E5%91%A8%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B1%5D=%E5%91%A8%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B2%5D=%E5%91%A8%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B3%5D=%E5%91%A8%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B4%5D=%E5%91%A8%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B5%5D=%E5%91%A8%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_weekdaysShort%5D%5B6%5D=%E5%91%A8%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_abbr%5D=zh-cn&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BsameDay%5D=%5B%E4%BB%8A%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BnextDay%5D=%5B%E6%98%8E%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BlastDay%5D=%5B%E6%98%A8%E5%A4%A9%5DLT&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bcalendar%5D%5BsameElse%5D=L&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLTS%5D=HH%3Amm%3Ass&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLT%5D=HH%3Amm&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BL%5D=YYYY%2FMM%2FDD&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5Ah%E7%82%B9mm%E5%88%86&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5BLLLL%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5ddddAh%E7%82%B9mm%E5%88%86&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bl%5D=YYYY%2FM%2FD&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Blll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5%20HH%3Amm&time%5B1%5D%5B_locale%5D%5B_config%5D%5BlongDateFormat%5D%5Bllll%5D=YYYY%E5%B9%B4M%E6%9C%88D%E6%97%A5dddd%20HH%3Amm&time%5B1%5D%5B_locale%5D%5B_config%5D%5BinvalidDate%5D=Invalid%20date&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bfuture%5D=%25s%E5%90%8E&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bpast%5D=%25s%E5%89%8D&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bs%5D=%E5%87%A0%E7%A7%92&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bss%5D=%25d%20%E7%A7%92&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bm%5D=1%20%E5%88%86%E9%92%9F&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bmm%5D=%25d%20%E5%88%86%E9%92%9F&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bh%5D=1%20%E5%B0%8F%E6%97%B6&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bhh%5D=%25d%20%E5%B0%8F%E6%97%B6&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bd%5D=1%20%E5%A4%A9&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bdd%5D=%25d%20%E5%A4%A9&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bw%5D=1%20%E5%91%A8&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Bww%5D=%25d%20%E5%91%A8&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5BM%5D=1%20%E4%B8%AA%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5BMM%5D=%25d%20%E4%B8%AA%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5By%5D=1%20%E5%B9%B4&time%5B1%5D%5B_locale%5D%5B_config%5D%5BrelativeTime%5D%5Byy%5D=%25d%20%E5%B9%B4&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B0%5D=%E4%B8%80%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B1%5D=%E4%BA%8C%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B2%5D=%E4%B8%89%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B3%5D=%E5%9B%9B%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B4%5D=%E4%BA%94%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B5%5D=%E5%85%AD%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B6%5D=%E4%B8%83%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B7%5D=%E5%85%AB%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B8%5D=%E4%B9%9D%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B9%5D=%E5%8D%81%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B10%5D=%E5%8D%81%E4%B8%80%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bmonths%5D%5B11%5D=%E5%8D%81%E4%BA%8C%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B0%5D=1%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B1%5D=2%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B2%5D=3%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B3%5D=4%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B4%5D=5%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B5%5D=6%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B6%5D=7%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B7%5D=8%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B8%5D=9%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B9%5D=10%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B10%5D=11%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5BmonthsShort%5D%5B11%5D=12%E6%9C%88&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweek%5D%5Bdow%5D=1&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweek%5D%5Bdoy%5D=4&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B0%5D=%E6%98%9F%E6%9C%9F%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B1%5D=%E6%98%9F%E6%9C%9F%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B2%5D=%E6%98%9F%E6%9C%9F%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B3%5D=%E6%98%9F%E6%9C%9F%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B4%5D=%E6%98%9F%E6%9C%9F%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B5%5D=%E6%98%9F%E6%9C%9F%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_config%5D%5Bweekdays%5D%5B6%5D=%E6%98%9F%E6%9C%9F%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B0%5D=%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B1%5D=%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B2%5D=%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B3%5D=%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B4%5D=%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B5%5D=%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysMin%5D%5B6%5D=%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B0%5D=%E5%91%A8%E6%97%A5&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B1%5D=%E5%91%A8%E4%B8%80&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B2%5D=%E5%91%A8%E4%BA%8C&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B3%5D=%E5%91%A8%E4%B8%89&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B4%5D=%E5%91%A8%E5%9B%9B&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B5%5D=%E5%91%A8%E4%BA%94&time%5B1%5D%5B_locale%5D%5B_config%5D%5BweekdaysShort%5D%5B6%5D=%E5%91%A8%E5%85%AD&time%5B1%5D%5B_locale%5D%5B_config%5D%5Babbr%5D=zh-cn&time%5B1%5D%5B_d%5D=2026-05-31T03%3A04%3A37.499Z&time%5B1%5D%5B_isValid%5D=true",
+    "tabs": [],
+    "tableHeaders": [
+      "商品名称",
+      "PN/MTM",
+      "规格",
+      "SKU编码",
+      "商品SN",
+      "商品编码",
+      "门店/仓库编号",
+      "门店/仓库名称",
+      "库位",
+      "销售属性",
+      "业务单据类型",
+      "业务单据编号",
+      "入出库类型",
+      "交易人员",
+      "交易时间",
+      "交易备注"
+    ],
+    "placeholders": [
+      "商品SN",
+      "商品编码",
+      "SKU编码/PN/MTM",
+      "商品名称",
+      "交易人员",
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品SN",
+      "商品SN",
+      "业务单据类型",
+      "业务单据类型",
+      "商品编码",
+      "商品编码",
+      "SKU编码/PN/MTM",
+      "SKU编码/PN/MTM",
+      "商品名称",
+      "商品名称",
+      "入出库类型",
+      "入出库类型",
+      "交易人员",
+      "交易人员",
+      "交易日期",
+      "交易日期",
+      "库位",
+      "库位"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "销售成本价维护": {
+    "topMenu": "库存",
+    "pageTitle": "销售成本价维护 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-sales-cost-price",
+    "tabs": [],
+    "tableHeaders": [
+      "商品来源",
+      "商品名称",
+      "PN/MTM",
+      "分类",
+      "商品编码",
+      "SKU编码",
+      "组织名称",
+      "组织编码",
+      "代理价",
+      "库存成本价",
+      "销售成本价",
+      "操作",
+      "销售成本价",
+      "操作"
+    ],
+    "placeholders": [
+      "商品信息",
+      "商品编码",
+      "商品规格",
+      "SKU编码",
+      "PN/MTM编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品来源",
+      "商品来源",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码",
+      "SKU编码",
+      "PN/MTM",
+      "PN/MTM"
+    ],
+    "buttons": [
+      "搜索",
+      "导出销售成本价",
+      "导入销售成本价"
+    ],
+    "error": null
+  },
+  "调拨出库": {
+    "topMenu": "库存",
+    "pageTitle": "仓库调拨 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/in-out/warehouse-allocation",
+    "tabs": [],
+    "tableHeaders": [
+      "业务单编号",
+      "调入",
+      "调出",
+      "出库时间",
+      "创建时间",
+      "操作人",
+      "状态",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "创建时间",
+      "创建时间",
+      "单据状态",
+      "单据状态"
+    ],
+    "buttons": [
+      "搜索"
+    ],
+    "error": null
+  },
+  "调拨入库": {
+    "topMenu": "库存",
+    "pageTitle": "调拨入库 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/in-out/apply-product",
+    "tabs": [],
+    "tableHeaders": [
+      "业务单编号",
+      "调入",
+      "库位",
+      "调出",
+      "入库时间",
+      "创建时间",
+      "操作人名称",
+      "状态",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "选择门店",
+      "选择门店",
+      "创建时间",
+      "创建时间",
+      "单据状态",
+      "单据状态"
+    ],
+    "buttons": [
+      "搜索",
+      "调拨申请"
+    ],
+    "error": null
+  },
+  "商品入库": {
+    "topMenu": "库存",
+    "pageTitle": "商品入库 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/in-out/purchasing-manage",
+    "tabs": [],
+    "tableHeaders": [
+      "业务单编号",
+      "仓库/门店",
+      "库位",
+      "供应商",
+      "入库时间",
+      "操作人",
+      "状态",
+      "备注",
+      "操作"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "入库时间",
+      "入库时间"
+    ],
+    "buttons": [
+      "搜索",
+      "商品入库"
+    ],
+    "error": null
+  },
+  "其他出入库": {
+    "topMenu": "库存",
+    "pageTitle": "商品入库 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/in-out/other-in-out-storage",
+    "tabs": [],
+    "tableHeaders": [
+      "业务单编号",
+      "单据类型",
+      "入出库方式",
+      "仓库/门店",
+      "创建时间",
+      "操作人"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "创建时间",
+      "创建时间"
+    ],
+    "buttons": [
+      "搜索",
+      "新建出库单"
+    ],
+    "error": null
+  },
+  "同店换库位": {
+    "topMenu": "库存",
+    "pageTitle": "同店换库位 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/in-out/same-store-change-location",
+    "tabs": [
+      "全部",
+      "联想商品",
+      "自有商品"
+    ],
+    "tableHeaders": [
+      "商品名称",
+      "商品编码",
+      "PN/MTM",
+      "规格",
+      "分类",
+      "库位",
+      "销售属性",
+      "库存",
+      "操作"
+    ],
+    "placeholders": [
+      "商品规格",
+      "SKU编码/PN/MTM"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "库位",
+      "库位",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码/PN/MTM",
+      "SKU编码/PN/MTM"
+    ],
+    "buttons": [
+      "搜 索"
+    ],
+    "error": null
+  },
+  "库存配置": {
+    "topMenu": "库存",
+    "pageTitle": "商品库存查询 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/stock/stock/stock-panel",
+    "tabs": [
+      "全部",
+      "联想商品",
+      "自有商品"
+    ],
+    "tableHeaders": [
+      "商品名称",
+      "PN/MTM",
+      "规格",
+      "现有库存【400】",
+      "可售库存【400】",
+      "占用库存【0】",
+      "不可售库存【0】",
+      "待入库库存【1】",
+      "库存水位预警额",
+      "分类",
+      "商品编码",
+      "SKU编码",
+      "组织名称",
+      "组织编码",
+      "库存类型",
+      "代理价",
+      "销售成本价",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "商品信息",
+      "商品编码",
+      "商品规格",
+      "SKU编码",
+      "PN/MTM编码",
+      "SN 编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "商品分类",
+      "商品分类",
+      "商品信息",
+      "商品信息",
+      "商品编码",
+      "商品编码",
+      "商品规格",
+      "商品规格",
+      "SKU编码",
+      "SKU编码",
+      "PN/MTM",
+      "PN/MTM",
+      "SN",
+      "SN",
+      "商品库存类型",
+      "商品库存类型",
+      "有库存商品"
+    ],
+    "buttons": [
+      "搜索",
+      "导出库存数量",
+      "导出库存SN",
+      "同步可售库存至即时零售平台"
+    ],
+    "error": null
+  },
+  "员工账号": {
+    "topMenu": "账号",
+    "pageTitle": "账号管理 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/uc/user",
+    "tabs": [],
+    "tableHeaders": [
+      "账号",
+      "姓名",
+      "手机号",
+      "所属组织",
+      "角色",
+      "状态",
+      "标签",
+      "操作"
+    ],
+    "placeholders": [
+      "请输入姓名",
+      "请输入账号"
+    ],
+    "selectLabels": [
+      "所属组织",
+      "所属组织",
+      "姓名",
+      "姓名",
+      "账号",
+      "账号",
+      "角色",
+      "角色",
+      "状态",
+      "状态",
+      "风险账号",
+      "风险账号"
+    ],
+    "buttons": [
+      "搜索"
+    ],
+    "error": null
+  },
+  "业绩目标": {
+    "topMenu": "账号",
+    "pageTitle": "业绩目标 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/uc/performance-goal",
+    "tabs": [],
+    "tableHeaders": [
+      "所属组织",
+      "姓名",
+      "手机号",
+      "目标月份",
+      "销售目标(元)",
+      "毛利目标(元)",
+      "销售额(元)",
+      "销售目标完成率(%)",
+      "毛利(元)",
+      "毛利目标完成率(%)",
+      "更新日期",
+      "更新人"
+    ],
+    "placeholders": [
+      "请输入姓名",
+      "请输入手机号",
+      "开始月份",
+      "结束月份"
+    ],
+    "selectLabels": [
+      "所属组织",
+      "所属组织",
+      "姓名",
+      "姓名",
+      "手机号",
+      "手机号",
+      "目标月份",
+      "目标月份"
+    ],
+    "buttons": [
+      "搜索",
+      "导出目标",
+      "导入目标"
+    ],
+    "error": null
+  },
+  "POS管理": {
+    "topMenu": "设备",
+    "pageTitle": "POS终端 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/device/pos",
+    "tabs": [],
+    "tableHeaders": [
+      "POS终端编号",
+      "设备ID",
+      "MAC",
+      "所属组织",
+      "激活状态",
+      "激活时间",
+      "使用状态",
+      "创建时间",
+      "操作"
+    ],
+    "placeholders": [],
+    "selectLabels": [
+      "所属组织",
+      "所属组织",
+      "POS终端编号",
+      "POS终端编号",
+      "适用业务",
+      "适用业务",
+      "激活状态",
+      "激活状态"
+    ],
+    "buttons": [
+      "搜索",
+      "添加POS终端"
+    ],
+    "error": null
+  },
+  "支付管理": {
+    "topMenu": "财务",
+    "pageTitle": "自助签约 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/finance/payment/selfsigning",
+    "tabs": [],
+    "tableHeaders": [
+      "门店编码",
+      "门店名称",
+      "收款方式",
+      "申请状态",
+      "请求结果状态",
+      "微信授权状态",
+      "支付宝授权状态",
+      "短信签合同状态",
+      "协议退回原因",
+      "提交时间",
+      "数据状态",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "门店编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "门店编码",
+      "门店编码",
+      "申请状态",
+      "申请状态",
+      "请求结果状态",
+      "请求结果状态",
+      "收款方式",
+      "收款方式"
+    ],
+    "buttons": [
+      "搜索",
+      "签署新协议",
+      "线下已签转线上变更"
+    ],
+    "error": null
+  },
+  "自助签约": {
+    "topMenu": "财务",
+    "pageTitle": "自助签约 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/finance/payment/selfsigning",
+    "tabs": [],
+    "tableHeaders": [
+      "门店编码",
+      "门店名称",
+      "收款方式",
+      "申请状态",
+      "请求结果状态",
+      "微信授权状态",
+      "支付宝授权状态",
+      "短信签合同状态",
+      "协议退回原因",
+      "提交时间",
+      "数据状态",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "门店编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "门店编码",
+      "门店编码",
+      "申请状态",
+      "申请状态",
+      "请求结果状态",
+      "请求结果状态",
+      "收款方式",
+      "收款方式"
+    ],
+    "buttons": [
+      "搜索",
+      "签署新协议",
+      "线下已签转线上变更"
+    ],
+    "error": null
+  },
+  "可用金": {
+    "topMenu": "财务",
+    "pageTitle": "自助签约 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/finance/payment/selfsigning",
+    "tabs": [],
+    "tableHeaders": [
+      "门店编码",
+      "门店名称",
+      "收款方式",
+      "申请状态",
+      "请求结果状态",
+      "微信授权状态",
+      "支付宝授权状态",
+      "短信签合同状态",
+      "协议退回原因",
+      "提交时间",
+      "数据状态",
+      "操作",
+      "操作"
+    ],
+    "placeholders": [
+      "门店编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "门店编码",
+      "门店编码",
+      "申请状态",
+      "申请状态",
+      "请求结果状态",
+      "请求结果状态",
+      "收款方式",
+      "收款方式"
+    ],
+    "buttons": [
+      "搜索",
+      "签署新协议",
+      "线下已签转线上变更"
+    ],
+    "error": null
+  },
+  "支付统计报表": {
+    "topMenu": "数据",
+    "pageTitle": "支付统计 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/report/payment",
+    "tabs": [],
+    "tableHeaders": [
+      "门店名称",
+      "支付渠道",
+      "渠道收款",
+      "渠道笔数",
+      "渠道退款",
+      "退款笔数",
+      "商家贴息",
+      "渠道净额",
+      "整单支付订单数",
+      "退款订单数"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "日期",
+      "日期",
+      "支付渠道",
+      "支付渠道"
+    ],
+    "buttons": [
+      "搜索"
+    ],
+    "error": null
+  },
+  "商品统计": {
+    "topMenu": "数据",
+    "pageTitle": "商品统计 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/report/product",
+    "tabs": [],
+    "tableHeaders": [
+      "商品分类",
+      "商品名称",
+      "PN/MTM",
+      "商品规格",
+      "单位",
+      "有效销售数量",
+      "退货数量",
+      "总销售数量",
+      "总销售单数",
+      "有效销售单数",
+      "退货单数",
+      "实际零售均价",
+      "实际销售金额",
+      "实际优惠金额",
+      "销售成本均价",
+      "成本金额",
+      "毛利",
+      "毛利率(%)",
+      "销量权重(%)",
+      "金额权重(%)",
+      "毛利权重(%)",
+      "平均毛利",
+      "实收金额",
+      "实收金额均价"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期",
+      "商品名称",
+      "PN/MTM编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "日期",
+      "日期",
+      "商品分类",
+      "商品分类",
+      "商品名称",
+      "商品名称",
+      "PN/MTM",
+      "PN/MTM"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "销售分析报表": {
+    "topMenu": "数据",
+    "pageTitle": "销售分析报表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/report/sales-analysis",
+    "tabs": [],
+    "tableHeaders": [
+      "订单号",
+      "日期",
+      "所属战区",
+      "门店",
+      "PN/MTM",
+      "商品名称",
+      "商品来源",
+      "销售数量",
+      "实际零售价",
+      "实收金额均价",
+      "实际销售金额",
+      "实际优惠金额",
+      "实收金额",
+      "MTM代理价",
+      "MTM代理价*销售数量",
+      "毛利",
+      "毛利率(%)",
+      "收款方式",
+      "支付方式",
+      "商品类别",
+      "SN",
+      "收银员",
+      "备注"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期",
+      "PN/MTM编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "日期",
+      "日期",
+      "PN/MTM",
+      "PN/MTM"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "销售日报表": {
+    "topMenu": "数据",
+    "pageTitle": "销售日报表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/report/sales-daily",
+    "tabs": [],
+    "tableHeaders": [
+      "日期",
+      "门店",
+      "总订单数",
+      "有效订单数",
+      "退款订单数",
+      "有效销售数量",
+      "实际销售金额",
+      "实际优惠金额",
+      "实收金额",
+      "成本金额",
+      "毛利",
+      "毛利率(%)"
+    ],
+    "placeholders": [
+      "开始日期",
+      "结束日期"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "日期",
+      "日期"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  },
+  "门店SN有效销量报表": {
+    "topMenu": "数据",
+    "pageTitle": "SN有效销量报表 - 智慧零售云平台",
+    "url": "https://retail-pos.lenovo.com/lenovo/web/report/sn-valid-sales-company",
+    "tabs": [],
+    "tableHeaders": [
+      "有效销量判断",
+      "下单时过程数据",
+      "订单信息",
+      "PO回录数据",
+      "SN",
+      "是否是有效销量（实时判断）",
+      "是否有效销量且 PO 合规（实时判断）",
+      "是否锁定",
+      "是否智店通首销",
+      "下单时是否机码上报（实时查 csdc）",
+      "下单时是否PO激活",
+      "PN/MTM",
+      "商品分类",
+      "订单号",
+      "下单日期",
+      "门店编码",
+      "门店名称",
+      "门店类型",
+      "经销商编码",
+      "经销商名称",
+      "实收金额（￥）",
+      "支付类型",
+      "会员手机号",
+      "会员id"
+    ],
+    "placeholders": [
+      "请输入SN",
+      "请输入PN/MTM",
+      "请输入订单号",
+      "开始日期",
+      "结束日期",
+      "请输入门店编码"
+    ],
+    "selectLabels": [
+      "组织架构",
+      "组织架构",
+      "SN",
+      "SN",
+      "PN/MTM",
+      "PN/MTM",
+      "商品分类",
+      "商品分类",
+      "订单号",
+      "订单号",
+      "下单日期",
+      "下单日期",
+      "门店编码",
+      "门店编码",
+      "支付类型",
+      "支付类型",
+      "PO回录",
+      "PO回录"
+    ],
+    "buttons": [
+      "搜索",
+      "导出"
+    ],
+    "error": null
+  }
+}

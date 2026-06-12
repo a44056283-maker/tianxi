@@ -1,0 +1,29 @@
+{
+  "name": "联想智慧零售系统",
+  "short_name": "联想收银",
+  "description": "联想智慧零售系统",
+  "start_url": "/android-pos",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E2231A",
+  "shortcuts": [
+    {
+      "name": "安卓收银机",
+      "short_name": "收银",
+      "url": "/android-pos"
+    },
+    {
+      "name": "智慧零售驾驶舱",
+      "short_name": "驾驶舱",
+      "url": "/"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

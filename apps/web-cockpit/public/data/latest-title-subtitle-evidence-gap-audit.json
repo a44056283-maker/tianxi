@@ -1,0 +1,239 @@
+{
+  "generatedAt": "2026-05-24T17:38:35.094Z",
+  "scope": "captured jd/lenovo records for current-stock main-computer topSkus",
+  "rule": "must have platformMainTitle plus configSubtitle or selectedSpecText",
+  "count": 21,
+  "records": [
+    {
+      "sku": "20006725",
+      "pnMtm": "83LY00TRCD",
+      "category": "游戏笔记本",
+      "source": "jd",
+      "title": "联想拯救者Y7000 2026年补贴15% P图设计电竞游戏笔记本电脑r 旗舰标压酷睿 i7-13650HX 16G 1TB 满血RTX5060｜国家补贴 高刷高色域电竞屏",
+      "price": 10699,
+      "url": "https://item.jd.com/10110069780617.html",
+      "currentStock": 12,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006372",
+      "pnMtm": "83QH0007CD",
+      "category": "轻薄笔记本",
+      "source": "jd",
+      "title": "联想笔记本电脑小新Pro16超能本 锐龙7 H 255 24G 1T 2.8K 120Hz OLED 便携轻薄办公本 游戏 国家补贴",
+      "price": 6499,
+      "url": "https://item.jd.com/100322176814.html",
+      "currentStock": 11,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006372",
+      "pnMtm": "83QH0007CD",
+      "category": "轻薄笔记本",
+      "source": "lenovo_official",
+      "title": "联想小新Pro16 2025锐龙版16英寸轻薄笔记本电脑 深灰色",
+      "price": 6199,
+      "url": "https://item.lenovo.com.cn/product/1054482.html",
+      "currentStock": 11,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20007936",
+      "pnMtm": "83QF0002CD",
+      "category": "游戏笔记本",
+      "source": "lenovo_official",
+      "title": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "price": 13999,
+      "url": "https://item.lenovo.com.cn/product/1054230.html",
+      "currentStock": 11,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20007932",
+      "pnMtm": "83VK0048CD",
+      "category": "游戏笔记本",
+      "source": "jd",
+      "title": "联想拯救者Y7000X 2026 电竞游戏本笔记本电脑(酷睿Ultra 7 251HX 16G 1T RTX5060 2.5K 165Hz) 黑",
+      "price": 12699,
+      "url": "https://item.jd.com/100350183250.html",
+      "currentStock": 9,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20007932",
+      "pnMtm": "83VK0048CD",
+      "category": "游戏笔记本",
+      "source": "lenovo_official",
+      "title": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑",
+      "price": 12699,
+      "url": "https://item.lenovo.com.cn/product/1054219.html",
+      "currentStock": 9,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20007934",
+      "pnMtm": "83QC0002CD",
+      "category": "游戏笔记本",
+      "source": "lenovo_official",
+      "title": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "price": 13499,
+      "url": "https://item.lenovo.com.cn/product/1054213.html",
+      "currentStock": 7,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20002781",
+      "pnMtm": "83J2001CCD",
+      "category": "轻薄笔记本",
+      "source": "jd",
+      "title": "联想（Lenovo）笔记本电脑 小新Air13 2025新款 13.3英寸轻薄学习办公笔记本 标配 R7-7735H 16G 512G 白色",
+      "price": 5399,
+      "url": "https://item.jd.com/100211769459.html",
+      "currentStock": 4,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20002781",
+      "pnMtm": "83J2001CCD",
+      "category": "轻薄笔记本",
+      "source": "lenovo_official",
+      "title": "联想(Lenovo)小新Air13 13英寸轻薄笔记本电脑 蓝",
+      "price": 4399,
+      "url": "https://item.lenovo.com.cn/product/1048599.html",
+      "currentStock": 4,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004003",
+      "pnMtm": "83HR00BKCD",
+      "category": "轻薄笔记本",
+      "source": "jd",
+      "title": "联想小新14 2025款 英特尔酷睿i5-13420H 24G 512G 高色域轻薄本 灰色",
+      "price": 4794,
+      "url": "https://item.jd.com/10206530121657.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004003",
+      "pnMtm": "83HR00BKCD",
+      "category": "轻薄笔记本",
+      "source": "lenovo_official",
+      "title": "联想小新14 2025款14英寸轻薄笔记本电脑",
+      "price": 6299,
+      "url": "https://item.lenovo.com.cn/product/1044702.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004689",
+      "pnMtm": "870045087",
+      "category": "轻薄笔记本",
+      "source": "jd",
+      "title": "联想来酷Air16 2026补贴15% 超轻薄pro学生办公设计高色域大屏笔记本电脑",
+      "price": 5588,
+      "url": "https://item.jd.com/10208185946791.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004689",
+      "pnMtm": "870045087",
+      "category": "轻薄笔记本",
+      "source": "lenovo_official",
+      "title": "来酷Lecoo Air16酷睿版16英寸轻薄笔记本电脑",
+      "price": 5599,
+      "url": "https://item.lenovo.com.cn/product/1053687.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006651",
+      "pnMtm": "90XS007FCD",
+      "category": "商务台式",
+      "source": "jd",
+      "title": "联想台式机 天逸510S 英特尔酷睿i5-13400 16G 512G 家用办公电脑主机 23.8英寸显示器",
+      "price": 5499,
+      "url": "https://item.jd.com/10187950245314.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006651",
+      "pnMtm": "90XS007FCD",
+      "category": "商务台式",
+      "source": "lenovo_official",
+      "title": "【商务办公家用首选】天逸510S尊享版 i5-13400 16G 512G 台式主机电脑",
+      "price": 4899,
+      "url": "https://item.lenovo.com.cn/product/1053855.html",
+      "currentStock": 3,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006381",
+      "pnMtm": "83QG0007CD",
+      "category": "轻薄笔记本",
+      "source": "jd",
+      "title": "联想笔记本电脑小新Pro14超能本 锐龙7 H 255 24G 1T 2.8K 120Hz OLED 便携轻薄办公本 游戏 国家补贴",
+      "price": 6299,
+      "url": "https://item.jd.com/100241441971.html",
+      "currentStock": 2,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006381",
+      "pnMtm": "83QG0007CD",
+      "category": "轻薄笔记本",
+      "source": "lenovo_official",
+      "title": "联想小新Pro14 2025锐龙版14英寸轻薄笔记本电脑 深灰色",
+      "price": 8299,
+      "url": "https://item.lenovo.com.cn/product/1052705.html",
+      "currentStock": 2,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004915",
+      "pnMtm": "90X000J9CP",
+      "category": "游戏主机",
+      "source": "jd",
+      "title": "联想GeekPro 电竞游戏主机14代酷睿i5/i7设计师直播渲染台式电脑整机RTX5060独显可选支持组装电脑 i5-14400 24G 1T RTX5060 单主机",
+      "price": 8711,
+      "url": "https://item.jd.com/10210847060354.html",
+      "currentStock": 1,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20004915",
+      "pnMtm": "90X000J9CP",
+      "category": "游戏主机",
+      "source": "lenovo_official",
+      "title": "联想GeekPro 14代英特尔酷睿i5 分体式台式机",
+      "price": 8999,
+      "url": "https://item.lenovo.com.cn/product/1052942.html?key=14400&keyType=%E8%87%AA%E5%A1%AB&pageType=https%3A%2F%2Fitem.lenovo.com.cn%2Fproduct%2F1052478.html",
+      "currentStock": 1,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006863",
+      "pnMtm": "F0JW0001CD",
+      "category": "一体机",
+      "source": "jd",
+      "title": "联想（Lenovo）小新一体台式机电脑27英寸(酷睿U5-226V 16G 512GB SSD 无线键鼠 win11 )云影",
+      "price": 5699,
+      "url": "https://item.jd.com/100328884610.html",
+      "currentStock": 1,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    },
+    {
+      "sku": "20006863",
+      "pnMtm": "F0JW0001CD",
+      "category": "一体机",
+      "source": "lenovo_official",
+      "title": "小新27 酷睿Ultra 5 226V 16G 512G 27英寸一体台式电脑 云影色",
+      "price": 5699,
+      "url": "https://item.lenovo.com.cn/product/1052478.html",
+      "currentStock": 1,
+      "reason": "missing_structured_title_subtitle_or_selected_spec"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "generatedAt": "2026-06-12T01:02:52.604Z",
+  "thresholds": {
+    "staleDays": 180,
+    "warrantyExpiringDays": 60
+  },
+  "totals": {
+    "staleSerialCount": 18,
+    "staleSkuCount": 10,
+    "expiringWarrantySerialCount": 0,
+    "expiredWarrantySerialCount": 0
+  },
+  "categories": [
+    {
+      "category": "轻薄笔记本",
+      "staleSerialCount": 6,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20002781",
+          "productName": "小新Air 13 ARP10BLXR716G51211C集成显卡",
+          "pnMtm": "83J2001CCD",
+          "currentStock": 4,
+          "staleSerialCount": 3,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 227,
+          "serialSamples": [
+            "PW0H97M0",
+            "PW0LPYGT",
+            "PW0LPYH8"
+          ]
+        },
+        {
+          "skuKey": "20004689",
+          "productName": "Lecoo N175L 2Intel125H32G1T-11（来酷Lecoo Air16酷睿版16英寸）",
+          "pnMtm": "870045087",
+          "currentStock": 3,
+          "staleSerialCount": 3,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 199,
+          "serialSamples": [
+            "870045087ANDZ5AP1894",
+            "870045087ANDZ5AP1934",
+            "870045087ANDZ5AP2488"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "打印机",
+      "staleSerialCount": 4,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20003821",
+          "productName": "小新熊猫Panda Pro黑白激光智慧多功能一体打印机 西岭白/青城灰",
+          "pnMtm": "QZG1M36016",
+          "currentStock": 2,
+          "staleSerialCount": 2,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 234,
+          "serialSamples": [
+            "1SQZG1M36016Z8CK011T",
+            "1SQZG1M36016Z8CK0280"
+          ]
+        },
+        {
+          "skuKey": "20000465",
+          "productName": "联想小新鲸鱼彩色喷墨多功能打印机",
+          "pnMtm": "QZG1Q29349",
+          "currentStock": 1,
+          "staleSerialCount": 1,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 234,
+          "serialSamples": [
+            "1SQZG1Q29349Z8CK00BG"
+          ]
+        },
+        {
+          "skuKey": "20001545",
+          "productName": "彩色喷墨多功能一体机 CM408",
+          "pnMtm": "QZG1S34162",
+          "currentStock": 1,
+          "staleSerialCount": 1,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 234,
+          "serialSamples": [
+            "1SQZG1S34162Z8CK034W"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "电脑配件",
+      "staleSerialCount": 3,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20000347",
+          "productName": "联想手写笔",
+          "pnMtm": "ZG38C05305",
+          "currentStock": 3,
+          "staleSerialCount": 3,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 241,
+          "serialSamples": [
+            "HVFC85SN",
+            "HVFC86AJ",
+            "HVFC8G5R"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "显示器",
+      "staleSerialCount": 2,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20004361",
+          "productName": "家用23.8英寸IPS云灰色液晶显示器L2435/TPV/A/R",
+          "pnMtm": "67CEKCC5CC",
+          "currentStock": 8,
+          "staleSerialCount": 1,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 203,
+          "serialSamples": [
+            "U5643FL8"
+          ]
+        },
+        {
+          "skuKey": "20003686",
+          "productName": "Legion 27Q-10(H25270QG0) 27 Monitor-HDMI",
+          "pnMtm": "68C6GAS4CB",
+          "currentStock": 1,
+          "staleSerialCount": 1,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 241,
+          "serialSamples": [
+            "UNA21660"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "手机",
+      "staleSerialCount": 2,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20003937",
+          "productName": "PHN MOTO XT2427-4 CN GG 12+ 256 DS RTL NEW（S50 Neo 12+256即墨）",
+          "pnMtm": "PB2C0014CN",
+          "currentStock": 2,
+          "staleSerialCount": 2,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 234,
+          "serialSamples": [
+            "351533952784119",
+            "351533952804875"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "平板电脑",
+      "staleSerialCount": 1,
+      "expiringWarrantySerialCount": 0,
+      "expiredWarrantySerialCount": 0,
+      "rows": [
+        {
+          "skuKey": "20003015",
+          "productName": "TB321FU TAB 12G+256GBL-CN",
+          "pnMtm": "ZAEF0029CN",
+          "currentStock": 1,
+          "staleSerialCount": 1,
+          "expiringWarrantySerialCount": 0,
+          "expiredWarrantySerialCount": 0,
+          "oldestStockAgeDays": 234,
+          "serialSamples": [
+            "HA259AG0"
+          ]
+        }
+      ]
+    }
+  ]
+}

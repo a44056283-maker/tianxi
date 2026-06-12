@@ -1,0 +1,2619 @@
+## 2026-06-12 Handoff｜`automation-8` 默认 Chrome 当前会话已恢复可读，但本轮误在 `06:12 CST` 窗口外执行了 1 条可见复核；已撤回正式批次命名，真实终态只能记 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - `automation-8` memory（原先不存在）
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 通过 Chrome 插件接入默认 Chrome 当前会话并列出 open tabs
+  - 认领：
+    - `http://127.0.0.1:5174/`
+    - `https://item.lenovo.com.cn/product/1050036.html`
+    - 原京东稳定页并切到 `https://item.jd.com/10187068675621.html`
+  - 真实取证：
+    - 京东 `20004481 / ZAE70012CN`：主价 `1999`、国补后 `1299.75`
+    - 联想官旗 `20004481 / ZAE70012CN`：主价 `1999`、预估到手 `1569.1`
+    - 前端 `商品零售 -> 实时零售报价 -> 20004481`：可见 `京东满减 1299.75`、`官旗活动 1569.10`、`执行价 1999`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0612/visible-evidence-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0612-window-violation/out-of-window-visible-review-20004481.json`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0612-window-violation/blocking-summary.md`
+  - 受控撤回：
+    - 删除误生成的 `manual-price-supplements-20260612-automation-8-visible-chrome-batch-1.json`
+- authoritative 结果：
+  - 当前系统时间：
+    - `2026-06-12 06:12 CST`
+    - 超出 `10:00-22:00 CST` 手工复核窗口
+  - 默认 Chrome 当前会话已恢复可读，但窗口门禁仍成立
+  - 本轮没有新增可供 runner 吃入的当天正式批次
+  - `latest-semi-auto-execution-plan.json` 主阻塞仍是：
+    - `retailPriceVerificationCount = 50`
+- 接手注意：
+  - 不要把这轮 `06:12 CST` 的窗口外取证误写成正式手工复核已完成。
+  - 下一轮必须等到 `2026-06-12 10:00 CST` 之后，重新生成 `manual-price-supplements-20260612*.json` 正式批次。
+  - 可以复用当前已恢复的 Chrome 会话能力，但要重做窗口内可见取证。
+
+## 2026-06-12 Handoff｜`automation-2` 本轮清理了空 `.scheduled-task.lock` 并重进正式入口，但没有新的手工价格批次、没有新的 runner 正式产物、也没有前端可见验收；真实终态只能继续记 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - 自动化记忆
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 入口先持续输出：
+    - `Scheduled task queued behind active task`
+  - 现场复核：
+    - `.scheduled-task.lock` 为空目录
+    - `lsof +D .scheduled-task.lock` 无占用
+  - 受控处理：
+    - `rmdir .scheduled-task.lock`
+  - 入口后续继续进入：
+    - `/bin/ps: Operation not permitted`
+    - `nice: setpriority: Operation not permitted`
+    - `tsx` IPC pipe `EPERM`
+    - 自动回退到 `node --import tsx/esm`
+  - 复核：
+    - `apps/inventory-sync/artifacts/latest-scheduled-task-reports.json`
+    - `apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json`
+    - `apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json`
+    - `apps/web-cockpit/public/data/latest-terminal-title-consistency-audit.json`
+    - `apps/web-cockpit/public/data/latest-retail-zone-snapshot.json`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0402-empty-lock-and-frontend-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0402-empty-lock-and-frontend-blocked/visible-preflight-summary.json`
+  - 尝试补新的本地前端可见验收：
+    - `curl -I http://127.0.0.1:5174/`
+    - `curl -I http://192.168.13.104:5174/`
+- authoritative 结果：
+  - 当前 authoritative 最新正式报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T20-04-28-489Z.json`
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 当前正式报告仍明确：
+    - `ingest_manual_marketplace_batch = skipped`
+    - `manual_chrome_capture_required = skipped`
+  - 当前没有新的 `2026-06-12` 手工价格批次文件。
+  - 当前零售快照与审计仍可读：
+    - `latest-retail-zone-snapshot.json -> categories = 12`
+    - `京东 sourceStatus itemCount = 79`
+    - `联想官网 sourceStatus itemCount = 57`
+    - `latest-terminal-price-consistency-audit.json -> status = pass`
+    - `latest-terminal-title-consistency-audit.json -> status = pass`
+  - 当前没有新的本地前端可见证据：
+    - `curl -I http://127.0.0.1:5174/ -> curl: (7) Failed to connect`
+    - `curl -I http://192.168.13.104:5174/ -> curl: (7) Failed to connect`
+  - 本轮没有新增：
+    - 新的手工商城复核证据
+    - 新的 SQL/API 写入
+    - 新的前端肉眼可见证据
+- 接手注意：
+  - 不要把“空锁清理 + 入口重进”误写成“今日价格复核已完成”。
+  - 下一手优先继续 `automation-8` 或主线程 Chrome 可见复核，补 `2026-06-12` 当天新的手工价格批次。
+  - 如再次遇到排队，先检查 `.scheduled-task.lock` 是否又是空目录。
+
+## 2026-06-12 Handoff｜`automation-8` 本轮处于手工复核窗口外，且默认 Chrome 接管继续失败；真实终态只能记 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 读取：
+    - `automation-8` memory
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 复核：
+    - `apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json`
+    - `apps/web-cockpit/public/data/latest-product-url-locks.json`
+    - `apps/inventory-sync/artifacts/latest-scheduled-task-reports.json`
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T17-06-03-528Z.json`
+  - 尝试：
+    - `mcp__computer_use.list_apps`
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+    - `osascript tell application "Google Chrome" ...`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0208-window-and-access-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0208-window-and-access-blocked/visible-preflight-summary.json`
+- authoritative 结果：
+  - 当前时间：
+    - `2026-06-12 02:08 CST`
+    - 超出 `automation-8` 的 `10:00-22:00 CST` 任务窗口
+  - 当前 Chrome 进程虽然前台可见，但无法取得可见接管：
+    - `Computer Use approval denied via MCP elicitation for app 'com.google.Chrome'.`
+  - 当前 AppleScript 只读探测也失败：
+    - `execution error: 不能获得“application "Google Chrome"”。 (-1728)`
+  - 当前半自动计划仍显示：
+    - `retailPriceVerificationCount = 50`
+    - `frontendBlankPriceCount = 0`
+  - 当前最新正式 runner 仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T17-06-03-528Z.json`
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 本轮没有新增：
+    - 手工商城复核证据
+    - SQL/API 写入
+    - 前端肉眼可见验收证据
+- 接手注意：
+  - 不要把这轮阻塞探测误写成手工价格复核已执行。
+  - 下一轮仅在 `2026-06-12 10:00 CST` 之后继续 `automation-8`。
+  - 白天窗口内先恢复当前线程对默认 Chrome 的可见接管，再继续高库存已锁定 SKU 复核。
+
+## 2026-06-12 Handoff｜`automation-2` 本轮已重新执行 `daily-jd-lenovo-price-sync` 编排入口，但没有当天手工价格批次，也没有新的前端可见证据；authoritative 终态继续保持 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - 自动化记忆
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 真实入口表现：
+    - `/bin/ps: Operation not permitted`
+    - `nice: setpriority: Operation not permitted`
+    - `tsx` IPC pipe `EPERM`
+    - 自动回退到 `node --import tsx/esm`
+  - 复核：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T17-06-03-528Z.json`
+    - `apps/inventory-sync/artifacts/latest-scheduled-task-reports.json`
+    - `apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json`
+    - `apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json`
+    - `apps/web-cockpit/public/data/latest-terminal-title-consistency-audit.json`
+  - 尝试补新的本地前端可见验收：
+    - `mcp__computer_use.list_apps`
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+    - `curl -I http://127.0.0.1:5174/`
+    - `cd apps/web-cockpit && pnpm dev --host 127.0.0.1 --port 5174`
+- authoritative 结果：
+  - 当前最新正式报告仍是：
+    - `2026-06-11T17-06-03-528Z.json`
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 当前报告已明确：
+    - `ingest_manual_marketplace_batch = skipped`
+    - `manual_chrome_capture_required = skipped`
+    - 当前未发现当天手工价格批次文件
+  - 当前半自动计划仍显示：
+    - `retailPriceVerificationCount = 50`
+    - `frontendBlankPriceCount = 0`
+  - 当前标题 / 价格一致性审计仍通过：
+    - `title issueCount = 0`
+    - `price mismatchCount = 0`
+  - 当前没有新的本地前端可见证据：
+    - `Computer Use approval denied via MCP elicitation for app 'com.google.Chrome'.`
+    - `pnpm dev --host 127.0.0.1 --port 5174 -> listen EPERM`
+    - `curl -I http://127.0.0.1:5174/ -> curl: (7) Failed to connect`
+  - 本轮没有新增：
+    - 新的手工商城复核证据
+    - 新的 SQL/API 写入
+    - 新的前端肉眼可见证据
+- 接手注意：
+  - 不要把这轮“编排入口已跑”误写成“手工价格复核已完成”。
+  - 下一手优先继续 `automation-8` 或主线程 Chrome 可见复核，补真实手工价格批次。
+  - 在拿到新的手工复核或新的前端可见证据前，终态继续保持 `executed_not_closed`。
+
+## 2026-06-11 Handoff｜教育补正式前端列表已切到“过滤占位 + 去重保真”口径
+
+- 本轮真实动作：
+  - 修改：
+    - `apps/web-cockpit/src/App.tsx`
+    - `apps/web-cockpit/public/education-subsidy-2026/admin.html`
+  - 运行：
+    - `cd apps/web-cockpit && pnpm build`
+    - `curl -I http://127.0.0.1:5174/education-subsidy-2026/admin.html`
+    - `curl -I http://192.168.13.104:5174/education-subsidy-2026/admin.html`
+    - `curl -I http://127.0.0.1:5174/`
+    - `curl -I http://192.168.13.104:5174/`
+- authoritative 结果：
+  - 正式列表不再展示：
+    - `待补出库单号`
+    - `待补箱码`
+    - `待同步`
+    - `待匹配`
+  - 前端显示逻辑已改为：
+    - 过滤 gap placeholder / 待补采 / 服务类产品
+    - 同订单或同手机号同商品同日期去重
+    - 优先保留 SN、单号、电话更完整的记录
+  - 基于当前静态汇总文件按新口径重算，可显示正式记录约：
+    - 总计 `103`
+    - `智店通入库群 = 58`
+    - `教育补贴群 = 45`
+- 接手注意：
+  - 这次只是把“前端不该显示的壳数据”下线，不等于 backlog 已全部补实采。
+  - 下一手优先继续 CLI 主链回补缺 SN、缺正式代扫图、缺 SQL 固化的真实缺口。
+
+## 2026-06-11 Handoff｜`automation-2` 本轮再次触发 `daily-jd-lenovo-price-sync`，但真实执行只到串行排队；authoritative 状态仍保持 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - 自动化记忆
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 真实入口表现：
+    - 持续输出 `Scheduled task queued behind active task`
+    - `.scheduled-task.lock` 当前由活跃实例占用
+  - 复核：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T13-11-45-355Z.json`
+    - `apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json`
+    - `apps/web-cockpit/public/data/latest-retail-zone-snapshot.json`
+    - `apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json`
+    - `apps/web-cockpit/public/data/latest-terminal-title-consistency-audit.json`
+  - 尝试补新的本地前端可见验收：
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+    - 返回 `Computer Use approval denied`
+- authoritative 结果：
+  - 当前最新正式报告仍是：
+    - `2026-06-11T13-11-45-355Z.json`
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 当前半自动计划仍显示：
+    - `retailPriceVerificationCount = 50`
+    - `frontendBlankPriceCount = 0`
+  - 当前标题 / 价格一致性审计仍通过：
+    - `title issueCount = 0`
+    - `price mismatchCount = 0`
+  - 本轮没有新增：
+    - 新的 runner 完成报告
+    - 新的手工商城复核证据
+    - 新的 SQL/API 写入
+    - 新的本地前端肉眼可见证据
+- 接手注意：
+  - 不要把“排队等锁”写成 runner 已成功重跑。
+  - 下一手优先等活跃锁释放后再重试入口，或直接继续 `automation-8` 的可见 Chrome 手工复核。
+  - 在拿到新的手工复核或新的前端可见证据前，终态继续保持 `executed_not_closed`。
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 21:45 槽位已真实重跑正式入口，但网页微信仍是 `Selkies` 黑屏页，前端 `入库出库` 仍在加载中，终态保持 `executed_not_closed`
+
+- 本轮真实动作：
+  - 通过 Chrome 当前会话 claim：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+    - `http://127.0.0.1:5174/`
+  - 落盘阻塞证据：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-2145-slot/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-2145-slot/visible-page-facts.json`
+  - 运行：
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+  - 受控清理一次空锁：
+    - `lsof +D .scheduled-task.lock`
+    - `rmdir .scheduled-task.lock`
+  - runner 真实表现：
+    - `/bin/ps: Operation not permitted`
+    - `nice: setpriority: Operation not permitted`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动回退到 `node --import tsx/esm`
+  - 新正式报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T13-48-27-428Z.json`
+  - 因 shell 收尾挂起，已手动把新正式报告同步回：
+    - `apps/inventory-sync/artifacts/latest-scheduled-task-reports.json`
+    - `apps/web-cockpit/public/data/latest-scheduled-task-reports.json`
+    - `apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json`
+    - `apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json`
+- authoritative 结果：
+  - 当前网页微信真实状态：
+    - `WeChat Selkies`
+    - `https://localhost:3001/`
+    - DOM 只有 `Selkies` 控制壳按钮
+    - 可见主体仍是黑屏远程画面，不是可操作群聊页
+  - 当前智店通真实状态：
+    - `订单列表 - 智慧零售云平台`
+    - 日期 `2026-06-11 ~ 2026-06-11`
+    - 当前可见当天 `6` 条已完成门店收银订单
+  - 当前下载目录仍缺：
+    - `商品库存统计_2026-06-11.xlsx`
+    - `商品库存SN统计_2026-06-11.xlsx`
+    - 成对 `orderData*.xlsx / orderProductData*.xlsx`
+  - 当前前端真实状态：
+    - `联想智慧零售系统 -> 入库出库`
+    - 仍显示 `销售出库（加载中） / 采购入库（加载中） / 其他出库（加载中） / 调拨出库（加载中） / 调拨入库（加载中）`
+    - 主列表仍显示 `正在加载出入库流水`
+  - 当前最新正式报告：
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 采购入库进货成本价仍缺 1 条同日记录，当前不能写成出入库明细已收口。`
+  - 本轮额外记录的规则冲突：
+    - `docs/ai-context/02_DECISIONS.md` 已把教育补主链切到 `今日相机 OpenAPI`
+    - 但当前 automation prompt 仍强制要求先做网页微信群前置扫描
+    - 本轮按 automation prompt 执行，并已留痕
+- 接手注意：
+  - 不要把当前 runner 重跑误写成微信群已扫完或前端已可见收口；这两件事都没有发生。
+  - 下一手优先恢复默认 Chrome 里的网页微信业务页，再决定是否继续沿用旧 prompt 链路。
+  - 恢复前不要把本轮升级成 `real_completed`。
+
+## 2026-06-11 Handoff｜`automation-2` 已重跑 `daily-jd-lenovo-price-sync`，空锁已清理，正式 runner authoritative 终态更新为 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - 自动化记忆
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 初次运行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+    - 被 `.scheduled-task.lock` 串行门禁持续挂起
+  - 复核锁状态：
+    - `.scheduled-task.lock` 是空目录
+    - `lsof +D .scheduled-task.lock` 无占用句柄
+  - 受控恢复：
+    - `rmdir .scheduled-task.lock`
+    - 重新执行 `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - runner 实际表现：
+    - `/bin/ps: Operation not permitted`
+    - `tsx` IPC pipe `EPERM`
+    - 自动回退到 `node --import tsx/esm src/cli.ts run-scheduled-task daily-jd-lenovo-price-sync`
+  - 复核：
+    - `apps/web-cockpit/public/data/latest-terminal-title-consistency-audit.json`
+    - `apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json`
+    - 最新正式报告 `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T12-28-43-229Z.json`
+- authoritative 结果：
+  - 当前标题一致性审计：
+    - `status = pass`
+    - `issueCount = 0`
+  - 当前价格一致性审计：
+    - `status = pass`
+    - `mismatchCount = 0`
+  - 当前正式 runner 已完成：
+    - 手工批次吃入
+    - 派生快照重建
+    - `snapshot_cache` / SQLite 镜像同步
+    - 半自动计划刷新
+  - 当前正式 runner authoritative 状态：
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+    - `verify_frontend_visible_sync_gate = failed`
+  - 当前本线程没有新的前端肉眼可见验收证据：
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+    - 返回 `Computer Use approval denied`
+- 接手注意：
+  - 不要再沿用 `20:02` 那份 `blocked_page_risk` 报告；它已经被新的正式报告替代。
+  - 本轮未执行新的外部商城手工采价，只做了编排重跑和状态修正。
+  - 下一手优先：
+    - 继续高库存已锁定 SKU 的真实 Chrome 复核
+    - 或补可见前端验收，并评估让 runner 读取人工前端验收文件
+
+## 2026-06-11 Handoff｜`daily-jd-lenovo-price-sync` 本轮无法重新接管默认 Chrome，未执行手工采价，真实终态只能写 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 读取固定记忆入口、自动化记忆、今日 `git status`
+  - 尝试重新接管默认 Chrome 当前会话：
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2107-access-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2107-access-blocked/visible-preflight-summary.json`
+- authoritative 结果：
+  - 当前线程没有取得新的默认 Chrome 可见页面状态：
+    - `Computer Use approval denied via MCP elicitation for app 'com.google.Chrome'.`
+  - 因此前置门禁失败，本轮没有执行：
+    - 新的京东详情页复核
+    - 新的联想官旗详情页复核
+    - 新的规格/颜色/版本切换
+    - 新的手工价格采集
+    - 新的 SQL/API 写入
+    - 新的前端可见验收
+  - 当前最新正式 runner 报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T13-05-05-457Z.json`
+    - `status = failed`
+    - `executionOutcome = blocked_page_risk`
+  - 本轮已生成新的恢复入口：
+    - `docs/ai-context/packages/smart-retail-context-20260611-2109.zip`
+    - `docs/ai-context/snapshots/snapshot-20260611-2109.md`
+  - 当前真实终态只能写：
+    - `blocked_page_risk`
+- 接手注意：
+  - 不要把 `20:08` 那轮 `20004481` 的旧证据冒充成本轮 `21:07` 新复核。
+  - 下一手先恢复当前线程对默认 Chrome 的可见接管能力，再继续下一个高库存已锁定 SKU。
+  - 恢复前不要重跑正式入口。
+
+## 2026-06-11 Handoff｜开发计划日更已刷新；本轮只更新计划与交接，未执行手工采集，真实终态保持 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - `docs/ai-context/01_CURRENT_STATE.md`
+    - `docs/ai-context/03_TASK_LOG.md`
+    - `docs/ai-context/04_NEXT_ACTIONS.md`
+    - `docs/ai-context/09_CODEX_HANDOFF.md`
+    - `docs/ai-context/10_TEST_LOG.md`
+    - 今日 `git status`
+  - 基于今日已落盘 authoritative 证据，刷新：
+    - 当前状态
+    - 任务日志
+    - 下一步
+    - 交接
+    - 测试日志
+- authoritative 结果：
+  - 本轮没有新的手工采集证据。
+  - 本轮没有新的 SQL/API 业务写入。
+  - 本轮没有新的前端可见验收。
+  - 本轮已生成新的恢复入口：
+    - context package：
+      - `docs/ai-context/packages/smart-retail-context-20260611-2102.zip`
+    - latest package path：
+      - `docs/ai-context/latest-package-path.txt`
+    - snapshot：
+      - `docs/ai-context/snapshots/snapshot-20260611-2102.md`
+    - latest snapshot：
+      - `docs/ai-context/latest-snapshot.md`
+  - 当前三条主阻塞重新确认如下：
+    - `daily-jd-lenovo-price-sync`
+      - `20004481 / ZAE70012CN` 已有真实页面、SQL/快照、前端人工可见三层证据
+      - 最新正式报告仍是 `executed_not_closed`
+      - 当前未自动收口点是 `verify_frontend_visible_sync_gate`
+    - 教育补工作台
+      - 已切到 `education_scan_record_v2`
+      - 当前 `projectionTotalCount = 67`
+      - 当前 `gapCountSinceDate = 88`
+    - `zhidiantong-sync-cycle`
+      - 默认 Chrome 可接管
+      - 网页微信仍是 `Selkies` 控制壳 + 黑屏远程画面
+      - 当前终态仍是 `blocked_page_risk`
+  - 本轮作为“开发计划日更”只能写：
+    - `executed_not_closed`
+- 接手注意：
+  - 不要把本轮文档刷新、context 打包或 snapshot 更新误写成业务同步完成。
+  - 下一手继续按三条真实主阻塞推进，不要重新发散到泛化重构。
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 21:00 槽位已重新接管默认 Chrome，但网页微信仍是 `Selkies` 控制壳 + 黑屏远程画面，真实终态保持 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 通过默认 Chrome 当前会话重新读取打开标签列表并 claim：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-2102-check/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-2102-check/visible-page-facts.json`
+- authoritative 结果：
+  - 当前网页微信 authoritative 状态：
+    - 标题：`WeChat Selkies`
+    - URL：`https://localhost:3001/`
+    - DOM 只见 `Selkies` 控制壳和 `视频设置 / 屏幕设置 / 音频设置 / 统计信息 / 剪贴板 / 文件 / 应用程序 / 共享 / 游戏手柄`
+    - 可见主体仍是黑屏远程画面，不是可操作群聊页
+  - 当前智店通 authoritative 状态：
+    - 页面：`订单列表 - 智慧零售云平台`
+    - 日期框：`2026-06-11 ~ 2026-06-11`
+    - 当前可见当天 `6` 条订单：
+      - `XS260611302461451001 / ¥639.00`
+      - `XS260611891383245001 / ¥7999.00`
+      - `XS260611287171548001 / ¥639.00`
+      - `XS260611477486929001 / ¥12598.00`
+      - `XS260611128126626001 / ¥6299.00`
+      - `XS260611721755629001 / ¥7999.00`
+  - `/Users/luxiangnan/Downloads` 当前仍缺：
+    - `商品库存统计_2026-06-11.xlsx`
+    - `商品库存SN统计_2026-06-11.xlsx`
+    - 当日 `orderData/orderProductData` 成对导出
+  - 因网页微信前置门禁仍失败，本轮没有执行：
+    - 网页微信群图片回扫
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 当前真实终态只能保持：
+    - `blocked_page_risk`
+- 接手注意：
+  - 不要把“当前已能接管 Chrome”误写成“21:00 槽位已执行同步”；这两件事不等价。
+  - 下一手仍应先恢复默认 Chrome 里的网页微信业务页，再重走 `智店通入库群 -> 教育补贴群 -> 智店通` 固定顺序。
+  - 恢复前不要重跑正式入口。
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 20:16 当前轮次已重新接管默认 Chrome，但网页微信仍是 `Selkies` 控制壳 + 黑屏远程画面，真实终态保持 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 通过默认 Chrome 当前会话重新读取打开标签列表：
+    - `tabPrecheckBefore = 11`
+  - claim 并核查：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 结束前释放浏览器控制，保留网页微信与智店通标签为 handoff
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-2016-check/blocking-summary.md`
+- authoritative 结果：
+  - 本轮已经重新取得新的 Chrome 可见页面证据，不再是 `19:30` 的“当前线程无法接管 Chrome”状态。
+  - 当前网页微信 authoritative 状态：
+    - 标题：`WeChat Selkies`
+    - URL：`https://localhost:3001/`
+    - DOM 只见 `Selkies` 控制壳和 `视频设置 / 屏幕设置 / 音频设置 / 统计信息 / 剪贴板 / 文件 / 应用程序 / 共享 / 游戏手柄`
+    - 可见主体仍是黑屏远程画面，不是可操作群聊页
+  - 当前智店通 authoritative 状态：
+    - 页面：`订单列表 - 智慧零售云平台`
+    - 日期框：`2026-06-11 ~ 2026-06-11`
+    - 当前可见当天 `6` 条订单：
+      - `XS260611302461451001 / ¥639.00`
+      - `XS260611891383245001 / ¥7999.00`
+      - `XS260611287171548001 / ¥639.00`
+      - `XS260611477486929001 / ¥12598.00`
+      - `XS260611128126626001 / ¥6299.00`
+      - `XS260611721755629001 / ¥7999.00`
+  - 因网页微信前置门禁仍失败，本轮没有执行：
+    - 网页微信群图片回扫
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 当前真实终态只能保持：
+    - `blocked_page_risk`
+- 接手注意：
+  - 不要把“当前已能接管 Chrome”误写成“本轮已执行同步”；这两件事不等价。
+  - 下一手仍应先恢复默认 Chrome 里的网页微信业务页，再重走 `智店通入库群 -> 教育补贴群 -> 智店通` 固定顺序。
+  - 恢复前不要重跑正式入口。
+
+## 2026-06-11 Handoff｜`daily-audit-and-snapshot-rebuild` 已按正式入口执行，但 authoritative 终态是 `blocked_page_risk`，且本轮没有新的前端肉眼可见验收证据
+
+- 本轮真实动作：
+  - 运行：
+    - `bash scripts/run_scheduled_task.sh daily-audit-and-snapshot-rebuild`
+  - runner 真实表现：
+    - `tsx` 主入口因 IPC pipe `EPERM` 失败
+    - 自动回退到 `node --import tsx/esm`
+  - 正式报告落盘：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-audit-and-snapshot-rebuild/2026-06-11T11-38-35-005Z.json`
+  - 只读核查：
+    - `python3 scripts/audit_terminal_title_consistency.py`
+    - 各派生快照与任务 dashboard 时间戳
+  - 手工补同步：
+    - `rsync -a --delete apps/web-cockpit/public/data/ apps/web-cockpit/dist/data/`
+- authoritative 结果：
+  - 当前正式报告：
+    - `status = failed`
+    - `executionOutcome = blocked_page_risk`
+    - `manualActionRequired = true`
+  - 直接阻塞点不是缺采集，而是标题一致性审计失败：
+    - `apps/web-cockpit/public/data/latest-terminal-title-consistency-audit.json`
+    - 当前唯一 issue：
+      - `skuKey = 20006289`
+      - `field = displayTitleStrongDetail`
+      - `actual = 联想YOGA Air 14 Aura AI元启版 · 32GB / 1TB SSD / 浅海贝 / Win11 · 83JX000ACD`
+  - 本轮确实刷新了这些派生快照：
+    - `latest-product-url-locks.json`
+    - `latest-collection-operation-plan.json`
+    - `latest-standard-price-master.json`
+    - `latest-retail-price-audit.json`
+    - `latest-retail-zone-snapshot.json`
+    - `latest-scheduled-task-dashboard.json`
+  - 但 `latest-scheduled-sql-auto-sync-audit.json` 没有更新，仍停在：
+    - `generatedAt = 2026-06-11T11:20:55.424Z`
+    - `taskName = sn-warranty-backfill`
+  - 本地预览层当前已手工同步到最新失败态：
+    - `apps/web-cockpit/dist/data/latest-scheduled-task-dashboard.json` `19:38:35`
+    - `apps/web-cockpit/dist/data/latest-retail-zone-snapshot.json` `19:38:34`
+    - `apps/web-cockpit/dist/data/latest-standard-price-master.json` `19:38:34`
+  - 但本轮没有新的前端肉眼可见验收证据：
+    - shell 直连 `http://127.0.0.1:5174/` 返回 `Operation not permitted`
+    - `mcp__computer_use.get_app_state(app="Google Chrome")` 返回 `approval denied`
+- 接手注意：
+  - 不要把“`dist/data` 已追平”写成“前端已验收完成”；这两件事不等价。
+  - 这轮任务不是 `real_completed`，也不是单纯 `executed_not_closed`；当前 authoritative 终态就是 runner 已落盘的 `blocked_page_risk`。
+  - 下一手优先顺序：
+    1. 修 `20006289` 的标题一致性 issue
+    2. 查 daily audit 为什么没写新的 `latest-scheduled-sql-auto-sync-audit.json`
+    3. 恢复本线程对本地前端/Chrome 的可见验收能力后，再补真实页面验收
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 19:30 当前轮次未取得新的可见 Chrome 页面证据，本线程真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 运行：
+    - `mcp__computer_use.list_apps`
+    - 确认 `Google Chrome` 当前仍在运行
+  - 尝试接管默认 Chrome 当前会话：
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+  - 真实返回：
+    - `Computer Use approval denied via MCP elicitation for app 'com.google.Chrome'.`
+  - 再尝试只读脚本兜底：
+    - `osascript` 读取 Chrome 窗口/标签失败
+    - `open/screencapture` GUI 抓屏失败
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1930-access-blocked/blocking-summary.md`
+- authoritative 结果：
+  - 本轮没有新增可见 Chrome 页面证据。
+  - 当前仓库里最新正式报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T11-31-39-641Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 最近一次 authoritative 可见页面状态仍沿用 `18:45`：
+    - 网页微信是黑屏远程画面，不是可操作群聊页
+    - 智店通 `订单 -> 线下门店订单` 页面可见当天 `2026-06-11` 订单列表
+  - 因当前线程无法重新取得 Chrome 可见状态，本轮没有执行：
+    - 网页微信群图片回扫
+    - 智店通页面导出动作
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 当前真实终态只能保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把 `18:45` 的旧可见状态冒充成 `19:30` 新证据
+  - 下一手仍应先恢复当前线程对默认 Chrome 的可见接管能力，再重新确认网页微信与智店通真实页面状态
+  - 恢复前不要重跑正式入口
+
+## 2026-06-11 Handoff｜`daily-jd-lenovo-price-sync` 已真实复核 `20006372 / 83QH0007CD`，前端可见已更新，但正式 runner 仍卡在标题一致性审计
+
+- 本轮真实动作：
+  - 通过默认 Chrome 当前会话实际打开：
+    - `https://item.jd.com/100322176814.html`
+    - `https://item.lenovo.com.cn/product/1054482.html`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-1908/visible-evidence-summary.md`
+    - `apps/inventory-sync/artifacts/manual-price-supplements-20260611-automation-8-visible-chrome-batch-2.json`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+- authoritative 结果：
+  - 京东当前可见：
+    - `联想京东自营旗舰店`
+    - `16英寸 / 锐龙7 H 255|24G 1T|2.8K OLED`
+    - `日常价 6499`
+    - `国补领后价 5063.08`
+    - `国家补贴｜领后减 893.48`
+  - 联想官旗当前可见：
+    - `商品编号 AK-83QH0007CD`
+    - `AMD 锐龙 7 H 255/Windows 11 家庭中文版/16英寸/24GB/1T SSD/集成显卡/深灰色`
+    - `秒杀价 6199`
+    - `划线价 7999`
+  - 正式 runner 已吃入本轮手工批次：
+    - `updatedRecordCount = 2`
+    - 正式报告：`apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T11-09-47-462Z.json`
+  - 前端当前真实可见：
+    - `http://192.168.13.104:5174/` -> `商品零售` -> `实时零售报价`
+    - 搜索 `20006372`
+    - 页面可见：
+      - `SKU 20006372 · PN 83QH0007CD`
+      - `京东满减：采集到补贴/优惠后价 ￥5,063.08`
+      - `执行价 ￥6,299`
+      - `国补 ￥5,354.15`
+  - 但正式 runner 最终仍停在：
+    - `executionOutcome = blocked_page_risk`
+    - 原因：`python3 scripts/audit_terminal_title_consistency.py` 失败
+- 接手注意：
+  - 不要再写“本轮未执行手工采集”或“没有新手工批次”；这两句现在都不成立。
+  - 当前该线程的真实缺口不是价格证据，而是正式 runner 的标题一致性审计门禁。
+  - 下一手应先查 `audit_terminal_title_consistency.py` 为何无法在本地拿到 API，再继续补下一个高库存已锁定 SKU。
+
+## 2026-06-11 Handoff｜教育补代扫 SQL 汇总已同步到管理端与产品价保教育补汇总，智享金当前 authoritative 为 `¥25,000`
+
+- 本轮真实动作：
+  - 修改 `apps/api-server/app/retail_core.py`
+  - 修改 `apps/api-server/app/main.py`
+  - 修改 `apps/web-cockpit/src/domain/inventoryQuote/service.ts`
+  - 修改 `apps/web-cockpit/src/App.tsx`
+  - 修改 `apps/web-cockpit/public/education-subsidy-2026/admin.html`
+  - 重启 `8000` 端口 API
+- authoritative 结果：
+  - `/api/inventory-quote/education-agent-scan` 当前真实返回：
+    - `source = sql.education_agent_scan_raw`
+    - `totalEducationDiscountAmount = 31050`
+    - `totalZhixiangjinAmount = 25000`
+  - 管理端 `education-subsidy-2026/admin.html` 当前真实显示：
+    - `累计智享金 ¥25,000`
+    - `智店通入库群 -> 智享金合计 ¥25,000`
+  - 产品价保 -> `智店通入库群代扫 · 至06/06` 当前真实显示：
+    - `智享金汇总 ¥25,000`
+- 接手注意：
+  - 用户这轮明确要的是“管理端 + 产品价保教育补汇总”，这两处已经实证收口。
+  - `零售销售价保专区` 第一屏总览卡当前仍可能显示 `智享金 ￥0`，不要把它误写成教育补汇总页未接通；这是另一层聚合口径问题。
+  - API 当前只是展示链接到了 SQL，不代表今日相机 API 已恢复主采。
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 18:45 当前轮次已确认“网页微信黑屏远程画面 / 智店通订单页可见”，真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 通过默认 Chrome 当前已有标签接管并扫描：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1845-check/blocking-summary.md`
+- authoritative 结果：
+  - 当前 `https://localhost:3001/` 标题仍是 `WeChat Selkies`，但当前可见主体是黑屏远程画面，不是可操作的网页微信业务页。
+  - 当前 DOM 仅见 Selkies 控制壳文案：
+    - `视频设置 / 屏幕设置 / 音频设置 / 统计信息 / 剪贴板 / 文件 / 应用程序 / 共享 / 游戏手柄`
+  - 当前智店通订单页仍稳定可见：
+    - 已在 `订单 -> 线下门店订单`
+    - 日期框可见 `2026-06-11`
+    - 页面可见当天 `已完成` 订单记录：
+      - `XS260611302461451001`
+      - `XS260611891383245001`
+      - `XS260611287171548001`
+  - `docs/ai-context/02_DECISIONS.md` 的当日新决策与本轮自动化提示词存在冲突：
+    - 决策层写“原先网页微信群逐图回扫不再作为主前置门禁”
+    - 本轮提示词仍要求“必须先扫网页微信，再进智店通”
+  - 按本轮提示词要求，当前仍按网页微信前置门禁执行；因为该门禁未通过，所以本轮没有执行：
+    - 网页微信群图片回扫
+    - 智店通页面导出动作
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 当前真实终态只能保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把“智店通订单页可见”误写成“本轮已同步完成”
+  - 下一手仍应先恢复默认 Chrome 里的网页微信业务页；恢复后先扫 `智店通入库群 / 教育补贴群`，再复用当前已打开的智店通订单页继续
+  - 恢复前不要重跑正式入口，也不要把 `02_DECISIONS` 的新主链口径直接套到本轮自动化提示词上
+
+## 2026-06-11 Handoff｜教育补贴采集工作台已新增“手机号累计套数复核”面板，当前两组正式候选已可见
+
+- 本轮真实动作：
+  - 修改 `apps/api-server/app/education_collection_workbench_api.py`
+  - 修改 `apps/web-cockpit/public/education-subsidy-2026/index.html`
+  - 已重启 `8000` 端口 API
+- authoritative 结果：
+  - 当前工作台已新增“手机号累计套数复核”面板
+  - 当前接口真实返回两组正式候选：
+    - `15531851050 -> unitCount 2 -> recommended two_piece`
+    - `16711030562 -> unitCount 2 -> recommended two_piece`
+  - 当前还没有 `unitCount >= 3` 的正式手机号组，所以还没有真实三件套回补样本
+- 接手注意：
+  - 下一手补新 CLI 批次时，要优先看这两个手机号是否新增第三个不同设备单元
+  - 一旦新增，整组要直接升级为 `three_piece`，不要只改最新一条
+
+## 2026-06-11 Handoff｜教育补手机号累计套数规则已落地，后续同手机号补进不同电脑会整组升级成三件套
+
+- 本轮真实动作：
+  - 修改 `apps/api-server/app/collection_bridge_api.py`
+    - 新增 `preview_bundle_classification`
+    - 新增 `reclassify_phone_bundle_records`
+    - 入库后会按同手机号累计有效商品/设备单元整组重算 `single_scan / two_piece / three_piece`
+  - 修改 `apps/api-server/app/education_collection_workbench_api.py`
+    - 工作台规则改成“同手机号累计单元数”口径
+- authoritative 结果：
+  - 真实业务规则已经变成：
+    - 同手机号累计 `2` 个不同有效商品/设备单元 = `two_piece`
+    - 同手机号累计 `3+` 个不同有效商品/设备单元 = `three_piece`
+    - 即使不是同一单、同一批或同一天出库，只要后续补进来的是不同电脑或其他商品，也会整组升级套数
+  - 当前 workbench 接口已显示新规则文本
+  - 验证样例：
+    - `16711030562` 当前预判 `2 -> two_piece`
+    - 若再补一个新设备单元，则立即预判 `3 -> three_piece`
+- 接手注意：
+  - 不要再把“同手机号跨单补进第三台设备”误判成仍然只是两件套
+  - 不要让测试记录和服务类记录参与手机号累计套数重算
+
+## 2026-06-11 Handoff｜教育补贴采集工作台已切到 CLI 主链，服务类商品误归属已剔除，当前 backlog 口径更新为 80 条
+
+- 本轮真实动作：
+  - 修改：
+    - `apps/api-server/app/collection_bridge_api.py`
+    - `apps/api-server/app/education_collection_workbench_api.py`
+    - `apps/web-cockpit/public/education-subsidy-2026/index.html`
+  - 批量修正 SQL：
+    - 5 条 `Lenovo Care 智惠 4年` 记录已转成“仅证据，不计入教育补机器产品归属”
+  - 已重启 `8000` 端口 API 到最新代码
+- authoritative 结果：
+  - 当前工作台主口径：
+    - `网页分类文件夹 CLI 主链`
+    - `今日相机 API 待恢复链`
+  - 当前 workbench 接口真实返回：
+    - `sqlRecordCountSinceDate = 61`
+    - `sqlCliRecordCountSinceDate = 56`
+    - `sqlEducationGroupCountSinceDate = 50`
+    - `sqlInboundGroupCountSinceDate = 11`
+    - `sqlServiceFilteredCountSinceDate = 4`
+    - `gapCountSinceDate = 80`
+  - 当前 gap 样例已经不再输出 `Lenovo Care 智惠` 服务类商品
+  - 当前页面首页说明已经写明：
+    - 代扫闭环以真实实物 PO 出库机器 + 带电话截图证据为准
+    - 智惠/延保/保险/会员等服务类商品只保留证据，不计入教育补机器产品归属
+- 接手注意：
+  - 不要再把今日相机 API 写成已经能稳定实采代扫截图的主链
+  - 不要把 `Lenovo Care 智惠`、延保、保修、会员类服务商品记成教育补机器产品
+  - 下一手优先继续修正“同手机号不同商品 = 多件套”的真实分类，再继续补 CLI backlog
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 18:00 当前轮次未能接管默认 Chrome，可见会话门禁无法重验；`18:00` 正式报告仍与当前硬规则冲突，真实终态保持 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 尝试接管默认 Chrome 当前可见会话：
+    - `mcp__computer_use.get_app_state(app="Google Chrome")`
+  - 真实返回：
+    - `Computer Use approval denied via MCP elicitation for app 'com.google.Chrome'.`
+  - 核查当前最新正式报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T10-01-18-217Z.json`
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T10-00-50-536Z.json`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1800-check/blocking-summary.md`
+- authoritative 结果：
+  - 本轮没有新增可见 Chrome 页面证据，最近一次可见页面 authoritative 状态仍沿用 `17:15`：
+    - 网页微信真实可见主体是二维码登录页
+    - 智店通订单页可见当天 `已完成` 订单记录
+  - 当前两份 `18:00` 正式报告都仍包含：
+    - `原微信群前置门禁已退役`
+  - 这与本轮自动化提示词“先扫网页微信，再进智店通”的硬规则直接冲突。
+  - `2026-06-11T10-01-18-217Z.json` 还新增了：
+    - `audit_terminal_title_consistency.py` 失败
+    - `zdtSalesOrderSync.py` / `zdtSalesDedupeAndFill.py` 的 `127.0.0.1:5432 connection refused`
+    - 当天销售出库 / 入库 / 其他出库 / 调拨 / 库存总表导出仍缺
+  - 因此当前 `18:00` 线程没有执行：
+    - 网页微信群图片回扫
+    - 智店通页面导出动作
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 当前真实终态只能保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把两份 `18:00` 正式报告当作当前线程已经完成网页微信前置门禁
+  - 下一手先恢复当前线程对默认 Chrome 的可见接管能力，再重新确认网页微信与智店通真实页面状态
+  - 恢复前不要重跑正式入口，也不要把 `17:15` 旧可见状态冒充成 `18:00` 新证据
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 17:15 当前轮次已再次确认“网页微信二维码阻塞 / 智店通订单页可见”，本线程真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 观察到：
+    - 网页微信当前真实可见主体仍是二维码登录页
+    - 智店通当前已在 `订单 -> 线下门店订单` 页面，日期框可见 `2026-06-11`
+    - 页面列表可见当天 `已完成` 订单记录
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1715-check/blocking-summary.md`
+- authoritative 结果：
+  - 当前没有新增 `zhidiantong-sync-cycle` 正式报告。
+  - 当前 `17:15` 线程没有执行：
+    - 网页微信群图片回扫
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - SQL/API 写入
+    - 快照重建
+    - 前端验收
+  - 按当前追加规则，本轮第一道门禁“先过网页微信群”未通过，因此真实终态只能保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把智店通订单页可见误写成“本轮已执行同步”
+  - 下一手仍应先恢复网页微信默认会话；恢复后先扫 `智店通入库群` 与 `教育补贴群`，再复用当前已打开的智店通订单页继续
+  - 恢复前不要重跑正式入口
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 16:30 当前轮次已确认“微信二维码阻塞 / 智店通订单页可见 / 同轮正式报告口径仍冲突”，本线程真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 观察到：
+    - 网页微信当前真实可见主体仍是二维码登录页
+    - 智店通当前已在 `订单 -> 线下门店订单` 页面，日期框可见 `2026-06-11`
+    - 页面列表可见当天 `已完成` 订单记录
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1630-check/blocking-summary.md`
+- authoritative 结果：
+  - 当前最新正式报告是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T08-31-38-941Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 同轮还新增：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T08-31-13-276Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 但两份报告都包含：
+    - “旧的‘网页微信群逐图回扫’前置门禁已退役”
+  - 这与本轮自动化提示词“先扫网页微信，再进智店通”的硬规则直接冲突。
+  - 因此当前 16:30 这条手工核查线程不能沿用自动化正式报告，真实终态仍应保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把 `2026-06-11T08-31-38-941Z.json` 或 `2026-06-11T08-31-13-276Z.json` 当作本线程真实收口结果
+  - 下一手仍应先恢复网页微信默认会话；恢复后先扫 `智店通入库群`，再复用当前已打开的智店通订单页继续
+  - 若后续要让自动化正式报告重新符合本任务追加规则，需要单独修正 `zhidiantong-sync-cycle` 代码/规则；当前线程不要假装该冲突不存在
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 15:45 当前轮次已确认“微信二维码阻塞 / 智店通订单页可见”，本线程真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 观察到：
+    - 网页微信当前真实可见主体仍是二维码登录页
+    - 智店通当前已在 `订单 -> 线下门店订单` 页面，日期框可见 `2026-06-11`
+    - 页面列表可见当天 `已完成` 订单记录
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1545-check/blocking-summary.md`
+- authoritative 结果：
+  - 当前最新正式报告是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T07-46-03-965Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 同轮还新增：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T07-45-39-837Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 但两份报告都包含：
+    - “旧的‘网页微信群逐图回扫’前置门禁已退役”
+  - 这与本轮自动化提示词“先扫网页微信，再进智店通”的硬规则直接冲突。
+  - 因此当前 15:45 这条手工核查线程不能沿用自动化正式报告，真实终态仍应保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把 `2026-06-11T07-46-03-965Z.json` 或 `2026-06-11T07-45-39-837Z.json` 当作本线程真实收口结果
+  - 下一手仍应先恢复网页微信默认会话；恢复后先扫 `智店通入库群`，再复用当前已打开的智店通订单页继续
+  - 若后续要让自动化正式报告重新符合本任务追加规则，需要单独修正 `zhidiantong-sync-cycle` 代码/规则；当前线程不要假装该冲突不存在
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 15:00 当前轮次已确认“正式报告口径冲突 + 微信二维码阻塞”，本线程真实终态仍是 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 观察到：
+    - 网页微信当前仍是二维码登录页
+    - 智店通当前已在 `订单 -> 线下门店订单` 页面，日期框可见 `2026-06-11`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1500-check/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1500-check/wechat-visible.png`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1500-check/zdt-order-list-visible.png`
+- authoritative 结果：
+  - 当前最新正式报告是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T07-02-09-059Z.json`
+    - `executionOutcome = executed_not_closed`
+  - 但该报告包含：
+    - “旧的‘网页微信群逐图回扫’前置门禁已退役”
+  - 这与本轮自动化提示词“先扫网页微信，再进智店通”的硬规则直接冲突。
+  - 因此当前 15:00 这条手工核查线程不能沿用该正式报告，真实终态仍应保持 `blocked_page_risk`。
+- 接手注意：
+  - 不要把 `2026-06-11T07-02-09-059Z.json` 当作本线程真实完成结果
+  - 下一手仍应先恢复网页微信默认会话；恢复后先扫 `智店通入库群`，再复用当前已打开的智店通订单页继续
+  - 若后续要让自动化正式报告重新符合本任务追加规则，需要单独修正 `zhidiantong-sync-cycle` 代码/规则；当前线程不要假装该冲突不存在
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 14:15 线程已确认“微信二维码阻塞 / 智店通订单页可见”，当前不能重跑正式入口
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/lenovo/web/order/order-list`
+  - 观察到：
+    - 网页微信当前仍是二维码登录页
+    - 智店通当前已在 `订单 -> 线下门店订单` 页面，不再是 Lenovo SSO 密码页
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1415-wechat-qr-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1415-wechat-qr-blocked/wechat-qr-login.png`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1415-wechat-qr-blocked/zdt-order-list-visible.png`
+- authoritative 结果：
+  - 今日当前最新正式报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T05-31-38-864Z.json`
+    - `executionOutcome = executed_not_closed`
+  - 但当前 `14:15` 线程没有重跑正式入口：
+    - 固定顺序要求先完成网页微信群回扫门禁
+    - 当前二维码登录页导致第一道门禁未过
+    - 本轮不能执行 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+- 接手注意：
+  - 不要把这轮写成“已执行未收口”；当前 `14:15` 线程仍是 `blocked_page_risk`
+  - 下一手优先恢复网页微信默认会话；恢复后先扫 `智店通入库群`，再复用当前已经打开的智店通订单页继续
+  - 不要因为当前智店通页可见，就跳过网页微信群门禁或直接沿用早上 `05:31` 的旧报告
+
+## 2026-06-11 Handoff｜`daily-price-channel-check` 中午补查已新增 authoritative 报告，当前仍缺 2026-06-10/2026-06-11 当天分销原始文件
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `http://127.0.0.1:5174/`
+  - 观察到：
+    - 网页微信当前仍是二维码登录页
+    - Selkies 落地目录当前最新分销文件仍是 `2026年6月9日分销库存(1).xlsx`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/visible-evidence-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/wechat-visible-qr-blocked-20260611-1348.txt`
+    - `apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/frontend-group-quote-library-20260611-1348.txt`
+    - `apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/latest-distributor-quotes-precheck.json`
+    - `apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/selkies-file-listing-2026-06.txt`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-price-channel-check`
+- authoritative 结果：
+  - 当前正式报告已新增：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-price-channel-check/2026-06-11T05-53-28-903Z.json`
+  - 当前结果：
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 分销报价文件日期不是今天：2026-06-09`
+  - 当前快照：
+    - `apps/web-cockpit/public/data/latest-distributor-quotes.json`
+    - `quoteDate = 2026-06-09`
+    - `generatedAt = 2026-06-11T05:52:09.953Z`
+    - `isCarriedForward = true`
+  - 当前前端 `http://127.0.0.1:5174/ -> 报价来源 -> 群报价库` 已可见：
+    - `报价日期 2026-06-09`
+    - `刷新 06/11 13:52`
+    - `当前条目 136`
+    - `覆盖 SKU 133`
+- 接手注意：
+  - 不要把这轮写成“今日分销报价已手工采集完成”；当前没有 2026-06-10 / 2026-06-11 当天原始文件
+  - 下一手仍应先检查 Selkies 落地目录是否出现当天分销文件，再决定是否重跑正式入口
+  - 网页微信未恢复登录前，不要尝试从二维码页盲点进入群聊
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 13:30 线程已补同轮双入口阻塞证据，仍不能重跑正式入口
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://sdcsso.lenovo.com/webauthn/preLogin?...`
+  - 观察到：
+    - 网页微信当前仍是二维码登录页
+    - 智店通当前仍是 Lenovo SSO 密码页
+  - 按允许边界执行一次恢复动作：
+    - 点击一次密码输入区域
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1330-login-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1330-login-blocked/wechat-qr-login.png`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1330-login-blocked/zdt-password-no-saved-password.png`
+- authoritative 结果：
+  - 当前没有新增 `zhidiantong-sync-cycle` 正式报告。
+  - 本轮真实页面补证据说明：
+    - 网页微信未登录，无法进入两个教育补群
+    - 智店通密码页在本轮单步点击后仍未出现浏览器已保存密码候选，不能继续越界输入凭据
+  - 本轮未执行 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`，因为未恢复到可操作业务页。
+- 接手注意：
+  - 不要把这轮写成“已执行未收口”；当前仍是 `blocked_page_risk`
+  - 不要在会话未恢复前盲点 `下一步`、手写密码或重跑正式入口
+  - 下一手仍应先恢复默认 Chrome 会话，再决定是否补 13:30 槽位业务证据
+
+## 2026-06-11 Handoff｜教育补贴采集首页已升级为正式工作台，统一入口和缺失 backlog 已前端可见
+
+- 本轮真实动作：
+  - 新增：
+    - `apps/api-server/app/education_collection_workbench_api.py`
+  - 修改：
+    - `apps/api-server/app/main.py`
+    - `apps/api-server/app/retail_core.py`
+    - `apps/web-cockpit/public/education-subsidy-2026/index.html`
+    - `apps/web-cockpit/public/education-subsidy-2026/bridge-dashboard.html`
+    - `apps/web-cockpit/src/App.tsx`
+- authoritative 结果：
+  - 工程首页 `教育补贴采集` 现在已经是正式工作台，不再只是入口页。
+  - 工作台统一接口：
+    - `/api/education-collection/workbench?since_date=2026-06-06&recent_limit=20`
+  - 当前前端工作台已能真实展示：
+    - 正式汇总代扫数 `83`
+    - `2026-06-06` 以来缺口 `93`
+    - 来源分布当前以 `wechat_group_manual` 历史数据为主
+    - 最近 `v2` 正式记录 `8` 条
+  - 正式汇总投影已补回今日相机来源字段，不再把所有记录压成 `sql_manual_import`
+- 接手注意：
+  - 下轮优先做 backlog 追回，不要再把时间花在“入口页该叫什么”这类低价值调整上。
+  - 目标是让工作台里逐步出现：
+    - `xhey_api_manual`
+    - `watermark_camera_manual`
+    这两类正式来源记录，而不是只剩历史微信群数据。
+
+## 2026-06-11 Handoff｜郭晨臣邻近样本已核查，当前两个手机号都还不是多件套
+
+- 本轮真实动作：
+  - 修正：
+    - `scripts/xhey_integration/xhey_web_folder_cli.py`
+    - 对订单/小票信号图片信任 OCR 已提取的手机号
+  - 读取 `郭晨臣` dry-run 已命中的 `6` 张图
+  - 对其前后相邻共 `22` 张图片逐张 OCR 核查
+- authoritative 结果：
+  - 当前邻近样本里能串出的手机号只有：
+    - `15321688211`
+    - `14432899212`
+  - 这两个手机号当前都只对应 `1` 个商品
+  - 所以这批真实样本目前仍是 `single_scan`，不应强行改成多件套
+- 接手注意：
+  - 下轮应优先继续扫 `梁伟` 已命中候选图的邻近样本
+  - 如果 `梁伟` 也没有同手机号多商品，再扩大到同日或相近时间段的连续拍摄窗口
+
+## 2026-06-11 Handoff｜套装规则已按“同手机号不同商品”修正，但真实样本还没撞到命中
+
+- 本轮真实动作：
+  - 修正：
+    - `scripts/xhey_integration/xhey_web_folder_cli.py`
+  - 规则改为：
+    - 同手机号下 `2` 个不同商品 -> `two_piece`
+    - 同手机号下 `3` 个及以上不同商品 -> `three_piece`
+    - 两者都归 `智店通入库群`
+  - 合成样本验证通过
+  - 对 `梁伟 / 郭晨臣` 各自前 `30` 张重新 dry-run
+- authoritative 结果：
+  - “电话一样的不同的三个商品或者二个商品是多件套，而不是单扫教育补” 这条业务口径已经写进代码。
+  - 当前真实抽样前 `30` 张还没有触发这类命中，所以抽样数没有变化：
+    - `梁伟 4/26`
+    - `郭晨臣 6/24`
+- 接手注意：
+  - 下轮不要再按旧的“累计 3 条才算三件套”理解这条链路。
+  - 应优先做：
+    - 按手机号聚合扫描整包 ZIP
+    - 找出 `distinct_product_count >= 2` 的真实样本
+    - 再人工核对是否应归 `智店通入库群`
+
+## 2026-06-11 Handoff｜梁伟/郭晨臣整包 ZIP 已拿到，CLI 规则已收紧到可做小批量人工抽核
+
+- 本轮真实动作：
+  - 继续使用用户当前已登录的今日相机网页：
+    - `https://www.5181688.com/ai-classify`
+  - 真实导出：
+    - `梁伟 2026-06-11.zip`
+    - `郭晨臣 2026-06-11.zip`
+  - 真实验证：
+    - `梁伟` ZIP 内 `583` 张
+    - `郭晨臣` ZIP 内 `355` 张
+  - 修改：
+    - `scripts/xhey_integration/xhey_web_folder_cli.py`
+  - 规则收紧后重新 dry-run：
+    - `梁伟 4/30`
+    - `郭晨臣 6/30`
+- authoritative 结果：
+  - 当前真实网页下载动作已经不止 `李建定`，而是已覆盖：
+    - `梁伟`
+    - `郭晨臣`
+  - Chrome 当前在 `立即下载` 后会打开 `net-cloud.xhey.top/exportZips2.0/...zip`，并显示 `ERR_BLOCKED_BY_CLIENT`。
+  - 这个拦截页不等于下载失败；同一真实直链可被 `curl -L` 成功拉回 ZIP。
+  - `xhey_web_folder_cli.py` 当前已收紧为：
+    - 手机号必须有电话语义上下文
+    - SN-only 不再作为教育补候选
+    - 身份证命中必须有显式姓名行
+    - `公安局 / 高德地图 / 员工名 / 门店名` 等脏姓名被屏蔽
+- 接手注意：
+  - 下轮不要再重做网页结构探索。
+  - 直接从以下报告里抽查命中样本是否真是教育补凭证：
+    - `/Volumes/TianLu_Storage/Shared/今日水印相机/reports/xhey-web-folder-cli-report-20260611-141918.json`
+    - `/Volumes/TianLu_Storage/Shared/今日水印相机/reports/xhey-web-folder-cli-report-20260611-141759.json`
+  - 若抽核通过，只选少量命中样本切 `XHEY_DRY_RUN=false` 做 1 次真实 Bridge 入库验证。
+  - 还不能直接整包入库，更不能写成“今日相机自动采集已完成”。
+
+## 2026-06-11 Handoff｜网页分类文件夹备用链已拿到真实 ZIP，并落成可跑 CLI
+
+- 本轮真实动作：
+  - 接管用户当前已登录的今日相机网页：
+    - `https://www.5181688.com/ai-classify`
+  - 真实确认：
+    - 公司：`新野县百脑汇商贸有限公司`
+    - 团队号：`263050993`
+  - 新增：
+    - `scripts/xhey_integration/xhey_web_folder_cli.py`
+  - 真实导出：
+    - 单图导出 `分类文件夹 2026-06-11.zip`
+    - 整文件夹导出 `李建定 2026-06-11.zip`
+  - 真实验证：
+    - 整文件夹 ZIP 大小约 `40MB`
+    - ZIP 内含 `81` 张图
+    - dry-run 抽样 `10` 张执行 OCR + 归类
+- authoritative 结果：
+  - 今日相机网页端备用链当前已经具备：
+    - 真实分类文件夹页面
+    - 真实 ZIP 导出
+    - 本地 CLI 处理
+  - 当前 CLI 可接受：
+    - `--download-url`
+    - `--zip-path`
+    - `--directory`
+  - 当前抽样结果没有命中教育补规则，因此尚未产生正式入库：
+    - 不是脚本失败
+    - 是样本图片内容暂不符合教育补凭证口径
+- 接手注意：
+  - 下轮不要再从 0 开始猜网页结构。
+  - 直接继续导出：
+    - `梁伟`
+    - `郭晨臣`
+    文件夹样本，再跑 `xhey_web_folder_cli.py`
+  - 一旦出现命中教育补规则的图片，再切 `XHEY_DRY_RUN=false` 做真实 Bridge 入库验证。
+
+## 2026-06-11 Handoff｜OCR 已恢复，今日相机当前剩余主阻塞不是 OCR，而是团队照片接口返回 0 张
+
+- 本轮真实动作：
+  - 修改：
+    - `scripts/xhey_integration/xhey_client.py`
+    - `scripts/xhey_integration/xhey_pull_worker.py`
+  - 增加：
+    - `search_photos -> list_photos` 自动退回
+    - `xhey_client.py list` 命令
+    - 秒/毫秒时间兼容解析
+  - 真实验证：
+    - `http://127.0.0.1:8765/health` 返回 `200`
+    - `xhey_client.py list-users` 返回 `5` 个 `userId`
+    - `xhey_client.py list/search` 在 `24h` 返回 `[]`
+    - 直连 OpenAPI 探测 `3d / 7d / 30d / 90d / 180d` 也均为 `0`
+    - `xhey_pull_worker.py --once` 真实输出：
+      - `search_photos 返回 0 张，切换到 /v2/group/photo 全量分页拉取`
+      - `list_photos page=1 返回 0 张`
+- authoritative 结果：
+  - 当前 OCR 已恢复，不应再把 `OCR unreachable` 当成主阻塞。
+  - 当前更准确的阻塞应写成：
+    - `xhey API 凭证有效，但团队照片接口当前返回空列表`
+    - `需要确认 groupKey/groupSecret 对应团队是否就是目标 VPI 相册团队`
+  - 当前正式前端汇总文件仍未新增今日相机实采记录：
+    - `totalCount = 84`
+    - `unpaidCount = 84`
+    - `totalEducationDiscountAmount = 15160`
+    - `totalServiceFee = 5450`
+- 接手注意：
+  - 不要再继续围绕签名算法或 OCR 做重复排查。
+  - 下一手优先级应转为：
+    1. 确认今日相机 API group 与目标相册团队绑定关系
+    2. 补网页端分类文件夹 CLI 备用链
+  - 在照片接口继续返回 `0` 之前，不要声称“API 主链已开始实采”。
+
+## 2026-06-11 Handoff｜教育补贴采集已切到今日相机双轨工作流，当前剩余主阻塞是 OCR 服务未恢复
+
+- 本轮真实动作：
+  - 验证今日相机 OpenAPI 凭证：
+    - `scripts/xhey_integration/xhey_client.py healthcheck`
+    - 返回 `ok: true / userCount: 5`
+  - 修改：
+    - `apps/api-server/app/collection_bridge_api.py`
+    - `apps/api-server/app/edu_scan_v2_api.py`
+    - `scripts/xhey_integration/xhey_pull_worker.py`
+    - `apps/web-cockpit/public/education-subsidy-2026/index.html`
+    - `apps/web-cockpit/public/education-subsidy-2026/bridge-dashboard.html`
+    - `apps/web-cockpit/src/App.tsx`
+  - 本地前端验收：
+    - `http://127.0.0.1:5174/`
+    - 点击 `教育补贴采集`
+    - 已看到新的“今日相机采集监控”与新入口布局
+- authoritative 结果：
+  - 教育补正式主链当前固定为：
+    - `今日相机 OpenAPI -> Bridge -> SQL -> latest-education-subsidy-agent-scan-summary.json -> 前端`
+  - 网页端 `分类文件夹` 当前只保留为备用 CLI 归集链
+  - Bridge 写库后当前会自动触发教育补汇总刷新
+  - 今日相机来源字段当前会进入 SQL 原始元数据并投影到前端表格
+  - 本地监控页当前可见：
+    - `Bridge API 在线`
+    - `汇总总代扫数 84`
+    - `同步缺口 0`
+    - `OCR unreachable`
+- 接手注意：
+  - 不要再把“网页微信群逐图回扫”当成教育补主前置
+  - 下一手优先不是继续改 UI，而是先把 `127.0.0.1:8765` OCR 服务恢复
+  - OCR 恢复后，做 1 次真实非 dry-run 今日相机入库验证，再决定是否补网页 CLI 脚本细节
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 12:45 线程已补双入口阻塞证据，仍不能重跑正式入口
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/`
+  - 观察到：
+    - 网页微信当前是二维码登录页
+    - 智店通当前是 Lenovo SSO 密码页
+  - 按允许边界执行一次恢复动作：
+    - 点击一次密码输入区域
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1245-login-blocked/blocking-summary.md`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1245-login-blocked/wechat-qr-login.png`
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1245-login-blocked/zdt-password-no-saved-password.png`
+- authoritative 结果：
+  - 当前没有新增 `zhidiantong-sync-cycle` 正式报告。
+  - 本轮真实页面补证据说明：
+    - 网页微信未登录，无法进入两个教育补群
+    - 智店通密码页未出现浏览器已保存密码候选，不能继续越界输入凭据
+  - 本轮未执行 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`，因为未恢复到可操作业务页。
+- 接手注意：
+  - 不要把这轮写成“已执行未收口”；当前仍是 `blocked_page_risk`
+  - 不要在会话未恢复前盲重点 `下一步`、手写密码或重跑正式入口
+  - 下一手仍应先恢复默认 Chrome 会话，再决定是否补 12:45 槽位业务证据
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 12:00 线程已补真实登录阻塞证据，authoritative 仍维持 `blocked_page_risk`
+
+- 本轮真实动作：
+  - 接管默认 Chrome 当前标签：
+    - `https://localhost:3001/`
+    - `https://retail-pos.lenovo.com/web/login`
+  - 观察到：
+    - 网页微信直接停在二维码登录页
+    - 智店通直接停在登录页
+  - 按允许边界执行一次智店通恢复链：
+    - `快捷登录 -> 使用手机号登录 -> 输入 15637798222 -> 下一步 -> 点击密码输入区域`
+  - 落盘：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-11-1200-login-blocked/blocking-summary.md`
+- authoritative 结果：
+  - 今日正式报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T04-01-17-623Z.json`
+    - `executionOutcome = blocked_page_risk`
+  - 本轮真实页面补证据与正式报告结论一致：
+    - 网页微信未登录，不能进教育补代扫群
+    - 智店通虽走到密码页，但没有可见的浏览器已保存密码候选，不能继续越界
+- 接手注意：
+  - 不要在当前会话未恢复前重跑 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+  - 下一手优先级不是“再审计一次 JSON”，而是先恢复默认 Chrome 会话
+  - 会话恢复后，按顺序先扫两个教育补群，再进智店通业务页补当天订单/调拨/库存/SN 证据
+
+## 2026-06-11 Handoff｜Codex 对话报错守护已升级为 launchd 常驻
+
+- 当前新的关键结论：
+  - 真实 `turn-ended` 已确认会调用：
+    - `scripts/codex_turn_ended_notify.sh`
+  - 当前剩余问题不再是“配置没生效”，而是活跃线程在 turn 结束前仍会继续长出新的纯文本数组内容
+- 本轮新增：
+  - `scripts/codex_session_format_watchdog.sh`
+  - `scripts/install_codex_session_format_watch.sh`
+  - `infra/launchagents/com.lenovo-smart-retail.codex-session-format-watch.plist`
+- 当前守护现状：
+  - `launchd` 标签：
+    - `com.lenovo-smart-retail.codex-session-format-watch`
+  - 当前进程已见：
+    - `PID 19871`
+    - `PPID 624`
+  - 当前线程 `019eb480-0a4c-7860-9a4c-410788bc3633` 最新 dry-run：
+    - `changedLineCount = 0`
+  - 当前守护不再固定写死当天目录：
+    - 每 `60` 秒会重取一次 `~/.codex/sessions/YYYY/MM/DD`
+    - 跨天后可自动切到新日期目录
+- 本轮踩到并修掉的坑：
+  - 普通 `nohup` 后台在当前执行环境会被回收
+  - `launchd` 默认 `PATH` 太窄，不能用系统旧版 `python3`
+  - `launchd` 默认没有 `HOME`，脚本开 `set -u` 会直接退出
+- 再次报错时的排查顺序：
+  1. `scripts/codex_session_format_watchdog.sh status`
+  2. `python3 scripts/fix_codex_pinned_thread_content.py --thread-id 019eb480-0a4c-7860-9a4c-410788bc3633 --compact`
+  3. `tail -n 80 outputs/codex-turn-ended-notify.log`
+  4. `launchctl print gui/$(id -u)/com.lenovo-smart-retail.codex-session-format-watch | sed -n '1,120p'`
+- 当前仍未完成的尾项：
+  - 还没有修到 Codex Desktop 上游写入根因；当前仍属于本地自动止血层。
+
+## 2026-06-11 Handoff｜`zhidiantong-sync-cycle` 的标题一致性门禁已清零，剩余只看教育补缺口与库存成对总表
+
+- 本轮真实动作：
+  - 修改：
+    - `apps/api-server/app/product_library.py`
+    - `scripts/audit_terminal_title_consistency.py`
+  - 更新 SQLite 主档：
+    - `20004635`
+    - `20006289`
+  - 重建发布投影并复跑标题一致性审计
+- authoritative 结果：
+  - 标题一致性审计当前已通过：
+    - `issueCount = 0`
+  - `zhidiantong-sync-cycle` 已少一层本地门禁
+  - 当前剩余阻塞只剩：
+    1. 教育补代扫群缺口
+    2. `2026-06-10` 库存成对总表缺口
+- 接手注意：
+  - 不要再把当前 `zhidiantong-sync-cycle` 归因成“标题审计脚本失败”
+  - 下轮应直接选剩余两组中的一组继续收口
+  - 当前更推荐先处理教育补代扫群缺口，因为它更接近业务真值主线
+
+## 2026-06-11 Handoff｜首个按模板完整跑通的真实任务已落地，当前下一步切到 `zhidiantong-sync-cycle`
+
+- 本轮真实动作：
+  - 选定真实任务：
+    - `scheduled-task-status-readonly-audit-20260611`
+  - 按模板完成：
+    - 一级拆解卡
+    - OpenClaw 执行单
+    - 网关真实派发
+    - Codex 本地并行只读收口
+  - 派发 command：
+    - `openclaw-command-20260611-110138-34d270`
+- authoritative 结果：
+  - 模板链已完成第一次真实落地，不再只是规则文档
+  - 当前 4 条关键定时任务优先顺序已明确：
+    1. `zhidiantong-sync-cycle`
+    2. `daily-jd-lenovo-price-sync`
+    3. `daily-audit-and-snapshot-rebuild`
+    4. `daily-sn-sales-compliance-refresh`
+  - 关键判断：
+    - `zhidiantong-sync-cycle`：
+      - `blocked_page_risk`
+      - 今日核心阻塞项
+      - 进一步拆解后可见：
+        - 教育补代扫群缺口未清
+        - 当天库存成对总表缺
+        - 标题一致性审计脚本当前 `issueCount = 5`
+    - `daily-jd-lenovo-price-sync`：
+      - `executed_not_closed`
+      - 不应误写成“没执行”
+    - `daily-sn-sales-compliance-refresh`：
+      - `real_completed`
+      - 不应再与阻塞任务混排
+- 接手注意：
+  - 下轮优先不要再做规则文档扩写
+  - 直接进入 `zhidiantong-sync-cycle` 的三路问题拆分，不要整任务盲重跑
+  - OpenClaw 这条新审计任务已收到并开始读取，但本轮最终收口主要由 Codex 本地回读完成
+
+## 2026-06-11 Handoff｜标准执行单模板与三模型派发表已补齐，后续新任务可直接按卡片分发
+
+- 本轮真实动作：
+  - 新增：
+    - `docs/ai-context/22_STANDARD_TASK_CARDS_AND_DISPATCH_TABLE.md`
+  - 把模板规则挂到：
+    - `20_TASK_DECOMPOSITION_AND_MODEL_ROUTING.md`
+    - `21_DISPATCH_ENTRYPOINTS_AND_MANUAL_HANDOFF.md`
+    - `15_SUBAGENT_EXECUTION_PLAYBOOK.md`
+- authoritative 结果：
+  - 当前已经不是只有“原则性规则”
+  - 当前已经有可直接复用的：
+    - 一级拆解卡
+    - `CLI` 执行单
+    - `Codex` 执行单
+    - `GPT` 执行单
+    - `OpenClaw` 执行单
+    - 三模型派发表
+  - 后续只要用户继续下任务，主线程可以直接先填卡，再分配执行者
+- 接手注意：
+  - 当前仍然是“保守型人工编排”
+  - 不要误写成“三模型自动调度系统已经上线”
+  - 下一步最该做的是选 1 条真实新任务，完整按模板跑一轮
+
+## 2026-06-11 Handoff｜OpenClaw 首个只读副驾驶任务已派发，两个历史待办已由 Codex 按 receipt 事实完成收口判断
+
+- 本轮真实动作：
+  - 继续回读：
+    - `latest-openclaw-chat-board`
+    - `xhey-camera-integration-dryrun-2026-06-10-1700.json`
+    - `chrome-9222-restore-blocked-2026-06-10-1040.json`
+  - 真实派发只读副驾驶任务：
+    - `openclaw-command-20260611-105246-1354ba`
+    - 任务名：`openclaw-pending-codex-readonly-audit`
+  - 追加催收结论指令：
+    - `openclaw-command-20260611-105445-3f2fd8`
+  - 回读控制会话，确认 OpenClaw 已定位 receipt，但未按要求只停留在最终结论，仍想追加实时验证
+- authoritative 结果：
+  - `xhey-camera-integration`：
+    - 不应再按普通 `queued` 待办理解
+    - 当前正确口径：`dry-run 已完成，实跑被外部凭证阻塞`
+    - 下轮只有在用户确认有效 key/secret 后才值得重开
+  - `chrome-9222-restore`：
+    - 继续保持阻塞判断
+    - 当前正确口径：`Chrome 9222 GUI 启动链阻塞，不是普通脚本重试问题`
+    - 下轮只有在用户手动恢复可持续 Chrome 9222 会话后才值得重开
+  - 本轮已证明：
+    - OpenClaw 可接只读副驾驶任务
+    - 但 Codex 仍需保留最后收口权，避免副驾驶偏离“只读结论”边界
+- 接手注意：
+  - 不要再把这两条历史项都当成“继续追一下也许能好”的普通 pending
+  - `xhey` 的下一步不是继续改脚本，而是先解决凭证真实性
+  - `9222` 的下一步不是继续在 sandbox 里硬拉 Chrome，而是等用户手动提供稳定会话
+
+## 2026-06-11 Handoff｜当前报错线程已恢复可续接，但活跃桌面线程仍会继续写旧格式文本数组
+
+- 本轮真实动作：
+  - 再次扫描当天会话目录：
+    - `python3 scripts/fix_codex_pinned_thread_content.py --session-dir ~/.codex/sessions/2026/06/11`
+  - 确认当前线程 `019eb480-0a4c-7860-9a4c-410788bc3633` 仍命中旧格式数组
+  - 给修复脚本补上守护模式：
+    - `--watch`
+    - `--interval-seconds`
+    - `--max-iterations`
+    - `--compact`
+  - 新增：
+    - `scripts/codex_turn_ended_notify.sh`
+  - 备份并改写：
+    - `~/.codex/config.toml`
+    - 备份文件：`~/.codex/config.toml.bak_notify_wrapper_20260611_1058`
+  - 已确认 wrapper 日志：
+    - `event=turn-ended mode=thread thread_id=019eb480-0a4c-7860-9a4c-410788bc3633`
+    - `pass=immediate`
+    - `pass=delayed`
+  - 正式写回：
+    - `python3 scripts/fix_codex_pinned_thread_content.py --write --session-dir ~/.codex/sessions/2026/06/11`
+  - 对该线程真实验证：
+    - `codex exec resume 019eb480-0a4c-7860-9a4c-410788bc3633 --skip-git-repo-check --json -o /tmp/codex-resume-verify-current.json '只回复：OK'`
+  - 回读 rollout 新增脏行，确认是新消息又被写成了单元素文本数组
+- authoritative 结果：
+  - 当前 thread `019eb480-0a4c-7860-9a4c-410788bc3633` 已真实续接成功并返回 `OK`
+  - 本轮当天会话目录 `163` 条 rollout 中，只有该当前线程命中修复
+  - 本轮实际写回 `7` 行，说明不是“还有大量历史坏数据”
+  - 当前确认的剩余问题是：
+    - 每新增一轮 `user` 纯文本消息，会继续写成 `[{type: input_text, ...}]`
+    - 每新增一轮 `assistant` 纯文本消息，会继续写成 `[{type: output_text, ...}]`
+- 接手注意：
+  - 不要再把这类现象误判为“原生 Codex GPT 没恢复”
+  - 当前 `resume` 已通过，模型仍是原生模式；未修的是 Desktop 当前线程写入层
+  - 如果用户停在这条活跃线程里继续大量对话，这个 rollout 还会继续长出可重复清理的新数组残留
+  - 当前项目内已经有可复用守护命令：
+    - `python3 scripts/fix_codex_pinned_thread_content.py --write --session-dir ~/.codex/sessions/<当天目录> --watch`
+  - 当前 `notify` 也已经改接 wrapper，后续真实 turn-ended 会自动补跑一次当天 rollout 清理
+  - 当前 wrapper 已是“按 thread_id 定点 + immediate/delayed 两段补修”
+  - 注意：进行中的当前 turn 在真正结束前，单线程 dry-run 仍可能暂时看到 `1` 行待修复残留；这不等于 wrapper 失效
+
+## 2026-06-11 Handoff｜OpenClaw 最小派发演示已完成“派发 + 反馈 + demo receipt 隔离落盘”
+
+- 本轮真实动作：
+  - 做了一次无业务风险的真实派发演示：
+    - `taskName = openclaw-minimal-dispatch-demo`
+  - 派发入口：
+    - `POST /api/openclaw/chat-board/send`
+  - 回读：
+    - `chat-board`
+    - `command-board`
+    - command 文件落盘
+- authoritative 结果：
+  - 当前派发返回：
+    - `commandId = openclaw-command-20260611-104016-1c7b9c`
+    - `status = steered`
+    - `dispatch.status = started`
+  - 当前已确认可见：
+    - `apps/inventory-sync/artifacts/manual/openclaw/commands/2026-06-11/openclaw-command-20260611-104016-1c7b9c.json`
+    - `pendingOpenClawTasks` 中已出现该任务
+  - 当前已收到控制会话真实反馈：
+    - 第一条：确认收到演示任务
+    - 第二条：确认开始落盘 demo receipt
+  - 当前已确认 demo receipt 隔离落盘：
+    - `apps/inventory-sync/artifacts/manual/openclaw/receipts/_demo/openclaw-minimal-dispatch-demo-2026-06-11-1050.json`
+  - 当前已确认正式 receipt 聚合链未吸入该 demo receipt
+- 接手注意：
+  - 这轮完成的是“演示链闭环”，不是“正式业务回执闭环”
+  - `_demo` receipt 采用隔离格式，默认不会进正式 `latest-openclaw-collection-receipts.json`
+  - 下轮应选一条真实但低风险的副驾驶任务继续演示，而不是重复 demo
+
+## 2026-06-11 Handoff｜Codex 置顶线程 `ArrayParam / input[*].content / array_above_max_length` 已全量收口，11 条 pinned thread 均可续接
+
+- 本轮真实动作：
+  - 确认 `bash scripts/codex_model_switcher.sh status`
+    - `mode=original`
+    - `model=gpt-5.4`
+  - 新增脚本：
+    - `scripts/fix_codex_pinned_thread_content.py`
+  - dry-run 扫描 `11` 条 pinned thread rollout
+  - 三轮修复：
+    - 第 1 轮：`user` 纯文本数组 `78` 行
+    - 第 2 轮：`assistant/developer` 纯文本数组 `384` 行
+    - 第 3 轮：`reasoning_text` 历史数组 `598` 行
+    - 保留 `2` 行 `text + image` 多模态输入不动
+  - 正式执行多轮：
+    - `python3 scripts/fix_codex_pinned_thread_content.py --write`
+  - 为每个被改 rollout 生成：
+    - `.pre-2026-06-11-codex-pinned-content-fix.bak`
+  - 再次 dry-run：
+    - 所有 resume 抽验结束后最终 `changedLineCount = 0`
+  - 实测 resume：
+    - `11` 条 pinned thread 全部执行 `codex exec resume <thread-id> --skip-git-repo-check '只回复：OK'`
+    - `11 / 11` 成功
+- authoritative 结果：
+  - 当前这批 pinned thread 中会触发 `ArrayParam` 报错的旧格式残留已清零
+  - 原生 Codex GPT 当前已恢复到可续接状态，不在 OpenRouter / MiniMax provider
+  - 当前仅剩 `019ea606` 中 `2` 行多模态 `text + image` 输入数组未动
+  - `tunnel` 线程续接时会附带 `::inbox-item` 指令，但主回复成功且不再触发数组报错
+- 接手注意：
+  - 如果后续某条 pinned thread 再报同类错，先运行：
+    - `python3 scripts/fix_codex_pinned_thread_content.py`
+  - 若扫描结果 `changedLineCount > 0`，再执行：
+    - `python3 scripts/fix_codex_pinned_thread_content.py --write`
+  - 当前最可能剩余风险不是 provider 切错，而是个别多模态 thread 的旧格式兼容性
+  - 当前 CLI 续接已全部通过；若用户反馈桌面 App 内某条置顶线程仍异常，再补做 App 侧点击巡检
+
+## 2026-06-11 Handoff｜SN 有效销量合规预警已完成 SQL/快照刷新，仍需手动补外部资格证据
+
+- 本轮真实动作：
+  - 在 `apps/inventory-sync` 执行 `daily-sn-sales-compliance-refresh`
+  - 生成新报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-sn-sales-compliance-refresh/2026-06-11T01-19-27-023Z.json`
+  - 刷新并同步：
+    - `apps/inventory-sync/artifacts/latest-sn-sales-compliance-snapshot.json`
+    - `apps/web-cockpit/public/data/latest-sn-sales-compliance-snapshot.json`
+  - 回读任务步骤确认：
+    - `refresh_sn_sales_compliance_snapshot` 已完成
+    - `sync_sql_mirror_and_gap_audit` 已完成
+    - `openSyncGapCount = 0`
+- authoritative 结果：
+  - `executionOutcome = real_completed`
+  - 当前最终落盘快照：
+    - `compliantCount = 28`
+    - `blockedCount = 43`
+    - `manualReviewCount = 1144`
+    - `claimableAmount = 258406`
+  - 前端同名快照文件已同步，artifact/web 两份 `sha256` 一致
+- 接手注意：
+  - 本轮只刷新 SQL 已落库主链，不代表外部有效销量页面、厂家资格页、PO 激活页已自动采集
+  - 当前仍需按预警队列手动补外部资格证据；不要把 `manualReviewCount = 1144` 写成系统已自动闭环
+  - 如需继续推进，优先围绕高待申领金额记录补可见页面证据，再回写资格结果
+
+## 2026-06-09 Handoff｜PO 加磅 6.9 新政策已进入系统，发布投影已改按当前有效规则取值
+
+- 本轮真实动作：
+  - 读取 `latest-marketing-boost-snapshot.json`
+  - 读取：
+    - `apps/inventory-sync/artifacts/manual/marketing-boost/marketing-boost-2026-06-08-po-new.json`
+    - `apps/inventory-sync/artifacts/manual/marketing-boost/marketing-boost-2026-06-08-po-end.json`
+  - 结论不是“6月9日新政策没导入”，而是“同 SKU 同时存在新旧 PO 规则时，发布投影此前按金额最大误取旧规则”
+  - 修改 `apps/api-server/app/product_library.py`
+    - 当前活动选择优先级改为：
+      - 先比 `validFrom`
+      - 再比 `validTo`
+      - 最后才比金额
+  - 已重建：
+    - `latest-marketing-boost-snapshot.json`
+    - `latest-published-product-projection.json`
+    - `latest-published-product-projection-live.json`
+- authoritative 结果：
+  - `20006725 / 83LY00TRCD -> marketingPoAmount = 600`
+  - `20007934 / 83QC0002CD -> marketingPoAmount = 1000`
+  - `product_activity_current` 已回读到 `validFrom = 2026-06-09`
+- 接手注意：
+  - 这次主修的是“发布投影当前活动选择器”，不是活动源文件缺失
+  - `latest-marketing-boost-snapshot.json` 里仍保留历史式旧规则残影，但当前零售展示已经不会再误取那条旧高额规则
+  - 本轮没有完成真实 `5174` 页面肉眼验收，不能写成“真页已确认”
+
+## 2026-06-09 Handoff｜SKU `20006289` 已完成所有终端同步，YOGA 分类已写回 SQLite
+
+- 本轮真实动作：
+  - 修改 `apps/web-cockpit/src/App.tsx`
+    - `getUnifiedSkuDisplayTitle(...)` 现在会忽略退化成 `8` 位 SKU 的 `published` 标题
+    - 主前端统一优先使用真实库存标题
+  - 修改 `apps/web-cockpit/public/retail-ops-terminal.html`
+    - 新增 `resolveDisplayName(...)`
+    - 终端序列号视图与发布投影视图都不再显示纯 SKU 标题
+    - 分类优先回退到 `sourceCategory`
+  - 再次同步 `latest-published-product-projection*.json` 与 `latest-published-product-channel-audit.json`
+    - web / api-server / inventory-sync 三份副本已统一
+  - 使用 `sqlite3` 完成主档写回：
+    - `default_category = YOGA`
+    - `canonical_name = YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）`
+    - `product_line = YOGA`
+    - `model_family = YOGA Air 14`
+    - `configuration_summary = 83JX000ACD · Ultra5-228V 32G 1T`
+- authoritative 结果：
+  - `latest-published-product-projection.json` 当前已回读为：
+    - 顶层 `displayTitle = YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）`
+    - `category = YOGA`
+    - `sourceCategory = YOGA`
+    - `channelViews.retailHero/cashier/adMachine.displayTitle` 也都已统一为 YOGA 标题
+  - SQLite 主档当前已回读为：
+    - `PROD-20006289|20006289|YOGA|YOGA|YOGA Air 14|`
+- 接手注意：
+  - 当前“数据链收口”已经完成，剩余主要是“真实页面肉眼验收”
+  - 如果后续定时链又把 projection 标题刷回纯 SKU，也不会立刻影响主前端 / 广告机 / POS / 零售终端，因为兜底链已经补上
+
+## 2026-06-09 Handoff｜店面手动满减活动库 SQL 保存已补显式提示与失败回滚
+
+- 本轮真实动作：
+  - 读取并核对：
+    - `apps/web-cockpit/src/App.tsx`
+    - `apps/web-cockpit/src/domain/inventoryQuote/service.ts`
+    - `apps/api-server/app/main.py`
+    - `apps/api-server/app/retail_core.py`
+  - 实测接口：
+    - `GET /api/inventory-quote/store-manual-promotions`
+    - `POST /api/inventory-quote/store-manual-promotions`
+  - 结论不是“SQL 保存链完全坏掉”，而是前端此前会静默失败：
+    - 表单校验未过时直接返回，没有任何可见提示
+    - SQL 非 2xx / 异常时调用链只 `console.warn`
+    - 用户感知就是“点保存没反应 / 刷新后没了”
+  - 已修改：
+    - `apps/web-cockpit/src/domain/inventoryQuote/service.ts`
+      - SQL 非 2xx 时解析后端错误并抛出
+    - `apps/web-cockpit/src/App.tsx`
+      - 新增 `storeManualPromotionStatusMessage`
+      - 校验失败给出可见提示
+      - SQL 保存失败时回滚到上一次 SQL 结果
+      - 新增/编辑/启停/删除/延期都显示成功提示
+  - 已清理调试影响：
+    - `store_manual_promotion` SQL 表当前已恢复为原始 `6` 条记录
+- authoritative 结果：
+  - `sqlite3 ... select count(*) ... from store_manual_promotion; -> 6`
+  - `GET /api/inventory-quote/store-manual-promotions -> itemCount = 6`
+  - `cd apps/web-cockpit && pnpm build` 通过
+- 接手注意：
+  - 当前接口语义是“全量覆盖写回”，不是单条 append
+  - 后续若再出现“保存不了”，先看页面状态提示和 network 返回，再判断是校验失败、接口失败还是并发覆盖
+
+## 2026-06-09 Handoff｜库存台账 SN 明细已修复，实物仓-only SKU 不再出现“SN 1 / 明细 0 条”
+
+- 本轮真实动作：
+  - 修改 `apps/web-cockpit/src/App.tsx`
+    - 库存台账在合并 `fallbackSerials` 时，原先会把 `isPhysicalHold` 的 fallback SN 跳过
+    - 现已改为保留这类 SN，避免头部 `serialCount` 和展开明细使用不同口径
+  - 读取基础快照核对：
+    - `apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json`
+    - 多个问题 SKU 实际都存在 `hold = true` 的实物仓 SN
+  - 在真实 `http://127.0.0.1:5174/ -> 库存台账` 回归样例：
+    - `20002909`
+    - `20003058`
+    - `20003432`
+    - `20004635`
+    - `20006190`
+    - `20006802`
+    - `20006803`
+    - `20007941`
+    - `20007957`
+- authoritative 结果：
+  - 修复前会出现：
+    - `SN 1`
+    - `展开 SN 明细（0）`
+    - `该 SKU 当前未匹配到 SN`
+  - 修复后上述样例已恢复为：
+    - `展开 SN 明细（1）`
+    - `已加载 1 个序列号，门店SN 0 个，实物仓SN 1 个`
+- 接手注意：
+  - 这次不是数据源缺 SN，而是前端合并链把 fallback 实物仓 SN 丢了
+  - 如果后续用户继续报“SN 计数和展开不一致”，优先检查 `row.serials + fallbackSerials` 合并逻辑，而不是先怀疑智店通导入链
+
+## 2026-06-09 Handoff｜SKU `20006289` 已补所有终端兜底链，终端显示分类优先 `YOGA`
+
+- 本轮真实动作：
+  - 修改 `apps/web-cockpit/public/android-pos-lite.html`
+    - POS 商品构建链新增标题兜底：
+      - 若发布投影标题退化成 `8` 位 SKU，优先改用 `latest-standard-inventory-snapshot.json` / `serial_item` 的真实标题
+    - POS 商品规格优先改用库存真值里的 `spec`
+    - POS 显示分类优先改用 `displayCategory/sourceCategory`
+  - 修改 `apps/web-cockpit/public/ad-machine/index.html`
+    - 新增 `resolvePublishedDisplayTitle(...)`
+    - 广告机补位链里优先使用库存真值标题，不再硬信旧投影标题
+    - 广告机显示分类优先使用 `displayCategory/sourceCategory`
+  - 批量同步：
+    - `latest-product-library-products.json`
+    - `latest-product-library-details.json`
+    - `latest-published-product-projection*.json`
+    - `latest-published-product-channel-audit.json`
+    - 对应 `apps/api-server/data/` 与 `apps/inventory-sync/artifacts/`
+- authoritative 结果：
+  - 终端脚本层已具备兜底能力：
+    - 即使 `published projection` 再退回 `20006289`
+    - POS / 广告机也会优先显示 `YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）`
+    - 终端分类标签会优先显示 `YOGA`
+  - 构建验证通过：
+    - `cd apps/web-cockpit && pnpm build`
+- 当时阻塞：
+  - `scripts/scheduled_task_runner.py` 占锁 `retail-core.sqlite3`
+  - 该阻塞已在后续 `00:20` 轮次被绕开并完成写回
+- 接手注意：
+  - 这次 authoritative 已经从“只改快照”升级成“终端读链兜底已改”
+  - 但真实页面仍需肉眼确认，不要把未点验页面写成已完成
+
+## 2026-06-08 Handoff｜SKU `20006289` 已补齐 YOGA 主标题与详细配置，前端快照/API 快照缓存已同步
+
+- 本轮真实动作：
+  - 确认 `SKU 20006289 / PN 83JX000ACD` 在产品库详情中原始真值已是：
+    - `YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）`
+  - 修正发布链错把主标题锁成纯 SKU 的问题：
+    - `displayTitle/productName: 20006289 -> YOGA Air 14 ILL10（YOGA Air 14 Aura AI元启版）`
+  - 补齐详细配置：
+    - `spec = Ultra5-228V 32G 1T`
+    - `configuration_summary = 83JX000ACD · Ultra5-228V 32G 1T`
+    - `product_line = YOGA`
+    - `model_family = YOGA Air 14`
+  - 已同步：
+    - `apps/web-cockpit/public/data/latest-product-library-products.json`
+    - `apps/web-cockpit/public/data/latest-product-library-details.json`
+    - `apps/web-cockpit/public/data/latest-published-product-projection*.json`
+    - `apps/web-cockpit/public/data/latest-published-product-channel-audit.json`
+    - `apps/web-cockpit/public/data/latest-sn-reconciliation-*.json`
+    - 对应 `apps/api-server/data/` 与 `apps/inventory-sync/artifacts/` 副本
+  - 已写回 SQLite 主档：
+    - `product_master.PROD-20006289`
+  - 已回灌 SQL `snapshot_cache`：
+    - `latest-published-product-projection.json`
+    - `latest-published-product-projection-live.json`
+    - `latest-published-product-channel-audit.json`
+  - 已恢复单实例 `8000` API 监听
+- authoritative 结果：
+  - `public/data latest-published-product-projection*.json` 已显示新标题和规格
+  - `public/data latest-product-library-details.json` 已显示新主标题、产品线、系列和配置摘要
+  - SQLite 主档已不再是 `canonical_name = 20006289`
+- 接手注意：
+  - 本轮未在真实 `5174` 页面肉眼复看该 SKU 卡片最终文案
+  - 若后续页面仍旧显示纯 SKU，优先检查是否存在旧缓存、旧离线包或前端本地内存态未刷新
+
+## 2026-06-09 Handoff｜广告机纯转存手机已补显，POS 首屏与手机分类已修正
+
+- 本轮真实动作：
+  - 修改 `apps/web-cockpit/public/ad-machine/index.html`
+    - 手机识别放宽到 `category=手机`、`sourceCategory=折叠机|直板机`
+    - 修复 `20007812` 这类标题未补齐手机不能进入 `phone` 彩页的问题
+  - 修改 `apps/web-cockpit/public/android-pos-lite.html`
+    - `GET` 请求不再强行带 `content-type`
+    - 手机分类放宽到 `raw=手机`、`折叠机|直板机`
+  - 真实页面回归：
+    - 广告机：`phoneCount = 10`，`20007812` 已出现在手机彩页
+    - POS：商品池 `109`，`20007812 -> 智能生活`，顶部状态最终 `正常`
+- authoritative 结果：
+  - 纯转存手机样例现在在三条客户可见链都已出现：
+    - 主零售页
+    - 广告机
+    - POS
+- 接手注意：
+  - 还没处理的是基础库存/SN 冲突 `coreStockSnMismatchCount = 3`
+  - `scripts/audit_terminal_stock_sn_sync.py` 仍按旧门店库存口径审计，会继续报 `27` 条假阳性
+
+## 2026-06-08 Handoff｜紧凑库存接口已补回实物仓字段，真实零售页库存已按总库存显示
+
+- 本轮真实动作：
+  - 修改 `apps/api-server/app/main.py`
+    - `/api/inventory-quote/inventory?compact=1` 补回 `physicalHoldStock / physicalHoldSerialCount`
+    - 分类 `topSkus` 同步保留 `physicalHoldStock`
+  - 修改 `apps/web-cockpit/src/App.tsx`
+    - `getDisplayTotalStock(...)` 改成 `max(explicitTotal, currentStock + physicalHoldStock)`
+  - 重启本地 `8000` API 进程：
+    - 新 PID `23476`
+  - 在真实 `http://127.0.0.1:5174/` 页面复看：
+    - `20006725 -> 库存 27 台 · SN 27 · 实物仓 19`
+    - `20007934 -> 库存 11 台 · SN 11 · 实物仓 8`
+    - `20006289 -> 库存 5 台 · SN 5 · 实物仓 5`
+- authoritative 结果：
+  - `compact inventory snapshot` 不再丢 `physicalHoldStock`
+  - 混合库存 SKU 不再只显示未PO库存
+  - `未PO = 0 / 转存 > 0` 的纯转存 SKU 在真实零售页已可见
+- 接手注意：
+  - 广告机 / POS 真页还没补这轮最终点验
+  - 如果用户继续反馈“某终端还不对”，优先先排查该终端是否仍在读旧离线包或旧缓存
+
+## 2026-06-08 Handoff｜`sn-15` 已补 1 条联想保修，但 authoritative 仍是 `executed_not_closed`
+
+- 本轮真实动作：
+  - 在默认 Chrome 现有会话真实打开：
+    - `https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname=BH020S9X`
+  - 真实读到官网结果：
+    - 设备 `Legion Y7000P IRX10`
+    - 主机编号 `BH020S9X`
+    - `主要服务保修期：2026-02-09 — 2028-03-10`
+  - 新增当天证据：
+    - `apps/inventory-sync/artifacts/manual/warranty/2026-06-08/BH020S9X-success.png`
+    - `apps/inventory-sync/artifacts/manual/warranty/2026-06-08/BH020S9X-success.txt`
+  - 已导入受控快照：
+    - `cd apps/inventory-sync && node --import tsx/esm src/cli.ts import-manual-lenovo-warranty 2026-06-08`
+    - `importedCount = 1`
+    - `successCount = 1`
+    - `remainingQueueTotal = 165`
+  - 已直写 SQL 主链：
+    - `PYTHONPATH=apps/api-server apps/api-server/.venv/bin/python - <<'PY' ... retail_core.sync_warranty_snapshot(...)`
+    - `synced = 360`
+  - 已核对库内结果：
+    - `serial_item.BH020S9X = success | 2026-02-09 | 2028-03-10 | 2026-06-08T23:31:00+08:00`
+  - 已打开前端：
+    - `http://127.0.0.1:5174/`
+    - `SN保修 -> 进入库存台账 SN 明细`
+    - 在前端筛到 `SKU 20003216 / SN BH020S9X`
+- authoritative 结果：
+  - `latest-lenovo-warranty-snapshot.json`: `successCount 258 -> 259`
+  - `latest-warranty-check-queue.json`: `166 -> 165`
+  - 当前只能记 `executed_not_closed`
+- 原因：
+  - 当前可见前端虽然已能筛到 `BH020S9X` 这条 SN，但页面未直接显示刚写入的 `2028-03-10` 保修日期字段
+  - 因此缺“前端关键字段已显示”的最后一段实证，不能写 `real_completed`
+- 接手注意：
+  - 下一轮优先继续在同一 Chrome 会话补 `20003216 / 83NN0001CD` 余下高优先级 SN
+  - 同时要查清前端 `SN保修 -> 库存台账` 为什么能筛到 `BH020S9X`，却没把 `official_warranty_end` 直接展示出来
+
+## 2026-06-08 Handoff｜零售兜底链已补入纯转存 SKU，商品卡库存文案不再显示“可售”
+
+- 本轮真实动作：
+  - 修复 `apps/web-cockpit/src/App.tsx`
+    - 原先只有 `retail-zone` 主链存在时才会并入 `publishedProjection` 的纯转存 SKU
+    - 现在改成先生成 `baseRetailDecisions`，再统一并入 `publishedRetailSupplementDecisions`
+    - 因此即使走本地兜底链，`storeCurrentStock = 0 && physicalHoldStock > 0` 的 SKU 也不会再丢
+  - 修复终端文案：
+    - `apps/web-cockpit/src/App.tsx`
+    - `apps/web-cockpit/public/ad-machine/index.html`
+    - `apps/web-cockpit/public/android-pos-lite.html`
+    - 商品级展示统一改为 `库存 X 台`
+- authoritative 结果：
+  - `latest-published-product-projection.json` 纯转存 SKU 仍是 `13`
+  - 构建验证通过：`cd apps/web-cockpit && pnpm build`
+- 接手注意：
+  - 本轮没有新改后端数据，只修了前端兜底显示链
+  - 还没有在真实 `5174 / 广告机 / POS` 页面逐个点验，下一轮先补这一步
+
+## 2026-06-08 Handoff｜转存库存已并入实时零售/广告机/POS 展示主链
+
+- 本轮真实动作：
+  - 修复 `apps/api-server/app/product_library.py`
+    - 发布投影不再只信 `retail-zone` 的 `physicalHoldStock`
+    - 改从 `latest-standard-inventory-snapshot.json` 带入真实转存库存
+    - 投影新增 `storeCurrentStock / storeSellableStock / totalStock`
+  - 修复 `apps/web-cockpit/src/App.tsx`
+    - 所有关键展示与筛选改按 `总可见库存 = 门店库存 + 转存库存`
+    - 当 `retail-zone` 缺少纯转存 SKU 时，用 `publishedProjection` 做补位
+  - 修复独立终端：
+    - `apps/web-cockpit/public/ad-machine/index.html`
+    - `apps/web-cockpit/public/android-pos-lite.html`
+  - 已重建：
+    - `latest-published-product-projection.json`
+    - `latest-published-product-projection-live.json`
+    - `latest-published-product-channel-audit.json`
+- 当前 authoritative 结果：
+  - `latest-published-product-projection.json -> holdVisibleCount = 27`
+  - `pure hold-only sku count = 13`
+  - `retail-zone visible = 96`
+  - `retail supplement = 13`
+  - `merged visible sku count = 109`
+- 已确认命中的样例：
+  - `20006289`
+  - `20007935`
+  - `20002909`
+- 接手注意：
+  - 当前“补位”只针对 `physicalHoldStock > 0` 且 `retail-zone` 缺失的 SKU，不会把零售池直接膨胀成全量 3000+
+  - 活动营销 / 教育补贴仍统一来自发布投影；命中智惠服务只影响后续出库，不应再隐藏活动标签
+  - 本轮没有替用户在真实广告机/POS 页面做最终可见点验，下一轮要补这一步
+
+## 2026-06-08 Handoff｜`daily-jd-lenovo-price-sync` 已续跑，authoritative 仍是 `executed_not_closed`
+
+- 本轮真实动作：
+  - 执行唯一正式入口：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动 fallback 到 `node --import tsx/esm`
+    - 新报告 `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-08T15-04-28-189Z.json`
+  - 继续吃入当天手工批次：
+    - `apps/inventory-sync/artifacts/manual-price-supplements-20260608-automation-8-visible-chrome-batch-1.json`
+  - 已完成快照与 SQL 镜像重建：
+    - `latest-marketplace-price-snapshot`
+    - `latest-retail-price-audit`
+    - `latest-retail-zone-snapshot`
+    - `latest-semi-auto-execution-plan`
+    - `latest-scheduled-sql-auto-sync-audit`
+  - 运行 `cd apps/web-cockpit && pnpm build` 通过
+  - 尝试在当前沙箱补前端 HTTP 验收：
+    - `python3 -m http.server 5174 --bind 127.0.0.1 --directory apps/web-cockpit/dist`
+    - 失败：`PermissionError: [Errno 1] Operation not permitted`
+- authoritative 结果：
+  - `executionOutcome = executed_not_closed`
+  - `manualActionRequired = true`
+  - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - `updatedRecordCount = 20`
+  - `frontendBlankPriceCount = 0`
+  - `openSyncGapCount = 0`
+- 接手注意：
+  - 本轮 `未执行手工采价`
+  - 新报告仍明确缺：
+    - `verify_visible_page_content_gate`
+    - `verify_frontend_visible_sync_gate`
+  - 当前沙箱仍无法绑定 `127.0.0.1:5174`，因此没有新的 HTTP 前端可见验收实证
+  - 下一轮若没有新的 Chrome 手工批次或真实前端可见证据，不要把编排续跑写成完成
+
+## 2026-06-08 Handoff｜本机 OpenClaw 终端入口与检查脚本已修通
+
+- 已完成：
+  - 当前电脑终端已可直接执行 `openclaw`
+  - OpenClaw gateway 持续健康：
+    - `ai.openclaw.gateway`
+    - `127.0.0.1:18789`
+  - 检查脚本已加超时保护，避免状态探测卡住：
+    - `scripts/check-openclaw.sh`
+    - `scripts/openclaw_healthcheck.sh`
+- 根因：
+  - OpenClaw 实际安装在 `~/.local/opt/node-v24.15.0/bin/openclaw`
+  - 当前 shell 的 `PATH` 命中 `~/.local/bin`，但该目录之前没有 `openclaw` 入口
+- 实际修复：
+  - 新建软链接：
+    - `~/.local/bin/openclaw -> ~/.local/opt/node-v24.15.0/bin/openclaw`
+- 验证已过：
+  - `openclaw --version`
+  - `openclaw gateway health`
+  - `./scripts/check-openclaw.sh`
+  - `./scripts/openclaw_healthcheck.sh`
+- 接手注意：
+  - 本轮修的是“本机 OpenClaw 可用性”，不是把 OpenClaw 重新纳入正式定时任务
+  - 如果下一轮要继续处理 OpenClaw 历史残留，优先看：
+    - `docs/ai-context/17_OPENCLAW_AND_SCHEDULED_TASK_AUDIT_20260527.md`
+
+## 2026-06-08 Handoff｜`zhidiantong-sync-cycle` 15:00 正式报告已生成，但 authoritative 仍是 `executed_not_closed`
+
+- 本轮真实动作：
+  - 复核最新正式报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-08T15-05-02-687Z.json`
+  - 复核主链缺口：
+    - `latest-education-agent-scan-sync-gap.json -> gapCount = 1031`
+    - `latest-purchase-inbound-gap-audit.json -> sameDayMissingCostCount = 1`
+    - `latest-sn-reconciliation-summary.json -> mismatchCount = 16`
+  - 在 Codex in-app Browser 真实打开：
+    - `http://127.0.0.1:5174/ -> 入库出库`
+  - 已补新的前端可见摘要：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-08-1500/frontend-visible-summary.md`
+- authoritative 结果：
+  - `executionOutcome = executed_not_closed`
+  - `blockingReason = 采购入库进货成本价仍缺 1 条同日记录，当前不能写成出入库明细已收口。`
+- 已确认可见前端状态：
+  - `销售出库（1055）`
+  - `采购入库（412）`
+  - `其他出库（1201）`
+  - `调拨出库（0）`
+  - `调拨入库（31）`
+  - 首条采购入库 `CGR260608441588 / ￥2,659 / 入库 4 台 · SN 4 / 同步 06/08 23:05`
+- 接手注意：
+  - 本轮 `未执行手工网页微信代扫采集`
+  - 本轮 `未补当天商品库存统计 / 商品库存SN统计导出`
+  - 当前最大的缺口仍是：
+    - `智店通入库群 / 教育补贴群` 没有同日正式记录或无新增确认
+    - 同日采购入库仍缺 `1` 条成本
+    - 库存 / SN 仍有 `16` 处不一致
+  - 下一轮必须先补网页微信两群和智店通总表，再决定是否重跑 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+
+## 2026-06-08 Handoff｜`zhidiantong-sync-cycle` 本轮未重跑，authoritative 仍是 `executed_not_closed`
+
+- 本轮真实动作：
+  - 重新读取自动化记忆、`AGENTS.md`、`07_BROWSER_WORKFLOW.md`、`12_EXECUTION_CORE.md`、`13_SCHEDULED_TASK_SOPS.md`
+  - 复核最新 authoritative 报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-08T13-54-46-299Z.json`
+  - 检查当天主链输入：
+    - `apps/inventory-sync/artifacts/manual/education-agent-scan/` 下没有 `2026-06-08` 的正式记录或无新增确认
+    - `Downloads/` 与 `apps/inventory-sync/artifacts/` 下没有 `2026-06-08` 对应库存统计、库存SN统计、销售导出/明细、采购入库、其他出库、调拨导出
+  - 写出阻塞证据：
+    - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-08-2218-run-gate/blocking-summary.md`
+- authoritative 结果：
+  - `executionOutcome = executed_not_closed`
+  - `blockingReason = 采购入库进货成本价仍缺 1 条同日记录，当前不能写成出入库明细已收口。`
+  - 其他关键缺口仍在：
+    - `latest-purchase-inbound-gap-audit.json -> sameDayMissingCostCount = 1`
+    - `latest-sn-reconciliation-summary.json -> mismatchCount = 9`
+    - `latest-education-agent-scan-sync-gap.json -> gapCount = 8690`
+- 接手注意：
+  - 本轮 `未执行手工采集`
+  - 本轮 `未重跑正式入口`
+  - 当前不是锁阻塞，而是输入阻塞；没有新输入时不要重复跑 `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+  - 下轮先补齐网页微信两群记录与智店通当天导出，再决定是否重跑唯一正式入口
+
+## 2026-06-08 Handoff｜`daily-jd-lenovo-price-sync` 已吃入 20 条手工批次，但 authoritative 仍是 `executed_not_closed`
+
+- 本轮真实动作：
+  - 执行唯一正式入口：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动 fallback 到 `node --import tsx/esm`
+    - 新报告 `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-08T14-00-44-131Z.json`
+  - 已吃入当天手工批次：
+    - `apps/inventory-sync/artifacts/manual-price-supplements-20260608-automation-8-visible-chrome-batch-1.json`
+  - 已完成快照与 SQL 镜像重建：
+    - `latest-marketplace-price-snapshot`
+    - `latest-retail-price-audit`
+    - `latest-retail-zone-snapshot`
+    - `latest-semi-auto-execution-plan`
+    - `latest-scheduled-sql-auto-sync-audit`
+- authoritative 结果：
+  - `executionOutcome = executed_not_closed`
+  - `manualActionRequired = true`
+  - `blockingReason = 仍有 51 条已锁定链接待真实手工复核`
+  - `updatedRecordCount = 20`
+  - `missingPriceCount = 0`
+  - `frontendBlankPriceCount = 0`
+  - `openSyncGapCount = 0`
+- 接手注意：
+  - 本轮未执行手工采价，不能把“吃入手工批次 + 快照重建”写成“已真实采集完成”
+  - 报告仍明确缺：
+    - `verify_visible_page_content_gate`
+    - `verify_frontend_visible_sync_gate`
+  - 当前沙箱无法绑定 `127.0.0.1:5174`，因此这轮没有新的 HTTP 前端可见验收截图；如要补 UI 实证，需在已有可用前端会话或非受限环境下继续
+
+## 2026-06-08 Handoff｜午后灰渠公众号已到当天文章，但正式任务仍是 `blocked_missing_input`
+
+- 本轮真实动作：
+  - 在默认 Chrome 现有会话 `https://localhost:3001/` 中按固定入口完成：
+    - `文件传输助手`
+    - 固定公众号名片 `郑州市创业`
+    - 公众号主页底部日期快捷入口 `2026-06-08`
+  - 真实进入当天正文页：
+    - 标题 `2026-06-08 郑州创业 联想 华为 报价`
+    - 发布时间 `2026年6月8日 15:05`
+    - 首屏联想行 `联想全新拆机显卡 3050-8G 14*0 创业`
+    - 同屏主体仍以华为 `Hi MateBook` 报价为主
+  - 已写访问证据：
+    - `apps/inventory-sync/artifacts/manual/gray-channel-visible-article-2026-06-08.txt`
+  - 已跑唯一正式入口：
+    - `bash scripts/run_scheduled_task.sh daily-gray-channel-check`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动 fallback 到 `node --import tsx/esm`
+    - 新报告 `apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-06-08T13-57-56-137Z.json`
+- authoritative 结果：
+  - `executionOutcome = blocked_missing_input`
+  - `blockingReason = 灰渠公众号今天已到达入口并记录了 2026-06-08，但缺当天落盘原文或原文日期不是 2026-06-08；当前沿用最后一次有效原文。`
+- 前端验收结论：
+  - `http://127.0.0.1:5174/ -> 报价来源 -> 公众号报价库` 仍显示：
+    - `入口访问证据 未记录`
+    - `最新可见文章 2026-06-07`
+    - `报价状态 历史沿用`
+  - 说明访问证据文件已写出，但 5174 当前没有映射进卡片显示
+- 新增证据：
+  - `apps/inventory-sync/artifacts/manual/daily-gray-channel-check-2026-06-08-pm/wechat-entry-2026-06-08.png`
+  - `apps/inventory-sync/artifacts/manual/daily-gray-channel-check-2026-06-08-pm/wechat-article-2026-06-08.png`
+  - `apps/inventory-sync/artifacts/manual/daily-gray-channel-check-2026-06-08-pm/frontend-gray-library-2026-06-08.png`
+  - `apps/inventory-sync/artifacts/manual/gray-channel-2026-06-08-pm-run-summary.md`
+- 接手注意：
+  - 不要把“已打开当天文章”写成“已形成当天有效联想灰渠报价”
+  - 当前实现里只要落 `gray-wholesale-2026-06-08.txt/.md`，`executeGrayChannelCheck` 就会直接走 `real_completed` 分支，存在误报风险
+  - 下轮优先查 `latest-gray-channel-visible-article.json` 与前端 `报价来源` 读取链
+
+## 2026-06-08 Handoff｜13:30 智店通线程补到新可见状态，但没有新正式报告
+
+- 本轮真实动作：
+  - 读取自动化记忆后确认，最新 authoritative 报告仍是：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-08T13-07-48-796Z.json`
+  - 在默认 Chrome 现有会话里补了一轮新的可见状态：
+    - 网页微信初始在 `教育补贴群`
+    - 单步切到 `智店通入库群`
+    - 只点当前可见图片一次，未进入图片查看器历史回扫
+    - 智店通当前页是 `商品 / 经销商商品`
+    - 5174 当前 `入库出库` 已能看到：
+      - `销售出库（1055）`
+      - `采购入库（415）`
+      - `其他出库（1198）`
+      - `调拨出库（0）`
+      - `调拨入库（31）`
+      - 样例 `XS26060821445335779 / BH022VR7 / ￥9,499`
+      - 样例 `XS26060886123844179 / PF69FTLS / ￥13,999`
+  - 真实执行：
+    - `bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动 fallback 到 `node --import tsx/esm`
+    - fallback 静默约 50 秒，无新增正式报告，人工中断后 `.scheduled-task.lock` 仍存在
+- 新增产物：
+  - `apps/inventory-sync/artifacts/manual/zhidiantong-sync-cycle-2026-06-08-2130/visible-evidence-summary.md`
+- 接手注意：
+  - 本轮不是 no-op，但也没有新 per-run 报告。
+  - 不要把这次命令尝试写成“已同步完成”。
+  - 下轮先查锁，再决定是否能安全重跑唯一正式入口。
+## 2026-06-08 Handoff｜`automation-8` 22:07 已出窗口，本轮只生成阻塞证据
+
+- 本轮真实动作：
+  - 复核 `automation-8` 当日窗口状态
+  - 读取最新正式报告 `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-08T14-03-13-519Z.json`
+  - 读取 `latest-semi-auto-execution-plan.json` 与 `latest-product-url-locks.json`
+  - 写出新阻塞证据目录：
+    - `apps/inventory-sync/artifacts/manual/automation-8-2026-06-08-2207-window-gate/`
+- authoritative 结果：
+  - 当前已超出 `10:00-22:00 CST` 当日窗口 `7` 分钟
+  - 本轮 `executionOutcome = blocked_missing_input`
+  - 明确 `未执行手工采集`
+- 接手注意：
+  - 不要把 22:03 runner ingest pending 批次写成 22:07 已手工复核完成
+  - 最新正式状态仍是：
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 51 条已锁定链接待真实手工复核`
+  - 下一有效窗口是 `2026-06-09 10:00-22:00 CST`
+
+## 2026-06-08 Handoff｜库存台账合计显示与打印机分类误判已修
+
+- 已完成：
+  - `库存台账` 行内展示改回真实口径：
+    - `门店 = row.currentStock`
+    - `实物仓 = row.physicalHoldStock`
+    - `合计 = row.currentStock + row.physicalHoldStock`
+  - 前后端分类顺序已修：
+    - `打印机` 判断优先于 `一体机`
+- 关键文件：
+  - `apps/web-cockpit/src/App.tsx`
+  - `apps/api-server/app/retail_core.py`
+- 验证已过：
+  - `cd apps/web-cockpit && pnpm build`
+  - `python3 -m py_compile apps/api-server/app/retail_core.py`
+- 接手注意：
+  - 本轮没有重建全量库存快照，只修了显示层和 API 归一规则。
+  - 如果下轮要把历史快照里的旧分类一并刷正，再决定是否跑对应重建链路。
+
+## 2026-06-08 Handoff｜库存动作自动同步与库存台账入口自动拉新已接入
+
+- 已完成：
+  - 新增统一门禁接口：
+    - `/api/local-sync/ensure-inventory-master`
+  - 真实库存动作成功后自动触发：
+    - `transfer / finalize / release / revoke / reopen / rebind`
+  - 前端 `serials / physicalHoldDisplay` 入口自动拉一次最新同步
+  - 实物仓批量动作完成后，UI 会先等一次自动同步，再刷新库存视图
+- 关键文件：
+  - `apps/api-server/app/local_sync.py`
+  - `apps/api-server/app/main.py`
+  - `apps/web-cockpit/src/domain/inventoryQuote/service.ts`
+  - `apps/web-cockpit/src/App.tsx`
+- 验证已过：
+  - `python3 -m py_compile apps/api-server/app/main.py apps/api-server/app/local_sync.py`
+  - `cd apps/web-cockpit && pnpm build`
+  - 新 `8000` 进程已重启：PID `20859`
+  - `GET /api/local-sync/ensure-inventory-master -> 405`
+  - `GET /api/retail-core/physical-stock-holds?limit=1&status=all -> 200`
+- 接手注意：
+  - `ensure-inventory-master` 真实执行 `inventory-master-sync`，耗时可能明显高于普通接口。
+  - 还缺一轮 `5174` 真页面的动作后可见验收。
+
+## 2026-06-08 Handoff｜实物仓与库存台账主标题已对齐实时零售报价
+
+- 已完成：
+  - `转仓候选单商品明细` 主标题改为与 `实时零售报价` 同源
+  - `实物仓商品台账` 主标题改为与 `实时零售报价` 同源
+  - `库存台账` 继续固定优先显示 `publishedProjection.displayTitle`
+- 关键文件：
+  - `apps/web-cockpit/src/App.tsx`
+- 验证已过：
+  - `cd apps/web-cockpit && pnpm build`
+- 接手注意：
+  - 本轮是前端标题链收口，不是后端标题主档改动。
+  - 如果后续发现某个 SKU 三端标题仍不一致，优先查 `latest-published-product-projection.json`。
+
+## 2026-06-09 Handoff｜`daily-jd-lenovo-price-sync` 编排层已续跑，但没有当天手工补价证据
+
+- 本轮真实动作：
+  - 运行正式入口：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 入口因 `tsx` IPC pipe `EPERM` 自动回退到：
+    - `node --import tsx/esm src/cli.ts run-scheduled-task daily-jd-lenovo-price-sync`
+  - 读取正式报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-08T16-02-54-229Z.json`
+  - 核对当天手工批次：
+    - 未发现 `apps/inventory-sync/artifacts/manual-price-supplements-20260609*.json`
+  - 补跑标题一致性审计：
+    - `python3 scripts/audit_terminal_title_consistency.py`
+    - 结果：`issueCount = 2`
+- authoritative 结果：
+  - `executionOutcome = executed_not_closed`
+  - `newRecordCount = 0`
+  - `updatedRecordCount = 0`
+  - `retailPriceVerificationCount = 50`
+  - `newStockPriorityCount = 23`
+  - `openSyncGapCount = 0`
+  - 缺少：
+    - `verify_visible_page_content_gate`
+    - `verify_frontend_visible_sync_gate`
+- 当前额外缺口：
+  - `latest-terminal-title-consistency-audit.json` 仍挂 `2` 条问题：
+    - `SKU 20006289 -> title = 20006289`
+    - `SKU 20007812 -> title = 20007812`
+- 环境限制：
+  - `curl http://127.0.0.1:8000/health` 失败，当前 `8000` 未监听
+  - `cd apps/web-cockpit && npm run preview -- --host 127.0.0.1 --port 4174` 报 `listen EPERM`
+  - 因此本轮没有拿到新的 `5174/4174` 可见前端验收证据
+- 接手注意：
+  - 这轮是编排层续跑，不是真实页面采价。
+  - 下轮优先让 Chrome 稳定会话产出 `manual-price-supplements-20260609*.json`，再重跑编排层。
+  - 在标题审计 `issueCount = 2` 清零前，任务1也不能写 `real_completed`。
+## 2026-06-11 11:35 Handoff｜任务分解与模型路由规则已落地，后续新任务先按保守型拆解再分发
+
+- 本轮真实动作：
+  - 新增：
+    - `docs/ai-context/20_TASK_DECOMPOSITION_AND_MODEL_ROUTING.md`
+  - 同步更新：
+    - `docs/ai-context/02_DECISIONS.md`
+    - `docs/ai-context/12_EXECUTION_CORE.md`
+    - `docs/ai-context/15_SUBAGENT_EXECUTION_PLAYBOOK.md`
+- authoritative 结果：
+  - 后续新任务统一按：
+    - `Codex 一级拆解 -> A/B/C/D 分类 -> GPT/OpenClaw 执行窄任务 -> Codex 收口`
+  - 当前固定采用 `保守型`：
+    - `Codex` 保留正式业务收口权
+    - `GPT` 不得输出正式业务完成结论
+    - `OpenClaw` 不得接管正式定时任务主链
+- 接手注意：
+  - 这轮只改了规则和长期记忆，没有改任何业务逻辑
+  - 如下轮要真实分发任务，先按 `20_TASK_DECOMPOSITION_AND_MODEL_ROUTING.md` 填一级拆解卡片和执行单
+  - 不要把“OpenClaw 可手动接窄任务”误写成“OpenClaw 重新接回正式主链”
+## 2026-06-11 12:05 Handoff｜分发入口已盘点，OpenClaw 本机派发链可用，GPT 仍为人工投递
+
+- 本轮真实动作：
+  - 新增：
+    - `docs/ai-context/21_DISPATCH_ENTRYPOINTS_AND_MANUAL_HANDOFF.md`
+  - 实测：
+    - `bash scripts/check-openclaw.sh`
+  - 读取并核对：
+    - `apps/api-server/app/main.py`
+    - `apps/api-server/app/openclaw_chat_board.py`
+    - `apps/inventory-sync/src/storage/openclawCommandBoard.ts`
+    - `apps/inventory-sync/src/storage/openclawReceipts.ts`
+- authoritative 结果：
+  - `OpenClaw` 当前存在真实派发入口：
+    - `POST /api/openclaw/chat-board/send`
+    - command 文件链
+    - receipt 汇总链
+  - `GPT` 当前没有仓库内自动派发链，仍只能走执行单 + 人工投递
+  - `OpenClaw` 本机 gateway 目前可用，但仍只限副驾驶窄任务
+- 接手注意：
+  - 本轮没有真实派发业务任务，只完成入口盘点和最小探活
+  - 如下轮要真发，优先选一个不会碰正式主链的窄任务做演示
+  - 先读：
+    - `20_TASK_DECOMPOSITION_AND_MODEL_ROUTING.md`
+    - `21_DISPATCH_ENTRYPOINTS_AND_MANUAL_HANDOFF.md`
+
+## 2026-06-11 Handoff｜后台 UI 固定工作流与短提示词已固化
+
+- 本轮真实动作：
+  - 更新：
+    - `AGENTS.md`
+    - `docs/ai-context/02_DECISIONS.md`
+    - `docs/ai-context/12_EXECUTION_CORE.md`
+    - `docs/ai-context/19_RETAIL_UI_RESTYLE_PLAYBOOK.md`
+  - 补记：
+    - `docs/ai-context/01_CURRENT_STATE.md`
+    - `docs/ai-context/03_TASK_LOG.md`
+    - `docs/ai-context/04_NEXT_ACTIONS.md`
+    - `docs/ai-context/10_TEST_LOG.md`
+- authoritative 结果：
+  - 后续 UI 收口默认固定走：
+    - `design-consultation -> design-review -> design-critic(可选) -> 修改 -> taste-skill -> qa -> browser -> review`
+  - 固定短提示词：
+    - `按固定UI工作流收口这个页面`
+  - `taste-skill` 当前正式定位仍是：
+    - 后台页最后一层视觉收口
+    - 不是 ERP/台账页的主结构设计技能
+- 接手注意：
+  - 下轮如果用户直接发固定短提示词，默认无需再追问方法，直接进入 UI 工作流
+  - 本轮没有改任何前端实现代码，也没有新增 UI 验收截图
+
+## 2026-06-11 Handoff｜教育补主采集切到 CLI，已完成首批真实入库
+
+- 本轮真实动作：
+  - 确认 `今日相机 API` 当前不能取图：`list/search` 返回空数组
+  - 复用真实网页导出目录，执行：
+    - `XHEY_DRY_RUN=false python3 scripts/xhey_integration/xhey_web_folder_cli.py --directory /tmp/xhey_cli_real_batch_20260611`
+  - 新增并修正：
+    - `scripts/xhey_integration/xhey_web_folder_cli.py`
+    - `apps/api-server/app/collection_bridge_api.py`
+    - `apps/api-server/app/education_collection_workbench_api.py`
+  - 修正了本轮早先 4 条被旧 API 进程写错日期的记录
+- authoritative 结果：
+  - 当前教育补主链是：
+    - `今日相机网页分类文件夹导出 ZIP -> CLI -> OCR/归类 -> Bridge -> SQL -> 工作台`
+  - `API` 当前只是待恢复主链，不能写成“已能采到代扫截图”
+  - SQL 中已存在真实 `watermark_camera_manual` 记录
+  - 工作台接口已能显示真实 CLI 来源和最近记录
+- 接手注意：
+  - 不要把 `http://127.0.0.1:5174/education-subsidy-2026/index.html` 当作“已全部补齐”的成果页
+  - 它现在是“采集工作台”，不是“已收口成果页”
+  - 下一轮优先继续跑梁伟 / 郭晨臣 / 李建定 6 月 6 日后的真实分类文件夹批次
+
+## 2026-06-11 Handoff｜automation-2 价格编排已续跑，仍未收口
+
+- 本轮真实动作：
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - `tsx` 入口因 IPC pipe `EPERM` 失败，脚本自动回退到：
+    - `node --import tsx/esm src/cli.ts run-scheduled-task daily-jd-lenovo-price-sync`
+  - 复核当天手工批次缺失：
+    - 未发现 `manual-price-supplements-20260611*.json`
+  - 复核前端可见链：
+    - `curl http://127.0.0.1:5174/` 失败
+    - `cd apps/web-cockpit && pnpm build` 通过
+- authoritative 结果：
+  - 报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T10-02-18-601Z.json`
+  - 终态：
+    - `executionOutcome = executed_not_closed`
+  - 原因：
+    - 无 2026-06-11 当天手工价格批次
+    - 仍有 `50` 条已锁定链接待真实手工复核
+    - 缺 `verify_visible_page_content_gate`
+    - 缺 `verify_frontend_visible_sync_gate`
+  - 现状：
+    - `openSyncGapCount = 0`
+    - `newStockPriorityCount = 18`
+    - `frontendBlankPriceCount = 0`
+- 接手注意：
+  - 这轮未执行手工采价，不能描述成“已同步完成”
+  - 下轮优先等 automation-8 或主线程写入当天 `manual-price-supplements-20260611*.json`
+  - 若仍需前端验收，先恢复 `127.0.0.1:5174` 本地服务后再做真实页面可见核查
+
+## 2026-06-11 Handoff｜automation-8 已补 20006381 双平台真实价格证据，但正式 runner 卡在标题一致性审计
+
+- 本轮真实动作：
+  - 在默认 Chrome 已登录会话中实际打开并复核：
+    - `https://item.jd.com/100241441971.html`
+    - `https://item.lenovo.com.cn/product/1052705.html`
+  - 新增：
+    - `apps/inventory-sync/artifacts/manual-price-supplements-20260611-automation-8-visible-chrome-batch-1.json`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-1808/visible-evidence-summary.md`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 在 `http://192.168.13.104:5174/` 手动切到 `商品零售 -> 实时零售报价` 并搜索 `20006381`
+- authoritative 结果：
+  - 官方报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T10-10-31-775Z.json`
+  - `ingest_manual_marketplace_batch = completed`
+  - `updatedRecordCount = 2`
+  - 当前 SKU 前端可见字段已确认：
+    - `SKU 20006381 · PN 83QG0007CD`
+    - `京东满减采集到补贴/优惠后价 ￥4,893.93`
+    - `官旗活动采集到补贴/优惠后价 ￥5,099.15`
+    - `执行价 ￥6,099`
+    - `国补 ￥5,184.15`
+  - 但正式终态仍被压成：
+    - `blocked_page_risk`
+  - 直接原因：
+    - `python3 scripts/audit_terminal_title_consistency.py` 失败
+    - 返回：
+      - `apiRetailZoneStatus = unavailable:<urlopen error [Errno 1] Operation not permitted>`
+      - `issueCount = 1`
+- 接手注意：
+  - 不能再说“今天没有手工价格批次”；现在已经有：
+    - `manual-price-supplements-20260611-automation-8-visible-chrome-batch-1.json`
+  - 也不能说“今天未执行手工采集”；这轮已真实打开页面并取证
+  - 下一轮若继续推进，优先处理标题一致性审计脚本为何不能访问本地 API
+
+## 2026-06-11 Handoff｜教育补 CLI 主链已恢复正式入库，工作台总览仍待 API reload
+
+- 本轮真实动作：
+  - 修正 CLI 去重注册表，忽略历史 `DRY-*`
+  - 修正教育补同步编排脚本，子进程强制 `XHEY_DRY_RUN=false`
+  - 新增教育补 CLI 自动同步 shell 与 launchagent
+  - 跑批：
+    - `python3 scripts/run_education_subsidy_cli_sync.py --min-date 2026-06-06 --max-files-per-dir 40`
+  - 用 Playwright 核验：
+    - `http://127.0.0.1:5174/education-subsidy-2026/index.html`
+    - `http://127.0.0.1:5174/ -> 产品价保`
+- authoritative 结果：
+  - 报告：
+    - `/Volumes/TianLu_Storage/Shared/今日水印相机/reports/education-subsidy-cli-sync-20260611-193233.json`
+  - `projectionSync.summary.totalCount = 84`
+  - `projectionSync.summary.totalEducationDiscountAmount = 31550`
+  - `projectionSync.summary.totalServiceFee = 6880`
+  - `projectionSync.summary.totalZhixiangjin = 25000`
+  - `产品价保 -> 零售销售价保专区` 首屏已可见：
+    - `智享金 ￥25,000 · 代扫服务费 ￥1,340`
+  - 教育补工作台页面文案已收口，但页面当前仍显示：
+    - `正式汇总代扫数 62`
+    - `6/6 以来缺口 79`
+- 直接阻塞：
+  - `apps/api-server/app/education_collection_workbench_api.py` 已补新口径
+  - 但当前运行中的本地 `127.0.0.1:8000` 未热重载
+  - 所以接口仍返回旧工作台总览
+- 接手注意：
+  - 不能把教育补工作台当前页面视为最终实采成果页
+  - 汇总文件已更新，但 workbench 接口需要 reload 后才能前端同步一致
+
+## 2026-06-11 Handoff｜教育补服务误归类已修正，workbench 缺口已从 `79` 压到 `63`
+
+- 本轮真实动作：
+  - 修改：
+    - `apps/api-server/app/collection_bridge_api.py`
+    - `apps/api-server/app/local_sync.py`
+    - `apps/api-server/app/education_collection_workbench_api.py`
+    - `scripts/repair_education_service_filtered_records.py`
+  - 执行：
+    - `python3 scripts/repair_education_service_filtered_records.py`
+    - `local_sync.write_static_snapshots(...)`
+    - `curl http://127.0.0.1:8000/api/education-collection/workbench?since_date=2026-06-06&recent_limit=20`
+- authoritative 结果：
+  - 同 SN 匹配已改成优先机器商品，不再先命中 `Lenovo Care / 智惠 / 延保`
+  - 已回填 `5` 条服务误归类记录到真实机器单
+  - 当前 workbench authoritative 返回：
+    - `projectionTotalCount = 84`
+    - `sqlRecordCountSinceDate = 66`
+    - `sqlServiceFilteredCountSinceDate = 0`
+    - `gapCountSinceDate = 63`
+  - 当前正式手机号候选新增：
+    - `17896857958 -> unitCount 2 -> recommended two_piece -> sourceGroups = 智店通入库群`
+  - 关键修复记录：
+    - `BRIDGE-1781172045265-A31361E4 -> 20002811 / XS260611477486929001`
+    - `BRIDGE-1781172048041-F62D7BFD -> 20002811 / XS260611477486929001`
+    - `BRIDGE-1781172046559-DF6F58A3 -> 20002811 / XS260611128126626001`
+    - `BRIDGE-1781172041565-C9D8B7A8 -> 20002811 / XS26061084402317899`
+    - `BRIDGE-1780999240404-91941F16 -> 20006725 / XS26060821445335779`
+- 接手注意：
+  - 当前真正还没收口的是 `63` 条机器单缺口，不是服务类混入造成的假缺口
+  - 下一手不要再做全目录盲扫，直接围绕 workbench `gapBacklog.samples` 做定向补图
+  - 若继续完善自动化，应把 `scripts/repair_education_service_filtered_records.py` 并入教育补 CLI 正式同步链
+## 2026-06-11 Handoff｜`daily-jd-lenovo-price-sync` 已真实复核 `20004481 / ZAE70012CN`，前端人工可见已通过，但正式 runner 仍停在 `executed_not_closed`
+
+- 本轮真实动作：
+  - 默认 Chrome 当前会话实际打开：
+    - `https://item.jd.com/10187068675621.html`
+    - `https://item.lenovo.com.cn/product/1050036.html`
+  - 新增手工批次：
+    - `apps/inventory-sync/artifacts/manual-price-supplements-20260611-automation-8-visible-chrome-batch-3.json`
+  - 新增页面证据：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2008/visible-evidence-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2008/sku-20004481-jd.png`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2008/sku-20004481-lenovo.png`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-11-2008/frontend-visible-check.md`
+  - 修复：
+    - `apps/api-server/app/product_library.py`
+    - 让 `20006289` 的发布投影标题自动补强 `Ultra5-228V`，标题审计不再卡死
+  - 最新正式报告：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T12-28-43-229Z.json`
+- authoritative 结果：
+  - 京东当前可见：
+    - `联想官方旗舰店`
+    - `8+256G 第二代 / 官方标配银色`
+    - `主价 1999`
+    - `国补后 1299.75`
+  - 联想官旗当前可见：
+    - `商品编号 ZAE70012CN`
+    - `8+256GB WIFI 霜雪银`
+    - `主价 1999`
+    - `预估到手价 1569.1`
+  - 前端当前人工可见：
+    - `http://127.0.0.1:5174/ -> 商品零售 -> 实时零售报价`
+    - 搜索 `20004481`
+    - 页面可见：
+      - `执行价 ￥1,999`
+      - `国补 ￥1,656.65`
+      - `京东 / 联想官旗 / 天猫` 链接
+  - 但正式 runner 最新 authoritative 状态仍是：
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+    - `verify_frontend_visible_sync_gate = failed`
+- 接手注意：
+  - 不要再把 `20006289` 的标题门禁当作当前主阻塞；它已经被源头修掉。
+  - 当前真正未自动收口的是：
+    - runner 还不会读取 `frontend-visible-check.md` 这类人工前端验收文件
+  - 下一个动作优先：
+    - 继续下一个高库存已锁定 SKU 的真实手工复核
+    - 或把人工前端验收文件接进 `verify_frontend_visible_sync_gate`
+
+## 2026-06-11 20:35 教育补工作台主口径切换完成
+- 本轮完成：
+  - `apps/api-server/app/local_sync.py`
+    - 静态教育补汇总改成从 `education_scan_record_v2` 重建
+    - 不再把旧微信群历史 summary 与 CLI v2 行混算
+  - `apps/api-server/app/education_collection_workbench_api.py`
+    - 工作台总览优先读合并后的静态汇总
+  - 重建后当前 authoritative 数值：
+    - `latest-education-subsidy-agent-scan-summary.json -> totalCount = 67`
+    - `workbench overview -> projectionTotalCount = 67`
+    - `gapCountSinceDate = 88`
+- 已确认前端可取到的新增实采：
+  - `BRIDGE-1781180636216-2232636B / 13282003112 / 870017738BLDX63M3064`
+  - `BRIDGE-1781172045265-A31361E4 / 17896857958 / YX0J3D8Y`
+  - `BRIDGE-1781172048041-F62D7BFD / 17896857958 / YX0J3D8Y`
+- 接手不要回退：
+  - 不要再把 `retail_core.list_education_agent_scan_summary()` 当教育补工作台主口径。
+  - 当前教育补工作台以 `education_scan_record_v2 + local_sync 重建静态汇总` 为准。
+  - API 主链仍保留待恢复，但在 API 真能 list/search 图片前，不得宣称已接管主采。
+## 2026-06-12 Handoff｜`automation-2` 本轮已新增 `daily-jd-lenovo-price-sync` 正式 runner，但没有当天手工价格批次，且前端 `5174` 不可达；真实终态继续记 `executed_not_closed`
+
+- 本轮真实动作：
+  - 读取：
+    - 自动化记忆
+    - `AGENTS.md`
+    - 固定记忆入口
+    - `git status --short --branch`
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 真实入口表现：
+    - `/bin/ps: Operation not permitted`
+    - `nice: setpriority: Operation not permitted`
+    - `tsx` IPC pipe `EPERM`
+    - 自动回退到 `node --import tsx/esm`
+  - 新增正式 runner：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T21-03-24-965Z.json`
+  - 复核阻塞证据：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0407-window-blocked/visible-evidence-summary.md`
+  - 尝试前端可见验收：
+    - `curl -I http://127.0.0.1:5174/`
+    - `curl -I http://192.168.13.104:5174/`
+- authoritative 结果：
+  - 当前最新正式报告写明：
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 当前正式步骤写明：
+    - `verify_visible_page_content_gate = completed`
+      - 但证据内容是 `automation-8` 窗口外阻塞说明，不是新的手工商城核价完成
+    - `verify_frontend_visible_sync_gate = failed`
+  - 当前没有新增：
+    - 当天新的 `manual-price-supplements-2026-06-12*.json`
+    - 新的手工京东/联想价格复核
+    - 新的前端肉眼可见验收证据
+  - 当前前端不可达：
+    - `127.0.0.1:5174` 连接失败
+    - `192.168.13.104:5174` 连接失败
+- 接手注意：
+  - 不要把这次“新 runner 已生成”误写成“今天价格同步已收口”。
+  - `verify_visible_page_content_gate` 这次完成，是因为 runner 吃到了窗口外阻塞说明文件，不代表已做新的手工核价。
+  - 下一手优先在 `2026-06-12 10:00 CST` 之后恢复 `automation-8` 或主线程默认 Chrome 可见复核，再补前端可见验收。
+
+## 2026-06-12 Handoff｜`automation-2` 本轮已把 `daily-jd-lenovo-price-sync` 刷新到更晚 runner，但仍没有当天手工价格批次，且前端 `5174` 不可达；真实终态继续记 `executed_not_closed`
+
+- 本轮真实动作：
+  - 执行：
+    - `bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync`
+  - 真实入口表现：
+    - `/bin/ps: Operation not permitted`
+    - `nice: setpriority: Operation not permitted`
+    - `tsx` 主入口 `listen EPERM`
+    - 自动回退到 `node --import tsx/esm`
+  - 新增正式 runner：
+    - `apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-11T22-05-44-035Z.json`
+  - 复核阻塞证据：
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0506-window-blocked/visible-evidence-summary.md`
+    - `apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0506-window-blocked/visible-preflight-summary.json`
+  - 尝试前端可见验收：
+    - `curl -I http://127.0.0.1:5174/`
+    - `curl -I http://192.168.13.104:5174/`
+- authoritative 结果：
+  - 当前最新正式报告写明：
+    - `status = completed_with_warnings`
+    - `executionOutcome = executed_not_closed`
+    - `blockingReason = 仍有 50 条已锁定链接待真实手工复核`
+  - 当前正式步骤写明：
+    - `verify_visible_page_content_gate = completed`
+      - 但证据内容是 `automation-8` 窗口外阻塞说明，不是新的手工商城核价完成
+    - `verify_frontend_visible_sync_gate = failed`
+  - 当前没有新增：
+    - 当天新的 `manual-price-supplements-2026-06-12*.json`
+    - 新的手工京东/联想价格复核
+    - 新的前端肉眼可见验收证据
+  - 当前前端不可达：
+    - `127.0.0.1:5174` 连接失败
+    - `192.168.13.104:5174` 连接失败
+- 接手注意：
+  - 不要把这次“更晚 runner 已生成”误写成“今天价格同步已收口”。
+  - `verify_visible_page_content_gate` 这次完成，仍然只是因为 runner 吃到了窗口外阻塞说明文件，不代表已做新的手工核价。
+  - 下一手优先在 `2026-06-12 10:00 CST` 之后恢复 `automation-8` 或主线程默认 Chrome 可见复核，再补前端可见验收。
+## 2026-06-12 Handoff｜教育补代扫 V2 规则包已落地到 CLI / SQL / 工作台 / 管理端
+
+- 本轮真实动作：
+  - 按 `/Users/luxiangnan/Desktop/education_subsidy_redefinition_package_2026-06-12.zip` 落了 V2 规则
+  - 修复 `sync-to-projection` 500，并重启本地 API 服务
+  - 工作台 `index.html` 与管理端 `admin.html` 都改成正式 API 驱动
+- authoritative 结果：
+  - `GET /api/education-scan/v2/records?page_size=3&scan_date_from=2026-06-06`
+    - 已返回：
+      - `classificationStatus`
+      - `evidenceLevel`
+      - `feeScope`
+      - 教育补贴群单扫 `total_service_fee = 30`
+  - `GET /api/education-collection/workbench?since_date=2026-06-06&recent_limit=20`
+    - 已返回：
+      - `projectionTotalCount = 129`
+      - `projectionTotalServiceFee = 5760`
+      - `sqlServiceFilteredCountSinceDate = 16`
+      - `gapCountSinceDate = 61`
+  - `POST /api/education-scan/v2/sync-to-projection`
+    - 已成功：
+      - `ok = true`
+      - `totalRows = 129`
+- 接手注意：
+  - `admin.html` 现在是正式 SQL 复核台，编辑动作会直接改 SQLite。
+  - 后续如果要继续补 backlog，优先用 `node --import tsx/esm src/cli.ts sync-education-subsidy-cli --source-dir ...`
+  - 当前还有 `evidence_only` 记录服务费显示为旧值的历史脏数据；前端已把它们归到仅证据/待复核，下一手应继续人工锁定或重跑批次修正。

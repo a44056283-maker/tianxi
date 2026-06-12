@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-06-09T14:55:00+00:00",
+  "source": "system_manual_price_overrides",
+  "overrides": {
+    "20000080": {
+      "retailPreSubsidyPrice": 109,
+      "realtimePurchasePrice": 99,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20001119": {
+      "retailPreSubsidyPrice": 169,
+      "realtimePurchasePrice": 150,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20001279": {
+      "retailPreSubsidyPrice": 239,
+      "realtimePurchasePrice": 215,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20003256": {
+      "retailPreSubsidyPrice": 129,
+      "realtimePurchasePrice": 115,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20003281": {
+      "retailPreSubsidyPrice": 139,
+      "realtimePurchasePrice": 125,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20003417": {
+      "retailPreSubsidyPrice": 39,
+      "realtimePurchasePrice": 29,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20003813": {
+      "retailPreSubsidyPrice": 99,
+      "realtimePurchasePrice": 88,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20004397": {
+      "retailPreSubsidyPrice": 679,
+      "realtimePurchasePrice": 609,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20007012": {
+      "retailPreSubsidyPrice": 69,
+      "realtimePurchasePrice": 59,
+      "updatedAt": "2026-05-22T07:47:30.896Z"
+    },
+    "20007935": {
+      "skuKey": "20007935",
+      "productName": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白 · 锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz",
+      "pnMtm": "83QC0003CD",
+      "storeRetailPrice": 14899.0,
+      "storeRetailPriceNote": "白色游戏本加价 ¥500（同配置 20007934 碳晶黑 ¥14,399 → 冰魄白 ¥14,899）",
+      "effectiveFrom": "2026-05-19",
+      "effectiveTo": "2026-06-21",
+      "updatedAt": "2026-06-09T14:55:00+00:00"
+    }
+  }
+}

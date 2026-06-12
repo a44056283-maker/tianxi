@@ -1,0 +1,27 @@
+- 2026-05-19 午前检查：已按规则读取 `AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`，并确认昨日 `daily-gray-channel-check` 仍是 `quoteDate=2026-05-15`、`isCarriedForward=true`、`executionOutcome=blocked_missing_input`。
+- 本轮先占用 `gray-channel-capture` 槽位后进入 Chrome 现有登录会话 `https://localhost:3001/` 网页微信；页面已登录且稳定，但初始落在分销群，不是灰渠公众号入口。
+- 可见手动路径中只进入到 `服务号 -> 银联商务服务号`，未能进入教程要求的 `郑州市创业` 或收藏文章入口，因此本轮不能判定“今日无原文”，也不能运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check`。
+- 本轮应按 `blocked_page_risk` 理解：原因是网页微信当前可见入口未到目标公众号/收藏文章，缺少当天灰渠原始证据，不允许拿旧 manual 或旧快照冒充当天采集。
+- 运行耗时：约 6 分钟。记录时间：2026-05-19 12:00:30 CST。
+- 2026-05-20 午前检查：已按要求读取 `AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`，并接管 Chrome 现有 `https://localhost:3001/` 网页微信标签。
+- 本轮未打开微信桌面版、未使用无头浏览器、未开新 Profile、未搜索公众号名称；先确认网页微信已登录且页面稳定，再从左侧入口单击方块/收藏入口进入 `全部收藏`。
+- 收藏夹当前只看到 `2026-05-15 郑州创业 联想 华为 电...` 收藏卡片，未发现 `2026-05-20` 当天有效原文或当天截图；已保存截图证据 `apps/inventory-sync/artifacts/manual/gray-channel-visible-check-2026-05-20-am-favorites.png`。
+- 已运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check`，任务报告为 `executionOutcome=blocked_missing_input`、`manualActionRequired=true`，阻塞原因是缺少当天有效原文；系统沿用 `2026-05-15` 原文重建，`quoteCount=260`、`isCarriedForward=true`、`frontendRefreshed=true`。
+- 最新报告路径：`apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-05-20T03-53-51-296Z.json`。记录时间：2026-05-20 11:54:31 CST。
+- 2026-05-21 午前检查：已读取 automation-5 记忆、`AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`，并接管 Chrome 现有 `https://localhost:3001/` 网页微信标签。
+- 本轮未打开微信桌面版、未使用无头浏览器、未开新 Profile、未搜索公众号名称；网页微信已登录且页面稳定，从左侧方块/收藏入口进入 `全部收藏`。
+- 收藏夹仍只看到 `2026-05-15 郑州创业 联想 华为 电...` 收藏卡片，未发现 `2026-05-21` 当天有效原文或截图；已保存截图证据 `apps/inventory-sync/artifacts/manual/gray-channel-visible-check-2026-05-21-am-favorites.png`。
+- 已运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check`，任务报告为 `executionOutcome=blocked_missing_input`、`manualActionRequired=true`；系统沿用 `2026-05-15` 原文重建，`quoteCount=260`、`isCarriedForward=true`、`frontendRefreshed=true`。
+- 最新报告路径：`apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-05-21T03-52-43-905Z.json`。运行耗时：约 2 分钟。记录时间：2026-05-21 11:53:34 CST。
+- 2026-05-22 午前检查：已读取 automation-5 记忆、`AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`，并使用 Chrome 现有 `https://localhost:3001/` 网页微信标签。
+- 本轮未打开微信桌面版、未使用无头浏览器、未开新 Profile、未搜索公众号名称；网页微信主标签已登录且稳定，第二个网页微信标签显示 `连接已终止：新主客户端已连接，连接已断开`，未作为采集入口。
+- 从左侧入口单步尝试后未进入灰渠收藏夹；可见页面停留在聊天列表，并看到 `圣之航-河南政策沟通群` 的 `2026年5月22日分销库存.xlsx`，该文件不是灰渠公众号原文，不能作为灰渠当天输入。
+- 本地未发现 `2026-05-22` 灰渠公众号原文/截图/OCR；已保存本轮可见状态截图 `apps/inventory-sync/artifacts/manual/gray-channel-visible-check-2026-05-22-am-no-favorites.png`。
+- 首次运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check` 被 CPU guard 拦截，等待后重试成功；报告为 `executionOutcome=blocked_missing_input`、`manualActionRequired=true`，系统沿用 `2026-05-15` 原文重建，`quoteCount=260`、`isCarriedForward=true`、`frontendRefreshed=true`。
+- 最新报告路径：`apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-05-22T03-54-40-723Z.json`。运行耗时：约 6 分钟。记录时间：2026-05-22 11:55:16 CST。
+- 2026-05-23 午前检查：已读取 automation-5 记忆、`AGENTS.md`、`docs/ai-context/13_SCHEDULED_TASK_SOPS.md`、`docs/ai-context/07_BROWSER_WORKFLOW.md`，并使用 Chrome 现有 `https://localhost:3001/` 网页微信标签。
+- 本轮未打开微信桌面版、未使用无头浏览器、未开新 Profile、未搜索公众号名称；网页微信已登录且稳定，初始停留在 `智店通入库群`。
+- 从左侧方块/收藏入口单步进入 `全部收藏`，收藏夹仅显示 `2026-05-15 郑州创业 联想 华为...` 收藏卡片，未发现 `2026-05-23` 当天有效原文或当天截图；已保存截图 `apps/inventory-sync/artifacts/manual/gray-channel-visible-check-2026-05-23-am-favorites.png`，另存入口前状态 `gray-channel-visible-check-2026-05-23-am-before-entry.png`。
+- 本地未发现 `apps/inventory-sync/artifacts/manual/gray-wholesale-2026-05-23.txt`；已运行 `bash scripts/run_scheduled_task.sh daily-gray-channel-check`，报告为 `executionOutcome=blocked_missing_input`、`manualActionRequired=true`，系统沿用 `2026-05-15` 原文重建，`quoteCount=260`、`isCarriedForward=true`、`frontendRefreshed=true`。
+- 已用真实 Chrome 打开 `http://127.0.0.1:5174/`，进入 `报价来源 -> 公众号报价库` 做前端可见审计；页面可见 `报价状态 实时有效 2026-05-15 · 刷新 05/23 11:54`、当前条目 `228`、覆盖 SKU `0`，说明前端已显示本轮重建结果但仍是历史原文沿用，不能写 `real_completed`。截图 `apps/inventory-sync/artifacts/manual/gray-channel-visible-check-2026-05-23-am-frontend-gray-library.png`。
+- 最新报告路径：`apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-05-23T03-53-43-626Z.json`。运行耗时：约 4 分钟。记录时间：2026-05-23 11:56:30 CST。

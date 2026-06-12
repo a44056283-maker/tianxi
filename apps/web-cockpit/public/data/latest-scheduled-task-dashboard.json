@@ -1,0 +1,2157 @@
+{
+  "generatedAt": "2026-06-12T02:04:03.568Z",
+  "latestByTask": {
+    "daily-gray-channel-check": {
+      "taskName": "daily-gray-channel-check",
+      "executedAt": "2026-06-11T05:54:50.340Z",
+      "finishedAt": "2026-06-11T05:56:06.540Z",
+      "durationMs": 76200,
+      "status": "completed_with_warnings",
+      "executionOutcome": "blocked_page_risk",
+      "manualActionRequired": true,
+      "blockingReason": "灰渠公众号入口到报价页链路失败：未发现 gray-channel-visible-article-2026-06-11.txt 访问证据文件，必须先在当前默认 Chrome 会话中进入文件传输助手聊天记录区下的固定公众号入口，并写访问证据。 已要求网页微信停止当前路径，并通过飞书群提醒用户在当前默认 Chrome 会话恢复登录或验证；禁止新开浏览器/Profile。",
+      "warnings": [
+        "缺少“页面内容复核”证据：未确认可见页面标题/规格/价格/状态区，不能把打开页面当成已采集完成。",
+        "缺少“前端可见复核”证据：SQL/API 已更新但未确认前端页面实际显示本轮最新数据。"
+      ],
+      "steps": [
+        {
+          "step": "prepare_gray_channel_capture_plan",
+          "status": "completed",
+          "detail": "已写灰渠公众号入口访问与采集计划，含入口链路、菜单按钮、落盘文件名与缺任一步时的阻塞原因。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/gray-channel-capture-plan-2026-06-11.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/gray-channel-capture-plan-2026-06-11.json"
+          ]
+        },
+        {
+          "step": "record_gray_channel_visit_evidence",
+          "status": "failed",
+          "detail": "未发现今天日期的灰渠公众号入口访问证据文件；视为入口未到达。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/gray-channel-visible-article-2026-06-11.txt"
+          ]
+        },
+        {
+          "step": "rebuild_derived_snapshots",
+          "status": "completed",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 7,
+            "snapshotCacheSyncedCount": 6,
+            "snapshotCacheSkippedCount": 1,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "failed",
+          "detail": "本轮缺少页面内容复核证据：仅有页面打开、文件解析、快照重建或脚本执行，不足以判定真实完成。必须留下可见页面中的标题/群名、规格配置、价格或状态区证据。"
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "failed",
+          "detail": "本轮缺少前端可见复核证据：SQL/API 或静态快照更新不等于用户已看到最新值。必须确认前端页面已显示本轮最新结果。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 0,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 133,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-gray-channel-check/2026-06-11T05-56-06-540Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/gray-channel-capture-plan-2026-06-11.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/gray-channel-capture-plan-2026-06-11.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/gray-channel-visible-article-2026-06-11.txt",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-audit-and-snapshot-rebuild": {
+      "taskName": "daily-audit-and-snapshot-rebuild",
+      "executedAt": "2026-06-11T20:33:04.540Z",
+      "finishedAt": "2026-06-11T20:34:35.865Z",
+      "durationMs": 91325,
+      "status": "completed",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": false,
+      "warnings": [],
+      "steps": [
+        {
+          "step": "rebuild_derived_snapshots",
+          "status": "completed",
+          "metrics": {
+            "standardInventorySkuCount": 3869,
+            "standardInventoryCurrentStock": 318,
+            "standardInventorySerialCount": 428,
+            "standardInventoryUnmatchedSerialCount": 0,
+            "adjustedInventorySkuCount": 3869,
+            "inventoryMasterRowCount": 1340,
+            "inventoryPendingExceptionCount": 0,
+            "inventoryPendingInboundGapCount": 1,
+            "movementRecordCount": 2376,
+            "serialOverrideCount": 115,
+            "retailZoneItemCount": 92,
+            "missingPriceCount": 0,
+            "missingLinkCount": 90,
+            "warrantyQueueCount": 129
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-product-url-locks.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 17,
+            "snapshotCacheSyncedCount": 11,
+            "snapshotCacheSkippedCount": 6,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 92,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-audit-and-snapshot-rebuild/2026-06-11T20-34-35-865Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-product-url-locks.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-jd-lenovo-price-sync": {
+      "taskName": "daily-jd-lenovo-price-sync",
+      "executedAt": "2026-06-12T02:00:19.589Z",
+      "finishedAt": "2026-06-12T02:00:50.836Z",
+      "durationMs": 31247,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "仍有 50 条已锁定链接待真实手工复核",
+      "warnings": [
+        "任务1当前未发现当天手工价格批次文件；本轮仅生成待采清单，等待 Chrome 现有稳定会话进行电脑操控采集。",
+        "仍有 50 条已锁定零售链接待通过 Chrome 现有稳定会话做手工复核。",
+        "缺少“前端可见复核”证据：SQL/API 已更新但未确认前端页面实际显示本轮最新数据。"
+      ],
+      "steps": [
+        {
+          "step": "ingest_manual_marketplace_batch",
+          "status": "skipped",
+          "detail": "未发现当天手工价格批次文件，未执行任何无头/脚本采集。"
+        },
+        {
+          "step": "manual_chrome_capture_required",
+          "status": "skipped",
+          "detail": "任务1正式规则要求使用 Chrome 现有稳定会话与电脑操控手工采集；CLI 调度器只负责编排、批次入库、快照重建和待采清单输出。"
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "completed",
+          "detail": "已发现当前任务的可见页面复核证据文件，包含真实页面标题、规格配置、价格或状态区截图与摘要。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0612/visible-evidence-summary.md"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 13,
+            "snapshotCacheSyncedCount": 4,
+            "snapshotCacheSkippedCount": 9,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "failed",
+          "detail": "本轮缺少前端可见复核证据：SQL/API 或静态快照更新不等于用户已看到最新值。必须确认前端页面已显示本轮最新结果。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 0,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 0,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": false,
+        "inStockSkuCount": 29,
+        "frontendBlankPriceCount": 0,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0,
+        "task1ClosureReady": true
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-jd-lenovo-price-sync/2026-06-12T02-00-50-836Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-jd-lenovo-price-sync-2026-06-12-0612/visible-evidence-summary.md",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-price-channel-check": {
+      "taskName": "daily-price-channel-check",
+      "executedAt": "2026-06-11T05:52:08.253Z",
+      "finishedAt": "2026-06-11T05:53:28.903Z",
+      "durationMs": 80650,
+      "status": "completed",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "分销报价文件日期不是今天：2026-06-09",
+      "warnings": [],
+      "steps": [
+        {
+          "step": "parse_distributor_quotes",
+          "status": "completed",
+          "detail": "现有分销群报价快照不是当天，已按每日流程查找并解析当天原始文件。",
+          "metrics": {
+            "quoteCount": 157,
+            "matchedSkuCount": 226,
+            "candidateCount": 0,
+            "quoteDate": "2026-06-09"
+          },
+          "files": [
+            "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-distributor-quotes.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-price-protection-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-distributor-quotes.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-price-protection-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/dist/data/latest-distributor-quotes.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/dist/data/latest-price-protection-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json"
+          ]
+        },
+        {
+          "step": "sync_marketing_boost_activity_library",
+          "status": "completed",
+          "detail": "已随群报价同步扫描营销活动备注与手工图片识别结果，刷新 PO 加磅营销活动库。",
+          "metrics": {
+            "activityCount": 2241,
+            "distributorRemarkActivityCount": 2,
+            "manualUploadActivityCount": 2239,
+            "eligibleInventoryCount": 67,
+            "heroCardCount": 0,
+            "unmatchedActivityCount": 561
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json"
+          ]
+        },
+        {
+          "step": "rebuild_derived_snapshots",
+          "status": "completed",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json"
+          ]
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "completed",
+          "detail": "已发现当前任务的可见页面复核证据文件，包含网页微信/报价页可见内容截图与摘要。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/visible-evidence-summary.md"
+          ]
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "completed",
+          "detail": "已发现当前任务的前端可见复核证据文件，确认 5174 页面已显示本轮最新群报价结果。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/visible-evidence-summary.md"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 9,
+            "snapshotCacheSyncedCount": 8,
+            "snapshotCacheSkippedCount": 1,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 157,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 133,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-price-channel-check/2026-06-11T05-53-28-903Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/.local/share/wechat-selkies/config/xwechat_files/wxid_iu06qw76oqh512_9315/msg/file/2026-06/2026年6月9日分销库存(1).xlsx",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-distributor-quotes.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-price-protection-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-distributor-quotes.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-price-protection-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/dist/data/latest-distributor-quotes.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/dist/data/latest-price-protection-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/visible-evidence-summary.md",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/daily-price-channel-check-2026-06-11-1348/visible-evidence-summary.md",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "sn-warranty-backfill": {
+      "taskName": "sn-warranty-backfill",
+      "executedAt": "2026-06-11T11:20:55.333Z",
+      "finishedAt": "2026-06-11T11:22:16.088Z",
+      "durationMs": 80755,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "已发现 5 个 2026-06-11 当天手工保修证据文件；当前仍需继续在 Chrome 可见会话中手工查询剩余 SN，并在每批后运行本地导入与队列重建。保修队列剩余 129 条。",
+      "warnings": [
+        "sn-warranty-backfill 当前只允许构建队列和检查手工证据，不再自动打开联想官网。",
+        "缺少“页面内容复核”证据：未确认可见页面标题/规格/价格/状态区，不能把打开页面当成已采集完成。"
+      ],
+      "steps": [
+        {
+          "step": "build_warranty_queue",
+          "status": "completed",
+          "metrics": {
+            "total": 129
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-warranty-check-queue.json"
+          ]
+        },
+        {
+          "step": "check_manual_warranty_evidence",
+          "status": "completed",
+          "detail": "已发现当天手工保修证据文件；当前任务不会再后台打开官网，后续应继续手工查询剩余 SN，并在每批后执行本地导入与队列重建。",
+          "metrics": {
+            "queueCount": 129,
+            "todayManualEvidenceFileCount": 5,
+            "legacyEvidenceFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/warranty/2026-06-11",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/warranty/2026-06-11"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 7,
+            "snapshotCacheSyncedCount": 6,
+            "snapshotCacheSkippedCount": 1,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "failed",
+          "detail": "本轮缺少页面内容复核证据：仅有页面打开、文件解析、快照重建或脚本执行，不足以判定真实完成。必须留下可见页面中的标题/群名、规格配置、价格或状态区证据。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 0,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": false,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/sn-warranty-backfill/2026-06-11T11-22-16-088Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/warranty/2026-06-11",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/warranty/2026-06-11",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-competitor-monitor-check": {
+      "taskName": "daily-competitor-monitor-check",
+      "executedAt": "2026-06-11T20:00:22.752Z",
+      "finishedAt": "2026-06-11T20:01:36.942Z",
+      "durationMs": 74190,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "缺少页面内容复核证据，当前只能记为已执行未收口。",
+      "warnings": [
+        "竞品监控未发现新的手工排行快照，沿用 2026-06-04。",
+        "缺少“页面内容复核”证据：未确认可见页面标题/规格/价格/状态区，不能把打开页面当成已采集完成。",
+        "缺少“前端可见复核”证据：SQL/API 已更新但未确认前端页面实际显示本轮最新数据。"
+      ],
+      "steps": [
+        {
+          "step": "build_competitor_collection_plan",
+          "status": "completed",
+          "detail": "已生成当天竞品真实采集计划；定时任务不能只等旧 JSON，必须按该计划完成 Chrome 京东自营店销量排序与详情页证据采集。",
+          "metrics": {
+            "brandCount": 5,
+            "targetPerBrand": 10,
+            "targetCount": 100
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-collection-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-collection-plan.json"
+          ]
+        },
+        {
+          "step": "parse_competitor_monitor",
+          "status": "completed",
+          "detail": "未发现当天竞品手工排行文件，沿用上一版展示并保持阻塞状态。",
+          "metrics": {
+            "totalItemCount": 0,
+            "acceptedItemCount": 0,
+            "rejectedByScopeCount": 0,
+            "itemCount": 9,
+            "brandCount": 5,
+            "isCarriedForward": true,
+            "expectedCompetitorCount": 100,
+            "missingItemCount": 91,
+            "missingBrandCount": 0,
+            "missingBucketCount": 10,
+            "incompleteItemCount": 6,
+            "staleItemCount": 6
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-monitor.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-monitor.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-store-favorites.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-store-favorites.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-link-repository.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-link-repository.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-collection-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-collection-plan.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 6,
+            "snapshotCacheSyncedCount": 6,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "failed",
+          "detail": "本轮缺少页面内容复核证据：仅有页面打开、文件解析、快照重建或脚本执行，不足以判定真实完成。必须留下可见页面中的标题/群名、规格配置、价格或状态区证据。"
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "failed",
+          "detail": "本轮缺少前端可见复核证据：SQL/API 或静态快照更新不等于用户已看到最新值。必须确认前端页面已显示本轮最新结果。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 9,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": false,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-competitor-monitor-check/2026-06-11T20-01-36-942Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-collection-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-collection-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-monitor.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-monitor.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-store-favorites.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-store-favorites.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-link-repository.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-link-repository.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-competitor-collection-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-competitor-collection-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "zhidiantong-sync-cycle": {
+      "taskName": "zhidiantong-sync-cycle",
+      "executedAt": "2026-06-11T20:29:31.639Z",
+      "finishedAt": "2026-06-11T20:33:04.127Z",
+      "durationMs": 212488,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "采购入库供应商仍缺 6 条记录，当前不能写成出入库明细已收口。",
+      "warnings": [
+        "未找到当日销售出库导出文件，等待人工导出后重跑。",
+        "未找到当日商品入库导出 JSON，等待人工导出后重跑。",
+        "销售订单金额/明细桥接失败：Command failed: python3 /Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\nTraceback (most recent call last):\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 361, in <module>\n    sync()\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 78, in sync\n    pg = pg_connect()\n         ^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 40, in pg_connect\n    return psycopg.connect(PG_CONN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/api-server/.venv/lib/python3.11/site-packages/psycopg/connection.py\", line 130, in connect\n    raise new_ex.with_traceback(None)\npsycopg.OperationalError: connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\nMultiple connection attempts failed. All failures were:\n- host: 'localhost', port: '5432', hostaddr: '::1': connection failed: connection to server at \"::1\", port 5432 failed: could not receive data from server: Connection refused\n- host: 'localhost', port: '5432', hostaddr: '127.0.0.1': connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\n",
+        "销售/采购明细补链失败：Command failed: python3 /Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\nTraceback (most recent call last):\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 1055, in <module>\n    run()\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 1025, in run\n    r2 = enrich_orders_from_pg()\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 223, in enrich_orders_from_pg\n    pg = pg_connect()\n         ^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 39, in pg_connect\n    return psycopg.connect(PG_CONN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/api-server/.venv/lib/python3.11/site-packages/psycopg/connection.py\", line 130, in connect\n    raise new_ex.with_traceback(None)\npsycopg.OperationalError: connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\nMultiple connection attempts failed. All failures were:\n- host: 'localhost', port: '5432', hostaddr: '::1': connection failed: connection to server at \"::1\", port 5432 failed: could not receive data from server: Connection refused\n- host: 'localhost', port: '5432', hostaddr: '127.0.0.1': connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\n",
+        "库存数量与 SN 数量未完全对齐：标准库存快照 11 个 SKU 不一致，终端同步脚本额外发现 30 处主库/投影不一致，需重新导出同轮商品库存统计和商品库存SN统计并重跑 scripts/sync_inventory_terminal_state.py。",
+        "采购入库供应商仍缺 6 条记录，当前不能写成出入库明细已收口。",
+        "缺少“页面内容复核”证据：未确认可见页面标题/规格/价格/状态区，不能把打开页面当成已采集完成。",
+        "缺少“前端可见复核”证据：SQL/API 已更新但未确认前端页面实际显示本轮最新数据。"
+      ],
+      "steps": [
+        {
+          "step": "precheck_zdt_openclaw_sql_bridge",
+          "status": "failed",
+          "detail": "OpenClaw SQL 主链缺少当日记录，仍需以当日导出文件作为同步主输入。",
+          "metrics": {
+            "connected": true,
+            "todayRecords": 0,
+            "isFresh": false
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json"
+          ]
+        },
+        {
+          "step": "precheck_today_camera_education_agent_scan",
+          "status": "skipped",
+          "detail": "未触发教育补代扫：仅当 OpenClaw 自动对接已连接、数据新鲜（isFresh=true）且当日存在销售订单记录时才触发教育补采集提醒；原微信群前置门禁已退役。",
+          "metrics": {
+            "connected": true,
+            "isFresh": false,
+            "todayRecords": 0,
+            "todayOrderRecords": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json"
+          ]
+        },
+        {
+          "step": "import_zhidiantong_stock_stream",
+          "status": "skipped",
+          "detail": "未找到业务日期为当天的 智店通库存流水导出文件。 这不是脚本缺口，而是可见页面采集未完成：必须先按智店通页面流程筛当天、查询、导出，再运行同步。 可识别文件名：zhidiantong-stock-stream-2026-06-12.xlsx/csv、stock_count2026-06-12.xlsx/csv、stock_count20260612.xlsx/csv、库存流水-2026-06-12.xlsx/csv。 销售订单专项动作：必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。"
+        },
+        {
+          "step": "import_zhidiantong_sn_stock_order",
+          "status": "skipped",
+          "detail": "未找到业务日期为当天的 SN库存订单导出文件。 这不是脚本缺口，而是可见页面采集未完成：必须先按智店通页面流程筛当天、查询、导出，再运行同步。 可识别文件名：zhidiantong-sn-stock-order-2026-06-12.xlsx/csv、SN库存订单-2026-06-12.xlsx/csv、serialNumberData.xlsx/csv。 销售订单专项动作：必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。"
+        },
+        {
+          "step": "import_zhidiantong_sales_export",
+          "status": "skipped",
+          "detail": "未找到业务日期为当天的 销售出库/线下门店订单导出文件。 这不是脚本缺口，而是可见页面采集未完成：必须先按智店通页面流程筛当天、查询、导出，再运行同步。 可识别文件名：销售出库-2026-06-12.xlsx/csv、线下门店订单-2026-06-12.xlsx/csv、orderData*.xlsx/csv + orderProductData*.xlsx/csv。 销售订单专项动作：必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。"
+        },
+        {
+          "step": "sync_zhidiantong_sales_orders_snapshot",
+          "status": "completed",
+          "detail": "已从智店通 orderData / orderProductData 生成销售单金额快照，供 SQL 销售价与前端出库金额参考映射使用。注意：文件存在不等于采集完成，仍必须用库存流水/SN库存订单销售单号反查覆盖率。必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。",
+          "metrics": {
+            "orderCount": 983
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/orderData-2026-05-26-page2-manual.csv",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zhidiantong-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zhidiantong-sales-orders.json"
+          ]
+        },
+        {
+          "step": "backfill_sales_movements_from_sn_stock_orders",
+          "status": "completed",
+          "detail": "SN库存订单导出中没有发现需要补写到前端出库流水的新增销售单或字段更新。"
+        },
+        {
+          "step": "import_zhidiantong_purchase_web",
+          "status": "skipped",
+          "detail": "未找到业务日期为当天的 商品入库/采购入库网页采集 JSON。 这不是脚本缺口，而是可见页面采集未完成：必须先按智店通页面流程筛当天、查询、导出，再运行同步。 可识别文件名：商品入库-2026-06-12.json、采购入库-2026-06-12.json、调拨入库-2026-06-12.json/xlsx/csv、zhidiantong-purchase-inbound-capture-2026-06-12.partial.json。 销售订单专项动作：必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。"
+        },
+        {
+          "step": "import_zhidiantong_other_outbound",
+          "status": "skipped",
+          "detail": "未找到业务日期为当天的 其他出库网页采集 JSON。 这不是脚本缺口，而是可见页面采集未完成：必须先按智店通页面流程筛当天、查询、导出，再运行同步。 可识别文件名：其他出库-2026-06-12.json、其它出库-2026-06-12.json、调拨出库-2026-06-12.json/xlsx/csv、zhidiantong-other-outbound-capture-2026-06-12.partial.json。 销售订单专项动作：必须先在 Chrome 当前已登录智店通会话进入：订单 -> 线下门店订单（/lenovo/web/order/order-list）。 筛选固定为：状态切到“已完成”，下单时间开始=当天 00:00，结束=当天 23:59:59；设置后必须点击搜索。 搜索后必须读取总条数/页数；如果有多页，必须逐页检查并导出，不能只看第一页。 每一页都必须同时执行“导出”和“导出明细”，形成成对 orderData*.xlsx 与 orderProductData*.xlsx。 导出后必须确认下载目录出现本轮新文件，并把文件名、页面订单数、导出订单数、导出明细数记录进报告。 同步前必须把当天库存流水/SN库存订单里的销售出库单号与 orderData/orderProductData 覆盖单号比对；缺任一销售单号只能 executed_not_closed。 线下门店订单（orderData/orderProductData）是销售事实主证据；库存流水、SN库存订单、其它出库、调拨出入库只作为辅助校验与补齐，不得反向否决已成立的线下门店订单销售事实。 若线下门店订单覆盖完整，必须先把主销售链写入 SQL 并刷新前端；辅助链仍有缺口时仅标注 executed_not_closed 持续补齐，不得阻断主销售同步。 调拨出库/调拨入库必须按当天日期筛选、查询、导出或保存页面证据，并进入库存、SN 和出入库流水闭环；但调拨单据不计入营销 PO、教育补贴或价保申请范围，缺调拨源文件只能 executed_not_closed。"
+        },
+        {
+          "step": "sync_zdt_sales_order_detail_bridge",
+          "status": "failed",
+          "detail": "Command failed: python3 /Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\nTraceback (most recent call last):\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 361, in <module>\n    sync()\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 78, in sync\n    pg = pg_connect()\n         ^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesOrderSync.py\", line 40, in pg_connect\n    return psycopg.connect(PG_CONN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/api-server/.venv/lib/python3.11/site-packages/psycopg/connection.py\", line 130, in connect\n    raise new_ex.with_traceback(None)\npsycopg.OperationalError: connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\nMultiple connection attempts failed. All failures were:\n- host: 'localhost', port: '5432', hostaddr: '::1': connection failed: connection to server at \"::1\", port 5432 failed: could not receive data from server: Connection refused\n- host: 'localhost', port: '5432', hostaddr: '127.0.0.1': connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\n"
+        },
+        {
+          "step": "fill_zdt_sales_purchase_detail_gaps",
+          "status": "failed",
+          "detail": "Command failed: python3 /Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\nTraceback (most recent call last):\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 1055, in <module>\n    run()\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 1025, in run\n    r2 = enrich_orders_from_pg()\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 223, in enrich_orders_from_pg\n    pg = pg_connect()\n         ^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/src/storage/zdtSalesDedupeAndFill.py\", line 39, in pg_connect\n    return psycopg.connect(PG_CONN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/api-server/.venv/lib/python3.11/site-packages/psycopg/connection.py\", line 130, in connect\n    raise new_ex.with_traceback(None)\npsycopg.OperationalError: connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\nMultiple connection attempts failed. All failures were:\n- host: 'localhost', port: '5432', hostaddr: '::1': connection failed: connection to server at \"::1\", port 5432 failed: could not receive data from server: Connection refused\n- host: 'localhost', port: '5432', hostaddr: '127.0.0.1': connection failed: connection to server at \"127.0.0.1\", port 5432 failed: could not receive data from server: Connection refused\n"
+        },
+        {
+          "step": "verify_purchase_inbound_detail_coverage",
+          "status": "completed",
+          "detail": "采购入库明细闭环通过：1933 条采购入库流水已具备进货价、供应商、SN 和正常金额展示字段。",
+          "metrics": {
+            "purchaseInboundTotal": 1933,
+            "missingPurchaseInboundCostCount": 1571,
+            "missingPurchaseInboundSupplierCount": 6,
+            "missingPurchaseInboundSerialCount": 493,
+            "scaledPurchaseInboundCostCount": 17,
+            "absurdPurchaseInboundAmountCount": 71,
+            "sameDayMissingPurchaseInboundCostCount": 0,
+            "sameDayMissingPurchaseInboundSerialCount": 0,
+            "sameDayScaledPurchaseInboundCostCount": 0,
+            "sameDayAbsurdPurchaseInboundAmountCount": 0,
+            "purchaseInboundMisclassifiedCgrCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-purchase-inbound-gap-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-purchase-inbound-gap-audit.json"
+          ]
+        },
+        {
+          "step": "verify_today_inventory_truth_exports",
+          "status": "failed",
+          "detail": "未确认当天成对总表。库存同步必须先导出 商品库存统计_2026-06-12.xlsx 与 商品库存SN统计_2026-06-12.xlsx，再统一重建前端库存与SN。",
+          "metrics": {
+            "quantityIsToday": false,
+            "snIsToday": false
+          },
+          "files": [
+            "/Users/luxiangnan/Downloads/商品库存统计_2026-06-07.xlsx",
+            "/Users/luxiangnan/Downloads/商品库存SN统计_2026-06-07.xlsx"
+          ]
+        },
+        {
+          "step": "rebuild_derived_snapshots",
+          "status": "completed",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json"
+          ]
+        },
+        {
+          "step": "sync_zdt_openclaw_sql_bridge",
+          "status": "completed",
+          "detail": "zdt_sync SQL桥接已同步且采集新鲜度通过，前端可见审计快照已刷新。",
+          "metrics": {
+            "connected": true,
+            "isFresh": false,
+            "enforceFreshnessGate": false,
+            "freshnessGatePassed": true,
+            "totalRecords": 0,
+            "todayRecords": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json"
+          ]
+        },
+        {
+          "step": "sync_retail_core_frontend_bridge",
+          "status": "completed",
+          "detail": "已在 zhidiantong-sync-cycle 代码内直接生成前端 retail-core 桥接快照，销售单流水、出入库流水、SN 状态不再依赖用户提醒后手动刷新。",
+          "metrics": {
+            "salesOrderCount": 1427,
+            "inventoryMovementCount": 2376,
+            "serialItemCount": 1340,
+            "salesOutboundMovementCount": 1066
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-status.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-status.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-serial-items.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-serial-items.json"
+          ]
+        },
+        {
+          "step": "sync_inventory_terminal_state",
+          "status": "failed",
+          "detail": "库存终端同步脚本已执行，但 SQLite 主库、标准库存快照或终端投影仍存在库存/SN 不一致。",
+          "metrics": {
+            "writtenCount": 60,
+            "coreStockSnMismatchCount": 3,
+            "projectionVsStandardMismatchCount": 27,
+            "channelStockSnMismatchCount": 0,
+            "distMismatchCount": 0,
+            "liveMismatchCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json"
+          ]
+        },
+        {
+          "step": "verify_inventory_serial_consistency",
+          "status": "failed",
+          "detail": "库存/SN 对账未通过：标准库存快照发现 11 个 SKU 不一致，终端同步脚本额外发现 core=3 / projection=27 / channel=0 / dist=0 / live=0。",
+          "metrics": {
+            "mismatchCount": 11,
+            "coreStockSnMismatchCount": 3,
+            "projectionVsStandardMismatchCount": 27,
+            "channelStockSnMismatchCount": 0,
+            "distMismatchCount": 0,
+            "liveMismatchCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json"
+          ]
+        },
+        {
+          "step": "verify_outbound_marketing_education_sync",
+          "status": "completed",
+          "detail": "已同步销售出库后的营销 PO、教育补贴和教育补代扫对账快照。",
+          "metrics": {
+            "salesOutboundCount": 1066,
+            "salesHeroCardCount": 0,
+            "salesHeroCardWithAmountCount": 0,
+            "educationAgentScanTotalCount": 82,
+            "educationAgentScanMatchedOutboundCount": 82,
+            "educationAgentScanPendingOutboundCount": 0,
+            "pendingAgentRowsWithSoldSnCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json"
+          ]
+        },
+        {
+          "step": "verify_sales_orders_snapshot_coverage",
+          "status": "skipped",
+          "detail": "未发现可导入的当天库存流水/SN库存订单/销售订单原始明细，本轮不能把 0 条源单判定为订单闭环已通过。",
+          "metrics": {
+            "sameDaySalesOutboundCount": 0,
+            "sameDaySnStockOrderOnlyCount": 0,
+            "salesOrderSnapshotCount": 983,
+            "missingSalesOrderCount": 0,
+            "missingAmountSnapshotCount": 0,
+            "snStockOrderOnlyCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zhidiantong-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zhidiantong-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json"
+          ]
+        },
+        {
+          "step": "verify_frontend_movement_mirror_coverage",
+          "status": "skipped",
+          "detail": "未发现可导入的当天出入库源明细，本轮只刷新了历史快照，不能声明当天前端出入库流水已同步。",
+          "metrics": {
+            "sourceSalesOrderCount": 0,
+            "mirroredSalesOrderCount": 0,
+            "missingFrontendMovementCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json"
+          ]
+        },
+        {
+          "step": "verify_frontend_static_sync_gate",
+          "status": "failed",
+          "detail": "前端静态同步门禁未通过：库存/SN、教育补代扫对账、销售订单金额快照或前端出入库流水镜像仍存在缺口。",
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-serial-items.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 17,
+            "snapshotCacheSyncedCount": 14,
+            "snapshotCacheSkippedCount": 3,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_visible_page_content_gate",
+          "status": "failed",
+          "detail": "本轮缺少页面内容复核证据：仅有页面打开、文件解析、快照重建或脚本执行，不足以判定真实完成。必须留下可见页面中的标题/群名、规格配置、价格或状态区证据。"
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "failed",
+          "detail": "本轮缺少前端可见复核证据：SQL/API 或静态快照更新不等于用户已看到最新值。必须确认前端页面已显示本轮最新结果。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 0,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/zhidiantong-sync-cycle/2026-06-11T20-33-04-127Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/orderData-2026-05-26-page2-manual.csv",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zhidiantong-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zhidiantong-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-purchase-inbound-gap-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-purchase-inbound-gap-audit.json",
+          "/Users/luxiangnan/Downloads/商品库存统计_2026-06-07.xlsx",
+          "/Users/luxiangnan/Downloads/商品库存SN统计_2026-06-07.xlsx",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-serial-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-collection-operation-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-warranty-check-queue.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-price-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-zone-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-terminal-price-consistency-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-history.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-status.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-status.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-retail-core-serial-items.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-serial-items.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-adjusted-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-inventory-master-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-marketing-boost-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-zhidiantong-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zhidiantong-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-zdt-openclaw-bridge.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-sales-orders.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-inventory-movements.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-education-subsidy-agent-scan-summary.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-retail-core-serial-items.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-development-plan-update": {
+      "taskName": "daily-development-plan-update",
+      "executedAt": "2026-06-11T05:01:53.769Z",
+      "finishedAt": "2026-06-11T05:02:12.400Z",
+      "durationMs": 18631,
+      "status": "completed",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": false,
+      "warnings": [],
+      "steps": [
+        {
+          "step": "append_development_plan_update",
+          "status": "completed",
+          "detail": "已按 latest-scheduled-task-reports 追加每日开发计划摘要：2026-06-11T05:01:53.773Z",
+          "metrics": {
+            "updatedRecordCount": 1
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/联想智慧零售_开发计划_每日更新.md"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 5,
+            "snapshotCacheSyncedCount": 5,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 1,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 133,
+        "frontendRefreshed": false,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-development-plan-update/2026-06-11T05-02-12-400Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/联想智慧零售_开发计划_每日更新.md",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-stale-inventory-check": {
+      "taskName": "daily-stale-inventory-check",
+      "executedAt": "2026-06-12T01:02:52.533Z",
+      "finishedAt": "2026-06-12T01:04:13.852Z",
+      "durationMs": 81320,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "当天智店通出入库未收口（executed_not_closed：采购入库供应商仍缺 6 条记录，当前不能写成出入库明细已收口。）",
+      "warnings": [
+        "陈旧库存任务硬规则：库存主快照缺失、主快照仍有异常、或当天出入库未收口时，只能记 executed_not_closed。",
+        "缺少“前端可见复核”证据：SQL/API 已更新但未确认前端页面实际显示本轮最新数据。"
+      ],
+      "steps": [
+        {
+          "step": "build_stale_inventory_report",
+          "status": "completed",
+          "metrics": {
+            "staleSerialCount": 18,
+            "staleSkuCount": 10,
+            "expiringWarrantySerialCount": 0,
+            "expiredWarrantySerialCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-stale-inventory-report.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-stale-inventory-report.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 5,
+            "snapshotCacheSyncedCount": 5,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        },
+        {
+          "step": "verify_frontend_visible_sync_gate",
+          "status": "failed",
+          "detail": "本轮缺少前端可见复核证据：SQL/API 或静态快照更新不等于用户已看到最新值。必须确认前端页面已显示本轮最新结果。"
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 18,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-stale-inventory-check/2026-06-12T01-04-13-852Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-stale-inventory-report.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-stale-inventory-report.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "daily-sn-sales-compliance-refresh": {
+      "taskName": "daily-sn-sales-compliance-refresh",
+      "executedAt": "2026-06-12T01:24:23.654Z",
+      "finishedAt": "2026-06-12T01:25:30.945Z",
+      "durationMs": 67291,
+      "status": "completed_with_warnings",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": true,
+      "warnings": [
+        "合规校验预警已刷新，但仍有 1153 条记录需要 Codex 手动补外部页面资格证据。",
+        "外部有效销量 / 厂家资格页面当前不能走 CLI 实时采集；自动化仅刷新 SQL 已落库链路。"
+      ],
+      "steps": [
+        {
+          "step": "refresh_sn_sales_compliance_snapshot",
+          "status": "completed",
+          "detail": "当前外部有效销量页面/厂家资格页不允许脚本实时采集；日更可自动刷新 SQL 已落库链路，实时缺口需由 Codex 手动任务补证据。",
+          "metrics": {
+            "writtenSnapshotCount": 60,
+            "complianceRowCount": 1319,
+            "compliantCount": 37,
+            "blockedCount": 44,
+            "warningCount": 1238,
+            "manualReviewCount": 1153,
+            "claimableAmount": 262993
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-sn-sales-compliance-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-sn-sales-compliance-snapshot.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 8,
+            "snapshotCacheSyncedCount": 8,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 1319,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/daily-sn-sales-compliance-refresh/2026-06-12T01-25-30-945Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-sn-sales-compliance-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-sn-sales-compliance-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "gaokao-ai-knowledge-refresh": {
+      "taskName": "gaokao-ai-knowledge-refresh",
+      "executedAt": "2026-06-12T00:10:34.538Z",
+      "finishedAt": "2026-06-12T00:11:39.108Z",
+      "durationMs": 64570,
+      "status": "completed",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": false,
+      "warnings": [],
+      "steps": [
+        {
+          "step": "build_gaokao_ai_knowledge_base",
+          "status": "completed",
+          "detail": "已按高考活动知识种子、Win11 电脑使用技巧、库存推荐话术日更快照和当前门店活动快照重建客户安全知识库，同时输出后台完整知识库。",
+          "metrics": {
+            "seedItemCount": 22,
+            "inventoryItemCount": 54,
+            "adminItemCount": 76,
+            "totalItemCount": 76
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-ai-knowledge-base.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-ai-knowledge-admin-base.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-ai-knowledge-base.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 6,
+            "snapshotCacheSyncedCount": 5,
+            "snapshotCacheSkippedCount": 1,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 76,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/gaokao-ai-knowledge-refresh/2026-06-12T00-11-39-108Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-ai-knowledge-base.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-ai-knowledge-admin-base.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-ai-knowledge-base.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "gaokao-major-guide-refresh": {
+      "taskName": "gaokao-major-guide-refresh",
+      "executedAt": "2026-06-12T00:17:24.462Z",
+      "finishedAt": "2026-06-12T00:18:34.935Z",
+      "durationMs": 70473,
+      "status": "completed",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": false,
+      "warnings": [],
+      "steps": [
+        {
+          "step": "build_gaokao_major_guides",
+          "status": "completed",
+          "detail": "已按专业方向、宿舍场景、Win11 电脑使用技巧、库存推荐话术日更快照和当前活动方向重建电脑选购知识分享内容包。",
+          "metrics": {
+            "guideCount": 7,
+            "featuredProductCount": 21
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-major-guides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-major-guides.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 5,
+            "snapshotCacheSyncedCount": 5,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 7,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/gaokao-major-guide-refresh/2026-06-12T00-18-34-935Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-major-guides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-major-guides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "sync-health-spot-check": {
+      "taskName": "sync-health-spot-check",
+      "executedAt": "2026-06-12T02:02:35.145Z",
+      "finishedAt": "2026-06-12T02:04:03.567Z",
+      "durationMs": 88422,
+      "status": "completed_with_warnings",
+      "executionOutcome": "executed_not_closed",
+      "manualActionRequired": true,
+      "blockingReason": "同步动作抽检未通过：库存终端仍有 31 处库存/SN 不一致。",
+      "warnings": [
+        "同步动作抽检未通过：库存终端仍有 31 处库存/SN 不一致。"
+      ],
+      "steps": [
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "SQL 自动同步与缺口审计通过：本轮抽检未发现阻塞级 open gap。",
+          "metrics": {
+            "openGapCount": 0,
+            "criticalOpenGapCount": 0,
+            "warningOpenGapCount": 0,
+            "localSyncWrittenCount": 60,
+            "snapshotCacheSyncedCount": 7,
+            "snapshotCacheSkippedCount": 6
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "sync_inventory_terminal_state",
+          "status": "failed",
+          "detail": "抽检已执行库存终端同步脚本，但主库/标准快照/终端投影仍存在库存或 SN 不一致。",
+          "metrics": {
+            "writtenCount": 60,
+            "coreStockSnMismatchCount": 3,
+            "projectionVsStandardMismatchCount": 27,
+            "channelStockSnMismatchCount": 0,
+            "distMismatchCount": 1,
+            "liveMismatchCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json"
+          ]
+        },
+        {
+          "step": "verify_purchase_inbound_detail_coverage",
+          "status": "completed",
+          "detail": "采购入库抽检通过：同日采购入库成本、SN、金额单位和金额计算均已收口。",
+          "metrics": {
+            "purchaseInboundTotal": 1737,
+            "missingCostCount": 85,
+            "missingSupplierCount": 2,
+            "missingSerialDisplayCount": 519,
+            "sameDayMissingCostCount": 0,
+            "sameDayMissingSerialCount": 0,
+            "sameDayScaledCostCount": 0,
+            "sameDayAbsurdAmountCount": 0,
+            "manualAdjustmentCgrCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-purchase-inbound-gap-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-purchase-inbound-gap-audit.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 13,
+            "snapshotCacheSyncedCount": 7,
+            "snapshotCacheSkippedCount": 6,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 0,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/sync-health-spot-check/2026-06-12T02-04-03-567Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/scripts/sync_inventory_terminal_state.py",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-standard-inventory-snapshot.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-purchase-inbound-gap-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-purchase-inbound-gap-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    },
+    "gaokao-daily-learning-refresh": {
+      "taskName": "gaokao-daily-learning-refresh",
+      "executedAt": "2026-06-12T00:09:13.509Z",
+      "finishedAt": "2026-06-12T00:10:19.387Z",
+      "durationMs": 65878,
+      "status": "completed",
+      "executionOutcome": "real_completed",
+      "manualActionRequired": false,
+      "warnings": [],
+      "steps": [
+        {
+          "step": "build_gaokao_daily_learning_snapshot",
+          "status": "completed",
+          "detail": "已按当前现货、近期销售和厂家重点路线生成电脑知识分享与库存推荐话术的每日学习快照。",
+          "metrics": {
+            "trackCount": 4,
+            "learningNoteCount": 4,
+            "featuredRouteCount": 4
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-daily-learning.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-daily-learning.json"
+          ]
+        },
+        {
+          "step": "build_semi_auto_execution_plan",
+          "status": "completed",
+          "metrics": {
+            "pendingTaskCount": 6,
+            "retailFullCaptureCount": 20,
+            "retailPriceVerificationCount": 50,
+            "retailLinkBackfillCount": 0,
+            "newStockPriorityCount": 18,
+            "newStockImmediateClosureCount": 0,
+            "frontendBlankPriceCount": 0,
+            "zhidiantongSerialGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json"
+          ]
+        },
+        {
+          "step": "sync_sql_mirror_and_gap_audit",
+          "status": "completed",
+          "detail": "已把本轮采集快照同步到 SQLite/snapshot_cache，并确认 sync_gap_queue 无 open 缺口。",
+          "metrics": {
+            "checkedSnapshotCount": 5,
+            "snapshotCacheSyncedCount": 5,
+            "snapshotCacheSkippedCount": 0,
+            "localSyncWrittenCount": 60,
+            "openSyncGapCount": 0,
+            "criticalOpenSyncGapCount": 0,
+            "warningOpenSyncGapCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json"
+          ]
+        },
+        {
+          "step": "verify_store_retail_rule_protection",
+          "status": "completed",
+          "detail": "已确认本轮定时任务未改写手动门店零售价规则文件。",
+          "metrics": {
+            "protectedRuleFileCount": 2,
+            "changedProtectedRuleFileCount": 0
+          },
+          "files": [
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+            "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "newRecordCount": 0,
+        "updatedRecordCount": 8,
+        "unmatchedProductCount": 0,
+        "missingLinkCount": 90,
+        "missingPriceCount": 0,
+        "missingWarrantyCount": 129,
+        "frontendRefreshed": true,
+        "newStockPriorityCount": 18,
+        "newStockImmediateClosureCount": 0
+      },
+      "artifacts": {
+        "reportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/scheduled-task-runs/gaokao-daily-learning-refresh/2026-06-12T00-10-19-387Z.json",
+        "latestReportPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-reports.json",
+        "dashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-task-dashboard.json",
+        "webDashboardPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-task-dashboard.json",
+        "evidencePaths": [
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-gaokao-daily-learning.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-gaokao-daily-learning.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-semi-auto-execution-plan.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-scheduled-sql-auto-sync-audit.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/latest-manual-price-overrides.json",
+          "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/web-cockpit/public/data/latest-manual-price-overrides.json"
+        ]
+      }
+    }
+  }
+}

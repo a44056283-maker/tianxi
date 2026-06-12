@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>教育补贴采集 · 手机端</title>
+  <style>
+    :root {
+      --green: #0a6e3a;
+      --green-soft: #27ae60;
+      --green-light: #e6f4ec;
+      --red: #d71a24;
+      --gold: #d4a23a;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: rgba(10, 110, 58, 0.16);
+      --panel: #ffffff;
+      --paper: #f8f9fa;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* Header */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, var(--green) 0%, #0d7a44 100%);
+      color: #fff;
+      padding: 14px 16px 16px;
+      box-shadow: 0 2px 12px rgba(10, 110, 58, 0.18);
+    }
+    .app-header .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .app-header .title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .app-header .back {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .group-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: rgba(0,0,0,0.12);
+      padding: 4px;
+      border-radius: 10px;
+    }
+    .group-tab {
+      padding: 8px 12px;
+      border-radius: 7px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: rgba(255,255,255,0.7);
+      border: 0;
+      background: transparent;
+    }
+    .group-tab.active {
+      background: #fff;
+      color: var(--green);
+    }
+    .group-tab .count {
+      font-size: 11px;
+      opacity: 0.85;
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Section title */
+    .section {
+      padding: 12px 16px 0;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-title::before {
+      content: '';
+      width: 3px;
+      height: 13px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    /* Quick entry form */
+    .form {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 14px 14px 16px;
+      margin: 0 12px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .field {
+      margin-bottom: 12px;
+    }
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .field label .req { color: var(--red); }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--ink);
+      outline: 0;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--green);
+      background: #fff;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--green);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-primary:active { background: #084d28; }
+    .btn-secondary {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--green-light);
+      color: var(--green);
+      border: 0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      padding: 6px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Records list */
+    .records {
+      padding: 0 12px;
+    }
+    .record {
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .record .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .record .customer {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .record .badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-paid { background: var(--green-light); color: var(--green); }
+    .badge-unpaid { background: #fce6e7; color: var(--red); }
+    .record .product {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .record .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .record .amount {
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .record .amount.fee { color: var(--green); }
+    .record .amount.discount { color: var(--red); }
+    .record .actions {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .record .actions button {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Summary bar */
+    .summary-bar {
+      background: var(--panel);
+      margin: 12px 12px 16px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+    .summary-bar .item .label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .summary-bar .item .value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .summary-bar .item.fee .value { color: var(--green); }
+    .summary-bar .item.discount .value { color: var(--red); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 100;
+    }
+    .toast.show { opacity: 1; }
+
+    /* Sync floating button */
+    .sync-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      border: 0;
+      box-shadow: 0 6px 16px rgba(10, 110, 58, 0.3);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 20;
+    }
+    .sync-fab:active { transform: scale(0.96); }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-header">
+    <div class="top">
+      <div class="title">📱 教育补贴采集</div>
+      <a class="back" href="./index.html">← 入口</a>
+    </div>
+    <div class="group-tabs">
+      <button class="group-tab active" data-group="all">
+        全部
+        <span class="count" id="cntAll">—</span>
+      </button>
+      <button class="group-tab" data-group="智店通入库群">
+        智店通入库群
+        <span class="count" id="cnt1">—</span>
+      </button>
+      <button class="group-tab" data-group="教育补贴群">
+        教育补贴群
+        <span class="count" id="cnt2">—</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">快速录入</div>
+  </div>
+  <div class="form" id="entryForm">
+    <div class="row">
+      <div class="field">
+        <label>选择群 <span class="req">*</span></label>
+        <select id="fGroup">
+          <option value="智店通入库群">智店通入库群 (¥50/单)</option>
+          <option value="教育补贴群">教育补贴群 (¥30/单)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>日期 <span class="req">*</span></label>
+        <input type="date" id="fDate" />
+      </div>
+    </div>
+    <div class="field">
+      <label>商品 / SKU</label>
+      <input type="text" id="fProduct" placeholder="如：小新Pro 16c IAH10 / 20002811 / 83ND0000CD" />
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>客户姓名 <span class="req">*</span></label>
+        <input type="text" id="fCustomer" placeholder="客户姓名" />
+      </div>
+      <div class="field">
+        <label>客户电话</label>
+        <input type="tel" id="fPhone" placeholder="11位手机号" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>代扫电话</label>
+        <input type="tel" id="fAgentPhone" placeholder="代扫员电话" />
+      </div>
+      <div class="field">
+        <label>订单号</label>
+        <input type="text" id="fOrder" placeholder="智店通订单号" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>补贴金额 ¥</label>
+        <input type="number" id="fDiscount" placeholder="500" />
+      </div>
+      <div class="field">
+        <label>服务费 ¥</label>
+        <input type="number" id="fFee" placeholder="自动按群计算" />
+      </div>
+    </div>
+    <div class="field">
+      <label>备注</label>
+      <textarea id="fNote" rows="2" placeholder="可填：凭证要点、客户问题、补贴规则口径"></textarea>
+    </div>
+    <button class="btn-primary" id="btnSave">保存到本地</button>
+    <button class="btn-secondary" id="btnSyncAll">📤 一键同步至代扫群数据页</button>
+  </div>
+
+  <div class="summary-bar" id="summaryBar">
+    <div class="item">
+      <div class="label">当前群记录</div>
+      <div class="value" id="sumCount">—</div>
+    </div>
+    <div class="item fee">
+      <div class="label">服务费合计</div>
+      <div class="value" id="sumFee">—</div>
+    </div>
+    <div class="item discount">
+      <div class="label">补贴金额</div>
+      <div class="value" id="sumDiscount">—</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">记录列表</div>
+  </div>
+  <div class="records" id="recordsList">
+    <div class="empty">加载中…</div>
+  </div>
+
+  <button class="sync-fab" id="fabSync" title="同步">↻</button>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // === Data layer ===
+    const DATA_URL = '../data/latest-education-subsidy-agent-scan-summary.json';
+    const STORAGE_KEY = 'edu_subsidy_local_records_v1';
+    let remoteRows = [];
+    let localRows = [];
+    let activeGroup = 'all';
+
+    const FEE_PER_GROUP = {
+      '智店通入库群': 50,
+      '教育补贴群': 30,
+    };
+
+    function loadLocal() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch { return []; }
+    }
+    function saveLocal(rows) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(rows));
+    }
+
+    async function loadRemote() {
+      const res = await fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' });
+      const data = await res.json();
+      remoteRows = (data.rows || []).map(r => ({ ...r, _src: 'remote' }));
+      localRows = loadLocal().map(r => ({ ...r, _src: 'local' }));
+      updateCounts();
+    }
+
+    function mergedRows() {
+      let all = [...localRows, ...remoteRows];
+      if (activeGroup !== 'all') {
+        all = all.filter(r => r.sourceGroupName === activeGroup);
+      }
+      all.sort((a, b) => (b.scanDate || '').localeCompare(a.scanDate || ''));
+      return all;
+    }
+
+    function updateCounts() {
+      const all = [...localRows, ...remoteRows];
+      document.getElementById('cntAll').textContent = all.length;
+      document.getElementById('cnt1').textContent = all.filter(r => r.sourceGroupName === '智店通入库群').length;
+      document.getElementById('cnt2').textContent = all.filter(r => r.sourceGroupName === '教育补贴群').length;
+    }
+
+    function updateSummary(rows) {
+      const fee = rows.reduce((s, r) => s + (r.totalServiceFee || 0), 0);
+      const discount = rows.reduce((s, r) => s + (r.totalEducationDiscountAmount || 0), 0);
+      document.getElementById('sumCount').textContent = rows.length;
+      document.getElementById('sumFee').textContent = '¥' + fee.toLocaleString();
+      document.getElementById('sumDiscount').textContent = '¥' + discount.toLocaleString();
+    }
+
+    function render() {
+      const rows = mergedRows();
+      updateSummary(rows);
+      const list = document.getElementById('recordsList');
+      if (rows.length === 0) {
+        list.innerHTML = '<div class="empty">本群暂无记录</div>';
+        return;
+      }
+      list.innerHTML = rows.map(r => `
+        <div class="record" data-id="${r.id}">
+          <div class="top">
+            <div class="customer">${escape(r.customerName || '匿名客户')}</div>
+            <span class="badge ${r.paymentReceived ? 'badge-paid' : 'badge-unpaid'}">${r.paymentReceived ? '已收款' : '未付'}</span>
+          </div>
+          <div class="product">${escape(r.productName || '-')} · ${escape(r.spec || '')}</div>
+          <div class="meta">
+            <span>${r.scanDate || '-'} · ${escape(r.sourceGroupName || '-')}</span>
+            <span class="amount discount">补贴 ¥${(r.totalEducationDiscountAmount || 0).toLocaleString()}</span>
+          </div>
+          <div class="meta">
+            <span>服务费 ¥${(r.totalServiceFee || 0)} · 订单 ${escape((r.orderNumber || '').slice(-8))}</span>
+            ${r._src === 'local' ? '<span style="color: var(--gold); font-size: 11px;">●本地</span>' : ''}
+          </div>
+          ${r._src === 'local' ? `<div class="actions"><button data-del="${r.id}">🗑</button></div>` : ''}
+        </div>
+      `).join('');
+
+      list.querySelectorAll('[data-del]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = e.currentTarget.getAttribute('data-del');
+          if (confirm('确认删除该本地记录？')) {
+            localRows = localRows.filter(r => r.id !== id);
+            saveLocal(localRows);
+            render();
+            toast('已删除');
+          }
+        });
+      });
+    }
+
+    function escape(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 1800);
+    }
+
+    // === Form ===
+    document.getElementById('fDate').value = new Date().toISOString().slice(0, 10);
+    document.getElementById('fGroup').addEventListener('change', (e) => {
+      const g = e.target.value;
+      const fee = FEE_PER_GROUP[g] || 30;
+      document.getElementById('fFee').value = fee;
+      document.getElementById('fFee').placeholder = `自动按群计算 (¥${fee})`;
+    });
+
+    document.getElementById('btnSave').addEventListener('click', () => {
+      const group = document.getElementById('fGroup').value;
+      const date = document.getElementById('fDate').value;
+      const customer = document.getElementById('fCustomer').value.trim();
+      if (!customer) { toast('请填写客户姓名'); return; }
+      if (!date) { toast('请填写日期'); return; }
+
+      const fee = Number(document.getElementById('fFee').value) || FEE_PER_GROUP[group];
+      const discount = Number(document.getElementById('fDiscount').value) || 0;
+
+      const rec = {
+        id: 'local-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+        sourceType: 'mobile_manual',
+        sourceGroupName: group,
+        collectionSource: group,
+        scanDate: date,
+        lockedDisplayDate: date,
+        productName: document.getElementById('fProduct').value.trim() || '(未填)',
+        skuKey: '',
+        pnMtm: '',
+        spec: '',
+        category: '',
+        quantity: 1,
+        educationDiscountAmount: discount,
+        totalEducationDiscountAmount: discount,
+        serviceFeePerUnit: fee,
+        totalServiceFee: fee,
+        orderNumber: document.getElementById('fOrder').value.trim(),
+        customerName: customer,
+        customerPhone: document.getElementById('fPhone').value.trim(),
+        agentPhone: document.getElementById('fAgentPhone').value.trim(),
+        serialNumbers: [],
+        paymentReceived: false,
+        zhixiangjinAmount: 0,
+        bundleChargeApplied: false,
+        status: '未付',
+        reportStatus: '本地录入',
+        ruleText: document.getElementById('fNote').value.trim(),
+      };
+
+      localRows.unshift(rec);
+      saveLocal(localRows);
+      updateCounts();
+      render();
+      toast('已保存到本地');
+      // 清空（保留群和日期）
+      document.getElementById('fCustomer').value = '';
+      document.getElementById('fPhone').value = '';
+      document.getElementById('fAgentPhone').value = '';
+      document.getElementById('fOrder').value = '';
+      document.getElementById('fDiscount').value = '';
+      document.getElementById('fProduct').value = '';
+      document.getElementById('fNote').value = '';
+    });
+
+    document.getElementById('btnSyncAll').addEventListener('click', syncToAgentScan);
+    document.getElementById('fabSync').addEventListener('click', syncToAgentScan);
+
+    function syncToAgentScan() {
+      if (localRows.length === 0) {
+        toast('无本地记录需同步');
+        return;
+      }
+      // Mock sync — in production this would POST to /api/education-subsidy/sync-to-agent-scan
+      const blob = {
+        syncedAt: new Date().toISOString(),
+        localCount: localRows.length,
+        groupBreakdown: {
+          '智店通入库群': localRows.filter(r => r.sourceGroupName === '智店通入库群').length,
+          '教育补贴群': localRows.filter(r => r.sourceGroupName === '教育补贴群').length,
+        },
+        records: localRows,
+        totalServiceFee: localRows.reduce((s, r) => s + r.totalServiceFee, 0),
+        totalDiscount: localRows.reduce((s, r) => s + r.totalEducationDiscountAmount, 0),
+      };
+      try {
+        localStorage.setItem('edu_subsidy_last_sync_payload', JSON.stringify(blob));
+      } catch {}
+      toast(`✓ 已同步 ${localRows.length} 条记录至代扫群数据页`);
+    }
+
+    // === Group tabs ===
+    document.querySelectorAll('.group-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.group-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeGroup = btn.getAttribute('data-group');
+        render();
+      });
+    });
+
+    // === Init ===
+    (async () => {
+      try {
+        await loadRemote();
+        render();
+      } catch (e) {
+        document.getElementById('recordsList').innerHTML = '<div class="empty">数据加载失败：' + e.message + '</div>';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1690 @@
+{
+  "generatedAt": "2026-05-17T21:41:06.357Z",
+  "rootPath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual",
+  "total": 169,
+  "bySource": {
+    "gray_wholesale": 5,
+    "distributor_group": 1,
+    "unknown": 163
+  },
+  "byKind": {
+    "image": 89,
+    "text": 19,
+    "spreadsheet": 2,
+    "json": 57,
+    "other": 2
+  },
+  "records": [
+    {
+      "source": "gray_wholesale",
+      "kind": "text",
+      "fileName": "gray-wholesale-2026-05-15.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/gray-wholesale-2026-05-15.txt",
+      "relativePath": "gray-wholesale-2026-05-15.txt",
+      "fileSize": 27323,
+      "modifiedAt": "2026-05-17T21:40:41.914Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "public-account-quote-2026-05-15.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/current/2026-05/public-account-quote-2026-05-15.txt",
+      "relativePath": "wechat-quote-collection/current/2026-05/public-account-quote-2026-05-15.txt",
+      "fileSize": 27323,
+      "modifiedAt": "2026-05-17T21:40:11.566Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat-favorite-public-account-2026-05-15-visible.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/current/2026-05/wechat-favorite-public-account-2026-05-15-visible.png",
+      "relativePath": "wechat-quote-collection/current/2026-05/wechat-favorite-public-account-2026-05-15-visible.png",
+      "fileSize": 1285829,
+      "modifiedAt": "2026-05-17T21:39:51.639Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "other",
+      "fileName": "wechat-quote-collection-20260518-053305-last30d.tar.gz",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/archives/wechat-quote-collection-20260518-053305-last30d.tar.gz",
+      "relativePath": "wechat-quote-collection/archives/wechat-quote-collection-20260518-053305-last30d.tar.gz",
+      "fileSize": 31023,
+      "modifiedAt": "2026-05-17T21:33:05.818Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat-quote-collection-20260518-053305-last30d.manifest.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/archives/wechat-quote-collection-20260518-053305-last30d.manifest.txt",
+      "relativePath": "wechat-quote-collection/archives/wechat-quote-collection-20260518-053305-last30d.manifest.txt",
+      "fileSize": 190,
+      "modifiedAt": "2026-05-17T21:33:05.812Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "other",
+      "fileName": "wechat-quote-collection-20260518-053141-last15d.tar.gz",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/archives/wechat-quote-collection-20260518-053141-last15d.tar.gz",
+      "relativePath": "wechat-quote-collection/archives/wechat-quote-collection-20260518-053141-last15d.tar.gz",
+      "fileSize": 31023,
+      "modifiedAt": "2026-05-17T21:31:41.747Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat-quote-collection-20260518-053141-last15d.manifest.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/archives/wechat-quote-collection-20260518-053141-last15d.manifest.txt",
+      "relativePath": "wechat-quote-collection/archives/wechat-quote-collection-20260518-053141-last15d.manifest.txt",
+      "fileSize": 190,
+      "modifiedAt": "2026-05-17T21:31:41.736Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "README.md",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/README.md",
+      "relativePath": "wechat-quote-collection/README.md",
+      "fileSize": 694,
+      "modifiedAt": "2026-05-17T21:31:24.421Z"
+    },
+    {
+      "source": "distributor_group",
+      "kind": "spreadsheet",
+      "fileName": "2026年5月17日分销库存.xlsx",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat-quote-collection/current/2026-05/2026年5月17日分销库存.xlsx",
+      "relativePath": "wechat-quote-collection/current/2026-05/2026年5月17日分销库存.xlsx",
+      "fileSize": 32484,
+      "modifiedAt": "2026-05-17T21:31:16.255Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-tmall-tail-reference-20003167.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-tmall-tail-reference-20003167.json",
+      "relativePath": "manual-price-supplements-20260518-task1-tmall-tail-reference-20003167.json",
+      "fileSize": 2148,
+      "modifiedAt": "2026-05-17T20:24:09.179Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003167-tmall-tail-reference.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-tmall-tail-reference/20003167-tmall-tail-reference.png",
+      "relativePath": "evidence/2026-05-18-task1-tmall-tail-reference/20003167-tmall-tail-reference.png",
+      "fileSize": 138729,
+      "modifiedAt": "2026-05-17T20:23:54.246Z",
+      "inferredDate": "2000-31-67"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-tmall-tail-reference-20003789.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-tmall-tail-reference-20003789.json",
+      "relativePath": "manual-price-supplements-20260518-task1-tmall-tail-reference-20003789.json",
+      "fileSize": 2149,
+      "modifiedAt": "2026-05-17T20:22:41.775Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003789-tmall-tail-reference.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-tmall-tail-reference/20003789-tmall-tail-reference.png",
+      "relativePath": "evidence/2026-05-18-task1-tmall-tail-reference/20003789-tmall-tail-reference.png",
+      "fileSize": 129114,
+      "modifiedAt": "2026-05-17T20:21:33.744Z",
+      "inferredDate": "2000-37-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-jd-y7000-exclusive-correction.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-jd-y7000-exclusive-correction.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-jd-y7000-exclusive-correction.json",
+      "fileSize": 1342,
+      "modifiedAt": "2026-05-17T20:17:54.306Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-jd-xiaoxin27-gap.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-jd-xiaoxin27-gap.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-jd-xiaoxin27-gap.json",
+      "fileSize": 1430,
+      "modifiedAt": "2026-05-17T20:14:03.499Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006863-jd-self.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-jd-gap-only/20006863-jd-self.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-jd-gap-only/20006863-jd-self.png",
+      "fileSize": 273652,
+      "modifiedAt": "2026-05-17T20:13:52.259Z",
+      "inferredDate": "2000-68-63"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004915-lenovo-official-reference.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-gap-only/20004915-lenovo-official-reference.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-gap-only/20004915-lenovo-official-reference.png",
+      "fileSize": 150003,
+      "modifiedAt": "2026-05-17T20:08:56.860Z",
+      "inferredDate": "2000-49-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-official-xiaoxin-gap.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-official-xiaoxin-gap.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-official-xiaoxin-gap.json",
+      "fileSize": 4664,
+      "modifiedAt": "2026-05-17T20:08:29.589Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004055-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-gap-only/20004055-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-gap-only/20004055-lenovo-official.png",
+      "fileSize": 171302,
+      "modifiedAt": "2026-05-17T20:07:13.348Z",
+      "inferredDate": "2000-40-55"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004003-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-gap-only/20004003-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-gap-only/20004003-lenovo-official.png",
+      "fileSize": 171122,
+      "modifiedAt": "2026-05-17T20:07:10.551Z",
+      "inferredDate": "2000-40-03"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002886-lenovo-official-discontinued.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-gap-only/20002886-lenovo-official-discontinued.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-gap-only/20002886-lenovo-official-discontinued.png",
+      "fileSize": 131355,
+      "modifiedAt": "2026-05-17T19:48:36.074Z",
+      "inferredDate": "2000-28-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002781-lenovo-official-discontinued.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-gap-only/20002781-lenovo-official-discontinued.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-gap-only/20002781-lenovo-official-discontinued.png",
+      "fileSize": 154150,
+      "modifiedAt": "2026-05-17T19:48:34.323Z",
+      "inferredDate": "2000-27-81"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-official-discontinued-reference.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-official-discontinued-reference.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-official-discontinued-reference.json",
+      "fileSize": 2859,
+      "modifiedAt": "2026-05-17T19:48:26.176Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-official-batch-2.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-official-batch-2.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-official-batch-2.json",
+      "fileSize": 7172,
+      "modifiedAt": "2026-05-17T19:40:36.966Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004671-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-home-search/20004671-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-home-search/20004671-lenovo-official.png",
+      "fileSize": 174415,
+      "modifiedAt": "2026-05-17T19:40:03.915Z",
+      "inferredDate": "2000-46-71"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003662-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-home-search/20003662-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-home-search/20003662-lenovo-official.png",
+      "fileSize": 152970,
+      "modifiedAt": "2026-05-17T19:40:01.168Z",
+      "inferredDate": "2000-36-62"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004689-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-home-search/20004689-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-home-search/20004689-lenovo-official.png",
+      "fileSize": 149820,
+      "modifiedAt": "2026-05-17T19:39:58.394Z",
+      "inferredDate": "2000-46-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006831-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-home-search/20006831-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-home-search/20006831-lenovo-official.png",
+      "fileSize": 179618,
+      "modifiedAt": "2026-05-17T19:39:55.633Z",
+      "inferredDate": "2000-68-31"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006651-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official-home-search/20006651-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official-home-search/20006651-lenovo-official.png",
+      "fileSize": 154201,
+      "modifiedAt": "2026-05-17T19:39:52.869Z",
+      "inferredDate": "2000-66-51"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-official-batch-1.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-official-batch-1.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-official-batch-1.json",
+      "fileSize": 10753,
+      "modifiedAt": "2026-05-17T19:28:36.688Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002886-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20002886-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20002886-lenovo-official.png",
+      "fileSize": 103544,
+      "modifiedAt": "2026-05-17T19:27:28.803Z",
+      "inferredDate": "2000-28-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002781-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20002781-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20002781-lenovo-official.png",
+      "fileSize": 127843,
+      "modifiedAt": "2026-05-17T19:27:24.085Z",
+      "inferredDate": "2000-27-81"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004689-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20004689-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20004689-lenovo-official.png",
+      "fileSize": 105853,
+      "modifiedAt": "2026-05-17T19:27:19.337Z",
+      "inferredDate": "2000-46-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006863-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20006863-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20006863-lenovo-official.png",
+      "fileSize": 129272,
+      "modifiedAt": "2026-05-17T19:27:14.619Z",
+      "inferredDate": "2000-68-63"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20007040-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20007040-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20007040-lenovo-official.png",
+      "fileSize": 118106,
+      "modifiedAt": "2026-05-17T19:27:09.854Z",
+      "inferredDate": "2000-70-40"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003216-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20003216-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20003216-lenovo-official.png",
+      "fileSize": 145613,
+      "modifiedAt": "2026-05-17T19:27:05.146Z",
+      "inferredDate": "2000-32-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003126-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20003126-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20003126-lenovo-official.png",
+      "fileSize": 156330,
+      "modifiedAt": "2026-05-17T19:27:00.454Z",
+      "inferredDate": "2000-31-26"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003886-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20003886-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20003886-lenovo-official.png",
+      "fileSize": 107065,
+      "modifiedAt": "2026-05-17T19:26:55.718Z",
+      "inferredDate": "2000-38-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002034-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20002034-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20002034-lenovo-official.png",
+      "fileSize": 143768,
+      "modifiedAt": "2026-05-17T19:26:50.987Z",
+      "inferredDate": "2000-20-34"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006837-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20006837-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20006837-lenovo-official.png",
+      "fileSize": 147329,
+      "modifiedAt": "2026-05-17T19:26:46.253Z",
+      "inferredDate": "2000-68-37"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006381-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20006381-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20006381-lenovo-official.png",
+      "fileSize": 141457,
+      "modifiedAt": "2026-05-17T19:26:41.507Z",
+      "inferredDate": "2000-63-81"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006372-lenovo-official.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-official/20006372-lenovo-official.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-official/20006372-lenovo-official.png",
+      "fileSize": 105490,
+      "modifiedAt": "2026-05-17T19:26:36.774Z",
+      "inferredDate": "2000-63-72"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-batch-4.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-batch-4.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-batch-4.json",
+      "fileSize": 1669,
+      "modifiedAt": "2026-05-17T19:18:23.814Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004915-jd-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20004915-jd-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20004915-jd-detail.png",
+      "fileSize": 232253,
+      "modifiedAt": "2026-05-17T19:18:10.022Z",
+      "inferredDate": "2000-49-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-batch-3.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-batch-3.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-batch-3.json",
+      "fileSize": 6941,
+      "modifiedAt": "2026-05-17T19:14:15.298Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003167-jd-detail-active.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20003167-jd-detail-active.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20003167-jd-detail-active.png",
+      "fileSize": 1320213,
+      "modifiedAt": "2026-05-17T19:12:11.437Z",
+      "inferredDate": "2000-31-67"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006863-lenovo-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20006863-lenovo-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20006863-lenovo-detail.png",
+      "fileSize": 1132088,
+      "modifiedAt": "2026-05-17T19:09:32.753Z",
+      "inferredDate": "2000-68-63"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002886-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20002886-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20002886-detail.png",
+      "fileSize": 1458604,
+      "modifiedAt": "2026-05-17T19:07:46.848Z",
+      "inferredDate": "2000-28-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003789-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20003789-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20003789-detail.png",
+      "fileSize": 1222298,
+      "modifiedAt": "2026-05-17T19:07:40.507Z",
+      "inferredDate": "2000-37-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006863-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20006863-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20006863-detail.png",
+      "fileSize": 1379160,
+      "modifiedAt": "2026-05-17T19:07:34.222Z",
+      "inferredDate": "2000-68-63"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004915-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20004915-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20004915-detail.png",
+      "fileSize": 1266294,
+      "modifiedAt": "2026-05-17T19:07:27.883Z",
+      "inferredDate": "2000-49-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003167-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20003167-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20003167-detail.png",
+      "fileSize": 1637584,
+      "modifiedAt": "2026-05-17T19:07:21.533Z",
+      "inferredDate": "2000-31-67"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006725-jd-detail.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20006725-jd-detail.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20006725-jd-detail.png",
+      "fileSize": 1567033,
+      "modifiedAt": "2026-05-17T19:03:37.777Z",
+      "inferredDate": "2000-67-25"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006725-jd-global-search.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20006725-jd-global-search.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20006725-jd-global-search.png",
+      "fileSize": 1563531,
+      "modifiedAt": "2026-05-17T19:01:28.999Z",
+      "inferredDate": "2000-67-25"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006725-jd-store-search.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-search/20006725-jd-store-search.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-search/20006725-jd-store-search.png",
+      "fileSize": 1406745,
+      "modifiedAt": "2026-05-17T19:01:22.750Z",
+      "inferredDate": "2000-67-25"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-batch-2.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-batch-2.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-batch-2.json",
+      "fileSize": 8307,
+      "modifiedAt": "2026-05-17T19:00:14.899Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003886-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20003886-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20003886-jd.png",
+      "fileSize": 1135586,
+      "modifiedAt": "2026-05-17T18:58:13.207Z",
+      "inferredDate": "2000-38-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003789-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20003789-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20003789-jd.png",
+      "fileSize": 1307714,
+      "modifiedAt": "2026-05-17T18:58:07.881Z",
+      "inferredDate": "2000-37-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004055-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20004055-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20004055-jd.png",
+      "fileSize": 1296201,
+      "modifiedAt": "2026-05-17T18:58:02.546Z",
+      "inferredDate": "2000-40-55"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002034-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20002034-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20002034-jd.png",
+      "fileSize": 1158890,
+      "modifiedAt": "2026-05-17T18:57:57.213Z",
+      "inferredDate": "2000-20-34"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006831-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20006831-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20006831-jd.png",
+      "fileSize": 1513067,
+      "modifiedAt": "2026-05-17T18:57:51.936Z",
+      "inferredDate": "2000-68-31"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006837-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20006837-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20006837-jd.png",
+      "fileSize": 1178520,
+      "modifiedAt": "2026-05-17T18:57:46.591Z",
+      "inferredDate": "2000-68-37"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003163-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers-batch-2/20003163-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers-batch-2/20003163-jd.png",
+      "fileSize": 1025970,
+      "modifiedAt": "2026-05-17T18:57:41.250Z",
+      "inferredDate": "2000-31-63"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-main-computers-batch-1.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-main-computers-batch-1.json",
+      "relativePath": "manual-price-supplements-20260518-task1-main-computers-batch-1.json",
+      "fileSize": 6954,
+      "modifiedAt": "2026-05-17T18:56:04.283Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004689-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers/20004689-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers/20004689-jd.png",
+      "fileSize": 1444104,
+      "modifiedAt": "2026-05-17T18:53:48.776Z",
+      "inferredDate": "2000-46-89"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006651-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers/20006651-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers/20006651-jd.png",
+      "fileSize": 1126430,
+      "modifiedAt": "2026-05-17T18:53:44.277Z",
+      "inferredDate": "2000-66-51"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004003-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers/20004003-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers/20004003-jd.png",
+      "fileSize": 1005472,
+      "modifiedAt": "2026-05-17T18:53:39.814Z",
+      "inferredDate": "2000-40-03"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006381-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers/20006381-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers/20006381-jd.png",
+      "fileSize": 1199759,
+      "modifiedAt": "2026-05-17T18:53:35.344Z",
+      "inferredDate": "2000-63-81"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20002781-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-main-computers/20002781-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-main-computers/20002781-jd.png",
+      "fileSize": 1201348,
+      "modifiedAt": "2026-05-17T18:53:30.876Z",
+      "inferredDate": "2000-27-81"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-task1-full-capture-batch-1.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-task1-full-capture-batch-1.json",
+      "relativePath": "manual-price-supplements-20260518-task1-full-capture-batch-1.json",
+      "fileSize": 17460,
+      "modifiedAt": "2026-05-17T18:41:59.511Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004215-jd-screen.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20004215-jd-screen.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20004215-jd-screen.png",
+      "fileSize": 1315220,
+      "modifiedAt": "2026-05-17T18:41:36.585Z",
+      "inferredDate": "2000-42-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004338-jd-screen.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20004338-jd-screen.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20004338-jd-screen.png",
+      "fileSize": 1145494,
+      "modifiedAt": "2026-05-17T18:41:18.565Z",
+      "inferredDate": "2000-43-38"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20000779-jd-authorized.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20000779-jd-authorized.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20000779-jd-authorized.png",
+      "fileSize": 954394,
+      "modifiedAt": "2026-05-17T18:40:14.050Z",
+      "inferredDate": "2000-07-79"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20001168-lenovo.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20001168-lenovo.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20001168-lenovo.png",
+      "fileSize": 1039797,
+      "modifiedAt": "2026-05-17T18:38:35.593Z",
+      "inferredDate": "2000-11-68"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20000347-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20000347-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20000347-jd.png",
+      "fileSize": 1106429,
+      "modifiedAt": "2026-05-17T18:38:24.268Z",
+      "inferredDate": "2000-03-47"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20000276-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20000276-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20000276-jd.png",
+      "fileSize": 1132797,
+      "modifiedAt": "2026-05-17T18:35:37.333Z",
+      "inferredDate": "2000-02-76"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20000579-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20000579-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20000579-jd.png",
+      "fileSize": 1293192,
+      "modifiedAt": "2026-05-17T18:35:26.682Z",
+      "inferredDate": "2000-05-79"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20000386-jd-mismatch.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20000386-jd-mismatch.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20000386-jd-mismatch.png",
+      "fileSize": 1419531,
+      "modifiedAt": "2026-05-17T18:35:13.172Z",
+      "inferredDate": "2000-03-86"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003833-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20003833-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20003833-jd.png",
+      "fileSize": 1263996,
+      "modifiedAt": "2026-05-17T18:34:08.060Z",
+      "inferredDate": "2000-38-33"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20001158-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20001158-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20001158-jd.png",
+      "fileSize": 1151261,
+      "modifiedAt": "2026-05-17T18:33:56.895Z",
+      "inferredDate": "2000-11-58"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003275-lenovo.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20003275-lenovo.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20003275-lenovo.png",
+      "fileSize": 1010965,
+      "modifiedAt": "2026-05-17T18:31:59.335Z",
+      "inferredDate": "2000-32-75"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004361-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20004361-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20004361-jd.png",
+      "fileSize": 1088830,
+      "modifiedAt": "2026-05-17T18:31:38.886Z",
+      "inferredDate": "2000-43-61"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003527-lenovo.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20003527-lenovo.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20003527-lenovo.png",
+      "fileSize": 945274,
+      "modifiedAt": "2026-05-17T18:31:26.698Z",
+      "inferredDate": "2000-35-27"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006372-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-task1-full-capture/20006372-jd.png",
+      "relativePath": "evidence/2026-05-18-task1-full-capture/20006372-jd.png",
+      "fileSize": 1045197,
+      "modifiedAt": "2026-05-17T18:29:53.654Z",
+      "inferredDate": "2000-63-72"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004671-lenovo-no-result.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20004671-lenovo-no-result.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20004671-lenovo-no-result.png",
+      "fileSize": 857868,
+      "modifiedAt": "2026-05-17T17:20:10.014Z",
+      "inferredDate": "2000-46-71"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260518-gaming-notebooks-batch-1.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260518-gaming-notebooks-batch-1.json",
+      "relativePath": "manual-price-supplements-20260518-gaming-notebooks-batch-1.json",
+      "fileSize": 7873,
+      "modifiedAt": "2026-05-17T17:16:56.320Z",
+      "inferredDate": "2026-05-18"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004671-jd-self-operated.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20004671-jd-self-operated.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20004671-jd-self-operated.png",
+      "fileSize": 1326608,
+      "modifiedAt": "2026-05-17T17:16:26.933Z",
+      "inferredDate": "2000-46-71"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20006725-tmall.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20006725-tmall.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20006725-tmall.png",
+      "fileSize": 1170485,
+      "modifiedAt": "2026-05-17T17:01:07.233Z",
+      "inferredDate": "2000-67-25"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003662-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20003662-jd.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20003662-jd.png",
+      "fileSize": 1171825,
+      "modifiedAt": "2026-05-17T17:00:35.385Z",
+      "inferredDate": "2000-36-62"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20004671-jd-mismatch.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20004671-jd-mismatch.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20004671-jd-mismatch.png",
+      "fileSize": 1131139,
+      "modifiedAt": "2026-05-17T17:00:08.664Z",
+      "inferredDate": "2000-46-71"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003216-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20003216-jd.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20003216-jd.png",
+      "fileSize": 1193548,
+      "modifiedAt": "2026-05-17T16:59:45.875Z",
+      "inferredDate": "2000-32-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20003126-jd.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20003126-jd.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20003126-jd.png",
+      "fileSize": 1176885,
+      "modifiedAt": "2026-05-17T16:59:25.539Z",
+      "inferredDate": "2000-31-26"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "20007040-lenovo.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/evidence/2026-05-18-gaming-notebooks/20007040-lenovo.png",
+      "relativePath": "evidence/2026-05-18-gaming-notebooks/20007040-lenovo.png",
+      "fileSize": 1059699,
+      "modifiedAt": "2026-05-17T16:58:19.772Z",
+      "inferredDate": "2000-70-40"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "store-product-cdp-5rounds-2026-05-17-1016.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/store-product-cdp-5rounds-2026-05-17-1016.json",
+      "relativePath": "openclaw/receipts/store-product-cdp-5rounds-2026-05-17-1016.json",
+      "fileSize": 6001,
+      "modifiedAt": "2026-05-17T02:38:40.141Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "store-product-edit-practice-kb-2026-05-17.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/knowledge/store-product-edit-practice-kb-2026-05-17.json",
+      "relativePath": "openclaw/knowledge/store-product-edit-practice-kb-2026-05-17.json",
+      "fileSize": 10891,
+      "modifiedAt": "2026-05-17T02:38:10.707Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "store-product-hit-rate-5rounds-2026-05-17-1004.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/store-product-hit-rate-5rounds-2026-05-17-1004.json",
+      "relativePath": "openclaw/receipts/store-product-hit-rate-5rounds-2026-05-17-1004.json",
+      "fileSize": 4734,
+      "modifiedAt": "2026-05-17T02:11:43.963Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "thread.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/chat/thread.json",
+      "relativePath": "openclaw/chat/thread.json",
+      "fileSize": 9703,
+      "modifiedAt": "2026-05-17T02:04:18.252Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-100416-0f1fb8.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-100416-0f1fb8.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-100416-0f1fb8.json",
+      "fileSize": 2619,
+      "modifiedAt": "2026-05-17T02:04:18.250Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-product-order-stock-kb-2026-05-17.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/knowledge/zhidiantong-product-order-stock-kb-2026-05-17.json",
+      "relativePath": "openclaw/knowledge/zhidiantong-product-order-stock-kb-2026-05-17.json",
+      "fileSize": 6071,
+      "modifiedAt": "2026-05-17T01:48:08.597Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-stock-order-click-try4-2026-05-17-0916.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/zhidiantong-stock-order-click-try4-2026-05-17-0916.json",
+      "relativePath": "openclaw/receipts/zhidiantong-stock-order-click-try4-2026-05-17-0916.json",
+      "fileSize": 2793,
+      "modifiedAt": "2026-05-17T01:18:47.657Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-stock-order-path-kb-2026-05-17.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/knowledge/zhidiantong-stock-order-path-kb-2026-05-17.json",
+      "relativePath": "openclaw/knowledge/zhidiantong-stock-order-path-kb-2026-05-17.json",
+      "fileSize": 3662,
+      "modifiedAt": "2026-05-17T01:18:33.308Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-091638-96930d.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-091638-96930d.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-091638-96930d.json",
+      "fileSize": 1692,
+      "modifiedAt": "2026-05-17T01:16:39.623Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-085654-21a922.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-085654-21a922.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-085654-21a922.json",
+      "fileSize": 2043,
+      "modifiedAt": "2026-05-17T01:10:02.098Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-inventory-order-try3-2026-05-17-0851.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/zhidiantong-inventory-order-try3-2026-05-17-0851.json",
+      "relativePath": "openclaw/receipts/zhidiantong-inventory-order-try3-2026-05-17-0851.json",
+      "fileSize": 2422,
+      "modifiedAt": "2026-05-17T01:06:53.232Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-080220-817c15.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-080220-817c15.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-080220-817c15.json",
+      "fileSize": 1852,
+      "modifiedAt": "2026-05-17T00:56:19.565Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-085111-9cc2b5.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-085111-9cc2b5.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-085111-9cc2b5.json",
+      "fileSize": 844,
+      "modifiedAt": "2026-05-17T00:51:53.697Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-sync-12-2026-05-17-0802.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/zhidiantong-sync-12-2026-05-17-0802.json",
+      "relativePath": "openclaw/receipts/zhidiantong-sync-12-2026-05-17-0802.json",
+      "fileSize": 3120,
+      "modifiedAt": "2026-05-17T00:22:57.542Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-071038-1d8d8d.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-071038-1d8d8d.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-071038-1d8d8d.json",
+      "fileSize": 1587,
+      "modifiedAt": "2026-05-17T00:02:37.833Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-sync-12-2026-05-17-0727.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/zhidiantong-sync-12-2026-05-17-0727.json",
+      "relativePath": "openclaw/receipts/zhidiantong-sync-12-2026-05-17-0727.json",
+      "fileSize": 3783,
+      "modifiedAt": "2026-05-16T23:46:00.487Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-071007-d51710.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-071007-d51710.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-071007-d51710.json",
+      "fileSize": 581,
+      "modifiedAt": "2026-05-16T23:11:03.797Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-064554-373600.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-064554-373600.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-064554-373600.json",
+      "fileSize": 1454,
+      "modifiedAt": "2026-05-16T22:49:35.250Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-command-20260517-020805-66b7c6.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/commands/2026-05-17/openclaw-command-20260517-020805-66b7c6.json",
+      "relativePath": "openclaw/commands/2026-05-17/openclaw-command-20260517-020805-66b7c6.json",
+      "fileSize": 2172,
+      "modifiedAt": "2026-05-16T22:45:32.843Z",
+      "inferredDate": "2026-05-17"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "order-list-0029.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/knowledge/2026-05-17/order-list-0029.png",
+      "relativePath": "openclaw/knowledge/2026-05-17/order-list-0029.png",
+      "fileSize": 61845,
+      "modifiedAt": "2026-05-16T16:29:44.212Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "shop-list-0029.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/knowledge/2026-05-17/shop-list-0029.png",
+      "relativePath": "openclaw/knowledge/2026-05-17/shop-list-0029.png",
+      "fileSize": 63470,
+      "modifiedAt": "2026-05-16T16:29:44.209Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-watchdog-2026-05-16-2200.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/openclaw-watchdog-2026-05-16-2200.json",
+      "relativePath": "openclaw/receipts/openclaw-watchdog-2026-05-16-2200.json",
+      "fileSize": 3056,
+      "modifiedAt": "2026-05-16T14:03:31.848Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "openclaw-watchdog-2026-05-16-2157.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/openclaw/receipts/openclaw-watchdog-2026-05-16-2157.json",
+      "relativePath": "openclaw/receipts/openclaw-watchdog-2026-05-16-2157.json",
+      "fileSize": 2784,
+      "modifiedAt": "2026-05-16T13:58:29.075Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-purchase-inbound-capture-2026-05-16.partial.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-purchase-inbound-capture-2026-05-16.partial.json",
+      "relativePath": "zhidiantong-purchase-inbound-capture-2026-05-16.partial.json",
+      "fileSize": 969,
+      "modifiedAt": "2026-05-16T10:13:29.065Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "competitor-store-favorites.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/competitor-store-favorites.json",
+      "relativePath": "competitor-store-favorites.json",
+      "fileSize": 870,
+      "modifiedAt": "2026-05-16T02:31:36.377Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "competitor-monitor.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/competitor-monitor.json",
+      "relativePath": "competitor-monitor.json",
+      "fileSize": 13037,
+      "modifiedAt": "2026-05-16T02:17:08.008Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260516-lenovo-batch-2.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260516-lenovo-batch-2.json",
+      "relativePath": "manual-price-supplements-20260516-lenovo-batch-2.json",
+      "fileSize": 7419,
+      "modifiedAt": "2026-05-15T17:06:25.936Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260516-lenovo-batch-1.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260516-lenovo-batch-1.json",
+      "relativePath": "manual-price-supplements-20260516-lenovo-batch-1.json",
+      "fileSize": 8562,
+      "modifiedAt": "2026-05-15T16:58:41.264Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260516_001030.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260516_001030.ocr.json",
+      "relativePath": "wechat_quote_20260516_001030.ocr.json",
+      "fileSize": 12089,
+      "modifiedAt": "2026-05-15T16:10:34.886Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260516_001030.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260516_001030.ocr.txt",
+      "relativePath": "wechat_quote_20260516_001030.ocr.txt",
+      "fileSize": 550,
+      "modifiedAt": "2026-05-15T16:10:34.885Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260516_001030.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260516_001030.png",
+      "relativePath": "wechat_quote_20260516_001030.png",
+      "fileSize": 370728,
+      "modifiedAt": "2026-05-15T16:10:33.844Z",
+      "inferredDate": "2026-05-16"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_capture_20260515_235919.state.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_235919.state.ocr.txt",
+      "relativePath": "wechat_capture_20260515_235919.state.ocr.txt",
+      "fileSize": 769,
+      "modifiedAt": "2026-05-15T15:59:24.257Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_capture_20260515_235919.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_235919.png",
+      "relativePath": "wechat_capture_20260515_235919.png",
+      "fileSize": 244694,
+      "modifiedAt": "2026-05-15T15:59:22.791Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_capture_20260515_234736.state.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_234736.state.ocr.txt",
+      "relativePath": "wechat_capture_20260515_234736.state.ocr.txt",
+      "fileSize": 908,
+      "modifiedAt": "2026-05-15T15:47:41.888Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_capture_20260515_234736.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_234736.png",
+      "relativePath": "wechat_capture_20260515_234736.png",
+      "fileSize": 357234,
+      "modifiedAt": "2026-05-15T15:47:40.013Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_capture_20260515_233638.state.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_233638.state.ocr.txt",
+      "relativePath": "wechat_capture_20260515_233638.state.ocr.txt",
+      "fileSize": 907,
+      "modifiedAt": "2026-05-15T15:36:42.829Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_capture_20260515_233638.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_233638.png",
+      "relativePath": "wechat_capture_20260515_233638.png",
+      "fileSize": 397254,
+      "modifiedAt": "2026-05-15T15:36:41.154Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260515_230048.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230048.ocr.json",
+      "relativePath": "wechat_quote_20260515_230048.ocr.json",
+      "fileSize": 13532,
+      "modifiedAt": "2026-05-15T15:00:52.792Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260515_230048.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230048.ocr.txt",
+      "relativePath": "wechat_quote_20260515_230048.ocr.txt",
+      "fileSize": 970,
+      "modifiedAt": "2026-05-15T15:00:52.790Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260515_230048.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230048.png",
+      "relativePath": "wechat_quote_20260515_230048.png",
+      "fileSize": 257007,
+      "modifiedAt": "2026-05-15T15:00:51.212Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260515_230015.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230015.ocr.json",
+      "relativePath": "wechat_quote_20260515_230015.ocr.json",
+      "fileSize": 15689,
+      "modifiedAt": "2026-05-15T15:00:20.117Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260515_230015.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230015.ocr.txt",
+      "relativePath": "wechat_quote_20260515_230015.ocr.txt",
+      "fileSize": 1069,
+      "modifiedAt": "2026-05-15T15:00:20.117Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260515_230015.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_230015.png",
+      "relativePath": "wechat_quote_20260515_230015.png",
+      "fileSize": 270609,
+      "modifiedAt": "2026-05-15T15:00:18.246Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "page-03.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-03.ocr.json",
+      "relativePath": "wechat_article_20260515_225850/page-03.ocr.json",
+      "fileSize": 16460,
+      "modifiedAt": "2026-05-15T14:59:13.573Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "page-03.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-03.ocr.txt",
+      "relativePath": "wechat_article_20260515_225850/page-03.ocr.txt",
+      "fileSize": 1130,
+      "modifiedAt": "2026-05-15T14:59:13.572Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "page-03.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-03.png",
+      "relativePath": "wechat_article_20260515_225850/page-03.png",
+      "fileSize": 234737,
+      "modifiedAt": "2026-05-15T14:59:11.766Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "page-02.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-02.ocr.json",
+      "relativePath": "wechat_article_20260515_225850/page-02.ocr.json",
+      "fileSize": 16460,
+      "modifiedAt": "2026-05-15T14:59:05.657Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "page-02.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-02.ocr.txt",
+      "relativePath": "wechat_article_20260515_225850/page-02.ocr.txt",
+      "fileSize": 1130,
+      "modifiedAt": "2026-05-15T14:59:05.657Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "page-02.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-02.png",
+      "relativePath": "wechat_article_20260515_225850/page-02.png",
+      "fileSize": 234737,
+      "modifiedAt": "2026-05-15T14:59:03.880Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "page-01.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-01.ocr.json",
+      "relativePath": "wechat_article_20260515_225850/page-01.ocr.json",
+      "fileSize": 16460,
+      "modifiedAt": "2026-05-15T14:58:57.771Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "page-01.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-01.ocr.txt",
+      "relativePath": "wechat_article_20260515_225850/page-01.ocr.txt",
+      "fileSize": 1130,
+      "modifiedAt": "2026-05-15T14:58:57.770Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "page-01.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_article_20260515_225850/page-01.png",
+      "relativePath": "wechat_article_20260515_225850/page-01.png",
+      "fileSize": 234737,
+      "modifiedAt": "2026-05-15T14:58:55.721Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_windowid_test.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_windowid_test.json",
+      "relativePath": "wechat_windowid_test.json",
+      "fileSize": 16442,
+      "modifiedAt": "2026-05-15T14:56:37.345Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_windowid_test.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_windowid_test.txt",
+      "relativePath": "wechat_windowid_test.txt",
+      "fileSize": 1130,
+      "modifiedAt": "2026-05-15T14:56:37.345Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_windowid_test.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_windowid_test.png",
+      "relativePath": "wechat_windowid_test.png",
+      "fileSize": 234737,
+      "modifiedAt": "2026-05-15T14:56:35.128Z"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260515_225457.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225457.ocr.json",
+      "relativePath": "wechat_quote_20260515_225457.ocr.json",
+      "fileSize": 24603,
+      "modifiedAt": "2026-05-15T14:55:03.185Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260515_225457.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225457.ocr.txt",
+      "relativePath": "wechat_quote_20260515_225457.ocr.txt",
+      "fileSize": 1389,
+      "modifiedAt": "2026-05-15T14:55:03.185Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260515_225457.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225457.png",
+      "relativePath": "wechat_quote_20260515_225457.png",
+      "fileSize": 243707,
+      "modifiedAt": "2026-05-15T14:55:00.824Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260515_225338.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225338.ocr.json",
+      "relativePath": "wechat_quote_20260515_225338.ocr.json",
+      "fileSize": 23545,
+      "modifiedAt": "2026-05-15T14:53:41.919Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260515_225338.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225338.ocr.txt",
+      "relativePath": "wechat_quote_20260515_225338.ocr.txt",
+      "fileSize": 1357,
+      "modifiedAt": "2026-05-15T14:53:41.919Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260515_225338.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225338.png",
+      "relativePath": "wechat_quote_20260515_225338.png",
+      "fileSize": 240818,
+      "modifiedAt": "2026-05-15T14:53:39.383Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "wechat_quote_20260515_225107.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225107.ocr.json",
+      "relativePath": "wechat_quote_20260515_225107.ocr.json",
+      "fileSize": 3740,
+      "modifiedAt": "2026-05-15T14:51:08.501Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "text",
+      "fileName": "wechat_quote_20260515_225107.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225107.ocr.txt",
+      "relativePath": "wechat_quote_20260515_225107.ocr.txt",
+      "fileSize": 108,
+      "modifiedAt": "2026-05-15T14:51:08.500Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_quote_20260515_225107.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_quote_20260515_225107.png",
+      "relativePath": "wechat_quote_20260515_225107.png",
+      "fileSize": 110170,
+      "modifiedAt": "2026-05-15T14:51:07.496Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "image",
+      "fileName": "wechat_capture_20260515_225106.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_capture_20260515_225106.png",
+      "relativePath": "wechat_capture_20260515_225106.png",
+      "fileSize": 110170,
+      "modifiedAt": "2026-05-15T14:51:07.223Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "gray_wholesale",
+      "kind": "json",
+      "fileName": "wechat_mp_20260514_041231.ocr.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_20260514_041231.ocr.json",
+      "relativePath": "wechat_mp_20260514_041231.ocr.json",
+      "fileSize": 4581,
+      "modifiedAt": "2026-05-15T13:53:26.996Z",
+      "inferredDate": "2026-05-14"
+    },
+    {
+      "source": "gray_wholesale",
+      "kind": "text",
+      "fileName": "wechat_mp_20260514_041231.ocr.txt",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_20260514_041231.ocr.txt",
+      "relativePath": "wechat_mp_20260514_041231.ocr.txt",
+      "fileSize": 242,
+      "modifiedAt": "2026-05-15T13:53:26.996Z",
+      "inferredDate": "2026-05-14"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-purchase-inbound-capture-2026-05-15.partial.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-purchase-inbound-capture-2026-05-15.partial.json",
+      "relativePath": "zhidiantong-purchase-inbound-capture-2026-05-15.partial.json",
+      "fileSize": 3237,
+      "modifiedAt": "2026-05-15T09:51:35.235Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "manual-price-supplements-20260515-jd-pro14-pro16gt.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/manual-price-supplements-20260515-jd-pro14-pro16gt.json",
+      "relativePath": "manual-price-supplements-20260515-jd-pro14-pro16gt.json",
+      "fileSize": 3645,
+      "modifiedAt": "2026-05-15T09:13:27.835Z",
+      "inferredDate": "2026-05-15"
+    },
+    {
+      "source": "gray_wholesale",
+      "kind": "image",
+      "fileName": "wechat_mp_final.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_final.png",
+      "relativePath": "wechat_mp_final.png",
+      "fileSize": 338018,
+      "modifiedAt": "2026-05-13T20:12:31.269Z"
+    },
+    {
+      "source": "gray_wholesale",
+      "kind": "image",
+      "fileName": "wechat_mp_20260514_041231.png",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/wechat_mp_20260514_041231.png",
+      "relativePath": "wechat_mp_20260514_041231.png",
+      "fileSize": 338018,
+      "modifiedAt": "2026-05-13T20:12:31.186Z",
+      "inferredDate": "2026-05-14"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-other-outbound-capture-2026-05-13.partial.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-other-outbound-capture-2026-05-13.partial.json",
+      "relativePath": "zhidiantong-other-outbound-capture-2026-05-13.partial.json",
+      "fileSize": 4762,
+      "modifiedAt": "2026-05-13T07:54:35.255Z",
+      "inferredDate": "2026-05-13"
+    },
+    {
+      "source": "unknown",
+      "kind": "spreadsheet",
+      "fileName": "zhidiantong-sales-export-2026-05-13.xlsx",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-sales-export-2026-05-13.xlsx",
+      "relativePath": "zhidiantong-sales-export-2026-05-13.xlsx",
+      "fileSize": 3936,
+      "modifiedAt": "2026-05-13T05:19:06.635Z",
+      "inferredDate": "2026-05-13"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-purchase-inbound-capture-2026-05-13.partial.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-purchase-inbound-capture-2026-05-13.partial.json",
+      "relativePath": "zhidiantong-purchase-inbound-capture-2026-05-13.partial.json",
+      "fileSize": 13240,
+      "modifiedAt": "2026-05-13T04:59:17.120Z",
+      "inferredDate": "2026-05-13"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-other-outbound-2026-05-13.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-other-outbound-2026-05-13.json",
+      "relativePath": "zhidiantong-other-outbound-2026-05-13.json",
+      "fileSize": 24142,
+      "modifiedAt": "2026-05-13T04:15:57.738Z",
+      "inferredDate": "2026-05-13"
+    },
+    {
+      "source": "unknown",
+      "kind": "json",
+      "fileName": "zhidiantong-purchase-inbound-import-2026-05-13.stale-from-2026-05-12.json",
+      "filePath": "/Users/luxiangnan/Desktop/联想智慧零售项目/lenovo-smart-retail-cockpit/apps/inventory-sync/artifacts/manual/zhidiantong-purchase-inbound-import-2026-05-13.stale-from-2026-05-12.json",
+      "relativePath": "zhidiantong-purchase-inbound-import-2026-05-13.stale-from-2026-05-12.json",
+      "fileSize": 1039,
+      "modifiedAt": "2026-05-13T04:15:57.736Z",
+      "inferredDate": "2026-05-13"
+    }
+  ]
+}

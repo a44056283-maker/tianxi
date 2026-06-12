@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教育补代扫采集工作台</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fbff;
+      --line: #dbe5f1;
+      --line-strong: #cfdceb;
+      --text: #0f172a;
+      --muted: #64748b;
+      --blue: #2f6cde;
+      --red: #e2231a;
+      --green: #15803d;
+      --amber: #b45309;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, input, select, textarea { font: inherit; }
+    .page { max-width: 1480px; margin: 0 auto; padding: 24px; }
+    .hero,
+    .summary-card,
+    .toolbar,
+    .panel,
+    .sidebar-section,
+    .stat-row,
+    .queue-item,
+    .timeline-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      padding: 20px 24px;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.2; }
+    .hero p {
+      margin: 8px 0 0;
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .btn {
+      border: 1px solid var(--line-strong);
+      background: #fff;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .summary-card { padding: 16px; min-height: 116px; }
+    .summary-card .label { color: var(--muted); font-size: 12px; }
+    .summary-card .value {
+      margin-top: 10px;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .summary-card .hint {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 16px;
+      margin-top: 16px;
+      padding: 16px 18px;
+    }
+    .toolbar h2,
+    .panel h2,
+    .sidebar-section h2 { margin: 0; font-size: 16px; }
+    .toolbar-copy p,
+    .sidebar-note,
+    .meta { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .toolbar-copy p { margin: 8px 0 0; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .chip b { color: var(--blue); font-weight: 800; }
+    .rule-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .rule-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .rule-row:last-child { padding-bottom: 0; border-bottom: 0; }
+    .rule-row span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .rule-row b { font-size: 13px; line-height: 1.6; }
+    .ledger-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 328px;
+      gap: 16px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .panel { padding: 18px 20px; }
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .panel-head-copy { display: grid; gap: 4px; }
+    .panel-head-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .panel-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 960px;
+    }
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--panel-soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    td small,
+    td .subline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .amount {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .badge.blue { color: var(--blue); background: #eef4ff; border-color: #d7e4fb; }
+    .badge.green { color: var(--green); background: #edf8f1; border-color: #d6ecdd; }
+    .badge.amber { color: var(--amber); background: #fff5ea; border-color: #f4dfbf; }
+    .badge.red { color: var(--red); background: #fef0ef; border-color: #f5d2cf; }
+    .stack { display: grid; gap: 12px; }
+    .sidebar-section { padding: 16px; }
+    .sidebar-grid { display: grid; gap: 10px; }
+    .stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--panel-soft);
+    }
+    .stat-row span { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .stat-row b { font-size: 15px; font-variant-numeric: tabular-nums; }
+    .queue-item,
+    .timeline-item { padding: 12px 14px; }
+    .queue-item b,
+    .timeline-item b { display: block; font-size: 13px; line-height: 1.5; }
+    .queue-item p,
+    .timeline-item p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .two-column-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .rule-bullets {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .rule-bullets li {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .empty { padding: 8px 0; color: var(--muted); font-size: 13px; }
+    @media (max-width: 1280px) {
+      .summary-grid,
+      .toolbar,
+      .ledger-layout,
+      .two-column-stack {
+        grid-template-columns: 1fr;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">教育补代扫工作台</div>
+        <h1>教育补代扫采集工作台</h1>
+        <p>页面只承接正式投影、缺口和复核队列，主链仍以 SQL 记录为准，前端不直接改写事实。</p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" type="button" id="btnRefresh">刷新工作台</button>
+        <button class="btn" type="button" id="btnProjection">重建前端投影</button>
+        <a class="btn" href="./admin.html">进入管理端</a>
+        <a class="btn" href="./bridge-dashboard.html">采集监控</a>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card"><div class="label">正式入库</div><div class="value" id="kpiFormal">--</div><div class="hint" id="kpiFormalHint">--</div></div>
+      <div class="summary-card"><div class="label">仅证据过滤</div><div class="value" id="kpiEvidenceOnly">--</div><div class="hint">不计费，只保留复核入口</div></div>
+      <div class="summary-card"><div class="label">待复核</div><div class="value" id="kpiReview">--</div><div class="hint" id="kpiReviewHint">--</div></div>
+      <div class="summary-card"><div class="label">套装候选</div><div class="value" id="kpiBundles">--</div><div class="hint">同手机号自动聚合</div></div>
+      <div class="summary-card"><div class="label">未付服务费</div><div class="value" id="kpiFee">--</div><div class="hint" id="kpiFeeHint">--</div></div>
+      <div class="summary-card"><div class="label">缺口 backlog</div><div class="value" id="kpiGap">--</div><div class="hint" id="kpiGapHint">--</div></div>
+    </section>
+
+    <section class="toolbar">
+      <div class="toolbar-copy">
+        <h2>筛选与规则</h2>
+        <p>当前工作台以 2026-06-06 之后的正式记录和缺口投影为范围，优先看批次、缺口、套装和证据质量，不在前端解释或修正文档化事实。</p>
+        <div class="chip-row">
+          <span class="chip">范围 <b id="rangeChip">2026-06-06 起</b></span>
+          <span class="chip">批次 <b id="batchChip">--</b></span>
+          <span class="chip">规则 <b id="ruleChip">v2.0</b></span>
+          <span class="chip">未付服务费 <b id="feeChip">--</b></span>
+        </div>
+      </div>
+      <div class="rule-list">
+        <div class="rule-row"><span>入账范围</span><b>只认正式记录、去掉纯证据和服务类占位。</b></div>
+        <div class="rule-row"><span>复核优先级</span><b>先处理电话冲突、同步阻塞，再处理套装升级。</b></div>
+        <div class="rule-row"><span>金额口径</span><b>服务费、教育补、智享金分栏展示，不在前端做额外推导。</b></div>
+      </div>
+    </section>
+
+    <section class="ledger-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-head-copy">
+            <h2>主台账</h2>
+            <p>按批次、记录、缺口和规则四块收口，保证一屏能先对账，再决定是否进入管理端复核。</p>
+          </div>
+          <div class="panel-actions">
+            <a class="btn" href="#batchLedger">批次</a>
+            <a class="btn" href="#recordLedger">正式记录</a>
+            <a class="btn" href="#timelineLedger">缺口</a>
+          </div>
+        </div>
+
+        <div class="stack">
+          <section id="batchLedger">
+            <div class="panel-head">
+              <div class="panel-head-copy">
+                <h2>最近批次</h2>
+                <p>批次是当前工作台的总入口，先看来源、成功数、待复核数和最后写入时间。</p>
+              </div>
+              <div class="meta" id="batchMeta">--</div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>日期 / 来源</th>
+                    <th>记录数</th>
+                    <th>成功 / 待复核</th>
+                    <th>员工 / 群组</th>
+                    <th>最新写入</th>
+                  </tr>
+                </thead>
+                <tbody id="batchRows"><tr><td colspan="5" class="empty">加载中...</td></tr></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="recordLedger">
+            <div class="panel-head">
+              <div class="panel-head-copy">
+                <h2>正式记录</h2>
+                <p>最近入库记录按客户、来源、订单和首个 SN 收口，作为进入管理端前的快速核对台账。</p>
+              </div>
+              <div class="meta">最近 8 条</div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>客户 / 扫法</th>
+                    <th>来源</th>
+                    <th>电话 / 单号 / SN</th>
+                  </tr>
+                </thead>
+                <tbody id="recordRows"><tr><td colspan="3" class="empty">加载中...</td></tr></tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="two-column-stack">
+            <section id="timelineLedger">
+              <div class="panel-head">
+                <div class="panel-head-copy">
+                  <h2>缺口时间轴</h2>
+                  <p>只看有正式记录或有缺口的日期，用于确认当天是否还需要补扫。</p>
+                </div>
+                <div class="meta">6 月 6 日以来</div>
+              </div>
+              <div class="stack" id="timelineRows"><div class="empty">加载中...</div></div>
+            </section>
+
+            <section>
+              <div class="panel-head">
+                <div class="panel-head-copy">
+                  <h2>当前规则</h2>
+                  <p>规则只做展示，不在这里解释历史脏数据。</p>
+                </div>
+                <div class="meta" id="ruleMeta">--</div>
+              </div>
+              <ul class="rule-bullets" id="ruleRows"><li>加载中...</li></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <aside class="stack">
+        <section class="sidebar-section">
+          <h2>证据质量</h2>
+          <div class="sidebar-note">先看不计费记录和阻塞项，避免把缺口误当入账成功。</div>
+          <div class="sidebar-grid" id="qualityRows"><div class="empty">加载中...</div></div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2>同手机号套装候选</h2>
+          <div class="sidebar-note">事实优先于群名，自动建议只做复核参考。</div>
+          <div class="sidebar-grid" id="bundleRows"><div class="empty">加载中...</div></div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2>金额规则</h2>
+          <div class="sidebar-note">当前页面统一展示正式计费口径。</div>
+          <div class="sidebar-grid" id="feeRules"></div>
+        </section>
+      </aside>
+    </section>
+  </div>
+
+  <script>
+    const API_URL = `${window.location.origin}/api/education-collection/workbench?since_date=2026-06-06&recent_limit=24`;
+    const PROJECTION_URL = `${window.location.origin}/api/education-scan/v2/sync-to-projection`;
+    let payload = null;
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    }
+    function money(value) { return '¥' + Number(value || 0).toLocaleString('zh-CN'); }
+    function when(value) {
+      if (!value) return '--';
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      const pad = (n) => String(n).padStart(2, '0');
+      return `${date.getMonth() + 1}/${date.getDate()} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
+    }
+    function scanTypeLabel(value) {
+      return ({ single_scan: '单扫', two_piece: '二件套', dual_screen_two_piece: '双屏两件套', three_piece: '三件套', multi_scan: '多扫' })[value] || value || '--';
+    }
+    function sourceLabel(value) {
+      return ({ watermark_camera_manual: '网页 CLI', xhey_api_manual: '今日相机 API', wechat_group_manual: '微信群历史', sql_manual_import: 'SQL 历史导入' })[value] || value || '--';
+    }
+
+    function renderOverview() {
+      const overview = payload?.overview || {};
+      document.getElementById('kpiFormal').textContent = Number(overview.projectionTotalCount || 0).toLocaleString('zh-CN');
+      document.getElementById('kpiFormalHint').textContent = `教育补 ${Number(overview.sqlEducationGroupCountSinceDate || 0)} / 智店通 ${Number(overview.sqlInboundGroupCountSinceDate || 0)}`;
+      document.getElementById('kpiEvidenceOnly').textContent = Number(overview.sqlServiceFilteredCountSinceDate || 0).toLocaleString('zh-CN');
+      document.getElementById('kpiReview').textContent = Number((payload?.phoneMismatchAlerts || []).length + (payload?.educationFailures || []).length).toLocaleString('zh-CN');
+      document.getElementById('kpiReviewHint').textContent = `电话冲突 ${Number(overview.phoneMismatchCount || 0)} / 同步阻塞 ${(payload?.educationFailures || []).length}`;
+      document.getElementById('kpiBundles').textContent = Number((payload?.phoneBundleCandidates || []).length || 0).toLocaleString('zh-CN');
+      document.getElementById('kpiFee').textContent = money(payload?.projection?.summary?.unpaidServiceFee || 0);
+      document.getElementById('kpiFeeHint').textContent = `总服务费 ${money(overview.projectionTotalServiceFee || 0)}`;
+      document.getElementById('kpiGap').textContent = Number(overview.gapCountSinceDate || 0).toLocaleString('zh-CN');
+      document.getElementById('kpiGapHint').textContent = `起点 ${esc(payload?.sinceDate || '--')}`;
+      document.getElementById('batchMeta').textContent = `批次 ${Number((payload?.batches || []).length || 0)} 个`;
+      document.getElementById('ruleMeta').textContent = payload?.projection?.summary ? `规则 ${esc(payload?.projection?.summary?.ruleVersion || payload?.projection?.ruleVersion || 'v2.0')}` : '规则 v2.0';
+      document.getElementById('rangeChip').textContent = `${payload?.sinceDate || '2026-06-06'} 起`;
+      document.getElementById('batchChip').textContent = Number((payload?.batches || []).length || 0).toLocaleString('zh-CN');
+      document.getElementById('ruleChip').textContent = payload?.projection?.summary?.ruleVersion || payload?.projection?.ruleVersion || 'v2.0';
+      document.getElementById('feeChip').textContent = money(payload?.projection?.summary?.unpaidServiceFee || 0);
+    }
+
+    function renderBatches() {
+      const rows = payload?.batches || [];
+      const wrap = document.getElementById('batchRows');
+      if (!rows.length) {
+        wrap.innerHTML = '<tr><td colspan="5" class="empty">暂无批次</td></tr>';
+        return;
+      }
+      wrap.innerHTML = rows.map((item) => `
+        <tr>
+          <td>${esc(item.scanDate || '--')}<span class="subline">${esc(sourceLabel(item.sourceType))} / ${esc(item.collectionSource || '--')}</span></td>
+          <td class="amount">${Number(item.recordCount || 0).toLocaleString('zh-CN')}</td>
+          <td class="amount">${Number(item.successCount || 0)} / ${Number(item.pendingReviewCount || 0)}<span class="subline">partial ${Number(item.partialCount || 0)}</span></td>
+          <td>${esc((item.staffIds || []).join('、') || '--')}<span class="subline">${esc((item.sourceGroupNames || []).join('、') || '--')}</span></td>
+          <td class="mono">${esc(when(item.latestCreatedAt))}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderQuality() {
+      const overview = payload?.overview || {};
+      const failures = payload?.educationFailures || [];
+      const phoneAlerts = payload?.phoneMismatchAlerts || [];
+      const rows = [
+        ['服务类 / 仅证据过滤', Number(overview.sqlServiceFilteredCountSinceDate || 0)],
+        ['电话不一致', phoneAlerts.length],
+        ['同步阻塞', failures.length],
+        ['待补缺口', Number(payload?.gapBacklog?.gapCount || 0)],
+      ];
+      document.getElementById('qualityRows').innerHTML = rows.map((item) => `
+        <div class="stat-row"><span>${esc(item[0])}</span><b>${Number(item[1]).toLocaleString('zh-CN')}</b></div>
+      `).join('');
+    }
+
+    function renderBundles() {
+      const rows = payload?.phoneBundleCandidates || [];
+      const wrap = document.getElementById('bundleRows');
+      if (!rows.length) {
+        wrap.innerHTML = '<div class="empty">当前没有需要升级套数的手机号。</div>';
+        return;
+      }
+      wrap.innerHTML = rows.slice(0, 6).map((item) => `
+        <div class="queue-item">
+          <b>${esc(item.phone || '--')} · 建议 ${esc(scanTypeLabel(item.recommendedScanType))}</b>
+          <p>累计有效设备单元 ${Number(item.unitCount || 0)} 个，当前记录 ${Number(item.recordCount || 0)} 条。</p>
+          <p>${esc((item.currentScanTypes || []).map(scanTypeLabel).join('、') || '--')}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderFeeRules() {
+      const rows = [
+        ['教育补贴群单扫', '¥30 / 台'],
+        ['智店通入库群单扫', '¥50 / 台'],
+        ['智店通二件套', '¥130 / 套'],
+        ['智店通双屏两件套', '¥150 / 套'],
+        ['智店通三件套', '¥300 / 套'],
+      ];
+      document.getElementById('feeRules').innerHTML = rows.map((item) => `
+        <div class="stat-row"><span>${esc(item[0])}</span><b>${esc(item[1])}</b></div>
+      `).join('');
+    }
+
+    function renderRecords() {
+      const rows = payload?.recentRecords || [];
+      const wrap = document.getElementById('recordRows');
+      if (!rows.length) {
+        wrap.innerHTML = '<tr><td colspan="3" class="empty">暂无正式记录。</td></tr>';
+        return;
+      }
+      wrap.innerHTML = rows.slice(0, 8).map((item) => `
+        <tr>
+          <td>${esc(item.customerName || item.staffName || '--')}<span class="subline">${esc(scanTypeLabel(item.scanType))}</span></td>
+          <td>${esc(item.sourceGroupName || '--')}<span class="subline">${esc(item.collectionSource || '--')} / ${esc(sourceLabel(item.sourceType))}</span></td>
+          <td class="mono">${esc(item.customerPhone || '--')}<span class="subline">${esc(item.orderNumber || '--')} / ${esc((item.serialNumbers || [])[0] || item.photoId || '--')}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderTimeline() {
+      const rows = (payload?.timeline || []).filter((item) => Number(item.recordCount || 0) > 0 || Number(item.gapCount || 0) > 0);
+      const wrap = document.getElementById('timelineRows');
+      if (!rows.length) {
+        wrap.innerHTML = '<div class="empty">暂无时间轴数据。</div>';
+        return;
+      }
+      wrap.innerHTML = rows.slice(0, 8).map((item) => `
+        <div class="timeline-item">
+          <b>${esc(item.date)}</b>
+          <p>正式 ${Number(item.recordCount || 0).toLocaleString('zh-CN')} 条</p>
+          <p>缺口 ${Number(item.gapCount || 0).toLocaleString('zh-CN')} 条</p>
+        </div>
+      `).join('');
+    }
+
+    function renderRules() {
+      const rules = payload?.workflow?.bundleRules || [];
+      document.getElementById('ruleRows').innerHTML = rules.length
+        ? rules.map((item) => `<li>${esc(item)}</li>`).join('')
+        : '<li>暂无规则说明。</li>';
+    }
+
+    async function loadPayload() {
+      const response = await fetch(API_URL, { cache: 'no-store' });
+      payload = await response.json();
+      renderOverview();
+      renderBatches();
+      renderQuality();
+      renderBundles();
+      renderFeeRules();
+      renderRecords();
+      renderTimeline();
+      renderRules();
+    }
+
+    async function rebuildProjection() {
+      await fetch(PROJECTION_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+      await loadPayload();
+    }
+
+    document.getElementById('btnRefresh').addEventListener('click', () => loadPayload().catch((error) => alert(error.message || error)));
+    document.getElementById('btnProjection').addEventListener('click', () => rebuildProjection().catch((error) => alert(error.message || error)));
+    loadPayload().catch((error) => {
+      document.body.innerHTML = `<div class="page"><section class="panel"><h2>工作台加载失败</h2><div class="empty">${esc(error.message || error)}</div></section></div>`;
+    });
+  </script>
+</body>
+</html>

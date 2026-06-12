@@ -1,0 +1,27 @@
+# 原始字段到进销存字段的映射示例。上线前按你们进销存数据库字段调整。
+orders:
+  order_no: external_order_no
+  order_time: sold_at
+  store_code: store_code
+  sku: sku
+  product_name: product_name
+  qty: quantity
+  amount: paid_amount
+  status: order_status
+
+inventory:
+  store_code: store_code
+  warehouse_code: warehouse_code
+  sku: sku
+  product_name: product_name
+  available_qty: available_qty
+  locked_qty: locked_qty
+  in_transit_qty: in_transit_qty
+
+products:
+  sku: sku
+  barcode: barcode
+  product_name: product_name
+  brand: brand
+  model: model
+  status: product_status

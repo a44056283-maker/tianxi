@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联想售后服务 · 手机登记</title>
+<style>
+:root {
+  --bg:#060913;
+  --panel:#0c1320;
+  --panel2:#111827;
+  --gold:#f7c96b;
+  --gold2:#a56a22;
+  --red:#d92323;
+  --blue:#37a7ff;
+  --green:#22c55e;
+  --text:#fff8df;
+  --muted:#b8aa86;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(247,201,107,.18), transparent 35%),
+    radial-gradient(circle at 85% 30%, rgba(55,167,255,.13), transparent 35%),
+    linear-gradient(180deg,#05070d,#0a0c14 55%,#020306);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+}
+.app {
+  max-width:430px;
+  margin:0 auto;
+  min-height:100vh;
+  border-left:1px solid rgba(247,201,107,.18);
+  border-right:1px solid rgba(247,201,107,.18);
+  background:rgba(3,6,12,.76);
+  box-shadow:0 0 50px rgba(0,0,0,.6);
+  padding-bottom:98px;
+}
+.top {
+  position:sticky;
+  top:0;
+  z-index:10;
+  padding:16px 16px 12px;
+  background:linear-gradient(180deg,rgba(5,8,15,.98),rgba(5,8,15,.86));
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(247,201,107,.22);
+}
+.logo-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.logo {
+  background:#e2231a;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.2px;
+  padding:7px 11px;
+  border-radius:5px;
+  box-shadow:0 0 18px rgba(226,35,26,.45);
+}
+.title h1 { margin:10px 0 2px; font-size:22px; letter-spacing:.08em; }
+.title p { margin:0; color:var(--muted); font-size:12px; }
+.stepbar {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:6px;
+  margin-top:12px;
+}
+.step {
+  text-align:center; font-size:11px; color:#6f634a; padding:6px 2px;
+  border:1px solid rgba(247,201,107,.18); border-radius:999px;
+}
+.step.active { color:var(--gold); border-color:rgba(247,201,107,.65); background:rgba(247,201,107,.08); }
+.panel {
+  margin:14px 12px;
+  padding:14px;
+  border:1px solid rgba(247,201,107,.26);
+  border-radius:18px;
+  background:
+    linear-gradient(135deg,rgba(247,201,107,.09),transparent 28%),
+    linear-gradient(180deg,rgba(14,20,32,.96),rgba(5,8,15,.96));
+  box-shadow:0 12px 38px rgba(0,0,0,.36), inset 0 0 28px rgba(247,201,107,.03);
+}
+.panel-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.panel-head h2 { margin:0; font-size:18px; }
+.panel-head p { margin:2px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
+.diamond {
+  width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto;
+  color:#111; font-weight:900;
+  background:linear-gradient(135deg,#fff3b5,#f7c96b,#8b591f);
+  border-radius:12px;
+  box-shadow:0 0 22px rgba(247,201,107,.35);
+}
+.form-grid { display:grid; gap:10px; }
+.field label { display:block; color:#d9c897; font-size:12px; margin:0 0 6px; }
+.field input,.field select,.field textarea {
+  width:100%; border:1px solid rgba(247,201,107,.24); border-radius:12px;
+  padding:12px; background:#070b12; color:#fff8df; outline:none;
+  font-size:15px;
+}
+.inline { display:flex; gap:8px; }
+.inline input { flex:1; }
+.mini-btn {
+  border:1px solid rgba(247,201,107,.36); border-radius:12px; padding:0 12px;
+  background:rgba(247,201,107,.1); color:var(--gold); font-weight:700;
+}
+.gold-btn,.dark-btn {
+  width:100%; border:0; border-radius:14px; padding:13px 16px;
+  font-size:16px; font-weight:900; letter-spacing:.08em;
+  margin-top:12px;
+}
+.gold-btn {
+  color:#15100a;
+  background:linear-gradient(135deg,#ffe9a5,#f7c96b,#c4852c);
+  box-shadow:0 0 30px rgba(247,201,107,.24);
+}
+.dark-btn {
+  color:var(--gold);
+  background:rgba(247,201,107,.08);
+  border:1px solid rgba(247,201,107,.28);
+}
+.status-card {
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;
+}
+.kpi {
+  padding:12px; border-radius:14px;
+  background:rgba(0,0,0,.22);
+  border:1px solid rgba(247,201,107,.16);
+}
+.kpi b { display:block; font-size:18px; color:var(--gold); margin-bottom:4px; }
+.kpi span { font-size:12px; color:var(--muted); }
+.success { color:#69f7a0; }
+.warn { color:#ffd479; }
+.modules {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:10px;
+}
+.module-card {
+  position:relative;
+  min-height:220px;
+  border:1px solid rgba(247,201,107,.28);
+  border-radius:16px;
+  overflow:hidden;
+  padding:0;
+  background:#0b111c;
+  color:#fff8df;
+  text-align:left;
+  box-shadow:0 10px 25px rgba(0,0,0,.34);
+}
+.module-card img {
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+  opacity:.88;
+}
+.module-card::after {
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.92));
+  pointer-events:none;
+}
+.module-card .badge {
+  position:absolute; top:8px; left:8px; z-index:1;
+  background:rgba(0,0,0,.55); border:1px solid rgba(247,201,107,.5);
+  color:var(--gold); padding:4px 7px; border-radius:999px; font-size:12px;
+}
+.module-card strong {
+  position:absolute; left:10px; bottom:42px; z-index:1;
+  font-size:17px; color:#ffe7a6;
+}
+.module-card small {
+  position:absolute; left:10px; right:10px; bottom:12px; z-index:1;
+  font-size:11px; color:#cbb88a; line-height:1.25;
+}
+.module-panel { display:none; }
+.module-panel.active { display:block; }
+.hero-preview {
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:16px;
+  border:1px solid rgba(247,201,107,.24);
+  margin-bottom:12px;
+}
+.rule-box {
+  padding:10px 12px; color:#ead9a8; font-size:12px; line-height:1.6;
+  background:rgba(247,201,107,.07); border:1px solid rgba(247,201,107,.18);
+  border-radius:12px; margin-bottom:10px;
+}
+.service-list { display:grid; gap:8px; }
+.service-row {
+  display:grid; grid-template-columns:22px 28px 1fr auto; gap:8px; align-items:center;
+  padding:10px; border:1px solid rgba(247,201,107,.16); border-radius:14px;
+  background:rgba(0,0,0,.20);
+}
+.service-row input { accent-color:#f7c96b; }
+.service-icon {
+  width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(247,201,107,.1); color:var(--gold);
+}
+.service-info b { display:block; font-size:14px; }
+.service-info em { display:block; font-style:normal; color:var(--muted); font-size:11px; line-height:1.35; margin-top:2px; }
+.price { color:#ffe6a4; font-weight:800; font-size:12px; white-space:nowrap; }
+.summary-list { display:grid; gap:8px; margin-top:8px; }
+.summary-item {
+  display:flex; justify-content:space-between; gap:8px;
+  padding:10px; border-radius:12px; background:rgba(0,0,0,.22);
+  border:1px solid rgba(247,201,107,.15);
+  font-size:13px;
+}
+.footer-nav {
+  position:fixed; left:50%; transform:translateX(-50%); bottom:0;
+  width:min(430px,100%);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  background:rgba(6,9,19,.96);
+  border-top:1px solid rgba(247,201,107,.24);
+  z-index:99;
+}
+.footer-nav button {
+  padding:10px 3px 12px;
+  background:transparent; border:0; color:#9f8f69; font-size:11px;
+}
+.footer-nav button.active { color:var(--gold); }
+.hide { display:none; }
+.notice {
+  margin-top:10px; color:#b8aa86; font-size:12px; line-height:1.5;
+}
+.pill {
+  display:inline-block; padding:4px 7px; border-radius:999px; color:#111;
+  background:var(--gold); font-size:11px; font-weight:900; margin-right:6px;
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="logo-row">
+      <span class="logo">Lenovo</span>
+      <span class="pill">售后广告机 · 手机登记</span>
+    </div>
+    <div class="title">
+      <h1>售后服务一站式登记</h1>
+      <p>扫码登记 · SN匹配 · 质保识别 · 服务选择 · 付款核销</p>
+    </div>
+    <div class="stepbar">
+      <span class="step active" id="s1">登记</span>
+      <span class="step" id="s2">匹配</span>
+      <span class="step" id="s3">选择</span>
+      <span class="step" id="s4">核销</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="registration">
+      <div class="panel-head">
+        <span class="diamond">SN</span>
+        <div>
+          <h2>客户扫码登记</h2>
+          <p>填写客户信息与主机编号，提交后自动匹配店内销售记录、官网质保与智惠权益。</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>客户姓名</label><input id="name" value="张先生" placeholder="请输入姓名"></div>
+        <div class="field"><label>手机号码</label><input id="mobile" value="13800000000" placeholder="用于短信通知/取机核销"></div>
+        <div class="field">
+          <label>SN / 主机编号</label>
+          <div class="inline"><input id="sn" value="PF4STORE001" placeholder="扫码或手动输入SN"><button class="mini-btn">扫码</button></div>
+        </div>
+        <div class="field"><label>产品类型</label>
+          <select id="productType">
+            <option>笔记本电脑</option><option>台式机</option><option>一体机</option><option>显示器</option><option>打印机</option><option>周边配件</option>
+          </select>
+        </div>
+        <div class="field"><label>故障/需求备注</label><textarea rows="3" placeholder="例如：电脑发热、系统卡顿、需要清灰和系统优化">电脑发热，想做清灰和系统优化</textarea></div>
+      </div>
+      <button class="gold-btn" onclick="runMatch()">提交并自动匹配</button>
+      <p class="notice">勾选提交即代表客户同意门店用于售后登记、质保查询、短信通知及取机核销。</p>
+    </section>
+
+    <section class="panel hide" id="matchResult">
+      <div class="panel-head">
+        <span class="diamond">OK</span>
+        <div>
+          <h2>SN 匹配结果</h2>
+          <p id="matchText">已匹配店内销售记录，并获取质保与智惠权益。</p>
+        </div>
+      </div>
+      <div class="status-card">
+        <div class="kpi"><b class="success" id="storeMatch">已匹配</b><span>店内销售出库记录</span></div>
+        <div class="kpi"><b id="modelTitle">拯救者 Y7000P</b><span>产品型号主标题</span></div>
+        <div class="kpi"><b class="warn" id="warranty">保内至 2028-01-15</b><span>官网质保信息</span></div>
+        <div class="kpi"><b id="care">智惠 3 年</b><span>赠送/购买权益</span></div>
+      </div>
+      <div class="rule-box">
+        规则结果：本店购买 SN 已激活保养服务减免；智惠权益可用于对应年限内保养服务与系统支持；有偿服务自动应用店内购买优惠。
+      </div>
+      <button class="gold-btn" onclick="showModules()">选择售后服务模块</button>
+    </section>
+
+    <section class="panel hide" id="moduleSelect">
+      <div class="panel-head">
+        <span class="diamond">8</span>
+        <div>
+          <h2>选择服务类别</h2>
+          <p>客户可一次选择多个模块，最终统一生成服务单、报价单、付款或取机核销。</p>
+        </div>
+      </div>
+      <div class="modules">
+        <button class="module-card" data-module="maintenance">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-01.jpg?v=20260528-after-sales-pure2" alt="保养服务">
+        <span class="badge">01</span>
+        <strong>保养服务</strong>
+        <small>清灰 / 系统 / 检测 / 新机开荒 / 软件调试 / 打印机清洁</small>
+      </button>
+<button class="module-card" data-module="parts">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-02.jpg?v=20260528-after-sales-pure2" alt="配件更换">
+        <span class="badge">02</span>
+        <strong>配件更换</strong>
+        <small>外壳 / 键盘 / 屏幕 / 电池 / 电源 / 充电器</small>
+      </button>
+<button class="module-card" data-module="inWarranty">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-03.jpg?v=20260528-after-sales-pure2" alt="保内服务">
+        <span class="badge">03</span>
+        <strong>保内服务</strong>
+        <small>线上/线下保内客户登记、受理、跟踪</small>
+      </button>
+<button class="module-card" data-module="outWarranty">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-04.jpg?v=20260528-after-sales-pure2" alt="保外服务">
+        <span class="badge">04</span>
+        <strong>保外服务</strong>
+        <small>原厂硬件维修 / 配件更换 / 自采维修</small>
+      </button>
+<button class="module-card" data-module="dataService">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-05.jpg?v=20260528-after-sales-pure2" alt="数据服务">
+        <span class="badge">05</span>
+        <strong>数据服务</strong>
+        <small>数据恢复 / 迁移 / 备份 / 隐私安全</small>
+      </button>
+<button class="module-card" data-module="warrantyQuery">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-06.jpg?v=20260528-after-sales-pure2" alt="质保查询">
+        <span class="badge">06</span>
+        <strong>质保查询</strong>
+        <small>官方服务查询 / 店内售卖记录查询</small>
+      </button>
+<button class="module-card" data-module="extendedWarranty">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-07.jpg?v=20260528-after-sales-pure2" alt="延保服务">
+        <span class="badge">07</span>
+        <strong>延保服务</strong>
+        <small>全品类延保卡展示、折扣优惠、推荐购买</small>
+      </button>
+<button class="module-card" data-module="pickup">
+        <img src="/ad-machine/after-sales-pure-assets-20260528h/thumb-08.jpg?v=20260528-after-sales-pure2" alt="取机核销">
+        <span class="badge">08</span>
+        <strong>取机核销</strong>
+        <small>保内/保外/保养客户取机、付款、核销</small>
+      </button>
+      </div>
+    </section>
+
+    
+    <section class="panel module-panel" id="panel-maintenance">
+      <div class="panel-head">
+        <span class="diamond">01</span>
+        <div>
+          <h2>保养服务</h2>
+          <p>清灰 / 系统 / 检测 / 新机开荒 / 软件调试 / 打印机清洁</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-01.jpg?v=20260528-after-sales-pure2" alt="保养服务">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="109" data-name="深度清灰服务">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>深度清灰服务</b><em>智惠权益可抵扣当年1次外观清洁/保养类服务，具体以店内规则为准</em></span>
+            <span class="price">109 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="99" data-name="系统优化服务">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>系统优化服务</b><em>智惠用户可享操作系统支持；深度软件项目按规则减免</em></span>
+            <span class="price">99 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="故障检测">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>故障检测</b><em>进店基础检测建议免费</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="99" data-name="新机开荒">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>新机开荒</b><em>店内购买SN可按活动折扣</em></span>
+            <span class="price">99 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="69" data-name="软件调试">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>软件调试</b><em>智惠/店内购买SN可按活动折扣</em></span>
+            <span class="price">69 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="99" data-name="打印机清洁">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>打印机清洁</b><em>独立有偿服务，可参与活动折扣</em></span>
+            <span class="price">99 元</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="保养服务">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-parts">
+      <div class="panel-head">
+        <span class="diamond">02</span>
+        <div>
+          <h2>配件更换</h2>
+          <p>外壳 / 键盘 / 屏幕 / 电池 / 电源 / 充电器</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-02.jpg?v=20260528-after-sales-pure2" alt="配件更换">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="外壳更换">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>外壳更换</b><em>按机型、库存与原厂/兼容件方案报价</em></span>
+            <span class="price">询价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="键盘更换">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>键盘更换</b><em>区分原厂键盘/兼容键盘/人工费</em></span>
+            <span class="price">询价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="屏幕更换">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>屏幕更换</b><em>需识别尺寸、刷新率、屏幕型号</em></span>
+            <span class="price">询价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="电池更换">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>电池更换</b><em>建议展示健康度检测结果</em></span>
+            <span class="price">询价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="电源适配器">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>电源适配器</b><em>按功率与接口匹配</em></span>
+            <span class="price">询价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="充电器更换">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>充电器更换</b><em>可与店内库存系统联动</em></span>
+            <span class="price">询价</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="配件更换">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-inWarranty">
+      <div class="panel-head">
+        <span class="diamond">03</span>
+        <div>
+          <h2>保内服务</h2>
+          <p>线上/线下保内客户登记、受理、跟踪</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-03.jpg?v=20260528-after-sales-pure2" alt="保内服务">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="保内客户登录">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>保内客户登录</b><em>登记姓名、电话、SN、故障描述</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="保内受理记录">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>保内受理记录</b><em>生成服务单号，记录经办人、受理时间、附件</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="官方保修校验">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>官方保修校验</b><em>调用官网质保查询或人工录入结果</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="进度查询">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>进度查询</b><em>客户扫码可查当前状态</em></span>
+            <span class="price">0</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="保内服务">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-outWarranty">
+      <div class="panel-head">
+        <span class="diamond">04</span>
+        <div>
+          <h2>保外服务</h2>
+          <p>原厂硬件维修 / 配件更换 / 自采维修</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-04.jpg?v=20260528-after-sales-pure2" alt="保外服务">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="原厂硬件维修">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>原厂硬件维修</b><em>按官方方案报价，保留客户确认记录</em></span>
+            <span class="price">报价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="原厂配件更换">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>原厂配件更换</b><em>需展示原厂配件、工时、预计周期</em></span>
+            <span class="price">报价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="自采维修方案">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>自采维修方案</b><em>需明确非原厂/兼容方案风险提示</em></span>
+            <span class="price">报价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="检测后报价">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>检测后报价</b><em>可先建检测单，再生成报价单</em></span>
+            <span class="price">0</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="保外服务">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-dataService">
+      <div class="panel-head">
+        <span class="diamond">05</span>
+        <div>
+          <h2>数据服务</h2>
+          <p>数据恢复 / 迁移 / 备份 / 隐私安全</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-05.jpg?v=20260528-after-sales-pure2" alt="数据服务">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="99" data-name="资料备份">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>资料备份</b><em>需客户确认数据范围</em></span>
+            <span class="price">99 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="199" data-name="数据迁移">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>数据迁移</b><em>旧机迁移到新机，可与新机开荒联动</em></span>
+            <span class="price">199 元</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="数据恢复">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>数据恢复</b><em>先评估风险与成功率</em></span>
+            <span class="price">评估</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="99" data-name="隐私清除">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>隐私清除</b><em>取机前可生成确认记录</em></span>
+            <span class="price">99 元</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="数据服务">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-warrantyQuery">
+      <div class="panel-head">
+        <span class="diamond">06</span>
+        <div>
+          <h2>质保查询</h2>
+          <p>官方服务查询 / 店内售卖记录查询</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-06.jpg?v=20260528-after-sales-pure2" alt="质保查询">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="官方服务查询">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>官方服务查询</b><em>根据SN获取官方质保状态、服务年限、保修到期时间</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="店内销售记录">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>店内销售记录</b><em>匹配零售系统出库记录、产品标题、购买日期、导购/门店</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="智惠权益识别">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>智惠权益识别</b><em>根据销售赠品、延保卡、保修年限推断可用权益</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="服务卡激活状态">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>服务卡激活状态</b><em>展示已用/未用次数和有效期</em></span>
+            <span class="price">0</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="质保查询">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-extendedWarranty">
+      <div class="panel-head">
+        <span class="diamond">07</span>
+        <div>
+          <h2>延保服务</h2>
+          <p>全品类延保卡展示、折扣优惠、推荐购买</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-07.jpg?v=20260528-after-sales-pure2" alt="延保服务">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="笔记本延保">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>笔记本延保</b><em>按机器当前质保、购机时间、产品类别展示</em></span>
+            <span class="price">活动价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="台式机延保">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>台式机延保</b><em>按产品类别匹配服务卡</em></span>
+            <span class="price">活动价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="一体机延保">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>一体机延保</b><em>按保修剩余期与活动价推荐</em></span>
+            <span class="price">活动价</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="折扣优惠">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>折扣优惠</b><em>店内购买SN可自动激活优惠</em></span>
+            <span class="price">自动算</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="延保服务">加入本次服务单</button>
+    </section>
+    <section class="panel module-panel" id="panel-pickup">
+      <div class="panel-head">
+        <span class="diamond">08</span>
+        <div>
+          <h2>取机核销</h2>
+          <p>保内/保外/保养客户取机、付款、核销</p>
+        </div>
+      </div>
+      <img class="hero-preview" src="/ad-machine/after-sales-pure-assets-20260528h/thumb-08.jpg?v=20260528-after-sales-pure2" alt="取机核销">
+      <div class="rule-box">
+        <b>自动规则：</b>登记 SN 后，系统优先判断是否店内售出、是否保内、是否含智惠权益，再决定免费、折扣、报价或核销。
+      </div>
+      <div class="service-list">
+        <label class="service-row">
+            <input type="checkbox" data-price="0" data-name="保内取机">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>保内取机</b><em>扫码核验身份与服务单</em></span>
+            <span class="price">0</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="保外取机">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>保外取机</b><em>付款完成后核销</em></span>
+            <span class="price">结算</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="保养取机">
+            <span class="service-icon">✓</span>
+            <span class="service-info"><b>保养取机</b><em>按抵扣和折扣结果核销</em></span>
+            <span class="price">结算/免费</span>
+          </label>
+<label class="service-row">
+            <input type="checkbox" data-price="0" data-name="状态确认">
+            <span class="service-icon">✦</span>
+            <span class="service-info"><b>状态确认</b><em>客户确认已取机，留存电子签名/短信校验</em></span>
+            <span class="price">0</span>
+          </label>
+      </div>
+      <button class="gold-btn add-summary" data-module-name="取机核销">加入本次服务单</button>
+    </section>
+
+    <section class="panel" id="summary">
+      <div class="panel-head">
+        <span class="diamond">单</span>
+        <div>
+          <h2>服务单汇总</h2>
+          <p>所选服务会在这里汇总，Codex 可按此结构生成订单、付款和核销接口。</p>
+        </div>
+      </div>
+      <div id="summaryList" class="summary-list">
+        <div class="summary-item"><span>暂无服务项目</span><b>待选择</b></div>
+      </div>
+      <div class="status-card">
+        <div class="kpi"><b id="total">¥0</b><span>预估费用</span></div>
+        <div class="kpi"><b id="discount">自动计算</b><span>智惠/店内折扣</span></div>
+      </div>
+      <button class="gold-btn">生成服务单 / 报价单</button>
+      <button class="dark-btn">进入付款或取机核销</button>
+    </section>
+  </main>
+</div>
+
+<nav class="footer-nav">
+  <button class="active" onclick="jumpTo('registration')">登记</button>
+  <button onclick="jumpTo('matchResult')">匹配</button>
+  <button onclick="jumpTo('moduleSelect')">服务</button>
+  <button onclick="jumpTo('summary')">核销</button>
+</nav>
+
+<script>
+const moduleButtons = document.querySelectorAll('.module-card');
+const modulePanels = document.querySelectorAll('.module-panel');
+const summaryList = document.getElementById('summaryList');
+let selected = [];
+
+function runMatch(){
+  document.getElementById('matchResult').classList.remove('hide');
+  document.getElementById('s2').classList.add('active');
+  document.getElementById('matchResult').scrollIntoView({behavior:'smooth'});
+}
+
+function showModules(){
+  document.getElementById('moduleSelect').classList.remove('hide');
+  document.getElementById('s3').classList.add('active');
+  document.getElementById('moduleSelect').scrollIntoView({behavior:'smooth'});
+}
+
+moduleButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('moduleSelect').classList.remove('hide');
+    modulePanels.forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('panel-' + btn.dataset.module);
+    if(panel) {
+      panel.classList.add('active');
+      panel.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+document.querySelectorAll('.add-summary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.closest('.module-panel');
+    const moduleName = btn.dataset.moduleName;
+    const checks = panel.querySelectorAll('input[type=checkbox]:checked');
+    checks.forEach(ch => {
+      selected.push({ moduleName, name: ch.dataset.name, price: Number(ch.dataset.price || 0) });
+    });
+    renderSummary();
+    document.getElementById('s4').classList.add('active');
+    document.getElementById('summary').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+function renderSummary(){
+  if(selected.length === 0) return;
+  let total = selected.reduce((s,x)=>s+x.price,0);
+  summaryList.innerHTML = selected.map(x => `<div class="summary-item"><span>${x.moduleName} · ${x.name}</span><b>${x.price ? '¥'+x.price : '待报价/免费'}</b></div>`).join('');
+  document.getElementById('total').innerText = '¥' + total;
+  document.getElementById('discount').innerText = total > 0 ? '按SN自动减免' : '无需付款';
+}
+
+function jumpTo(id){
+  const el = document.getElementById(id);
+  if(el) {
+    el.classList.remove('hide');
+    el.scrollIntoView({behavior:'smooth'});
+  }
+}
+</script>
+</body>
+</html>

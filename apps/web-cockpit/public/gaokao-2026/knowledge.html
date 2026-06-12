@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>电脑选购知识分享</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7efe9;
+      --panel: #fff7f1;
+      --card: #ffffff;
+      --red: #c91522;
+      --red-deep: #821117;
+      --gold: #ffd466;
+      --text: #241515;
+      --muted: #75595b;
+      --line: rgba(101, 23, 28, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #fef7f1 0%, #f6ece6 100%);
+      color: var(--text);
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 14px 44px;
+    }
+    .hero {
+      border-radius: 12px;
+      padding: 18px;
+      color: #fff;
+      background: linear-gradient(135deg, #8e1219 0%, #d41a23 52%, #7b1015 100%);
+      box-shadow: 0 16px 40px rgba(125, 18, 22, 0.18);
+      display: grid;
+      gap: 12px;
+    }
+    .hero small {
+      display: inline-block;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: rgba(255,255,255,0.88);
+      font-weight: 800;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 29px;
+      line-height: 1.16;
+    }
+    .hero p {
+      margin: 0;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.9);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-chip,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      border-radius: 999px;
+      padding: 0 11px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-actions a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.14);
+    }
+    .section {
+      margin-top: 14px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 19px;
+    }
+    .section small {
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .section p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      background: #fff;
+      border: 1px solid rgba(125, 18, 22, 0.1);
+      color: var(--red-deep);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .card,
+    .scene-card,
+    .topic-card {
+      border-radius: 10px;
+      border: 1px solid rgba(125, 18, 22, 0.12);
+      background: var(--card);
+      padding: 12px;
+    }
+    .card h3,
+    .scene-card h3,
+    .topic-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .card p,
+    .scene-card p,
+    .topic-card p {
+      margin: 0;
+      font-size: 13px;
+    }
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .qa-btn {
+      width: 100%;
+      border: 1px solid rgba(125, 18, 22, 0.12);
+      border-radius: 10px;
+      background: #fff;
+      padding: 12px;
+      text-align: left;
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    .qa-btn strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .qa-btn span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .recommend-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .recommend-card {
+      border-radius: 10px;
+      border: 1px solid rgba(125, 18, 22, 0.12);
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .recommend-card h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+    .recommend-card .meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .recommend-card .activity-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .recommend-card .activity-row span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 0 10px;
+      background: #fff2de;
+      color: var(--red-deep);
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 60px 12px;
+    }
+    @media (max-width: 640px) {
+      .grid,
+      .qa-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <small>电脑选购知识分享</small>
+      <h1 id="guideTitle">加载中</h1>
+      <p id="guideSummary">正在同步今日知识内容。</p>
+      <div class="hero-meta" id="heroMeta"></div>
+      <div class="hero-actions">
+        <a href="/gaokao-2026/mobile.html#video">返回手机页</a>
+        <a href="/gaokao-2026/mobile.html#wish">去咨询门店顾问</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>适合人群与校园场景</h2>
+        <small>先看方向</small>
+      </div>
+      <div class="chips" id="majorKeywords"></div>
+      <p id="guideScene" style="margin-top:10px;"></p>
+      <div class="grid" id="campusScenes" style="margin-top:10px;"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>选购重点</h2>
+        <small>核心配置</small>
+      </div>
+      <div class="grid" id="keyPoints"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>使用技巧和常见问题</h2>
+        <small>日常更实用</small>
+      </div>
+      <div class="grid" id="usageTips"></div>
+      <div class="grid" id="commonQuestions" style="margin-top:10px;"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>预设问答</h2>
+        <small>自动生成推荐</small>
+      </div>
+      <p>点一个更接近你当前情况的问题，系统会按当前专业方向和门店活动规则匹配推荐。</p>
+      <div class="qa-grid" id="presetQuestions" style="margin-top:10px;"></div>
+      <div class="recommend-grid" id="recommendationResult"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>避坑提醒</h2>
+        <small>先避错</small>
+      </div>
+      <div class="grid" id="avoidPoints"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>今日知识分享方向</h2>
+        <small>可继续拍内容</small>
+      </div>
+      <div class="grid" id="dailyTopics"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>门店当前可重点看的方向</h2>
+        <small>不展示内部数量</small>
+      </div>
+      <div class="recommend-grid" id="featuredProducts"></div>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname) && window.location.port !== "8000";
+    const apiBase = isLocalPreview ? "http://127.0.0.1:8000" : "";
+    const guideApiUrl = `${apiBase}/api/marketing/gaokao-2026/knowledge-guides`;
+    const recommendApiUrl = `${apiBase}/api/marketing/gaokao-2026/recommend`;
+    const titleNode = document.getElementById("guideTitle");
+    const summaryNode = document.getElementById("guideSummary");
+    const heroMetaNode = document.getElementById("heroMeta");
+    const sceneNode = document.getElementById("guideScene");
+    const majorKeywordsNode = document.getElementById("majorKeywords");
+    const campusScenesNode = document.getElementById("campusScenes");
+    const keyPointsNode = document.getElementById("keyPoints");
+    const usageTipsNode = document.getElementById("usageTips");
+    const commonQuestionsNode = document.getElementById("commonQuestions");
+    const presetQuestionsNode = document.getElementById("presetQuestions");
+    const recommendationResultNode = document.getElementById("recommendationResult");
+    const avoidPointsNode = document.getElementById("avoidPoints");
+    const dailyTopicsNode = document.getElementById("dailyTopics");
+    const featuredProductsNode = document.getElementById("featuredProducts");
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function renderActivityPills(items) {
+      const rows = Array.isArray(items) ? items.filter(Boolean) : [];
+      return rows.length ? rows.map(item => `<span>${escapeHtml(item)}</span>`).join("") : `<span>到店核验当前活动和服务权益</span>`;
+    }
+
+    async function fetchJson(url, options = {}) {
+      const response = await fetch(url, { ...options, headers: { "Accept": "application/json", ...(options.headers || {}) } });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    }
+
+    function renderSimpleCards(target, title, items) {
+      const rows = Array.isArray(items) ? items : [];
+      target.innerHTML = rows.map(item => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(item)}</p></article>`).join("");
+    }
+
+    function renderGuide(guide) {
+      titleNode.textContent = guide?.title || "未找到知识内容";
+      summaryNode.textContent = guide?.summary || "当前内容不存在，请返回列表重新选择。";
+      sceneNode.textContent = guide?.scene || "暂无场景说明。";
+      heroMetaNode.innerHTML = [
+        guide?.majorLabel || "",
+        guide?.subtitle || "",
+        guide?.updatedAt ? `更新于 ${(guide.updatedAt || "").replace("T", " ").slice(0, 16)}` : "",
+      ].filter(Boolean).map(item => `<span class="hero-chip">${escapeHtml(item)}</span>`).join("");
+      majorKeywordsNode.innerHTML = (Array.isArray(guide?.majorKeywords) ? guide.majorKeywords : []).map(item => `<span class="chip">${escapeHtml(item)}</span>`).join("");
+      campusScenesNode.innerHTML = (Array.isArray(guide?.campusScenes) ? guide.campusScenes : []).map(item => `<article class="scene-card"><h3>校园场景</h3><p>${escapeHtml(item)}</p></article>`).join("");
+      renderSimpleCards(keyPointsNode, "重点", guide?.keyPoints);
+      renderSimpleCards(usageTipsNode, "使用技巧", guide?.usageTips);
+      renderSimpleCards(commonQuestionsNode, "常见问题", guide?.commonQuestions);
+      presetQuestionsNode.innerHTML = (Array.isArray(guide?.presetQuestions) ? guide.presetQuestions : []).map(item => `
+        <button class="qa-btn" type="button"
+          data-question="${escapeHtml(item.question || "")}"
+          data-budget="${escapeHtml(item.budget || "")}"
+          data-portability="${escapeHtml(item.portability || "")}"
+          data-performance="${escapeHtml(item.performanceNeed || "")}"
+          data-ai="${escapeHtml(item.aiFocus || "")}">
+          <strong>${escapeHtml(item.label || "")}</strong>
+          <span>${escapeHtml(item.question || "")}</span>
+        </button>
+      `).join("");
+      renderSimpleCards(avoidPointsNode, "避坑", guide?.avoidPoints);
+      dailyTopicsNode.innerHTML = (Array.isArray(guide?.dailyTopics) ? guide.dailyTopics : []).map(item => `<article class="topic-card"><h3>今日主题</h3><p>${escapeHtml(item)}</p></article>`).join("");
+      const featuredProducts = Array.isArray(guide?.featuredProducts) && guide.featuredProducts.length
+        ? guide.featuredProducts
+        : [{ productName: "今日未匹配到重点机型", category: "请到店咨询", marketingActivities: [] }];
+      featuredProductsNode.innerHTML = featuredProducts.map(item => `
+        <article class="recommend-card">
+          <h3>${escapeHtml(item.productName || "")}</h3>
+          <div class="meta">${escapeHtml(item.category || "")}</div>
+          ${item.fitSummary ? `<p>${escapeHtml(item.fitSummary || "")}</p>` : ""}
+          <div class="activity-row">${renderActivityPills(item.marketingActivities)}</div>
+        </article>
+      `).join("");
+      bindPresetQuestions(guide);
+    }
+
+    function renderRecommendation(payload) {
+      const items = Array.isArray(payload?.items) ? payload.items : [];
+      if (!items.length) {
+        recommendationResultNode.innerHTML = `<article class="recommend-card"><h3>暂未匹配到合适方向</h3><p>可以换一个预设问题，或直接返回手机页咨询门店顾问。</p></article>`;
+        return;
+      }
+      recommendationResultNode.innerHTML = `
+        <article class="recommend-card">
+          <h3>推荐逻辑</h3>
+          <p>${escapeHtml(payload.ruleFocus || "已按专业方向和当前活动规则筛选推荐。")}</p>
+        </article>
+        ${items.map(item => `
+          <article class="recommend-card">
+            <h3>${escapeHtml(item.productName || "")}</h3>
+            <div class="meta">${escapeHtml(item.category || "")}</div>
+            ${item.fitSummary ? `<p>${escapeHtml(item.fitSummary || "")}</p>` : ""}
+            <div class="activity-row">${renderActivityPills(item.marketingActivities)}</div>
+          </article>
+        `).join("")}
+      `;
+    }
+
+    async function requestRecommendation(guide, preset) {
+      recommendationResultNode.innerHTML = `<article class="recommend-card"><h3>正在匹配推荐</h3><p>按当前专业方向、预设问题和门店活动规则筛选中。</p></article>`;
+      try {
+        const payload = await fetchJson(recommendApiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            major: guide.majorLabel || "",
+            budget: preset.budget || "",
+            note: preset.question || "",
+            portability: preset.portability || "",
+            performanceNeed: preset.performanceNeed || "",
+            aiFocus: preset.aiFocus || "",
+          }),
+        });
+        renderRecommendation(payload);
+      } catch (error) {
+        recommendationResultNode.innerHTML = `<article class="recommend-card"><h3>推荐失败</h3><p>当前未能完成自动匹配，请稍后再试或直接咨询门店顾问。</p></article>`;
+      }
+    }
+
+    function bindPresetQuestions(guide) {
+      presetQuestionsNode.querySelectorAll(".qa-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          requestRecommendation(guide, {
+            question: button.getAttribute("data-question") || "",
+            budget: button.getAttribute("data-budget") || "",
+            portability: button.getAttribute("data-portability") || "",
+            performanceNeed: button.getAttribute("data-performance") || "",
+            aiFocus: button.getAttribute("data-ai") || "",
+          });
+        });
+      });
+    }
+
+    async function main() {
+      const guideId = params.get("id") || "";
+      if (!guideId) {
+        document.querySelector("main").innerHTML = `<section class="empty">缺少知识内容编号，请返回手机页重新进入。</section>`;
+        return;
+      }
+      try {
+        const payload = await fetchJson(`${guideApiUrl}/${encodeURIComponent(guideId)}`);
+        renderGuide(payload.guide || {});
+      } catch (error) {
+        document.querySelector("main").innerHTML = `<section class="empty">知识内容加载失败，请稍后再试或返回手机页。</section>`;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

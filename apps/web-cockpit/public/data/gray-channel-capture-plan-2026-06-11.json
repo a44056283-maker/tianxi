@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-06-11T05:54:50.345Z",
+  "triggerTaskName": "daily-gray-channel-check",
+  "accountName": "郑州市创业",
+  "accountId": "zzcskj",
+  "entryPoint": "文件传输助手聊天记录区下方固定公众号入口 -> 公众号页最下面带日期的报价快捷入口",
+  "todayMenuButtonText": "6.11报价",
+  "todayDateString": "2026-06-11",
+  "steps": [
+    "1. 打开 Chrome 已登录的 https://localhost:3001/ 网页微信，进入文件传输助手聊天记录区",
+    "2. 点击聊天记录下方固定放置的「郑州市创业」公众号入口（不要搜索公众号名称）",
+    "3. 点击公众号页最下面带日期的报价快捷入口（日期必须是当天或当前最新有效报价日期）",
+    "4. 记录「最新可见文章日期」与「最后一次有效联想报价日期」到访问证据文件",
+    "5. 落盘原文到 gray-wholesale-YYYY-MM-DD.txt + 截图到 gray-channel-screenshot-YYYY-MM-DD.png",
+    "6. 运行 bash scripts/run_scheduled_task.sh daily-gray-channel-check"
+  ],
+  "artifacts": {
+    "rawTextName": "gray-wholesale-2026-06-11.txt",
+    "screenshotName": "gray-channel-screenshot-2026-06-11.png",
+    "visibleArticleName": "gray-channel-visible-article-2026-06-11.txt"
+  },
+  "blockerIfMissing": {
+    "noVisitEvidence": "灰渠公众号入口访问证据未记录，必须先在当前默认 Chrome 会话中进入公众号入口并落盘访问证据",
+    "noRawText": "灰渠公众号落盘原文未到，必须先把当天有效原文落盘到 manual/gray-wholesale-YYYY-MM-DD.txt",
+    "staleArticleDate": "灰渠公众号最新可见文章日期早于今天，正文无当天可写入联想正式快照的报价"
+  }
+}

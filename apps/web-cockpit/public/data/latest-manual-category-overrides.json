@@ -1,0 +1,24 @@
+{
+  "source": "system_manual_category_overrides",
+  "updatedAt": "2026-06-01T10:20:00+08:00",
+  "overrides": {
+    "20002811": {
+      "skuKey": "20002811",
+      "pnMtm": "83ND0000CD",
+      "productName": "小新Pro 16c IAH10GRXU532G1TB11C集成显卡",
+      "category": "轻薄笔记本",
+      "jdSubcategory": "小新Pro16",
+      "catalogSource": "联想京东自营旗舰店目录",
+      "note": "本地分类覆盖：该 SKU 属于轻薄笔记本 / 小新笔记本 / PRO16，不按“小新”泛类展示。"
+    },
+    "20006863": {
+      "skuKey": "20006863",
+      "pnMtm": "F0JW0001CD",
+      "productName": "小新 27-ILL U5226V16G512WC-11Q",
+      "category": "一体机",
+      "jdSubcategory": "小新一体机",
+      "catalogSource": "本地分类覆盖层",
+      "note": "智店通原分类误落到小新系列笔记本口径时，本地系统固定覆盖为一体机。"
+    }
+  }
+}

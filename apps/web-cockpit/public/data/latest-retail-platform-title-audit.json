@@ -1,0 +1,965 @@
+{
+  "generatedAt": "2026-05-25T16:49:07.918Z",
+  "scope": "in-stock retail-zone sku title source audit",
+  "summary": {
+    "total": 105,
+    "internalCodeRemaining": 0,
+    "jdOrLenovoTitleSynced": 73,
+    "inventoryParentheticalReadable": 3,
+    "otherGenerated": 29,
+    "pendingPlatformTitleCapture": 32
+  },
+  "rules": [
+    "internal code style title must not be rendered as frontend product title",
+    "jd/lenovo direct detail title wins when available and not internal-code-like",
+    "url-only direct detail title can be used as title evidence but not as price evidence",
+    "inventory parenthetical readable title is allowed only as temporary display title and stays in platform capture queue"
+  ],
+  "items": [
+    {
+      "skuKey": "20003527",
+      "pnMtm": "QXR1R48460",
+      "category": "电脑配件",
+      "productName": "【新品热卖】联想拯救者M6X SE无线三模游戏鼠标电竞办公 · 冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【新品热卖】联想拯救者M6X SE无线三模游戏鼠标电竞办公冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1042520.html"
+    },
+    {
+      "skuKey": "20001158",
+      "pnMtm": "0888053076",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新 轻便双肩背包 Air 1 霜雪灰 商务办公电脑包学生双肩背包联想笔记本电脑通用",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新 轻便双肩背包 Air 1 霜雪灰 商务办公电脑包学生双肩背包联想笔记本电脑通用",
+      "evidenceUrl": "https://item.jd.com/100043662496.html"
+    },
+    {
+      "skuKey": "20006725",
+      "pnMtm": "83LY00TRCD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y7000 2026年补贴15% P图设计电竞游戏笔记本电脑r 旗舰标压 · 酷睿 i7-13650HX 16G 1TB 满血RTX5060｜国家补贴 高刷高色域电竞屏",
+      "titleSource": "jd",
+      "evidenceTitle": "联想拯救者Y7000 2026年补贴15% P图设计电竞游戏笔记本电脑r 旗舰标压酷睿 i7-13650HX 16G 1TB 满血RTX5060｜国家补贴 高刷高色域电竞屏",
+      "evidenceUrl": "https://item.jd.com/10110069780617.html"
+    },
+    {
+      "skuKey": "20007936",
+      "pnMtm": "83QF0002CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 · i9-14900HX / 16GB / 1TB SSD / RTX5060 8G / 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054230.html"
+    },
+    {
+      "skuKey": "20006372",
+      "pnMtm": "83QH0007CD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新Pro16 2025 · 锐龙版16英寸轻薄笔记本电脑 深灰色",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新Pro16 2025锐龙版16英寸轻薄笔记本电脑 深灰色",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054482.html"
+    },
+    {
+      "skuKey": "20004481",
+      "pnMtm": "ZAE70012CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想小新 Pad Pro 12.7 2025款 12.7英寸 影音娱乐学习办公平板电脑 · 天玑8300/Android 操作系统/8G/256G/WIFI/霜雪银",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想小新 Pad Pro 12.7 2025款 12.7英寸 影音娱乐学习办公平板电脑 霜雪银",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1050036.html"
+    },
+    {
+      "skuKey": "20004338",
+      "pnMtm": "QXR1T50408",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新无线蓝牙充电鼠标Plus月慕白 人体工学设计商务办公轻音便携 笔记本平板通用 XM300单蓝牙",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新无线蓝牙充电鼠标Plus月慕白 人体工学设计商务办公轻音便携 笔记本平板通用 XM300单蓝牙",
+      "evidenceUrl": "https://item.jd.com/100039057804.html"
+    },
+    {
+      "skuKey": "20007932",
+      "pnMtm": "83VK0048CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 · Ultra 7 251HX / 16GB / 1TB SSD / RTX5060 8G / 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054219.html"
+    },
+    {
+      "skuKey": "20004361",
+      "pnMtm": "67CEKCC5CC",
+      "category": "显示器",
+      "productName": "联想显示器23.8英寸商务办公家用娱乐显示屏 L2435",
+      "titleSource": "jd",
+      "evidenceTitle": "联想显示器23.8英寸商务办公家用娱乐显示屏 L2435",
+      "evidenceUrl": "https://item.jd.com/10161094349844.html"
+    },
+    {
+      "skuKey": "20003275",
+      "pnMtm": "QXD1S15238",
+      "category": "耳机音箱",
+      "productName": "联想（Lenovo）拯救者无线电竞耳机 · R360 USB7.1声道 2.4G有线无线蓝牙 头戴式游戏耳机带耳麦 适配三角洲行动 黑",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）拯救者无线电竞耳机R360 USB7.1声道 2.4G有线无线蓝牙 头戴式游戏耳机带耳麦 适配三角洲行动 黑",
+      "evidenceUrl": "https://item.jd.com/100225202520.html"
+    },
+    {
+      "skuKey": "20003833",
+      "pnMtm": "QXR1P49424",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新K1S 轻音无线键鼠套装 68键 双色键帽多快捷键 果冻触感机械回弹 3档DPI windows通用 暮霭灰",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新K1S 轻音无线键鼠套装 68键 双色键帽多快捷键 果冻触感机械回弹 3档DPI windows通用 暮霭灰",
+      "evidenceUrl": "https://item.jd.com/100121771778.html"
+    },
+    {
+      "skuKey": "20004215",
+      "pnMtm": "QB41R68906",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新X30散热支架 铝合金便携折叠支架三角架构 适用苹果华为小米拯救者y7000p/ · r9000p来酷斗战者",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新X30散热支架 铝合金便携折叠支架三角架构 适用苹果华为小米拯救者y7000p/r9000p来酷斗战者",
+      "evidenceUrl": "https://item.jd.com/100216493132.html"
+    },
+    {
+      "skuKey": "20007934",
+      "pnMtm": "83QC0002CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · AMD R9 8945HX / 16GB / 1TB SSD / RTX5060 8G / 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054213.html"
+    },
+    {
+      "skuKey": "20007931",
+      "pnMtm": "83F300AXCD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16英寸 / 16GB / 1TB SSD / RTX5060 8G / 碳晶黑",
+      "titleSource": "jd",
+      "evidenceTitle": "联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.jd.com/100174888119.html"
+    },
+    {
+      "skuKey": "20000386",
+      "pnMtm": "QX41P50251",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）联想电脑包双肩包笔记本电脑包15.6/16英寸背包男书包拯救者Y7000/Y9000游戏本包 · 黑色",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）联想电脑包双肩包笔记本电脑包15.6/16英寸背包男书包拯救者Y7000/Y9000游戏本包 黑色",
+      "evidenceUrl": "https://item.jd.com/100314091650.html"
+    },
+    {
+      "skuKey": "20004532",
+      "pnMtm": "QXD1T87884",
+      "category": "耳机音箱",
+      "productName": "联想【多场景翻译】AI智能耳机X600同声传译主动降噪蓝牙无线耳机通话传译会议翻译录音转写半入耳式 AI智能主动降噪耳机X600-曜石金",
+      "titleSource": "jd",
+      "evidenceTitle": "联想【多场景翻译】AI智能耳机X600同声传译主动降噪蓝牙无线耳机通话传译会议翻译录音转写半入耳式 AI智能主动降噪耳机X600-曜石金",
+      "evidenceUrl": "https://item.jd.com/10177202445767.html"
+    },
+    {
+      "skuKey": "20000276",
+      "pnMtm": "QXR1M21509",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新蓝牙鼠标M1 商务办公 轻音无线鼠标 适用小新拯救者 笔记本平板通用 XM200灰色 · 仅蓝牙连接",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新蓝牙鼠标M1 商务办公 轻音无线鼠标 适用小新拯救者 笔记本平板通用 XM200灰色（仅蓝牙连接）",
+      "evidenceUrl": "https://item.jd.com/100057391614.html"
+    },
+    {
+      "skuKey": "20003416",
+      "pnMtm": "QXR1U02653",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）拯救者K7机械键盘无线三模有线蓝牙电竞游戏机客制化笔记本电脑办公Legion K7-Play 钛晶灰",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）拯救者K7机械键盘无线三模有线蓝牙电竞游戏机客制化笔记本电脑办公Legion K7-Play 钛晶灰",
+      "evidenceUrl": "https://item.jd.com/100259230612.html"
+    },
+    {
+      "skuKey": "20002781",
+      "pnMtm": "83J2001CCD",
+      "category": "轻薄笔记本",
+      "productName": "联想(Lenovo)小新Air13 13英寸轻薄笔记本电脑 蓝",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想(Lenovo)小新Air13 13英寸轻薄笔记本电脑 蓝",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1048599.html"
+    },
+    {
+      "skuKey": "20000779",
+      "pnMtm": "QXF1N53162",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新笔记本支架X2 slim铝合金折叠便携5档升降 电脑增高笔记本散热器平板手机支架 小新便捷多功能支架X2",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新笔记本支架X2 slim铝合金折叠便携5档升降 电脑增高笔记本散热器平板手机支架 小新便捷多功能支架X2",
+      "evidenceUrl": "https://item.jd.com/10072078606717.html"
+    },
+    {
+      "skuKey": "20003716",
+      "pnMtm": "GX21K91000",
+      "category": "电脑配件",
+      "productName": "联想C140W 2024款 氮化镓适配器 Type-c接口充电器 PD快充 套装含线 140W三口氮化镓充电器【含1米线】 其他功率和接口匹配电脑",
+      "titleSource": "jd",
+      "evidenceTitle": "联想C140W 2024款 氮化镓适配器 Type-c接口充电器 PD快充 套装含线 140W三口氮化镓充电器【含1米线】 其他功率和接口匹配电脑",
+      "evidenceUrl": "https://item.jd.com/10146791318062.html"
+    },
+    {
+      "skuKey": "20003717",
+      "pnMtm": "GX21K91003",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）拯救者C140氮化镓适配器 便携电源PD快充Y9000P 2023/ · R9000 C140W氮化镓 含1.5米C口线【黑色】",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）拯救者C140氮化镓适配器 便携电源PD快充Y9000P 2023/R9000 C140W氮化镓 含1.5米C口线【黑色】",
+      "evidenceUrl": "https://item.jd.com/10074747231208.html"
+    },
+    {
+      "skuKey": "20000347",
+      "pnMtm": "ZG38C05305",
+      "category": "电脑配件",
+      "productName": "联想超低延迟 防误触Pad2024/拯救者Y700三代/小新学习平板/小新PadPro12.7天玑版触控手写笔",
+      "titleSource": "jd",
+      "evidenceTitle": "联想超低延迟 防误触Pad2024/拯救者Y700三代/小新学习平板/小新PadPro12.7天玑版触控手写笔",
+      "evidenceUrl": "https://item.jd.com/100058148836.html"
+    },
+    {
+      "skuKey": "20007935",
+      "pnMtm": "83QC0003CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白 · AMD R9 8945HX / 16GB / 1TB SSD / RTX5060 8G / 冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054215.html"
+    },
+    {
+      "skuKey": "20007933",
+      "pnMtm": "83VK0049CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 · Ultra 7 251HX / 16GB / 1TB SSD / RTX5060 8G / 冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054211.html"
+    },
+    {
+      "skuKey": "20004003",
+      "pnMtm": "83HR00BKCD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新14 2025款14英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新14 2025款14英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1044702.html"
+    },
+    {
+      "skuKey": "20006651",
+      "pnMtm": "90XS007FCD",
+      "category": "商务台式",
+      "productName": "【商务办公家用首选】天逸510S尊享版 · i5-13400 16G 512G 台式主机电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【商务办公家用首选】天逸510S尊享版 i5-13400 16G 512G 台式主机电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053855.html"
+    },
+    {
+      "skuKey": "20004689",
+      "pnMtm": "870045087",
+      "category": "轻薄笔记本",
+      "productName": "来酷Lecoo Air16 · 酷睿版16英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "来酷Lecoo Air16酷睿版16英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053687.html"
+    },
+    {
+      "skuKey": "20003645",
+      "pnMtm": "870044366",
+      "category": "电脑配件",
+      "productName": "SSD火力强化-AM6C1 1T",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20005628",
+      "pnMtm": "870043241",
+      "category": "电脑配件",
+      "productName": "联想极光鼠标GM11 Pro 三模版 白色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20005624",
+      "pnMtm": "870043237",
+      "category": "电脑配件",
+      "productName": "联想极光键盘 GK10 Pro 三模版 83键 静音轴 白色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20004646",
+      "pnMtm": "QXD1Q25460",
+      "category": "耳机音箱",
+      "productName": "联想（Lenovo）拯救者StarY360 USB7.1声道游戏耳机头戴式电竞耳麦带线控 · 冰魄白",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）拯救者StarY360 USB7.1声道游戏耳机头戴式电竞耳麦带线控 冰魄白",
+      "evidenceUrl": "https://item.jd.com/100204912965.html"
+    },
+    {
+      "skuKey": "20000579",
+      "pnMtm": "QXR1P42837",
+      "category": "电脑配件",
+      "productName": "联想（Lenovo）小新K1轻音无线键鼠套装 双色键帽多快捷键 果冻触感机械回弹 3档DPI windows通用 月慕白",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新K1轻音无线键鼠套装 双色键帽多快捷键 果冻触感机械回弹 3档DPI windows通用 月慕白",
+      "evidenceUrl": "https://item.jd.com/100089274544.html"
+    },
+    {
+      "skuKey": "20006819",
+      "pnMtm": "QX41V67003",
+      "category": "平板电脑",
+      "productName": "联想平板 小新 Pro 13系列钢化膜",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20006818",
+      "pnMtm": "ZG38C08216",
+      "category": "平板电脑",
+      "productName": "联想平板 小新 Pro 13 系列保护夹 灰色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20006816",
+      "pnMtm": "ZG38C08384",
+      "category": "平板电脑",
+      "productName": "拯救者平板 Y700五代 钢化膜",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "拯救者平板 Y700五代 钢化膜",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053450.html"
+    },
+    {
+      "skuKey": "20006814",
+      "pnMtm": "ZG38C08393",
+      "category": "平板电脑",
+      "productName": "拯救者平板 Y700五代 保护夹(碳晶黑)",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "拯救者平板 Y700五代 保护夹(碳晶黑)",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053434.html"
+    },
+    {
+      "skuKey": "20007050",
+      "pnMtm": "ZG38C08305",
+      "category": "平板电脑",
+      "productName": "联想平板 小新 Pro 13 系列磁吸键盘及支架 浅灰色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20001168",
+      "pnMtm": "QX41P50255",
+      "category": "电脑配件",
+      "productName": "【爆款热卖】联想拯救者Z系列冰刃支架笔记本电脑散热器高效散热",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【爆款热卖】联想拯救者Z系列冰刃支架笔记本电脑散热器高效散热",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1036165.html"
+    },
+    {
+      "skuKey": "20005569",
+      "pnMtm": "QXR1T50390",
+      "category": "电脑配件",
+      "productName": "小新 蓝牙无线鼠标 Plus - 天青蓝",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003788",
+      "pnMtm": "QY41Q25835",
+      "category": "电脑配件",
+      "productName": "联想 MK9 98键机械键盘 樱花白/曜石黑",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003752",
+      "pnMtm": "QXR1Q25362",
+      "category": "电脑配件",
+      "productName": "联想小新 K5 客制化机械键盘",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003751",
+      "pnMtm": "QXR1Q25360",
+      "category": "电脑配件",
+      "productName": "联想小新 K5 客制化机械键盘",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003230",
+      "pnMtm": "QX41S95435",
+      "category": "电脑配件",
+      "productName": "拯救者多功能双肩包 C4",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "拯救者多功能双肩包C4",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1045367.html"
+    },
+    {
+      "skuKey": "20006749",
+      "pnMtm": "ZG38C07820",
+      "category": "电脑配件",
+      "productName": "联想手写笔Pro二代-中国",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20004671",
+      "pnMtm": "83F40006CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y9000P 2025 AI元启 16英寸电竞游戏笔记本 · 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y9000P 2025 AI元启 16英寸电竞游戏笔记本 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1048286.html"
+    },
+    {
+      "skuKey": "20006381",
+      "pnMtm": "83QG0007CD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新Pro14 2025 · 锐龙版14英寸轻薄笔记本电脑 深灰色",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新Pro14 2025锐龙版14英寸轻薄笔记本电脑 深灰色",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1052705.html"
+    },
+    {
+      "skuKey": "20003163",
+      "pnMtm": "83HR005RCD",
+      "category": "轻薄笔记本",
+      "productName": "联想（Lenovo）小新14 2025款可选 · 酷睿高性能轻薄校园大学生商务办公设计绘图笔记本电脑 i7-13620H 24G 1TB 灰色 标配 IPS高清屏",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新14 2025款可选酷睿高性能轻薄校园大学生商务办公设计绘图笔记本电脑 i7-13620H 24G 1TB 灰色 标配 IPS高清屏",
+      "evidenceUrl": "https://item.jd.com/10206530121658.html"
+    },
+    {
+      "skuKey": "20003937",
+      "pnMtm": "PB2C0014CN",
+      "category": "智能生活",
+      "productName": "联想moto S50 Neo老人机新款全网通5000mAh大电池窄边框屏幕夜景大师拍摄5GAI智能手机 即墨【 12GB+256GB 】",
+      "titleSource": "jd",
+      "evidenceTitle": "联想moto S50 Neo老人机新款全网通5000mAh大电池窄边框屏幕夜景大师拍摄5GAI智能手机 即墨【 12GB+256GB 】",
+      "evidenceUrl": "https://item.jd.com/10126514756511.html"
+    },
+    {
+      "skuKey": "20003821",
+      "pnMtm": "QZG1M36016",
+      "category": "打印机",
+      "productName": "小新熊猫Panda Pro黑白激光智慧多功能一体打印机 西岭白/青城灰",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20007040",
+      "pnMtm": "870017738",
+      "category": "游戏笔记本",
+      "productName": "来酷(Lecoo)斗战者 战7000 2025 16英寸电竞游戏本笔记本月光灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "来酷(Lecoo)斗战者 战7000 2025 16英寸电竞游戏本笔记本月光灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1049509.html"
+    },
+    {
+      "skuKey": "20003167",
+      "pnMtm": "870040688",
+      "category": "轻薄笔记本",
+      "productName": "联想（Lenovo）来酷Lecoo Pro14 · R7 H255/32G/1T/2.8K · 锐龙版14英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想（Lenovo）来酷Lecoo Pro14锐龙版14英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1045767.html"
+    },
+    {
+      "skuKey": "20000225",
+      "pnMtm": "QZQ1M78347",
+      "category": "平板电脑",
+      "productName": "联想生态品牌异能者笔记本电脑平板支架双轴调节360°旋转无极升降散热增高架折叠联想小新拯救者",
+      "titleSource": "jd",
+      "evidenceTitle": "联想生态品牌异能者笔记本电脑平板支架双轴调节360°旋转无极升降散热增高架折叠联想小新拯救者",
+      "evidenceUrl": "https://item.jd.com/100232608752.html"
+    },
+    {
+      "skuKey": "20003814",
+      "pnMtm": "QXR1Q25369",
+      "category": "电脑配件",
+      "productName": "【新品热卖】联想拯救者M6X无线游戏电竞办公鼠标冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【新品热卖】联想拯救者M6X无线游戏电竞办公鼠标冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1037116.html"
+    },
+    {
+      "skuKey": "20003812",
+      "pnMtm": "QXR1R48469",
+      "category": "电脑配件",
+      "productName": "【爆款热卖】联想拯救者M6XS无线游戏电竞鼠标可充电长续航冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【爆款热卖】联想拯救者M6XS无线游戏电竞鼠标可充电长续航冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1041627.html"
+    },
+    {
+      "skuKey": "20003418",
+      "pnMtm": "QXR1T95077",
+      "category": "电脑配件",
+      "productName": "小新 小Q蓝牙鼠标-灰色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20000690",
+      "pnMtm": "QXR1N43135",
+      "category": "电脑配件",
+      "productName": "小新 M3 轻音鼠标（暮霭灰）",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20000429",
+      "pnMtm": "QXR1N43140",
+      "category": "电脑配件",
+      "productName": "小新 M1 轻音鼠标 2.4G无线版（暮霭灰）",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20006213",
+      "pnMtm": "QXB1R01062",
+      "category": "电脑配件",
+      "productName": "联想移动硬盘 F508 1T 风暴灰",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20007941",
+      "pnMtm": "83F4000CCD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 · Ultra 9 290HX Plus/16G/1T/RTX5070/黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054246.html"
+    },
+    {
+      "skuKey": "20007939",
+      "pnMtm": "83F4000ECD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 · Ultra 9 290HX Plus/16GB/1TB SSD/RTX5060 8G/碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054242.html"
+    },
+    {
+      "skuKey": "20003126",
+      "pnMtm": "83LV0006CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者R9000P 2025 16英寸电竞游戏笔记本 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者R9000P 2025 16英寸电竞游戏笔记本 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1045455.html"
+    },
+    {
+      "skuKey": "20003216",
+      "pnMtm": "83NN0001CD",
+      "category": "游戏笔记本",
+      "productName": "联想拯救者Y7000P 2025 16英寸电竞游戏笔记本 · 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想拯救者Y7000P 2025 16英寸电竞游戏笔记本 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1046113.html"
+    },
+    {
+      "skuKey": "20007961",
+      "pnMtm": "83R00001CD",
+      "category": "轻薄笔记本",
+      "productName": "YOGA Air 14 Aura 14英寸轻薄笔记本电脑 浅海贝 · Ultra 7 258V/32G/1T/浅海贝",
+      "titleSource": "jd",
+      "evidenceTitle": "联想YOGA Air 14 Aura 14英寸轻薄笔记本电脑酷睿2代Ultra7 258V 32G 1T 2.8k 120Hz 触控 OLED浅海贝",
+      "evidenceUrl": "https://item.jd.com/100350132000.html"
+    },
+    {
+      "skuKey": "20007957",
+      "pnMtm": "83QK008FCD",
+      "category": "轻薄笔记本",
+      "productName": "YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 云绢 · Ultra 5 325/16G/1T/云绢",
+      "titleSource": "jd",
+      "evidenceTitle": "联想YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 酷睿3代Ultra5 325 16G 1T 2.8k 120Hz 触控 云绢",
+      "evidenceUrl": "https://item.jd.com/100349657186.html"
+    },
+    {
+      "skuKey": "20007953",
+      "pnMtm": "83QK000ACD",
+      "category": "轻薄笔记本",
+      "productName": "YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 云绢 · Ultra X7 358H/32G/1T/云绢",
+      "titleSource": "jd",
+      "evidenceTitle": "联想YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 酷睿3代UltraX7 358H 32G 1T 2.8k 120Hz触控 云绢",
+      "evidenceUrl": "https://item.jd.com/100262245955.html"
+    },
+    {
+      "skuKey": "20006837",
+      "pnMtm": "83S50004CD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新Pro14 · 酷睿 14英寸轻薄笔记本电脑 深空灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新Pro14 酷睿 14英寸轻薄笔记本电脑 深空灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1052926.html"
+    },
+    {
+      "skuKey": "20006831",
+      "pnMtm": "83SK000BCD",
+      "category": "轻薄笔记本",
+      "productName": "小新Pro16 GT 16英寸轻薄笔记本电脑 赛道灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "小新Pro16 GT 16英寸轻薄笔记本电脑 赛道灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053163.html"
+    },
+    {
+      "skuKey": "20002034",
+      "pnMtm": "83HR0057CD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新14 2025款14英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新14 2025款14英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1044702.html"
+    },
+    {
+      "skuKey": "20004055",
+      "pnMtm": "83HS00ATCD",
+      "category": "轻薄笔记本",
+      "productName": "联想小新16 2025款16英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想小新16 2025款16英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1044582.html"
+    },
+    {
+      "skuKey": "20006190",
+      "pnMtm": "PBAA0005CN",
+      "category": "智能生活",
+      "productName": "moto X70 Air Pro 16+512墨岚黑",
+      "titleSource": "inventory_parenthetical_readable",
+      "evidenceTitle": "moto X70 Air Pro 16+512墨岚黑",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003065",
+      "pnMtm": "PB7V0000CN",
+      "category": "智能生活",
+      "productName": "联想moto edge 60 Pro 12GB+256GB 谜香甘草",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想moto edge 60 Pro 12GB+256GB 谜香甘草",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1044990.html"
+    },
+    {
+      "skuKey": "20004855",
+      "pnMtm": "PBAG0006CN",
+      "category": "智能生活",
+      "productName": "moto g100s 8+128海蓝",
+      "titleSource": "inventory_parenthetical_readable",
+      "evidenceTitle": "moto g100s 8+128海蓝",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20004635",
+      "pnMtm": "PBA40000CN",
+      "category": "智能生活",
+      "productName": "moto X70 Air 12+256凌灰",
+      "titleSource": "inventory_parenthetical_readable",
+      "evidenceTitle": "moto X70 Air 12+256凌灰",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003356",
+      "pnMtm": "PB7N0017CN",
+      "category": "智能生活",
+      "productName": "联想moto g100 Pro 12+256 松烟蓝",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想moto g100 Pro 12+256 松烟蓝",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1047217.html"
+    },
+    {
+      "skuKey": "20003058",
+      "pnMtm": "PB870005CN",
+      "category": "智能生活",
+      "productName": "联想moto razr 60 12GB+512GB 午夜苍蓝",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想moto razr 60 12GB+512GB 午夜苍蓝",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1052592.html"
+    },
+    {
+      "skuKey": "20000465",
+      "pnMtm": "QZG1Q29349",
+      "category": "打印机",
+      "productName": "联想小新鲸鱼彩色喷墨多功能打印机",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20001545",
+      "pnMtm": "QZG1S34162",
+      "category": "打印机",
+      "productName": "彩色喷墨多功能一体机 CM408",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20002614",
+      "pnMtm": "ZAEG0001CN",
+      "category": "平板电脑",
+      "productName": "联想【国家补贴15%】小新PadPro12.7 2025款平板电脑 2.9K高刷全面屏 娱乐学习 10200mAh ES60 12G+256G 小青新 官方标配",
+      "titleSource": "jd",
+      "evidenceTitle": "联想【国家补贴15%】小新PadPro12.7 2025款平板电脑 2.9K高刷全面屏 娱乐学习 10200mAh ES60 12G+256G 小青新 官方标配",
+      "evidenceUrl": "https://item.jd.com/10207455305404.html"
+    },
+    {
+      "skuKey": "20006802",
+      "pnMtm": "ZAH20097CN",
+      "category": "平板电脑",
+      "productName": "拯救者Y700 2026 TB323 12G/256G/碳晶黑/8.8寸",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20002909",
+      "pnMtm": "ZAG40002CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想拯救者平板Y700 四代 8.8英寸AI游戏平板 骁龙8至尊版 碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想拯救者平板Y700 四代 8.8英寸AI游戏平板 骁龙8至尊版 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1045342.html"
+    },
+    {
+      "skuKey": "20003015",
+      "pnMtm": "ZAEF0029CN",
+      "category": "平板电脑",
+      "productName": "联想（Lenovo）拯救者Y700 三代 8.8英寸游戏娱乐学习平板TB321FU 骁龙8 · 12G+256G 2.5K 165H高刷 WIFI 碳晶黑",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）拯救者Y700 三代 8.8英寸游戏娱乐学习平板TB321FU 骁龙8 （12G+256G 2.5K 165H高刷 WIFI）碳晶黑",
+      "evidenceUrl": "https://item.jd.com/100256176289.html"
+    },
+    {
+      "skuKey": "20003436",
+      "pnMtm": "ZAGD0013CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想小新平板12.1 2025款12.1英寸2.5K旗舰性能AI平板电脑 卷云灰 · 天玑6400/Android系统/12.1英寸/8G/128G/WIFI版/卷云灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想小新平板12.1 2025款12.1英寸2.5K旗舰性能AI平板电脑 卷云灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1047352.html"
+    },
+    {
+      "skuKey": "20003432",
+      "pnMtm": "ZAG60169CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想小新平板 Pro GT 11.1英寸学习影音办公 AI平板电脑 浅海贝 · 第三代骁龙8/Android/11.1英寸/8G/256G/WIFI版/浅海贝",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想小新平板 Pro GT 11.1英寸学习影音办公 AI平板电脑 浅海贝",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1047562.html"
+    },
+    {
+      "skuKey": "20002917",
+      "pnMtm": "ZAFT0005CN",
+      "category": "平板电脑",
+      "productName": "联想（Lenovo）小新Pad 11 英寸AI学习办公平板电脑2.5K高清护眼大屏 90Hz高刷娱乐影音8+128G灰国家补贴教育优惠",
+      "titleSource": "jd",
+      "evidenceTitle": "联想（Lenovo）小新Pad 11 英寸AI学习办公平板电脑2.5K高清护眼大屏 90Hz高刷娱乐影音8+128G灰国家补贴教育优惠",
+      "evidenceUrl": "https://item.jd.com/100215097862.html"
+    },
+    {
+      "skuKey": "20003686",
+      "pnMtm": "68C6GAS4CB",
+      "category": "显示器",
+      "productName": "【主流游戏】拯救者LEGION 27Q-10 27英寸2K 原生8-bit 240Hz高刷电竞显示器",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【主流游戏】拯救者LEGION 27Q-10 27英寸2K 原生8-bit 240Hz高刷电竞显示器",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1049283.html"
+    },
+    {
+      "skuKey": "20004915",
+      "pnMtm": "90X000J9CP",
+      "category": "游戏主机",
+      "productName": "联想GeekPro 14代英特尔 · 酷睿i5 分体式台式机",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想GeekPro 14代英特尔酷睿i5 分体式台式机",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1052942.html?key=14400&keyType=%E8%87%AA%E5%A1%AB&pageType=https%3A%2F%2Fitem.lenovo.com.cn%2Fproduct%2F1052478.html"
+    },
+    {
+      "skuKey": "20006863",
+      "pnMtm": "F0JW0001CD",
+      "category": "一体机",
+      "productName": "小新27 酷睿Ultra 5 226V 16G 512G 27英寸一体台式电脑 云影色",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "小新27 酷睿Ultra 5 226V 16G 512G 27英寸一体台式电脑 云影色",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1052478.html"
+    },
+    {
+      "skuKey": "20003789",
+      "pnMtm": "870045081",
+      "category": "游戏笔记本",
+      "productName": "联想来酷斗战者战7000 2026补贴15% 联想质保 高性能电竞游戏学生P图设计笔记本电脑 旗舰 · 锐龙R9-8945HX 32G 1T RTX5070",
+      "titleSource": "jd",
+      "evidenceTitle": "联想来酷斗战者战7000 2026补贴15% 联想质保 高性能电竞游戏学生P图设计笔记本电脑 旗舰 锐龙R9-8945HX 32G 1T RTX5070",
+      "evidenceUrl": "https://item.jd.com/10192707591183.html"
+    },
+    {
+      "skuKey": "20002886",
+      "pnMtm": "870039858",
+      "category": "轻薄笔记本",
+      "productName": "联想（Lenovo）来酷14 · i5-13420H/16G/1T/2.2K · 酷睿i5-13420H 轻薄笔记本电脑14英寸",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003886",
+      "pnMtm": "870042295",
+      "category": "轻薄笔记本",
+      "productName": "联想（Lenovo）来酷Lecoo Pro14 · 酷睿版14英寸轻薄笔记本电脑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想（Lenovo）来酷Lecoo Pro14酷睿版14英寸轻薄笔记本电脑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1048507.html"
+    },
+    {
+      "skuKey": "20003662",
+      "pnMtm": "870040682",
+      "category": "游戏笔记本",
+      "productName": "来酷(Lecoo)斗战者 战7000 · 锐龙版 2025 16英寸笔记本电脑 月光灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "来酷(Lecoo)斗战者 战7000 锐龙版 2025 16英寸笔记本电脑 月光灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1049644.html"
+    },
+    {
+      "skuKey": "20000080",
+      "pnMtm": "QX41P82977",
+      "category": "电脑配件",
+      "productName": "拯救者双肩包C1-蓝色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003256",
+      "pnMtm": "QX41S95433",
+      "category": "电脑配件",
+      "productName": "小新双肩包B1",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20001119",
+      "pnMtm": "QX41Q30728",
+      "category": "电脑配件",
+      "productName": "拯救者Z7冰刃旋转支架",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003417",
+      "pnMtm": "QXR1T95076",
+      "category": "电脑配件",
+      "productName": "小新 小Q蓝牙鼠标-白色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20007794",
+      "pnMtm": "ZAHX0000CN",
+      "category": "平板电脑",
+      "productName": "联想 拯救者Y900 13 AI平板 骁龙8至尊版 8GB+256GB Wi-Fi · 骁龙8至尊版丨8核丨Android 16操作系统丨13英寸丨8GB丨256GB丨碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想 拯救者Y900 13 AI平板 骁龙8至尊版 8GB+256GB Wi-Fi 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054305.html"
+    },
+    {
+      "skuKey": "20002916",
+      "pnMtm": "ZAFT0004CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想小新平板11 11英寸 影音娱乐网课学习 AI平板电脑 · 深空灰",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想小新平板11 11英寸 影音娱乐网课学习 AI平板电脑 深空灰",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1045776.html"
+    },
+    {
+      "skuKey": "20003281",
+      "pnMtm": "QXD1S15240",
+      "category": "耳机音箱",
+      "productName": "联想拯救者无线电竞耳机R360 黑色",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20001279",
+      "pnMtm": "GX21M85759",
+      "category": "电脑配件",
+      "productName": "拯救者 170W 氮化镓适配器 幻影黑",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20007012",
+      "pnMtm": "888048442",
+      "category": "电脑配件",
+      "productName": "联想Howard蓝牙无线双模鼠标2022款充电版 樱花白",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20003813",
+      "pnMtm": "QXR1Q25366",
+      "category": "电脑配件",
+      "productName": "拯救者 M6 X 游戏鼠标 冰魄白/幻影黑",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20007795",
+      "pnMtm": "ZAHX0001CN",
+      "category": "平板电脑",
+      "productName": "联想 拯救者Y900 13 AI平板 骁龙8至尊版 12GB+256GB Wi-Fi · 骁龙8至尊版丨8核丨Android 16操作系统丨13英寸丨12GB丨256GB丨碳晶黑",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "联想 拯救者Y900 13 AI平板 骁龙8至尊版 12GB+256GB Wi-Fi 碳晶黑",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1054308.html"
+    },
+    {
+      "skuKey": "20004397",
+      "pnMtm": "QXB1R01053",
+      "category": "电脑配件",
+      "productName": "联想移动硬盘 F509 1T",
+      "titleSource": "retail_generated_or_other",
+      "evidenceTitle": "",
+      "evidenceUrl": ""
+    },
+    {
+      "skuKey": "20006803",
+      "pnMtm": "ZAH20041CN",
+      "category": "平板电脑",
+      "productName": "【张凌赫同款】联想拯救者平板Y700 五代 8.8英寸AI游戏平板 骁龙8至尊版 冰魄白",
+      "titleSource": "lenovo_official",
+      "evidenceTitle": "【张凌赫同款】联想拯救者平板Y700 五代 8.8英寸AI游戏平板 骁龙8至尊版 冰魄白",
+      "evidenceUrl": "https://item.lenovo.com.cn/product/1053100.html"
+    }
+  ]
+}

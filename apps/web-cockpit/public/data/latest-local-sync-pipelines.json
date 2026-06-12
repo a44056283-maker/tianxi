@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "name": "inventory-master-sync",
+      "label": "库存总表统一同步",
+      "description": "优先消费库存流水总表，缺失时回退拆分导入，再统一重建快照。"
+    },
+    {
+      "name": "quote-master-sync",
+      "label": "报价总表统一同步",
+      "description": "消费分销报价总表、灰渠原文和零售价手工批次，统一输出待采清单与快照。"
+    },
+    {
+      "name": "full-daily-sync",
+      "label": "全量日更编排",
+      "description": "串行执行库存、报价、保修与快照重建。"
+    }
+  ],
+  "count": 3
+}

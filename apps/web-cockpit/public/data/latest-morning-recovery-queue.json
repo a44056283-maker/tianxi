@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-06-12T10:05:49+08:00",
+  "businessDate": "2026-05-28",
+  "window": "morning-before-noon-and-first-noon-slots",
+  "policy": "脚本触发不等于完成；缺真实证据、SQL/API 写入或前端可见验收即进入补采队列。",
+  "summary": {
+    "mustRunCount": 4,
+    "verifyOnlyCount": 0,
+    "deferCount": 1,
+    "openSyncGapCount": 0,
+    "retailPriceVerificationCount": 50,
+    "warrantyGapCount": 129
+  },
+  "tasks": [
+    {
+      "taskId": "recovery-zhidiantong-same-day-source-closure",
+      "title": "补采今日智店通出入库、销售订单、调拨与教育补代扫",
+      "priority": 100,
+      "status": "must_run",
+      "reason": "采购入库供应商仍缺 6 条记录，当前不能写成出入库明细已收口。",
+      "owner": "智店通/出入库采集智能体",
+      "dueSlots": [
+        "11:15",
+        "12:00",
+        "12:45"
+      ],
+      "actions": [
+        "使用当前默认 Chrome 已登录会话，先进入网页微信智店通入库群，按图片左箭头扫到上次已采边界，生成 education-agent-scan-2026-05-28-*.json。",
+        "进入智店通：线下门店订单 -> 已完成 -> 下单时间 2026-05-28 00:00-23:59:59 -> 搜索，读取总条数/页数，每页同时导出 orderData 与 orderProductData。",
+        "同轮导出/采集库存流水、SN库存订单、商品库存统计、商品库存SN统计、采购入库、其他出库、调拨出库、调拨入库。",
+        "调拨出库/调拨入库只进入库存、SN 和出入库流水，不计入营销 PO、教育补贴或价保申请计算。"
+      ],
+      "successCriteria": [
+        "当天源文件齐全且记录文件名、页面总条数、导出条数、导出明细条数。",
+        "order_sync_registry / sync_gap_queue open 缺口下降，今日订单金额不再缺 sales_order_amount_snapshot。",
+        "前端出入库流水、销售单流水、教育补代扫汇总、库存/SN 状态可见更新。"
+      ],
+      "commandAfterEvidence": "bash scripts/run_scheduled_task.sh zhidiantong-sync-cycle",
+      "evidencePaths": [
+        "apps/inventory-sync/artifacts/manual/education-agent-scan/",
+        "/Users/luxiangnan/Downloads/orderData*.xlsx",
+        "/Users/luxiangnan/Downloads/orderProductData*.xlsx"
+      ],
+      "note": "11 缺 SN SKU 目标清单（1-10 优先级排序：20003216→20007932→20008103→20002811→20007936→20007931→20007934→20004481→20004636→20004637→20006806；共 16 SN 缺口）已固化在 docs/ai-context/01_CURRENT_STATE.md 2026-06-08 11:10 节；本轮真实补采动作触发时按 1→10 顺序逐个 SN 补录。脚本侧 title audit 已 0 issue / pass，in-app zhidiantong-sync-cycle outcome 已 executed_not_closed。"
+    },
+    {
+      "taskId": "recovery-jd-lenovo-locked-link-review",
+      "title": "补采已锁定京东/联想链接真实价格复核",
+      "priority": 90,
+      "status": "must_run",
+      "reason": "仍有 50 条已锁定链接待真实手工复核",
+      "owner": "价格复核智能体",
+      "dueSlots": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "actions": [
+        "只用当前默认 Chrome 已登录会话打开已锁定链接；不得新开浏览器/Profile，不得无头采集。",
+        "逐条点到目标规格、颜色、版本后记录主标题、副标题/配置、已选规格、商品编号、主价、券/国补/PLUS/活动拆分。",
+        "白色款单独复采；同配不能只按标题判死刑，必须反复确认原链接规格区。",
+        "批量归集后统一写入手工价格批次，再重建 product-url-locks、collection-plan、retail-price-audit、retail-zone。"
+      ],
+      "successCriteria": [
+        "62 条已锁定链接待复核数下降。",
+        "前端零售卡片的京东/官旗/天猫价格和同配状态可见更新。"
+      ],
+      "commandAfterEvidence": "bash scripts/run_scheduled_task.sh daily-jd-lenovo-price-sync",
+      "evidencePaths": []
+    },
+    {
+      "taskId": "recovery-gray-channel-today-original",
+      "title": "补采灰渠公众号当天原文/截图",
+      "priority": 85,
+      "status": "must_run",
+      "reason": "灰渠公众号入口到报价页链路失败：未发现 gray-channel-visible-article-2026-06-11.txt 访问证据文件，必须先在当前默认 Chrome 会话中进入文件传输助手聊天记录区下的固定公众号入口，并写访问证据。 已要求网页微信停止当前路径，并通过飞书群提醒用户在当前默认 Chrome 会话恢复登录或验证；禁止新开浏览器/Profile。",
+      "owner": "灰渠报价智能体",
+      "dueSlots": [
+        "11:50"
+      ],
+      "actions": [
+        "使用当前默认 Chrome 已登录 https://localhost:3001/ 网页微信。",
+        "从文件传输助手聊天记录区固定公众号入口进入，不走收藏夹旧入口。",
+        "进入公众号后必须继续打开当天报价菜单、当天原文或当天截图；只进入公众号页不算完成。",
+        "保存 raw 文本、截图或 OCR 证据，再写 SQL/API 并前端验收。"
+      ],
+      "successCriteria": [
+        "latest-gray-wholesale-quotes.json 为 2026-05-28 当天来源，isCarriedForward=false。",
+        "前端灰渠报价区显示当天来源证据。"
+      ],
+      "commandAfterEvidence": "bash scripts/run_scheduled_task.sh daily-gray-channel-check",
+      "evidencePaths": [
+        "apps/inventory-sync/artifacts/manual/gray-channel*20260528*"
+      ]
+    },
+    {
+      "taskId": "recovery-competitor-monitor-today",
+      "title": "补采当天竞品真实排行与价格",
+      "priority": 75,
+      "status": "must_run",
+      "reason": "缺少页面内容复核证据，当前只能记为已执行未收口。",
+      "owner": "竞品采集智能体",
+      "dueSlots": [
+        "04:00"
+      ],
+      "actions": [
+        "读取 latest-competitor-collection-plan.json。",
+        "使用当前默认 Chrome 已登录会话逐店补采联想/THINK/华硕/惠普/华为等当天真实竞品排行与价格。",
+        "不能用上一版基线冒充当天采集；缺店铺必须标记缺口。"
+      ],
+      "successCriteria": [
+        "latest-competitor-monitor.json generatedAt 更新到 2026-05-28。",
+        "竞品前端和飞书播报使用当天真实采集。"
+      ],
+      "commandAfterEvidence": "bash scripts/run_scheduled_task.sh daily-competitor-monitor-check",
+      "evidencePaths": []
+    },
+    {
+      "taskId": "recovery-sn-warranty-visible-query",
+      "title": "补采 SN 保修可见页面证据",
+      "priority": 55,
+      "status": "defer_after_main_sales_price",
+      "reason": "已发现 5 个 2026-06-11 当天手工保修证据文件；当前仍需继续在 Chrome 可见会话中手工查询剩余 SN，并在每批后运行本地导入与队列重建。保修队列剩余 129 条。",
+      "owner": "保修补录智能体",
+      "dueSlots": [
+        "12:20"
+      ],
+      "actions": [
+        "先处理库存/价格/出入库主链，再补保修。",
+        "使用当前默认 Chrome 已登录会话低频打开联想保修查询页，保存当天手工证据。",
+        "不得后台脚本批量查询网页或接口冒充人工采集。"
+      ],
+      "successCriteria": [
+        "64 条保修队列减少。",
+        "前端 SN 保修字段可见更新。"
+      ],
+      "commandAfterEvidence": "bash scripts/run_scheduled_task.sh sn-warranty-backfill",
+      "evidencePaths": []
+    }
+  ]
+}

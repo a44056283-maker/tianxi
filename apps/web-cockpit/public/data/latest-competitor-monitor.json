@@ -1,0 +1,379 @@
+{
+  "generatedAt": "2026-06-11T20:00:22.774Z",
+  "quoteDate": "2026-06-04",
+  "isCarriedForward": true,
+  "carryForwardFrom": "2026-06-04",
+  "itemCount": 9,
+  "brands": [
+    {
+      "brand": "联想京东自营",
+      "itemCount": 3,
+      "latestCapturedAt": "2026-05-28T05:00:00+08:00",
+      "items": [
+        {
+          "brand": "联想京东自营",
+          "rank": 1,
+          "rankingBucket": "light-notebook",
+          "productName": "联想【直播间领券600元】笔记本电脑小新Pro16全能本 酷睿Ultra5 32G 1T 2.8K 120Hz OLED 轻薄本 国补",
+          "configSummary": "轻薄笔记本销量页TOP1（列表页可见）",
+          "salesVolumeText": "已有5万+人评价",
+          "jdSelfPrice": 5664.84,
+          "jdPreSubsidyPrice": 5664.84,
+          "capturedAt": "2026-05-28T04:58:00+08:00",
+          "sourceFile": "manual-visible-chrome-jd-competitor-2026-05-28-lenovo-light-partial",
+          "note": "来源：lenovo1.jd.com 轻薄笔记本销量排序页（可见Chrome会话）",
+          "activityNotes": [
+            "详情页未见额外店铺活动（本轮尚未逐条进入详情页，仅记录列表可见活动文案）"
+          ],
+          "educationSubsidyNotes": [
+            "列表页可见国补/领券文案，待详情页二次核验"
+          ]
+        },
+        {
+          "brand": "联想京东自营",
+          "rank": 2,
+          "rankingBucket": "light-notebook",
+          "productName": "联想笔记本电脑小新14高能本 锐龙7 H255 16G 512G 400nit 120Hz高刷高色域 轻薄办公学生 国家补贴",
+          "configSummary": "轻薄笔记本销量页TOP2（列表页可见）",
+          "salesVolumeText": "已有2万+人评价",
+          "jdSelfPrice": 3803.34,
+          "jdPreSubsidyPrice": 3803.34,
+          "capturedAt": "2026-05-28T04:59:00+08:00",
+          "sourceFile": "manual-visible-chrome-jd-competitor-2026-05-28-lenovo-light-partial",
+          "note": "来源：lenovo1.jd.com 轻薄笔记本销量排序页（可见Chrome会话）",
+          "activityNotes": [
+            "详情页未见额外店铺活动（本轮尚未逐条进入详情页，仅记录列表可见活动文案）"
+          ],
+          "educationSubsidyNotes": [
+            "列表页可见国家补贴文案，待详情页二次核验"
+          ]
+        },
+        {
+          "brand": "联想京东自营",
+          "rank": 3,
+          "rankingBucket": "light-notebook",
+          "productName": "联想【直播间领券400元】笔记本电脑小新Pro16轻薄本 高性能酷睿Ultra5 24G 1T 2.8K 120Hz 国家补贴",
+          "configSummary": "轻薄笔记本销量页TOP3（列表页可见）",
+          "salesVolumeText": "已有5万+人评价",
+          "jdSelfPrice": 5072.81,
+          "jdPreSubsidyPrice": 5072.81,
+          "capturedAt": "2026-05-28T05:00:00+08:00",
+          "sourceFile": "manual-visible-chrome-jd-competitor-2026-05-28-lenovo-light-partial",
+          "note": "来源：lenovo1.jd.com 轻薄笔记本销量排序页（可见Chrome会话）",
+          "activityNotes": [
+            "详情页未见额外店铺活动（本轮尚未逐条进入详情页，仅记录列表可见活动文案）"
+          ],
+          "educationSubsidyNotes": [
+            "列表页可见国家补贴与领券文案，待详情页二次核验"
+          ]
+        }
+      ]
+    },
+    {
+      "brand": "THINK笔记本",
+      "itemCount": 1,
+      "latestCapturedAt": "2026-06-01T04:06:00+08:00",
+      "items": [
+        {
+          "brand": "THINK笔记本",
+          "rank": 1,
+          "rankingBucket": "light-notebook",
+          "productName": "ThinkPad【国家补贴15%】T14p AI PC高性能工程师笔记本电脑 酷睿Ultra5 338H 32G 1TB 3K 商务办公本",
+          "configSummary": "Ultra5 338H / 32G / 1TB / 3K",
+          "salesVolumeText": "20.0mm及以上笔记本热卖榜·第2名",
+          "jdSelfPrice": 10724.03,
+          "jdPreSubsidyPrice": 10999,
+          "jdSubsidyPrice": 10724.03,
+          "jdUrl": "https://item.jd.com/100362084596.html",
+          "capturedAt": "2026-06-01T04:06:00+08:00",
+          "sourceFile": "apps/inventory-sync/artifacts/manual/evidence/2026-06-01/competitor-jd-self-top-samples-2026-06-01.md",
+          "note": "可见Chrome详情页人工核验",
+          "activityNotes": [
+            "国家补贴15%",
+            "PLUS专享立减274.97元",
+            "日常价10999"
+          ],
+          "educationSubsidyNotes": [
+            "未见教育补专属口径"
+          ],
+          "grayWholesalePrice": 6750,
+          "keepCustomerRetailPrice": 7699,
+          "keepCustomerSubsidyPrice": 6544.15
+        }
+      ]
+    },
+    {
+      "brand": "华硕笔记本",
+      "itemCount": 1,
+      "latestCapturedAt": "2026-06-01T04:07:00+08:00",
+      "items": [
+        {
+          "brand": "华硕笔记本",
+          "rank": 1,
+          "rankingBucket": "gaming-notebook",
+          "productName": "华硕天选7 Pro 酷睿版 国家补贴16英寸游戏本笔记本电脑(U7-251HX 16G 512G RTX5060 2.5K 300Hz) 灰",
+          "configSummary": "U7-251HX / 16G / 512G / RTX5060 / 2.5K 300Hz",
+          "salesVolumeText": "游戏本热卖榜·第12名",
+          "jdSelfPrice": 7812.37,
+          "jdPreSubsidyPrice": 10563.5,
+          "jdSubsidyPrice": 7812.37,
+          "jdUrl": "https://item.jd.com/100352414890.html",
+          "capturedAt": "2026-06-01T04:07:00+08:00",
+          "sourceFile": "apps/inventory-sync/artifacts/manual/evidence/2026-06-01/competitor-jd-self-top-samples-2026-06-01.md",
+          "note": "可见Chrome详情页人工核验",
+          "activityNotes": [
+            "国家补贴｜领后减1378.65",
+            "满8000减1000",
+            "页面显示已补164.50元"
+          ],
+          "educationSubsidyNotes": [
+            "未见教育补专属口径"
+          ]
+        }
+      ]
+    },
+    {
+      "brand": "惠普笔记本",
+      "itemCount": 1,
+      "latestCapturedAt": "2026-06-01T04:08:00+08:00",
+      "items": [
+        {
+          "brand": "惠普笔记本",
+          "rank": 1,
+          "rankingBucket": "light-notebook",
+          "productName": "惠普HP【国家补贴】星Book Pro 16轻薄笔记本电脑(酷睿Ultra7 255H 32G 1T 2.5K 240Hz AI)灰",
+          "configSummary": "U7 255H / 32G / 1T / 2.5K 240Hz / 灰",
+          "salesVolumeText": "惠普笔记本热卖榜·第14名",
+          "jdSelfPrice": 6764.31,
+          "jdPreSubsidyPrice": 7998,
+          "jdSubsidyPrice": 6764.31,
+          "jdUrl": "https://item.jd.com/100164275933.html",
+          "capturedAt": "2026-06-01T04:08:00+08:00",
+          "sourceFile": "apps/inventory-sync/artifacts/manual/evidence/2026-06-01/competitor-jd-self-top-samples-2026-06-01.md",
+          "note": "可见Chrome详情页人工核验",
+          "activityNotes": [
+            "国家补贴｜领后减1193.7",
+            "PLUS专享立减39.99元",
+            "日常价7998"
+          ],
+          "educationSubsidyNotes": [
+            "未见教育补专属口径"
+          ]
+        }
+      ]
+    },
+    {
+      "brand": "华为笔记本",
+      "itemCount": 3,
+      "latestCapturedAt": "2026-06-04T04:06:13+0800",
+      "items": [
+        {
+          "brand": "华为笔记本",
+          "rank": 1,
+          "rankingBucket": "light-notebook",
+          "productName": "华为MateBook D 14 SE V20 店铺预装Windows版 国家补贴 轻薄笔记本电脑 13代酷睿i5 16G 1T 皓月银",
+          "configSummary": "MateBook D 14 SE V20 / 13代i5-13420H / 16G / 1T / 皓月银",
+          "salesVolumeText": "华为京东自营旗舰店 笔记本电脑分类 销量排序页可见前列条目。",
+          "jdUrl": "https://item.jd.com/100244014655.html",
+          "capturedAt": "2026-06-04T04:06:13+0800",
+          "sourceFile": "https://mall.jd.com/view_search-466323-8779620-5-1-20-1.html",
+          "note": "2026-06-04 04:03 已留销量页截图。随后进入详情页时页面多次超时/未稳定，当前仅确认标题与链接，未完成价格、活动、商品编号和规格选中态补链；本条只能用于 executed_not_closed 证据，不能算完成。",
+          "activityNotes": [
+            "详情页超时，未完成今日价格与活动字段采集"
+          ],
+          "educationSubsidyNotes": []
+        },
+        {
+          "brand": "华为笔记本",
+          "rank": 2,
+          "rankingBucket": "light-notebook",
+          "productName": "华为MateBook D 16 SE V20 店铺预装Windows版 国家补贴 轻薄笔记本电脑13代标压酷睿i5 16G 1T 皓月银",
+          "configSummary": "MateBook D 16 SE V20 / 13代酷睿i5 / 16G / 1T / 皓月银",
+          "salesVolumeText": "华为京东自营旗舰店 笔记本电脑分类 销量排序页可见前列条目。",
+          "jdUrl": "https://item.jd.com/100244014641.html",
+          "capturedAt": "2026-06-04T04:06:13+0800",
+          "sourceFile": "https://mall.jd.com/view_search-466323-8779620-5-1-20-1.html",
+          "note": "本轮只在销量排序页确认到标题与链接，未进入稳定详情页完成规格和价格采集。",
+          "activityNotes": [
+            "详情页未稳定，未完成今日价格与活动字段采集"
+          ],
+          "educationSubsidyNotes": []
+        },
+        {
+          "brand": "华为笔记本",
+          "rank": 3,
+          "rankingBucket": "light-notebook",
+          "productName": "华为MateBook GT 14 V20 店铺预装Windows版 国家补贴 轻薄笔记本电脑 酷睿Ultra5 32G 1T 深空灰",
+          "configSummary": "MateBook GT 14 V20 / 酷睿Ultra5 / 32G / 1T / 深空灰",
+          "salesVolumeText": "华为京东自营旗舰店 笔记本电脑分类 销量排序页可见前列条目。",
+          "jdUrl": "https://item.jd.com/100325611368.html",
+          "capturedAt": "2026-06-04T04:06:13+0800",
+          "sourceFile": "https://mall.jd.com/view_search-466323-8779620-5-1-20-1.html",
+          "note": "本轮只在销量排序页确认到标题与链接，未进入稳定详情页完成规格和价格采集。",
+          "activityNotes": [
+            "详情页未稳定，未完成今日价格与活动字段采集"
+          ],
+          "educationSubsidyNotes": []
+        }
+      ]
+    }
+  ],
+  "completenessAudit": {
+    "status": "incomplete",
+    "expectedTotalCount": 100,
+    "actualItemCount": 9,
+    "missingItemCount": 91,
+    "incompleteItemCount": 6,
+    "staleItemCount": 6,
+    "missingBucketCount": 10,
+    "missingBrandCount": 0,
+    "blockers": [
+      "竞品排行目标 100 条，当前只有 9 条。",
+      "缺少 10 个分类排行口径：联想京东自营轻薄笔记本缺7，联想京东自营游戏笔记本缺10，联想京东自营平板电脑缺10，THINK笔记本笔记本缺9，THINK笔记本游戏笔记本缺10，华硕笔记本轻薄笔记本缺10，华硕笔记本游戏笔记本缺9，惠普笔记本轻薄笔记本缺9，惠普笔记本游戏笔记本缺10，华为笔记本轻薄笔记本缺7。",
+      "6 条竞品缺链接、标题、配置、价格、活动或分类字段。",
+      "6 条竞品采集时间不是 2026-06-04 当日。"
+    ],
+    "brandAudits": [
+      {
+        "brand": "联想京东自营",
+        "expectedItemCount": 30,
+        "actualItemCount": 3,
+        "missingItemCount": 27,
+        "incompleteItemCount": 3,
+        "staleItemCount": 3,
+        "missingBuckets": [
+          "轻薄笔记本缺7",
+          "游戏笔记本缺10",
+          "平板电脑缺10"
+        ],
+        "bucketAudits": [
+          {
+            "rankingBucket": "light-notebook",
+            "label": "轻薄笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 3,
+            "missingItemCount": 7
+          },
+          {
+            "rankingBucket": "gaming-notebook",
+            "label": "游戏笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 0,
+            "missingItemCount": 10
+          },
+          {
+            "rankingBucket": "tablet",
+            "label": "平板电脑",
+            "expectedItemCount": 10,
+            "actualItemCount": 0,
+            "missingItemCount": 10
+          }
+        ]
+      },
+      {
+        "brand": "THINK笔记本",
+        "expectedItemCount": 20,
+        "actualItemCount": 1,
+        "missingItemCount": 19,
+        "incompleteItemCount": 0,
+        "staleItemCount": 1,
+        "missingBuckets": [
+          "笔记本缺9",
+          "游戏笔记本缺10"
+        ],
+        "bucketAudits": [
+          {
+            "rankingBucket": "light-notebook",
+            "label": "笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 1,
+            "missingItemCount": 9
+          },
+          {
+            "rankingBucket": "gaming-notebook",
+            "label": "游戏笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 0,
+            "missingItemCount": 10
+          }
+        ]
+      },
+      {
+        "brand": "华硕笔记本",
+        "expectedItemCount": 20,
+        "actualItemCount": 1,
+        "missingItemCount": 19,
+        "incompleteItemCount": 0,
+        "staleItemCount": 1,
+        "missingBuckets": [
+          "轻薄笔记本缺10",
+          "游戏笔记本缺9"
+        ],
+        "bucketAudits": [
+          {
+            "rankingBucket": "light-notebook",
+            "label": "轻薄笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 0,
+            "missingItemCount": 10
+          },
+          {
+            "rankingBucket": "gaming-notebook",
+            "label": "游戏笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 1,
+            "missingItemCount": 9
+          }
+        ]
+      },
+      {
+        "brand": "惠普笔记本",
+        "expectedItemCount": 20,
+        "actualItemCount": 1,
+        "missingItemCount": 19,
+        "incompleteItemCount": 0,
+        "staleItemCount": 1,
+        "missingBuckets": [
+          "轻薄笔记本缺9",
+          "游戏笔记本缺10"
+        ],
+        "bucketAudits": [
+          {
+            "rankingBucket": "light-notebook",
+            "label": "轻薄笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 1,
+            "missingItemCount": 9
+          },
+          {
+            "rankingBucket": "gaming-notebook",
+            "label": "游戏笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 0,
+            "missingItemCount": 10
+          }
+        ]
+      },
+      {
+        "brand": "华为笔记本",
+        "expectedItemCount": 10,
+        "actualItemCount": 3,
+        "missingItemCount": 7,
+        "incompleteItemCount": 3,
+        "staleItemCount": 0,
+        "missingBuckets": [
+          "轻薄笔记本缺7"
+        ],
+        "bucketAudits": [
+          {
+            "rankingBucket": "light-notebook",
+            "label": "轻薄笔记本",
+            "expectedItemCount": 10,
+            "actualItemCount": 3,
+            "missingItemCount": 7
+          }
+        ]
+      }
+    ]
+  }
+}

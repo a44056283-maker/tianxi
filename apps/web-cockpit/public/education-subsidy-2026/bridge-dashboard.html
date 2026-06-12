@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日相机采集监控</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --line: #dbe5f1;
+      --text: #0f172a;
+      --muted: #64748b;
+      --blue: #2f6cde;
+      --red: #e2231a;
+      --green: #16794b;
+      --gold: #b7791f;
+      --blue-soft: #edf4ff;
+      --green-soft: #edf9f2;
+      --gold-soft: #fff8eb;
+      --red-soft: #fff1f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 24px 32px;
+    }
+    .hero,
+    .section,
+    .kpi,
+    .note,
+    .workflow-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .hero {
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 900px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .actions a,
+    .actions button,
+    .token-row button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .actions .primary,
+    .token-row button.primary {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .kpi-grid,
+    .workflow-grid,
+    .layout {
+      display: grid;
+      gap: 12px;
+    }
+    .kpi-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-bottom: 16px;
+    }
+    .kpi {
+      padding: 16px;
+    }
+    .kpi .label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .kpi .value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .kpi .hint {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .layout {
+      grid-template-columns: 360px minmax(0, 1fr);
+    }
+    .section {
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .section-meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .note {
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .note.blue { background: var(--blue-soft); }
+    .note.green { background: var(--green-soft); }
+    .note.gold { background: var(--gold-soft); }
+    .note.red { background: var(--red-soft); }
+    .token-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .token-row input,
+    .filters input,
+    .filters select {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font-size: 13px;
+      background: #fff;
+      color: var(--text);
+    }
+    .workflow-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .workflow-card {
+      padding: 14px;
+      background: #fbfdff;
+    }
+    .workflow-card b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .workflow-card p,
+    .workflow-card li,
+    .rule-list li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .workflow-card ul,
+    .rule-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 700;
+      background: #fff;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .badge.blue { color: var(--blue); }
+    .badge.green { color: var(--green); }
+    .badge.gold { color: var(--gold); }
+    .badge.red { color: var(--red); }
+    .status-ok { color: var(--green); }
+    .status-warn { color: var(--gold); }
+    .status-err { color: var(--red); }
+    .filters {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr auto;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    td.mono {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 12px;
+    }
+    .empty {
+      padding: 28px 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width: 1100px) {
+      .kpi-grid,
+      .layout,
+      .workflow-grid,
+      .filters,
+      .token-row {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">工程首页 · 教育补贴采集</div>
+        <h1>今日相机采集监控</h1>
+        <p>这页只看正式链路：今日相机 API 拉图、Bridge 入库、SQL 固化、教育补代扫汇总刷新，以及仍未收口的同步缺口。网页端 CLI 是备用链，不在这里冒充主链完成。</p>
+      </div>
+      <div class="actions">
+        <a class="primary" href="./index.html">返回入口页</a>
+        <a href="./admin.html">管理端</a>
+        <a href="./bridge-config.html">对接配置</a>
+        <a href="./staff-mobile.html">补录端</a>
+        <button type="button" onclick="refreshAll()">刷新</button>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi">
+        <div class="label">Bridge API</div>
+        <div class="value" id="apiStatus">检查中</div>
+        <div class="hint" id="apiStatusHint">--</div>
+      </div>
+      <div class="kpi">
+        <div class="label">今日入库记录</div>
+        <div class="value" id="todayRecords">--</div>
+        <div class="hint" id="todayMatchRate">--</div>
+      </div>
+      <div class="kpi">
+        <div class="label">汇总总代扫数</div>
+        <div class="value" id="summaryTotal">--</div>
+        <div class="hint" id="summaryHint">--</div>
+      </div>
+      <div class="kpi">
+        <div class="label">同步缺口</div>
+        <div class="value" id="gapCount">--</div>
+        <div class="hint" id="gapHint">--</div>
+      </div>
+      <div class="kpi">
+        <div class="label">服务费合计</div>
+        <div class="value" id="serviceFeeTotal">--</div>
+        <div class="hint" id="serviceFeeHint">以正式汇总为准</div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div>
+        <section class="section">
+          <h2>访问配置</h2>
+          <div class="token-row">
+            <input id="bridgeToken" type="password" placeholder="如 Bridge 启用鉴权，在这里填 X-Bridge-Token" />
+            <button class="primary" type="button" onclick="saveToken()">保存</button>
+            <button type="button" onclick="clearToken()">清空</button>
+          </div>
+          <div class="note blue">Bridge 健康检查可直接访问；Bridge 统计和最近记录在启用鉴权时会自动带上这里保存的 token。</div>
+          <div class="note green">主链目标员工固定为：梁伟 `EMP003`、李建定 `EMP005`、郭晨臣 `EMP006`。</div>
+          <div class="note gold">备用链只负责网页端分类文件夹归集，不替代 SQL 主链；最终还是要走 Bridge 入库和汇总刷新。</div>
+        </section>
+
+        <section class="section">
+          <h2>今日相机规则</h2>
+          <ul class="rule-list">
+            <li>显式带 `智店通入库群 / 教育补贴群` 的图片，优先归到指定群。</li>
+            <li>同手机号下 `2` 个不同商品归 `two_piece`，`3` 个及以上不同商品归 `three_piece`，都归 `智店通入库群`。</li>
+            <li>同手机号下只有 `1` 个商品时，才按普通单扫归 `教育补贴群`。</li>
+            <li>记录必须保留 `sourceType / collectionSource / photoId / mediaUrl / takenAt / watermark`。</li>
+            <li>完成口径固定为：SQL 已写入，`latest-education-subsidy-agent-scan-summary.json` 已刷新，前端已可见。</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>双轨流程</h2>
+          <div class="workflow-grid">
+            <div class="workflow-card">
+              <b>主链：今日相机 API</b>
+              <p>OpenAPI 拉图 → 归类 → Bridge 提交 → SQL → 汇总快照 → 前端。</p>
+            </div>
+            <div class="workflow-card">
+              <b>备用：网页端 CLI</b>
+              <p>分类文件夹人工下载 → 脚本归并 → 同样走 Bridge 入库和汇总刷新。</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section class="section">
+          <div class="section-header">
+            <h2>主链状态</h2>
+            <div class="section-meta" id="healthMeta">--</div>
+          </div>
+          <div class="workflow-grid">
+            <div class="workflow-card">
+              <b>Bridge API</b>
+              <p id="bridgeApiDetail">--</p>
+            </div>
+            <div class="workflow-card">
+              <b>OCR / 证据保存</b>
+              <p id="bridgeOcrDetail">--</p>
+            </div>
+            <div class="workflow-card">
+              <b>教育补汇总</b>
+              <p id="projectionDetail">--</p>
+            </div>
+            <div class="workflow-card">
+              <b>同步缺口</b>
+              <p id="gapDetail">--</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2>最近正式记录</h2>
+            <div class="section-meta" id="recordsMeta">--</div>
+          </div>
+          <div class="filters">
+            <input id="keywordFilter" type="text" placeholder="搜索 recordId / 客户 / 订单 / SN / photoId" />
+            <select id="staffFilter">
+              <option value="">全部员工</option>
+            </select>
+            <select id="statusFilter">
+              <option value="">全部状态</option>
+              <option value="success">已匹配</option>
+              <option value="partial">待复核</option>
+            </select>
+            <button type="button" onclick="renderRecords()">查询</button>
+          </div>
+          <div id="recordsWrap" class="empty">加载中...</div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+    const TOKEN_KEY = 'education_subsidy_bridge_token';
+    let bridgeHealth = null;
+    let bridgeStats = null;
+    let bridgeRecords = [];
+    let projectionSummary = null;
+    let syncGap = null;
+
+    function getToken() {
+      return window.localStorage.getItem(TOKEN_KEY) || '';
+    }
+
+    function saveToken() {
+      const token = document.getElementById('bridgeToken').value.trim();
+      if (token) {
+        window.localStorage.setItem(TOKEN_KEY, token);
+      } else {
+        window.localStorage.removeItem(TOKEN_KEY);
+      }
+      refreshAll();
+    }
+
+    function clearToken() {
+      window.localStorage.removeItem(TOKEN_KEY);
+      document.getElementById('bridgeToken').value = '';
+      refreshAll();
+    }
+
+    async function fetchJson(path, withToken = false) {
+      const headers = {};
+      const token = getToken();
+      if (withToken && token) headers['X-Bridge-Token'] = token;
+      const res = await fetch(API_BASE + path, { headers, cache: 'no-store' });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`${res.status} ${text}`);
+      }
+      return res.json();
+    }
+
+    async function fetchStatic(path) {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`static ${res.status}`);
+      return res.json();
+    }
+
+    function fmtMoney(value) {
+      return '¥' + Number(value || 0).toLocaleString('zh-CN');
+    }
+
+    function fmtDate(value) {
+      if (!value) return '--';
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      const pad = (n) => String(n).padStart(2, '0');
+      return `${date.getMonth() + 1}/${date.getDate()} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
+    }
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
+
+    function scanTypeLabel(value) {
+      return ({
+        single_scan: '单扫',
+        multi_scan: '多扫',
+        three_piece: '三件套',
+        two_piece: '二件套'
+      })[value] || value || '--';
+    }
+
+    function setStatusNode(nodeId, ok, warnText, okText) {
+      const node = document.getElementById(nodeId);
+      node.textContent = ok ? okText : warnText;
+      node.className = `value ${ok ? 'status-ok' : 'status-warn'}`;
+    }
+
+    function renderHealth() {
+      const statusNode = document.getElementById('apiStatus');
+      if (!bridgeHealth) {
+        statusNode.textContent = '离线';
+        statusNode.className = 'value status-err';
+        document.getElementById('apiStatusHint').textContent = '未取到健康检查';
+        return;
+      }
+      const healthy = bridgeHealth.status === 'ok';
+      statusNode.textContent = healthy ? '在线' : '降级';
+      statusNode.className = `value ${healthy ? 'status-ok' : 'status-warn'}`;
+      document.getElementById('apiStatusHint').textContent = healthy
+        ? `已运行 ${Math.round(Number(bridgeHealth.uptime_seconds || 0) / 60)} 分钟`
+        : '数据库或 OCR 存在异常';
+      document.getElementById('healthMeta').textContent = bridgeHealth.server_time || '--';
+      document.getElementById('bridgeApiDetail').textContent = healthy
+        ? `v${bridgeHealth.api_version || '1'} 在线；鉴权 ${bridgeHealth.auth_enabled ? '已启用' : '未启用'}。`
+        : `当前状态 ${bridgeHealth.status || 'unknown'}，先查 Bridge 服务。`;
+      document.getElementById('bridgeOcrDetail').textContent = `数据库：${bridgeHealth.database || '--'}；OCR：${bridgeHealth.ocr_service || '--'}。`;
+    }
+
+    function renderSummary() {
+      const summary = projectionSummary?.summary || {};
+      document.getElementById('summaryTotal').textContent = Number(summary.totalCount || 0).toLocaleString('zh-CN');
+      document.getElementById('summaryHint').textContent = `未付 ${Number(summary.unpaidCount || 0)} 条 / 已付 ${Number(summary.paidCount || 0)} 条`;
+      document.getElementById('serviceFeeTotal').textContent = fmtMoney(summary.totalServiceFee || 0);
+      document.getElementById('serviceFeeHint').textContent = `未付服务费 ${fmtMoney(summary.unpaidServiceFee || 0)}`;
+      document.getElementById('projectionDetail').textContent = projectionSummary
+        ? `正式汇总已加载，当前总记录 ${Number(summary.totalCount || 0)} 条。`
+        : '未加载到正式汇总。';
+    }
+
+    function renderGap() {
+      const count = Number(syncGap?.count || syncGap?.summary?.pendingCount || 0);
+      document.getElementById('gapCount').textContent = count.toLocaleString('zh-CN');
+      document.getElementById('gapHint').textContent = count > 0 ? '仍有待补正式记录' : '当前未见缺口';
+      const sample = Array.isArray(syncGap?.items) ? syncGap.items.slice(0, 3).map((item) => item.orderNumber || item.serialNumber || item.id).filter(Boolean) : [];
+      document.getElementById('gapDetail').textContent = count > 0
+        ? `缺口 ${count} 条；样例：${sample.join('，') || '详见同步缺口页'}。`
+        : '当前未发现教育补代扫同步缺口。';
+    }
+
+    function renderBridgeStats() {
+      if (!bridgeStats) {
+        document.getElementById('todayRecords').textContent = '--';
+        document.getElementById('todayMatchRate').textContent = 'Bridge 统计不可用';
+        return;
+      }
+      document.getElementById('todayRecords').textContent = Number(bridgeStats.total_records || 0).toLocaleString('zh-CN');
+      document.getElementById('todayMatchRate').textContent = `匹配率 ${(Number(bridgeStats.match_rate || 0) * 100).toFixed(1)}%`;
+    }
+
+    function renderRecords() {
+      const wrap = document.getElementById('recordsWrap');
+      const keyword = document.getElementById('keywordFilter').value.trim().toLowerCase();
+      const staff = document.getElementById('staffFilter').value;
+      const status = document.getElementById('statusFilter').value;
+      const filtered = bridgeRecords.filter((item) => {
+        if (staff && item.staff_id !== staff) return false;
+        if (status && item.sync_status !== status) return false;
+        if (!keyword) return true;
+        const blob = [
+          item.record_id,
+          item.customer_name,
+          item.order_number,
+          ...(Array.isArray(item.serial_numbers) ? item.serial_numbers : []),
+          item.raw_payload_json,
+        ].join(' ').toLowerCase();
+        return blob.includes(keyword);
+      });
+      document.getElementById('recordsMeta').textContent = `Bridge 最新 ${bridgeRecords.length} 条 / 过滤后 ${filtered.length} 条`;
+      if (!filtered.length) {
+        wrap.className = 'empty';
+        wrap.textContent = '无匹配记录';
+        return;
+      }
+      wrap.className = '';
+      wrap.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>员工 / 群组</th>
+              <th>扫法 / 状态</th>
+              <th>客户 / 订单</th>
+              <th>SN / SKU</th>
+              <th>金额</th>
+              <th>来源</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filtered.map((item) => {
+              const raw = typeof item.raw_payload_json === 'object' && item.raw_payload_json
+                ? item.raw_payload_json
+                : {};
+              const meta = raw.metadata || {};
+              const sourceType = meta.sourceType || '--';
+              const photoId = meta.photoId || '--';
+              const serials = Array.isArray(item.serial_numbers) ? item.serial_numbers : [];
+              return `
+                <tr>
+                  <td class="mono">${esc(fmtDate(item.created_at))}<br>${esc(item.record_id)}</td>
+                  <td>${esc(item.staff_name || item.staff_id || '--')}<br><span class="section-meta">${esc(item.source_group_name || '--')}</span></td>
+                  <td><span class="badge blue">${esc(scanTypeLabel(item.scan_type))}</span><span class="badge ${item.sync_status === 'success' ? 'green' : 'gold'}">${esc(item.sync_status || '--')}</span></td>
+                  <td>${esc(item.customer_name || '--')}<br><span class="mono">${esc(item.order_number || '--')}</span></td>
+                  <td class="mono">${esc(serials[0] || '--')}<br>${esc(item.sku_key || '--')}</td>
+                  <td>${fmtMoney(item.service_fee_per_unit || 0)} / ${fmtMoney(item.education_discount_amount || 0)}</td>
+                  <td class="mono">${esc(sourceType)}<br>${esc(photoId)}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function populateStaffFilter() {
+      const select = document.getElementById('staffFilter');
+      const current = select.value;
+      const ids = [...new Set(bridgeRecords.map((item) => item.staff_id).filter(Boolean))].sort();
+      select.innerHTML = '<option value="">全部员工</option>' + ids.map((id) => `<option value="${esc(id)}">${esc(id)}</option>`).join('');
+      select.value = current;
+    }
+
+    async function loadHealth() {
+      try {
+        bridgeHealth = await fetchJson('/api/collection/v1/health');
+      } catch (error) {
+        bridgeHealth = null;
+      }
+      renderHealth();
+    }
+
+    async function loadBridgeStats() {
+      try {
+        bridgeStats = await fetchJson('/api/collection/v1/stats', true);
+      } catch (error) {
+        bridgeStats = null;
+      }
+      renderBridgeStats();
+    }
+
+    async function loadBridgeRecords() {
+      try {
+        const payload = await fetchJson('/api/collection/v1/records?limit=80', true);
+        bridgeRecords = Array.isArray(payload.records) ? payload.records.map((item) => {
+          const cloned = { ...item };
+          if (typeof cloned.raw_payload_json === 'string') {
+            try { cloned.raw_payload_json = JSON.parse(cloned.raw_payload_json); } catch (error) {}
+          }
+          return cloned;
+        }) : [];
+      } catch (error) {
+        bridgeRecords = [];
+      }
+      populateStaffFilter();
+      renderRecords();
+    }
+
+    async function loadProjectionSummary() {
+      try {
+        projectionSummary = await fetchStatic('../data/latest-education-subsidy-agent-scan-summary.json');
+      } catch (error) {
+        projectionSummary = null;
+      }
+      renderSummary();
+    }
+
+    async function loadSyncGap() {
+      try {
+        syncGap = await fetchStatic('../data/latest-education-agent-scan-sync-gap.json');
+      } catch (error) {
+        syncGap = null;
+      }
+      renderGap();
+    }
+
+    async function refreshAll() {
+      document.getElementById('bridgeToken').value = getToken();
+      await Promise.all([
+        loadHealth(),
+        loadBridgeStats(),
+        loadBridgeRecords(),
+        loadProjectionSummary(),
+        loadSyncGap(),
+      ]);
+    }
+
+    document.getElementById('keywordFilter').addEventListener('input', renderRecords);
+    document.getElementById('staffFilter').addEventListener('change', renderRecords);
+    document.getElementById('statusFilter').addEventListener('change', renderRecords);
+    document.getElementById('bridgeToken').value = getToken();
+    refreshAll();
+  </script>
+</body>
+</html>

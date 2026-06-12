@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-05-26T17:30:22.271023",
+  "voice": "Flo (中文（中国大陆）)",
+  "provider": "macos_say",
+  "itemCount": 17,
+  "items": [
+    {
+      "key": "full-pitch",
+      "label": "整页AI讲解",
+      "src": "./audio/full-service/full-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:draw:pitch",
+      "label": "延保服务金抽奖本模块讲解",
+      "src": "./audio/full-service/draw-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:draw:sales",
+      "label": "延保服务金抽奖成交快讲",
+      "src": "./audio/full-service/draw-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:ai:pitch",
+      "label": "AI天禧智能体本模块讲解",
+      "src": "./audio/full-service/ai-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:ai:sales",
+      "label": "AI天禧智能体成交快讲",
+      "src": "./audio/full-service/ai-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:office:pitch",
+      "label": "正版Office学生版本模块讲解",
+      "src": "./audio/full-service/office-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:office:sales",
+      "label": "正版Office学生版成交快讲",
+      "src": "./audio/full-service/office-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:clean:pitch",
+      "label": "深度除尘清灰本模块讲解",
+      "src": "./audio/full-service/clean-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:clean:sales",
+      "label": "深度除尘清灰成交快讲",
+      "src": "./audio/full-service/clean-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:system:pitch",
+      "label": "原厂系统服务本模块讲解",
+      "src": "./audio/full-service/system-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:system:sales",
+      "label": "原厂系统服务成交快讲",
+      "src": "./audio/full-service/system-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:care:pitch",
+      "label": "Lenovo Care智惠服务本模块讲解",
+      "src": "./audio/full-service/care-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:care:sales",
+      "label": "Lenovo Care智惠服务成交快讲",
+      "src": "./audio/full-service/care-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:verify:pitch",
+      "label": "序列号保修校验本模块讲解",
+      "src": "./audio/full-service/verify-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:verify:sales",
+      "label": "序列号保修校验成交快讲",
+      "src": "./audio/full-service/verify-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:network:pitch",
+      "label": "全国服务网络本模块讲解",
+      "src": "./audio/full-service/network-pitch.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    },
+    {
+      "key": "module:network:sales",
+      "label": "全国服务网络成交快讲",
+      "src": "./audio/full-service/network-sales.m4a",
+      "voice": "Flo (中文（中国大陆）)",
+      "provider": "macos_say"
+    }
+  ]
+}

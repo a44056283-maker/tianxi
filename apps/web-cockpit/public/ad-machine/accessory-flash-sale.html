@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>配件秒杀</title>
+  <style>
+    :root {
+      --bg: #0b1322;
+      --panel: #11203a;
+      --line: rgba(150, 180, 220, 0.2);
+      --text: #eef6ff;
+      --muted: #9cb2cd;
+      --accent: #25b8ff;
+      --accent-2: #67e0b0;
+      --danger: #ff8961;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      overflow: hidden;
+      scrollbar-width: none;
+    }
+    body::-webkit-scrollbar { display: none; }
+    .screen {
+      height: 100vh;
+      padding: 22px;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 14px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(11, 19, 34, 0.98), rgba(7, 14, 24, 0.99));
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(15, 34, 58, 0.98), rgba(11, 26, 44, 0.98));
+    }
+    .hero strong {
+      display: block;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .hero span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .summary {
+      min-width: 190px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(103, 224, 176, 0.24);
+    }
+    .summary b {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+      color: #dffff2;
+    }
+    .summary em {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 14px;
+    }
+    .grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      min-height: 0;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17, 32, 58, 0.98), rgba(10, 22, 40, 0.98));
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      overflow: hidden;
+    }
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(37, 184, 255, 0.14);
+      color: #cdefff;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .card strong {
+      font-size: 22px;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-top: auto;
+    }
+    .price-row b {
+      font-size: 30px;
+      line-height: 1;
+      color: #ffffff;
+    }
+    .price-row span {
+      color: var(--danger);
+      font-size: 16px;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    function money(value) {
+      const number = Number(value || 0)
+      return number > 0 ? `¥${number.toLocaleString('zh-CN')}` : '待补价'
+    }
+
+    function isAccessory(item) {
+      const text = `${item.category || ''} ${item.productName || ''} ${item.pnMtm || ''}`
+      return /配件|鼠标|键盘|耳机|背包|适配器|支架|保护夹|钢化膜|手写笔|显示器|打印机|移动硬盘|电源/i.test(text)
+    }
+
+    function buildPage(items, pageIndex, totalPages) {
+      const cards = items.map((item) => `
+        <article class="card">
+          <span class="tag">${item.category || '配件活动'}</span>
+          <strong>${item.productName || item.skuKey}</strong>
+          <p>SKU ${item.skuKey} · PN/MTM ${item.pnMtm || '待补'} · 库存 ${item.currentStock || 0} 台</p>
+          <div class="price-row">
+            <b>${money(item.recommendedPreSubsidyPrice)}</b>
+            <span>${item.sellableStock || item.currentStock || 0} 台可售</span>
+          </div>
+        </article>
+      `).join('')
+      return `
+        <section class="screen">
+          <div class="hero">
+            <div>
+              <strong>配件秒杀</strong>
+              <span>按广告机整屏分页展示配件活动。首页只负责上一页、下一页切换，不使用整页下拉。</span>
+            </div>
+            <div class="summary">
+              <b>${pageIndex + 1} / ${totalPages}</b>
+              <em>当前页 ${items.length} 个活动商品</em>
+            </div>
+          </div>
+          <div class="grid">${cards}</div>
+        </section>
+      `
+    }
+
+    async function render() {
+      const app = document.getElementById('app')
+      try {
+        const response = await fetch(`/api/inventory-quote/retail-zone?ts=${Date.now()}`, { cache: 'no-store' })
+        const zone = await response.json()
+        const source = Array.isArray(zone?.decisions?.items) ? zone.decisions.items : []
+        const accessories = source.filter((item) => Number(item.currentStock || 0) > 0 && isAccessory(item))
+        const pageSize = 4
+        const totalPages = Math.max(1, Math.ceil(accessories.length / pageSize))
+        document.body.dataset.pageCount = String(totalPages)
+        app.innerHTML = Array.from({ length: totalPages }, (_, index) => {
+          const start = index * pageSize
+          return buildPage(accessories.slice(start, start + pageSize), index, totalPages)
+        }).join('')
+      } catch {
+        app.innerHTML = `
+          <section class="screen">
+            <div class="hero">
+              <div>
+                <strong>配件秒杀</strong>
+                <span>当前未能读取活动商品，请检查本地前端数据。</span>
+              </div>
+              <div class="summary">
+                <b>0 / 0</b>
+                <em>等待数据</em>
+              </div>
+            </div>
+          </section>
+        `
+      }
+    }
+
+    render()
+  </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+# 智店通 POS（联想零售后台）选择器配置
+# 基于 retail-pos.lenovo.com 实际页面验证
+# 只配置白名单页面和只读动作
+
+base_url: "https://retail-pos.lenovo.com"
+
+entities:
+  # ---------------------------------------------------------------
+  # 线下门店订单
+  # ---------------------------------------------------------------
+  orders:
+    enabled: true
+    description: "线下门店订单列表"
+    start_url: "/lenovo/web/order/order-list"
+    menu_text: "订单"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "作废"
+      - "提交"
+      - "审核"
+      - "确认"
+      - "付款"
+      - "退款"
+      - "保存"
+    filters:
+      start_date: "input[placeholder*='开始']"
+      end_date: "input[placeholder*='结束']"
+      store: "select[name='store']"
+      status: "select[name='status']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 500
+      columns:
+        - order_no
+        - order_time
+        - store_name
+        - customer_name
+        - total_amount
+        - status
+        - pay_type
+      record_id_fields:
+        - order_no
+    export:
+      button: null
+      download_timeout_ms: 60000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/order/list"
+      json_path: "$.data.list"
+
+  # ---------------------------------------------------------------
+  # 线上订单
+  # ---------------------------------------------------------------
+  online_orders:
+    enabled: true
+    description: "线上订单"
+    start_url: "/order/online-order-list"
+    menu_text: "订单"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "作废"
+      - "保存"
+    filters:
+      start_date: "input[placeholder*='开始']"
+      end_date: "input[placeholder*='结束']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 500
+      columns:
+        - order_no
+        - order_time
+        - platform
+        - store_name
+        - total_amount
+        - status
+      record_id_fields:
+        - order_no
+    export:
+      button: null
+      download_timeout_ms: 60000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/online-order/list"
+      json_path: "$.data.list"
+
+  # ---------------------------------------------------------------
+  # 商品库存
+  # ---------------------------------------------------------------
+  inventory:
+    enabled: true
+    description: "商品库存查询"
+    start_url: "/stock/stock/stock-panel"
+    menu_text: "库存"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "提交"
+      - "入库"
+      - "出库"
+      - "保存"
+      - "调整"
+    filters:
+      store: "select[name='storeCode']"
+      warehouse: "select[name='warehouseCode']"
+      sku: "input[placeholder*='SKU']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 500
+      columns:
+        - sku
+        - product_name
+        - store_name
+        - warehouse_name
+        - available_qty
+        - locked_qty
+        - in_transit_qty
+        - unit_cost
+      record_id_fields:
+        - sku
+        - store_name
+        - warehouse_name
+    export:
+      button: "button:has-text('导出')"
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/stock/list"
+      json_path: "$.data.list"
+
+  # ---------------------------------------------------------------
+  # 门店商品（商品档案）
+  # ---------------------------------------------------------------
+  products:
+    enabled: true
+    description: "门店商品档案"
+    start_url: "/product/list-store"
+    menu_text: "商品"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "保存"
+      - "上架"
+      - "下架"
+    filters:
+      store: "select[name='storeCode']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 500
+      columns:
+        - sku
+        - product_name
+        - barcode
+        - mtm
+        - retail_price
+        - cost_price
+        - status
+      record_id_fields:
+        - sku
+    export:
+      button: "button:has-text('导出')"
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/product/store/list"
+      json_path: "$.data.list"
+
+  # ---------------------------------------------------------------
+  # 库存订单（入库/出库单）
+  # ---------------------------------------------------------------
+  stock_orders:
+    enabled: true
+    description: "库存订单"
+    start_url: "/stock/stock/stock-order"
+    menu_text: "库存"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "提交"
+      - "确认"
+      - "入库确认"
+      - "出库确认"
+      - "作废"
+      - "保存"
+    filters:
+      start_date: "input[placeholder*='开始']"
+      end_date: "input[placeholder*='结束']"
+      order_type: "select[name='orderType']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 500
+      columns:
+        - order_no
+        - order_time
+        - order_type
+        - from_store
+        - to_store
+        - status
+        - create_user
+      record_id_fields:
+        - order_no
+    export:
+      button: null
+      download_timeout_ms: 60000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/stock/order/list"
+      json_path: "$.data.list"
+
+  # ---------------------------------------------------------------
+  # 支付统计
+  # ---------------------------------------------------------------
+  payments:
+    enabled: true
+    description: "支付统计报表"
+    start_url: "/report/payment"
+    menu_text: "数据"
+    wait_selector: "table tbody tr"
+    dangerous_texts:
+      - "新增"
+      - "删除"
+      - "保存"
+      - "退款"
+    filters:
+      start_date: "input[placeholder*='开始']"
+      end_date: "input[placeholder*='结束']"
+      store: "select[name='storeCode']"
+      search_button: "button:has-text('查询')"
+    table:
+      rows: "table tbody tr"
+      cells: "td"
+      next_page: "button:has-text('下一页')"
+      next_page_disabled_attr: "disabled"
+      max_pages: 200
+      columns:
+        - pay_date
+        - store_name
+        - pay_type
+        - order_count
+        - total_amount
+        - refund_amount
+        - net_amount
+      record_id_fields:
+        - pay_date
+        - store_name
+        - pay_type
+    export:
+      button: "button:has-text('导出')"
+      download_timeout_ms: 120000
+      file_type: "xlsx"
+    network:
+      capture_url_contains: "/api/report/payment"
+      json_path: "$.data.list"

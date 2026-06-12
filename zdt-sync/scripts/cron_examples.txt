@@ -1,0 +1,17 @@
+# 编辑 crontab：crontab -e
+# 请把 /opt/zdt-sync 替换为实际部署目录。
+
+# 订单每 2 分钟
+*/2 * * * * cd /opt/zdt-sync && . .venv/bin/activate && zdt-sync collect orders --incremental >> /var/log/zdt-sync/orders.log 2>&1
+
+# 库存每 5 分钟
+*/5 * * * * cd /opt/zdt-sync && . .venv/bin/activate && zdt-sync collect inventory --mode table >> /var/log/zdt-sync/inventory.log 2>&1
+
+# 退货每 5 分钟
+*/5 * * * * cd /opt/zdt-sync && . .venv/bin/activate && zdt-sync collect refunds --incremental >> /var/log/zdt-sync/refunds.log 2>&1
+
+# 商品每 30 分钟
+*/30 * * * * cd /opt/zdt-sync && . .venv/bin/activate && zdt-sync collect products >> /var/log/zdt-sync/products.log 2>&1
+
+# 每天 02:00 查看状态/可替换成日报脚本
+0 2 * * * cd /opt/zdt-sync && . .venv/bin/activate && zdt-sync status >> /var/log/zdt-sync/status.log 2>&1

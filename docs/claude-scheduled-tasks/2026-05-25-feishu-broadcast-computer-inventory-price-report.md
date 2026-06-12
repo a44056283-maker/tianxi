@@ -1,0 +1,24 @@
+# 飞书播报-电脑库存零售价国补价
+
+- taskName: 飞书播报-电脑库存零售价国补价
+- status: executed_not_closed
+- newArtifacts:
+  - `docs/claude-scheduled-tasks/2026-05-25-feishu-broadcast-computer-inventory-price-report.md`
+- keyMetrics:
+  - 播报源快照：`apps/web-cockpit/public/data/latest-retail-zone-snapshot.json`
+  - `generatedAt=2026-05-24T17:37:28.913Z`
+  - `totalCurrentStock=323`
+  - `totalSellable=323`
+  - `computerCurrentStock=140`
+  - `computerSkuCount=1895`
+  - `feishu ok=true`
+  - `statusCode=200`
+  - `feishuCode=0`
+  - `feishuMessage=success`
+- frontendChecked:
+  - 前端子书签位于 `库存报价模块分区 -> 报价证据与零售价 -> 实时零售报价 / 报价看板`
+  - 关键字段对应 `当前展示 SKU / 京东实时价格状态 / 当前已出正常零售价 / 当前正规国补价 / 当前防流失国补价`
+- blockingReason:
+  - 飞书发送已成功，但未完成现场浏览器抽查截图级核验，按要求不记 `real_completed`
+- nextAction:
+  - 打开前端对应子书签，核对播报字段与看板数值一致后再收口

@@ -1,0 +1,301 @@
+{
+  "generatedAt": "2026-05-14T14:08:09.363Z",
+  "source": "system_inventory_adjustments",
+  "adjustments": {
+    "20000080": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 14,
+      "sellableStock": 14,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20000386": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 6,
+      "sellableStock": 6,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20001119": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 4,
+      "sellableStock": 4,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20001158": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 13,
+      "sellableStock": 13,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20001279": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20001669": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002022": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002034": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002039": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002604": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20002614": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002781": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 4,
+      "sellableStock": 4,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002886": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20002909": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20002916": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 4,
+      "sellableStock": 4,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20002917": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003058": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003065": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003126": {
+      "updatedAt": "2026-05-12T08:31:26.444Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "note": "2026-05-12 本地盘点校准：R9000P 83LV0006CD 现场实物仅 1 台"
+    },
+    "20003163": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003216": {
+      "updatedAt": "2026-05-14T13:47:17.181Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 今日销售出库导入后校准：订单 XS26051413142613728 / SN BH022BFJ 已售出；商品库存导出基表早于该笔销售，前端现按 1 台展示。"
+    },
+    "20003230": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003256": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 8,
+      "sellableStock": 8,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003281": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003356": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003417": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 4,
+      "sellableStock": 4,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003432": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003436": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003662": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20003813": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 2,
+      "sellableStock": 2,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003833": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 7,
+      "sellableStock": 7,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20003886": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20004003": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20004055": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 1,
+      "sellableStock": 1,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20004481": {
+      "updatedAt": "2026-05-12T08:38:50.747Z",
+      "currentStock": 3,
+      "sellableStock": 3,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-12 本地状态校准：用户确认该批不可售库存已转入销售库，页面先按可售库存展示"
+    },
+    "20006381": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 4,
+      "sellableStock": 4,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    },
+    "20006725": {
+      "updatedAt": "2026-05-14T04:47:16.186Z",
+      "currentStock": 12,
+      "sellableStock": 12,
+      "unsellableStock": 0,
+      "pendingInboundStock": 0,
+      "note": "2026-05-14 智店通商品库存导出真值校准：当前库存以“有库存商品”导出结果为准，库存流水仅保留历史参考。"
+    }
+  }
+}

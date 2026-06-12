@@ -1,0 +1,521 @@
+{
+  "generatedAt": "2026-06-12T10:00:56+08:00",
+  "source": "latest-published-product-projection.json",
+  "status": "pass",
+  "summary": {
+    "publishedProjectionItemCount": 3869,
+    "projectionMathChecks": 197,
+    "channelViewChecks": 11607,
+    "gameNotebookPolicyChecks": 669,
+    "staticRetailZoneChecks": 92,
+    "apiRetailZoneStatus": "ok",
+    "apiRetailZoneChecks": 92,
+    "legacyWordingHits": 0,
+    "mismatchCount": 0
+  },
+  "formulaSamples": [
+    {
+      "skuKey": "20003662",
+      "title": "来酷斗战者 战7000 锐龙版2025 电竞游戏笔记本电脑 · R9-8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 180Hz / 月光灰 / RTX5060 · 870040682",
+      "storeRetailPrice": 11399.0,
+      "adjustedPreSubsidyPrice": 9999.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 0,
+      "storeManualPromotionAmount": 1400.0,
+      "formula": "活动后国补前执行价 9999.00 = 原门店挂牌价 11399.00 - 店面活动 1400.00"
+    },
+    {
+      "skuKey": "20007961",
+      "title": "YOGA Air 14 Aura 14英寸轻薄笔记本电脑 浅海贝 · Ultra 7 258V / 32GB / 1TB SSD · 83R00001CD",
+      "storeRetailPrice": 10799.0,
+      "adjustedPreSubsidyPrice": 8799.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 1000.0,
+      "formula": "活动后国补前执行价 8799.00 = 原门店挂牌价 10799.00 - 教育补 1000.00 - 店面活动 1000.00"
+    },
+    {
+      "skuKey": "20002811",
+      "title": "联想小新Pro16 酷睿版16英寸轻薄笔记本电脑 深灰色 · Ultra5 225H / Windows 11 / 32GB (16GB x 2) / 1TB SSD / 集成显卡 · 83ND0000CD",
+      "storeRetailPrice": 7899.0,
+      "adjustedPreSubsidyPrice": 6999.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 300.0,
+      "storeManualPromotionAmount": 600.0,
+      "formula": "活动后国补前执行价 6999.00 = 原门店挂牌价 7899.00 - 教育补 300.00 - 店面活动 600.00"
+    },
+    {
+      "skuKey": "20006381",
+      "title": "联想小新Pro14 锐龙版14英寸轻薄笔记本电脑 深灰色 · 锐龙 7 H 255 / Windows 11 / 24GB / 1TB SSD / 集成显卡 / H255 · 83QG0007CD",
+      "storeRetailPrice": 6599.0,
+      "adjustedPreSubsidyPrice": 6099.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 0,
+      "storeManualPromotionAmount": 500.0,
+      "formula": "活动后国补前执行价 6099.00 = 原门店挂牌价 6599.00 - 店面活动 500.00"
+    },
+    {
+      "skuKey": "20006725",
+      "title": "联想拯救者Y7000 / Y7000X 电竞游戏笔记本电脑 · i7-13650HX / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83LY00TRCD",
+      "storeRetailPrice": 11599.0,
+      "adjustedPreSubsidyPrice": 10099.0,
+      "marketingPoAmount": 600.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 400.0,
+      "formula": "活动后国补前执行价 10099.00 = 原门店挂牌价 11599.00 - 营销PO 600.00 - 教育补 500.00 - 店面活动 400.00"
+    },
+    {
+      "skuKey": "20006289",
+      "title": "联想YOGA Air 14 Aura AI元启版 · Ultra5-228V / 32GB / 32GB / 1TB SSD / 浅海贝 / Win11 · 83JX000ACD",
+      "storeRetailPrice": 8799.0,
+      "adjustedPreSubsidyPrice": 7749.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 750.0,
+      "storeManualPromotionAmount": 300.0,
+      "formula": "活动后国补前执行价 7749.00 = 原门店挂牌价 8799.00 - 教育补 750.00 - 店面活动 300.00"
+    },
+    {
+      "skuKey": "20007040",
+      "title": "联想来酷斗战者 战7000 电竞游戏笔记本电脑 · i7-13645HX / 16GB / 512GB / RTX5060 / 2.5K 180Hz / RTX5060 · 870017738",
+      "storeRetailPrice": 8599.0,
+      "adjustedPreSubsidyPrice": 8299.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 0,
+      "storeManualPromotionAmount": 300.0,
+      "formula": "活动后国补前执行价 8299.00 = 原门店挂牌价 8599.00 - 店面活动 300.00"
+    },
+    {
+      "skuKey": "20006372",
+      "title": "联想小新Pro16 2025锐龙版16英寸轻薄笔记本电脑 深灰色 · 锐龙 7 H 255 / Windows 11 / 24GB / 1TB SSD / 集成显卡 · 83QH0007CD",
+      "storeRetailPrice": 6499.0,
+      "adjustedPreSubsidyPrice": 6299.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 0,
+      "storeManualPromotionAmount": 200.0,
+      "formula": "活动后国补前执行价 6299.00 = 原门店挂牌价 6499.00 - 店面活动 200.00"
+    },
+    {
+      "skuKey": "ACT-83QK000DCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 23799.0,
+      "adjustedPreSubsidyPrice": 19999.0,
+      "marketingPoAmount": 1800.0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 19999.00 = 原门店挂牌价 23799.00 - 营销PO 1800.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83QK004MCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 23799.0,
+      "adjustedPreSubsidyPrice": 19999.0,
+      "marketingPoAmount": 1800.0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 19999.00 = 原门店挂牌价 23799.00 - 营销PO 1800.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83QK0057CD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 24799.0,
+      "adjustedPreSubsidyPrice": 20999.0,
+      "marketingPoAmount": 1800.0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 20999.00 = 原门店挂牌价 24799.00 - 营销PO 1800.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20007931",
+      "title": "联想拯救者Y7000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83F300AXCD",
+      "storeRetailPrice": 14399.0,
+      "adjustedPreSubsidyPrice": 12399.0,
+      "marketingPoAmount": 1500.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12399.00 = 原门店挂牌价 14399.00 - 营销PO 1500.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007932",
+      "title": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 碳晶黑 · Ultra 7 251HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83VK0048CD",
+      "storeRetailPrice": 13599.0,
+      "adjustedPreSubsidyPrice": 11899.0,
+      "marketingPoAmount": 1200.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 11899.00 = 原门店挂牌价 13599.00 - 营销PO 1200.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007933",
+      "title": "联想拯救者Y7000X 2026 15.3英寸电竞游戏本笔记本电脑 冰魄白 · Ultra 7 251HX / 16GB / 1TB SSD / RTX5060 / 2.5K 165Hz / RTX5060 · 83VK0049CD",
+      "storeRetailPrice": 14399.0,
+      "adjustedPreSubsidyPrice": 12699.0,
+      "marketingPoAmount": 1200.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12699.00 = 原门店挂牌价 14399.00 - 营销PO 1200.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007934",
+      "title": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · 锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5K 240Hz / RTX5060 · 83QC0002CD",
+      "storeRetailPrice": 14399.0,
+      "adjustedPreSubsidyPrice": 12899.0,
+      "marketingPoAmount": 1000.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12899.00 = 原门店挂牌价 14399.00 - 营销PO 1000.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007935",
+      "title": "联想拯救者R9000P 2026 16英寸电竞游戏本笔记本电脑 冰魄白 · 锐龙 9 8945HX / 16GB / 1TB SSD / RTX5060 / 2.5k 240Hz / RTX5060 · 83QC0003CD",
+      "storeRetailPrice": 14899.0,
+      "adjustedPreSubsidyPrice": 13399.0,
+      "marketingPoAmount": 1000.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 13399.00 = 原门店挂牌价 14899.00 - 营销PO 1000.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007936",
+      "title": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 碳晶黑 · i9-14900HX / Windows 11 / 16GB / 1TB SSD / RTX5060 / RTX5060 · 83QF0002CD",
+      "storeRetailPrice": 14899.0,
+      "adjustedPreSubsidyPrice": 13399.0,
+      "marketingPoAmount": 1000.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 13399.00 = 原门店挂牌价 14899.00 - 营销PO 1000.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "20007953",
+      "title": "联想YOGA Air 14 Ultra Aura 14英寸轻薄笔记本电脑 · UltraX7 358H / 32GB / 1TB SSD / 2.8k 120Hz · 83QK000ACD",
+      "storeRetailPrice": 16799.0,
+      "adjustedPreSubsidyPrice": 14839.0,
+      "marketingPoAmount": 960.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 14839.00 = 原门店挂牌价 16799.00 - 营销PO 960.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83QK000CCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 14799.0,
+      "adjustedPreSubsidyPrice": 12839.0,
+      "marketingPoAmount": 960.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12839.00 = 原门店挂牌价 14799.00 - 营销PO 960.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83QK000FCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 14799.0,
+      "adjustedPreSubsidyPrice": 12839.0,
+      "marketingPoAmount": 960.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12839.00 = 原门店挂牌价 14799.00 - 营销PO 960.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "QPL-83QK000CCD",
+      "title": "联想YOGA AIR 14 Ultra AI元启 X7-358 · 32GB / 1TB SSD / Win11 · X7-358 32G 1T",
+      "storeRetailPrice": 14799.0,
+      "adjustedPreSubsidyPrice": 12839.0,
+      "marketingPoAmount": 960.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12839.00 = 原门店挂牌价 14799.00 - 营销PO 960.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83QK0056CD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 15799.0,
+      "adjustedPreSubsidyPrice": 13899.0,
+      "marketingPoAmount": 900.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 13899.00 = 原门店挂牌价 15799.00 - 营销PO 900.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83QK008YCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 10799.0,
+      "adjustedPreSubsidyPrice": 9199.0,
+      "marketingPoAmount": 600.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 9199.00 = 原门店挂牌价 10799.00 - 营销PO 600.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "QPL-83QK008YCD",
+      "title": "联想YOGA AIR 14 Ultra Aura U5-325 · 16GB / 1TB SSD / Win11 · U5-325 16G 1T",
+      "storeRetailPrice": 10799.0,
+      "adjustedPreSubsidyPrice": 9199.0,
+      "marketingPoAmount": 600.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 9199.00 = 原门店挂牌价 10799.00 - 营销PO 600.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83RU000BCD",
+      "title": "联想LEGION · R9000P · 教育特惠",
+      "storeRetailPrice": 23899.0,
+      "adjustedPreSubsidyPrice": 21399.0,
+      "marketingPoAmount": 500.0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 21399.00 = 原门店挂牌价 23899.00 - 营销PO 500.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83NN006LCD",
+      "title": "联想LEGION Y7000P IRX10 · I7-14650HX / 16GB / 1TB SSD / RTX5060 / RTX5060 · 教育特惠",
+      "storeRetailPrice": 14399.0,
+      "adjustedPreSubsidyPrice": 13499.0,
+      "marketingPoAmount": 400.0,
+      "educationDiscountAmount": 500.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 13499.00 = 原门店挂牌价 14399.00 - 营销PO 400.00 - 教育补 500.00"
+    },
+    {
+      "skuKey": "ACT-83QK006YCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 13799.0,
+      "adjustedPreSubsidyPrice": 12479.0,
+      "marketingPoAmount": 320.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12479.00 = 原门店挂牌价 13799.00 - 营销PO 320.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "ACT-83QK008XCD",
+      "title": "联想YOGA Air 14 Ultra IPH11 · 教育特惠",
+      "storeRetailPrice": 13799.0,
+      "adjustedPreSubsidyPrice": 12479.0,
+      "marketingPoAmount": 320.0,
+      "educationDiscountAmount": 1000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 12479.00 = 原门店挂牌价 13799.00 - 营销PO 320.00 - 教育补 1000.00"
+    },
+    {
+      "skuKey": "20001788",
+      "title": "Yoga Book 9 13IMU9TTXULT732G1TB11C · 集成显卡 · 83FF0006CD",
+      "storeRetailPrice": 18799.0,
+      "adjustedPreSubsidyPrice": 16799.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 16799.00 = 原门店挂牌价 18799.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20002783",
+      "title": "Legion Y9000P IAX10HBKK · 2TB SSD / RTX5090 / RTX5090 · 83F5003XCD",
+      "storeRetailPrice": 39899.0,
+      "adjustedPreSubsidyPrice": 37899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 37899.00 = 原门店挂牌价 39899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20002784",
+      "title": "Legion Y9000P IAX10HWHK · 2TB SSD / RTX5090 / RTX5090 · 83F5003YCD",
+      "storeRetailPrice": 40399.0,
+      "adjustedPreSubsidyPrice": 38399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 38399.00 = 原门店挂牌价 40399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20002809",
+      "title": "YOGA Pro 16 IAH10GRE · 2TB SSD / RTX5070 / RTX5070 · 83L0001VCD",
+      "storeRetailPrice": 22499.0,
+      "adjustedPreSubsidyPrice": 20499.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 20499.00 = 原门店挂牌价 22499.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20002814",
+      "title": "Legion Y9000P IAX10HBKH · 1TB SSD / RTX5080 / RTX5080 · 83F500B9CD",
+      "storeRetailPrice": 29899.0,
+      "adjustedPreSubsidyPrice": 27899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 27899.00 = 原门店挂牌价 29899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20002815",
+      "title": "Legion Y9000P IAX10HWHH · 1TB SSD / RTX5080 / RTX5080 · 83F500BACD",
+      "storeRetailPrice": 30399.0,
+      "adjustedPreSubsidyPrice": 28399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 28399.00 = 原门店挂牌价 30399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20006825",
+      "title": "YOGA Pro 16 IPH11GRE · 1TB SSD · 83SF0008CD",
+      "storeRetailPrice": 19799.0,
+      "adjustedPreSubsidyPrice": 17799.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 17799.00 = 原门店挂牌价 19799.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "20007939",
+      "title": "联想拯救者Y9000P 2026 16英寸电竞游戏本笔记本电脑 · Ultra 9 290HX / 16GB / 1TB SSD / RTX5060 / 碳晶黑 / RTX5060 · 83F4000ECD",
+      "storeRetailPrice": 16399.0,
+      "adjustedPreSubsidyPrice": 14399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 14399.00 = 原门店挂牌价 16399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83EY006LCD",
+      "title": "联想创世-2026 83EY006LCD",
+      "storeRetailPrice": 75799.0,
+      "adjustedPreSubsidyPrice": 73799.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 73799.00 = 原门店挂牌价 75799.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83EY006MCD",
+      "title": "联想创世-2026 83EY006MCD",
+      "storeRetailPrice": 47799.0,
+      "adjustedPreSubsidyPrice": 45799.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 45799.00 = 原门店挂牌价 47799.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F4000FCD",
+      "title": "联想LEGION Y9000P IAX10白 · 教育特惠",
+      "storeRetailPrice": 17399.0,
+      "adjustedPreSubsidyPrice": 15399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 15399.00 = 原门店挂牌价 17399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LMCD",
+      "title": "联想LEGION Y9000P IAX10 · H · 教育特惠",
+      "storeRetailPrice": 42399.0,
+      "adjustedPreSubsidyPrice": 40399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 40399.00 = 原门店挂牌价 42399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LNCD",
+      "title": "联想LEGION Y9000P IAX10H白 · 教育特惠",
+      "storeRetailPrice": 42899.0,
+      "adjustedPreSubsidyPrice": 40899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 40899.00 = 原门店挂牌价 42899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LPCD",
+      "title": "联想LEGION Y9000P IAX10 · H · 教育特惠",
+      "storeRetailPrice": 30399.0,
+      "adjustedPreSubsidyPrice": 28399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 28399.00 = 原门店挂牌价 30399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LQCD",
+      "title": "联想LEGION Y9000P IAX10H白 · 教育特惠",
+      "storeRetailPrice": 30899.0,
+      "adjustedPreSubsidyPrice": 28899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 28899.00 = 原门店挂牌价 30899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LRCD",
+      "title": "联想LEGION Y9000P IAX10 · H · 教育特惠",
+      "storeRetailPrice": 25399.0,
+      "adjustedPreSubsidyPrice": 23399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 23399.00 = 原门店挂牌价 25399.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83F500LSCD",
+      "title": "联想LEGION Y9000P IAX10H白 · 教育特惠",
+      "storeRetailPrice": 25899.0,
+      "adjustedPreSubsidyPrice": 23899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 23899.00 = 原门店挂牌价 25899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83KY007ACD",
+      "title": "联想LEGION Y9000X IAX10 · 教育特惠",
+      "storeRetailPrice": 19899.0,
+      "adjustedPreSubsidyPrice": 17899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 17899.00 = 原门店挂牌价 19899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83KY007BCD",
+      "title": "联想LEGION Y9000X IAX10 · 教育特惠",
+      "storeRetailPrice": 17899.0,
+      "adjustedPreSubsidyPrice": 15899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 15899.00 = 原门店挂牌价 17899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83QF0000CD",
+      "title": "联想LEGION Y9000P IRX11 · 教育特惠",
+      "storeRetailPrice": 16899.0,
+      "adjustedPreSubsidyPrice": 14899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 14899.00 = 原门店挂牌价 16899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83RU0009CD",
+      "title": "联想LEGION · R9000P / 32GB / 1TB SSD / RTX5080 / RTX5080 · 教育特惠",
+      "storeRetailPrice": 28899.0,
+      "adjustedPreSubsidyPrice": 26899.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 26899.00 = 原门店挂牌价 28899.00 - 教育补 2000.00"
+    },
+    {
+      "skuKey": "ACT-83RU000CCD",
+      "title": "联想LEGION · R9000P · 教育特惠",
+      "storeRetailPrice": 24399.0,
+      "adjustedPreSubsidyPrice": 22399.0,
+      "marketingPoAmount": 0,
+      "educationDiscountAmount": 2000.0,
+      "storeManualPromotionAmount": 0,
+      "formula": "活动后国补前执行价 22399.00 = 原门店挂牌价 24399.00 - 教育补 2000.00"
+    }
+  ],
+  "legacyWordingHits": [],
+  "mismatches": [],
+  "truncated": false
+}
